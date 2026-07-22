@@ -92,6 +92,10 @@
   .chips{ display:flex; flex-wrap:wrap; gap:8px; }
   .chip{ font-size:12px; font-weight:600; padding:5px 12px; border-radius:999px; background:var(--surface-2); color:var(--ink-2); border:1px solid var(--border); }
   .chip b{ color:var(--ink); }
+  .finds{ display:grid; gap:13px; margin:0; padding:0; }
+  .finds li{ list-style:none; padding-left:18px; position:relative; font-size:13.5px; line-height:1.5; color:var(--ink-2); }
+  .finds li:before{ content:""; position:absolute; left:0; top:6px; width:8px; height:8px; border-radius:2px; background:var(--accent); }
+  .finds li b{ color:var(--ink); }
 
   .notes{ font-size:12px; line-height:1.6; color:var(--ink-2); }
   .notes h2{ color:var(--amber); }
@@ -144,6 +148,18 @@
     </section>
 
     <section class="card">
+      <h2>Principais achados</h2>
+      <ul class="finds">
+        <li><b>Salto de 14,2× (até 17,9×) na renda real</b> — da bolsa de Iniciação Científica ao mercado sênior, já descontada a inflação (poder de compra de 2026).</li>
+        <li><b>A bolsa foi trampolim, não teto</b> — a trajetória real alcança o valor de mercado por volta de 3 anos de experiência e cresce junto a partir daí.</li>
+        <li><b>A bolsa de IC encolheu em termos reais</b> — hoje R$ 400/mês, metade nominal dos R$ 800 recebidos em 2018; corrigida pela inflação, aquela bolsa valeria ~R$ 1.187/mês.</li>
+        <li><b>Grande diferença de oportunidade</b> — o mercado hoje paga ~R$ 3,5 mil a um iniciante, cerca de 9× o valor atual da bolsa de IC.</li>
+        <li><b>Retenção em tecnologia: 3 de 4</b> — dois engenheiros de software sênior (um atuando no exterior, remoto) e um em dados/machine learning sênior; um migrou para o setor público.</li>
+        <li><b>Base comum decisiva</b> — todos passaram por monitoria (ensino), pesquisa aplicada com bolsa FAPES (Prodest) e laboratório de extensão / empresa júnior antes do primeiro emprego formal.</li>
+      </ul>
+    </section>
+
+    <section class="card">
       <h2>Resultado</h2>
       <div class="chips" id="outcomes"></div>
     </section>
@@ -153,7 +169,7 @@
       <ul>
         <li><b>Estimativa, não salário real:</b> cruza os anos de experiência de cada egresso com a mediana de desenvolvedores/analistas de dados no Brasil (Stack Overflow Developer Survey 2018–2023), por câmbio e IPCA da época, trazidos a R$ de 2026.</li>
         <li><b>Início com valor real de bolsa:</b> os anos de bolsa/estágio usam o valor documentado — R$ 800/mês (bolsa FAPES nível VI, projeto "ES na Palma da Mão", 2018–2020) e R$ 400/mês (bolsa de extensão/IC, 2013–2014), cruzado com os registros da FAPES. Por isso o ponto de partida é tão baixo.</li>
-        <li><b>Bolsa quase não acompanhou a inflação:</b> pela <a href="https://fapes.es.gov.br/Media/fapes/Resolu%C3%A7%C3%B5es/Resolu%C3%A7%C3%A3o%20CCAF%20n%C2%BA%20324.2023%20-%20Nova%20tabela%20de%20valores%20de%20bolsas%20e%20auxilios%202023%20-%20Atualizada%20pela%20Resolu%C3%A7%C3%A3o%20343.2024%20e%20352.2025%20e%20359.2025%20e%20361.2026.pdf" target="_blank" rel="noopener">tabela atual da FAPES (Res. 361/2026)</a>: Iniciação Científica <b>R$ 400</b>, Apoio Técnico Médio <b>R$ 1.100</b>, Superior R$ 1.900, Mestrado R$ 3.200. A bolsa dos egressos (nível VI, R$ 800 em 2018) equivale hoje a ~R$ 1.100 (Apoio Técnico Médio); corrigida só pela inflação seria ~R$ 1.187/mês, e o mercado paga ~R$ 3,5k a um iniciante. O ganho veio da <b>qualificação</b>, não do reajuste da bolsa.</li>
+        <li><b>Eram bolsistas de Iniciação Científica (IC) — e a IC encolheu:</b> pela <a href="https://fapes.es.gov.br/Media/fapes/Resolu%C3%A7%C3%B5es/Resolu%C3%A7%C3%A3o%20CCAF%20n%C2%BA%20324.2023%20-%20Nova%20tabela%20de%20valores%20de%20bolsas%20e%20auxilios%202023%20-%20Atualizada%20pela%20Resolu%C3%A7%C3%A3o%20343.2024%20e%20352.2025%20e%20359.2025%20e%20361.2026.pdf" target="_blank" rel="noopener">tabela atual da FAPES (Res. 361/2026)</a> a bolsa de IC hoje é <b>R$ 400/mês</b> — nominalmente <b>metade</b> dos R$ 800 recebidos em 2018. Corrigida pela inflação, aquela bolsa equivaleria a ~R$ 1.187/mês; o mercado paga ~R$ 3,5k a um iniciante. O ganho dos egressos veio da <b>qualificação</b>, não da bolsa.</li>
         <li><b>Anonimizado:</b> sem nomes, empresas ou localidades. Apenas trilha (software/dados) e anos de experiência.</li>
         <li><b>Amostra pequena</b> nas faixas de mais experiência (linha tracejada) — apenas o egresso de carreira mais longa.</li>
       </ul>
