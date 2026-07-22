@@ -69,6 +69,13 @@
   .pvdot{ fill:var(--surface); stroke:var(--pv); stroke-width:2; }
   .refline{ fill:none; stroke:var(--muted); stroke-width:1.5; stroke-dasharray:6 4; opacity:.8; }
   .reflab{ fill:var(--muted); font-size:11px; font-weight:600; }
+  .cfline{ fill:none; stroke:var(--data); stroke-width:3; stroke-linejoin:round; stroke-linecap:round; }
+  .cfdot{ fill:var(--surface); stroke:var(--data); stroke-width:2.5; }
+  .cflab{ fill:var(--data); font-size:10.5px; font-weight:700; }
+  .sw-cf{ width:20px; height:0; border-top:3px solid var(--data); }
+  .cf-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:18px; margin-bottom:14px; }
+  .cf-grid h4{ font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin:0 0 9px; font-weight:700; }
+  .chip.num b{ color:var(--accent); }
   .anno{ fill:var(--ink); font-size:12px; font-weight:680; }
   .anno-sub{ fill:var(--muted); font-size:10.5px; }
   .xlab{ fill:var(--ink-2); font-size:11.5px; font-variant-numeric:tabular-nums; }
@@ -148,6 +155,17 @@
         <span><i class="sw-ref"></i> Bolsa só corrigida pela inflação</span>
         <span style="color:var(--muted)">— tracejado: só 1 egresso nessa faixa</span>
       </div>
+      <p class="hint" style="margin:14px 0 0">Dados: bolsas iniciais dos registros da <a href="https://fapes.es.gov.br/fapes-reajusta-tabela-de-valores-de-bolsas-e" target="_blank" rel="noopener"><b>FAPES</b></a> + salários de mercado da <a href="https://survey.stackoverflow.co/" target="_blank" rel="noopener"><b>Stack Overflow Developer Survey</b></a> (Brasil), convertidos por câmbio médio anual e IPCA.</p>
+    </section>
+
+    <section class="card">
+      <h2>Crescimento por anos de experiência — mercado brasileiro (Código Fonte 2026)</h2>
+      <p class="hint">Curva do mercado nacional (Código Fonte 2026, cada senioridade posicionada na experiência típica) e a trajetória real dos egressos — ambas em R$/mês de 2026.</p>
+      <div class="chart-scroll"><svg id="chart2" viewBox="0 0 960 430" role="img" aria-label="Crescimento por experiência — Código Fonte 2026"></svg></div>
+      <div class="legend">
+        <span><i class="sw-line"></i> Trajetória real dos egressos</span>
+        <span><i class="sw-cf"></i> Mercado nacional por senioridade (Código Fonte 2026)</span>
+      </div>
     </section>
 
     <section class="card">
@@ -155,6 +173,53 @@
       <p class="hint">Salário médio por nível, R$/mês, em reais de 2026. Fonte nacional com 17.046 respondentes. Marcado onde os egressos começaram (bolsa de IC) e onde estão hoje.</p>
       <div class="ladder" id="ladder"></div>
       <p class="hint" style="margin:16px 0 0">Do início (bolsa de IC, abaixo até do estágio de mercado) ao Sênior, os egressos subiram <b>toda</b> a escada. Fonte: <a href="https://pesquisa.codigofonte.com.br/2026" target="_blank" rel="noopener">Pesquisa Código Fonte 2026</a>.</p>
+    </section>
+
+    <section class="card">
+      <h2>Referência de mercado — Pesquisa Código Fonte 2026</h2>
+      <p class="hint">17.046 respondentes · coleta fev–jun/2026 · R$/mês (média) · fonte nacional, auto-reportada.</p>
+      <div class="cf-grid">
+        <div>
+          <h4>Por senioridade</h4>
+          <div class="chips">
+            <span class="chip num">Estágio <b>R$ 2.587</b></span>
+            <span class="chip num">Júnior <b>R$ 5.060</b></span>
+            <span class="chip num">Pleno <b>R$ 8.467</b></span>
+            <span class="chip num">Sênior <b>R$ 14.608</b></span>
+            <span class="chip num">Espec./Tech Lead <b>R$ 20.602</b></span>
+          </div>
+        </div>
+        <div>
+          <h4>Por contrato</h4>
+          <div class="chips">
+            <span class="chip num">CLT <b>R$ 10.166</b></span>
+            <span class="chip num">PJ <b>R$ 13.436</b></span>
+            <span class="chip num">Outro <b>R$ 10.200</b></span>
+          </div>
+        </div>
+        <div>
+          <h4>Regiões (top)</h4>
+          <div class="chips">
+            <span class="chip num">DF <b>R$ 11.797</b></span>
+            <span class="chip num">RS <b>R$ 11.330</b></span>
+            <span class="chip num">SC <b>R$ 11.167</b></span>
+            <span class="chip num">SP <b>R$ 11.113</b></span>
+            <span class="chip num">GO <b>R$ 10.084</b></span>
+          </div>
+        </div>
+        <div>
+          <h4>Linguagens (topo → fim)</h4>
+          <div class="chips">
+            <span class="chip num">Go <b>R$ 13.642</b></span>
+            <span class="chip num">Kotlin <b>R$ 13.506</b></span>
+            <span class="chip num">Ruby <b>R$ 12.214</b></span>
+            <span class="chip num">Java <b>R$ 11.457</b></span>
+            <span class="chip num">Python <b>R$ 10.644</b></span>
+            <span class="chip num">Delphi <b>R$ 9.365</b></span>
+          </div>
+        </div>
+      </div>
+      <p class="hint" style="margin:0">A pesquisa <b>não</b> divulga em R$: por área/cargo, por anos de experiência e por gênero (apenas percentuais e gráficos). Fonte: <a href="https://pesquisa.codigofonte.com.br/2026" target="_blank" rel="noopener">Pesquisa Código Fonte 2026</a>.</p>
     </section>
 
     <section class="card">
@@ -292,6 +357,33 @@ document.getElementById("outcomes").innerHTML=[
   "Origem comum: <b>monitoria + pesquisa + extensão</b>",
   "Todos partiram de <b>estágio/bolsa</b>"
 ].map(t=>`<span class="chip">${t}</span>`).join("");
+
+// gráfico de linha por experiência — Código Fonte 2026 (escopo isolado)
+(()=>{
+  const W=960,H=430,mm={t:28,r:120,b:52,l:76}, iw=W-mm.l-mm.r, ih=H-mm.t-mm.b;
+  const EX=12, YM=24000;
+  const X=e=>mm.l+iw*e/EX, Y=v=>mm.t+ih*(1-v/YM);
+  const NS="http://www.w3.org/2000/svg", s=document.getElementById("chart2");
+  const E=(t,a)=>{const el=document.createElementNS(NS,t);for(const k in a)el.setAttribute(k,a[k]);return el;};
+  for(let v=0;v<=YM;v+=6000){ s.appendChild(E("line",{x1:mm.l,x2:W-mm.r,y1:Y(v),y2:Y(v),class:"gridline"}));
+    const t=E("text",{x:mm.l-10,y:Y(v)+4,"text-anchor":"end",class:"tick"}); t.textContent=brlk(v); s.appendChild(t); }
+  s.appendChild(E("line",{x1:mm.l,x2:W-mm.r,y1:Y(0),y2:Y(0),class:"baseline"}));
+  // trajetória real dos egressos (AGG med, real 2026)
+  const eg=AGG.filter(d=>d.exp<=EX);
+  let g=""; eg.forEach((d,i)=>g+=(i?"L":"M")+X(d.exp)+" "+Y(d.med)+" "); s.appendChild(E("path",{d:g,class:"mline"}));
+  eg.forEach(d=>s.appendChild(E("circle",{cx:X(d.exp),cy:Y(d.med),r:3,class:"mdot"})));
+  // mercado Código Fonte por senioridade posicionada na experiência típica
+  const CFX=[{e:0,v:2587,l:"Estágio"},{e:1.5,v:5060,l:"Júnior"},{e:4,v:8467,l:"Pleno"},{e:7.5,v:14608,l:"Sênior"},{e:11,v:20602,l:"Espec./TL"}];
+  let c=""; CFX.forEach((d,i)=>c+=(i?"L":"M")+X(d.e)+" "+Y(d.v)+" "); s.appendChild(E("path",{d:c,class:"cfline"}));
+  const tip2=document.getElementById("tip");
+  CFX.forEach(d=>{ const dot=E("circle",{cx:X(d.e),cy:Y(d.v),r:4,class:"cfdot"});
+    dot.addEventListener("mousemove",ev=>{ tip2.innerHTML=`<b>${d.l}</b><br>~${d.e} anos · ${brl(d.v)}/mês`; tip2.style.left=ev.clientX+"px"; tip2.style.top=ev.clientY+"px"; tip2.style.opacity=1; });
+    dot.addEventListener("mouseleave",()=>tip2.style.opacity=0); s.appendChild(dot);
+    const t=E("text",{x:X(d.e),y:Y(d.v)-9,"text-anchor":d.e>=11?"end":"middle",class:"cflab"}); t.textContent=d.l; s.appendChild(t); });
+  for(let e=0;e<=EX;e+=2){ const t=E("text",{x:X(e),y:H-mm.b+20,"text-anchor":"middle",class:"xlab"}); t.textContent=e; s.appendChild(t); }
+  const xt=E("text",{x:mm.l+iw/2,y:H-8,"text-anchor":"middle",class:"axtitle"}); xt.textContent="anos de experiência (senioridade na experiência típica)"; s.appendChild(xt);
+  const yt=E("text",{x:-(mm.t+ih/2),y:14,"text-anchor":"middle",class:"axtitle",transform:"rotate(-90)"}); yt.textContent="R$ / mês (2026)"; s.appendChild(yt);
+})();
 
 // 2º gráfico: escada de senioridade (Pesquisa Código Fonte 2026)
 const CF=[
