@@ -12,7 +12,7 @@
     --line:#e1e8e4; --border:rgba(18,32,25,.10);
     --accent:#0e8a68; --accent-2:#0b6e53;
     --band:rgba(14,138,104,.15); --band-thin:rgba(14,138,104,.07);
-    --amber:#bd7d00; --data:#5a4bc4; --sw:#0e8a68; --pv:#d9642b;
+    --amber:#bd7d00; --data:#5a4bc4; --sw:#0e8a68; --pv:#d9642b; --bolsa:rgba(189,125,0,.11);
     --shadow:0 1px 2px rgba(18,32,25,.05),0 8px 24px rgba(18,32,25,.07);
     background:var(--plane); color:var(--ink);
     font-family:system-ui,-apple-system,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased;
@@ -22,14 +22,14 @@
     color-scheme:dark; --plane:#0a0e0c; --surface:#141a17; --surface-2:#1d2521;
     --ink:#eef3f0; --ink-2:#aebab4; --muted:#7a877f; --line:#242c28; --border:rgba(255,255,255,.10);
     --accent:#2fbc90; --accent-2:#37c99b; --band:rgba(47,188,144,.20); --band-thin:rgba(47,188,144,.08);
-    --amber:#dda52f; --data:#9285ea; --sw:#2fbc90; --pv:#ef7d42;
+    --amber:#dda52f; --data:#9285ea; --sw:#2fbc90; --pv:#ef7d42; --bolsa:rgba(221,165,47,.15);
     --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.5);
   }}
   :root[data-theme="dark"] .root{
     color-scheme:dark; --plane:#0a0e0c; --surface:#141a17; --surface-2:#1d2521;
     --ink:#eef3f0; --ink-2:#aebab4; --muted:#7a877f; --line:#242c28; --border:rgba(255,255,255,.10);
     --accent:#2fbc90; --accent-2:#37c99b; --band:rgba(47,188,144,.20); --band-thin:rgba(47,188,144,.08);
-    --amber:#dda52f; --data:#9285ea; --sw:#2fbc90; --pv:#ef7d42; --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.5);
+    --amber:#dda52f; --data:#9285ea; --sw:#2fbc90; --pv:#ef7d42; --bolsa:rgba(221,165,47,.15); --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.5);
   }
 
   .wrap{ max-width:1000px; margin:0 auto; display:flex; flex-direction:column; gap:26px; }
@@ -80,6 +80,10 @@
   .chip.num b{ color:var(--accent); }
   .anno{ fill:var(--ink); font-size:12px; font-weight:680; }
   .anno-sub{ fill:var(--muted); font-size:10.5px; }
+  .bolsaband{ fill:var(--bolsa); }
+  .bolsaedge{ fill:none; stroke:var(--amber); stroke-width:1; stroke-dasharray:3 3; opacity:.45; }
+  .bolsalab{ fill:var(--amber); font-size:10.5px; font-weight:700; }
+  .bolsalab-sub{ fill:var(--amber); font-size:9px; font-weight:600; opacity:.9; }
   .xlab{ fill:var(--ink-2); font-size:11.5px; font-variant-numeric:tabular-nums; }
   .axtitle{ fill:var(--muted); font-size:11px; }
 
@@ -312,6 +316,13 @@ const el=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAt
 for(let v=0;v<=YMAX;v+=8000){ svg.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:ys(v),y2:ys(v),class:"gridline"}));
   const tk=el("text",{x:m.l-10,y:ys(v)+4,"text-anchor":"end",class:"tick"}); tk.textContent=brlk(v); svg.appendChild(tk); }
 svg.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:ys(0),y2:ys(0),class:"baseline"}));
+// faixa: período em que estavam com bolsa de pesquisa/extensão (anos 0–2)
+(function(){ const x0=xs(0), x2=xs(2), yt=m.t, hb=ih;
+  svg.appendChild(el("rect",{x:x0,y:yt,width:x2-x0,height:hb,class:"bolsaband"}));
+  svg.appendChild(el("line",{x1:x2,x2:x2,y1:yt,y2:yt+hb,class:"bolsaedge"}));
+  const l1=el("text",{x:x0+6,y:yt+15,class:"bolsalab"}); l1.textContent="bolsa de pesquisa / extensão"; svg.appendChild(l1);
+  const l2=el("text",{x:x0+6,y:yt+28,class:"bolsalab-sub"}); l2.textContent="LEDS · Prodest · FAPES (anos 0–2)"; svg.appendChild(l2);
+})();
 // split solid (n>=2) / thin (n==1)
 const solid=AGG.filter(d=>d.n>=2), splitIdx=solid.length-1;
 function bandPath(arr){ let u="",l=""; arr.forEach((d,i)=>u+=(i?"L":"M")+xs(d.exp)+" "+ys(d.hi)+" "); for(let i=arr.length-1;i>=0;i--)l+="L"+xs(arr[i].exp)+" "+ys(arr[i].lo)+" "; return u+l+"Z"; }
@@ -380,6 +391,13 @@ document.getElementById("outcomes").innerHTML=[
   for(let v=0;v<=YM;v+=7000){ s.appendChild(E("line",{x1:mm.l,x2:W-mm.r,y1:Y(v),y2:Y(v),class:"gridline"}));
     const t=E("text",{x:mm.l-10,y:Y(v)+4,"text-anchor":"end",class:"tick"}); t.textContent=brlk(v); s.appendChild(t); }
   s.appendChild(E("line",{x1:mm.l,x2:W-mm.r,y1:Y(0),y2:Y(0),class:"baseline"}));
+  // faixa: período em que estavam com bolsa de pesquisa/extensão (anos 0–2)
+  (function(){ const x0=X(0), x2=X(2), yt0=mm.t, hb=ih;
+    s.appendChild(E("rect",{x:x0,y:yt0,width:x2-x0,height:hb,class:"bolsaband"}));
+    s.appendChild(E("line",{x1:x2,x2:x2,y1:yt0,y2:yt0+hb,class:"bolsaedge"}));
+    const l1=E("text",{x:x0+6,y:yt0+15,class:"bolsalab"}); l1.textContent="bolsa pesquisa/extensão"; s.appendChild(l1);
+    const l2=E("text",{x:x0+6,y:yt0+28,class:"bolsalab-sub"}); l2.textContent="LEDS · Prodest · FAPES"; s.appendChild(l2);
+  })();
   // mercado Código Fonte por senioridade + FAIXA derivada da dispersão CLT↔PJ e entre estados
   const CFX=[{e:0,v:2587,l:"Estágio"},{e:1.5,v:5060,l:"Júnior"},{e:4,v:8467,l:"Pleno"},{e:7.5,v:14608,l:"Sênior"},{e:11,v:20602,l:"Espec./TL"}];
   // low = CLT × estado mais baixo ; high = PJ × estado mais alto (razões relativas às médias)
