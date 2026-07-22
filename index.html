@@ -69,6 +69,8 @@
   .pvdot{ fill:var(--surface); stroke:var(--pv); stroke-width:2; }
   .refline{ fill:none; stroke:var(--muted); stroke-width:1.5; stroke-dasharray:6 4; opacity:.8; }
   .reflab{ fill:var(--muted); font-size:11px; font-weight:600; }
+  .cfband{ fill:var(--data); opacity:.13; }
+  .sw-cfband{ width:20px; height:12px; border-radius:3px; background:var(--data); opacity:.28; }
   .cfline{ fill:none; stroke:var(--data); stroke-width:3; stroke-linejoin:round; stroke-linecap:round; }
   .cfdot{ fill:var(--surface); stroke:var(--data); stroke-width:2.5; }
   .cflab{ fill:var(--data); font-size:10.5px; font-weight:700; }
@@ -164,8 +166,10 @@
       <div class="chart-scroll"><svg id="chart2" viewBox="0 0 960 430" role="img" aria-label="Crescimento por experiência — Código Fonte 2026"></svg></div>
       <div class="legend">
         <span><i class="sw-line"></i> Trajetória real dos egressos</span>
-        <span><i class="sw-cf"></i> Mercado nacional por senioridade (Código Fonte 2026)</span>
+        <span><i class="sw-cf"></i> Mercado nacional — média por senioridade (Código Fonte 2026)</span>
+        <span><i class="sw-cfband"></i> Faixa de mercado (CLT↔PJ · variação entre estados)</span>
       </div>
+      <p class="hint" style="margin:12px 0 0">A pesquisa Código Fonte só publica a <b>média</b> por senioridade. Como ela não traz percentis, a <b>sombra</b> é uma faixa estimada a partir da dispersão que a própria pesquisa mostra: piso ≈ CLT no estado de menor média, teto ≈ PJ no estado de maior média (fatores ~0,85× e ~1,31× sobre a média). É ilustrativa, não um intervalo amostral.</p>
     </section>
 
     <section class="card">
@@ -361,19 +365,25 @@ document.getElementById("outcomes").innerHTML=[
 // gráfico de linha por experiência — Código Fonte 2026 (escopo isolado)
 (()=>{
   const W=960,H=430,mm={t:28,r:120,b:52,l:76}, iw=W-mm.l-mm.r, ih=H-mm.t-mm.b;
-  const EX=12, YM=24000;
+  const EX=12, YM=28000;
   const X=e=>mm.l+iw*e/EX, Y=v=>mm.t+ih*(1-v/YM);
   const NS="http://www.w3.org/2000/svg", s=document.getElementById("chart2");
   const E=(t,a)=>{const el=document.createElementNS(NS,t);for(const k in a)el.setAttribute(k,a[k]);return el;};
-  for(let v=0;v<=YM;v+=6000){ s.appendChild(E("line",{x1:mm.l,x2:W-mm.r,y1:Y(v),y2:Y(v),class:"gridline"}));
+  for(let v=0;v<=YM;v+=7000){ s.appendChild(E("line",{x1:mm.l,x2:W-mm.r,y1:Y(v),y2:Y(v),class:"gridline"}));
     const t=E("text",{x:mm.l-10,y:Y(v)+4,"text-anchor":"end",class:"tick"}); t.textContent=brlk(v); s.appendChild(t); }
   s.appendChild(E("line",{x1:mm.l,x2:W-mm.r,y1:Y(0),y2:Y(0),class:"baseline"}));
+  // mercado Código Fonte por senioridade + FAIXA derivada da dispersão CLT↔PJ e entre estados
+  const CFX=[{e:0,v:2587,l:"Estágio"},{e:1.5,v:5060,l:"Júnior"},{e:4,v:8467,l:"Pleno"},{e:7.5,v:14608,l:"Sênior"},{e:11,v:20602,l:"Espec./TL"}];
+  // low = CLT × estado mais baixo ; high = PJ × estado mais alto (razões relativas às médias)
+  const LOM=0.848, HIM=1.312;
+  let cbu="",cbl=""; CFX.forEach((d,i)=>cbu+=(i?"L":"M")+X(d.e)+" "+Y(d.v*HIM)+" ");
+  for(let i=CFX.length-1;i>=0;i--) cbl+="L"+X(CFX[i].e)+" "+Y(CFX[i].v*LOM)+" ";
+  s.appendChild(E("path",{d:cbu+cbl+"Z",class:"cfband"}));
   // trajetória real dos egressos (AGG med, real 2026)
   const eg=AGG.filter(d=>d.exp<=EX);
   let g=""; eg.forEach((d,i)=>g+=(i?"L":"M")+X(d.exp)+" "+Y(d.med)+" "); s.appendChild(E("path",{d:g,class:"mline"}));
   eg.forEach(d=>s.appendChild(E("circle",{cx:X(d.exp),cy:Y(d.med),r:3,class:"mdot"})));
-  // mercado Código Fonte por senioridade posicionada na experiência típica
-  const CFX=[{e:0,v:2587,l:"Estágio"},{e:1.5,v:5060,l:"Júnior"},{e:4,v:8467,l:"Pleno"},{e:7.5,v:14608,l:"Sênior"},{e:11,v:20602,l:"Espec./TL"}];
+  // linha de mercado (mediana CF)
   let c=""; CFX.forEach((d,i)=>c+=(i?"L":"M")+X(d.e)+" "+Y(d.v)+" "); s.appendChild(E("path",{d:c,class:"cfline"}));
   const tip2=document.getElementById("tip");
   CFX.forEach(d=>{ const dot=E("circle",{cx:X(d.e),cy:Y(d.v),r:4,class:"cfdot"});
