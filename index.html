@@ -96,6 +96,16 @@
   .finds li{ list-style:none; padding-left:18px; position:relative; font-size:13.5px; line-height:1.5; color:var(--ink-2); }
   .finds li:before{ content:""; position:absolute; left:0; top:6px; width:8px; height:8px; border-radius:2px; background:var(--accent); }
   .finds li b{ color:var(--ink); }
+  .ladder{ display:flex; flex-direction:column; gap:9px; }
+  .lad-row{ display:grid; grid-template-columns:158px 1fr; align-items:center; gap:12px; }
+  .lad-name{ font-size:12.5px; font-weight:650; text-align:right; line-height:1.2; }
+  .lad-name small{ display:block; font-weight:500; color:var(--muted); font-size:10.5px; }
+  .lad-track{ display:flex; align-items:center; gap:8px; }
+  .lad-bar{ height:26px; border-radius:0 6px 6px 0; background:var(--sw); opacity:.55; display:flex; align-items:center; justify-content:flex-end; padding-right:9px; color:#fff; font-size:12px; font-weight:700; font-variant-numeric:tabular-nums; min-width:52px; white-space:nowrap; }
+  .lad-row.hl .lad-bar{ opacity:1; }
+  .lad-row.start .lad-bar{ background:var(--pv); opacity:1; }
+  .lad-tag{ font-size:11px; font-weight:700; color:var(--accent); white-space:nowrap; }
+  .lad-tag.s{ color:var(--pv); }
 
   .notes{ font-size:12px; line-height:1.6; color:var(--ink-2); }
   .notes h2{ color:var(--amber); }
@@ -138,6 +148,13 @@
         <span><i class="sw-ref"></i> Bolsa só corrigida pela inflação</span>
         <span style="color:var(--muted)">— tracejado: só 1 egresso nessa faixa</span>
       </div>
+    </section>
+
+    <section class="card">
+      <h2>Escada de senioridade — mercado brasileiro (Código Fonte 2026)</h2>
+      <p class="hint">Salário médio por nível, R$/mês, em reais de 2026. Fonte nacional com 17.046 respondentes. Marcado onde os egressos começaram (bolsa de IC) e onde estão hoje.</p>
+      <div class="ladder" id="ladder"></div>
+      <p class="hint" style="margin:16px 0 0">Do início (bolsa de IC, abaixo até do estágio de mercado) ao Sênior, os egressos subiram <b>toda</b> a escada. Fonte: <a href="https://pesquisa.codigofonte.com.br/2026" target="_blank" rel="noopener">Pesquisa Código Fonte 2026</a>.</p>
     </section>
 
     <section class="card">
@@ -276,7 +293,26 @@ document.getElementById("outcomes").innerHTML=[
   "Todos partiram de <b>estágio/bolsa</b>"
 ].map(t=>`<span class="chip">${t}</span>`).join("");
 
-document.getElementById("foot").innerHTML='Fontes: bolsas iniciais = registros reais da <a href="https://fapes.es.gov.br/fapes-reajusta-tabela-de-valores-de-bolsas-e" target="_blank" rel="noopener"><b>FAPES</b></a> (valor, nível e período) e IFES; salários de mercado = <a href="https://survey.stackoverflow.co/" target="_blank" rel="noopener">Stack Overflow Developer Survey 2018–2023</a> (devs/dados Brasil) · perfis via LinkedIn → estrutura anônima · câmbio médio anual + IPCA acumulado a jul/2026 · estimativa ilustrativa para fins de apresentação, não representa remuneração real declarada.';
+// 2º gráfico: escada de senioridade (Pesquisa Código Fonte 2026)
+const CF=[
+ {nome:"Bolsa de IC",sub:"início dos egressos",val:800,start:true,tag:"início · abaixo do estágio",tagcls:"s"},
+ {nome:"Estágio",sub:"mercado",val:2587},
+ {nome:"Júnior",val:5060},
+ {nome:"Pleno",val:8467},
+ {nome:"Sênior",val:14608,hl:true,tag:"← 3 dos 4 egressos hoje"},
+ {nome:"Especialista / Tech Lead",val:20602}
+];
+const CFMAX=20602;
+document.getElementById("ladder").innerHTML=CF.map(d=>`
+ <div class="lad-row${d.hl?' hl':''}${d.start?' start':''}">
+   <div class="lad-name">${d.nome}${d.sub?`<small>${d.sub}</small>`:''}</div>
+   <div class="lad-track">
+     <div class="lad-bar" style="width:${Math.max(d.val/CFMAX*100,4)}%">${brl(d.val)}</div>
+     ${d.tag?`<span class="lad-tag${d.tagcls?' '+d.tagcls:''}">${d.tag}</span>`:''}
+   </div>
+ </div>`).join("");
+
+document.getElementById("foot").innerHTML='Fontes: bolsas iniciais = registros reais da <a href="https://fapes.es.gov.br/fapes-reajusta-tabela-de-valores-de-bolsas-e" target="_blank" rel="noopener"><b>FAPES</b></a> (valor, nível e período) e IFES; salários de mercado = <a href="https://survey.stackoverflow.co/" target="_blank" rel="noopener">Stack Overflow Developer Survey 2018–2023</a> (gráfico por experiência) e <a href="https://pesquisa.codigofonte.com.br/2026" target="_blank" rel="noopener">Pesquisa Código Fonte 2026</a> (escada de senioridade, 17.046 respondentes, Brasil) · perfis via LinkedIn → estrutura anônima · câmbio médio anual + IPCA acumulado a jul/2026 · estimativa ilustrativa para fins de apresentação, não representa remuneração real declarada.';
 </script>
 
 </body>
