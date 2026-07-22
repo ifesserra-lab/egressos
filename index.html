@@ -39,7 +39,7 @@
 
   .hero-kpi{ display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:16px; overflow:hidden; box-shadow:var(--shadow); }
   .hk{ background:var(--surface); padding:22px 20px; }
-  .hk .v{ font-size:clamp(26px,4vw,38px); font-weight:780; letter-spacing:-.02em; line-height:1; font-variant-numeric:tabular-nums; }
+  .hk .v{ font-size:clamp(24px,3.6vw,36px); font-weight:780; letter-spacing:-.02em; line-height:1; font-variant-numeric:tabular-nums; white-space:nowrap; }
   .hk .v.big{ color:var(--accent); }
   .hk .v small{ font-size:15px; font-weight:600; color:var(--ink-2); letter-spacing:0; }
   .hk .k{ font-size:12px; color:var(--muted); margin-top:8px; line-height:1.35; }
@@ -258,9 +258,9 @@
       <ul class="finds">
         <li><b>Salto de 11,4× (até 17,9×) na renda real</b> — da bolsa de Iniciação Científica ao mercado sênior, já descontada a inflação (poder de compra de 2026).</li>
         <li><b>A bolsa foi trampolim, não teto</b> — a trajetória real alcança o valor de mercado por volta de 3 anos de experiência e cresce junto a partir daí.</li>
-        <li><b>A bolsa de IC encolheu em termos reais</b> — hoje R$ 400/mês, metade nominal dos R$ 800 recebidos em 2018; corrigida pela inflação, aquela bolsa valeria ~R$ 1.187/mês.</li>
-        <li><b>Grande diferença de oportunidade</b> — o mercado hoje paga ~R$ 3,5 mil a um iniciante, cerca de 9× o valor atual da bolsa de IC.</li>
-        <li><b>Retenção em tecnologia: 10 de 11</b> — engenharia de software (backend, fullstack, mobile, front) e liderança técnica, além de dados/consultoria sênior (ex.: Consulting Engineer de banco de dados); 3 atuam no exterior (Londres, Portugal, Chile) e 1 migrou para o setor público.</li>
+        <li><b>A bolsa custeou o início, o mercado fez o resto</b> — os egressos receberam ~R$ 800/mês em bolsa FAPES de projeto de governo (2018–2020), o equivalente a ~R$ 1.187/mês em poder de compra de 2026.</li>
+        <li><b>Grande diferença de oportunidade</b> — o mercado hoje paga ~R$ 3,5 mil a um iniciante, ~3× o valor real daquela bolsa. A bolsa de IC padrão da FAPES, por comparação, subiu de ~R$ 400 (época deles) para R$ 900/mês hoje.</li>
+        <li><b>Retenção em tecnologia: 11 de 11</b> — engenharia de software (backend, fullstack, mobile, front) e liderança técnica, além de dados/consultoria sênior (ex.: Consulting Engineer de banco de dados); 3 atuam no exterior (Londres, Portugal, Chile) e 1 atua no setor público como analista de dados (defesa).</li>
         <li><b>Base comum decisiva</b> — a maioria passou por ensino (monitoria), pesquisa aplicada com bolsa de IC da FAPES (Prodest) e laboratório de extensão (LEDS/IFES) antes do primeiro emprego formal.</li>
       </ul>
     </section>
@@ -294,7 +294,7 @@
           <h4>Três perfis recorrentes (clusters)</h4>
           <ul class="clist">
             <li><span class="cdot" style="background:var(--sw)"></span><div><b>Núcleo software &amp; liderança — 6 perfis</b><small>Backend/fullstack, ~8,7 anos de carreira; 4 já são tech lead ou coordenador. Maioria no Brasil.</small></div></li>
-            <li><span class="cdot" style="background:var(--data)"></span><div><b>Dados &amp; consultoria — 3 perfis</b><small>Consultoria de banco de dados e engenharia de ML/dados, ~12 anos. Um migrou para o setor público.</small></div></li>
+            <li><span class="cdot" style="background:var(--data)"></span><div><b>Dados &amp; consultoria — 3 perfis</b><small>Consultoria de banco de dados e engenharia de ML/dados; um atua como analista de dados no setor público (defesa).</small></div></li>
             <li><span class="cdot" style="background:var(--pv)"></span><div><b>Carreira internacional — 2 perfis</b><small>Desenvolvimento mobile e liderança técnica, atuando no exterior (~12 anos).</small></div></li>
           </ul>
         </div>
@@ -304,21 +304,20 @@
       <table class="atable">
         <thead><tr><th>Senioridade atual</th><th class="n">Nacional</th><th class="n">Internacional</th><th class="n">Total</th></tr></thead>
         <tbody>
-          <tr><td>Sênior</td><td class="n">2</td><td class="n">3</td><td class="n tot">5</td></tr>
+          <tr><td>Sênior</td><td class="n">3</td><td class="n">3</td><td class="n tot">6</td></tr>
           <tr><td>Especialista / Tech Lead</td><td class="n">2</td><td class="n">3</td><td class="n tot">5</td></tr>
-          <tr><td>Fora de tecnologia</td><td class="n">1</td><td class="n">—</td><td class="n tot">1</td></tr>
           <tr><td class="tot">Total</td><td class="n tot">5</td><td class="n tot">6</td><td class="n tot">11</td></tr>
         </tbody>
       </table>
-      <p class="hint" style="margin-top:10px"><b>6 dos 10 egressos em tecnologia trabalham para empresas internacionais</b> (Europa, América Latina e EUA/global) — <b>todos em nível Sênior ou superior</b>. A mediana estimada do grupo hoje (~R$ 15,9k) fica <b>~9% acima</b> do Sênior nacional da Código Fonte 2026 (R$ 14,6k). <b>Ressalva:</b> as estimativas partem da curva do mercado brasileiro por experiência (Stack Overflow), então <b>não capturam o prêmio real de contratos em moeda estrangeira</b> — o dado aqui é de <b>composição</b> (para onde foram), não de remuneração comparada. <b>8 dos 11 começaram como bolsistas/estagiários</b> de IC/extensão; a rotatividade média é de ~2,1 anos por empresa.</p>
+      <p class="hint" style="margin-top:10px"><b>6 dos 11 egressos trabalham para empresas internacionais</b> (Europa, América Latina e EUA/global) — <b>todos em nível Sênior ou superior</b>. A mediana estimada do grupo hoje (~R$ 15,8k) fica <b>~8% acima</b> do Sênior nacional da Código Fonte 2026 (R$ 14,6k). <b>Ressalva:</b> as estimativas partem da curva do mercado brasileiro por experiência (Stack Overflow), então <b>não capturam o prêmio real de contratos em moeda estrangeira</b> — o dado aqui é de <b>composição</b> (para onde foram), não de remuneração comparada. <b>8 dos 11 começaram como bolsistas/estagiários</b> de IC/extensão; a rotatividade média é de ~2 anos por empresa.</p>
     </section>
 
     <section class="card notes">
       <h2>Método &amp; ressalvas</h2>
       <ul>
         <li><b>Estimativa, não salário real:</b> cruza os anos de experiência de cada egresso com a mediana de desenvolvedores/analistas de dados no Brasil (Stack Overflow Developer Survey 2018–2023), por câmbio e IPCA da época, trazidos a R$ de 2026.</li>
-        <li><b>Início com valor real de bolsa:</b> os anos de bolsa/estágio usam o valor documentado — R$ 800/mês (bolsa FAPES nível VI, projeto "ES na Palma da Mão", 2018–2020) e R$ 400/mês (bolsa de extensão/IC, 2013–2014), cruzado com os registros da FAPES. Por isso o ponto de partida é tão baixo. <b>9 dos 11</b> começaram em bolsa/estágio (IC da FAPES ou extensão do LEDS/IFES); 2 entraram direto no mercado.</li>
-        <li><b>A maioria foi bolsista de Iniciação Científica (IC) — e a IC encolheu:</b> pela <a href="https://fapes.es.gov.br/Media/fapes/Resolu%C3%A7%C3%B5es/Resolu%C3%A7%C3%A3o%20CCAF%20n%C2%BA%20324.2023%20-%20Nova%20tabela%20de%20valores%20de%20bolsas%20e%20auxilios%202023%20-%20Atualizada%20pela%20Resolu%C3%A7%C3%A3o%20343.2024%20e%20352.2025%20e%20359.2025%20e%20361.2026.pdf" target="_blank" rel="noopener">tabela atual da FAPES (Res. 361/2026)</a> a bolsa de IC hoje é <b>R$ 400/mês</b> — nominalmente <b>metade</b> dos R$ 800 recebidos em 2018. Corrigida pela inflação, aquela bolsa equivaleria a ~R$ 1.187/mês; o mercado paga ~R$ 3,5k a um iniciante. O ganho dos egressos veio da <b>qualificação</b>, não da bolsa.</li>
+        <li><b>Início com valor real de bolsa:</b> os anos de bolsa/estágio usam o valor documentado — R$ 800/mês (bolsa FAPES nível VI, projeto "ES na Palma da Mão", 2018–2020) e R$ 400/mês (bolsa de extensão/IC, 2013–2014), cruzado com os registros da FAPES. Por isso o ponto de partida é tão baixo. <b>8 dos 11</b> começaram em bolsa/estágio (projeto FAPES ou extensão do LEDS/IFES); 3 entraram direto no mercado.</li>
+        <li><b>Bolsa de projeto, não IC padrão — e o valor da bolsa hoje:</b> os egressos estavam em <b>bolsas FAPES de projeto de governo</b> (BPIG, R$ 800–1.500/mês, projeto "ES na Palma da Mão") e de extensão, não na IC comum. Pela <a href="https://fapes.es.gov.br/Media/fapes/Tabela_Bolsas_Aux%C3%ADlio/Tabela%20de%20Bolsas%20e%20Auxilios%20-%202026.pdf" target="_blank" rel="noopener">tabela atual da FAPES (Res. 361/2026)</a> a Iniciação Científica e Tecnológica (ICT) paga hoje <b>R$ 900/mês</b> — na época deles (2012–2020) a ICT valia ~R$ 400/mês. De todo modo, o mercado paga ~R$ 3,5k a um iniciante: o ganho dos egressos veio da <b>qualificação</b>, não do valor da bolsa.</li>
         <li><b>Anonimizado:</b> sem nomes, empresas ou localidades. Apenas trilha (software/dados) e anos de experiência.</li>
         <li><b>Amostra pequena</b> nas faixas de mais experiência (linha tracejada) — apenas o egresso de carreira mais longa.</li>
       </ul>
@@ -329,12 +328,12 @@
 </div>
 
 <script>
-const KPI={n:11,em_tech:10,cresc_medio:11.4,cresc_max:17.9,faixa_inicial_med:1642,bolsa_tipica:800,faixa_atual_lo:14199,faixa_atual_hi:19706,med_atual:15905};
+const KPI={n:11,em_tech:11,cresc_medio:11.3,cresc_max:17.9,faixa_inicial_med:1642,bolsa_tipica:800,faixa_atual_lo:14199,faixa_atual_hi:19706,med_atual:15840};
 const PERFIS=[
   {perfil:"Perfil A",trilha:"Software",em_tech:true, anos:8, bolsa:1187, med_ini:1187, med_atual:14629, cresc:12.3},
   {perfil:"Perfil B",trilha:"Software",em_tech:true, anos:8, bolsa:1187, med_ini:1187, med_atual:14629, cresc:12.3},
   {perfil:"Perfil C",trilha:"Dados",   em_tech:true, anos:13,bolsa:794,  med_ini:794,  med_atual:14199, cresc:17.9},
-  {perfil:"Perfil D",trilha:"Dados",   em_tech:false,anos:5, bolsa:1187, med_ini:1187, med_atual:16962, cresc:14.3},
+  {perfil:"Perfil D",trilha:"Dados",   em_tech:true, anos:8, bolsa:1187, med_ini:1187, med_atual:16241, cresc:13.7},
   {perfil:"Perfil E",trilha:"Dados",   em_tech:true, anos:14,bolsa:1278, med_ini:1278, med_atual:15490, cresc:12.1},
   {perfil:"Perfil F",trilha:"Software",em_tech:true, anos:14,bolsa:1278, med_ini:1278, med_atual:19706, cresc:15.4},
   {perfil:"Perfil G",trilha:"Software",em_tech:true, anos:9, bolsa:null, med_ini:3065, med_atual:15662, cresc:5.1},
@@ -346,14 +345,14 @@ const PERFIS=[
 const AGG=[
   {exp:0,lo:794,hi:5178,med:1642,n:11},{exp:1,lo:746,hi:5084,med:1780,n:11},{exp:2,lo:1025,hi:5084,med:1750,n:10},
   {exp:3,lo:3913,hi:16278,med:7718,n:11},{exp:4,lo:3984,hi:16862,med:8528,n:11},{exp:5,lo:3984,hi:19977,med:11221,n:10},
-  {exp:6,lo:6778,hi:22909,med:12907,n:9},{exp:7,lo:6431,hi:24892,med:14261,n:10},{exp:8,lo:8714,hi:25256,med:14490,n:10},
+  {exp:6,lo:6778,hi:22909,med:13267,n:10},{exp:7,lo:6431,hi:24892,med:14332,n:11},{exp:8,lo:8714,hi:25256,med:14650,n:11},
   {exp:9,lo:9691,hi:34682,med:17445,n:6},{exp:10,lo:10584,hi:33364,med:19442,n:5},{exp:11,lo:10326,hi:32628,med:20208,n:4},
   {exp:12,lo:10928,hi:32420,med:20744,n:3},{exp:13,lo:11278,hi:35149,med:16167,n:3},{exp:14,lo:11961,hi:32012,med:17598,n:2}
 ];
 // "a valores de hoje": o que cada nível de experiência vale no MERCADO DE 2026 (reprecificado hoje)
 const AGG_PV=[
   {exp:0,med:3563},{exp:1,med:4131},{exp:2,med:5163},{exp:3,med:7510},{exp:4,med:10037},
-  {exp:5,med:11772},{exp:6,med:12641},{exp:7,med:14698},{exp:8,med:14951},{exp:9,med:16178},
+  {exp:5,med:11772},{exp:6,med:12839},{exp:7,med:14613},{exp:8,med:15069},{exp:9,med:16178},
   {exp:10,med:18380},{exp:11,med:18672},{exp:12,med:18587},{exp:13,med:15203},{exp:14,med:17598}
 ];
 const brl=n=>"R$ "+Math.round(n).toLocaleString("pt-BR");
@@ -362,9 +361,9 @@ const brlk=n=>"R$ "+(n/1000).toFixed(n>=10000?0:1).replace(".",",")+"k";
 // ---- KPIs ----
 document.getElementById("kpi").innerHTML=`
   <div class="hk"><div class="v big">${String(KPI.cresc_medio).replace(".",",")}×</div><div class="k">crescimento salarial médio (real) — até ${String(KPI.cresc_max).replace(".",",")}× — da bolsa à posição atual</div></div>
-  <div class="hk"><div class="v">R$ ${KPI.bolsa_tipica}<small>/mês</small></div><div class="k">bolsa de IC da FAPES (valor real, R$ 800 nível VI) — 9 dos 11 começaram em bolsa/estágio; início médio ~${brl(KPI.faixa_inicial_med)} em R$ de 2026</div></div>
+  <div class="hk"><div class="v">R$ ${KPI.bolsa_tipica}<small>/mês</small></div><div class="k">bolsa FAPES de projeto de governo (valor real, nível VI, R$ 800) — 8 dos 11 começaram em bolsa/estágio; início médio ~${brl(KPI.faixa_inicial_med)} em R$ de 2026</div></div>
   <div class="hk"><div class="v">R$ ${Math.round(KPI.faixa_atual_lo/1000)}–${Math.round(KPI.faixa_atual_hi/1000)}k<small>/mês</small></div><div class="k">faixa estimada atual (mediana ~${brlk(KPI.med_atual)}/mês)</div></div>
-  <div class="hk"><div class="v">${KPI.em_tech}<small> de ${KPI.n}</small></div><div class="k">seguem em tecnologia; 1 migrou para o setor público</div></div>`;
+  <div class="hk"><div class="v">${KPI.em_tech}<small> de ${KPI.n}</small></div><div class="k">seguem em tecnologia (1 atua no setor público, em dados)</div></div>`;
 
 // ---- growth chart ----
 const W=960,H=460,m={t:30,r:28,b:56,l:76}, iw=W-m.l-m.r, ih=H-m.t-m.b;
@@ -433,11 +432,11 @@ document.getElementById("dbticks").innerHTML=dbt;
 // ---- outcomes ----
 document.getElementById("outcomes").innerHTML=[
   "<b>8</b> em engenharia de software e liderança técnica (backend, fullstack, mobile, front)",
-  "<b>2</b> em dados / consultoria sênior (banco de dados, ML)",
+  "<b>3</b> em dados / analytics / consultoria sênior (banco de dados, ML)",
   "<b>3</b> atuando no exterior (Londres, Portugal, Chile)",
-  "<b>1</b> migrou para o setor público (defesa)",
+  "<b>1</b> no setor público, como analista de dados (defesa)",
   "Origem comum: <b>ensino + pesquisa (IC/FAPES) + extensão (LEDS/IFES)</b>",
-  "<b>9 de 11</b> partiram de bolsa/estágio (IC/extensão)"
+  "<b>8 de 11</b> partiram de bolsa/estágio (IC/extensão)"
 ].map(t=>`<span class="chip">${t}</span>`).join("");
 
 // gráfico de linha por experiência — Código Fonte 2026 (escopo isolado)
