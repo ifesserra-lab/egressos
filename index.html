@@ -390,6 +390,10 @@ document.getElementById("outcomes").innerHTML=[
     dot.addEventListener("mousemove",ev=>{ tip2.innerHTML=`<b>${d.l}</b><br>~${d.e} anos · ${brl(d.v)}/mês`; tip2.style.left=ev.clientX+"px"; tip2.style.top=ev.clientY+"px"; tip2.style.opacity=1; });
     dot.addEventListener("mouseleave",()=>tip2.style.opacity=0); s.appendChild(dot);
     const t=E("text",{x:X(d.e),y:Y(d.v)-9,"text-anchor":d.e>=11?"end":"middle",class:"cflab"}); t.textContent=d.l; s.appendChild(t); });
+  // rótulos das bordas da faixa (o que é piso e o que é teto)
+  const lastCF=CFX[CFX.length-1];
+  const tHi=E("text",{x:X(lastCF.e)-4,y:Y(lastCF.v*HIM)-7,"text-anchor":"end",class:"cflab"}); tHi.textContent="teto ≈ PJ · estado + alto"; s.appendChild(tHi);
+  const tLo=E("text",{x:X(lastCF.e)-4,y:Y(lastCF.v*LOM)+15,"text-anchor":"end",class:"cflab"}); tLo.textContent="piso ≈ CLT · estado + baixo"; s.appendChild(tLo);
   for(let e=0;e<=EX;e+=2){ const t=E("text",{x:X(e),y:H-mm.b+20,"text-anchor":"middle",class:"xlab"}); t.textContent=e; s.appendChild(t); }
   const xt=E("text",{x:mm.l+iw/2,y:H-8,"text-anchor":"middle",class:"axtitle"}); xt.textContent="anos de experiência (senioridade na experiência típica)"; s.appendChild(xt);
   const yt=E("text",{x:-(mm.t+ih/2),y:14,"text-anchor":"middle",class:"axtitle",transform:"rotate(-90)"}); yt.textContent="R$ / mês (2026)"; s.appendChild(yt);
