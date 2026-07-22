@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evolução salarial estimada — carreira dev</title>
+<style>
+  .viz-root {
+    color-scheme: light;
+    --plane:          #f7f8fa;
+    --surface:        #fdfdfc;
+    --ink:            #0b0e12;
+    --ink-2:          #52565e;
+    --muted:          #8a8e96;
+    --grid:           #e4e6ea;
+    --axis:           #c4c7cd;
+    --series:         #2a78d6;
+    --series-soft:    rgba(42,120,214,0.14);
+    --series-softer:  rgba(42,120,214,0.06);
+    --series2:        #d9642b;
+    --warn:           #b7791f;
+    --border:         rgba(11,14,18,0.10);
+    --shadow:         0 1px 2px rgba(11,14,18,0.05), 0 8px 24px rgba(11,14,18,0.06);
+
+    background: var(--plane);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100%;
+    padding: 16px 13px;
+    box-sizing: border-box;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --plane:         #0c0d0f;
+      --surface:       #16181b;
+      --ink:           #f4f5f7;
+      --ink-2:         #b6bac1;
+      --muted:         #83878f;
+      --grid:          #26292d;
+      --axis:          #383c42;
+      --series:        #4f97ec;
+      --series-soft:   rgba(79,151,236,0.20);
+      --series-softer: rgba(79,151,236,0.07);
+      --series2:       #ef7d42;
+      --warn:          #e0a94a;
+      --border:        rgba(255,255,255,0.10);
+      --shadow:        0 1px 2px rgba(0,0,0,0.4), 0 8px 30px rgba(0,0,0,0.45);
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --plane:#0c0d0f; --surface:#16181b; --ink:#f4f5f7; --ink-2:#b6bac1;
+    --muted:#83878f; --grid:#26292d; --axis:#383c42; --series:#4f97ec;
+    --series-soft:rgba(79,151,236,0.20); --series-softer:rgba(79,151,236,0.07);
+    --series2:#ef7d42; --warn:#e0a94a; --border:rgba(255,255,255,0.10);
+    --shadow:0 1px 2px rgba(0,0,0,0.4), 0 8px 30px rgba(0,0,0,0.45);
+  }
+
+  /* mobile-first: base = telas pequenas; min-width escala p/ cima */
+  .wrap { max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+
+  .eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--series); margin: 0 0 8px;
+  }
+  h1 { font-size: clamp(22px, 3.4vw, 32px); line-height: 1.15; margin: 0 0 10px; font-weight: 680; text-wrap: balance; letter-spacing: -0.01em; }
+  .sub { font-size: 15px; line-height: 1.55; color: var(--ink-2); margin: 0; max-width: 62ch; }
+
+  .stats { display: flex; flex-wrap: wrap; gap: 12px; }
+  .stat {
+    flex: 1 1 160px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px 18px; box-shadow: var(--shadow);
+  }
+  .stat .k { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
+  .stat .v { font-size: 22px; font-weight: 680; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+  .stat .v small { font-size: 13px; font-weight: 500; color: var(--ink-2); }
+  .stat .r { font-size: 12.5px; color: var(--ink-2); margin-top: 3px; font-variant-numeric: tabular-nums; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); padding: clamp(16px, 2.5vw, 24px); }
+  .legend { display: flex; flex-wrap: wrap; gap: 18px; margin: 0 0 6px; font-size: 12.5px; color: var(--ink-2); }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .sw-line { width: 20px; height: 0; border-top: 2px solid var(--series); }
+  .sw-band { width: 20px; height: 12px; border-radius: 3px; background: var(--series-soft); border: 1px solid var(--series-soft); }
+  .sw-dash { width: 20px; height: 0; border-top: 2px dashed var(--series); }
+  .sw-real { width: 20px; height: 0; border-top: 2px solid var(--series2); }
+  .mline-ex { fill: none; stroke: var(--series); stroke-width: 2.5; stroke-dasharray: 5 4; stroke-linejoin: round; stroke-linecap: round; }
+  .dot-ex { fill: var(--surface); stroke: var(--series); stroke-width: 2; stroke-dasharray: 2.5 2; }
+  .divider { stroke: var(--axis); stroke-width: 1; stroke-dasharray: 2 3; }
+  .divlab { fill: var(--muted); font-size: 10px; }
+
+  .chart-scroll { overflow-x: auto; }
+  svg { display: block; width: 100%; height: auto; min-width: 520px; }
+  text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .tick { fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+  .gridline { stroke: var(--grid); stroke-width: 1; }
+  .baseline { stroke: var(--axis); stroke-width: 1; }
+  .band { fill: var(--series-soft); stroke: none; }
+  .mline { fill: none; stroke: var(--series); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+  .rline { fill: none; stroke: var(--series2); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+  .dot-r { fill: var(--surface); stroke: var(--series2); stroke-width: 2; }
+  .xlab { fill: var(--ink-2); font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .co { fill: var(--muted); font-size: 10.5px; }
+  .dot { fill: var(--surface); stroke: var(--series); stroke-width: 2; }
+  .dot-lab { fill: var(--ink); font-size: 11.5px; font-weight: 650; font-variant-numeric: tabular-nums; }
+
+  .hoverline { stroke: var(--axis); stroke-width: 1; stroke-dasharray: 3 3; opacity: 0; }
+  .hoverdot { fill: var(--series); stroke: var(--surface); stroke-width: 2; opacity: 0; }
+  .hit { fill: transparent; cursor: crosshair; }
+  .tip {
+    position: absolute; pointer-events: none; opacity: 0; transform: translate(-50%, -100%);
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    box-shadow: var(--shadow); padding: 10px 12px; font-size: 12px; line-height: 1.5; min-width: 148px;
+    transition: opacity .09s ease; z-index: 5;
+  }
+  .tip .ty { font-weight: 680; font-size: 13px; margin-bottom: 1px; }
+  .tip .tc { color: var(--muted); font-size: 11px; margin-bottom: 7px; }
+  .tip .trow { display: flex; justify-content: space-between; gap: 16px; font-variant-numeric: tabular-nums; }
+  .tip .trow b { font-weight: 680; }
+  .tip .tmed { color: var(--series); }
+  .chart-host { position: relative; }
+
+  .tbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 13px; font-variant-numeric: tabular-nums; }
+  caption { text-align: left; font-size: 12px; color: var(--muted); margin-bottom: 10px; letter-spacing: 0.03em; text-transform: uppercase; font-weight: 600; }
+  th, td { padding: 8px 10px; text-align: right; border-bottom: 1px solid var(--grid); }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { color: var(--ink-2); font-weight: 600; font-size: 11.5px; letter-spacing: 0.03em; text-transform: uppercase; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.med { color: var(--series); font-weight: 680; }
+
+  .notes { font-size: 12.5px; line-height: 1.65; color: var(--ink-2); }
+  .notes h2 { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--warn); margin: 0 0 8px; font-weight: 700; }
+  .notes ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 5px; }
+  .foot { font-size: 11.5px; color: var(--muted); text-align: center; }
+
+  /* enhancement: telas médias/grandes */
+  @media (min-width: 600px) {
+    .viz-root { padding: 30px 24px; }
+    .wrap { gap: 24px; }
+  }
+  @media (min-width: 960px) { .viz-root { padding: 48px; } }
+</style>
+<style>
+.exp-banner{position:fixed;top:0;left:0;right:0;z-index:99999;background:#c62828;color:#fff;
+  font:600 14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;
+  padding:11px 18px;letter-spacing:.02em;box-shadow:0 2px 10px rgba(0,0,0,.28);
+  background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.14) 0 14px,transparent 14px 28px)}
+.exp-banner strong{font-weight:800;letter-spacing:.06em}
+.root,.viz-root{padding-top:clamp(64px,7vw,80px)!important}
+@media(max-width:640px){.exp-banner{font-size:12px;padding:9px 12px}}
+</style>
+
+<div class="exp-banner" role="alert">
+  ⚠️ <strong>SITE EXPERIMENTAL</strong> — em construção. Metodologia ainda sendo desenvolvida; dados e conclusões preliminares, sujeitos a alteração.
+</div>
+
+<div class="viz-root">
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">Estimativa · R$ nominais de cada ano</p>
+      <h1>Evolução salarial estimada ao longo da carreira</h1>
+      <p class="sub">Para cada ano, cruzo a experiência do egresso naquele momento (trilha de carreira anonimizada) com a mediana e o intervalo p25–p75 de desenvolvedores no Brasil da Stack Overflow Developer Survey <b>daquele ano</b>, convertidos pelo câmbio médio anual USD→BRL. Resultado: R$/mês em reais da época — não corrigidos para hoje.</p>
+    </header>
+
+    <section class="stats" id="stats"></section>
+
+    <section class="card chart-host">
+      <div class="legend">
+        <span><i class="sw-line"></i> Mediana nominal (R$ da época)</span>
+        <span><i class="sw-real"></i> Mediana em R$ de 2026 (IPCA)</span>
+        <span><i class="sw-band"></i> Faixa típica (p25–p75)</span>
+        <span><i class="sw-dash"></i> Extrapolado (2024–26)</span>
+      </div>
+      <div class="chart-scroll">
+        <svg id="chart" viewBox="0 0 920 470" role="img" aria-label="Gráfico de evolução salarial estimada por ano"></svg>
+      </div>
+      <div class="tip" id="tip"></div>
+    </section>
+
+    <section class="card">
+      <div class="tbl-scroll">
+        <table>
+          <caption>Dados por ano — R$/mês nominal (survey do ano × câmbio médio)</caption>
+          <thead><tr><th>Ano</th><th>Empresa</th><th>Exp.</th><th>Câmbio</th><th>p25</th><th>Mediana</th><th>p75</th><th>Med. R$ 2026</th></tr></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card notes">
+      <h2>Como ler (e o que isto NÃO é)</h2>
+      <ul>
+        <li><b>É uma faixa de mercado</b> para a experiência do egresso em cada ano — não o salário efetivamente recebido.</li>
+        <li><b>Duas linhas:</b> azul = R$ nominal da época (survey do ano × câmbio médio); laranja = a mesma mediana trazida a <b>R$ de 2026 pelo IPCA</b> (poder de compra comparável). R$ 2.284 de 2018 ≈ R$ 3.389 hoje.</li>
+        <li><b>2024–2026 são extrapolados</b> do survey 2023 (não há edições publicadas dessas experiências ainda) — linha tracejada.</li>
+        <li><b>2018 quase certo abaixo do p25</b> — período de bolsa (Prodest), que paga menos que CLT.</li>
+        <li>O modelo usa só anos de experiência + país + cargo. Ignora empresa, trabalho remoto pago em USD e negociação — que pesam muito.</li>
+        <li>Salário SO é bruto anual autorreportado; a mediana usa devs back/front/full-stack do Brasil na faixa de experiência do egresso (±1 ano).</li>
+      </ul>
+    </section>
+    <p class="foot" id="foot"></p>
+  </div>
+</div>
+
+<script>
+// R$/mês NOMINAIS de cada ano: survey SO do próprio ano × câmbio médio anual USD→BRL.
+// 2024–2026 extrapolados (survey SO 2023, sem edição publicada p/ esses anos).
+// med/p25/p75 = R$ NOMINAL da época. real = mediana trazida a R$ de 2026 pelo IPCA acumulado.
+// Trajetória de um egresso (anonimizada): estágio/bolsa → empresa nacional → empresa internacional (sênior).
+const DATA = [
+  {ano:2018, empresa:"Bolsa · Prodest/FAPES",      exp:0, fx:3.66, n:356, p25:1713,  med:2284,  p75:3426,  real:3389,  ex:false},
+  {ano:2019, empresa:"Bolsa · Prodest/FAPES",      exp:1, fx:3.94, n:399, p25:1938,  med:2927,  p75:3962,  real:4165,  ex:false},
+  {ano:2020, empresa:"Empresa nacional",           exp:2, fx:5.16, n:489, p25:2957,  med:4138,  p75:5908,  real:5632,  ex:false},
+  {ano:2021, empresa:"Empresa nacional",           exp:3, fx:5.39, n:569, p25:4937,  med:6791,  p75:10370, real:8401,  ex:false},
+  {ano:2022, empresa:"Empresa nacional",           exp:4, fx:5.16, n:403, p25:5898,  med:8600,  p75:14158, real:10053, ex:false},
+  {ano:2023, empresa:"Empresa nacional",           exp:5, fx:4.99, n:204, p25:7656,  med:11136, p75:17830, real:12439, ex:false},
+  {ano:2024, empresa:"Empresa nacional",           exp:6, fx:5.39, n:184, p25:9022,  med:13122, p75:20959, real:13988, ex:true},
+  {ano:2025, empresa:"Empresa internacional (Sr.)",exp:7, fx:5.45, n:140, p25:10988, med:16032, p75:23956, real:16353, ex:true},
+  {ano:2026, empresa:"Empresa internacional (Sr.)",exp:8, fx:5.09, n:112, p25:10107, med:14285, p75:22051, real:14285, ex:true},
+];
+
+const brl  = n => "R$ " + n.toLocaleString("pt-BR");
+const brl0 = n => "R$ " + Math.round(n/100)*100/1000 + "k";
+
+// ---- stat tiles ----
+const first = DATA[0], last = DATA[DATA.length-1];
+const mult = (last.med/first.med);
+document.getElementById("stats").innerHTML = `
+  <div class="stat"><p class="k">Hoje (2026 · Sênior)*</p><div class="v">${brl(last.med)}<small>/mês</small></div><div class="r">faixa ${brl(last.p25)} – ${brl(last.p75)}</div></div>
+  <div class="stat"><p class="k">Início (2018 · júnior)</p><div class="v">${brl(first.med)}<small>/mês</small></div><div class="r">faixa ${brl(first.p25)} – ${brl(first.p75)}</div></div>
+  <div class="stat"><p class="k">Crescimento nominal</p><div class="v">${mult.toFixed(1)}×</div><div class="r">mediana 2018 → 2026</div></div>`;
+
+// ---- table ----
+document.getElementById("tbody").innerHTML = DATA.map(d =>
+  `<tr><td>${d.ano}${d.ex?' <sup>*</sup>':''}</td><td>${d.empresa}</td><td>${d.exp}a</td><td>${d.fx.toFixed(2)}</td><td>${brl(d.p25)}</td><td class="med">${brl(d.med)}</td><td>${brl(d.p75)}</td><td style="color:var(--series2);font-weight:650">${brl(d.real)}</td></tr>`).join("");
+document.getElementById("foot").innerHTML = `Fonte: Stack Overflow Developer Survey 2018–2023 (devs Brasil back/front/full-stack; n do ano na tabela) · câmbio médio anual USD→BRL · IPCA acumulado até jul/2026 p/ a linha em R$ de 2026 · trilha de carreira anonimizada. <b>*</b> 2024–2026 extrapolados do survey 2023.`;
+
+// ---- chart geometry ----
+const W=920, H=470, m={t:28,r:24,b:64,l:56};
+const iw=W-m.l-m.r, ih=H-m.t-m.b;
+const YMAX=26000;
+const xs = i => m.l + (iw*i)/(DATA.length-1);
+const ys = v => m.t + ih*(1 - v/YMAX);
+const NS="http://www.w3.org/2000/svg";
+const svg=document.getElementById("chart");
+const el=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+
+// gridlines + y ticks
+for(let v=0; v<=YMAX; v+=6000){
+  svg.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:ys(v),y2:ys(v),class:"gridline"}));
+  const tk=el("text",{x:m.l-10,y:ys(v)+4,"text-anchor":"end",class:"tick"}); tk.textContent=brl0(v); svg.appendChild(tk);
+}
+// baseline
+svg.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:ys(0),y2:ys(0),class:"baseline"}));
+
+// band path (p75 forward, p25 back)
+let upper="", lower="";
+DATA.forEach((d,i)=>{ upper += (i?"L":"M")+xs(i)+" "+ys(d.p75)+" "; });
+for(let i=DATA.length-1;i>=0;i--){ lower += "L"+xs(i)+" "+ys(DATA[i].p25)+" "; }
+svg.appendChild(el("path",{d:upper+lower+"Z",class:"band"}));
+
+// median line — solid for survey years, dashed for extrapolated
+const exStart = DATA.findIndex(d=>d.ex);
+const solidEnd = exStart<0 ? DATA.length-1 : exStart-1;
+let ml=""; for(let i=0;i<=solidEnd;i++){ ml+=(i?"L":"M")+xs(i)+" "+ys(DATA[i].med)+" "; }
+svg.appendChild(el("path",{d:ml,class:"mline"}));
+if(exStart>=0){
+  let md=""; for(let i=solidEnd;i<DATA.length;i++){ md+=(i===solidEnd?"M":"L")+xs(i)+" "+ys(DATA[i].med)+" "; }
+  svg.appendChild(el("path",{d:md,class:"mline-ex"}));
+  const dx=(xs(solidEnd)+xs(exStart))/2;
+  svg.appendChild(el("line",{x1:dx,x2:dx,y1:m.t,y2:m.t+ih,class:"divider"}));
+  const dl=el("text",{x:dx+5,y:m.t+11,class:"divlab"}); dl.textContent="extrapolado →"; svg.appendChild(dl);
+}
+
+// real (IPCA→2026) median line
+let rl=""; DATA.forEach((d,i)=>{ rl+=(i?"L":"M")+xs(i)+" "+ys(d.real)+" "; });
+svg.appendChild(el("path",{d:rl,class:"rline"}));
+DATA.forEach((d,i)=>svg.appendChild(el("circle",{cx:xs(i),cy:ys(d.real),r:3,class:"dot-r"})));
+
+// x labels + company + dots
+DATA.forEach((d,i)=>{
+  const xl=el("text",{x:xs(i),y:H-m.b+22,"text-anchor":"middle",class:"xlab"}); xl.textContent=d.ano; svg.appendChild(xl);
+  // company label only when it changes
+  if(i===0 || d.empresa!==DATA[i-1].empresa){
+    const co=el("text",{x:xs(i),y:H-m.b+40,"text-anchor":i===0?"start":"middle",class:"co"});
+    co.textContent=d.empresa.replace(/ \(.*\)/,""); svg.appendChild(co);
+  }
+  svg.appendChild(el("circle",{cx:xs(i),cy:ys(d.med),r:4,class:d.ex?"dot-ex":"dot"}));
+});
+// endpoint labels
+[[0,"start"],[DATA.length-1,"end"]].forEach(([i,anch])=>{
+  const d=DATA[i], t=el("text",{x:xs(i)+(anch==="start"?8:-8),y:ys(d.med)-10,"text-anchor":anch,class:"dot-lab"});
+  t.textContent=brl(d.med); svg.appendChild(t);
+});
+
+// y-axis title
+const yt=el("text",{x:-(m.t+ih/2),y:16,"text-anchor":"middle",class:"tick",transform:"rotate(-90)"});
+yt.textContent="R$ / mês estimado"; svg.appendChild(yt);
+
+// ---- hover ----
+const hl=el("line",{class:"hoverline",y1:m.t,y2:m.t+ih}); svg.appendChild(hl);
+const hd=el("circle",{class:"hoverdot",r:5}); svg.appendChild(hd);
+const tip=document.getElementById("tip"), host=document.querySelector(".chart-host");
+const hit=el("rect",{class:"hit",x:m.l,y:m.t,width:iw,height:ih}); svg.appendChild(hit);
+
+function show(i,clientX,clientY){
+  const d=DATA[i];
+  hl.setAttribute("x1",xs(i)); hl.setAttribute("x2",xs(i)); hl.style.opacity=1;
+  hd.setAttribute("cx",xs(i)); hd.setAttribute("cy",ys(d.med)); hd.style.opacity=1;
+  tip.innerHTML=`<div class="ty">${d.ano}${d.ex?' · extrapolado':''}</div><div class="tc">${d.empresa} · ${d.exp}a exp. · câmbio ${d.fx.toFixed(2)}</div>
+    <div class="trow"><span>p75</span><b>${brl(d.p75)}</b></div>
+    <div class="trow tmed"><span>mediana</span><b>${brl(d.med)}</b></div>
+    <div class="trow"><span>p25</span><b>${brl(d.p25)}</b></div>
+    <div class="trow" style="color:var(--series2)"><span>em R$ 2026</span><b>${brl(d.real)}</b></div>
+    <div class="trow"><span>amostra</span><b>n=${d.n}</b></div>`;
+  const hostRect=host.getBoundingClientRect(), svgRect=svg.getBoundingClientRect();
+  const scale=svgRect.width/W;
+  tip.style.left=(svgRect.left-hostRect.left + xs(i)*scale)+"px";
+  tip.style.top =(svgRect.top -hostRect.top  + ys(d.med)*scale - 12)+"px";
+  tip.style.opacity=1;
+}
+function hide(){ hl.style.opacity=0; hd.style.opacity=0; tip.style.opacity=0; }
+hit.addEventListener("mousemove",e=>{
+  const r=svg.getBoundingClientRect(), sx=(e.clientX-r.left)*(W/r.width);
+  let i=Math.round((sx-m.l)/(iw/(DATA.length-1))); i=Math.max(0,Math.min(DATA.length-1,i));
+  show(i,e.clientX,e.clientY);
+});
+hit.addEventListener("mouseleave",hide);
+</script>
+
+</body>
+</html>

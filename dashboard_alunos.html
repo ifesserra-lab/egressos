@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panorama de carreira — egressos (anonimizado)</title>
+<style>
+  .root {
+    color-scheme: light;
+    --plane:#f6f7f9; --surface:#ffffff; --surface-2:#f2f3f6;
+    --ink:#12151b; --ink-2:#535863; --muted:#8b909b;
+    --line:#e5e7ec; --border:rgba(18,21,27,0.10);
+    --accent:#3457d5;
+    --a-backend:#2a78d6; --a-fullstack:#1baf7a; --a-frontend:#eda100; --a-mobile:#e87ba4;
+    --a-data:#4a3aa7; --a-ml:#8b5cf6; --a-lideranca:#eb6834; --a-gestao:#c98500;
+    --a-dev:#5598e7; --a-academico:#9aa0ab; --a-militar:#556070;
+    --shadow:0 1px 2px rgba(18,21,27,.05), 0 6px 20px rgba(18,21,27,.06);
+    background:var(--plane); color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased;
+    min-height:100%; padding:16px 13px; box-sizing:border-box;
+  }
+  @media (prefers-color-scheme:dark){ :root:where(:not([data-theme="light"])) .root{
+    color-scheme:dark;
+    --plane:#0c0d10; --surface:#17191e; --surface-2:#202329;
+    --ink:#f3f4f6; --ink-2:#b3b8c2; --muted:#7e838d;
+    --line:#282b31; --border:rgba(255,255,255,.10);
+    --accent:#6d8bf0;
+    --a-backend:#3987e5; --a-fullstack:#199e70; --a-frontend:#c98500; --a-mobile:#d55181;
+    --a-data:#9085e9; --a-ml:#a78bfa; --a-lideranca:#d95926; --a-gestao:#c98500;
+    --a-dev:#5598e7; --a-academico:#8b909b; --a-militar:#7a8695;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px rgba(0,0,0,.45);
+  }}
+  :root[data-theme="dark"] .root{
+    color-scheme:dark;
+    --plane:#0c0d10; --surface:#17191e; --surface-2:#202329;
+    --ink:#f3f4f6; --ink-2:#b3b8c2; --muted:#7e838d; --line:#282b31; --border:rgba(255,255,255,.10);
+    --accent:#6d8bf0; --a-backend:#3987e5; --a-fullstack:#199e70; --a-frontend:#c98500; --a-mobile:#d55181;
+    --a-data:#9085e9; --a-ml:#a78bfa; --a-lideranca:#d95926; --a-gestao:#c98500; --a-dev:#5598e7;
+    --a-academico:#8b909b; --a-militar:#7a8695;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px rgba(0,0,0,.45);
+  }
+
+  /* ---- mobile-first: base = telas pequenas; min-width escala p/ cima ---- */
+  .wrap{ max-width:1040px; margin:0 auto; display:flex; flex-direction:column; gap:16px; }
+  .eyebrow{ font-size:11.5px; font-weight:600; letter-spacing:.09em; text-transform:uppercase; color:var(--accent); margin:0 0 8px; }
+  h1{ font-size:23px; line-height:1.14; margin:0 0 8px; font-weight:700; letter-spacing:-.01em; text-wrap:balance; }
+  .sub{ font-size:14px; line-height:1.55; color:var(--ink-2); margin:0; max-width:64ch; }
+
+  .stats{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+  .stat{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:15px 17px; box-shadow:var(--shadow); }
+  .stat .k{ font-size:11px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); margin:0 0 6px; }
+  .stat .v{ font-size:24px; font-weight:700; letter-spacing:-.01em; font-variant-numeric:tabular-nums; }
+  .stat .v small{ font-size:13px; font-weight:500; color:var(--ink-2); }
+
+  .card{ background:var(--surface); border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); padding:clamp(16px,2.4vw,24px); }
+  .card > h2{ font-size:13px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-2); margin:0 0 4px; font-weight:700; }
+  .card > .hint{ font-size:12.5px; color:var(--muted); margin:0 0 16px; }
+
+  /* timeline (gantt) */
+  .tl{ position:relative; }
+  .tl-scroll{ overflow-x:auto; }
+  .tl-grid{ position:relative; min-width:640px; }
+  .tl-row{ display:grid; grid-template-columns:120px 1fr; align-items:center; gap:12px; height:40px; }
+  .tl-name{ font-size:13px; font-weight:650; text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .tl-track{ position:relative; height:26px; }
+  .tl-bar{ position:absolute; top:4px; height:18px; border-radius:5px; cursor:default; box-shadow:0 0 0 2px var(--surface); }
+  .tl-axis{ display:grid; grid-template-columns:120px 1fr; gap:12px; margin-top:6px; }
+  .tl-years{ position:relative; height:16px; }
+  .tl-yr{ position:absolute; transform:translateX(-50%); font-size:10.5px; color:var(--muted); font-variant-numeric:tabular-nums; }
+  .tl-vline{ position:absolute; top:0; bottom:0; width:1px; background:var(--line); }
+
+  .legend{ display:flex; flex-wrap:wrap; gap:12px 16px; margin-top:18px; font-size:12px; color:var(--ink-2); }
+  .legend span{ display:inline-flex; align-items:center; gap:6px; }
+  .dot{ width:11px; height:11px; border-radius:3px; }
+
+  /* student cards — 1 coluna no celular, 2 em telas largas */
+  .people{ display:grid; grid-template-columns:1fr; gap:14px; }
+  @media (min-width:760px){ .people{ grid-template-columns:1fr 1fr; gap:16px; } }
+  .person{ background:var(--surface); border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); padding:16px; display:flex; flex-direction:column; gap:14px; }
+  .p-head{ display:flex; align-items:flex-start; gap:13px; }
+  .avatar{ width:46px; height:46px; border-radius:50%; display:grid; place-items:center; font-weight:700; font-size:17px; color:#fff; flex:none; }
+  .p-name{ font-size:17px; font-weight:700; margin:0; line-height:1.2; }
+  .p-role{ font-size:13px; color:var(--ink-2); margin:2px 0 0; }
+  .p-meta{ display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+  .chip{ font-size:11px; font-weight:600; padding:3px 9px; border-radius:999px; background:var(--surface-2); color:var(--ink-2); border:1px solid var(--border); }
+  .chip.tech{ background:rgba(27,175,122,.14); color:#0b7a53; border-color:transparent; }
+  .chip.notech{ background:rgba(235,104,52,.15); color:#b4531f; border-color:transparent; }
+  @media (prefers-color-scheme:dark){ :root:where(:not([data-theme="light"])) .chip.tech{color:#5fd3a6}
+    :root:where(:not([data-theme="light"])) .chip.notech{color:#f0a074} }
+  :root[data-theme="dark"] .chip.tech{color:#5fd3a6} :root[data-theme="dark"] .chip.notech{color:#f0a074}
+
+  .exp{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; }
+  .exp li{ position:relative; padding:0 0 14px 20px; }
+  .exp li:before{ content:""; position:absolute; left:4px; top:5px; width:9px; height:9px; border-radius:50%; background:var(--dotc,var(--a-dev)); box-shadow:0 0 0 2px var(--surface); }
+  .exp li:after{ content:""; position:absolute; left:8px; top:14px; bottom:0; width:1px; background:var(--line); }
+  .exp li:last-child{ padding-bottom:0; }
+  .exp li:last-child:after{ display:none; }
+  .e-role{ font-size:13.5px; font-weight:650; line-height:1.25; }
+  .e-co{ font-size:12.5px; color:var(--ink-2); }
+  .e-date{ font-size:11.5px; color:var(--muted); font-variant-numeric:tabular-nums; }
+  .e-tag{ font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.03em; padding:1px 6px; border-radius:4px; margin-left:6px; color:#fff; vertical-align:middle; }
+
+  .foot{ font-size:11.5px; color:var(--muted); text-align:center; line-height:1.6; }
+  a{ color:var(--accent); }
+
+  /* ---- enhancement: telas médias/grandes ---- */
+  @media (min-width:600px){
+    .root{ padding:30px 24px; }
+    .wrap{ gap:22px; }
+    .eyebrow{ font-size:12px; }
+    h1{ font-size:28px; }
+    .sub{ font-size:14.5px; }
+    .stats{ grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; }
+    .person{ padding:20px; }
+  }
+  @media (min-width:960px){
+    .root{ padding:44px; }
+    h1{ font-size:32px; }
+  }
+</style>
+<style>
+.exp-banner{position:fixed;top:0;left:0;right:0;z-index:99999;background:#c62828;color:#fff;
+  font:600 14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;
+  padding:11px 18px;letter-spacing:.02em;box-shadow:0 2px 10px rgba(0,0,0,.28);
+  background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.14) 0 14px,transparent 14px 28px)}
+.exp-banner strong{font-weight:800;letter-spacing:.06em}
+.root,.viz-root{padding-top:clamp(64px,7vw,80px)!important}
+@media(max-width:640px){.exp-banner{font-size:12px;padding:9px 12px}}
+</style>
+
+<div class="exp-banner" role="alert">
+  ⚠️ <strong>SITE EXPERIMENTAL</strong> — em construção. Metodologia ainda sendo desenvolvida; dados e conclusões preliminares, sujeitos a alteração.
+</div>
+
+<div class="root">
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">Panorama de carreira · anonimizado</p>
+      <h1>Trajetórias profissionais dos egressos</h1>
+      <p class="sub">Onze egressos, uma origem comum (IFES · LEDS · Prodest/FAPES · empresa júnior Morpheus Jr.) e caminhos que divergem: engenharia de software, dados/ML, consultoria e liderança técnica — em empresas nacionais e internacionais. Identificados apenas por letra (A–K); sem nomes, empresas ou localidades reais.</p>
+    </header>
+
+    <section class="stats" id="stats"></section>
+
+    <section class="card">
+      <h2>Linha do tempo de carreira</h2>
+      <p class="hint">Cada barra é uma experiência, colorida pela área. Passe o mouse para detalhes.</p>
+      <div class="tl-scroll">
+        <div class="tl-grid" id="tlgrid"></div>
+      </div>
+      <div class="legend" id="legend"></div>
+    </section>
+
+    <section class="people" id="people"></section>
+
+    <p class="foot" id="foot"></p>
+  </div>
+  <div id="tip" style="position:fixed;pointer-events:none;opacity:0;transform:translate(-50%,-115%);background:var(--surface);border:1px solid var(--border);border-radius:9px;box-shadow:var(--shadow);padding:8px 11px;font-size:12px;line-height:1.45;max-width:260px;z-index:20;transition:opacity .08s"></div>
+</div>
+
+<script>
+/* DADOS ANONIMIZADOS — sem nomes, empresas ou localidades reais.
+   Egresso A–K; empregadores privados → "Empresa nacional/internacional" ou "Setor público";
+   origem comum (pública no README: LEDS/IFES, Prodest/FAPES, Morpheus Jr., monitoria IFES) mantida;
+   localidade reduzida a Nacional/Internacional. Cargos e datas preservados (não identificam). */
+const DB = {
+  alunos: [
+    {id:"a",nome:"Egresso A",cargo_atual:"Senior Software Engineer",empresa_atual:"Empresa internacional",local_atual:"Internacional · Remoto",area_atual:"backend",inicio_carreira_dev:"2018-04",ainda_em_tech:true,experiencias:[
+      {cargo:"Senior Software Engineer",empresa:"Empresa internacional",tipo:"Full-time",inicio:"2023-10",fim:null,area:"backend"},
+      {cargo:"Senior Software Engineer",empresa:"Empresa internacional",tipo:"Freelance",inicio:"2023-10",fim:"2026-03",area:"fullstack"},
+      {cargo:"Senior Software Developer",empresa:"Empresa internacional",tipo:"Full-time",inicio:"2023-03",fim:"2023-10",area:"fullstack"},
+      {cargo:"Software Engineer",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2022-05",fim:"2023-01",area:"backend"},
+      {cargo:"Technical Lead",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2021-06",fim:"2022-05",area:"lideranca"},
+      {cargo:"Full Stack Developer",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2020-06",fim:"2021-06",area:"fullstack"},
+      {cargo:"Voluntário (Liderança)",empresa:"Morpheus Jr. (empresa júnior)",tipo:"Voluntário",inicio:"2019-05",fim:"2021-02",area:"gestao"},
+      {cargo:"Bolsista (estágio)",empresa:"Prodest · bolsa FAPES",tipo:"Estágio",inicio:"2018-04",fim:"2020-02",area:"dev"},
+      {cargo:"Voluntário",empresa:"LEDS/IFES · extensão",tipo:"Voluntário",inicio:"2017-01",fim:"2017-12",area:"dev"}
+    ]},
+    {id:"b",nome:"Egresso B",cargo_atual:"Engenheiro de Software Sênior",empresa_atual:"Empresa nacional",local_atual:"Nacional · Remoto",area_atual:"backend",inicio_carreira_dev:"2018-08",ainda_em_tech:true,experiencias:[
+      {cargo:"Engenheiro de Software Sênior",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2025-09",fim:null,area:"backend"},
+      {cargo:"Desenvolvedor Backend",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2022-09",fim:"2025-09",area:"backend"},
+      {cargo:"Desenvolvedor Fullstack",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2022-04",fim:"2022-08",area:"fullstack"},
+      {cargo:"Desenvolvedor Fullstack",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2021-06",fim:"2022-04",area:"fullstack"},
+      {cargo:"Desenvolvedor Fullstack",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2020-09",fim:"2021-05",area:"fullstack"},
+      {cargo:"Desenvolvedor Fullstack",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2020-03",fim:"2021-05",area:"fullstack"},
+      {cargo:"Diretor / Gerente de Projetos",empresa:"Morpheus Jr. (empresa júnior)",tipo:"Voluntário",inicio:"2017-10",fim:"2021-01",area:"gestao"},
+      {cargo:"Desenvolvedor - Bolsista (estágio)",empresa:"Prodest · bolsa FAPES",tipo:"Estágio",inicio:"2018-08",fim:"2020-03",area:"dev"},
+      {cargo:"Monitor",empresa:"IFES · monitoria",tipo:"Acadêmico",inicio:"2016-04",fim:"2017-12",area:"academico"}
+    ]},
+    {id:"c",nome:"Egressa C",cargo_atual:"Analista de Dados",empresa_atual:"Setor público",local_atual:"Nacional · Presencial",area_atual:"data",perfil_tech_rotulo:"Analista de Dados",inicio_carreira_dev:"2018-08",ainda_em_tech:true,experiencias:[
+      {cargo:"Analista de Dados",empresa:"Setor público",tipo:"Full-time",inicio:"2023-09",fim:null,area:"data"},
+      {cargo:"Analista Desenvolvedor 7D",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2021-10",fim:"2023-08",area:"data"},
+      {cargo:"Desenvolvedor front-end mobile",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2021-05",fim:"2022-02",area:"mobile"},
+      {cargo:"Desenvolvedor",empresa:"Empresa nacional",tipo:"Estágio",inicio:"2020-04",fim:"2021-04",area:"dev"},
+      {cargo:"Desenvolvimento e Gestão",empresa:"LEDS/IFES · extensão",tipo:"Estágio",inicio:"2018-08",fim:"2021-04",area:"dev"},
+      {cargo:"Diretora de Projetos",empresa:"Morpheus Jr. (empresa júnior)",tipo:"Voluntário",inicio:"2019-10",fim:"2021-01",area:"gestao"},
+      {cargo:"Bolsista (estágio)",empresa:"Prodest · bolsa FAPES",tipo:"Estágio",inicio:"2018-08",fim:"2020-03",area:"data"},
+      {cargo:"Monitoria e Tutoria",empresa:"IFES · monitoria",tipo:"Acadêmico",inicio:"2015-08",fim:"2018-12",area:"academico"}
+    ]},
+    {id:"d",nome:"Egresso D",cargo_atual:"Consulting Engineer",empresa_atual:"Empresa internacional",local_atual:"Internacional · Remoto",area_atual:"data",inicio_carreira_dev:"2013-05",ainda_em_tech:true,experiencias:[
+      {cargo:"Consulting Engineer",empresa:"Empresa internacional",tipo:"Full-time",inicio:"2025-03",fim:null,area:"data"},
+      {cargo:"Machine Learning Engineer",empresa:"Empresa internacional",tipo:"Full-time",inicio:"2023-01",fim:"2025-02",area:"ml"},
+      {cargo:"Data Scientist",empresa:"Empresa internacional",tipo:"Full-time",inicio:"2020-03",fim:"2022-12",area:"data"},
+      {cargo:"Web Developer",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2016-08",fim:"2017-01",area:"fullstack"},
+      {cargo:"Developer",empresa:"LEDS/IFES · extensão",tipo:"Extensão",inicio:"2013-05",fim:"2014-08",area:"dev"}
+    ]},
+    {id:"e",nome:"Egresso E",cargo_atual:"Senior Consulting Engineer",empresa_atual:"Empresa internacional",local_atual:"Internacional · Remoto",area_atual:"data",inicio_carreira_dev:"2012-03",ainda_em_tech:true,experiencias:[
+      {cargo:"Senior Consulting Engineer",empresa:"Empresa internacional",tipo:"Full-time",inicio:"2023-02",fim:null,area:"data"},
+      {cargo:"Consulting Engineer",empresa:"Empresa internacional",tipo:"Full-time",inicio:"2021-12",fim:"2023-03",area:"data"},
+      {cargo:"Partner Consulting Engineer",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2020-03",fim:"2021-12",area:"data"},
+      {cargo:"Full Stack Developer",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2019-03",fim:"2020-03",area:"fullstack"},
+      {cargo:"BI System Analyst",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2018-09",fim:"2019-03",area:"data"},
+      {cargo:"Full Stack Developer",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2017-09",fim:"2018-09",area:"fullstack"},
+      {cargo:"Frontend Web Developer",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2016-09",fim:"2017-09",area:"frontend"},
+      {cargo:"BI Analyst",empresa:"Empresa nacional",tipo:"Estágio",inicio:"2015-09",fim:"2016-09",area:"data"},
+      {cargo:"Bolsista",empresa:"LEDS/IFES · extensão",tipo:"Estágio",inicio:"2012-03",fim:"2015-10",area:"dev"}
+    ]},
+    {id:"f",nome:"Egresso F",cargo_atual:"Android Developer",empresa_atual:"Empresa internacional",local_atual:"Internacional · Híbrido",area_atual:"mobile",inicio_carreira_dev:"2012-06",ainda_em_tech:true,experiencias:[
+      {cargo:"Android Developer",empresa:"Empresa internacional",tipo:"Full-time",inicio:"2020-01",fim:null,area:"mobile"},
+      {cargo:"Android Developer",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2018-09",fim:"2019-11",area:"mobile"},
+      {cargo:"Android Developer",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2018-05",fim:"2018-08",area:"mobile"},
+      {cargo:"Estagiário (mobile)",empresa:"Empresa nacional",tipo:"Estágio",inicio:"2017-09",fim:"2018-04",area:"mobile"},
+      {cargo:"Web Developer (extensão)",empresa:"LEDS/IFES · extensão",tipo:"Extensão",inicio:"2014-02",fim:"2016-12",area:"dev"},
+      {cargo:"Developer",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2012-06",fim:"2013-05",area:"dev"},
+      {cargo:"Estagiário",empresa:"Empresa nacional",tipo:"Estágio",inicio:"2010-11",fim:"2012-05",area:"dev"}
+    ]},
+    {id:"g",nome:"Egresso G",cargo_atual:"IT Analyst",empresa_atual:"Empresa nacional",local_atual:"Nacional · Remoto",area_atual:"backend",inicio_carreira_dev:"2017-08",ainda_em_tech:true,experiencias:[
+      {cargo:"IT Analyst",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2024-10",fim:null,area:"backend"},
+      {cargo:"Engenheiro de Software Líder",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2022-05",fim:"2024-10",area:"backend"},
+      {cargo:"Líder Técnico",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2021-10",fim:"2022-04",area:"lideranca"},
+      {cargo:"Desenvolvedor de Software",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2020-12",fim:"2021-10",area:"backend"},
+      {cargo:"Desenvolvedor Júnior",empresa:"LEDS/IFES · extensão",tipo:"Extensão",inicio:"2019-09",fim:"2021-03",area:"backend"},
+      {cargo:"Pesquisador (bolsista IC)",empresa:"Prodest · bolsa FAPES",tipo:"Estágio",inicio:"2019-05",fim:"2019-12",area:"dev"},
+      {cargo:"Desenvolvedor Júnior",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2020-06",fim:"2020-11",area:"backend"},
+      {cargo:"Desenvolvedor Júnior",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2019-02",fim:"2019-04",area:"backend"},
+      {cargo:"Desenvolvedor .Net Júnior",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2018-02",fim:"2019-01",area:"backend"},
+      {cargo:"Desenvolvedor Web Júnior",empresa:"Setor público",tipo:"Full-time",inicio:"2017-08",fim:"2018-01",area:"frontend"}
+    ]},
+    {id:"h",nome:"Egresso H",cargo_atual:"Coordenador Técnico / Tech Lead",empresa_atual:"Empresa nacional",local_atual:"Nacional · Presencial",area_atual:"lideranca",inicio_carreira_dev:"2018-08",ainda_em_tech:true,experiencias:[
+      {cargo:"Coordenador Técnico / Tech Lead",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2021-07",fim:null,area:"lideranca"},
+      {cargo:"Analista Desenvolvedor",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2021-02",fim:"2021-06",area:"fullstack"},
+      {cargo:"Analista de TI",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2020-10",fim:"2021-02",area:"fullstack"},
+      {cargo:"Desenvolvedor Web",empresa:"Empresa nacional",tipo:"Estágio",inicio:"2020-04",fim:"2020-09",area:"fullstack"},
+      {cargo:"Desenvolvedor de Software",empresa:"LEDS/IFES · extensão",tipo:"Estágio",inicio:"2018-08",fim:"2020-03",area:"dev"}
+    ]},
+    {id:"i",nome:"Egresso I",cargo_atual:"Desenvolvedor Full Stack",empresa_atual:"Empresa nacional",local_atual:"Nacional · Presencial",area_atual:"fullstack",inicio_carreira_dev:"2018-01",ainda_em_tech:true,experiencias:[
+      {cargo:"Desenvolvedor Full Stack",empresa:"Empresa nacional",tipo:"CLT",inicio:"2024-10",fim:null,area:"fullstack"},
+      {cargo:"Desenvolvedor Full Stack",empresa:"Empresa nacional",tipo:"CLT",inicio:"2021-10",fim:"2024-01",area:"fullstack"},
+      {cargo:"Desenvolvedor Mobile",empresa:"Empresa nacional",tipo:"PJ",inicio:"2020-06",fim:"2021-10",area:"mobile"},
+      {cargo:"Desenvolvedor Web (projeto FAPES)",empresa:"Universidade (projeto)",tipo:"Freelance",inicio:"2019-10",fim:"2020-08",area:"dev"},
+      {cargo:"Desenvolvedor (bolsista IC)",empresa:"Prodest · bolsa FAPES",tipo:"Estágio",inicio:"2018-01",fim:"2020-05",area:"dev"}
+    ]},
+    {id:"j",nome:"Egresso J",cargo_atual:"Tech Lead",empresa_atual:"Empresa internacional",local_atual:"Internacional · Presencial",area_atual:"lideranca",inicio_carreira_dev:"2016-11",ainda_em_tech:true,experiencias:[
+      {cargo:"Tech Lead",empresa:"Empresa internacional",tipo:"CLT",inicio:"2022-05",fim:null,area:"lideranca"},
+      {cargo:"Software Engineer",empresa:"Empresa internacional",tipo:"CLT",inicio:"2021-06",fim:"2022-05",area:"backend"},
+      {cargo:"Software Engineer",empresa:"Empresa nacional",tipo:"CLT",inicio:"2021-05",fim:"2021-06",area:"backend"},
+      {cargo:"Back-end Developer",empresa:"Empresa nacional",tipo:"CLT",inicio:"2020-10",fim:"2021-05",area:"backend"},
+      {cargo:"Back-end Developer",empresa:"Empresa nacional",tipo:"Estágio",inicio:"2019-08",fim:"2020-10",area:"backend"},
+      {cargo:"Full Stack Developer",empresa:"Autônomo",tipo:"Freelance",inicio:"2016-11",fim:"2019-01",area:"fullstack"}
+    ]},
+    {id:"k",nome:"Egressa K",cargo_atual:"Senior Frontend Developer / Tech Lead",empresa_atual:"Empresa nacional",local_atual:"Nacional · Remoto",area_atual:"frontend",inicio_carreira_dev:"2015-10",ainda_em_tech:true,experiencias:[
+      {cargo:"Senior Frontend Developer / Tech Lead",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2019-11",fim:null,area:"frontend"},
+      {cargo:"Agile Project Manager",empresa:"LEDS/IFES · extensão",tipo:"Extensão",inicio:"2018-10",fim:"2019-11",area:"gestao"},
+      {cargo:"Analyst and Developer",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2017-04",fim:"2019-10",area:"mobile"},
+      {cargo:"Web Developer",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2016-04",fim:"2016-12",area:"frontend"},
+      {cargo:"Estágio (dev)",empresa:"LEDS/IFES · extensão",tipo:"Estágio",inicio:"2015-10",fim:"2016-04",area:"dev"}
+    ]}
+  ]
+};
+
+const HOJE = "2026-07";
+const AREAS = {backend:"Backend",fullstack:"Fullstack",frontend:"Frontend",mobile:"Mobile",data:"Dados",ml:"Machine Learning",lideranca:"Liderança",gestao:"Gestão",dev:"Dev (geral)",academico:"Acadêmico",militar:"Militar"};
+const acolor = a => getComputedStyle(document.querySelector(".root")).getPropertyValue("--a-"+a).trim() || "var(--a-dev)";
+const AVATAR = ["#3457d5","#1baf7a","#eb6834","#8b5cf6"];
+
+const mnum = s => { const [y,m]=s.split("-").map(Number); return y+(m-1)/12; };
+const fim = e => e.fim || HOJE;
+const anos = ini => (mnum(HOJE)-mnum(ini));
+const fmtDate = s => { const [y,m]=s.split("-"); return ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"][+m-1]+"/"+y; };
+const dur = e => { const d=mnum(fim(e))-mnum(e.inicio); const a=Math.floor(d), mo=Math.round((d-a)*12); return (a?a+"a ":"")+(mo?mo+"m":"")||"<1m"; };
+
+// ---- stats ----
+const N=DB.alunos.length, tech=DB.alunos.filter(a=>a.ainda_em_tech).length;
+const mediaAnos = DB.alunos.reduce((s,a)=>s+anos(a.inicio_carreira_dev),0)/N;
+const senior = DB.alunos.filter(a=>/sênior|senior|lead|consulting|engineer/i.test(a.cargo_atual)).length;
+document.getElementById("stats").innerHTML = `
+  <div class="stat"><p class="k">Egressos</p><div class="v">${N}</div></div>
+  <div class="stat"><p class="k">Ainda em tech</p><div class="v">${tech}<small>/${N}</small></div></div>
+  <div class="stat"><p class="k">Média de carreira</p><div class="v">${mediaAnos.toFixed(1)}<small> anos</small></div></div>
+  <div class="stat"><p class="k">Origem comum</p><div class="v" style="font-size:16px">IFES · LEDS<br><small>Prodest · Morpheus Jr.</small></div></div>`;
+
+// ---- timeline ----
+const YMIN=2012, YMAX=2026.6;
+const px = y => ((y-YMIN)/(YMAX-YMIN))*100;
+const grid = document.getElementById("tlgrid");
+const tip = document.getElementById("tip");
+function showTip(e,html){ tip.innerHTML=html; tip.style.left=e.clientX+"px"; tip.style.top=e.clientY+"px"; tip.style.opacity=1; }
+function hideTip(){ tip.style.opacity=0; }
+
+DB.alunos.forEach(a=>{
+  const row=document.createElement("div"); row.className="tl-row";
+  const name=document.createElement("div"); name.className="tl-name"; name.textContent=a.nome;
+  const track=document.createElement("div"); track.className="tl-track";
+  // desenha do mais antigo p/ o mais recente
+  [...a.experiencias].sort((x,y)=>mnum(x.inicio)-mnum(y.inicio)).forEach(e=>{
+    const bar=document.createElement("div"); bar.className="tl-bar";
+    const L=px(mnum(e.inicio)), R=px(mnum(fim(e)));
+    bar.style.left=L+"%"; bar.style.width=Math.max(R-L,0.8)+"%";
+    bar.style.background="var(--a-"+e.area+")";
+    bar.addEventListener("mousemove",ev=>showTip(ev,`<b>${e.cargo}</b><br>${e.empresa} · ${e.tipo}<br>${fmtDate(e.inicio)} – ${e.fim?fmtDate(e.fim):"atual"} (${dur(e)})<br><span style="color:var(--muted)">${AREAS[e.area]}</span>`));
+    bar.addEventListener("mouseleave",hideTip);
+    track.appendChild(bar);
+  });
+  row.appendChild(name); row.appendChild(track); grid.appendChild(row);
+});
+// eixo de anos
+const axis=document.createElement("div"); axis.className="tl-axis";
+const spacer=document.createElement("div");
+const years=document.createElement("div"); years.className="tl-years";
+for(let y=YMIN; y<=Math.floor(YMAX); y++){
+  const v=document.createElement("div"); v.className="tl-vline"; v.style.left=px(y)+"%";
+  const t=document.createElement("div"); t.className="tl-yr"; t.style.left=px(y)+"%"; t.textContent=y;
+  years.appendChild(v); years.appendChild(t);
+}
+axis.appendChild(spacer); axis.appendChild(years); grid.appendChild(axis);
+
+// legenda (só áreas usadas)
+const used=[...new Set(DB.alunos.flatMap(a=>a.experiencias.map(e=>e.area)))];
+document.getElementById("legend").innerHTML = used.map(a=>`<span><i class="dot" style="background:var(--a-${a})"></i>${AREAS[a]}</span>`).join("");
+
+// ---- cards ----
+document.getElementById("people").innerHTML = DB.alunos.map((a,i)=>{
+  const ini=a.experiencias.map(e=>e.inicio).sort()[0];
+  const exp = [...a.experiencias].sort((x,y)=>mnum(y.inicio)-mnum(x.inicio)).map(e=>`
+    <li style="--dotc:var(--a-${e.area})">
+      <div class="e-role">${e.cargo}<span class="e-tag" style="background:var(--a-${e.area})">${AREAS[e.area]}</span></div>
+      <div class="e-co">${e.empresa} · ${e.tipo}</div>
+      <div class="e-date">${fmtDate(e.inicio)} – ${e.fim?fmtDate(e.fim):"atual"} · ${dur(e)}</div>
+    </li>`).join("");
+  return `<article class="person">
+    <div class="p-head">
+      <div class="avatar" style="background:${AVATAR[i%AVATAR.length]}">${a.nome.split(' ').pop()}</div>
+      <div>
+        <h3 class="p-name">${a.nome}</h3>
+        <p class="p-role">${a.cargo_atual} · <b>${a.empresa_atual}</b></p>
+        <div class="p-meta">
+          <span class="chip">${a.local_atual}</span>
+          <span class="chip">carreira desde ${fmtDate(a.inicio_carreira_dev)} (~${anos(a.inicio_carreira_dev).toFixed(1)}a)</span>
+          <span class="chip ${a.ainda_em_tech?'tech':'notech'}">${a.ainda_em_tech?'✅ em tech':'↪ fora de tech'+(a.perfil_tech_rotulo?' (ex-'+a.perfil_tech_rotulo+')':'')}</span>
+        </div>
+      </div>
+    </div>
+    <ul class="exp">${exp}</ul>
+  </article>`;
+}).join("");
+
+document.getElementById("foot").innerHTML = `Fonte: perfis profissionais públicos, anonimizados · datas em AAAA-MM, "atual" = ${fmtDate(HOJE)} · barras coloridas por área de atuação.<br>Estágio = bolsista (mesmo conceito) — nesses períodos a remuneração fica abaixo do mercado, o que puxa o salário estimado do início da carreira para baixo.`;
+</script>
+
+</body>
+</html>

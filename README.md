@@ -45,7 +45,13 @@ Dashboard executivo **anonimizado** da trajetória de carreira e renda de **11 e
 
 ## Estrutura do repositório
 
-- `index.html` — o dashboard (página única, autocontida, sem dependências externas).
+Três páginas únicas, autocontidas, sem dependências externas (mobile-first):
+
+- `index.html` — dashboard executivo (visão financeira agregada).
+- `dashboard_alunos.html` — panorama por egresso (A–K): linha do tempo e cards individuais, anonimizados.
+- `evolucao_salario_local.html` — evolução salarial estimada ano a ano de um egresso (Stack Overflow + câmbio + IPCA).
+
+> ⚠️ **Experimental / em construção.** Metodologia ainda em desenvolvimento; dados e conclusões preliminares, sujeitos a alteração.
 
 ---
 
