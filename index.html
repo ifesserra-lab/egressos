@@ -67,6 +67,8 @@
   .mdot{ fill:var(--surface); stroke:var(--accent); stroke-width:2.5; }
   .pvline{ fill:none; stroke:var(--pv); stroke-width:2; stroke-dasharray:2 3; stroke-linejoin:round; stroke-linecap:round; }
   .pvdot{ fill:var(--surface); stroke:var(--pv); stroke-width:2; }
+  .refline{ fill:none; stroke:var(--muted); stroke-width:1.5; stroke-dasharray:6 4; opacity:.8; }
+  .reflab{ fill:var(--muted); font-size:11px; font-weight:600; }
   .anno{ fill:var(--ink); font-size:12px; font-weight:680; }
   .anno-sub{ fill:var(--muted); font-size:10.5px; }
   .xlab{ fill:var(--ink-2); font-size:11.5px; font-variant-numeric:tabular-nums; }
@@ -100,6 +102,7 @@
   .sw-band{ width:20px; height:12px; border-radius:3px; background:var(--band); }
   .sw-line{ width:20px; height:0; border-top:3px solid var(--accent); }
   .sw-pv{ width:20px; height:0; border-top:2px dotted var(--pv); }
+  .sw-ref{ width:20px; height:0; border-top:1.5px dashed var(--muted); }
 </style>
 
 <div class="root">
@@ -122,12 +125,13 @@
 
     <section class="card">
       <h2>Crescimento financeiro por anos de experiência</h2>
-      <p class="hint">Duas leituras: a <b>trajetória real</b> (o que ganharam em cada época, corrigido a R$ de 2026) e <b>a preços de hoje</b> (o que o mercado de 2026 paga por aquela experiência). No início elas se afastam — bolsa de ~R$ 800 vs. ~R$ 3,5k que o mercado hoje paga a um iniciante — e convergem conforme entram no mercado.</p>
+      <p class="hint">Duas leituras: a <b>trajetória real</b> (o que ganharam em cada época, corrigido a R$ de 2026) e <b>a valores de hoje</b> (o que o mercado de 2026 paga por aquela experiência). No início elas se afastam — bolsa de ~R$ 800 vs. ~R$ 3,5k que o mercado hoje paga a um iniciante — e convergem conforme entram no mercado.</p>
       <div class="chart-scroll"><svg id="chart" viewBox="0 0 960 460" role="img" aria-label="Crescimento salarial estimado por anos de experiência"></svg></div>
       <div class="legend">
         <span><i class="sw-line"></i> Trajetória real (valor da época, corrigido)</span>
-        <span><i class="sw-pv"></i> A preços de hoje (mercado 2026)</span>
+        <span><i class="sw-pv"></i> A valores de hoje (mercado 2026)</span>
         <span><i class="sw-band"></i> Faixa típica (p25–p75)</span>
+        <span><i class="sw-ref"></i> Bolsa só corrigida pela inflação</span>
         <span style="color:var(--muted)">— tracejado: só 1 egresso nessa faixa</span>
       </div>
     </section>
@@ -148,7 +152,8 @@
       <h2>Método &amp; ressalvas</h2>
       <ul>
         <li><b>Estimativa, não salário real:</b> cruza os anos de experiência de cada egresso com a mediana de desenvolvedores/analistas de dados no Brasil (Stack Overflow Developer Survey 2018–2023), por câmbio e IPCA da época, trazidos a R$ de 2026.</li>
-        <li><b>Início com valor real de bolsa:</b> os anos de bolsa/estágio usam o valor documentado — R$ 800/mês (bolsa FAPES nível VI, projeto "ES na Palma da Mão", 2018–2020) e R$ 400/mês (bolsa de extensão IFES, 2013–2014), cruzado com os registros da FAPES. Por isso o ponto de partida é tão baixo.</li>
+        <li><b>Início com valor real de bolsa:</b> os anos de bolsa/estágio usam o valor documentado — R$ 800/mês (bolsa FAPES nível VI, projeto "ES na Palma da Mão", 2018–2020) e R$ 400/mês (bolsa de extensão/IC, 2013–2014), cruzado com os registros da FAPES. Por isso o ponto de partida é tão baixo.</li>
+        <li><b>Bolsa quase não acompanhou a inflação:</b> pela <a href="https://fapes.es.gov.br/fapes-reajusta-tabela-de-valores-de-bolsas-e" target="_blank" rel="noopener">tabela atual da FAPES</a>, a Iniciação Científica hoje é <b>R$ 400/mês</b> — o mesmo valor nominal recebido em 2013. Corrigida só pela inflação (linha tracejada), a bolsa da época equivaleria a ~R$ 1.089/mês hoje; o mercado paga ~R$ 3,5k a um iniciante. O ganho dos egressos veio da <b>qualificação</b>, não do reajuste da bolsa.</li>
         <li><b>Anonimizado:</b> sem nomes, empresas ou localidades. Apenas trilha (software/dados) e anos de experiência.</li>
         <li><b>Amostra pequena</b> nas faixas de mais experiência (linha tracejada) — apenas o egresso de carreira mais longa.</li>
       </ul>
@@ -173,7 +178,7 @@ const AGG=[
   {exp:9,lo:14454,hi:21926,med:18796,n:1},{exp:10,lo:19669,hi:31568,med:22047,n:1},{exp:11,lo:21371,hi:31084,med:22727,n:1},
   {exp:12,lo:14802,hi:22414,med:21240,n:1},{exp:13,lo:12908,hi:20136,med:14199,n:1}
 ];
-// "a preços de hoje": o que cada nível de experiência vale no MERCADO DE 2026 (reprecificado hoje)
+// "a valores de hoje": o que cada nível de experiência vale no MERCADO DE 2026 (reprecificado hoje)
 const AGG_PV=[
   {exp:0,med:3563},{exp:1,med:4131},{exp:2,med:5163},{exp:3,med:7744},{exp:4,med:10584},
   {exp:5,med:12736},{exp:6,med:12392},{exp:7,med:14457},{exp:8,med:15166},{exp:9,med:17211},
@@ -212,11 +217,15 @@ const tip=document.getElementById("tip");
 AGG.forEach(d=>{ const c=el("circle",{cx:xs(d.exp),cy:ys(d.med),r:4,class:"mdot"});
   c.addEventListener("mousemove",ev=>{ tip.innerHTML=`<b>${d.exp} anos de exp.</b><br>mediana ${brl(d.med)}<br><span style="color:var(--muted)">faixa ${brl(d.lo)} – ${brl(d.hi)} · ${d.n} perfil${d.n>1?"s":""}</span>`; tip.style.left=ev.clientX+"px"; tip.style.top=ev.clientY+"px"; tip.style.opacity=1; });
   c.addEventListener("mouseleave",()=>tip.style.opacity=0); svg.appendChild(c); });
-// linha "a preços de hoje" (mercado 2026 por experiência)
+// linha "a valores de hoje" (mercado 2026 por experiência)
 let pv=""; AGG_PV.forEach((d,i)=>pv+=(i?"L":"M")+xs(d.exp)+" "+ys(d.med)+" "); svg.appendChild(el("path",{d:pv,class:"pvline"}));
 AGG_PV.forEach(d=>{ const c=el("circle",{cx:xs(d.exp),cy:ys(d.med),r:3,class:"pvdot"});
-  c.addEventListener("mousemove",ev=>{ tip.innerHTML=`<b>${d.exp} anos · a preços de hoje</b><br>mercado 2026 paga ${brl(d.med)}/mês`; tip.style.left=ev.clientX+"px"; tip.style.top=ev.clientY+"px"; tip.style.opacity=1; });
+  c.addEventListener("mousemove",ev=>{ tip.innerHTML=`<b>${d.exp} anos · a valores de hoje</b><br>mercado 2026 paga ${brl(d.med)}/mês`; tip.style.left=ev.clientX+"px"; tip.style.top=ev.clientY+"px"; tip.style.opacity=1; });
   c.addEventListener("mouseleave",()=>tip.style.opacity=0); svg.appendChild(c); });
+// referência: bolsa da época corrigida SÓ pela inflação (mantém poder de compra) — consolidado ~R$ 1.089
+const REF=1089;
+svg.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:ys(REF),y2:ys(REF),class:"refline"}));
+const rlab=el("text",{x:W-m.r,y:ys(REF)-6,"text-anchor":"end",class:"reflab"}); rlab.textContent="bolsa só corrigida pela inflação ~"+brlk(REF)+"/mês"; svg.appendChild(rlab);
 // x labels
 for(let e=0;e<=EXPMAX;e++){ const t=el("text",{x:xs(e),y:H-m.b+20,"text-anchor":"middle",class:"xlab"}); t.textContent=e; svg.appendChild(t); }
 const xt=el("text",{x:m.l+iw/2,y:H-8,"text-anchor":"middle",class:"axtitle"}); xt.textContent="anos de experiência profissional"; svg.appendChild(xt);
@@ -251,7 +260,7 @@ document.getElementById("outcomes").innerHTML=[
   "Todos partiram de <b>estágio/bolsa</b>"
 ].map(t=>`<span class="chip">${t}</span>`).join("");
 
-document.getElementById("foot").innerHTML='Fontes: bolsas iniciais = registros reais da <b>FAPES</b> (valor, nível e período) e IFES; salários de mercado = <a href="https://survey.stackoverflow.co/" target="_blank" rel="noopener">Stack Overflow Developer Survey 2018–2023</a> (devs/dados Brasil) · perfis via LinkedIn → estrutura anônima · câmbio médio anual + IPCA acumulado a jul/2026 · estimativa ilustrativa para fins de apresentação, não representa remuneração real declarada.';
+document.getElementById("foot").innerHTML='Fontes: bolsas iniciais = registros reais da <a href="https://fapes.es.gov.br/fapes-reajusta-tabela-de-valores-de-bolsas-e" target="_blank" rel="noopener"><b>FAPES</b></a> (valor, nível e período) e IFES; salários de mercado = <a href="https://survey.stackoverflow.co/" target="_blank" rel="noopener">Stack Overflow Developer Survey 2018–2023</a> (devs/dados Brasil) · perfis via LinkedIn → estrutura anônima · câmbio médio anual + IPCA acumulado a jul/2026 · estimativa ilustrativa para fins de apresentação, não representa remuneração real declarada.';
 </script>
 
 </body>
