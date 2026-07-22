@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impacto na carreira — visão executiva</title>
+<style>
+  .root{
+    color-scheme:light;
+    --plane:#f3f6f4; --surface:#ffffff; --surface-2:#eef3f0;
+    --ink:#122019; --ink-2:#4a5a53; --muted:#83918a;
+    --line:#e1e8e4; --border:rgba(18,32,25,.10);
+    --accent:#0e8a68; --accent-2:#0b6e53;
+    --band:rgba(14,138,104,.15); --band-thin:rgba(14,138,104,.07);
+    --amber:#bd7d00; --data:#5a4bc4; --sw:#0e8a68;
+    --shadow:0 1px 2px rgba(18,32,25,.05),0 8px 24px rgba(18,32,25,.07);
+    background:var(--plane); color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased;
+    min-height:100%; padding:clamp(18px,4vw,52px); box-sizing:border-box;
+  }
+  @media (prefers-color-scheme:dark){ :root:where(:not([data-theme="light"])) .root{
+    color-scheme:dark; --plane:#0a0e0c; --surface:#141a17; --surface-2:#1d2521;
+    --ink:#eef3f0; --ink-2:#aebab4; --muted:#7a877f; --line:#242c28; --border:rgba(255,255,255,.10);
+    --accent:#2fbc90; --accent-2:#37c99b; --band:rgba(47,188,144,.20); --band-thin:rgba(47,188,144,.08);
+    --amber:#dda52f; --data:#9285ea; --sw:#2fbc90;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.5);
+  }}
+  :root[data-theme="dark"] .root{
+    color-scheme:dark; --plane:#0a0e0c; --surface:#141a17; --surface-2:#1d2521;
+    --ink:#eef3f0; --ink-2:#aebab4; --muted:#7a877f; --line:#242c28; --border:rgba(255,255,255,.10);
+    --accent:#2fbc90; --accent-2:#37c99b; --band:rgba(47,188,144,.20); --band-thin:rgba(47,188,144,.08);
+    --amber:#dda52f; --data:#9285ea; --sw:#2fbc90; --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.5);
+  }
+
+  .wrap{ max-width:1000px; margin:0 auto; display:flex; flex-direction:column; gap:26px; }
+  .eyebrow{ font-size:12px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--accent); margin:0 0 10px; }
+  h1{ font-size:clamp(24px,4.2vw,40px); line-height:1.08; margin:0 0 12px; font-weight:750; letter-spacing:-.02em; text-wrap:balance; }
+  .lede{ font-size:clamp(15px,1.7vw,17px); line-height:1.55; color:var(--ink-2); margin:0; max-width:none; }
+
+  .hero-kpi{ display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:16px; overflow:hidden; box-shadow:var(--shadow); }
+  .hk{ background:var(--surface); padding:22px 20px; }
+  .hk .v{ font-size:clamp(26px,4vw,38px); font-weight:780; letter-spacing:-.02em; line-height:1; font-variant-numeric:tabular-nums; }
+  .hk .v.big{ color:var(--accent); }
+  .hk .v small{ font-size:15px; font-weight:600; color:var(--ink-2); letter-spacing:0; }
+  .hk .k{ font-size:12px; color:var(--muted); margin-top:8px; line-height:1.35; }
+
+  .card{ background:var(--surface); border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); padding:clamp(18px,2.6vw,26px); }
+  .card h2{ font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-2); margin:0 0 4px; font-weight:700; }
+  .card .hint{ font-size:12.5px; color:var(--muted); margin:0 0 18px; }
+
+  .pillars{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+  .pillar{ background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px 20px; box-shadow:var(--shadow); border-top:3px solid var(--accent); }
+  .pillar h3{ margin:0 0 6px; font-size:15px; font-weight:720; }
+  .pillar p{ margin:0; font-size:13px; line-height:1.5; color:var(--ink-2); }
+  .pillar .tag{ font-size:11px; font-weight:600; color:var(--accent); letter-spacing:.04em; text-transform:uppercase; }
+
+  .chart-scroll{ overflow-x:auto; }
+  svg{ display:block; width:100%; height:auto; min-width:560px; }
+  text{ font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .tick{ fill:var(--muted); font-size:11px; font-variant-numeric:tabular-nums; }
+  .gridline{ stroke:var(--line); stroke-width:1; }
+  .baseline{ stroke:var(--border); stroke-width:1; }
+  .band{ fill:var(--band); }
+  .band-thin{ fill:var(--band-thin); }
+  .mline{ fill:none; stroke:var(--accent); stroke-width:3; stroke-linejoin:round; stroke-linecap:round; }
+  .mline-thin{ fill:none; stroke:var(--accent); stroke-width:2.5; stroke-dasharray:5 4; stroke-linejoin:round; }
+  .mdot{ fill:var(--surface); stroke:var(--accent); stroke-width:2.5; }
+  .anno{ fill:var(--ink); font-size:12px; font-weight:680; }
+  .anno-sub{ fill:var(--muted); font-size:10.5px; }
+  .xlab{ fill:var(--ink-2); font-size:11.5px; font-variant-numeric:tabular-nums; }
+  .axtitle{ fill:var(--muted); font-size:11px; }
+
+  /* dumbbell */
+  .db{ display:flex; flex-direction:column; gap:2px; }
+  .db-row{ display:grid; grid-template-columns:118px 1fr 74px; align-items:center; gap:12px; padding:9px 0; border-bottom:1px solid var(--line); }
+  .db-row:last-child{ border-bottom:none; }
+  .db-lab{ font-size:13px; font-weight:650; }
+  .db-lab small{ display:block; font-size:11px; font-weight:500; color:var(--muted); }
+  .db-track{ position:relative; height:20px; }
+  .db-line{ position:absolute; top:9px; height:3px; border-radius:2px; background:linear-gradient(90deg,var(--muted),var(--dbc)); opacity:.5; }
+  .db-a{ position:absolute; top:4px; width:11px; height:11px; border-radius:50%; background:var(--surface); border:2px solid var(--muted); transform:translateX(-50%); }
+  .db-b{ position:absolute; top:3px; width:13px; height:13px; border-radius:50%; background:var(--dbc); box-shadow:0 0 0 2px var(--surface); transform:translateX(-50%); }
+  .db-mult{ font-size:14px; font-weight:750; text-align:right; color:var(--accent); font-variant-numeric:tabular-nums; }
+  .db-scale{ display:grid; grid-template-columns:118px 1fr 74px; gap:12px; margin-top:6px; }
+  .db-ticks{ position:relative; height:14px; }
+  .db-tk{ position:absolute; transform:translateX(-50%); font-size:10px; color:var(--muted); font-variant-numeric:tabular-nums; }
+
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{ font-size:12px; font-weight:600; padding:5px 12px; border-radius:999px; background:var(--surface-2); color:var(--ink-2); border:1px solid var(--border); }
+  .chip b{ color:var(--ink); }
+
+  .notes{ font-size:12px; line-height:1.6; color:var(--ink-2); }
+  .notes h2{ color:var(--amber); }
+  .notes ul{ margin:0; padding-left:18px; display:flex; flex-direction:column; gap:5px; }
+  .foot{ font-size:11px; color:var(--muted); text-align:center; line-height:1.6; }
+  .legend{ display:flex; flex-wrap:wrap; gap:16px; font-size:12px; color:var(--ink-2); margin-top:14px; }
+  .legend span{ display:inline-flex; align-items:center; gap:7px; }
+  .sw-band{ width:20px; height:12px; border-radius:3px; background:var(--band); }
+  .sw-line{ width:20px; height:0; border-top:3px solid var(--accent); }
+</style>
+
+<div class="root">
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">Impacto de ensino · pesquisa · extensão</p>
+      <h1>Da monitoria e do laboratório ao mercado sênior</h1>
+      <p class="lede">Trajetória financeira estimada de quatro egressos que começaram na mesma base — monitoria (ensino), pesquisa aplicada e um laboratório de extensão — e hoje ocupam posições sênior em engenharia de software e dados. Valores em poder de compra de 2026, anonimizados.</p>
+    </header>
+
+    <section class="hero-kpi" id="kpi"></section>
+
+    <section>
+      <div class="pillars">
+        <div class="pillar"><span class="tag">Ensino</span><h3>Monitoria &amp; tutoria</h3><p>Todos passaram por monitoria de disciplinas (programação, estrutura de dados, arquitetura) — a primeira experiência de ensinar e consolidar fundamentos.</p></div>
+        <div class="pillar"><span class="tag">Pesquisa</span><h3>Pesquisa aplicada</h3><p>Projetos de P&amp;D em órgão público (ciência de dados, ETL, APIs) deram o primeiro contato com problemas reais em escala.</p></div>
+        <div class="pillar"><span class="tag">Extensão</span><h3>Laboratório &amp; empresa júnior</h3><p>Laboratório de extensão e empresa júnior forneceram projetos com clientes, metodologias ágeis e liderança antes do primeiro emprego formal.</p></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Crescimento financeiro por anos de experiência</h2>
+      <p class="hint">Faixa consolidada (p25–p75 entre os egressos) e a mediana, do estágio ao momento atual. Eixo em anos de experiência para comparar trajetórias.</p>
+      <div class="chart-scroll"><svg id="chart" viewBox="0 0 960 460" role="img" aria-label="Crescimento salarial estimado por anos de experiência"></svg></div>
+      <div class="legend">
+        <span><i class="sw-line"></i> Mediana consolidada</span>
+        <span><i class="sw-band"></i> Faixa típica (p25–p75)</span>
+        <span style="color:var(--muted)">— tracejado: só 1 egresso nessa faixa de experiência</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Salto individual — do início ao momento atual</h2>
+      <p class="hint">Cada linha: da primeira remuneração (estágio/bolsa) à estimativa atual. Perfis anonimizados; só a trilha é revelada.</p>
+      <div class="db" id="dumbbell"></div>
+      <div class="db-scale"><div></div><div class="db-ticks" id="dbticks"></div><div></div></div>
+    </section>
+
+    <section class="card">
+      <h2>Resultado</h2>
+      <div class="chips" id="outcomes"></div>
+    </section>
+
+    <section class="card notes">
+      <h2>Método &amp; ressalvas</h2>
+      <ul>
+        <li><b>Estimativa, não salário real:</b> cruza os anos de experiência de cada egresso com a mediana de desenvolvedores/analistas de dados no Brasil (Stack Overflow Developer Survey 2018–2023), por câmbio e IPCA da época, trazidos a R$ de 2026.</li>
+        <li><b>Estágio/bolsa</b> (= mesmo conceito) entram com remuneração reduzida, abaixo do mercado — por isso o início baixo.</li>
+        <li><b>Anonimizado:</b> sem nomes, empresas ou localidades. Apenas trilha (software/dados) e anos de experiência.</li>
+        <li><b>Amostra pequena</b> nas faixas de mais experiência (linha tracejada) — apenas o egresso de carreira mais longa.</li>
+      </ul>
+    </section>
+    <p class="foot" id="foot"></p>
+  </div>
+  <div id="tip" style="position:fixed;pointer-events:none;opacity:0;transform:translate(-50%,-115%);background:var(--surface);border:1px solid var(--border);border-radius:9px;box-shadow:var(--shadow);padding:9px 12px;font-size:12px;line-height:1.5;z-index:30;transition:opacity .08s;min-width:150px"></div>
+</div>
+
+<script>
+const KPI={n:4,em_tech:3,cresc_medio:9.4,faixa_inicial_med:1606,faixa_atual_lo:10326,faixa_atual_hi:22374,med_atual:15105};
+const PERFIS=[
+  {perfil:"Perfil A",trilha:"Software",em_tech:true, anos:8, med_ini:1695, med_atual:14629, cresc:8.6},
+  {perfil:"Perfil B",trilha:"Software",em_tech:true, anos:8, med_ini:1695, med_atual:14629, cresc:8.6},
+  {perfil:"Perfil C",trilha:"Dados",   em_tech:true, anos:13,med_ini:1337, med_atual:14199, cresc:10.6},
+  {perfil:"Perfil D",trilha:"Dados",   em_tech:false,anos:5, med_ini:1695, med_atual:16962, cresc:10.0}
+];
+const AGG=[
+  {exp:0,lo:1003,hi:2542,med:1606,n:4},{exp:1,lo:1025,hi:2834,med:1910,n:4},{exp:2,lo:2012,hi:4021,med:2816,n:3},
+  {exp:3,lo:4486,hi:13365,med:8134,n:4},{exp:4,lo:3984,hi:16862,med:9024,n:4},{exp:5,lo:8449,hi:19977,med:13947,n:3},
+  {exp:6,lo:9714,hi:22342,med:13988,n:2},{exp:7,lo:10254,hi:24083,med:15068,n:3},{exp:8,lo:10326,hi:22909,med:14335,n:3},
+  {exp:9,lo:14454,hi:21926,med:18796,n:1},{exp:10,lo:19669,hi:31568,med:22047,n:1},{exp:11,lo:21371,hi:31084,med:22727,n:1},
+  {exp:12,lo:14802,hi:22414,med:21240,n:1},{exp:13,lo:12908,hi:20136,med:14199,n:1}
+];
+const brl=n=>"R$ "+Math.round(n).toLocaleString("pt-BR");
+const brlk=n=>"R$ "+(n/1000).toFixed(n>=10000?0:1).replace(".",",")+"k";
+
+// ---- KPIs ----
+document.getElementById("kpi").innerHTML=`
+  <div class="hk"><div class="v big">${KPI.cresc_medio}×</div><div class="k">crescimento salarial médio (real) do início à posição atual</div></div>
+  <div class="hk"><div class="v">${brl(KPI.faixa_inicial_med)}<small>/mês</small></div><div class="k">ponto de partida médio (estágio / bolsa)</div></div>
+  <div class="hk"><div class="v">R$ ${Math.round(KPI.faixa_atual_lo/1000)}–${Math.round(KPI.faixa_atual_hi/1000)}k<small>/mês</small></div><div class="k">faixa estimada atual (mediana ~${brlk(KPI.med_atual)}/mês)</div></div>
+  <div class="hk"><div class="v">${KPI.em_tech}<small> de ${KPI.n}</small></div><div class="k">seguem em tecnologia; 1 migrou para o setor público</div></div>`;
+
+// ---- growth chart ----
+const W=960,H=460,m={t:30,r:28,b:56,l:76}, iw=W-m.l-m.r, ih=H-m.t-m.b;
+const EXPMAX=13, YMAX=33000;
+const xs=e=>m.l+iw*e/EXPMAX, ys=v=>m.t+ih*(1-v/YMAX);
+const NS="http://www.w3.org/2000/svg", svg=document.getElementById("chart");
+const el=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+for(let v=0;v<=YMAX;v+=8000){ svg.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:ys(v),y2:ys(v),class:"gridline"}));
+  const tk=el("text",{x:m.l-10,y:ys(v)+4,"text-anchor":"end",class:"tick"}); tk.textContent=brlk(v); svg.appendChild(tk); }
+svg.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:ys(0),y2:ys(0),class:"baseline"}));
+// split solid (n>=2) / thin (n==1)
+const solid=AGG.filter(d=>d.n>=2), splitIdx=solid.length-1;
+function bandPath(arr){ let u="",l=""; arr.forEach((d,i)=>u+=(i?"L":"M")+xs(d.exp)+" "+ys(d.hi)+" "); for(let i=arr.length-1;i>=0;i--)l+="L"+xs(arr[i].exp)+" "+ys(arr[i].lo)+" "; return u+l+"Z"; }
+svg.appendChild(el("path",{d:bandPath(solid),class:"band"}));
+const thin=AGG.slice(splitIdx); // inclui ponto de junção
+if(thin.length>1) svg.appendChild(el("path",{d:bandPath(thin),class:"band-thin"}));
+// median lines
+let ml=""; solid.forEach((d,i)=>ml+=(i?"L":"M")+xs(d.exp)+" "+ys(d.med)+" "); svg.appendChild(el("path",{d:ml,class:"mline"}));
+let mt=""; thin.forEach((d,i)=>mt+=(i?"L":"M")+xs(d.exp)+" "+ys(d.med)+" "); if(thin.length>1) svg.appendChild(el("path",{d:mt,class:"mline-thin"}));
+// dots + hover
+const tip=document.getElementById("tip");
+AGG.forEach(d=>{ const c=el("circle",{cx:xs(d.exp),cy:ys(d.med),r:4,class:"mdot"});
+  c.addEventListener("mousemove",ev=>{ tip.innerHTML=`<b>${d.exp} anos de exp.</b><br>mediana ${brl(d.med)}<br><span style="color:var(--muted)">faixa ${brl(d.lo)} – ${brl(d.hi)} · ${d.n} perfil${d.n>1?"s":""}</span>`; tip.style.left=ev.clientX+"px"; tip.style.top=ev.clientY+"px"; tip.style.opacity=1; });
+  c.addEventListener("mouseleave",()=>tip.style.opacity=0); svg.appendChild(c); });
+// x labels
+for(let e=0;e<=EXPMAX;e++){ const t=el("text",{x:xs(e),y:H-m.b+20,"text-anchor":"middle",class:"xlab"}); t.textContent=e; svg.appendChild(t); }
+const xt=el("text",{x:m.l+iw/2,y:H-8,"text-anchor":"middle",class:"axtitle"}); xt.textContent="anos de experiência profissional"; svg.appendChild(xt);
+const yt=el("text",{x:-(m.t+ih/2),y:14,"text-anchor":"middle",class:"axtitle",transform:"rotate(-90)"}); yt.textContent="R$ / mês (real 2026)"; svg.appendChild(yt);
+// annotations start & now
+const a0=AGG[0]; const an1=el("text",{x:xs(a0.exp)+8,y:ys(a0.med)-8,class:"anno"}); an1.textContent="início ~"+brlk(a0.med); svg.appendChild(an1);
+const as1=el("text",{x:xs(a0.exp)+8,y:ys(a0.med)+8,class:"anno-sub"}); as1.textContent="estágio / bolsa"; svg.appendChild(as1);
+const p8=AGG[8]; const an2=el("text",{x:xs(p8.exp)-6,y:ys(p8.med)-12,"text-anchor":"end",class:"anno"}); an2.textContent="sênior ~"+brlk(p8.med); svg.appendChild(an2);
+
+// ---- dumbbell ----
+const DBMAX=18000, dpx=v=>v/DBMAX*100;
+document.getElementById("dumbbell").innerHTML=PERFIS.map(p=>{
+  const c=p.trilha==="Dados"?"var(--data)":"var(--sw)";
+  return `<div class="db-row">
+    <div class="db-lab">${p.perfil}<small>${p.trilha}${p.em_tech?"":" · migrou"} · ${p.anos}a</small></div>
+    <div class="db-track" style="--dbc:${c}">
+      <div class="db-line" style="left:${dpx(p.med_ini)}%;width:${Math.max(dpx(p.med_atual)-dpx(p.med_ini),1)}%"></div>
+      <div class="db-a" style="left:${dpx(p.med_ini)}%" title="início ${brl(p.med_ini)}"></div>
+      <div class="db-b" style="left:${dpx(p.med_atual)}%" title="atual ${brl(p.med_atual)}"></div>
+    </div>
+    <div class="db-mult">${p.cresc}×</div>
+  </div>`;}).join("");
+let dbt=""; for(let v=0;v<=DBMAX;v+=6000) dbt+=`<div class="db-tk" style="left:${dpx(v)}%">${brlk(v)}</div>`;
+document.getElementById("dbticks").innerHTML=dbt;
+
+// ---- outcomes ----
+document.getElementById("outcomes").innerHTML=[
+  "<b>2</b> engenheiros de software sênior (1 atuando no exterior, remoto)",
+  "<b>1</b> em dados / machine learning sênior",
+  "<b>1</b> migrou para o setor público (defesa)",
+  "Origem comum: <b>monitoria + pesquisa + extensão</b>",
+  "Todos partiram de <b>estágio/bolsa</b>"
+].map(t=>`<span class="chip">${t}</span>`).join("");
+
+document.getElementById("foot").innerHTML="Fonte: perfis públicos de LinkedIn → estrutura anônima · Stack Overflow Developer Survey 2018–2023 (devs/dados Brasil) · câmbio médio anual + IPCA acumulado a jul/2026 · estimativa ilustrativa para fins de apresentação, não representa remuneração real declarada.";
+</script>
+
+</body>
+</html>
