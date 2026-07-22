@@ -146,6 +146,19 @@
   .sw-pv{ width:20px; height:0; border-top:2px dotted var(--pv); }
   .sw-ref{ width:20px; height:0; border-top:1.5px dashed var(--muted); }
 </style>
+<style>
+.exp-banner{position:fixed;top:0;left:0;right:0;z-index:99999;background:#c62828;color:#fff;
+  font:600 14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;
+  padding:11px 18px;letter-spacing:.02em;box-shadow:0 2px 10px rgba(0,0,0,.28);
+  background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.14) 0 14px,transparent 14px 28px)}
+.exp-banner strong{font-weight:800;letter-spacing:.06em}
+.root,.viz-root{padding-top:clamp(64px,7vw,80px)!important}
+@media(max-width:640px){.exp-banner{font-size:12px;padding:9px 12px}}
+</style>
+
+<div class="exp-banner" role="alert">
+  ⚠️ <strong>SITE EXPERIMENTAL</strong> — em construção. Metodologia ainda sendo desenvolvida; dados e conclusões preliminares, sujeitos a alteração.
+</div>
 
 <div class="root">
   <div class="wrap">
