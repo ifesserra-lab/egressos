@@ -80,6 +80,16 @@
   .epdot-ex{ fill:var(--surface); stroke:var(--pv); stroke-width:1.5; }
   .eplab{ fill:var(--pv); font-size:9.5px; font-weight:700; }
   .sw-ep{ width:20px; height:0; border-top:2.5px dashed var(--pv); }
+  .atable{ width:100%; border-collapse:collapse; font-size:13px; margin-top:8px; }
+  .atable th,.atable td{ text-align:left; padding:8px 10px; border-bottom:1px solid var(--border); }
+  .atable th{ color:var(--muted); font-weight:700; font-size:10.5px; text-transform:uppercase; letter-spacing:.04em; }
+  .atable td.n{ text-align:center; font-variant-numeric:tabular-nums; }
+  .atable td.tot{ font-weight:700; }
+  .atable tr:last-child td{ border-bottom:none; }
+  .clist{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px; }
+  .clist li{ display:flex; gap:10px; align-items:flex-start; }
+  .cdot{ flex:none; width:10px; height:10px; border-radius:50%; margin-top:4px; }
+  .clist b{ font-size:13.5px; } .clist small{ color:var(--muted); display:block; font-size:12px; line-height:1.45; }
   .cf-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:18px; margin-bottom:14px; }
   .cf-grid h4{ font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin:0 0 9px; font-weight:700; }
   .chip.num b{ color:var(--accent); }
@@ -258,6 +268,49 @@
     <section class="card">
       <h2>Resultado</h2>
       <div class="chips" id="outcomes"></div>
+    </section>
+
+    <section class="card">
+      <h2>Análise do grupo — tecnologias, perfis e destinos</h2>
+      <p class="hint">Padrões extraídos dos 11 egressos (trilha, stack, senioridade e tipo de empregador). Perfis anonimizados (A–K); empregadores agregados como nacional × internacional.</p>
+      <div class="cf-grid">
+        <div>
+          <h4>Stack mais usada (nº de egressos)</h4>
+          <div class="chips">
+            <span class="chip num">Angular <b>5</b></span>
+            <span class="chip num">Node.js <b>5</b></span>
+            <span class="chip num">.NET <b>4</b></span>
+            <span class="chip num">Ionic <b>4</b></span>
+            <span class="chip num">GraphQL <b>4</b></span>
+            <span class="chip num">MongoDB <b>3</b></span>
+            <span class="chip num">NestJS <b>3</b></span>
+            <span class="chip num">Java <b>3</b></span>
+            <span class="chip num">Docker <b>3</b></span>
+            <span class="chip num">Python <b>3</b></span>
+          </div>
+          <p class="hint" style="margin-top:9px">Ecossistema <b>JavaScript/TypeScript + .NET</b>, com mobile híbrido (Ionic) e nuvem (Docker/AWS/GCP). Alinhado às linguagens mais bem pagas da Código Fonte (Go, Kotlin, Java, Python).</p>
+        </div>
+        <div>
+          <h4>Três perfis recorrentes (clusters)</h4>
+          <ul class="clist">
+            <li><span class="cdot" style="background:var(--sw)"></span><div><b>Núcleo software &amp; liderança — 6 perfis</b><small>Backend/fullstack, ~8,7 anos de carreira; 4 já são tech lead ou coordenador. Maioria no Brasil.</small></div></li>
+            <li><span class="cdot" style="background:var(--data)"></span><div><b>Dados &amp; consultoria — 3 perfis</b><small>Consultoria de banco de dados e engenharia de ML/dados, ~12 anos. Um migrou para o setor público.</small></div></li>
+            <li><span class="cdot" style="background:var(--pv)"></span><div><b>Carreira internacional — 2 perfis</b><small>Desenvolvimento mobile e liderança técnica, atuando no exterior (~12 anos).</small></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <h4 style="margin:18px 0 0">Senioridade × empregador (nacional / internacional)</h4>
+      <table class="atable">
+        <thead><tr><th>Senioridade atual</th><th class="n">Nacional</th><th class="n">Internacional</th><th class="n">Total</th></tr></thead>
+        <tbody>
+          <tr><td>Sênior</td><td class="n">2</td><td class="n">3</td><td class="n tot">5</td></tr>
+          <tr><td>Especialista / Tech Lead</td><td class="n">2</td><td class="n">3</td><td class="n tot">5</td></tr>
+          <tr><td>Fora de tecnologia</td><td class="n">1</td><td class="n">—</td><td class="n tot">1</td></tr>
+          <tr><td class="tot">Total</td><td class="n tot">5</td><td class="n tot">6</td><td class="n tot">11</td></tr>
+        </tbody>
+      </table>
+      <p class="hint" style="margin-top:10px"><b>6 dos 10 egressos em tecnologia trabalham para empresas internacionais</b> (Europa, América Latina e EUA/global) — <b>todos em nível Sênior ou superior</b>. A mediana estimada do grupo hoje (~R$ 15,9k) fica <b>~9% acima</b> do Sênior nacional da Código Fonte 2026 (R$ 14,6k). <b>Ressalva:</b> as estimativas partem da curva do mercado brasileiro por experiência (Stack Overflow), então <b>não capturam o prêmio real de contratos em moeda estrangeira</b> — o dado aqui é de <b>composição</b> (para onde foram), não de remuneração comparada. <b>8 dos 11 começaram como bolsistas/estagiários</b> de IC/extensão; a rotatividade média é de ~2,1 anos por empresa.</p>
     </section>
 
     <section class="card notes">
