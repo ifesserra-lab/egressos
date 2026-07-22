@@ -75,6 +75,11 @@
   .cfdot{ fill:var(--surface); stroke:var(--data); stroke-width:2.5; }
   .cflab{ fill:var(--data); font-size:10.5px; font-weight:700; }
   .sw-cf{ width:20px; height:0; border-top:3px solid var(--data); }
+  .epline{ fill:none; stroke:var(--pv); stroke-width:2.5; stroke-dasharray:6 4; stroke-linejoin:round; stroke-linecap:round; }
+  .epdot{ fill:var(--pv); stroke:var(--surface); stroke-width:1.5; }
+  .epdot-ex{ fill:var(--surface); stroke:var(--pv); stroke-width:1.5; }
+  .eplab{ fill:var(--pv); font-size:9.5px; font-weight:700; }
+  .sw-ep{ width:20px; height:0; border-top:2.5px dashed var(--pv); }
   .cf-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:18px; margin-bottom:14px; }
   .cf-grid h4{ font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin:0 0 9px; font-weight:700; }
   .chip.num b{ color:var(--accent); }
@@ -166,14 +171,15 @@
 
     <section class="card">
       <h2>Crescimento por anos de experiência — mercado brasileiro (Código Fonte 2026)</h2>
-      <p class="hint">Curva do mercado nacional (Código Fonte 2026, cada senioridade posicionada na experiência típica) e a trajetória real dos egressos — ambas em R$/mês de 2026.</p>
-      <div class="chart-scroll"><svg id="chart2" viewBox="0 0 960 430" role="img" aria-label="Crescimento por experiência — Código Fonte 2026"></svg></div>
+      <p class="hint">Duas leituras do mercado nacional (Código Fonte) por senioridade, ao lado da trajetória real dos egressos — todas em R$/mês de 2026: <b>a valores de hoje</b> (edição 2026) e <b>valor da época</b> (a edição do ano em que cada senioridade foi atingida, corrigida por IPCA), como no primeiro gráfico.</p>
+      <div class="chart-scroll"><svg id="chart2" viewBox="0 0 960 430" role="img" aria-label="Crescimento por experiência — Código Fonte"></svg></div>
       <div class="legend">
         <span><i class="sw-line"></i> Trajetória real dos egressos</span>
-        <span><i class="sw-cf"></i> Mercado nacional — média por senioridade (Código Fonte 2026)</span>
+        <span><i class="sw-cf"></i> Mercado a valores de hoje (Código Fonte 2026)</span>
+        <span><i class="sw-ep"></i> Mercado — valor da época dos egressos (IPCA 2026)</span>
         <span><i class="sw-cfband"></i> Faixa de mercado (CLT↔PJ · variação entre estados)</span>
       </div>
-      <p class="hint" style="margin:12px 0 0">A pesquisa Código Fonte só publica a <b>média</b> por senioridade. Como ela não traz percentis, a <b>sombra</b> é uma faixa estimada a partir da dispersão que a própria pesquisa mostra: piso ≈ CLT no estado de menor média, teto ≈ PJ no estado de maior média (fatores ~0,85× e ~1,31× sobre a média). É ilustrativa, não um intervalo amostral.</p>
+      <p class="hint" style="margin:12px 0 0"><b>Valor da época:</b> cada senioridade é precificada com a edição da Código Fonte do ano mediano em que os egressos a atingiram (Pleno ≈ 2021, Sênior/Espec. ≈ 2024), corrigida pela inflação (IPCA) a R$ de 2026 — mesma lógica do gráfico anterior. A pesquisa só existe desde 2021, então Estágio (~2017) e Júnior (~2019) — a era da bolsa — usam a edição 2021 corrigida e ficam marcados como <b>extrapolados</b> (pontos ocos). A <b>sombra</b> é ilustrativa (piso ≈ CLT no estado de menor média, teto ≈ PJ no de maior; ~0,85× e ~1,31× sobre a média de 2026), não um intervalo amostral. Fonte: <a href="https://pesquisa.codigofonte.com.br" target="_blank" rel="noopener">Pesquisa Código Fonte</a> (edições 2021–2026).</p>
     </section>
 
     <section class="card">
@@ -416,6 +422,16 @@ document.getElementById("outcomes").innerHTML=[
     dot.addEventListener("mousemove",ev=>{ tip2.innerHTML=`<b>${d.l}</b><br>~${d.e} anos · ${brl(d.v)}/mês`; tip2.style.left=ev.clientX+"px"; tip2.style.top=ev.clientY+"px"; tip2.style.opacity=1; });
     dot.addEventListener("mouseleave",()=>tip2.style.opacity=0); s.appendChild(dot);
     const t=E("text",{x:X(d.e),y:Y(d.v)-9,"text-anchor":d.e>=11?"end":"middle",class:"cflab"}); t.textContent=d.l; s.appendChild(t); });
+  // Código Fonte — valor da ÉPOCA dos egressos, corrigido por IPCA a 2026.
+  // Cada senioridade precificada no ANO MEDIANO em que os egressos a atingiram, com a edição CF desse ano × IPCA→2026.
+  // Estágio (mediana ~2017) e Júnior (~2019) são pré-2021 (era da bolsa) → edição 2021 corrigida = EXTRAPOLADO (pontos ocos).
+  // Pleno=2021, Sênior=2024, Espec.=2024 usam a edição real do ano. Fonte: data/codigofonte_historico.json.
+  const CFEP=[{e:0,v:1637,ex:1,y:"~2017→ed.2021"},{e:1.5,v:3657,ex:1,y:"~2019→ed.2021"},{e:4,v:6921,ex:0,y:"2021"},{e:7.5,v:16044,ex:0,y:"2024"},{e:11,v:19404,ex:0,y:"2024"}];
+  let ep=""; CFEP.forEach((d,i)=>ep+=(i?"L":"M")+X(d.e)+" "+Y(d.v)+" "); s.appendChild(E("path",{d:ep,class:"epline"}));
+  CFEP.forEach(d=>{ const dot=E("circle",{cx:X(d.e),cy:Y(d.v),r:3.5,class:d.ex?"epdot-ex":"epdot"});
+    dot.addEventListener("mousemove",ev=>{ tip2.innerHTML=`<b>Código Fonte · valor da época</b><br>${brl(d.v)}/mês (R$ de 2026)<br><span style="color:var(--muted)">edição ${d.y}${d.ex?" · extrapolado (CF só desde 2021)":""}</span>`; tip2.style.left=ev.clientX+"px"; tip2.style.top=ev.clientY+"px"; tip2.style.opacity=1; });
+    dot.addEventListener("mouseleave",()=>tip2.style.opacity=0); s.appendChild(dot); });
+  { const t=E("text",{x:X(1.5),y:Y(3657)+18,"text-anchor":"middle",class:"eplab"}); t.textContent="◌ extrapolado (pré-2021)"; s.appendChild(t); }
   // rótulos das bordas da faixa (o que é piso e o que é teto)
   const lastCF=CFX[CFX.length-1];
   const tHi=E("text",{x:X(lastCF.e)-4,y:Y(lastCF.v*HIM)-7,"text-anchor":"end",class:"cflab"}); tHi.textContent="teto ≈ PJ · estado + alto"; s.appendChild(tHi);
