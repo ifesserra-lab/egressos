@@ -373,7 +373,7 @@
 
     <section class="card">
       <h2>Empresas &amp; regiões</h2>
-      <p class="hint">Onde os 37 egressos trabalham hoje — região, setor e porte do empregador. Agregado, anonimizado (sem nomes de empresa).</p>
+      <p class="hint">Onde os 37 egressos trabalham hoje — região, setor e porte do empregador. Agregado, anonimizado (sem nomes de empresa). Porte e origem classificados por IA (Mistral) a partir do nome das <b>157 empresas</b> da trajetória.</p>
       <div class="cf-grid">
         <div>
           <h4>Região do empregador atual (nº de egressos)</h4>
@@ -387,7 +387,10 @@
           <div class="chips" id="empporte"></div>
         </div>
       </div>
-      <p class="hint" style="margin-top:12px"><b>Base no ES, alcance global:</b> a maioria segue na Grande Vitória, mas <b>14 dos 37</b> estão em multinacional/BigTech e 4 no exterior — a formação local projeta para o mercado global sem exigir migração. Ao todo passaram por <b>156 empresas distintas</b>; uma única empresa local (de tecnologia, na Grande Vitória) concentrou <b>8 egressos</b> — porta de entrada regional recorrente.</p>
+      <p class="hint" style="margin-top:12px"><b>Base no ES, alcance global:</b> a maioria segue na Grande Vitória, mas <b>8 dos 37</b> estão em multinacional/BigTech e 4 no exterior — a formação local projeta para o mercado global sem exigir migração. Empregador nacional em <b>26</b> casos e internacional em <b>9</b> (2 não classificados). Ao todo passaram por <b>156 empresas distintas</b>; uma única empresa local (de tecnologia, na Grande Vitória) concentrou <b>8 egressos</b> — porta de entrada regional recorrente.</p>
+      <h4 style="margin:18px 0 0">Região × porte do empregador (nº de egressos)</h4>
+      <div class="chart-scroll"><svg id="empheat" viewBox="0 0 900 250" role="img" aria-label="Heatmap região × porte"></svg></div>
+      <p class="hint">Cruzamento: onde estão (região) × tamanho do empregador (porte via Mistral AI). Destaque para <b>ES × startup/scale-up</b> (8) e <b>ES × grande nacional</b> (5) — trabalha-se para empresas de todos os portes sem sair da Grande Vitória (remoto). Cor ∝ nº de egressos.</p>
     </section>
 
     <section class="card">
@@ -699,13 +702,33 @@ document.getElementById("impkpi").innerHTML=IMPACTO.tiles.map(t=>`<div class="hk
 const EMPRESAS={
   regiao:[["ES — Grande Vitória",21],["Remoto / não-declarado",8],["Exterior",4],["Outro (BR)",2],["Rio de Janeiro",1],["Santa Catarina",1]],
   setor:[["Produto / scale-up / startup",9],["Fintech / banco",7],["BigTech / software global",5],["Outros / nacional",5],["Consultoria / serviços globais",4],["Varejo / e-commerce",3],["Saúde",2],["Energia / indústria",1],["Setor público / defesa",1]],
-  porte:[["Multinacional / BigTech",14],["Startup / scale-up / PME",10],["Grande nacional",7],["PME / não-classificado",5],["Setor público",1]]
+  porte:[["Startup / scale-up",13],["Multinacional / BigTech",8],["Grande nacional",8],["Média nacional",4],["Não classificada",3],["Setor público",1]]
 };
 if(document.getElementById("empregiao")){
   document.getElementById("empregiao").innerHTML=EMPRESAS.regiao.map(([r,n])=>`<div style="display:flex;align-items:center;gap:9px;margin:6px 0"><div style="flex:0 0 160px;font-size:12px;color:var(--ink-2)">${r}</div><div style="flex:1;background:var(--surface-2);border-radius:5px;overflow:hidden;height:16px"><div style="width:${(n/37*100).toFixed(0)}%;background:var(--accent);height:16px;border-radius:5px"></div></div><b style="flex:0 0 24px;text-align:right;font-size:12.5px;font-variant-numeric:tabular-nums">${n}</b></div>`).join("");
   document.getElementById("empsetor").innerHTML=EMPRESAS.setor.map(([s,n])=>`<span class="chip num">${s} <b>${n}</b></span>`).join("");
   document.getElementById("empporte").innerHTML=EMPRESAS.porte.map(([p,n])=>`<span class="chip num">${p} <b>${n}</b></span>`).join("");
 }
+// heatmap região × porte
+const HEATMAP={regioes:["ES","Remoto/ND","Outro BR","Exterior"],
+  portes:["Multi/BigTech","Grande nac.","Média nac.","Startup/SU","Público","N/C"],
+  matriz:[[4,5,3,8,0,1],[2,3,0,1,0,2],[2,0,0,1,1,0],[0,0,1,3,0,0]]};
+(function(){
+  const svg=document.getElementById("empheat"); if(!svg) return;
+  const NS="http://www.w3.org/2000/svg", E=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+  const W=900,H=250, mL=118, mT=48, cols=HEATMAP.portes.length, rows=HEATMAP.regioes.length;
+  const cw=(W-mL-20)/cols, ch=(H-mT-20)/rows;
+  const mx=Math.max(...HEATMAP.matriz.flat());
+  HEATMAP.portes.forEach((p,c)=>{ const t=E("text",{x:mL+cw*c+cw/2,y:mT-14,"text-anchor":"middle","font-size":10,"font-weight":700,fill:"var(--ink-2)"}); t.textContent=p; svg.appendChild(t); });
+  HEATMAP.regioes.forEach((rg,r)=>{
+    const rl=E("text",{x:mL-10,y:mT+ch*r+ch/2+4,"text-anchor":"end","font-size":12,"font-weight":650,fill:"var(--ink-2)"}); rl.textContent=rg; svg.appendChild(rl);
+    HEATMAP.matriz[r].forEach((v,c)=>{
+      const op=v===0?0.05:(0.15+0.75*v/mx);
+      svg.appendChild(E("rect",{x:mL+cw*c+3,y:mT+ch*r+3,width:cw-6,height:ch-6,rx:6,fill:"var(--accent)","fill-opacity":op,stroke:"var(--border)","stroke-width":1}));
+      if(v>0){ const t=E("text",{x:mL+cw*c+cw/2,y:mT+ch*r+ch/2+5,"text-anchor":"middle","font-size":15,"font-weight":750,fill:(op>0.5?"#fff":"var(--ink)")}); t.textContent=v; svg.appendChild(t); }
+    });
+  });
+})();
 document.getElementById("origbars").innerHTML=IMPACTO.origem.map(o=>`<div style="display:flex;align-items:center;gap:9px;margin:7px 0"><div style="flex:0 0 150px;font-size:12px;color:var(--ink-2)">${o.l}</div><div style="flex:1;background:var(--surface-2);border-radius:5px;overflow:hidden;height:16px"><div style="width:${(o.n/23*100).toFixed(0)}%;background:var(--accent);height:16px;border-radius:5px"></div></div><b style="flex:0 0 26px;text-align:right;font-size:12.5px;font-variant-numeric:tabular-nums">${o.n}</b></div>`).join("");
 (function(){
   const svg=document.getElementById("boxplot"), NS="http://www.w3.org/2000/svg";
