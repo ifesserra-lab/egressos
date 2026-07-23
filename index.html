@@ -396,21 +396,21 @@
 
     <section class="card">
       <h2>Gênero &amp; representação</h2>
-      <p class="hint">Recorte por gênero, inferido <b>offline</b> do primeiro nome (nunca enviado a serviço externo) — binário aproximado, para representação agregada, <b>não</b> identidade declarada. <b>Amostra pequena (6 mulheres): leitura direcional, não estatística.</b></p>
+      <p class="hint">Recorte por gênero, inferido <b>offline</b> do primeiro nome (nunca enviado a serviço externo) — binário aproximado, para representação agregada, <b>não</b> identidade declarada. Salário é <b>estimado</b> (curva de mercado Stack Overflow por trilha + experiência), não a folha real. <b>Amostra pequena (7 mulheres): leitura direcional, não estatística.</b></p>
       <div class="hero-kpi" id="genkpi" style="margin-bottom:16px"></div>
       <div class="cf-grid">
         <div>
-          <h4>Mediana salarial atual por gênero</h4>
+          <h4>Mediana salarial <b>estimada</b> por gênero</h4>
           <div id="genbars"></div>
-          <p class="hint" style="margin-top:9px">Quase paridade: mulheres na <b>~98%</b> da mediana masculina (gap ~2%), contra ~20–30% de gap típico em TI no Brasil. Início praticamente idêntico (R$ 1.723 vs R$ 1.726) e crescimento mediano similar (9,2× vs 9,8×).</p>
+          <p class="hint" style="margin-top:9px"><b>Não é gap de pagamento real.</b> O valor é estimado por uma curva de mercado (Stack Overflow) que usa só <b>trilha + anos de experiência — cega a gênero</b>. O ~99% apenas indica que F e M têm <b>perfis de senioridade equivalentes</b>, não equidade salarial. No próprio mercado BR a mediana feminina fica <b>~13–16% abaixo</b> da masculina (SO 2021–22). No coorte, o início nominal foi menor para elas (F R$ 1.723 &lt; M R$ 2.556) e o crescimento mediano maior (F 9,2× &gt; M 6,2×).</p>
         </div>
         <div>
           <h4>Direcional (n pequeno)</h4>
           <div class="chips" id="gendir"></div>
-          <p class="hint" style="margin-top:9px"><b>Onde está o gap:</b> internacionalização — nenhuma das 6 mulheres está hoje em empregador internacional ou no exterior (homens: 4 no exterior, 13 em empregador internacional). Já em <b>retenção</b> (100% seguem em tech) e <b>gestão/liderança</b> (33% delas) a paridade é boa.</p>
+          <p class="hint" style="margin-top:9px"><b>Onde está o gap:</b> internacionalização — nenhuma das <b>7 mulheres</b> está hoje em empregador internacional ou no exterior (homens: 4 no exterior, 13 em empregador internacional). Já em <b>retenção</b> (100% seguem em tech) e <b>gestão/liderança</b> (2 das 7) o quadro é mais equilibrado.</p>
         </div>
       </div>
-      <p class="hint" style="margin-top:10px"><b>Fomento:</b> 2 das 6 mulheres foram bolsistas de projetos FAPES (33%), acima do baseline de 16% — a pesquisa financiada chegou proporcionalmente mais às egressas.</p>
+      <p class="hint" style="margin-top:10px"><b>Fomento:</b> das 6 bolsas de pesquisa FAPES da coorte, <b>2 foram para mulheres</b> (33%) — acima da participação feminina geral (14%). A pesquisa financiada chegou proporcionalmente mais às egressas.</p>
     </section>
 
     <section class="card">
@@ -780,7 +780,7 @@ if(document.getElementById("genkpi")){
   const ratio=Math.round(100*GEN.med.f/GEN.med.m);
   document.getElementById("genkpi").innerHTML=[
     [`${GEN.pctF}%`,`mulheres — ${GEN.f} de ${GEN.f+GEN.m} egressos`],
-    [`~${ratio}%`,"paridade salarial (mediana feminina ÷ masculina) — gap ~2%"],
+    [`~${ratio}%`,"mediana <b>estimada</b> F ÷ M — modelo cego a gênero (mede perfil de senioridade, <b>não</b> equidade salarial)"],
     ["100%","retenção em tecnologia — mulheres e homens"],
   ].map(([v,k])=>`<div class="hk"><div class="v">${v}</div><div class="k">${k}</div></div>`).join("");
   const mx=Math.max(GEN.med.f,GEN.med.m);
