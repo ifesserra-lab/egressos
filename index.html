@@ -503,6 +503,36 @@
       <div class="chart-scroll"><svg id="sankey2" viewBox="0 0 900 300" role="img" aria-label="Trilha de carreira: início → meio → atual"></svg></div>
       <p class="hint">Área dominante em cada terço da linha do tempo de cada egresso: <b>início</b> (1º terço) → <b>meio</b> → <b>atual</b>. <b>Software é o hub</b> — <b>41 dos 50</b> entram por engenharia de software; ao longo da carreira uma parte migra para <b>Dados</b> (8 hoje) e, sobretudo, sobe para <b>Gestão/Liderança</b> (12 hoje — quase todos vindos de dev). Mobile aparece como fase intermediária (aprende, aplica, segue). Largura ∝ nº de egressos.</p>
 
+      <h4 style="margin:22px 0 2px">Árvore de caminhos — quem começa como dev, para onde vai</h4>
+      <p class="hint" style="margin:0 0 12px"><b>41 dos 50</b> começam como <b>dev / Software</b>. A partir daí há três bifurcações principais — <b>subir para gestão</b>, <b>aprender mobile</b> ou <b>migrar para dados</b> — além de quem permanece. O número do card é <b>a 1ª mudança de área</b>; “hoje” é onde estão agora (muitos de gestão/mobile voltam a codar).</p>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="align-self:flex-start;border:1.5px solid var(--sw);border-radius:10px;padding:10px 15px;background:var(--surface-2);font-weight:750;font-size:13.5px">▶ Começou como Dev / Software <span style="color:var(--muted);font-weight:600">· 41 de 50 egressos</span></div>
+        <div style="padding-left:16px;color:var(--muted);font-size:12px;margin:-4px 0">└─ e então seguem um dos caminhos:</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px">
+          <div style="border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:11px 13px;background:var(--surface)">
+            <div style="font-size:11px;color:var(--muted);font-weight:700">CAMINHO A · mais comum</div>
+            <div style="font-weight:700;font-size:13.5px;margin:2px 0">Sobe p/ Gestão / Liderança <span style="color:var(--accent)">· 14</span></div>
+            <div class="hint" style="margin:5px 0 0">Hoje: <b>8</b> seguem em gestão · <b>6</b> voltaram a codar</div>
+          </div>
+          <div style="border:1px solid var(--border);border-left:4px solid var(--amber);border-radius:10px;padding:11px 13px;background:var(--surface)">
+            <div style="font-size:11px;color:var(--muted);font-weight:700">CAMINHO B</div>
+            <div style="font-weight:700;font-size:13.5px;margin:2px 0">Aprende Mobile <span style="color:var(--amber)">· 11</span></div>
+            <div class="hint" style="margin:5px 0 0">Hoje: <b>6</b> dev · <b>3</b> gestão · <b>2</b> mobile</div>
+          </div>
+          <div style="border:1px solid var(--border);border-left:4px solid var(--data);border-radius:10px;padding:11px 13px;background:var(--surface)">
+            <div style="font-size:11px;color:var(--muted);font-weight:700">CAMINHO C</div>
+            <div style="font-weight:700;font-size:13.5px;margin:2px 0">Migra p/ Dados <span style="color:var(--data)">· 10</span></div>
+            <div class="hint" style="margin:5px 0 0">Hoje: <b>5</b> dados · <b>2</b> dev · <b>2</b> gestão · 1 acad.</div>
+          </div>
+          <div style="border:1px solid var(--border);border-left:4px solid var(--sw);border-radius:10px;padding:11px 13px;background:var(--surface)">
+            <div style="font-size:11px;color:var(--muted);font-weight:700">CAMINHO D</div>
+            <div style="font-weight:700;font-size:13.5px;margin:2px 0">Permanece em Software <span style="color:var(--sw)">· 6</span></div>
+            <div class="hint" style="margin:5px 0 0">Hoje: <b>6</b> seguem em engenharia de software</div>
+          </div>
+        </div>
+      </div>
+      <p class="hint" style="margin-top:10px"><b>9 dos 50</b> entraram por outra área: Acadêmico (3), Mobile (3), Dados (2), Gestão (1). Base: sequência cronológica de áreas por egresso (alunos.json), colapsando repetições.</p>
+
       <h4 style="margin:20px 0 0">Internacionalização ao longo do tempo</h4>
       <div class="chart-scroll"><svg id="intltl" viewBox="0 0 900 240" role="img" aria-label="Internacionalização ao longo do tempo"></svg></div>
       <p class="hint">Acumulado: % dos egressos que já atuavam para um empregador internacional em cada ano. Decola a partir de <b>2020</b> — chega a <b>24%</b> em 2026 (12 de 50).</p>
