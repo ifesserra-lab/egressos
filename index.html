@@ -391,6 +391,26 @@
       <h4 style="margin:18px 0 0">Região × porte do empregador (nº de egressos)</h4>
       <div class="chart-scroll"><svg id="empheat" viewBox="0 0 900 250" role="img" aria-label="Heatmap região × porte"></svg></div>
       <p class="hint">Cruzamento: onde estão (região) × tamanho do empregador (porte via Mistral AI). Destaque para <b>ES × startup/scale-up</b> (8) e <b>ES × grande nacional</b> (5) — trabalha-se para empresas de todos os portes sem sair da Grande Vitória (remoto). Cor ∝ nº de egressos.</p>
+      <p class="hint" style="font-size:11.5px;border-top:1px solid var(--border);padding-top:9px"><b>Legenda —</b> <b>porte:</b> Multi/BigTech = multinacional / BigTech · Grande nac. = grande empresa nacional · Média nac. = média empresa nacional · Startup/SU = startup / scale-up · Público = setor público · <b>N/C</b> = não classificada (empresa não reconhecida pela IA). <b>Região:</b> ES = Grande Vitória · <b>Remoto/ND</b> = remoto ou <b>não-declarado</b> · Outro BR = outros estados do Brasil.</p>
+    </section>
+
+    <section class="card">
+      <h2>Gênero &amp; representação</h2>
+      <p class="hint">Recorte por gênero, inferido <b>offline</b> do primeiro nome (nunca enviado a serviço externo) — binário aproximado, para representação agregada, <b>não</b> identidade declarada. <b>Amostra pequena (6 mulheres): leitura direcional, não estatística.</b></p>
+      <div class="hero-kpi" id="genkpi" style="margin-bottom:16px"></div>
+      <div class="cf-grid">
+        <div>
+          <h4>Mediana salarial atual por gênero</h4>
+          <div id="genbars"></div>
+          <p class="hint" style="margin-top:9px">Quase paridade: mulheres na <b>~98%</b> da mediana masculina (gap ~2%), contra ~20–30% de gap típico em TI no Brasil. Início praticamente idêntico (R$ 1.723 vs R$ 1.726) e crescimento mediano similar (9,2× vs 9,8×).</p>
+        </div>
+        <div>
+          <h4>Direcional (n pequeno)</h4>
+          <div class="chips" id="gendir"></div>
+          <p class="hint" style="margin-top:9px"><b>Onde está o gap:</b> internacionalização — nenhuma das 6 mulheres está hoje em empregador internacional ou no exterior (homens: 4 no exterior, 13 em empregador internacional). Já em <b>retenção</b> (100% seguem em tech) e <b>gestão/liderança</b> (33% delas) a paridade é boa.</p>
+        </div>
+      </div>
+      <p class="hint" style="margin-top:10px"><b>Fomento:</b> 2 das 6 mulheres foram bolsistas de projetos FAPES (33%), acima do baseline de 16% — a pesquisa financiada chegou proporcionalmente mais às egressas.</p>
     </section>
 
     <section class="card">
@@ -419,6 +439,11 @@
       <h4 style="margin:18px 0 0">Dispersão do salário estimado atual (R$/mês) — mediana e faixa p25–p75</h4>
       <div class="chart-scroll"><svg id="boxplot" viewBox="0 0 900 210" role="img" aria-label="Distribuição de salário estimado por grupo"></svg></div>
       <p class="hint">Caixa = p25–p75; risco central = mediana; hastes = mín.–máx. Grupos por trilha (Software/Dados) e por origem do empregador (nacional/internacional). Dois perfis de gestão/TI-infra puxam o mínimo de Software/Nacional para baixo — o modelo precifica só cargos de dev/dados.</p>
+
+      <h4 style="margin:18px 0 0">Fomento documentado em base oficial (IFES Serra · SRC + FAPES)</h4>
+      <div class="hero-kpi" id="extkpi" style="margin:6px 0 8px"></div>
+      <div class="chips" id="extfunc"></div>
+      <p class="hint" style="margin-top:9px">Cruzando os egressos com a <b>base oficial de extensão do IFES Serra (SRC)</b>: <b>20 dos 37</b> constam como equipe de ações de extensão e <b>9</b> foram <b>bolsistas de extensão</b> — evidência independente do vínculo, além do autorrelato. Somando aos bolsistas de pesquisa FAPES, <b>13 dos 37</b> têm <b>bolsa documentada em base pública</b>. Match por nome completo (sem CPF) — piso, possíveis homônimos.</p>
 
       <h4 style="margin:18px 0 0">Da bolsa FAPES à carreira — o retorno está na porta de entrada, não no valor</h4>
       <div class="cf-grid">
@@ -729,6 +754,36 @@ const HEATMAP={regioes:["ES","Remoto/ND","Outro BR","Exterior"],
     });
   });
 })();
+// gênero (inferido offline; amostra pequena; direcional)
+const GEN={f:6,m:31,pctF:16,med:{f:16726,m:17105},cresc:{f:9.2,m:9.8},
+  gestao:{f:2,m:13},exterior:{f:0,m:4},intl:{f:0,m:13},fapesF:2,fapesTot:6};
+if(document.getElementById("genkpi")){
+  const ratio=Math.round(100*GEN.med.f/GEN.med.m);
+  document.getElementById("genkpi").innerHTML=[
+    [`${GEN.pctF}%`,`mulheres — ${GEN.f} de ${GEN.f+GEN.m} egressos`],
+    [`~${ratio}%`,"paridade salarial (mediana feminina ÷ masculina) — gap ~2%"],
+    ["100%","retenção em tecnologia — mulheres e homens"],
+  ].map(([v,k])=>`<div class="hk"><div class="v">${v}</div><div class="k">${k}</div></div>`).join("");
+  const mx=Math.max(GEN.med.f,GEN.med.m);
+  document.getElementById("genbars").innerHTML=[["Mulheres",GEN.med.f],["Homens",GEN.med.m]].map(([l,v])=>`<div style="display:flex;align-items:center;gap:9px;margin:7px 0"><div style="flex:0 0 78px;font-size:12px;color:var(--ink-2)">${l}</div><div style="flex:1;background:var(--surface-2);border-radius:5px;overflow:hidden;height:18px"><div style="width:${(v/mx*100).toFixed(0)}%;background:var(--accent);height:18px;border-radius:5px"></div></div><b style="flex:0 0 66px;text-align:right;font-size:12.5px;font-variant-numeric:tabular-nums">R$ ${v.toLocaleString('pt-BR')}</b></div>`).join("");
+  document.getElementById("gendir").innerHTML=[
+    `Gestão / liderança — F <b>${GEN.gestao.f}</b>/${GEN.f} · M ${GEN.gestao.m}/${GEN.m}`,
+    `No exterior — F <b>${GEN.exterior.f}</b> · M ${GEN.exterior.m}`,
+    `Empregador internacional — F <b>${GEN.intl.f}</b> · M ${GEN.intl.m}`,
+    `Bolsistas FAPES — F <b>${GEN.fapesF}</b>/${GEN.fapesTot}`,
+  ].map(t=>`<span class="chip num">${t}</span>`).join("");
+}
+// fomento documentado — base oficial de extensão IFES Serra (SRC) + FAPES
+const EXT={naBase:20,bolsistasExt:9,bolsaDoc:13,n:37,
+  funcoes:[["Voluntário(a)",27],["Bolsista",12],["Palestrante",8],["Instrutor(a)",3],["Expositor(a)",2],["Organizador(a)",2],["Monitor(a)",1],["Colaborador(a)",1]]};
+if(document.getElementById("extkpi")){
+  document.getElementById("extkpi").innerHTML=[
+    [`${EXT.naBase}<small> de ${EXT.n}</small>`,"constam na base oficial de extensão (SRC · IFES Serra)"],
+    [`${EXT.bolsistasExt}`,"foram bolsistas de extensão (ALUNO(A) BOLSISTA)"],
+    [`${EXT.bolsaDoc}<small> de ${EXT.n}</small>`,"bolsa documentada em base pública (FAPES pesquisa + SRC extensão)"],
+  ].map(([v,k])=>`<div class="hk"><div class="v">${v}</div><div class="k">${k}</div></div>`).join("");
+  document.getElementById("extfunc").innerHTML=EXT.funcoes.map(([f,n])=>`<span class="chip num">${f} <b>${n}</b></span>`).join("");
+}
 document.getElementById("origbars").innerHTML=IMPACTO.origem.map(o=>`<div style="display:flex;align-items:center;gap:9px;margin:7px 0"><div style="flex:0 0 150px;font-size:12px;color:var(--ink-2)">${o.l}</div><div style="flex:1;background:var(--surface-2);border-radius:5px;overflow:hidden;height:16px"><div style="width:${(o.n/23*100).toFixed(0)}%;background:var(--accent);height:16px;border-radius:5px"></div></div><b style="flex:0 0 26px;text-align:right;font-size:12.5px;font-variant-numeric:tabular-nums">${o.n}</b></div>`).join("");
 (function(){
   const svg=document.getElementById("boxplot"), NS="http://www.w3.org/2000/svg";
