@@ -1,6 +1,6 @@
-# Egressos IFES/LEDS — Impacto de Ensino, Pesquisa e Extensão na Carreira
+# Egressos do IFES (Campus Serra) — Impacto de Ensino, Pesquisa e Extensão na Carreira
 
-Dashboard executivo **anonimizado** da trajetória de carreira e renda de **50 egressos** que passaram pela mesma base na formação: **ensino** (monitoria), **pesquisa aplicada** com bolsa da **FAPES** (via Prodest) e **extensão** no **LEDS/IFES** — e hoje ocupam posições sênior em engenharia de software, dados, consultoria, liderança técnica e gestão de TI (vários no exterior).
+Dashboard executivo **anonimizado** da trajetória de carreira e renda de **50 egressos** que passaram por uma base comum de formação no IFES: **ensino** (monitoria), **pesquisa aplicada** (IC, bolsa **FAPES**/Prodest) e **extensão** em laboratórios do IFES (o **LEDS** entre os principais) — e hoje ocupam posições sênior em engenharia de software, dados, consultoria, liderança técnica e gestão de TI (vários no exterior).
 
 🔗 **Site:** https://ifesserra-lab.github.io/egressos/
 
@@ -9,7 +9,7 @@ Dashboard executivo **anonimizado** da trajetória de carreira e renda de **50 e
 - **Crescimento salarial estimado por anos de experiência** — em duas leituras: *valor da época* (corrigido pela inflação) e *a valores de hoje* (mercado de 2026).
 - **Comparação com o mercado nacional** (Pesquisa Código Fonte) — curva por senioridade, no valor da época e em 2026.
 - **Escada de senioridade** e faixa de mercado (variação CLT↔PJ e entre estados).
-- **Faixa de bolsa de pesquisa/extensão** (LEDS · Prodest · FAPES) destacada nos anos iniciais.
+- **Faixa de bolsa de pesquisa/extensão** (IFES · Prodest/FAPES) destacada nos anos iniciais.
 - **Análise do grupo** — tecnologias, **métodos/práticas** (ágil, cloud, dados, IA/ML…), **cargos/funções** (incl. liderança e gestão), clusters e senioridade × empregador nacional/internacional.
 - **Indicadores de impacto** — dispersão salarial (box plot), trilha × senioridade, vias de formação, **fomento FAPES**, fluxo **formação → trilha → destino** (Sankey) e **internacionalização ao longo do tempo**.
 
@@ -18,7 +18,7 @@ Dashboard executivo **anonimizado** da trajetória de carreira e renda de **50 e
 - **50 de 50** seguem em tecnologia (1 no setor público, em dados).
 - Crescimento real médio **9,1×** (até 17,9×), da bolsa à posição atual — já descontada a inflação.
 - Mediana estimada hoje **~R$ 15,9 mil/mês** (faixa ampla — perfis de gestão/TI-infra e de início recente puxam o piso, pois o modelo precifica só cargos de dev/dados).
-- **22 dos 50** começaram em bolsa/estágio (projeto FAPES ou extensão LEDS/IFES).
+- **22 dos 50** começaram em bolsa/estágio (pesquisa FAPES ou extensão em labs do IFES).
 - **13 dos 50** atuam em empresas internacionais; **10 dos 50** já lideram ou gerenciam.
 - **Fomento FAPES:** 6 egressos formados por 2 projetos PRODEST — bolsa modesta que hoje corresponde a **~13× a renda real**, com **6/6 seguindo em tecnologia** (o retorno está na porta de entrada, não no valor).
 
