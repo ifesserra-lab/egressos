@@ -1,6 +1,6 @@
 # Egressos IFES/LEDS — Impacto de Ensino, Pesquisa e Extensão na Carreira
 
-Dashboard executivo **anonimizado** da trajetória de carreira e renda de **45 egressos** que passaram pela mesma base na formação: **ensino** (monitoria), **pesquisa aplicada** com bolsa da **FAPES** (via Prodest) e **extensão** no **LEDS/IFES** — e hoje ocupam posições sênior em engenharia de software, dados, consultoria, liderança técnica e gestão de TI (vários no exterior).
+Dashboard executivo **anonimizado** da trajetória de carreira e renda de **50 egressos** que passaram pela mesma base na formação: **ensino** (monitoria), **pesquisa aplicada** com bolsa da **FAPES** (via Prodest) e **extensão** no **LEDS/IFES** — e hoje ocupam posições sênior em engenharia de software, dados, consultoria, liderança técnica e gestão de TI (vários no exterior).
 
 🔗 **Site:** https://ifesserra-lab.github.io/egressos/
 
@@ -15,11 +15,11 @@ Dashboard executivo **anonimizado** da trajetória de carreira e renda de **45 e
 
 ## Principais números
 
-- **45 de 45** seguem em tecnologia (1 no setor público, em dados).
+- **50 de 50** seguem em tecnologia (1 no setor público, em dados).
 - Crescimento real médio **9,1×** (até 17,9×), da bolsa à posição atual — já descontada a inflação.
 - Mediana estimada hoje **~R$ 15,9 mil/mês** (faixa ampla — perfis de gestão/TI-infra e de início recente puxam o piso, pois o modelo precifica só cargos de dev/dados).
-- **21 dos 45** começaram em bolsa/estágio (projeto FAPES ou extensão LEDS/IFES).
-- **13 dos 45** atuam em empresas internacionais; **10 dos 45** já lideram ou gerenciam.
+- **22 dos 50** começaram em bolsa/estágio (projeto FAPES ou extensão LEDS/IFES).
+- **13 dos 50** atuam em empresas internacionais; **10 dos 50** já lideram ou gerenciam.
 - **Fomento FAPES:** 6 egressos formados por 2 projetos PRODEST — bolsa modesta que hoje corresponde a **~13× a renda real**, com **6/6 seguindo em tecnologia** (o retorno está na porta de entrada, não no valor).
 
 ## Fontes de dados
@@ -50,7 +50,7 @@ Dashboard executivo **anonimizado** da trajetória de carreira e renda de **45 e
 Três páginas únicas, autocontidas, sem dependências externas (mobile-first):
 
 - `index.html` — dashboard executivo (visão financeira agregada).
-- `dashboard_alunos.html` — panorama por egresso (A–AS): linha do tempo e cards individuais, anonimizados.
+- `dashboard_alunos.html` — panorama por egresso (A–AX): linha do tempo e cards individuais, anonimizados.
 - `evolucao_salario_local.html` — evolução salarial estimada ano a ano de um egresso (Stack Overflow + câmbio + IPCA).
 
 > ⚠️ **Experimental / em construção.** Metodologia ainda em desenvolvimento; dados e conclusões preliminares, sujeitos a alteração.
