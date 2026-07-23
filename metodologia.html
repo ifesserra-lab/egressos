@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metodologia — como o estudo de egressos foi feito</title>
+<style>
+  .root{
+    color-scheme:light;
+    --plane:#f3f6f4; --surface:#ffffff; --surface-2:#eef3f0;
+    --ink:#122019; --ink-2:#4a5a53; --muted:#83918a;
+    --line:#e1e8e4; --border:rgba(18,32,25,.10);
+    --accent:#0e8a68; --accent-2:#0b6e53;
+    --band:rgba(14,138,104,.15); --band-thin:rgba(14,138,104,.07);
+    --amber:#bd7d00; --data:#5a4bc4; --sw:#0e8a68; --pv:#d9642b; --bolsa:rgba(189,125,0,.11);
+    --shadow:0 1px 2px rgba(18,32,25,.05),0 8px 24px rgba(18,32,25,.07);
+    background:var(--plane); color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased;
+    min-height:100%; padding:16px 13px; box-sizing:border-box;
+  }
+  @media (prefers-color-scheme:dark){ :root:where(:not([data-theme="light"])) .root{
+    color-scheme:dark; --plane:#0a0e0c; --surface:#141a17; --surface-2:#1d2521;
+    --ink:#eef3f0; --ink-2:#aebab4; --muted:#7a877f; --line:#242c28; --border:rgba(255,255,255,.10);
+    --accent:#2fbc90; --accent-2:#37c99b; --band:rgba(47,188,144,.20); --band-thin:rgba(47,188,144,.08);
+    --amber:#dda52f; --data:#9285ea; --sw:#2fbc90; --pv:#ef7d42; --bolsa:rgba(221,165,47,.15);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.5);
+  }}
+  :root[data-theme="dark"] .root{
+    color-scheme:dark; --plane:#0a0e0c; --surface:#141a17; --surface-2:#1d2521;
+    --ink:#eef3f0; --ink-2:#aebab4; --muted:#7a877f; --line:#242c28; --border:rgba(255,255,255,.10);
+    --accent:#2fbc90; --accent-2:#37c99b; --band:rgba(47,188,144,.20); --band-thin:rgba(47,188,144,.08);
+    --amber:#dda52f; --data:#9285ea; --sw:#2fbc90; --pv:#ef7d42; --bolsa:rgba(221,165,47,.15); --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.5);
+  }
+
+  *{ box-sizing:border-box; }
+  .wrap{ max-width:1000px; margin:0 auto; display:flex; flex-direction:column; gap:18px; }
+  .eyebrow{ font-size:12px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--accent); margin:0 0 10px; }
+  h1{ font-size:clamp(23px,4.2vw,40px); line-height:1.1; margin:0 0 12px; font-weight:750; letter-spacing:-.02em; text-wrap:balance; }
+  .lede{ font-size:clamp(15px,1.7vw,17px); line-height:1.55; color:var(--ink-2); margin:0; }
+  .lede b{ color:var(--ink); }
+
+  .hero-kpi{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:16px; overflow:hidden; box-shadow:var(--shadow); }
+  .hk{ background:var(--surface); padding:16px 15px; }
+  .hk .v{ font-size:clamp(24px,3.6vw,34px); font-weight:780; letter-spacing:-.02em; line-height:1; font-variant-numeric:tabular-nums; white-space:nowrap; color:var(--accent); }
+  .hk .v small{ font-size:14px; font-weight:600; color:var(--ink-2); letter-spacing:0; }
+  .hk .k{ font-size:12px; color:var(--muted); margin-top:8px; line-height:1.35; }
+
+  .card{ background:var(--surface); border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); padding:clamp(18px,2.6vw,26px); }
+  .card>h2{ font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-2); margin:0 0 4px; font-weight:700; }
+  .card .hint{ font-size:12.5px; color:var(--muted); margin:0 0 18px; }
+  .card p.body{ font-size:14.5px; line-height:1.6; color:var(--ink-2); margin:0 0 12px; }
+  .card p.body:last-child{ margin-bottom:0; }
+  .card p.body b{ color:var(--ink); }
+
+  .pillars{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:16px; }
+  .pillar{ background:var(--surface-2); border:1px solid var(--border); border-radius:14px; padding:16px 18px; border-top:3px solid var(--accent); }
+  .pillar h3{ margin:0 0 6px; font-size:15px; font-weight:720; }
+  .pillar p{ margin:0; font-size:13px; line-height:1.5; color:var(--ink-2); }
+  .pillar .tag{ font-size:11px; font-weight:600; color:var(--accent); letter-spacing:.04em; text-transform:uppercase; }
+
+  /* ---- fluxo ETL ---- */
+  .flow{ display:flex; flex-direction:column; gap:6px; margin-top:6px; }
+  .stage{ flex:1; background:var(--surface-2); border:1px solid var(--border); border-radius:14px; padding:15px 16px; border-top:3px solid var(--sc); }
+  .stage .sn{ font-size:10.5px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--sc); }
+  .stage h3{ margin:3px 0 10px; font-size:15.5px; font-weight:720; }
+  .stage ul{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px; }
+  .stage li{ font-size:12px; line-height:1.4; color:var(--ink-2); }
+  .stage li code, code.mono{ font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px; background:var(--surface); border:1px solid var(--border); border-radius:5px; padding:1px 5px; color:var(--ink); white-space:nowrap; }
+  .stage .out{ margin-top:10px; font-size:11px; font-weight:700; color:var(--sc); display:flex; gap:6px; align-items:baseline; flex-wrap:wrap; }
+  .stage .out span{ color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:.05em; font-size:9.5px; }
+  .arrow{ display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:22px; line-height:1; transform:rotate(90deg); padding:1px 0; }
+  @media (min-width:900px){
+    .flow{ flex-direction:row; align-items:stretch; gap:5px; }
+    .arrow{ transform:none; padding:0; }
+  }
+
+  /* ---- tabela fontes ---- */
+  .atable{ width:100%; border-collapse:collapse; font-size:13px; }
+  .atable th,.atable td{ text-align:left; padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:top; }
+  .atable th{ color:var(--muted); font-weight:700; font-size:10.5px; text-transform:uppercase; letter-spacing:.04em; }
+  .atable td b{ color:var(--ink); }
+  .atable td small{ color:var(--muted); }
+  .atable tr:last-child td{ border-bottom:none; }
+  .badge{ font-size:10px; font-weight:700; padding:2px 8px; border-radius:999px; white-space:nowrap; }
+  .badge.pub{ background:var(--band); color:var(--accent); }
+  .badge.priv{ background:var(--bolsa); color:var(--amber); }
+
+  /* ---- fórmula ---- */
+  .formula{ background:var(--surface-2); border:1px solid var(--border); border-left:3px solid var(--accent); border-radius:10px; padding:15px 17px; margin:4px 0 16px; }
+  .formula .eq{ font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:14.5px; color:var(--ink); font-weight:600; line-height:1.6; }
+  .formula .eq em{ color:var(--accent); font-style:normal; }
+  .formula small{ display:block; color:var(--muted); font-size:12px; margin-top:9px; line-height:1.55; }
+
+  /* ---- listas de achados ---- */
+  .finds{ display:grid; gap:13px; margin:6px 0 0; padding:0; }
+  .finds li{ list-style:none; padding-left:20px; position:relative; font-size:13.5px; line-height:1.55; color:var(--ink-2); }
+  .finds li:before{ content:""; position:absolute; left:0; top:6px; width:9px; height:9px; border-radius:2px; background:var(--accent); }
+  .finds li b{ color:var(--ink); }
+
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:6px; }
+  .chip{ font-size:12px; font-weight:600; padding:6px 13px; border-radius:999px; background:var(--surface-2); color:var(--ink-2); border:1px solid var(--border); }
+  .chip b{ color:var(--ink); }
+
+  /* ---- código ---- */
+  .code{ background:var(--surface-2); border:1px solid var(--border); border-radius:10px; padding:15px 17px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px; line-height:1.7; color:var(--ink); overflow-x:auto; margin:2px 0 0; }
+  .code .c{ color:var(--muted); }
+  .code .p{ color:var(--accent); font-weight:700; }
+
+  .steptable{ width:100%; border-collapse:collapse; font-size:12.5px; margin-top:16px; }
+  .steptable th,.steptable td{ text-align:left; padding:8px 11px; border-bottom:1px solid var(--border); }
+  .steptable th{ color:var(--muted); font-weight:700; font-size:10px; text-transform:uppercase; letter-spacing:.04em; }
+  .steptable td:first-child{ font-variant-numeric:tabular-nums; color:var(--muted); width:26px; }
+  .steptable td code{ font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px; color:var(--accent); white-space:nowrap; }
+  .steptable tr:last-child td{ border-bottom:none; }
+
+  .notes{ font-size:12.5px; line-height:1.65; color:var(--ink-2); }
+  .notes ul{ margin:0; padding-left:18px; display:flex; flex-direction:column; gap:7px; }
+  .notes b{ color:var(--ink); }
+  .foot{ font-size:11px; color:var(--muted); text-align:center; line-height:1.6; margin-top:4px; }
+  .foot a{ color:var(--accent); }
+
+  .nav{ display:flex; flex-wrap:wrap; gap:10px; }
+  .nav a{ flex:1 1 240px; text-decoration:none; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:13px 15px; box-shadow:var(--shadow); font-weight:650; font-size:13.5px; color:var(--accent); }
+  .nav a span{ display:block; font-weight:400; color:var(--ink-2); font-size:12px; margin-top:3px; line-height:1.4; }
+
+  @media (min-width:560px){ .hero-kpi{ grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); } .hk{ padding:20px 18px; } }
+  @media (min-width:600px){ .root{ padding:32px 26px; } .wrap{ gap:26px; } }
+  @media (min-width:960px){ .root{ padding:52px; } }
+
+  .exp-banner{position:fixed;top:0;left:0;right:0;z-index:99999;background:#c62828;color:#fff;
+    font:600 14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;
+    padding:11px 18px;letter-spacing:.02em;box-shadow:0 2px 10px rgba(0,0,0,.28);
+    background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.14) 0 14px,transparent 14px 28px)}
+  .exp-banner strong{font-weight:800;letter-spacing:.06em}
+  .root{padding-top:clamp(64px,7vw,80px)!important}
+  @media(max-width:640px){.exp-banner{font-size:12px;padding:9px 12px}}
+</style>
+</head>
+<body>
+
+<div class="exp-banner" role="alert">
+  ⚠️ <strong>SITE EXPERIMENTAL</strong> — em construção. Metodologia ainda sendo desenvolvida; dados e conclusões preliminares, sujeitos a alteração.
+</div>
+
+<div class="root">
+  <div class="wrap">
+
+    <header>
+      <p class="eyebrow">Metodologia · pipeline reprodutível · anonimizado</p>
+      <h1>Como este estudo foi feito</h1>
+      <p class="lede">Todo número do relatório de egressos nasce de um <b>pipeline de dados reprodutível</b>: parte de perfis públicos de LinkedIn e de bases oficiais, corrige tudo ao <b>poder de compra de 2026</b>, anonimiza cada pessoa e valida os resultados automaticamente. <b>Um único comando</b> regenera o relatório inteiro — nenhum valor é digitado à mão. Esta página descreve o método para escrutínio dos pares.</p>
+    </header>
+
+    <nav class="nav" aria-label="Outras visões">
+      <a href="index.html">📊 Visão executiva →<span>Trajetória e comparação com o mercado</span></a>
+      <a href="dashboard_alunos.html">👥 Panorama por egresso (A–…) →<span>Linha do tempo e cards anonimizados</span></a>
+      <a href="evolucao_salario_local.html">📈 Evolução salarial ano a ano →<span>Estimativa por experiência</span></a>
+    </nav>
+
+    <section class="hero-kpi">
+      <div class="hk"><div class="v">50</div><div class="k">egressos na coorte</div></div>
+      <div class="hk"><div class="v">4</div><div class="k">bases de dados externas</div></div>
+      <div class="hk"><div class="v">8</div><div class="k">passos no pipeline</div></div>
+      <div class="hk"><div class="v">1</div><div class="k">comando reproduz tudo</div></div>
+      <div class="hk"><div class="v">0</div><div class="k">números digitados à mão</div></div>
+    </section>
+
+    <!-- 1. PERGUNTA -->
+    <section class="card">
+      <h2>1 · Pergunta de pesquisa</h2>
+      <p class="hint">O que motivou o estudo</p>
+      <p class="body">Egressos de TI do <b>IFES — Campus Serra</b> que passaram por uma base comum de formação — <b>ensino</b> (monitoria), <b>pesquisa aplicada</b> (iniciação científica, bolsa FAPES/Prodest) e <b>extensão</b> em laboratórios do IFES — têm hoje que trajetória de carreira e renda? A hipótese: essas três vivências, antes do primeiro emprego formal, antecipam a chegada a posições sênior, à liderança técnica e ao mercado internacional.</p>
+      <div class="pillars">
+        <div class="pillar"><span class="tag">Ensino</span><h3>Monitoria &amp; tutoria</h3><p>Primeira experiência de ensinar e consolidar fundamentos (programação, estrutura de dados, arquitetura).</p></div>
+        <div class="pillar"><span class="tag">Pesquisa</span><h3>Pesquisa aplicada</h3><p>Projetos de P&amp;D com bolsa (FAPES/Prodest) — primeiro contato com problemas reais em escala.</p></div>
+        <div class="pillar"><span class="tag">Extensão</span><h3>Laboratório &amp; empresa júnior</h3><p>Projetos com clientes, métodos ágeis e liderança antes do emprego formal (LEDS entre os principais).</p></div>
+      </div>
+    </section>
+
+    <!-- 2. FLUXO -->
+    <section class="card">
+      <h2>2 · O fluxo em cinco etapas</h2>
+      <p class="hint">Um pipeline ETL orquestrado por <code class="mono">data/build_report.py</code> — cada etapa lê a saída da anterior</p>
+      <div class="flow">
+        <div class="stage" style="--sc:var(--amber)">
+          <div class="sn">Extract · coleta</div>
+          <h3>Fontes → dados brutos</h3>
+          <ul>
+            <li><code>busca_egressos.py</code> — raspa perfis públicos de LinkedIn (browser-use + LLM Mistral): cargo, empresa, vínculo, datas.</li>
+            <li>Bases oficiais IFES: FAPES (bolsas), <b>SRC</b> (extensão), <b>Lattes</b> + <b>SIGPESQ</b> (pesquisa/IC) — cruzadas por nome.</li>
+            <li>Mercado: Stack Overflow, Código Fonte, IPCA/câmbio.</li>
+            <li>Curadoria manual → estrutura em JSON.</li>
+          </ul>
+          <div class="out"><span>saída</span> <code class="mono">alunos.json</code></div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="stage" style="--sc:var(--sw)">
+          <div class="sn">Transform · cálculo</div>
+          <h3>Série &amp; análises</h3>
+          <ul>
+            <li><code>compute_all.py</code> — série salarial (mercado × exp × FX × IPCA), anonimiza A–…</li>
+            <li><code>fapes_fomento.py</code>, <code>src_extensao.py</code> — fomento e extensão.</li>
+            <li><code>analise.py</code> — clusters, sankey, gênero, porte de empresa, impacto.</li>
+          </ul>
+          <div class="out"><span>saída</span> <code class="mono">consolidado.json</code> · <code class="mono">analise.json</code></div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="stage" style="--sc:var(--data)">
+          <div class="sn">Load · render</div>
+          <h3>JSON → dashboards</h3>
+          <ul>
+            <li><code>gen_executivo.py</code> — reescreve as constantes do dashboard executivo.</li>
+            <li><code>gen_panorama.py</code> — reescreve a base de perfis do panorama.</li>
+            <li>Números vêm <b>sempre</b> do pipeline, nunca do HTML.</li>
+          </ul>
+          <div class="out"><span>saída</span> <code class="mono">*.html</code></div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="stage" style="--sc:var(--pv)">
+          <div class="sn">QA · validação</div>
+          <h3>Confere &amp; blinda</h3>
+          <ul>
+            <li><code>qa_report.py</code> — cruza cada número do HTML com o pipeline (PASS/FAIL).</li>
+            <li>Varredura de <b>PII</b>: falha se qualquer nome/empresa vazar para o HTML público.</li>
+          </ul>
+          <div class="out"><span>gate</span> falha bloqueia a publicação</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="stage" style="--sc:var(--accent)">
+          <div class="sn">Publish</div>
+          <h3>Sai anonimizado</h3>
+          <ul>
+            <li><code>--publish</code> copia para o repositório público de egressos e para os docs da diretoria.</li>
+            <li>O repositório com PII real nunca sai da máquina.</li>
+          </ul>
+          <div class="out"><span>saída</span> site público</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FONTES -->
+    <section class="card">
+      <h2>3 · Fontes de dados</h2>
+      <p class="hint">Quatro bases externas + coleta de perfis; tudo público, exceto o cadastro de bolsas</p>
+      <div style="overflow-x:auto">
+      <table class="atable">
+        <thead><tr><th>Fonte</th><th>O que fornece</th><th>Período</th><th>Acesso</th></tr></thead>
+        <tbody>
+          <tr><td><b>Perfis de LinkedIn</b><br><small>coleta automatizada</small></td><td>Cargo, empresa, vínculo (CLT/PJ/bolsa/estágio), datas e local de cada experiência</td><td>Trajetória completa</td><td><span class="badge pub">público</span></td></tr>
+          <tr><td><b>FAPES</b><br><small>Res. 361/2026 · via Prodest</small></td><td>Valores <b>reais</b> das bolsas de pesquisa/extensão recebidas (BPIG, apoio técnico, ICT)</td><td>Anos de bolsa</td><td><span class="badge priv">restrito</span></td></tr>
+          <tr><td><b>SRC — extensão IFES Serra</b><br><small>base oficial · <code class="mono">src_etl</code></small></td><td>Participação em ações de extensão e quem foi <b>bolsista de extensão</b> (fomento além da pesquisa) — 30/50 na base, 15 bolsistas</td><td>Trajetória IFES</td><td><span class="badge priv">institucional</span></td></tr>
+          <tr><td><b>Lattes (CNPq)</b><br><small>currículos · match por nome</small></td><td>Vínculo de pesquisa/orientação — <b>iniciação científica</b>, mestrado, TCC, projeto — 22/37 encontrados, 7 em IC</td><td>Formação</td><td><span class="badge pub">público</span></td></tr>
+          <tr><td><b>SIGPESQ</b><br><small>gestão de pesquisa IFES · <code class="mono">horizon.db</code></small></td><td>Grupos de pesquisa, projetos, orientações e <b>bolsas de IC</b> registrados no sistema (persons, teams, advisorships, fellowships)</td><td>Formação</td><td><span class="badge priv">institucional</span></td></tr>
+          <tr><td><b>Stack Overflow Developer Survey</b></td><td>Salário de desenvolvedores/dados no Brasil por anos de experiência (mediana e quartis)</td><td>2018–2023</td><td><span class="badge pub">público</span></td></tr>
+          <tr><td><b>Pesquisa Código Fonte</b></td><td>Média salarial por senioridade no mercado brasileiro</td><td>2021–2026</td><td><span class="badge pub">público</span></td></tr>
+          <tr><td><b>IPCA (IBGE) + câmbio USD→BRL</b></td><td>Correção de tudo ao poder de compra de R$ de 2026</td><td>2011–2026</td><td><span class="badge pub">público</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <!-- 4. CÁLCULO -->
+    <section class="card">
+      <h2>4 · Estimativa salarial — o cálculo</h2>
+      <p class="hint">Como cada ponto da série de renda é produzido</p>
+      <div class="formula">
+        <div class="eq">R$<sub>2026</sub> = mediana<sub>mercado</sub>(ano, trilha, exp) × <em>FX</em><sub>ano</sub> × <em>IPCA</em><sub>ano</sub> ÷ 12</div>
+        <small><em>FX</em> = câmbio médio USD→BRL do ano · <em>IPCA</em> = fator de correção para R$ de 2026 · ÷12 = anual → mensal. Anos de bolsa usam o <b>valor documentado da FAPES</b> corrigido por IPCA, não estimativa de mercado.</small>
+      </div>
+      <ul class="finds">
+        <li><b>Match de mercado.</b> Para cada egresso e cada ano de carreira, cruza-se o <b>ano de experiência</b> com a mediana da Stack Overflow <b>daquela época</b> — mesma trilha (Software ou Dados), filtrando devs do Brasil.</li>
+        <li><b>Janela de experiência.</b> Amostra em <code class="mono">exp ± 1 ano</code>; se ficar com menos de 8 respostas, amplia para <code class="mono">± 2</code>. Exige <b>n ≥ 5</b> para publicar o ponto.</li>
+        <li><b>Valor da época vs. hoje.</b> A série mostra duas leituras: o <b>valor da época</b> (corrigido pela inflação) e <b>a valores de hoje</b> (reprecificado pelo mercado de 2026).</li>
+        <li><b>Anos iniciais.</b> Em estágio/bolsa nos dois primeiros anos aplica-se fator de <code class="mono">0,5</code> sobre a mediana de mercado, refletindo a jornada/remuneração parcial.</li>
+      </ul>
+    </section>
+
+    <!-- 5. ANÁLISES -->
+    <section class="card">
+      <h2>5 · Análises derivadas</h2>
+      <p class="hint">A partir da série e dos perfis, sem bibliotecas pesadas (estatística em NumPy puro)</p>
+      <div class="chips">
+        <span class="chip"><b>Clusters</b> — KMeans (NumPy) por perfil de carreira</span>
+        <span class="chip"><b>Sankey</b> — via de formação → trilha → destino</span>
+        <span class="chip"><b>Senioridade × origem</b> — nacional vs. internacional</span>
+        <span class="chip"><b>Trilha no tempo</b> — início → meio → atual</span>
+        <span class="chip"><b>Porte da empresa</b> — classificado por LLM (só nome público)</span>
+        <span class="chip"><b>Tecnologias</b> — presença por pessoa</span>
+        <span class="chip"><b>Gênero</b> — inferido offline, agregado</span>
+        <span class="chip"><b>Internacionalização</b> — % ao longo do tempo</span>
+      </div>
+      <p class="body" style="margin-top:16px">Cada análise carrega sua ressalva no relatório — em especial gênero (amostra pequena, inferência binária aproximada, <b>não</b> identidade declarada) e porte de empresa (só o nome público da empresa é enviado ao modelo, nunca o nome de qualquer egresso).</p>
+    </section>
+
+    <!-- 6. QA -->
+    <section class="card">
+      <h2>6 · Garantia de qualidade &amp; privacidade</h2>
+      <p class="hint">Por que os números são confiáveis — e por que ninguém é identificável</p>
+      <ul class="finds">
+        <li><b>Fonte única de verdade.</b> Os dashboards não guardam números próprios: cada valor é injetado a partir do pipeline. Editar o HTML à mão é impossível por design.</li>
+        <li><b>QA automático.</b> <code class="mono">qa_report.py</code> reextrai cada constante do HTML e compara com o JSON do pipeline — KPIs, perfis, séries, sankey, tabelas, heatmaps. Uma divergência = FALHA.</li>
+        <li><b>Anonimização.</b> Cada pessoa vira um rótulo (A, B, C…). Sem nomes, empresas ou localidades individuais — apenas trilha e anos de experiência.</li>
+        <li><b>Gate de PII.</b> O mesmo QA varre o HTML público em busca de qualquer nome de pessoa ou empresa da base. Se encontrar, a publicação é bloqueada. O repositório com dados reais nunca é publicado.</li>
+      </ul>
+    </section>
+
+    <!-- 7. REPRODUTIBILIDADE -->
+    <section class="card">
+      <h2>7 · Reprodutibilidade</h2>
+      <p class="hint">Um comando regenera e valida o relatório inteiro</p>
+      <pre class="code"><span class="c"># gera todos os JSON, reescreve os dashboards e valida</span>
+python data/build_report.py
+
+<span class="c"># após validar, publica a versão anonimizada</span>
+python data/build_report.py <span class="p">--publish</span></pre>
+      <div style="overflow-x:auto">
+      <table class="steptable">
+        <thead><tr><th>#</th><th>Etapa</th><th>Script</th><th>Produz</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Gênero (offline)</td><td><code>genero.py</code></td><td>genero_map.json</td></tr>
+          <tr><td>2</td><td>Série salarial</td><td><code>compute_all.py</code></td><td>consolidado.json</td></tr>
+          <tr><td>3</td><td>Extensão SRC/IFES</td><td><code>src_extensao.py</code></td><td>src_extensao.json</td></tr>
+          <tr><td>4</td><td>Fomento FAPES</td><td><code>fapes_fomento.py</code></td><td>fapes_fomento.json</td></tr>
+          <tr><td>5</td><td>Análise</td><td><code>analise.py</code></td><td>analise.json</td></tr>
+          <tr><td>6</td><td>Render executivo</td><td><code>gen_executivo.py</code></td><td>dashboard_executivo.html</td></tr>
+          <tr><td>7</td><td>Render panorama</td><td><code>gen_panorama.py</code></td><td>dashboard_alunos.html</td></tr>
+          <tr><td>8</td><td>QA + PII</td><td><code>qa_report.py</code></td><td>PASS/FAIL</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <!-- 8. RESSALVAS -->
+    <section class="card notes">
+      <h2 style="color:var(--amber)">8 · Ressalvas</h2>
+      <p class="hint">Limites que o método impõe à leitura dos resultados</p>
+      <ul>
+        <li><b>Estimativa, não salário real.</b> A renda deriva de medianas de mercado por experiência — não é holerite individual.</li>
+        <li><b>Amostra pequena.</b> Cortes por gênero, trilha e origem são <b>direcionais</b>, não inferência estatística.</li>
+        <li><b>Prêmio internacional subestimado.</b> Os preços vêm do mercado brasileiro; o modelo não captura o ganho real de contratos em moeda estrangeira.</li>
+        <li><b>Código Fonte ilustrativa.</b> A pesquisa publica só a média por senioridade, sem percentis — a faixa é aproximada.</li>
+        <li><b>Coleta de perfis.</b> Depende do que está público no LinkedIn; períodos no IFES nem sempre aparecem e são complementados por outras fontes.</li>
+        <li><b>Cruzamento por nome.</b> SRC, Lattes e SIGPESQ casam por nome completo (sem CPF na base) — pode haver homônimo. Tratados como <b>piso</b> (quem aparece participou; ausência não prova não-participação).</li>
+      </ul>
+    </section>
+
+    <p class="foot">Metodologia do painel de impacto de ensino, pesquisa e extensão na carreira de egressos · IFES — Campus Serra.<br>Pipeline reprodutível; gerado com apoio de Claude Code.</p>
+
+  </div>
+</div>
+
+</body>
+</html>
