@@ -1,6 +1,6 @@
 # Egressos IFES/LEDS — Impacto de Ensino, Pesquisa e Extensão na Carreira
 
-Dashboard executivo **anonimizado** da trajetória de carreira e renda de **11 egressos** que passaram pela mesma base na formação: **ensino** (monitoria), **pesquisa aplicada** com bolsa da **FAPES** (via Prodest) e **extensão** no **LEDS/IFES** — e hoje ocupam posições sênior em engenharia de software, dados, consultoria e liderança técnica.
+Dashboard executivo **anonimizado** da trajetória de carreira e renda de **23 egressos** que passaram pela mesma base na formação: **ensino** (monitoria), **pesquisa aplicada** com bolsa da **FAPES** (via Prodest) e **extensão** no **LEDS/IFES** — e hoje ocupam posições sênior em engenharia de software, dados, consultoria, liderança técnica e gestão de TI (vários no exterior).
 
 🔗 **Site:** https://ifesserra-lab.github.io/egressos/
 
@@ -10,15 +10,17 @@ Dashboard executivo **anonimizado** da trajetória de carreira e renda de **11 e
 - **Comparação com o mercado nacional** (Pesquisa Código Fonte) — curva por senioridade, no valor da época e em 2026.
 - **Escada de senioridade** e faixa de mercado (variação CLT↔PJ e entre estados).
 - **Faixa de bolsa de pesquisa/extensão** (LEDS · Prodest · FAPES) destacada nos anos iniciais.
-- **Análise do grupo** — tecnologias mais usadas, clusters de perfil e senioridade × empregador nacional/internacional.
+- **Análise do grupo** — tecnologias, **métodos/práticas** (ágil, cloud, dados, IA/ML…), **cargos/funções** (incl. liderança e gestão), clusters e senioridade × empregador nacional/internacional.
+- **Indicadores de impacto** — dispersão salarial (box plot), trilha × senioridade, vias de formação, **fomento FAPES**, fluxo **formação → trilha → destino** (Sankey) e **internacionalização ao longo do tempo**.
 
 ## Principais números
 
-- **11 de 11** seguem em tecnologia (1 no setor público, em dados).
-- Crescimento real médio **11,3×** (até 17,9×), da bolsa à posição atual — já descontada a inflação.
-- Mediana estimada hoje **~R$ 15,8 mil/mês** · faixa **R$ 14–20 mil**.
-- **8 dos 11** começaram em bolsa/estágio (projeto FAPES ou extensão LEDS/IFES).
-- **6 dos 11** atuam em empresas internacionais (Europa, América Latina, EUA/global).
+- **23 de 23** seguem em tecnologia (1 no setor público, em dados).
+- Crescimento real médio **10,0×** (até 17,9×), da bolsa à posição atual — já descontada a inflação.
+- Mediana estimada hoje **~R$ 15,8 mil/mês** (faixa ampla — 2 perfis de gestão/TI-infra puxam o piso, pois o modelo precifica só cargos de dev/dados).
+- **15 dos 23** começaram em bolsa/estágio (projeto FAPES ou extensão LEDS/IFES).
+- **9 dos 23** atuam em empresas internacionais; **7 dos 23** já lideram ou gerenciam.
+- **Fomento FAPES:** 6 egressos formados por 2 projetos PRODEST — bolsa modesta que hoje corresponde a **~13× a renda real**, com **6/6 seguindo em tecnologia** (o retorno está na porta de entrada, não no valor).
 
 ## Fontes de dados
 
@@ -48,7 +50,7 @@ Dashboard executivo **anonimizado** da trajetória de carreira e renda de **11 e
 Três páginas únicas, autocontidas, sem dependências externas (mobile-first):
 
 - `index.html` — dashboard executivo (visão financeira agregada).
-- `dashboard_alunos.html` — panorama por egresso (A–K): linha do tempo e cards individuais, anonimizados.
+- `dashboard_alunos.html` — panorama por egresso (A–W): linha do tempo e cards individuais, anonimizados.
 - `evolucao_salario_local.html` — evolução salarial estimada ano a ano de um egresso (Stack Overflow + câmbio + IPCA).
 
 > ⚠️ **Experimental / em construção.** Metodologia ainda em desenvolvimento; dados e conclusões preliminares, sujeitos a alteração.
