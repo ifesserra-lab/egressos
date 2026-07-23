@@ -372,6 +372,25 @@
     </section>
 
     <section class="card">
+      <h2>Empresas &amp; regiões</h2>
+      <p class="hint">Onde os 37 egressos trabalham hoje — região, setor e porte do empregador. Agregado, anonimizado (sem nomes de empresa).</p>
+      <div class="cf-grid">
+        <div>
+          <h4>Região do empregador atual (nº de egressos)</h4>
+          <div id="empregiao"></div>
+          <p class="hint" style="margin-top:9px">Modalidade: <b>12 remoto</b>, 2 híbrido, os demais presencial / não-declarado.</p>
+        </div>
+        <div>
+          <h4>Setor do empregador</h4>
+          <div class="chips" id="empsetor"></div>
+          <h4 style="margin:14px 0 0">Porte</h4>
+          <div class="chips" id="empporte"></div>
+        </div>
+      </div>
+      <p class="hint" style="margin-top:12px"><b>Base no ES, alcance global:</b> a maioria segue na Grande Vitória, mas <b>14 dos 37</b> estão em multinacional/BigTech e 4 no exterior — a formação local projeta para o mercado global sem exigir migração. Ao todo passaram por <b>156 empresas distintas</b>; uma única empresa local (de tecnologia, na Grande Vitória) concentrou <b>8 egressos</b> — porta de entrada regional recorrente.</p>
+    </section>
+
+    <section class="card">
       <h2>Indicadores de impacto</h2>
       <p class="hint">Leitura do impacto da formação (ensino · pesquisa · extensão) na trajetória dos 37 egressos — velocidade, retenção, liderança, internacionalização e dispersão. Medianas e contagens; caudas rasas sinalizadas.</p>
       <div class="hero-kpi" id="impkpi" style="margin-bottom:18px"></div>
@@ -675,6 +694,18 @@ const IMPACTO={
   ]
 };
 document.getElementById("impkpi").innerHTML=IMPACTO.tiles.map(t=>`<div class="hk"><div class="v">${t.v}</div><div class="k">${t.k}</div></div>`).join("");
+
+// ---- Empresas & regiões ----
+const EMPRESAS={
+  regiao:[["ES — Grande Vitória",21],["Remoto / não-declarado",8],["Exterior",4],["Outro (BR)",2],["Rio de Janeiro",1],["Santa Catarina",1]],
+  setor:[["Produto / scale-up / startup",9],["Fintech / banco",7],["BigTech / software global",5],["Outros / nacional",5],["Consultoria / serviços globais",4],["Varejo / e-commerce",3],["Saúde",2],["Energia / indústria",1],["Setor público / defesa",1]],
+  porte:[["Multinacional / BigTech",14],["Startup / scale-up / PME",10],["Grande nacional",7],["PME / não-classificado",5],["Setor público",1]]
+};
+if(document.getElementById("empregiao")){
+  document.getElementById("empregiao").innerHTML=EMPRESAS.regiao.map(([r,n])=>`<div style="display:flex;align-items:center;gap:9px;margin:6px 0"><div style="flex:0 0 160px;font-size:12px;color:var(--ink-2)">${r}</div><div style="flex:1;background:var(--surface-2);border-radius:5px;overflow:hidden;height:16px"><div style="width:${(n/37*100).toFixed(0)}%;background:var(--accent);height:16px;border-radius:5px"></div></div><b style="flex:0 0 24px;text-align:right;font-size:12.5px;font-variant-numeric:tabular-nums">${n}</b></div>`).join("");
+  document.getElementById("empsetor").innerHTML=EMPRESAS.setor.map(([s,n])=>`<span class="chip num">${s} <b>${n}</b></span>`).join("");
+  document.getElementById("empporte").innerHTML=EMPRESAS.porte.map(([p,n])=>`<span class="chip num">${p} <b>${n}</b></span>`).join("");
+}
 document.getElementById("origbars").innerHTML=IMPACTO.origem.map(o=>`<div style="display:flex;align-items:center;gap:9px;margin:7px 0"><div style="flex:0 0 150px;font-size:12px;color:var(--ink-2)">${o.l}</div><div style="flex:1;background:var(--surface-2);border-radius:5px;overflow:hidden;height:16px"><div style="width:${(o.n/23*100).toFixed(0)}%;background:var(--accent);height:16px;border-radius:5px"></div></div><b style="flex:0 0 26px;text-align:right;font-size:12.5px;font-variant-numeric:tabular-nums">${o.n}</b></div>`).join("");
 (function(){
   const svg=document.getElementById("boxplot"), NS="http://www.w3.org/2000/svg";
