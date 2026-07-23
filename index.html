@@ -417,6 +417,14 @@
         </div>
       </div>
       <p class="hint" style="margin-top:10px">Leitura de impacto: o retorno do fomento FAPES não está na cifra repassada (baixa), e sim em ter dado a esses egressos a <b>primeira experiência real em pesquisa aplicada e desenvolvimento</b> — a partir daí a <b>qualificação</b>, não o valor, conduziu a carreira. Dois projetos concluídos e homologados, executados via <b>PRODEST</b>. <b>Fonte:</b> base pública da FAPES (projetos e bolsistas); vínculo egresso↔projeto verificado por projeto + período + tipo de bolsa (cruzamento só por nome gera homônimos). Egressos com bolsa interna do LEDS/IFES não constam na base FAPES.</p>
+
+      <h4 style="margin:20px 0 0">Da formação ao mercado — fluxo origem → trilha → destino</h4>
+      <div class="chart-scroll"><svg id="sankey" viewBox="0 0 900 300" role="img" aria-label="Fluxo formação → trilha → destino"></svg></div>
+      <p class="hint">Via de formação predominante (detectada no LinkedIn) → trilha atual → tipo de empregador. “Não detectada” = egresso cujo vínculo IFES/LEDS não aparece no perfil público (não que dispensou a formação). Largura ∝ nº de egressos.</p>
+
+      <h4 style="margin:20px 0 0">Internacionalização ao longo do tempo</h4>
+      <div class="chart-scroll"><svg id="intltl" viewBox="0 0 900 240" role="img" aria-label="Internacionalização ao longo do tempo"></svg></div>
+      <p class="hint">Acumulado: % dos egressos que já atuavam para um empregador internacional em cada ano. Decola a partir de <b>2020</b> — chega a <b>39%</b> em 2026 (9 de 23).</p>
     </section>
 
     <section class="card notes">
@@ -668,6 +676,73 @@ document.getElementById("origbars").innerHTML=IMPACTO.origem.map(o=>`<div style=
     svg.appendChild(E("line",{x1:X(b.med),x2:X(b.med),y1:cy-11,y2:cy+11,stroke:b.c,"stroke-width":2.5}));
     const ml=E("text",{x:X(b.med),y:cy-14,"text-anchor":"middle","font-size":11,"font-weight":700,fill:b.c}); ml.textContent="R$ "+(b.med/1000).toFixed(1).replace(".",",")+"k"; svg.appendChild(ml);
   });
+})();
+
+// ---- Sankey: formação -> trilha -> destino ----
+const SANKEY={
+  cols:[
+    [["Extensão (LEDS)",12],["Pesquisa (IC/FAPES)",4],["Não detectada no LinkedIn",7]],
+    [["Software",19],["Dados",4]],
+    [["Nacional",14],["Internacional",9]]
+  ],
+  L12:[["Extensão (LEDS)","Software",8],["Não detectada no LinkedIn","Software",7],["Pesquisa (IC/FAPES)","Software",4],["Extensão (LEDS)","Dados",4]],
+  L23:[["Software","Nacional",12],["Software","Internacional",7],["Dados","Nacional",2],["Dados","Internacional",2]]
+};
+(function(){
+  const svg=document.getElementById("sankey"); if(!svg) return;
+  const NS="http://www.w3.org/2000/svg", E=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+  const W=900,H=300, cw=14, pt=30, pb=16, gap=14, total=23;
+  const colX=[168, W/2-cw/2, W-190];
+  const maxN=Math.max(...SANKEY.cols.map(c=>c.length));
+  const scale=(H-pt-pb-gap*(maxN-1))/total;
+  const CLR={"Software":"var(--sw)","Dados":"var(--data)","Nacional":"var(--accent)","Internacional":"var(--pv)"};
+  const headers=["Formação (via principal)","Trilha atual","Empregador"];
+  const box={};
+  SANKEY.cols.forEach((nodes,ci)=>{
+    const colH=nodes.reduce((s,[,n])=>s+n*scale,0)+gap*(nodes.length-1);
+    let y=pt+((H-pt-pb)-colH)/2;
+    const hd=E("text",{x:colX[ci]+(ci===2?0:cw/2),y:18,"text-anchor":ci===0?"start":ci===2?"end":"middle","font-size":10.5,"font-weight":700,fill:"var(--muted)"}); hd.textContent=headers[ci];
+    hd.setAttribute("x", ci===0?colX[ci]-cw:(ci===2?colX[ci]+cw+cw:colX[ci]+cw/2)); svg.appendChild(hd);
+    nodes.forEach(([nome,n])=>{
+      const h=n*scale, c=CLR[nome]||"var(--muted)";
+      svg.appendChild(E("rect",{x:colX[ci],y,width:cw,height:h,rx:2,fill:c,"fill-opacity":.85}));
+      box[nome]={x:colX[ci],y,h,c,out:0,inn:0};
+      if(ci===1){ const lb=E("text",{x:colX[ci]+cw/2,y:y+h/2+4,"text-anchor":"middle","font-size":11,"font-weight":700,fill:"#fff"}); lb.textContent=nome+" ("+n+")"; svg.appendChild(lb); }
+      else { const anch=ci===0?"end":"start", tx=ci===0?colX[ci]-8:colX[ci]+cw+8;
+        const lb=E("text",{x:tx,y:y+h/2+4,"text-anchor":anch,"font-size":11,fill:"var(--ink-2)"}); lb.textContent=nome+" ("+n+")"; svg.appendChild(lb); }
+      y+=h+gap;
+    });
+  });
+  function band(s,t,n,color){ const h=n*scale, x1=s.x+cw, x2=t.x, y1=s.y+s.out, y2=t.y+t.inn, xm=(x1+x2)/2;
+    const d=`M${x1},${y1} C${xm},${y1} ${xm},${y2} ${x2},${y2} L${x2},${y2+h} C${xm},${y2+h} ${xm},${y1+h} ${x1},${y1+h} Z`;
+    svg.appendChild(E("path",{d,fill:color,"fill-opacity":.28})); s.out+=h; t.inn+=h; }
+  SANKEY.L12.forEach(([de,para,n])=>band(box[de],box[para],n,CLR[para]));
+  SANKEY.L23.forEach(([de,para,n])=>band(box[de],box[para],n,CLR[para]));
+})();
+
+// ---- Internacionalização ao longo do tempo ----
+const INTLTL=[[2012,0,0,8],[2013,0,0,11],[2014,0,0,11],[2015,0,0,13],[2016,0,0,17],[2017,0,0,18],[2018,0,0,23],[2019,0,0,23],[2020,9,2,23],[2021,22,5,23],[2022,22,5,23],[2023,26,6,23],[2024,30,7,23],[2025,39,9,23],[2026,39,9,23]];
+(function(){
+  const svg=document.getElementById("intltl"); if(!svg) return;
+  const NS="http://www.w3.org/2000/svg", E=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+  const W=900,H=240,m={t:20,r:24,b:40,l:44}, iw=W-m.l-m.r, ih=H-m.t-m.b, YM=45;
+  const X=i=>m.l+iw*i/(INTLTL.length-1), Y=v=>m.t+ih*(1-v/YM);
+  for(let v=0;v<=YM;v+=15){ svg.appendChild(E("line",{x1:m.l,x2:W-m.r,y1:Y(v),y2:Y(v),class:"gridline"}));
+    const t=E("text",{x:m.l-8,y:Y(v)+4,"text-anchor":"end",class:"tick"}); t.textContent=v+"%"; svg.appendChild(t); }
+  // marca 2020 (onset)
+  const i20=INTLTL.findIndex(r=>r[0]===2020);
+  svg.appendChild(E("line",{x1:X(i20),x2:X(i20),y1:m.t,y2:m.t+ih,stroke:"var(--muted)","stroke-width":1,"stroke-dasharray":"3 3",opacity:.6}));
+  const on=E("text",{x:X(i20)+4,y:m.t+12,"font-size":10.5,fill:"var(--muted)"}); on.textContent="decolagem (2020)"; svg.appendChild(on);
+  let area="M"+X(0)+","+Y(0), ml="";
+  INTLTL.forEach((r,i)=>{ area+=" L"+X(i)+","+Y(r[1]); ml+=(i?"L":"M")+X(i)+" "+Y(r[1])+" "; });
+  area+=" L"+X(INTLTL.length-1)+","+Y(0)+" Z";
+  svg.appendChild(E("path",{d:area,fill:"var(--pv)","fill-opacity":.1}));
+  svg.appendChild(E("path",{d:ml,fill:"none",stroke:"var(--pv)","stroke-width":2.5,"stroke-linejoin":"round"}));
+  INTLTL.forEach((r,i)=>{ if(r[0]%2===0||r[0]===2025){ const xl=E("text",{x:X(i),y:H-m.b+18,"text-anchor":"middle",class:"xlab"}); xl.textContent=r[0]; svg.appendChild(xl); }
+    if(r[1]>0){ svg.appendChild(E("circle",{cx:X(i),cy:Y(r[1]),r:3,fill:"var(--surface)",stroke:"var(--pv)","stroke-width":2})); } });
+  const last=INTLTL[INTLTL.length-1];
+  const ll=E("text",{x:X(INTLTL.length-1)-6,y:Y(last[1])-8,"text-anchor":"end","font-size":11.5,"font-weight":700,fill:"var(--pv)"}); ll.textContent=last[1]+"% ("+last[2]+"/"+last[3]+")"; svg.appendChild(ll);
+  const yt=E("text",{x:-(m.t+ih/2),y:13,"text-anchor":"middle",class:"axtitle",transform:"rotate(-90)"}); yt.textContent="% em empregador internacional"; svg.appendChild(yt);
 })();
 </script>
 
