@@ -876,7 +876,7 @@ const SANKEY={
       const h=n*scale, c=CLR[nome]||"var(--muted)";
       svg.appendChild(E("rect",{x:colX[ci],y,width:cw,height:h,rx:2,fill:c,"fill-opacity":.85}));
       box[nome]={x:colX[ci],y,h,c,out:0,inn:0};
-      if(ci===1){ const lb=E("text",{x:colX[ci]+cw/2,y:y+h/2+4,"text-anchor":"middle","font-size":11,"font-weight":700,fill:"#fff"}); lb.textContent=nome+" ("+n+")"; svg.appendChild(lb); }
+      if(ci===1){ const lb=E("text",{x:colX[ci]+cw+7,y:y+h/2+4,"text-anchor":"start","font-size":10.5,"font-weight":700,fill:"var(--ink)","paint-order":"stroke",stroke:"var(--surface)","stroke-width":3.5,"stroke-linejoin":"round"}); lb.textContent=nome+" ("+n+")"; svg.appendChild(lb); }
       else { const anch=ci===0?"end":"start", tx=ci===0?colX[ci]-8:colX[ci]+cw+8;
         const lb=E("text",{x:tx,y:y+h/2+4,"text-anchor":anch,"font-size":11,fill:"var(--ink-2)"}); lb.textContent=nome+" ("+n+")"; svg.appendChild(lb); }
       y+=h+gap;
@@ -911,7 +911,7 @@ const CAREER={headers:["Início (1º terço)","Meio","Atual"],
       const h=n*scale, c=CLR[nome]||"var(--muted)";
       svg.appendChild(E("rect",{x:colX[ci],y,width:cw,height:h,rx:2,fill:c,"fill-opacity":.85}));
       box[ci+":"+nome]={x:colX[ci],y,h,out:0,inn:0};
-      if(ci===1){ if(n>=3){const lb=E("text",{x:colX[ci]+cw/2,y:y+h/2+4,"text-anchor":"middle","font-size":10.5,"font-weight":700,fill:"#fff"}); lb.textContent=nome; svg.appendChild(lb);} }
+      if(ci===1){ const lb=E("text",{x:colX[ci]+cw+7,y:y+h/2+4,"text-anchor":"start","font-size":10.5,"font-weight":700,fill:"var(--ink)","paint-order":"stroke",stroke:"var(--surface)","stroke-width":3.5,"stroke-linejoin":"round"}); lb.textContent=nome+" ("+n+")"; svg.appendChild(lb); }
       else { const anch=ci===0?"end":"start", tx=ci===0?colX[ci]-8:colX[ci]+cw+8;
         const lb=E("text",{x:tx,y:y+h/2+4,"text-anchor":anch,"font-size":11,fill:"var(--ink-2)"}); lb.textContent=nome+" ("+n+")"; svg.appendChild(lb); }
       y+=h+gap;
