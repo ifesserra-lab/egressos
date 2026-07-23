@@ -371,6 +371,34 @@
       <p class="hint" style="margin-top:10px"><b>9 dos 23 egressos trabalham para empresas internacionais</b> (Europa, América Latina e EUA/global). A mediana estimada do grupo hoje (~R$ 15,8k) fica <b>~8% acima</b> do Sênior nacional da Código Fonte 2026 (R$ 14,6k), e o prêmio internacional vs nacional estimado é de <b>~6%</b>. <b>Ressalva:</b> as estimativas partem da curva do mercado brasileiro por experiência (Stack Overflow), então <b>não capturam o prêmio real de contratos em moeda estrangeira</b> — o dado aqui é de <b>composição</b> (para onde foram), não de remuneração comparada. Dois perfis de gestão/TI-infra (P, Q) puxam a faixa inferior para baixo — o modelo precifica só cargos de dev/dados. <b>15 dos 23 começaram como bolsistas/estagiários</b> de IC/extensão; a rotatividade média é de ~3 anos por empresa.</p>
     </section>
 
+    <section class="card">
+      <h2>Indicadores de impacto</h2>
+      <p class="hint">Leitura do impacto da formação (ensino · pesquisa · extensão) na trajetória dos 23 egressos — velocidade, retenção, liderança, internacionalização e dispersão. Medianas e contagens; caudas rasas sinalizadas.</p>
+      <div class="hero-kpi" id="impkpi" style="margin-bottom:18px"></div>
+      <div class="cf-grid">
+        <div>
+          <h4>Origem comum — por onde passaram (nº de egressos)</h4>
+          <div id="origbars"></div>
+          <p class="hint" style="margin-top:9px">A maioria passou por mais de uma via. Extensão (LEDS/IFES) e pesquisa (IC/FAPES) são as mais frequentes; ensino (monitoria) e empresa júnior complementam.</p>
+        </div>
+        <div>
+          <h4>Trilha × senioridade (nº de egressos)</h4>
+          <table class="atable">
+            <thead><tr><th>Trilha</th><th class="n">Sênior</th><th class="n">Espec./TL</th><th class="n">Total</th></tr></thead>
+            <tbody>
+              <tr><td>Software</td><td class="n">8</td><td class="n">11</td><td class="n tot">19</td></tr>
+              <tr><td>Dados</td><td class="n">2</td><td class="n">2</td><td class="n tot">4</td></tr>
+              <tr><td class="tot">Total</td><td class="n tot">10</td><td class="n tot">13</td><td class="n tot">23</td></tr>
+            </tbody>
+          </table>
+          <p class="hint" style="margin-top:9px">Todos em nível Sênior ou superior — coorte madura (exp. mediana ~12 anos).</p>
+        </div>
+      </div>
+      <h4 style="margin:18px 0 0">Dispersão do salário estimado atual (R$/mês) — mediana e faixa p25–p75</h4>
+      <div class="chart-scroll"><svg id="boxplot" viewBox="0 0 900 210" role="img" aria-label="Distribuição de salário estimado por grupo"></svg></div>
+      <p class="hint">Caixa = p25–p75; risco central = mediana; hastes = mín.–máx. Grupos por trilha (Software/Dados) e por origem do empregador (nacional/internacional). Dois perfis de gestão/TI-infra puxam o mínimo de Software/Nacional para baixo — o modelo precifica só cargos de dev/dados.</p>
+    </section>
+
     <section class="card notes">
       <h2>Método &amp; ressalvas</h2>
       <ul>
@@ -578,6 +606,48 @@ document.getElementById("ladder").innerHTML=CF.map(d=>`
  </div>`).join("");
 
 document.getElementById("foot").innerHTML='Fontes: bolsas iniciais = registros reais da <a href="https://fapes.es.gov.br/fapes-reajusta-tabela-de-valores-de-bolsas-e" target="_blank" rel="noopener"><b>FAPES</b></a> (valor, nível e período) e IFES; salários de mercado = <a href="https://survey.stackoverflow.co/" target="_blank" rel="noopener">Stack Overflow Developer Survey 2018–2023</a> (gráfico por experiência) e <a href="https://pesquisa.codigofonte.com.br/2026" target="_blank" rel="noopener">Pesquisa Código Fonte 2026</a> (escada de senioridade, 17.046 respondentes, Brasil) · perfis via LinkedIn → estrutura anônima · câmbio médio anual + IPCA acumulado a jul/2026 · estimativa ilustrativa para fins de apresentação, não representa remuneração real declarada.';
+
+// ---- Indicadores de impacto (computados em data/analise.py -> analise.json) ----
+const IMPACTO={
+  tiles:[
+    {v:"10,0×",k:"crescimento real médio da renda (até 17,9×) — da bolsa à posição atual"},
+    {v:"~12<small> anos</small>",k:"experiência mediana até nível Sênior ou superior"},
+    {v:"7<small>/23</small>",k:"lideram ou gerenciam hoje (10 já passaram por liderança)"},
+    {v:"9<small>/23</small>",k:"em empregador internacional — 1º emprego intl ~7,8 anos de carreira"},
+    {v:"+6%",k:"prêmio internacional vs nacional (mediana estimada)"},
+    {v:"23<small>/23</small>",k:"seguem em tecnologia"},
+    {v:"25",k:"egressos localizados na pesquisa (4 sem LinkedIn)"}
+  ],
+  origem:[
+    {l:"Extensão — LEDS/IFES",n:12},
+    {l:"Pesquisa — IC/FAPES/CAPES",n:11},
+    {l:"Ensino — monitoria",n:4},
+    {l:"Empresa júnior — Morpheus",n:3}
+  ],
+  box:[
+    {l:"Software (n=19)",c:"var(--sw)",min:6431,q1:14629,med:17211,q3:17856,max:19706},
+    {l:"Dados (n=4)",c:"var(--data)",min:14199,q1:15167,med:15490,q3:15678,max:16241},
+    {l:"Nacional (n=14)",c:"var(--accent)",min:6431,q1:14844,med:16224,q3:17211,max:19706},
+    {l:"Internacional (n=9)",c:"var(--pv)",min:14199,q1:14629,med:17211,q3:17211,max:19706}
+  ]
+};
+document.getElementById("impkpi").innerHTML=IMPACTO.tiles.map(t=>`<div class="hk"><div class="v">${t.v}</div><div class="k">${t.k}</div></div>`).join("");
+document.getElementById("origbars").innerHTML=IMPACTO.origem.map(o=>`<div style="display:flex;align-items:center;gap:9px;margin:7px 0"><div style="flex:0 0 150px;font-size:12px;color:var(--ink-2)">${o.l}</div><div style="flex:1;background:var(--surface-2);border-radius:5px;overflow:hidden;height:16px"><div style="width:${(o.n/23*100).toFixed(0)}%;background:var(--accent);height:16px;border-radius:5px"></div></div><b style="flex:0 0 26px;text-align:right;font-size:12.5px;font-variant-numeric:tabular-nums">${o.n}</b></div>`).join("");
+(function(){
+  const svg=document.getElementById("boxplot"), NS="http://www.w3.org/2000/svg";
+  const W=900,H=210,mb={t:12,r:26,b:34,l:132}, iw=W-mb.l-mb.r, rh=(H-mb.t-mb.b)/IMPACTO.box.length, XMAX=22000;
+  const X=v=>mb.l+iw*v/XMAX, E=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+  for(let v=0;v<=XMAX;v+=5000){ svg.appendChild(E("line",{x1:X(v),x2:X(v),y1:mb.t,y2:mb.t+rh*IMPACTO.box.length,stroke:"var(--line)","stroke-width":1}));
+    const t=E("text",{x:X(v),y:H-mb.b+18,"text-anchor":"middle",class:"tick"}); t.textContent="R$ "+v/1000+"k"; svg.appendChild(t); }
+  IMPACTO.box.forEach((b,i)=>{ const cy=mb.t+rh*i+rh/2;
+    const lab=E("text",{x:mb.l-10,y:cy+4,"text-anchor":"end",class:"tick"}); lab.textContent=b.l; svg.appendChild(lab);
+    svg.appendChild(E("line",{x1:X(b.min),x2:X(b.max),y1:cy,y2:cy,stroke:b.c,"stroke-width":1.5,opacity:.8}));
+    [b.min,b.max].forEach(v=>svg.appendChild(E("line",{x1:X(v),x2:X(v),y1:cy-6,y2:cy+6,stroke:b.c,"stroke-width":1.5})));
+    svg.appendChild(E("rect",{x:X(b.q1),y:cy-11,width:Math.max(X(b.q3)-X(b.q1),2),height:22,fill:b.c,"fill-opacity":.20,stroke:b.c,"stroke-width":1.5,rx:3}));
+    svg.appendChild(E("line",{x1:X(b.med),x2:X(b.med),y1:cy-11,y2:cy+11,stroke:b.c,"stroke-width":2.5}));
+    const ml=E("text",{x:X(b.med),y:cy-14,"text-anchor":"middle","font-size":11,"font-weight":700,fill:b.c}); ml.textContent="R$ "+(b.med/1000).toFixed(1).replace(".",",")+"k"; svg.appendChild(ml);
+  });
+})();
 </script>
 
 </body>
