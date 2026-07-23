@@ -279,16 +279,9 @@
     </section>
 
     <section class="card">
-      <h2>Salto individual — do início ao momento atual</h2>
-      <p class="hint">Cada linha: da primeira remuneração (estágio/bolsa) à estimativa atual. Perfis anonimizados; só a trilha é revelada.</p>
-      <div class="db" id="dumbbell"></div>
-      <div class="db-scale"><div></div><div class="db-ticks" id="dbticks"></div><div></div></div>
-    </section>
-
-    <section class="card">
       <h2>Principais achados</h2>
       <ul class="finds">
-        <li><b>Salto de 9,1× (até 17,9×) na renda real</b> — da bolsa de pesquisa/extensão ao mercado sênior, já descontada a inflação (poder de compra de 2026).</li>
+        <li><b>Salto de 8,1× (até 17,9×) na renda real</b> — da bolsa de pesquisa/extensão ao mercado sênior, já descontada a inflação (poder de compra de 2026).</li>
         <li><b>A bolsa foi trampolim, não teto</b> — a trajetória real alcança o valor de mercado por volta de 3 anos de experiência e cresce junto a partir daí.</li>
         <li><b>A bolsa custeou o início, o mercado fez o resto</b> — os egressos receberam ~R$ 800/mês em bolsa FAPES de projeto de governo (2018–2020), o equivalente a ~R$ 1.187/mês em poder de compra de 2026.</li>
         <li><b>Grande diferença de oportunidade</b> — o mercado hoje paga ~R$ 3,5 mil a um iniciante, ~3× o valor real daquela bolsa. A bolsa de IC padrão da FAPES, por comparação, subiu de ~R$ 400 (época deles) para R$ 900/mês hoje.</li>
@@ -473,7 +466,7 @@
 
       <h4 style="margin:18px 0 0">Ecossistema de pesquisa — laboratórios do IFES/UFES</h4>
       <div class="chips" id="labchips"></div>
-      <p class="hint" style="margin-top:9px">O <b>LEDS</b> é o laboratório principal da coorte (<b>25 egressos</b>). Além dele, <b>9 dos 50</b> passaram por outros laboratórios/grupos de pesquisa do IFES/UFES — <b>3 deles bolsistas</b> (IC/FAPES). Sinal de um ecossistema de P&D amplo por trás dos egressos. Cruzamento por nome nas bases oficiais (SRC · horizon/SigPesq · Lattes) — piso, possíveis homônimos.</p>
+      <p class="hint" style="margin-top:9px">O <b>LEDS</b> é o laboratório principal da coorte (<b>25 egressos</b>); outros <b>9 dos 50</b> passaram por laboratórios/grupos de pesquisa adicionais do IFES/UFES — <b>3 deles bolsistas</b> (IC/FAPES). Sinal de um ecossistema de P&D amplo por trás dos egressos. Cruzamento por nome nas bases oficiais (SRC · horizon/SigPesq · Lattes) — piso, possíveis homônimos.</p>
 
       <h4 style="margin:18px 0 0">Da bolsa FAPES à carreira — o retorno está na porta de entrada, não no valor</h4>
       <div class="cf-grid">
@@ -682,21 +675,6 @@ const a0=AGG[0]; const an1=el("text",{x:xs(a0.exp)+8,y:ys(a0.med)-8,class:"anno"
 const as1=el("text",{x:xs(a0.exp)+8,y:ys(a0.med)+8,class:"anno-sub"}); as1.textContent="bolsa FAPES ~R$ 800/mês"; svg.appendChild(as1);
 const p8=AGG[8]; const an2=el("text",{x:xs(p8.exp)-6,y:ys(p8.med)-12,"text-anchor":"end",class:"anno"}); an2.textContent="sênior ~"+brlk(p8.med); svg.appendChild(an2);
 
-// ---- dumbbell ----
-const DBMAX=18000, dpx=v=>v/DBMAX*100;
-document.getElementById("dumbbell").innerHTML=PERFIS.map(p=>{
-  const c=p.trilha==="Dados"?"var(--data)":"var(--sw)";
-  return `<div class="db-row">
-    <div class="db-lab">${p.perfil}<small>${p.trilha}${p.em_tech?"":" · migrou"} · ${p.anos}a</small></div>
-    <div class="db-track" style="--dbc:${c}">
-      <div class="db-line" style="left:${dpx(p.med_ini)}%;width:${Math.max(dpx(p.med_atual)-dpx(p.med_ini),1)}%"></div>
-      <div class="db-a" style="left:${dpx(p.med_ini)}%" title="início ${brl(p.med_ini)}"></div>
-      <div class="db-b" style="left:${dpx(p.med_atual)}%" title="atual ${brl(p.med_atual)}"></div>
-    </div>
-    <div class="db-mult">${p.cresc}×</div>
-  </div>`;}).join("");
-let dbt=""; for(let v=0;v<=DBMAX;v+=6000) dbt+=`<div class="db-tk" style="left:${dpx(v)}%">${brlk(v)}</div>`;
-document.getElementById("dbticks").innerHTML=dbt;
 
 // ---- outcomes ----
 document.getElementById("outcomes").innerHTML=[
