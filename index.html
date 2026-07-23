@@ -398,16 +398,25 @@
       <div class="chart-scroll"><svg id="boxplot" viewBox="0 0 900 210" role="img" aria-label="Distribuição de salário estimado por grupo"></svg></div>
       <p class="hint">Caixa = p25–p75; risco central = mediana; hastes = mín.–máx. Grupos por trilha (Software/Dados) e por origem do empregador (nacional/internacional). Dois perfis de gestão/TI-infra puxam o mínimo de Software/Nacional para baixo — o modelo precifica só cargos de dev/dados.</p>
 
-      <h4 style="margin:18px 0 0">Fomento FAPES que formou a coorte (via PRODEST)</h4>
-      <table class="atable">
-        <thead><tr><th>Projeto FAPES (concluído)</th><th class="n">Bolsistas</th><th class="n">Egressos</th><th class="n">Alocado</th></tr></thead>
-        <tbody>
-          <tr><td>“ES na Palma da Mão” · plataforma p/ cidades inteligentes (BPIG, 2018–2020)</td><td class="n">19</td><td class="n">5</td><td class="n">R$ 301,3 mil</td></tr>
-          <tr><td>“Acesso Cidadão” · revisão de experiência do usuário (AT-NM, 2019–2020)</td><td class="n">4</td><td class="n">1</td><td class="n">R$ 26,4 mil</td></tr>
-          <tr><td class="tot">Total</td><td class="n tot">23</td><td class="n tot">6</td><td class="n tot">R$ 327,7 mil</td></tr>
-        </tbody>
-      </table>
-      <p class="hint" style="margin-top:10px"><b>R$ 327,7 mil</b> de fomento FAPES (dois projetos concluídos e homologados, executados via <b>PRODEST</b>) financiaram bolsistas que hoje ocupam posições sênior, de liderança técnica e consultoria — vários no exterior. <b>Fonte:</b> base pública da FAPES (<i>relatório de alocação de bolsas</i>); vínculo egresso↔projeto verificado por projeto + período + tipo de bolsa (cruzamento por nome sozinho gera homônimos). Egressos com bolsa interna do LEDS/IFES não constam na base FAPES.</p>
+      <h4 style="margin:18px 0 0">Da bolsa FAPES à carreira — o retorno está na porta de entrada, não no valor</h4>
+      <div class="cf-grid">
+        <div>
+          <ul class="clist">
+            <li><span class="cdot" style="background:var(--accent)"></span><div><b>“ES na Palma da Mão” · PRODEST</b><small>Projeto de governo (plataforma para cidades inteligentes) — deu a <b>5</b> egressos a primeira experiência profissional em software/dados.</small></div></li>
+            <li><span class="cdot" style="background:var(--accent)"></span><div><b>“Acesso Cidadão” · PRODEST</b><small>Revisão da experiência do usuário de serviços públicos — <b>1</b> egresso.</small></div></li>
+            <li><span class="cdot" style="background:var(--amber)"></span><div><b>Bolsa modesta (~R$ 800/mês, 2018–2020)</b><small>O valor repassado é baixo — o que pesou foi a porta de entrada e a qualificação, não a cifra.</small></div></li>
+          </ul>
+        </div>
+        <div>
+          <div class="hero-kpi" style="grid-template-columns:1fr 1fr">
+            <div class="hk"><div class="v big">~13×</div><div class="k">renda real hoje vs. a bolsa da época (mediana dos 6 bolsistas)</div></div>
+            <div class="hk"><div class="v">6<small>/6</small></div><div class="k">bolsistas FAPES seguem em tecnologia</div></div>
+            <div class="hk"><div class="v">~R$ 15<small>k</small></div><div class="k">mediana estimada hoje desses 6 egressos</div></div>
+            <div class="hk"><div class="v">Sênior+</div><div class="k">todos sênior, liderança ou consultoria — vários no exterior</div></div>
+          </div>
+        </div>
+      </div>
+      <p class="hint" style="margin-top:10px">Leitura de impacto: o retorno do fomento FAPES não está na cifra repassada (baixa), e sim em ter dado a esses egressos a <b>primeira experiência real em pesquisa aplicada e desenvolvimento</b> — a partir daí a <b>qualificação</b>, não o valor, conduziu a carreira. Dois projetos concluídos e homologados, executados via <b>PRODEST</b>. <b>Fonte:</b> base pública da FAPES (projetos e bolsistas); vínculo egresso↔projeto verificado por projeto + período + tipo de bolsa (cruzamento só por nome gera homônimos). Egressos com bolsa interna do LEDS/IFES não constam na base FAPES.</p>
     </section>
 
     <section class="card notes">
@@ -628,7 +637,7 @@ const IMPACTO={
     {v:"+6%",k:"prêmio internacional vs nacional (mediana estimada)"},
     {v:"23<small>/23</small>",k:"seguem em tecnologia"},
     {v:"25",k:"egressos localizados na pesquisa (4 sem LinkedIn)"},
-    {v:"R$ 328<small>k</small>",k:"fomento FAPES/PRODEST que formou a coorte — 2 projetos, 6 egressos entre 23 bolsistas"}
+    {v:"6",k:"egressos formados por bolsa FAPES/PRODEST (2 projetos) — 6/6 seguem em tech, hoje ~13× a renda real da bolsa"}
   ],
   origem:[
     {l:"Extensão — LEDS/IFES",n:12},
