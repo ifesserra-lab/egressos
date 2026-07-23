@@ -193,9 +193,10 @@
       <h2>Como ler (e o que isto NÃO é)</h2>
       <ul>
         <li><b>É uma faixa de mercado</b> para a experiência do egresso em cada ano — não o salário efetivamente recebido.</li>
-        <li><b>Duas linhas:</b> azul = R$ nominal da época (survey do ano × câmbio médio); laranja = a mesma mediana trazida a <b>R$ de 2026 pelo IPCA</b> (poder de compra comparável). R$ 2.284 de 2018 ≈ R$ 3.389 hoje.</li>
+        <li><b>Duas linhas:</b> azul = R$ nominal recebido no ano; laranja = o mesmo valor trazido a <b>R$ de 2026 pelo IPCA</b> (poder de compra comparável). Ex.: R$ 800 de 2018 ≈ R$ 1.187 hoje.</li>
+        <li><b>2018–2019 = bolsa real FAPES</b> (R$ 800/mês, nível VI — projeto Prodest/FAPES, valor documentado, o mesmo usado no relatório executivo), <b>não</b> o mercado. A faixa sombreada mostra o que o mercado pagava para essa experiência (referência) — a bolsa fica bem abaixo, por isso o salto ao entrar no mercado (2020).</li>
+        <li><b>A partir de 2020:</b> mediana de mercado (survey Stack Overflow do ano × câmbio médio).</li>
         <li><b>2024–2026 são extrapolados</b> do survey 2023 (não há edições publicadas dessas experiências ainda) — linha tracejada.</li>
-        <li><b>2018 quase certo abaixo do p25</b> — período de bolsa (Prodest), que paga menos que CLT.</li>
         <li>O modelo usa só anos de experiência + país + cargo. Ignora empresa, trabalho remoto pago em USD e negociação — que pesam muito.</li>
         <li>Salário SO é bruto anual autorreportado; a mediana usa devs back/front/full-stack do Brasil na faixa de experiência do egresso (±1 ano).</li>
       </ul>
@@ -210,8 +211,8 @@
 // med/p25/p75 = R$ NOMINAL da época. real = mediana trazida a R$ de 2026 pelo IPCA acumulado.
 // Trajetória de um egresso (anonimizada): estágio/bolsa → empresa nacional → empresa internacional (sênior).
 const DATA = [
-  {ano:2018, empresa:"Bolsa · Prodest/FAPES",      exp:0, fx:3.66, n:356, p25:1713,  med:2284,  p75:3426,  real:3389,  ex:false},
-  {ano:2019, empresa:"Bolsa · Prodest/FAPES",      exp:1, fx:3.94, n:399, p25:1938,  med:2927,  p75:3962,  real:4165,  ex:false},
+  {ano:2018, empresa:"Bolsa · Prodest/FAPES",      exp:0, fx:3.66, n:356, p25:1713,  med:800,   p75:3426,  real:1187,  ex:false, bolsa:true, mkt:2284},
+  {ano:2019, empresa:"Bolsa · Prodest/FAPES",      exp:1, fx:3.94, n:399, p25:1938,  med:800,   p75:3962,  real:1138,  ex:false, bolsa:true, mkt:2927},
   {ano:2020, empresa:"Empresa nacional",           exp:2, fx:5.16, n:489, p25:2957,  med:4138,  p75:5908,  real:5632,  ex:false},
   {ano:2021, empresa:"Empresa nacional",           exp:3, fx:5.39, n:569, p25:4937,  med:6791,  p75:10370, real:8401,  ex:false},
   {ano:2022, empresa:"Empresa nacional",           exp:4, fx:5.16, n:403, p25:5898,  med:8600,  p75:14158, real:10053, ex:false},
@@ -229,12 +230,12 @@ const first = DATA[0], last = DATA[DATA.length-1];
 const mult = (last.med/first.med);
 document.getElementById("stats").innerHTML = `
   <div class="stat"><p class="k">Hoje (2026 · Sênior)*</p><div class="v">${brl(last.med)}<small>/mês</small></div><div class="r">faixa ${brl(last.p25)} – ${brl(last.p75)}</div></div>
-  <div class="stat"><p class="k">Início (2018 · júnior)</p><div class="v">${brl(first.med)}<small>/mês</small></div><div class="r">faixa ${brl(first.p25)} – ${brl(first.p75)}</div></div>
+  <div class="stat"><p class="k">Início (2018 · bolsa FAPES)</p><div class="v">${brl(first.med)}<small>/mês</small></div><div class="r">bolsa real (mercado à época: ${brl(first.mkt)})</div></div>
   <div class="stat"><p class="k">Crescimento nominal</p><div class="v">${mult.toFixed(1)}×</div><div class="r">mediana 2018 → 2026</div></div>`;
 
 // ---- table ----
 document.getElementById("tbody").innerHTML = DATA.map(d =>
-  `<tr><td>${d.ano}${d.ex?' <sup>*</sup>':''}</td><td>${d.empresa}</td><td>${d.exp}a</td><td>${d.fx.toFixed(2)}</td><td>${brl(d.p25)}</td><td class="med">${brl(d.med)}</td><td>${brl(d.p75)}</td><td style="color:var(--series2);font-weight:650">${brl(d.real)}</td></tr>`).join("");
+  `<tr><td>${d.ano}${d.ex?' <sup>*</sup>':''}</td><td>${d.empresa}</td><td>${d.exp}a</td><td>${d.fx.toFixed(2)}</td><td>${d.bolsa?'<span style="color:var(--muted)">'+brl(d.p25)+'</span>':brl(d.p25)}</td><td class="med">${brl(d.med)}${d.bolsa?' <small style="color:var(--muted)">bolsa</small>':''}</td><td>${d.bolsa?'<span style="color:var(--muted)">'+brl(d.p75)+'</span>':brl(d.p75)}</td><td style="color:var(--series2);font-weight:650">${brl(d.real)}</td></tr>`).join("");
 document.getElementById("foot").innerHTML = `Fonte: Stack Overflow Developer Survey 2018–2023 (devs Brasil back/front/full-stack; n do ano na tabela) · câmbio médio anual USD→BRL · IPCA acumulado até jul/2026 p/ a linha em R$ de 2026 · trilha de carreira anonimizada. <b>*</b> 2024–2026 extrapolados do survey 2023.`;
 
 // ---- chart geometry ----
