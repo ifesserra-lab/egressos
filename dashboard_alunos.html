@@ -151,12 +151,6 @@
       <div class="legend" id="legend"></div>
     </section>
 
-    <section class="card">
-      <h2>Salto individual — do início ao momento atual</h2>
-      <p class="hint">Cada linha é um egresso (A–AX): do <b>ponto de partida</b> (bolsa/estágio ou 1º salário) até a <b>renda estimada hoje</b> — R$ de 2026, ordenado pelo multiplicador. É <b>estimativa de mercado</b> (Stack Overflow, por trilha + experiência), não a folha real. 1 perfil (gestão de produto) fica fora por não ter série comparável.</p>
-      <div class="tl-scroll"><svg id="salto" viewBox="0 0 900 800" role="img" aria-label="Salto individual do início ao momento atual"></svg></div>
-    </section>
-
     <section class="people" id="people"></section>
 
     <p class="foot" id="foot"></p>
@@ -647,25 +641,6 @@ document.getElementById("stats").innerHTML = `
 // ---- timeline ----
 const YMIN=2012, YMAX=2026.6;
 const px = y => ((y-YMIN)/(YMAX-YMIN))*100;
-const SALTO=[["C",794,14199,17.9,"Dados"],["U",1159,18501,16.0,"Software"],["F",1278,19706,15.4,"Software"],["O",1278,19706,15.4,"Software"],["R",1278,19039,14.9,"Software"],["X",1278,18847,14.7,"Software"],["D",1187,16241,13.7,"Dados"],["V",1337,17211,12.9,"Software"],["A",1187,14629,12.3,"Software"],["B",1187,14629,12.3,"Software"],["I",1187,14629,12.3,"Software"],["AF",1367,16866,12.3,"Software"],["E",1278,15490,12.1,"Dados"],["N",1278,15490,12.1,"Dados"],["Y",1533,15662,10.2,"Software"],["M",1726,17105,9.9,"Software"],["Z",1726,17105,9.9,"Software"],["K",1751,17211,9.8,"Software"],["AG",1751,17211,9.8,"Software"],["AT",1531,14801,9.7,"Software"],["H",1695,14629,8.6,"Software"],["AB",1695,14629,8.6,"Software"],["AX",2318,19792,8.5,"Software"],["AC",2556,19706,7.7,"Software"],["AS",2733,19448,7.1,"Dados"],["S",2674,17211,6.4,"Software"],["AJ",2733,16866,6.2,"Software"],["AE",2318,12908,5.6,"Dados"],["G",3065,15662,5.1,"Software"],["J",3452,17211,5.0,"Software"],["W",3452,17211,5.0,"Software"],["AH",3452,17211,5.0,"Software"],["AD",3501,17211,4.9,"Software"],["AI",3501,17211,4.9,"Software"],["AK",3501,17211,4.9,"Software"],["AN",3501,17211,4.9,"Software"],["AR",3501,17211,4.9,"Software"],["AU",3389,16241,4.8,"Dados"],["AW",3061,14801,4.8,"Software"],["L",3452,16208,4.7,"Software"],["AO",3389,14629,4.3,"Software"],["Q",1751,6431,3.7,"Software"],["T",5204,18501,3.6,"Software"],["AM",4852,15662,3.2,"Software"],["AL",5365,16241,3.0,"Dados"],["AV",4867,14135,2.9,"Software"],["AP",9136,15490,1.7,"Software"],["P",4412,6685,1.5,"Software"],["AA",3065,4597,1.5,"Software"]];
-(function(){
-  const svg=document.getElementById("salto"); if(!svg) return;
-  const NS="http://www.w3.org/2000/svg", E=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
-  const W=900, mL=58, mR=64, top=46, rh=15, H=top+SALTO.length*rh+22;
-  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
-  const VMAX=20000, xs=v=>mL+(v/VMAX)*(W-mL-mR);
-  const CLR={"Software":"var(--a-backend)","Dados":"var(--a-data)"};
-  for(let v=0;v<=VMAX;v+=5000){ svg.appendChild(E("line",{x1:xs(v),x2:xs(v),y1:top-6,y2:H-16,stroke:"var(--border)","stroke-width":1})); const t=E("text",{x:xs(v),y:top-12,"text-anchor":"middle","font-size":9.5,fill:"var(--muted)"}); t.textContent="R$ "+(v/1000)+"k"; svg.appendChild(t); }
-  SALTO.forEach(([lab,ini,atu,cr,tr],i)=>{
-    const y=top+i*rh+rh/2, c=CLR[tr]||"var(--accent)";
-    svg.appendChild(E("line",{x1:xs(ini),x2:xs(atu),y1:y,y2:y,stroke:c,"stroke-opacity":.4,"stroke-width":2.5}));
-    svg.appendChild(E("circle",{cx:xs(ini),cy:y,r:2.6,fill:"var(--muted)"}));
-    svg.appendChild(E("circle",{cx:xs(atu),cy:y,r:3.8,fill:c}));
-    const ll=E("text",{x:mL-6,y:y+3.2,"text-anchor":"end","font-size":9,fill:"var(--ink)"}); ll.textContent=lab; svg.appendChild(ll);
-    const rl=E("text",{x:W-mR+6,y:y+3.2,"text-anchor":"start","font-size":9,"font-weight":700,fill:c}); rl.textContent=String(cr).replace(".",",")+"×"; svg.appendChild(rl);
-  });
-  const lg=E("text",{x:mL,y:H-4,"font-size":9.5,fill:"var(--muted)"}); lg.textContent="○ início   ● hoje   ·   azul = Software, verde = Dados   ·   R$/mês (poder de compra 2026)"; svg.appendChild(lg);
-})();
 const grid = document.getElementById("tlgrid");
 const tip = document.getElementById("tip");
 function showTip(e,html){ tip.innerHTML=html; tip.style.left=e.clientX+"px"; tip.style.top=e.clientY+"px"; tip.style.opacity=1; }

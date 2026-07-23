@@ -471,9 +471,9 @@
       <div class="chips" id="extfunc"></div>
       <p class="hint" style="margin-top:9px">Cruzando os egressos com a <b>base oficial de extensão do IFES Serra (SRC)</b>: <b>30 dos 50</b> constam como equipe de ações de extensão e <b>15</b> foram <b>bolsistas de extensão</b> — evidência independente do vínculo, além do autorrelato. Somando aos bolsistas de pesquisa FAPES, <b>19 dos 50</b> têm <b>bolsa documentada em base pública</b>. Match por nome completo (sem CPF) — piso, possíveis homônimos.</p>
 
-      <h4 style="margin:18px 0 0">Ecossistema de pesquisa — laboratórios além do LEDS</h4>
+      <h4 style="margin:18px 0 0">Ecossistema de pesquisa — laboratórios do IFES/UFES</h4>
       <div class="chips" id="labchips"></div>
-      <p class="hint" style="margin-top:9px"><b>9 dos 50</b> passaram por outro laboratório ou grupo de pesquisa além do LEDS (IFES e UFES) — <b>3 deles bolsistas</b> (IC/FAPES). Sinal de um ecossistema de P&D mais amplo por trás da coorte. Cruzamento por nome nas bases oficiais (horizon/SigPesq + Lattes) — piso, possíveis homônimos.</p>
+      <p class="hint" style="margin-top:9px">O <b>LEDS</b> é o laboratório principal da coorte (<b>25 egressos</b>). Além dele, <b>9 dos 50</b> passaram por outros laboratórios/grupos de pesquisa do IFES/UFES — <b>3 deles bolsistas</b> (IC/FAPES). Sinal de um ecossistema de P&D amplo por trás dos egressos. Cruzamento por nome nas bases oficiais (SRC · horizon/SigPesq · Lattes) — piso, possíveis homônimos.</p>
 
       <h4 style="margin:18px 0 0">Da bolsa FAPES à carreira — o retorno está na porta de entrada, não no valor</h4>
       <div class="cf-grid">
@@ -860,7 +860,7 @@ if(document.getElementById("genkpi")){
   ].map(t=>`<span class="chip num">${t}</span>`).join("");
 }
 // laboratórios além do LEDS
-const LABS={n:9,bolsistas:3,ntot:50,itens:[["Nu(TeC)² · IFES/CNPq",3],["LabTel · UFES",2],["Educação e Tecnologia · IFES/CNPq",1],["LAR · IFES",1],["NEMO · UFES",1],["NERA · IFES/CNPq",1],["SigDesastre · UFES/FAPES",1]]};
+const LABS={n:9,bolsistas:3,ntot:50,itens:[["LEDS · IFES (extensão/P&D)",25],["Nu(TeC)² · IFES/CNPq",3],["LabTel · UFES",2],["Educação e Tecnologia · IFES/CNPq",1],["LAR · IFES",1],["NEMO · UFES",1],["NERA · IFES/CNPq",1],["SigDesastre · UFES/FAPES",1]]};
 if(document.getElementById("labchips")){
   document.getElementById("labchips").innerHTML=LABS.itens.map(([l,n])=>`<span class="chip num">${l} <b>${n}</b></span>`).join("");
 }
