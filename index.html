@@ -473,6 +473,10 @@
       <div class="chart-scroll"><svg id="sankey" viewBox="0 0 900 300" role="img" aria-label="Fluxo formação → trilha → destino"></svg></div>
       <p class="hint">Via de formação predominante (detectada no LinkedIn) → trilha atual → tipo de empregador. “Não detectada” = egresso cujo vínculo IFES/LEDS não aparece no perfil público (não que dispensou a formação). Largura ∝ nº de egressos.</p>
 
+      <h4 style="margin:20px 0 0">Trilha de carreira — como caminharam entre áreas</h4>
+      <div class="chart-scroll"><svg id="sankey2" viewBox="0 0 900 300" role="img" aria-label="Trilha de carreira: início → meio → atual"></svg></div>
+      <p class="hint">Área dominante em cada terço da linha do tempo de cada egresso: <b>início</b> (1º terço) → <b>meio</b> → <b>atual</b>. <b>Software é o hub</b> — <b>41 dos 50</b> entram por engenharia de software; ao longo da carreira uma parte migra para <b>Dados</b> (8 hoje) e, sobretudo, sobe para <b>Gestão/Liderança</b> (12 hoje — quase todos vindos de dev). Mobile aparece como fase intermediária (aprende, aplica, segue). Largura ∝ nº de egressos.</p>
+
       <h4 style="margin:20px 0 0">Internacionalização ao longo do tempo</h4>
       <div class="chart-scroll"><svg id="intltl" viewBox="0 0 900 240" role="img" aria-label="Internacionalização ao longo do tempo"></svg></div>
       <p class="hint">Acumulado: % dos egressos que já atuavam para um empregador internacional em cada ano. Decola a partir de <b>2020</b> — chega a <b>24%</b> em 2026 (12 de 50).</p>
@@ -857,6 +861,41 @@ const SANKEY={
     svg.appendChild(E("path",{d,fill:color,"fill-opacity":.28})); s.out+=h; t.inn+=h; }
   SANKEY.L12.forEach(([de,para,n])=>band(box[de],box[para],n,CLR[para]));
   SANKEY.L23.forEach(([de,para,n])=>band(box[de],box[para],n,CLR[para]));
+})();
+// trilha de carreira: início → meio → atual (área dominante por terço)
+const CAREER={headers:["Início (1º terço)","Meio","Atual"],
+  cols:[[["Software",41],["Mobile",5],["Dados",1],["Gestão/Lid.",3]],[["Software",40],["Mobile",3],["Dados",4],["Gestão/Lid.",3]],[["Software",26],["Mobile",3],["Dados",8],["Gestão/Lid.",12],["Acadêmico",1]]],
+  L12:[["Software","Software",33],["Software","Dados",4],["Mobile","Software",4],["Software","Mobile",3],["Gestão/Lid.","Software",2],["Software","Gestão/Lid.",1],["Mobile","Gestão/Lid.",1],["Dados","Software",1],["Gestão/Lid.","Gestão/Lid.",1]],
+  L23:[["Software","Software",25],["Software","Gestão/Lid.",8],["Software","Dados",4],["Dados","Dados",3],["Gestão/Lid.","Gestão/Lid.",3],["Software","Mobile",2],["Mobile","Dados",1],["Mobile","Mobile",1],["Software","Acadêmico",1],["Dados","Gestão/Lid.",1],["Mobile","Software",1]]};
+(function(){
+  const svg=document.getElementById("sankey2"); if(!svg) return;
+  const NS="http://www.w3.org/2000/svg", E=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+  const W=900,H=300, cw=14, pt=30, pb=16, gap=12, total=50;
+  const colX=[150, W/2-cw/2, W-150];
+  const maxN=Math.max(...CAREER.cols.map(c=>c.length));
+  const scale=(H-pt-pb-gap*(maxN-1))/total;
+  const CLR={"Software":"var(--sw)","Dados":"var(--data)","Mobile":"var(--amber)","Gestão/Lid.":"var(--accent)","Acadêmico":"var(--pv)","Outro":"var(--muted)"};
+  const box={};
+  CAREER.cols.forEach((nodes,ci)=>{
+    const colH=nodes.reduce((s,[,n])=>s+n*scale,0)+gap*(nodes.length-1);
+    let y=pt+((H-pt-pb)-colH)/2;
+    const hd=E("text",{y:18,"text-anchor":ci===0?"start":ci===2?"end":"middle","font-size":10.5,"font-weight":700,fill:"var(--muted)"});
+    hd.setAttribute("x", ci===0?colX[ci]-cw:(ci===2?colX[ci]+cw:colX[ci]+cw/2)); hd.textContent=CAREER.headers[ci]; svg.appendChild(hd);
+    nodes.forEach(([nome,n])=>{
+      const h=n*scale, c=CLR[nome]||"var(--muted)";
+      svg.appendChild(E("rect",{x:colX[ci],y,width:cw,height:h,rx:2,fill:c,"fill-opacity":.85}));
+      box[ci+":"+nome]={x:colX[ci],y,h,out:0,inn:0};
+      if(ci===1){ if(n>=3){const lb=E("text",{x:colX[ci]+cw/2,y:y+h/2+4,"text-anchor":"middle","font-size":10.5,"font-weight":700,fill:"#fff"}); lb.textContent=nome; svg.appendChild(lb);} }
+      else { const anch=ci===0?"end":"start", tx=ci===0?colX[ci]-8:colX[ci]+cw+8;
+        const lb=E("text",{x:tx,y:y+h/2+4,"text-anchor":anch,"font-size":11,fill:"var(--ink-2)"}); lb.textContent=nome+" ("+n+")"; svg.appendChild(lb); }
+      y+=h+gap;
+    });
+  });
+  function band(s,t,n,color){ if(!s||!t) return; const h=n*scale,x1=s.x+cw,x2=t.x,y1=s.y+s.out,y2=t.y+t.inn,xm=(x1+x2)/2;
+    const d=`M${x1},${y1} C${xm},${y1} ${xm},${y2} ${x2},${y2} L${x2},${y2+h} C${xm},${y2+h} ${xm},${y1+h} ${x1},${y1+h} Z`;
+    svg.appendChild(E("path",{d,fill:color,"fill-opacity":.28})); s.out+=h; t.inn+=h; }
+  CAREER.L12.forEach(([de,para,n])=>band(box["0:"+de],box["1:"+para],n,CLR[para]));
+  CAREER.L23.forEach(([de,para,n])=>band(box["1:"+de],box["2:"+para],n,CLR[para]));
 })();
 
 // ---- Internacionalização ao longo do tempo ----
