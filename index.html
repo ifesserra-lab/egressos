@@ -397,6 +397,17 @@
       <h4 style="margin:18px 0 0">Dispersão do salário estimado atual (R$/mês) — mediana e faixa p25–p75</h4>
       <div class="chart-scroll"><svg id="boxplot" viewBox="0 0 900 210" role="img" aria-label="Distribuição de salário estimado por grupo"></svg></div>
       <p class="hint">Caixa = p25–p75; risco central = mediana; hastes = mín.–máx. Grupos por trilha (Software/Dados) e por origem do empregador (nacional/internacional). Dois perfis de gestão/TI-infra puxam o mínimo de Software/Nacional para baixo — o modelo precifica só cargos de dev/dados.</p>
+
+      <h4 style="margin:18px 0 0">Fomento FAPES que formou a coorte (via PRODEST)</h4>
+      <table class="atable">
+        <thead><tr><th>Projeto FAPES (concluído)</th><th class="n">Bolsistas</th><th class="n">Egressos</th><th class="n">Alocado</th></tr></thead>
+        <tbody>
+          <tr><td>“ES na Palma da Mão” · plataforma p/ cidades inteligentes (BPIG, 2018–2020)</td><td class="n">19</td><td class="n">5</td><td class="n">R$ 301,3 mil</td></tr>
+          <tr><td>“Acesso Cidadão” · revisão de experiência do usuário (AT-NM, 2019–2020)</td><td class="n">4</td><td class="n">1</td><td class="n">R$ 26,4 mil</td></tr>
+          <tr><td class="tot">Total</td><td class="n tot">23</td><td class="n tot">6</td><td class="n tot">R$ 327,7 mil</td></tr>
+        </tbody>
+      </table>
+      <p class="hint" style="margin-top:10px"><b>R$ 327,7 mil</b> de fomento FAPES (dois projetos concluídos e homologados, executados via <b>PRODEST</b>) financiaram bolsistas que hoje ocupam posições sênior, de liderança técnica e consultoria — vários no exterior. <b>Fonte:</b> base pública da FAPES (<i>relatório de alocação de bolsas</i>); vínculo egresso↔projeto verificado por projeto + período + tipo de bolsa (cruzamento por nome sozinho gera homônimos). Egressos com bolsa interna do LEDS/IFES não constam na base FAPES.</p>
     </section>
 
     <section class="card notes">
@@ -616,7 +627,8 @@ const IMPACTO={
     {v:"9<small>/23</small>",k:"em empregador internacional — 1º emprego intl ~7,8 anos de carreira"},
     {v:"+6%",k:"prêmio internacional vs nacional (mediana estimada)"},
     {v:"23<small>/23</small>",k:"seguem em tecnologia"},
-    {v:"25",k:"egressos localizados na pesquisa (4 sem LinkedIn)"}
+    {v:"25",k:"egressos localizados na pesquisa (4 sem LinkedIn)"},
+    {v:"R$ 328<small>k</small>",k:"fomento FAPES/PRODEST que formou a coorte — 2 projetos, 6 egressos entre 23 bolsistas"}
   ],
   origem:[
     {l:"Extensão — LEDS/IFES",n:12},
