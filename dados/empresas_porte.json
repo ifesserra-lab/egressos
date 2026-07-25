@@ -1,0 +1,1939 @@
+{
+ "ADCOS Ind. e Com.": {
+  "empresa": "ADCOS Ind. e Com.",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "indústria",
+  "funcionarios": "201-1000"
+ },
+ "AEVO": {
+  "empresa": "AEVO",
+  "porte": "Scale-up",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "51-200",
+  "nome_oficial": "AEVO",
+  "headcount_linkedin": "51-200 employees",
+  "hq_local": "Vitória, Espírito Santo, Brasil",
+  "industry_linkedin": "Software Development",
+  "website": "https://www.aevo.com.br",
+  "founded": "2007",
+  "specialties": "Gestão da Inovação, Programa de Inovação, Programa de Ideias, Programa de Intraempreendedorismo, Open Innovation, Gestão de OKRs, Gestão de Projetos de Inovação, Inovação Aberta, Inovação, Consultoria de Inovação, Cultura de Inovação",
+  "contratando": false,
+  "slug": "aevo-me",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Pequena-Média (51-200)",
+  "setor_real": "Consultoria / Serviços TI",
+  "classificacao_fonte": "linkedin+regras"
+ },
+ "AEVO TI": {
+  "empresa": "AEVO TI",
+  "porte": "Scale-up",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "51-200"
+ },
+ "AUTOPASS S/A": {
+  "empresa": "AUTOPASS S/A",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "mobilidade/transporte",
+  "funcionarios": "201-1000"
+ },
+ "AX4B": {
+  "empresa": "AX4B",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "fintech",
+  "funcionarios": "201-1000"
+ },
+ "AchieveCE": {
+  "empresa": "AchieveCE",
+  "porte": "Desconhecida",
+  "origem": "Desconhecida",
+  "setor": "educação",
+  "funcionarios": "?"
+ },
+ "Adsoft Gestão Empresarial": {
+  "empresa": "Adsoft Gestão Empresarial",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "51-200"
+ },
+ "Aevo TI": {
+  "empresa": "Aevo TI",
+  "porte": "Scale-up",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "51-200"
+ },
+ "Akamai Technologies": {
+  "empresa": "Akamai Technologies",
+  "porte": "Multinacional/BigTech",
+  "origem": "Internacional",
+  "setor": "tecnologia/infraestrutura",
+  "funcionarios": "5000+",
+  "nome_oficial": "Akamai Technologies",
+  "headcount_linkedin": "5,001-10,000 employees",
+  "hq_local": "Cambridge, MA, United States",
+  "industry_linkedin": "Technology, Information and Internet",
+  "website": "https://www.akamai.com",
+  "specialties": "[\"Edge Security\", \"Web and Mobile Performance\", \"Enterprise Access\", \"Video Delivery Solutions\"]",
+  "contratando": true,
+  "slug": "akamai-technologies",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Grande (5k-10k)",
+  "setor_real": "Segurança / Cyber",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Allware Software": {
+  "empresa": "Allware Software",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "51-200"
+ },
+ "Além": {
+  "empresa": "Além",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "fintech",
+  "funcionarios": "1-50"
+ },
+ "BTG Pactual": {
+  "empresa": "BTG Pactual",
+  "porte": "Grande nacional",
+  "origem": "Nacional",
+  "setor": "banco",
+  "funcionarios": "1000-5000",
+  "nome_oficial": "BTG Pactual",
+  "headcount_linkedin": "5,001-10,000 employees",
+  "hq_local": "São Paulo, SP, Brazil",
+  "industry_linkedin": "Financial Services",
+  "website": "https://l.btgpactual.com/linkedin",
+  "founded": "1983",
+  "specialties": "Investment Bank, Asset Management, Wealth Management",
+  "contratando": true,
+  "slug": "btgpactual",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Grande (5k-10k)",
+  "setor_real": "Fintech / Banco",
+  "classificacao_fonte": "linkedin+regras"
+ },
+ "Backstage Digital": {
+  "empresa": "Backstage Digital",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "1-50"
+ },
+ "BairesDev": {
+  "empresa": "BairesDev",
+  "porte": "Grande nacional",
+  "origem": "Internacional",
+  "setor": "consultoria",
+  "funcionarios": "1000-5000"
+ },
+ "Banestes": {
+  "empresa": "Banestes",
+  "porte": "Grande nacional",
+  "origem": "Nacional",
+  "setor": "banco",
+  "funcionarios": "1000-5000",
+  "nome_oficial": "Banestes",
+  "headcount_linkedin": "1,001-5,000 employees",
+  "hq_local": "Vitoria, Espírito Santo, Brazil",
+  "industry_linkedin": "Banking",
+  "website": "http://banestes.com.br",
+  "contratando": false,
+  "slug": "banestes",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Grande (1k-5k)",
+  "setor_real": "Fintech / Banco",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Banestes S/A – Banco do Estado do Espírito Santo": {
+  "empresa": "Banestes S/A – Banco do Estado do Espírito Santo",
+  "porte": "Grande nacional",
+  "origem": "Nacional",
+  "setor": "banco",
+  "funcionarios": "1000-5000"
+ },
+ "BeeBee": {
+  "empresa": "BeeBee",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "e-commerce",
+  "funcionarios": "1-50"
+ },
+ "Bidea Factory": {
+  "empresa": "Bidea Factory",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "1-50"
+ },
+ "Bliss Applications": {
+  "empresa": "Bliss Applications",
+  "porte": "Média",
+  "origem": "Internacional",
+  "setor": "software/produto",
+  "funcionarios": "51-200",
+  "nome_oficial": "Bliss Applications",
+  "headcount_linkedin": "201-500 employees",
+  "hq_local": "Oeiras, Lisboa",
+  "industry_linkedin": "Software Development",
+  "website": "http://www.blissapplications.com/",
+  "founded": "2009",
+  "specialties": "Mobile, Marketing, Advertising, Apps, Applications, Tablets, CRM, ERP, Live Marketing, Consumer Marketing, Product Marketing, Start Up Solutions, iOS, Android, Interactive Experiences",
+  "contratando": false,
+  "slug": "bliss-applications",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Média (201-500)",
+  "setor_real": "Software / Produto",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "CENTAURO": {
+  "empresa": "CENTAURO",
+  "porte": "Grande nacional",
+  "origem": "Nacional",
+  "setor": "varejo",
+  "funcionarios": "1000-5000"
+ },
+ "CNPq": {
+  "empresa": "CNPq",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "governo",
+  "funcionarios": "1000-5000"
+ },
+ "CONEXOS": {
+  "empresa": "CONEXOS",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "consultoria",
+  "funcionarios": "51-200"
+ },
+ "CONEXOS - Consulting and Systems": {
+  "empresa": "CONEXOS - Consulting and Systems",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "consultoria",
+  "funcionarios": "51-200"
+ },
+ "CRECI/ES - Conselho Regional de Corretores de Imóveis da 13ª Região/ES": {
+  "empresa": "CRECI/ES - Conselho Regional de Corretores de Imóveis da 13ª Região/ES",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "governo",
+  "funcionarios": "51-200"
+ },
+ "Campus Mobile": {
+  "empresa": "Campus Mobile",
+  "porte": "Desconhecida",
+  "origem": "Desconhecida",
+  "setor": "tecnologia",
+  "funcionarios": "?"
+ },
+ "Central de Compras do Brasil": {
+  "empresa": "Central de Compras do Brasil",
+  "porte": "Desconhecida",
+  "origem": "Nacional",
+  "setor": "varejo/logística",
+  "funcionarios": "?"
+ },
+ "Centro de Referência em Formação e em Educação à Distância": {
+  "empresa": "Centro de Referência em Formação e em Educação à Distância",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "educação",
+  "funcionarios": "51-200"
+ },
+ "Cognyte": {
+  "empresa": "Cognyte",
+  "porte": "Multinacional/BigTech",
+  "origem": "Internacional",
+  "setor": "segurança/software",
+  "funcionarios": "1000-5000",
+  "nome_oficial": "Cognyte",
+  "headcount_linkedin": "1,001-5,000 employees",
+  "hq_local": "Herzliya, Israel",
+  "industry_linkedin": "Software Development",
+  "website": "https://www.cognyte.com",
+  "specialties": "Investigative Analytics, Decision Intelligence, Blockchain analytics, AI & Analytics for Law Enforcement Agencies, AI & Analytics for Military Intelligence Agencies, AI & Analytics for National Security Agencies, Threat Intelligence",
+  "contratando": true,
+  "slug": "cognyte",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Grande (1k-5k)",
+  "setor_real": "Dados / IA",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Conceptho": {
+  "empresa": "Conceptho",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "1-50"
+ },
+ "Conecta Imóveis": {
+  "empresa": "Conecta Imóveis",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "imobiliário",
+  "funcionarios": "1-50"
+ },
+ "Consuldata Sistemas": {
+  "empresa": "Consuldata Sistemas",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "51-200"
+ },
+ "Coru": {
+  "empresa": "Coru",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "fintech",
+  "funcionarios": "1-50"
+ },
+ "Criativa Comunicação Integrada": {
+  "empresa": "Criativa Comunicação Integrada",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "marketing/comunicação",
+  "funcionarios": "51-200"
+ },
+ "DataGo": {
+  "empresa": "DataGo",
+  "porte": "Desconhecida",
+  "origem": "Desconhecida",
+  "setor": "tecnologia/dados",
+  "funcionarios": "?"
+ },
+ "Digitar Assessoria Contabil": {
+  "empresa": "Digitar Assessoria Contabil",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "contabilidade",
+  "funcionarios": "51-200"
+ },
+ "Doris": {
+  "empresa": "Doris",
+  "porte": "Desconhecida",
+  "origem": "Desconhecida",
+  "setor": "?",
+  "funcionarios": "?",
+  "nome_oficial": "Doris",
+  "headcount_linkedin": "11-50 employees",
+  "hq_local": "São Paulo, BR",
+  "industry_linkedin": "Software Development",
+  "website": "https://www.doris.ai",
+  "founded": "2020",
+  "specialties": "IA, E-commerce, Experience-commerce, Omnichannel",
+  "contratando": false,
+  "slug": "doris-ai",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Pequena (11-50)",
+  "setor_real": "E-commerce / Varejo",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Drivin Sistemas": {
+  "empresa": "Drivin Sistemas",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "logística/software",
+  "funcionarios": "1-50"
+ },
+ "E&L Produções de Software": {
+  "empresa": "E&L Produções de Software",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "51-200"
+ },
+ "Ecosoft": {
+  "empresa": "Ecosoft",
+  "porte": "Desconhecida",
+  "origem": "Desconhecida",
+  "setor": "?",
+  "funcionarios": "?"
+ },
+ "Escola da Ciência-Física": {
+  "empresa": "Escola da Ciência-Física",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "educação",
+  "funcionarios": "51-200"
+ },
+ "Eticca Compliance": {
+  "empresa": "Eticca Compliance",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "consultoria",
+  "funcionarios": "1-50"
+ },
+ "Ez.Devs": {
+  "empresa": "Ez.Devs",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "1-50"
+ },
+ "Facile": {
+  "empresa": "Facile",
+  "porte": "Desconhecida",
+  "origem": "Desconhecida",
+  "setor": "?",
+  "funcionarios": "?"
+ },
+ "Facile Soluções em Sistemas": {
+  "empresa": "Facile Soluções em Sistemas",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "51-200"
+ },
+ "Fisarmonica": {
+  "empresa": "Fisarmonica",
+  "porte": "Desconhecida",
+  "origem": "Desconhecida",
+  "setor": "?",
+  "funcionarios": "?"
+ },
+ "Fontes Promotora": {
+  "empresa": "Fontes Promotora",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "serviços financeiros",
+  "funcionarios": "51-200"
+ },
+ "Gama Ensino": {
+  "empresa": "Gama Ensino",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "educação",
+  "funcionarios": "51-200"
+ },
+ "Genesis Tecnologia": {
+  "empresa": "Genesis Tecnologia",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "51-200"
+ },
+ "Geobases": {
+  "empresa": "Geobases",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "geotecnologia",
+  "funcionarios": "1-50"
+ },
+ "GetCare": {
+  "empresa": "GetCare",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "saúde",
+  "funcionarios": "1-50"
+ },
+ "Getty/IO": {
+  "empresa": "Getty/IO",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "1-50"
+ },
+ "Getty/IO Chile": {
+  "empresa": "Getty/IO Chile",
+  "porte": "Startup",
+  "origem": "Internacional",
+  "setor": "software/produto",
+  "funcionarios": "1-50"
+ },
+ "Globalsys Soluções em TI": {
+  "empresa": "Globalsys Soluções em TI",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "consultoria",
+  "funcionarios": "51-200"
+ },
+ "GoVivant, Inc.": {
+  "empresa": "GoVivant, Inc.",
+  "porte": "Startup",
+  "origem": "Internacional",
+  "setor": "saúde",
+  "funcionarios": "1-50"
+ },
+ "Grupo 3778": {
+  "empresa": "Grupo 3778",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "51-200"
+ },
+ "Grupo Arara Azul": {
+  "empresa": "Grupo Arara Azul",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "consultoria",
+  "funcionarios": "51-200"
+ },
+ "Grupo Boticário": {
+  "empresa": "Grupo Boticário",
+  "porte": "Grande nacional",
+  "origem": "Nacional",
+  "setor": "varejo/cosméticos",
+  "funcionarios": "5000+",
+  "nome_oficial": "Grupo Boticário",
+  "headcount_linkedin": "10,001+ employees",
+  "hq_local": "Curitiba, Paraná, Brazil",
+  "industry_linkedin": "Personal Care Product Manufacturing",
+  "website": "http://www.grupoboticario.com.br",
+  "founded": "2010",
+  "specialties": "Mercado da beleza, Cosméticos, Beleza, Perfumaria",
+  "contratando": true,
+  "slug": "grupo-boticario",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Enterprise (10k+)",
+  "setor_real": "E-commerce / Varejo",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Hospital Israelita Albert Einstein": {
+  "empresa": "Hospital Israelita Albert Einstein",
+  "porte": "Grande nacional",
+  "origem": "Nacional",
+  "setor": "saúde",
+  "funcionarios": "5000+",
+  "nome_oficial": "Hospital Israelita Albert Einstein",
+  "headcount_linkedin": "5,001-10,000 employees",
+  "industry_linkedin": "Research Services",
+  "website": "https://www.einstein.br",
+  "contratando": false,
+  "slug": "hospital-israelita-albert-einstein",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Grande (5k-10k)",
+  "setor_real": "Saúde / Bio",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "IBM": {
+  "empresa": "IBM",
+  "porte": "Multinacional/BigTech",
+  "origem": "Internacional",
+  "setor": "tecnologia/consultoria",
+  "funcionarios": "5000+"
+ },
+ "IE Intercâmbio no Exterior": {
+  "empresa": "IE Intercâmbio no Exterior",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "educação",
+  "funcionarios": "51-200"
+ },
+ "INFLOR": {
+  "empresa": "INFLOR",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "201-1000"
+ },
+ "ISH Tecnologia": {
+  "empresa": "ISH Tecnologia",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "segurança da informação",
+  "funcionarios": "51-200"
+ },
+ "Ifes - Instituto Federal do Espírito Santo": {
+  "empresa": "Ifes - Instituto Federal do Espírito Santo",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "educação",
+  "funcionarios": "1000-5000"
+ },
+ "Incaper - Instituto Capixaba de Pesquisa, Assistência Técnica e Extensão Rural": {
+  "empresa": "Incaper - Instituto Capixaba de Pesquisa, Assistência Técnica e Extensão Rural",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "governo/agropecuária",
+  "funcionarios": "201-1000"
+ },
+ "IndustriALL": {
+  "empresa": "IndustriALL",
+  "porte": "Desconhecida",
+  "origem": "Internacional",
+  "setor": "?",
+  "funcionarios": "?"
+ },
+ "Infobase IT": {
+  "empresa": "Infobase IT",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "51-200"
+ },
+ "Inndev": {
+  "empresa": "Inndev",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "1-50"
+ },
+ "Instituto Federal do Espírito Santo": {
+  "empresa": "Instituto Federal do Espírito Santo",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "educação",
+  "funcionarios": "1000-5000"
+ },
+ "Instituto de Seguridad Laboral": {
+  "empresa": "Instituto de Seguridad Laboral",
+  "porte": "Setor público",
+  "origem": "Internacional",
+  "setor": "governo/previdência",
+  "funcionarios": "201-1000"
+ },
+ "Instituto de Tecnologia da Informação e Comunicação do Estado do Espírito Santo": {
+  "empresa": "Instituto de Tecnologia da Informação e Comunicação do Estado do Espírito Santo",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "TI/Governo",
+  "funcionarios": "50-200"
+ },
+ "Intelliway": {
+  "empresa": "Intelliway",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "51-200"
+ },
+ "JACKTRACKER GEOPROCESSAMENTO LTDA": {
+  "empresa": "JACKTRACKER GEOPROCESSAMENTO LTDA",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "tecnologia/geoprocessamento",
+  "funcionarios": "1-50"
+ },
+ "King": {
+  "empresa": "King",
+  "porte": "Multinacional/BigTech",
+  "origem": "Internacional",
+  "setor": "games",
+  "funcionarios": "1000-5000",
+  "nome_oficial": "King",
+  "headcount_linkedin": "1,001-5,000 employees",
+  "hq_local": "Stockholm, -, Sweden",
+  "industry_linkedin": "Entertainment Providers",
+  "website": "https://careers.king.com",
+  "founded": "2003",
+  "specialties": "Social Games, Skill Games, Developers & coding, Technology, Mobile Games",
+  "contratando": true,
+  "politica_remoto": "Híbrido",
+  "slug": "king",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Grande (1k-5k)",
+  "setor_real": "Games",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Kinvo": {
+  "empresa": "Kinvo",
+  "porte": "Scale-up",
+  "origem": "Nacional",
+  "setor": "fintech",
+  "funcionarios": "51-200"
+ },
+ "Klarna": {
+  "empresa": "Klarna",
+  "porte": "Multinacional/BigTech",
+  "origem": "Internacional",
+  "setor": "fintech",
+  "funcionarios": "1000-5000"
+ },
+ "Kranio": {
+  "empresa": "Kranio",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "educação/saúde",
+  "funcionarios": "1-50",
+  "nome_oficial": "Kranio",
+  "headcount_linkedin": "2-10 employees",
+  "hq_local": "Guatemala, Guatemala",
+  "industry_linkedin": "Advertising Services",
+  "website": "https://kranio.com.gt/",
+  "founded": "2018",
+  "specialties": "Marketing, Relaciones Públicas, Digital Marketing, Management, Creatividade, Comunicação Estratégica",
+  "contratando": false,
+  "slug": "kranio",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Micro (1-10)",
+  "setor_real": "Mídia / Publicidade",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "LS Sistemas Ltda.": {
+  "empresa": "LS Sistemas Ltda.",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "51-200"
+ },
+ "LabTel - Laboratório de Telecomunicações": {
+  "empresa": "LabTel - Laboratório de Telecomunicações",
+  "porte": "Desconhecida",
+  "origem": "Nacional",
+  "setor": "telecomunicações",
+  "funcionarios": "?"
+ },
+ "LabTel - Laboratório de Telecomunicações (UFES)": {
+  "empresa": "LabTel - Laboratório de Telecomunicações (UFES)",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "educação/pesquisa",
+  "funcionarios": "1-50",
+  "nome_oficial": "LabTel - Laboratório de Telecomunicações (UFES)",
+  "headcount_linkedin": "51-200 employees",
+  "hq_local": "Vitória, Espírito Santo, Brazil",
+  "industry_linkedin": "Telecommunications",
+  "website": "http://www.labtelufes.net",
+  "founded": "1978",
+  "specialties": "Telecomunicações, Telecommunications, Tecnologia da Informação, Information Technology, Telecom, IT, IoT, TI, 5G, Li-Fi, Pesquisa",
+  "contratando": false,
+  "slug": "labtelufes",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Pequena-Média (51-200)",
+  "setor_real": "Telecom / Redes",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Laboratório de Extensão em Desenvolvimento de Software": {
+  "empresa": "Laboratório de Extensão em Desenvolvimento de Software",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "educação",
+  "funcionarios": "1-50"
+ },
+ "Lambda3": {
+  "empresa": "Lambda3",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "consultoria",
+  "funcionarios": "51-200"
+ },
+ "Lead Applied Solutions": {
+  "empresa": "Lead Applied Solutions",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "1-50"
+ },
+ "Leds - Ifes": {
+  "empresa": "Leds - Ifes",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "educação",
+  "funcionarios": "1-50"
+ },
+ "LianLian Global": {
+  "empresa": "LianLian Global",
+  "porte": "Scale-up",
+  "origem": "Internacional",
+  "setor": "fintech",
+  "funcionarios": "51-200"
+ },
+ "Lifepet": {
+  "empresa": "Lifepet",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "saúde",
+  "funcionarios": "51-200"
+ },
+ "Lifepet Saúde": {
+  "empresa": "Lifepet Saúde",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "saúde",
+  "funcionarios": "51-200"
+ },
+ "Liftbank": {
+  "empresa": "Liftbank",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "Fintech",
+  "funcionarios": "1-50"
+ },
+ "MICAN": {
+  "empresa": "MICAN",
+  "porte": "Desconhecida",
+  "origem": "Nacional",
+  "setor": "?",
+  "funcionarios": "?"
+ },
+ "Marinha do Brasil": {
+  "empresa": "Marinha do Brasil",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "governo/defesa",
+  "funcionarios": "5000+",
+  "nome_oficial": "Marinha do Brasil",
+  "headcount_linkedin": "10,001+ employees",
+  "hq_local": "BR",
+  "industry_linkedin": "Armed Forces",
+  "website": "http://www.mar.mil.br",
+  "contratando": false,
+  "slug": "marinha-do-brasil",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Enterprise (10k+)",
+  "setor_real": "Governo / Defesa",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Mavix Security Solutions Ltda": {
+  "empresa": "Mavix Security Solutions Ltda",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "segurança da informação",
+  "funcionarios": "51-200"
+ },
+ "Megawork Consultoria": {
+  "empresa": "Megawork Consultoria",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "consultoria",
+  "funcionarios": "51-200"
+ },
+ "Mercado Livre": {
+  "empresa": "Mercado Livre",
+  "porte": "Multinacional/BigTech",
+  "origem": "Internacional",
+  "setor": "e-commerce",
+  "funcionarios": "5000+",
+  "nome_oficial": "Mercado Libre",
+  "headcount_linkedin": "10,001+ employees",
+  "hq_local": "Buenos Aires, -",
+  "industry_linkedin": "Internet Publishing",
+  "website": "https://careers-meli.mercadolibre.com/",
+  "specialties": "[\"internet\", \"e-commerce\", \"publicidad online\", \"pagos online\", \"marketing online\", \"fintech\", \"logística\", \"envíos\"]",
+  "contratando": true,
+  "slug": "mercadolibre",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Enterprise (10k+)",
+  "setor_real": "Fintech / Banco",
+  "classificacao_fonte": "linkedin+regras"
+ },
+ "Metris Energy": {
+  "empresa": "Metris Energy",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "energia",
+  "funcionarios": "1-50",
+  "nome_oficial": "Metris Energy",
+  "headcount_linkedin": "11-50 employees",
+  "hq_local": "London, England, United Kingdom",
+  "industry_linkedin": "Renewable Energy Power Generation",
+  "website": "https://www.metrisenergy.ai",
+  "founded": "2024",
+  "contratando": true,
+  "slug": "metris-energy",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Pequena (11-50)",
+  "setor_real": "Indústria / Energia / Logística",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "MongoDB": {
+  "empresa": "MongoDB",
+  "porte": "Multinacional/BigTech",
+  "origem": "Internacional",
+  "setor": "software/produto",
+  "funcionarios": "1000-5000"
+ },
+ "Motora Tecnologia": {
+  "empresa": "Motora Tecnologia",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "1-50"
+ },
+ "Mutual.Life": {
+  "empresa": "Mutual.Life",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "fintech/insurtech",
+  "funcionarios": "1-50"
+ },
+ "NAVA - Technology for Business": {
+  "empresa": "NAVA - Technology for Business",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "consultoria",
+  "funcionarios": "201-1000"
+ },
+ "NEMO": {
+  "empresa": "NEMO",
+  "porte": "Desconhecida",
+  "origem": "Nacional",
+  "setor": "?",
+  "funcionarios": "?"
+ },
+ "Neomed": {
+  "empresa": "Neomed",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "saúde",
+  "funcionarios": "51-200",
+  "nome_oficial": "NeoMed",
+  "headcount_linkedin": "2-10 employees",
+  "industry_linkedin": "Venture Capital and Private Equity Principals",
+  "contratando": false,
+  "slug": "neomed",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Micro (1-10)",
+  "setor_real": "Saúde / Bio",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Neon": {
+  "empresa": "Neon",
+  "porte": "Scale-up",
+  "origem": "Nacional",
+  "setor": "fintech",
+  "funcionarios": "201-1000"
+ },
+ "ONR • Registro de Imóveis Eletrônico": {
+  "empresa": "ONR • Registro de Imóveis Eletrônico",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "governo/serviços",
+  "funcionarios": "51-200"
+ },
+ "Olho do Dono S/A": {
+  "empresa": "Olho do Dono S/A",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "51-200"
+ },
+ "Open Manager": {
+  "empresa": "Open Manager",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "1-50"
+ },
+ "Otma Soluções": {
+  "empresa": "Otma Soluções",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "consultoria/software",
+  "funcionarios": "51-200"
+ },
+ "PD Case Informática Ltda": {
+  "empresa": "PD Case Informática Ltda",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "51-200",
+  "nome_oficial": "PD Case Informática Ltda",
+  "headcount_linkedin": "501-1,000 employees",
+  "hq_local": "Nova Lima, MG, Brasil",
+  "industry_linkedin": "IT Services and IT Consulting",
+  "website": "http://www.pdcase.com",
+  "founded": "1991",
+  "specialties": "Soluções para o mercado financeiro, Outsourcing, Representação Red Hat / Oracle / Microsoft, Soluções governamentais, Consultoria em TI, Aplicativos Mobile, Sistemas Customizados, Integração e Migração de Plataformas, Fábrica de Projetos de Software, Transformação Ágil, Gestão de Processos",
+  "contratando": true,
+  "slug": "pd-case-informatica-ltda",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Média-Grande (501-1k)",
+  "setor_real": "Fintech / Banco",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Paraná Banco S/A": {
+  "empresa": "Paraná Banco S/A",
+  "porte": "Grande nacional",
+  "origem": "Nacional",
+  "setor": "banco",
+  "funcionarios": "1000-5000",
+  "nome_oficial": "Paraná Banco S/A",
+  "headcount_linkedin": "501-1,000 employees",
+  "hq_local": "Curitiba, Paraná, Brazil",
+  "industry_linkedin": "Banking",
+  "website": "http://www.paranabanco.com.br",
+  "founded": "1979",
+  "specialties": "Produtos de Investimento, Crédito Consignado, Tecnologia",
+  "contratando": true,
+  "politica_remoto": "Presencial",
+  "slug": "paranabanco",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Média-Grande (501-1k)",
+  "setor_real": "Fintech / Banco",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Paschoalotto": {
+  "empresa": "Paschoalotto",
+  "porte": "Grande nacional",
+  "origem": "Nacional",
+  "setor": "fintech",
+  "funcionarios": "1000-5000",
+  "nome_oficial": "Paschoalotto",
+  "headcount_linkedin": "10K+ employees",
+  "hq_local": "Bauru, São Paulo, Brasil",
+  "industry_linkedin": "Financial Services",
+  "contratando": true,
+  "slug": "paschoalotto",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Grande (5k-10k)",
+  "setor_real": "Fintech / Banco",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Perfilados Rio Doce S/A": {
+  "empresa": "Perfilados Rio Doce S/A",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "indústria",
+  "funcionarios": "201-1000"
+ },
+ "Phidelis Tecnologia": {
+  "empresa": "Phidelis Tecnologia",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "1-50"
+ },
+ "PicPay": {
+  "empresa": "PicPay",
+  "porte": "Scale-up",
+  "origem": "Nacional",
+  "setor": "fintech",
+  "funcionarios": "1000-5000",
+  "nome_oficial": "PicPay",
+  "headcount_linkedin": "1,001-5,000 employees",
+  "hq_local": "São Paulo, São Paulo, Brasil",
+  "industry_linkedin": "Financial Services",
+  "website": "https://picpay.com/",
+  "founded": "2012",
+  "specialties": "pagamentos, crédito, investimentos, seguros, soluções de consumo e conveniência, serviços financeiros e não financeiros para pessoas físicas e empreendedores",
+  "contratando": true,
+  "slug": "picpay",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Grande (1k-5k)",
+  "setor_real": "Fintech / Banco",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Pitang": {
+  "empresa": "Pitang",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "consultoria",
+  "funcionarios": "201-1000"
+ },
+ "Pottencial": {
+  "empresa": "Pottencial",
+  "porte": "Grande nacional",
+  "origem": "Nacional",
+  "setor": "seguradora",
+  "funcionarios": "1000-5000"
+ },
+ "Prefeitura de Vitória": {
+  "empresa": "Prefeitura de Vitória",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "governo",
+  "funcionarios": "1000-5000"
+ },
+ "PrimeLan Tecnologia": {
+  "empresa": "PrimeLan Tecnologia",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "1-50"
+ },
+ "Projeta Sistemas De Informacao": {
+  "empresa": "Projeta Sistemas De Informacao",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "51-200"
+ },
+ "Quality Automação": {
+  "empresa": "Quality Automação",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "51-200"
+ },
+ "Recomb": {
+  "empresa": "Recomb",
+  "porte": "Desconhecida",
+  "origem": "Desconhecida",
+  "setor": "Desconhecida",
+  "funcionarios": "?"
+ },
+ "Rede Gazeta": {
+  "empresa": "Rede Gazeta",
+  "porte": "Grande nacional",
+  "origem": "Nacional",
+  "setor": "mídia/comunicação",
+  "funcionarios": "201-1000"
+ },
+ "Resource IT Solutions": {
+  "empresa": "Resource IT Solutions",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "consultoria",
+  "funcionarios": "201-1000"
+ },
+ "SWO - Scientific Writing Office": {
+  "empresa": "SWO - Scientific Writing Office",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "educação",
+  "funcionarios": "1-50"
+ },
+ "Sankhya": {
+  "empresa": "Sankhya",
+  "porte": "Grande nacional",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "1000-5000"
+ },
+ "Senac": {
+  "empresa": "Senac",
+  "porte": "Grande nacional",
+  "origem": "Nacional",
+  "setor": "educação",
+  "funcionarios": "1000-5000"
+ },
+ "Senior Espírito Santo": {
+  "empresa": "Senior Espírito Santo",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "201-1000"
+ },
+ "Soares Atacado": {
+  "empresa": "Soares Atacado",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "varejo",
+  "funcionarios": "201-1000",
+  "nome_oficial": "Soares Atacado Distribuidor",
+  "headcount_linkedin": "501-1,000 employees",
+  "hq_local": "Serra, ES, Brazil",
+  "industry_linkedin": "Wholesale",
+  "website": "https://soaresatacado.com.br/",
+  "founded": "1979",
+  "specialties": "Atacado, Distribuidor, E-Commerce, Logística, Indústria",
+  "contratando": false,
+  "slug": "soares-atacado",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Média-Grande (501-1k)",
+  "setor_real": "E-commerce / Varejo",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Sollo Brasil Contact Center": {
+  "empresa": "Sollo Brasil Contact Center",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "serviços",
+  "funcionarios": "201-1000"
+ },
+ "Sporty Group": {
+  "empresa": "Sporty Group",
+  "porte": "Desconhecida",
+  "origem": "Desconhecida",
+  "setor": "Desconhecida",
+  "funcionarios": "?",
+  "nome_oficial": "Sporty Group",
+  "headcount_linkedin": "501-1,000 employees",
+  "hq_local": "London, Remote, GB",
+  "industry_linkedin": "Spectator Sports",
+  "website": "www.sportygroup.com",
+  "founded": "2013",
+  "contratando": true,
+  "slug": "sporty-group",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Média-Grande (501-1k)",
+  "setor_real": "Esportes / Apostas",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Spotify": {
+  "empresa": "Spotify",
+  "porte": "Multinacional/BigTech",
+  "origem": "Internacional",
+  "setor": "tecnologia/mídia",
+  "funcionarios": "5000+"
+ },
+ "Super Estágios": {
+  "empresa": "Super Estágios",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "educação",
+  "funcionarios": "1-50"
+ },
+ "Supermercado Castelo": {
+  "empresa": "Supermercado Castelo",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "varejo",
+  "funcionarios": "201-1000"
+ },
+ "T-Systems do Brasil": {
+  "empresa": "T-Systems do Brasil",
+  "porte": "Multinacional/BigTech",
+  "origem": "Internacional",
+  "setor": "consultoria",
+  "funcionarios": "1000-5000"
+ },
+ "Taruíra Lab": {
+  "empresa": "Taruíra Lab",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "1-50"
+ },
+ "Tegrus": {
+  "empresa": "Tegrus",
+  "porte": "Desconhecida",
+  "origem": "Desconhecida",
+  "setor": "Desconhecida",
+  "funcionarios": "?"
+ },
+ "Time-Now Engenharia": {
+  "empresa": "Time-Now Engenharia",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "engenharia/tecnologia",
+  "funcionarios": "1-50"
+ },
+ "Tribunal de Justiça do ES": {
+  "empresa": "Tribunal de Justiça do ES",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "governo",
+  "funcionarios": "1000-5000"
+ },
+ "Truelogic Software": {
+  "empresa": "Truelogic Software",
+  "porte": "Scale-up",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "201-1000",
+  "nome_oficial": "Truelogic Software",
+  "headcount_linkedin": "501-1,000 employees",
+  "hq_local": "New York, New York, US",
+  "industry_linkedin": "Information Technology & Services",
+  "website": "https://www.truelogic.io/",
+  "founded": "2003",
+  "specialties": "Nearshore Software Development, Staff Augmentation, Dedicated Teams, Innovation Projects, Mobile & Web Development, DevOps, Data Engineering, UI/UX Design, Quality Assurance, Digital Products Development, Outsourcing, Offshore Development, Engineering Teams, Project Management, Digital Acceleration, Business Growth",
+  "contratando": true,
+  "slug": "truelogicsoftware",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Média-Grande (501-1k)",
+  "setor_real": "Consultoria / Serviços TI",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "UFES": {
+  "empresa": "UFES",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "educação",
+  "funcionarios": "1000-5000"
+ },
+ "UFES - Depto. Informática": {
+  "empresa": "UFES - Depto. Informática",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "educação",
+  "funcionarios": "51-200"
+ },
+ "Unimed Vitória": {
+  "empresa": "Unimed Vitória",
+  "porte": "Grande nacional",
+  "origem": "Nacional",
+  "setor": "saúde",
+  "funcionarios": "1000-5000",
+  "nome_oficial": "Unimed Vitória",
+  "headcount_linkedin": "1,001-5,000 employees",
+  "hq_local": "Vitória, Espírito Santo, Brasil",
+  "industry_linkedin": "Health, Wellness & Fitness",
+  "website": "http://www.unimedvitoria.com.br",
+  "founded": "1979",
+  "specialties": "Planos de saúde, Assistência médica, Medicina cooperativista, Atendimento humanizado em saúde",
+  "contratando": true,
+  "slug": "unimedvitoria",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Grande (1k-5k)",
+  "setor_real": "Saúde / Bio",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Unio": {
+  "empresa": "Unio",
+  "porte": "Desconhecida",
+  "origem": "Desconhecida",
+  "setor": "Desconhecida",
+  "funcionarios": "?"
+ },
+ "UpCities - O App da Sua Cidade": {
+  "empresa": "UpCities - O App da Sua Cidade",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "tecnologia/cidades inteligentes",
+  "funcionarios": "1-50"
+ },
+ "VCI SA": {
+  "empresa": "VCI SA",
+  "porte": "Desconhecida",
+  "origem": "Desconhecida",
+  "setor": "Desconhecida",
+  "funcionarios": "?"
+ },
+ "VLI Logística": {
+  "empresa": "VLI Logística",
+  "porte": "Grande nacional",
+  "origem": "Nacional",
+  "setor": "logística/transporte",
+  "funcionarios": "1000-5000"
+ },
+ "Vennx": {
+  "empresa": "Vennx",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "1-50",
+  "nome_oficial": "Vennx",
+  "headcount_linkedin": "11-50 employees",
+  "hq_local": "Rio de Janeiro, RJ, Brazil",
+  "industry_linkedin": "Business Consulting and Services",
+  "website": "https://vennx.com.br/",
+  "founded": "2020",
+  "specialties": "Governança de Tecnologia da Informação, GRC e Operações, Digitalização e Soluções Proprietárias, Gestão de Identidades e Acessos, Segregação de Funções, Gerenciamento de Licenciamento de Software, Implementação de Identity Management (IDM), Segurança da Informação e Testes de Intrusão, Auditoria Interna e Controles Internos, Gestão de Riscos Corporativos",
+  "contratando": true,
+  "slug": "vennx",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Pequena (11-50)",
+  "setor_real": "Consultoria / Serviços TI",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Vert Integradora de TI": {
+  "empresa": "Vert Integradora de TI",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "consultoria/TI",
+  "funcionarios": "51-200"
+ },
+ "Vixteam": {
+  "empresa": "Vixteam",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "consultoria/TI",
+  "funcionarios": "51-200"
+ },
+ "Vixteam Consultoria & Sistemas": {
+  "empresa": "Vixteam Consultoria & Sistemas",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "consultoria/TI",
+  "funcionarios": "51-200"
+ },
+ "W3.Care": {
+  "empresa": "W3.Care",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "saúde/tecnologia",
+  "funcionarios": "1-50"
+ },
+ "Will Bank": {
+  "empresa": "Will Bank",
+  "porte": "Scale-up",
+  "origem": "Nacional",
+  "setor": "fintech",
+  "funcionarios": "51-200",
+  "nome_oficial": "will bank",
+  "headcount_linkedin": "1,001-5,000 employees (802 associated members)",
+  "hq_local": "São Paulo, BR",
+  "industry_linkedin": "Financial Services",
+  "website": "http://willbank.com.br",
+  "founded": "2017",
+  "contratando": false,
+  "slug": "eusouwillbank",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Grande (1k-5k)",
+  "setor_real": "Fintech / Banco",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Wine.com.br": {
+  "empresa": "Wine.com.br",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "e-commerce",
+  "funcionarios": "201-1000"
+ },
+ "Winnin": {
+  "empresa": "Winnin",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "tecnologia/vídeo",
+  "funcionarios": "1-50"
+ },
+ "XDevel": {
+  "empresa": "XDevel",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "software/produto",
+  "funcionarios": "1-50"
+ },
+ "Zaruc Tecnologia & Automação": {
+  "empresa": "Zaruc Tecnologia & Automação",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "indústria/automação",
+  "funcionarios": "51-200"
+ },
+ "gen-t": {
+  "empresa": "gen-t",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "tecnologia/genética",
+  "funcionarios": "1-50"
+ },
+ "pag!": {
+  "empresa": "pag!",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "fintech",
+  "funcionarios": "1-50"
+ },
+ "velv": {
+  "empresa": "velv",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "e-commerce/moda",
+  "funcionarios": "1-50",
+  "nome_oficial": "Velv",
+  "headcount_linkedin": "51-200 employees",
+  "hq_local": "Lisbon, Lisbon, Portugal",
+  "industry_linkedin": "IT Services and IT Consulting",
+  "website": "https://www.velv.pt",
+  "contratando": true,
+  "politica_remoto": "Remoto",
+  "slug": "velvnearshore",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Pequena-Média (51-200)",
+  "setor_real": "Consultoria / Serviços TI",
+  "classificacao_fonte": "linkedin+regras"
+ },
+ "will bank": {
+  "empresa": "will bank",
+  "porte": "Scale-up",
+  "origem": "Nacional",
+  "setor": "fintech",
+  "funcionarios": "51-200"
+ },
+ "AUIM Tecnologia e Automação": {
+  "empresa": "AUIM Tecnologia e Automação",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "Automação e TI",
+  "funcionarios": "50-200"
+ },
+ "BrazilGo": {
+  "empresa": "BrazilGo",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "Logística/Tecnologia",
+  "funcionarios": "10-50"
+ },
+ "CREAES": {
+  "empresa": "CREAES",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "Conselho profissional",
+  "funcionarios": "50-200"
+ },
+ "Clicksign": {
+  "empresa": "Clicksign",
+  "porte": "Scale-up",
+  "origem": "Nacional",
+  "setor": "Fintech/Assinaturas digitais",
+  "funcionarios": "50-200",
+  "nome_oficial": "Clicksign",
+  "headcount_linkedin": "201-500 employees",
+  "hq_local": "São Paulo, SP, Brazil",
+  "industry_linkedin": "Software Development",
+  "contratando": true,
+  "slug": "clicksign",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Média (201-500)",
+  "setor_real": "Software / Produto",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "EASYB2B": {
+  "empresa": "EASYB2B",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "Fintech/Soluções B2B",
+  "funcionarios": "10-50"
+ },
+ "FAPES": {
+  "empresa": "FAPES",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "Pesquisa e fomento",
+  "funcionarios": "50-200"
+ },
+ "Grupo Autoglass": {
+  "empresa": "Grupo Autoglass",
+  "porte": "Grande nacional",
+  "origem": "Nacional",
+  "setor": "Automotivo/Vidros",
+  "funcionarios": "1000+",
+  "nome_oficial": "Grupo Autoglass",
+  "headcount_linkedin": "1K-5K employees",
+  "hq_local": "Vila Velha, Espírito Santo, Brasil",
+  "industry_linkedin": "Retail",
+  "contratando": true,
+  "politica_remoto": "Presencial",
+  "slug": "grupoautoglass",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Grande (1k-5k)",
+  "setor_real": "E-commerce / Varejo",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Hitss Brasil": {
+  "empresa": "Hitss Brasil",
+  "porte": "Grande nacional",
+  "origem": "Nacional",
+  "setor": "TI/Consultoria",
+  "funcionarios": "500-2000",
+  "nome_oficial": "Hitss Brasil",
+  "headcount_linkedin": "5,001-10,000 employees (12.000 especialistas)",
+  "hq_local": "Rio de Janeiro, RJ, Brasil",
+  "industry_linkedin": "IT Services and IT Consulting",
+  "specialties": "Tecnologia da Informação, Transformação Digital, Soluções de conectividade e tecnologias da informação, Especialização vertical por indústrias, Aumento de receitas, redução de custos e melhoria da experiência do cliente",
+  "contratando": true,
+  "slug": "global-hitss",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Grande (5k-10k)",
+  "setor_real": "Consultoria / Serviços TI",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "IUPI": {
+  "empresa": "IUPI",
+  "porte": "Desconhecida",
+  "origem": "Desconhecida",
+  "setor": "Desconhecido",
+  "funcionarios": "Desconhecido"
+ },
+ "IUPI INSTITUICAO DE PAGAMENTO S.A.": {
+  "empresa": "IUPI INSTITUICAO DE PAGAMENTO S.A.",
+  "porte": "Scale-up",
+  "origem": "Nacional",
+  "setor": "Fintech/Pagamentos",
+  "funcionarios": "50-200"
+ },
+ "Icatel Telemática e Serviços": {
+  "empresa": "Icatel Telemática e Serviços",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "Telecomunicações/TI",
+  "funcionarios": "50-200"
+ },
+ "Itaú Unibanco": {
+  "empresa": "Itaú Unibanco",
+  "porte": "Multinacional/BigTech",
+  "origem": "Nacional",
+  "setor": "Bancário",
+  "funcionarios": "100000+",
+  "nome_oficial": "Itaú Unibanco",
+  "headcount_linkedin": "10,001+ employees (112,845 associated members on LinkedIn)",
+  "hq_local": "São Paulo, São Paulo, Brasil",
+  "industry_linkedin": "Banking",
+  "website": "http://www.itau.com.br",
+  "specialties": "Jovem aprendiz, Estágio comercial, Estágio corporativo, Trainee, Agente comercial, Estágio de férias internacional, MBA summer, Summer acadêmico, Relações com Investidores, Carreira e aprendizado, Impacto social",
+  "contratando": true,
+  "slug": "itau-unibanco",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Enterprise (10k+)",
+  "setor_real": "Fintech / Banco",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Justiça Federal do Espírito Santo": {
+  "empresa": "Justiça Federal do Espírito Santo",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "Judiciário",
+  "funcionarios": "200-500"
+ },
+ "LAR - Laboratório de Administração de Redes": {
+  "empresa": "LAR - Laboratório de Administração de Redes",
+  "porte": "Desconhecida",
+  "origem": "Nacional",
+  "setor": "TI/Educação",
+  "funcionarios": "10-50"
+ },
+ "MJV Technology & Innovation": {
+  "empresa": "MJV Technology & Innovation",
+  "porte": "Grande nacional",
+  "origem": "Nacional",
+  "setor": "Consultoria/TI",
+  "funcionarios": "500-2000",
+  "nome_oficial": "MJV Technology & Innovation",
+  "headcount_linkedin": "1,001-5,000 employees",
+  "hq_local": "Atlanta, Georgia, Estados Unidos",
+  "industry_linkedin": "Business Consulting and Services",
+  "website": "https://www.mjvinnovation.com/",
+  "founded": "1997",
+  "specialties": "Business Consulting, Business Innovation, Big Data, Data Visualization, Digital Strategy, Internet of Things, Technology, Consumer Insights, Design Thinking, Innovation, Innovation in business, Outsourcing, Nearshore, Offshore, Consulting in Technology, Data Science, Open Innovation, Future Studies, Data-driven innovation, Business Intelligence, Artificial Intelligence",
+  "contratando": true,
+  "politica_remoto": "Híbrido",
+  "slug": "mjv-tech-and-innovation",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Grande (1k-5k)",
+  "setor_real": "Consultoria / Serviços TI",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Mantis Tecnologia": {
+  "empresa": "Mantis Tecnologia",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "TI/Desenvolvimento",
+  "funcionarios": "50-200"
+ },
+ "Medbox Apps": {
+  "empresa": "Medbox Apps",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "Healthtech",
+  "funcionarios": "10-50"
+ },
+ "Pipefy": {
+  "empresa": "Pipefy",
+  "porte": "Scale-up",
+  "origem": "Nacional",
+  "setor": "SaaS/Gestão de processos",
+  "funcionarios": "200-500"
+ },
+ "Projeto Olhos d'Água": {
+  "empresa": "Projeto Olhos d'Água",
+  "porte": "Desconhecida",
+  "origem": "Nacional",
+  "setor": "Meio ambiente/Social",
+  "funcionarios": "Desconhecido"
+ },
+ "QuintoAndar": {
+  "empresa": "QuintoAndar",
+  "porte": "Scale-up",
+  "origem": "Nacional",
+  "setor": "Proptech",
+  "funcionarios": "1000-5000"
+ },
+ "Saúde iD": {
+  "empresa": "Saúde iD",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "Healthtech",
+  "funcionarios": "10-50"
+ },
+ "Stone": {
+  "empresa": "Stone",
+  "porte": "Multinacional/BigTech",
+  "origem": "Nacional",
+  "setor": "Fintech/Pagamentos",
+  "funcionarios": "5000+"
+ },
+ "Vale": {
+  "empresa": "Vale",
+  "porte": "Multinacional/BigTech",
+  "origem": "Nacional",
+  "setor": "Mineração",
+  "funcionarios": "100000+"
+ },
+ "Vita Collor": {
+  "empresa": "Vita Collor",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "Cosméticos",
+  "funcionarios": "200-500"
+ },
+ "WP Oficina de Máquinas Fotográficas": {
+  "empresa": "WP Oficina de Máquinas Fotográficas",
+  "porte": "Desconhecida",
+  "origem": "Nacional",
+  "setor": "Comércio/Serviços",
+  "funcionarios": "Desconhecido"
+ },
+ "xDevel Sistemas Escaláveis": {
+  "empresa": "xDevel Sistemas Escaláveis",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "TI/Desenvolvimento",
+  "funcionarios": "50-200"
+ },
+ "BRQ Digital Solutions": {
+  "empresa": "BRQ Digital Solutions",
+  "porte": "Grande nacional",
+  "origem": "Nacional",
+  "setor": "Tecnologia da Informação",
+  "funcionarios": "5000+"
+ },
+ "Code n' App": {
+  "empresa": "Code n' App",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "Desenvolvimento de Software",
+  "funcionarios": "1-50"
+ },
+ "Companhia de Desenvolvimento de Vitória - CDV": {
+  "empresa": "Companhia de Desenvolvimento de Vitória - CDV",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "Desenvolvimento Urbano",
+  "funcionarios": "Desconhecida"
+ },
+ "Consys - Consultoria e Sistemas": {
+  "empresa": "Consys - Consultoria e Sistemas",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "Consultoria em TI",
+  "funcionarios": "50-500"
+ },
+ "Extrabom Supermercados": {
+  "empresa": "Extrabom Supermercados",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "Varejo",
+  "funcionarios": "500-2000"
+ },
+ "Grupo Águia Branca": {
+  "empresa": "Grupo Águia Branca",
+  "porte": "Grande nacional",
+  "origem": "Nacional",
+  "setor": "Transporte e Logística",
+  "funcionarios": "2000+"
+ },
+ "Healthmap": {
+  "empresa": "Healthmap",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "Saúde e Tecnologia",
+  "funcionarios": "1-50"
+ },
+ "IEMA": {
+  "empresa": "IEMA",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "Meio Ambiente",
+  "funcionarios": "Desconhecida"
+ },
+ "Instituto de Tecnologia da Informação e Comunicação do Estado do Espirito Santo": {
+  "empresa": "Instituto de Tecnologia da Informação e Comunicação do Estado do Espirito Santo",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "Tecnologia da Informação",
+  "funcionarios": "Desconhecida"
+ },
+ "Prefeitura Municipal de Vitória": {
+  "empresa": "Prefeitura Municipal de Vitória",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "Administração Pública",
+  "funcionarios": "Desconhecida"
+ },
+ "Secretaria de Estado da Educação - SEDU": {
+  "empresa": "Secretaria de Estado da Educação - SEDU",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "Educação",
+  "funcionarios": "Desconhecida",
+  "nome_oficial": "Secretaria de Estado da Educação - SEDU",
+  "headcount_linkedin": "10,001+ employees",
+  "industry_linkedin": "Higher Education",
+  "contratando": false,
+  "slug": "seduesgovbr",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Enterprise (10k+)",
+  "setor_real": "Educação",
+  "classificacao_fonte": "linkedin+regras"
+ },
+ "TopDown Sistemas": {
+  "empresa": "TopDown Sistemas",
+  "porte": "Média",
+  "origem": "Nacional",
+  "setor": "Tecnologia da Informação",
+  "funcionarios": "50-500"
+ },
+ "Tribunal de Justiça do Espírito Santo": {
+  "empresa": "Tribunal de Justiça do Espírito Santo",
+  "porte": "Setor público",
+  "origem": "Nacional",
+  "setor": "Judiciário",
+  "funcionarios": "Desconhecida"
+ },
+ "V1App / Plataforma de Mobilidade": {
+  "empresa": "V1App / Plataforma de Mobilidade",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "Mobilidade Urbana",
+  "funcionarios": "1-50"
+ },
+ "VIXPar": {
+  "empresa": "VIXPar",
+  "porte": "Desconhecida",
+  "origem": "Desconhecida",
+  "setor": "Desconhecida",
+  "funcionarios": "Desconhecida",
+  "nome_oficial": "VIXPar",
+  "headcount_linkedin": "10K+ employees",
+  "hq_local": "-, -, Brazil",
+  "industry_linkedin": "Transportation, Logistics, Supply Chain and Storage",
+  "specialties": "Logística Dedicada, Logística Automotiva, Gestão e Terceirização de Frota, Mobilidade Urbana",
+  "contratando": false,
+  "slug": "vixpar",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Grande (5k-10k)",
+  "setor_real": "Indústria / Energia / Logística",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Vert Analytics": {
+  "empresa": "Vert Analytics",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "Data Analytics",
+  "funcionarios": "1-50",
+  "nome_oficial": "Vert Analytics",
+  "headcount_linkedin": "0-1 employees",
+  "industry_linkedin": "Data Infrastructure and Analytics",
+  "website": "https://vertanalytics.com/",
+  "founded": "2024",
+  "specialties": "Data Strategy, Report Automation, Data Visualization, Data Engineering, Data Science",
+  "contratando": false,
+  "slug": "vert-analytics",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Micro (1-10)",
+  "setor_real": "Dados / IA",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "Youx Group": {
+  "empresa": "Youx Group",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "Tecnologia da Informação",
+  "funcionarios": "1-50"
+ },
+ "hub xp": {
+  "empresa": "hub xp",
+  "porte": "Startup",
+  "origem": "Nacional",
+  "setor": "Inovação e Tecnologia",
+  "funcionarios": "1-50",
+  "nome_oficial": "XP Empresas",
+  "headcount_linkedin": "5,001-10,000 employees",
+  "hq_local": "São Paulo, São Paulo, Brazil",
+  "industry_linkedin": "Financial Services",
+  "website": "https://www.xpempresas.com.br",
+  "specialties": "Financial solutions for businesses, cash management, credit, capital markets, insurance, foreign exchange, structured operations, digital platforms, technology-driven financial services, customized financial advisory for legal entities",
+  "contratando": false,
+  "slug": "xp-empresas",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Grande (5k-10k)",
+  "setor_real": "Fintech / Banco",
+  "classificacao_fonte": "linkedin+regras"
+ },
+ "mymun": {
+  "empresa": "mymun",
+  "porte": "Desconhecida",
+  "origem": "Desconhecida",
+  "setor": "Desconhecida",
+  "funcionarios": "Desconhecida"
+ },
+ "Accenture Brasil": {
+  "empresa": "Accenture Brasil",
+  "nome_oficial": "Accenture Brasil",
+  "headcount_linkedin": "10,001+ employees",
+  "hq_local": "São Paulo, SP, Brazil",
+  "industry_linkedin": "IT Services and IT Consulting",
+  "website": "www.accenture.com.br",
+  "founded": "2001",
+  "specialties": "Digital, Tecnologia, Estratégia, Management Consulting, Consultoria Tecnológica, Consultoria de Integração de Sistemas, Outsourcing de Tecnologias da Informação, Outsourcing de processos de negócios, Cloud, Operações",
+  "contratando": true,
+  "slug": "accenture-brasil",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24",
+  "porte_real": "Enterprise (10k+)",
+  "setor_real": "Consultoria / Serviços TI",
+  "classificacao_fonte": "linkedin+regras",
+  "setor_fonte": "mistral"
+ },
+ "mongodb": {
+  "empresa": "mongodb",
+  "contratando": false,
+  "slug": "mongodb",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24"
+ },
+ "banco-neon": {
+  "empresa": "banco-neon",
+  "fonte": "linkedin",
+  "verificado_em": "2026-07-24"
+ }
+}

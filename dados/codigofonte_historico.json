@@ -1,0 +1,14 @@
+{
+  "fonte": "pesquisa.codigofonte.com.br — média salarial mensal (R$ nominais) por nível de senioridade, por edição",
+  "medida": "média (mean), remuneração geral (sem filtro CLT/PJ)",
+  "obs": "Categoria 'Especialista/Tech Lead' aparece como 'Outro' nas edições antigas — amostra pequena e ruidosa em 2021/2022 (fica abaixo do Sênior). 1ª edição = 2021; não há dados anteriores.",
+  "ipca_fator_para_2026": {"2021":1.237,"2022":1.169,"2023":1.117,"2024":1.066,"2025":1.020,"2026":1.000},
+  "media_por_senioridade": {
+    "2021": {"estagio":1323.68,"junior":2955.93,"pleno":5594.11,"senior":10601.42,"espec":8745.12},
+    "2022": {"estagio":1744.24,"junior":3658.92,"pleno":7387.42,"senior":14399.46,"espec":13012.34},
+    "2023": {"estagio":1622.80,"junior":3987.43,"pleno":8023.44,"senior":15510.34,"espec":16339.29},
+    "2024": {"estagio":1748.97,"junior":4079.01,"pleno":7850.47,"senior":15050.46,"espec":18202.92},
+    "2025": {"estagio":1743.40,"junior":4154.21,"pleno":7840.74,"senior":15635.35,"espec":19290.08},
+    "2026": {"estagio":2586.84,"junior":5060.34,"pleno":8466.52,"senior":14607.85,"espec":20601.64}
+  }
+}

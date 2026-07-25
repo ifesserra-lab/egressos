@@ -1,0 +1,2375 @@
+{
+ "top_tech": [
+  {
+   "tech": "Angular",
+   "pessoas": 5,
+   "mencoes": 11
+  },
+  {
+   "tech": "Node.js",
+   "pessoas": 5,
+   "mencoes": 10
+  },
+  {
+   "tech": ".NET",
+   "pessoas": 4,
+   "mencoes": 11
+  },
+  {
+   "tech": "Ionic",
+   "pessoas": 4,
+   "mencoes": 6
+  },
+  {
+   "tech": "GraphQL",
+   "pessoas": 4,
+   "mencoes": 5
+  },
+  {
+   "tech": "NoSQL",
+   "pessoas": 3,
+   "mencoes": 5
+  },
+  {
+   "tech": "NestJS",
+   "pessoas": 3,
+   "mencoes": 5
+  },
+  {
+   "tech": "Java",
+   "pessoas": 3,
+   "mencoes": 4
+  },
+  {
+   "tech": "Docker",
+   "pessoas": 3,
+   "mencoes": 3
+  },
+  {
+   "tech": "Python",
+   "pessoas": 3,
+   "mencoes": 3
+  },
+  {
+   "tech": "AWS",
+   "pessoas": 2,
+   "mencoes": 4
+  },
+  {
+   "tech": "GCP",
+   "pessoas": 2,
+   "mencoes": 3
+  },
+  {
+   "tech": "PHP",
+   "pessoas": 2,
+   "mencoes": 2
+  },
+  {
+   "tech": "Kubernetes",
+   "pessoas": 2,
+   "mencoes": 2
+  },
+  {
+   "tech": "Azure",
+   "pessoas": 2,
+   "mencoes": 2
+  }
+ ],
+ "clusters": {
+  "0": {
+   "n": 8,
+   "labels": [
+    "D",
+    "C",
+    "E",
+    "N",
+    "AE",
+    "AL",
+    "AS",
+    "AU"
+   ],
+   "anos_medio": 11.7,
+   "trilha": "Dados",
+   "exterior": 0,
+   "lideranca": 0,
+   "em_tech": 8,
+   "cargos": [
+    "Analista de Dados",
+    "Consulting Engineer",
+    "Senior Consulting Engineer",
+    "Engenheiro de Dados",
+    "Engenheiro de dados",
+    "Staff Data Engineer",
+    "Engenheiro de dados",
+    "Data Engineer"
+   ]
+  },
+  "1": {
+   "n": 38,
+   "labels": [
+    "B",
+    "G",
+    "H",
+    "I",
+    "K",
+    "L",
+    "M",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "AA",
+    "AB",
+    "AC",
+    "AD",
+    "AF",
+    "AG",
+    "AH",
+    "AI",
+    "AJ",
+    "AM",
+    "AN",
+    "AO",
+    "AP",
+    "AQ",
+    "AR",
+    "AT",
+    "AV",
+    "AW",
+    "AX"
+   ],
+   "anos_medio": 11.7,
+   "trilha": "Software",
+   "exterior": 0,
+   "lideranca": 14,
+   "em_tech": 38,
+   "cargos": [
+    "Engenheiro de Software Sênior",
+    "IT Analyst",
+    "Coordenador Técnico / Tech Lead",
+    "Desenvolvedor Full Stack",
+    "Senior Frontend Developer / Tech Lead",
+    ".NET Software Engineer",
+    "Engineering Manager",
+    "Gerente",
+    "Gerente de TI",
+    "Analista de Sistemas",
+    "Frontend Developer",
+    "Desenvolvedora Salesforce",
+    "Tech Leader",
+    "Staff Software Engineer",
+    "Senior Software Engineer",
+    "Backend Engineer",
+    "Desenvolvedora web full stack",
+    "Programador RPA",
+    "Staff Software Engineer",
+    "Gerente de projetos",
+    "Analista de TI",
+    "Backend Python Sênior",
+    "Technical Leader",
+    "Senior Software Engineer",
+    "Designer de produtos",
+    "Senior Software Engineer",
+    "Desenvolvedor Frontend",
+    "Researcher/Data scientist",
+    "Analista Desenvolvedor Sênior",
+    "Senior Backend Developer",
+    "Desenvolvedor",
+    "Arquiteto de soluções",
+    "Product Manager Sr.",
+    "DevOps Engineer",
+    "Líder técnico",
+    "Professor de Educação Profissional e Tecnológica",
+    "Desenvolvedor Front-end Sênior",
+    "Analista Funcional Senior"
+   ]
+  },
+  "2": {
+   "n": 4,
+   "labels": [
+    "A",
+    "F",
+    "J",
+    "AK"
+   ],
+   "anos_medio": 10.7,
+   "trilha": "Software",
+   "exterior": 4,
+   "lideranca": 2,
+   "em_tech": 4,
+   "cargos": [
+    "Senior Software Engineer",
+    "Android Developer",
+    "Tech Lead",
+    "Engenheiro de software"
+   ]
+  }
+ },
+ "rows": [
+  {
+   "id": "barbosa",
+   "label": "A",
+   "anos": 8.2,
+   "n_empresas": 6,
+   "n_exp": 9,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 1,
+   "bolsa_ini": 1,
+   "lideranca": 1,
+   "area_atual": "backend",
+   "cargo_atual": "Senior Software Engineer",
+   "empresa_atual": "Metris Energy",
+   "origem": "intl",
+   "senioridade": "Sênior",
+   "med_atual": 14629,
+   "cluster": 2
+  },
+  {
+   "id": "gary",
+   "label": "B",
+   "anos": 7.9,
+   "n_empresas": 7,
+   "n_exp": 9,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 0,
+   "area_atual": "backend",
+   "cargo_atual": "Engenheiro de Software Sênior",
+   "empresa_atual": "Doris",
+   "origem": "intl",
+   "senioridade": "Sênior",
+   "med_atual": 14629,
+   "cluster": 1
+  },
+  {
+   "id": "helen",
+   "label": "D",
+   "anos": 7.9,
+   "n_empresas": 5,
+   "n_exp": 8,
+   "trilha": 1,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 0,
+   "area_atual": "data",
+   "cargo_atual": "Analista de Dados",
+   "empresa_atual": "Marinha do Brasil",
+   "origem": "nacional",
+   "senioridade": "Sênior",
+   "med_atual": 16241,
+   "cluster": 0
+  },
+  {
+   "id": "possatti",
+   "label": "C",
+   "anos": 13.2,
+   "n_empresas": 4,
+   "n_exp": 5,
+   "trilha": 1,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 0,
+   "area_atual": "data",
+   "cargo_atual": "Consulting Engineer",
+   "empresa_atual": "MongoDB",
+   "origem": "intl",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 14199,
+   "cluster": 0
+  },
+  {
+   "id": "renan",
+   "label": "E",
+   "anos": 14.3,
+   "n_empresas": 6,
+   "n_exp": 9,
+   "trilha": 1,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 0,
+   "area_atual": "data",
+   "cargo_atual": "Senior Consulting Engineer",
+   "empresa_atual": "MongoDB",
+   "origem": "intl",
+   "senioridade": "Sênior",
+   "med_atual": 15490,
+   "cluster": 0
+  },
+  {
+   "id": "andre",
+   "label": "F",
+   "anos": 14.1,
+   "n_empresas": 5,
+   "n_exp": 7,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 1,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "mobile",
+   "cargo_atual": "Android Developer",
+   "empresa_atual": "Bliss Applications",
+   "origem": "intl",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 19706,
+   "cluster": 2
+  },
+  {
+   "id": "tarcisio",
+   "label": "G",
+   "anos": 8.9,
+   "n_empresas": 8,
+   "n_exp": 10,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 1,
+   "area_atual": "backend",
+   "cargo_atual": "IT Analyst",
+   "empresa_atual": "BTG Pactual",
+   "origem": "nacional",
+   "senioridade": "Sênior",
+   "med_atual": 15662,
+   "cluster": 1
+  },
+  {
+   "id": "joel",
+   "label": "H",
+   "anos": 7.9,
+   "n_empresas": 4,
+   "n_exp": 5,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 1,
+   "area_atual": "fullstack",
+   "cargo_atual": "Coordenador Técnico / Tech Lead",
+   "empresa_atual": "AEVO",
+   "origem": "nacional",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 14629,
+   "cluster": 1
+  },
+  {
+   "id": "icaro",
+   "label": "I",
+   "anos": 8.5,
+   "n_empresas": 5,
+   "n_exp": 5,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 0,
+   "area_atual": "fullstack",
+   "cargo_atual": "Desenvolvedor Full Stack",
+   "empresa_atual": "Vennx",
+   "origem": "nacional",
+   "senioridade": "Sênior",
+   "med_atual": 14629,
+   "cluster": 1
+  },
+  {
+   "id": "gustavo",
+   "label": "J",
+   "anos": 9.7,
+   "n_empresas": 4,
+   "n_exp": 6,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 1,
+   "bolsa_ini": 0,
+   "lideranca": 1,
+   "area_atual": "backend",
+   "cargo_atual": "Tech Lead",
+   "empresa_atual": "Kranio",
+   "origem": "intl",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 17211,
+   "cluster": 2
+  },
+  {
+   "id": "marialuiza",
+   "label": "K",
+   "anos": 10.8,
+   "n_empresas": 4,
+   "n_exp": 7,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 1,
+   "area_atual": "frontend",
+   "cargo_atual": "Senior Frontend Developer / Tech Lead",
+   "empresa_atual": "PicPay",
+   "origem": "nacional",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 17211,
+   "cluster": 1
+  },
+  {
+   "id": "gabriel_barboza",
+   "label": "L",
+   "anos": 10.4,
+   "n_empresas": 4,
+   "n_exp": 4,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "backend",
+   "cargo_atual": ".NET Software Engineer",
+   "empresa_atual": "Drivin Sistemas",
+   "origem": "nacional",
+   "senioridade": "Sênior",
+   "med_atual": 16208,
+   "cluster": 1
+  },
+  {
+   "id": "magnago",
+   "label": "M",
+   "anos": 9.8,
+   "n_empresas": 3,
+   "n_exp": 7,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 1,
+   "area_atual": "lideranca",
+   "cargo_atual": "Engineering Manager",
+   "empresa_atual": "will bank",
+   "origem": "nacional",
+   "senioridade": "Sênior",
+   "med_atual": 17105,
+   "cluster": 1
+  },
+  {
+   "id": "martins_miranda",
+   "label": "N",
+   "anos": 14.2,
+   "n_empresas": 7,
+   "n_exp": 8,
+   "trilha": 1,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 0,
+   "area_atual": "data",
+   "cargo_atual": "Engenheiro de Dados",
+   "empresa_atual": "Hospital Israelita Albert Einstein",
+   "origem": "nacional",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 15490,
+   "cluster": 0
+  },
+  {
+   "id": "geann",
+   "label": "O",
+   "anos": 14.5,
+   "n_empresas": 3,
+   "n_exp": 9,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 1,
+   "area_atual": "lideranca",
+   "cargo_atual": "Gerente",
+   "empresa_atual": "Accenture Brasil",
+   "origem": "nacional",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 19706,
+   "cluster": 1
+  },
+  {
+   "id": "rodrigo_maia",
+   "label": "P",
+   "anos": 19.2,
+   "n_empresas": 2,
+   "n_exp": 5,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "gestao",
+   "cargo_atual": "Gerente de TI",
+   "empresa_atual": "Soares Atacado",
+   "origem": "nacional",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 6685,
+   "cluster": 1
+  },
+  {
+   "id": "andre_aguiar",
+   "label": "Q",
+   "anos": 11.5,
+   "n_empresas": 2,
+   "n_exp": 5,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 0,
+   "area_atual": "gestao",
+   "cargo_atual": "Analista de Sistemas",
+   "empresa_atual": "Unimed Vitória",
+   "origem": "nacional",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 6431,
+   "cluster": 1
+  },
+  {
+   "id": "guilherme_gatti",
+   "label": "R",
+   "anos": 14.1,
+   "n_empresas": 10,
+   "n_exp": 10,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 1,
+   "area_atual": "frontend",
+   "cargo_atual": "Frontend Developer",
+   "empresa_atual": "Cognyte",
+   "origem": "intl",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 19039,
+   "cluster": 1
+  },
+  {
+   "id": "ivana",
+   "label": "S",
+   "anos": 13.5,
+   "n_empresas": 7,
+   "n_exp": 7,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "dev",
+   "cargo_atual": "Desenvolvedora Salesforce",
+   "empresa_atual": "Accenture Brasil",
+   "origem": "nacional",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 17211,
+   "cluster": 1
+  },
+  {
+   "id": "joao_paulo",
+   "label": "T",
+   "anos": 17.2,
+   "n_empresas": 6,
+   "n_exp": 8,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 1,
+   "area_atual": "lideranca",
+   "cargo_atual": "Tech Leader",
+   "empresa_atual": "Pottencial",
+   "origem": "nacional",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 18501,
+   "cluster": 1
+  },
+  {
+   "id": "lucas_coutinho",
+   "label": "U",
+   "anos": 17.2,
+   "n_empresas": 4,
+   "n_exp": 6,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 1,
+   "area_atual": "dev",
+   "cargo_atual": "Staff Software Engineer",
+   "empresa_atual": "Neon",
+   "origem": "nacional",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 18501,
+   "cluster": 1
+  },
+  {
+   "id": "marcos_dias",
+   "label": "V",
+   "anos": 13.5,
+   "n_empresas": 8,
+   "n_exp": 8,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 0,
+   "area_atual": "dev",
+   "cargo_atual": "Senior Software Engineer",
+   "empresa_atual": "Akamai Technologies",
+   "origem": "intl",
+   "senioridade": "Sênior",
+   "med_atual": 17211,
+   "cluster": 1
+  },
+  {
+   "id": "phillipe",
+   "label": "W",
+   "anos": 9.8,
+   "n_empresas": 4,
+   "n_exp": 4,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "backend",
+   "cargo_atual": "Backend Engineer",
+   "empresa_atual": "Sporty Group",
+   "origem": "intl",
+   "senioridade": "Sênior",
+   "med_atual": 17211,
+   "cluster": 1
+  },
+  {
+   "id": "anne_caroline",
+   "label": "X",
+   "anos": 13.8,
+   "n_empresas": 8,
+   "n_exp": 9,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 0,
+   "area_atual": "gestao",
+   "cargo_atual": "Desenvolvedora web full stack",
+   "empresa_atual": "AEVO",
+   "origem": "nacional",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 18847,
+   "cluster": 1
+  },
+  {
+   "id": "brendon",
+   "label": "Y",
+   "anos": 9.2,
+   "n_empresas": 5,
+   "n_exp": 7,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 0,
+   "area_atual": "mobile",
+   "cargo_atual": "Programador RPA",
+   "empresa_atual": "Paschoalotto",
+   "origem": "nacional",
+   "senioridade": "Sênior",
+   "med_atual": 15662,
+   "cluster": 1
+  },
+  {
+   "id": "cassiano",
+   "label": "Z",
+   "anos": 9.9,
+   "n_empresas": 5,
+   "n_exp": 6,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 1,
+   "area_atual": "gestao",
+   "cargo_atual": "Staff Software Engineer",
+   "empresa_atual": "Coru",
+   "origem": "nacional",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 17105,
+   "cluster": 1
+  },
+  {
+   "id": "jennifer",
+   "label": "AA",
+   "anos": 9.5,
+   "n_empresas": 2,
+   "n_exp": 3,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "gestao",
+   "cargo_atual": "Gerente de projetos",
+   "empresa_atual": "UpCities - O App da Sua Cidade",
+   "origem": "nacional",
+   "senioridade": "Sênior",
+   "med_atual": 4597,
+   "cluster": 1
+  },
+  {
+   "id": "ana_rubia",
+   "label": "AB",
+   "anos": 7.8,
+   "n_empresas": 5,
+   "n_exp": 7,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 0,
+   "area_atual": "dev",
+   "cargo_atual": "Analista de TI",
+   "empresa_atual": "Banestes",
+   "origem": "nacional",
+   "senioridade": "Sênior",
+   "med_atual": 14629,
+   "cluster": 1
+  },
+  {
+   "id": "diego",
+   "label": "AC",
+   "anos": 14.5,
+   "n_empresas": 7,
+   "n_exp": 9,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "backend",
+   "cargo_atual": "Backend Python Sênior",
+   "empresa_atual": "ONR • Registro de Imóveis Eletrônico",
+   "origem": "nacional",
+   "senioridade": "Sênior",
+   "med_atual": 19706,
+   "cluster": 1
+  },
+  {
+   "id": "edvaldo",
+   "label": "AD",
+   "anos": 10.6,
+   "n_empresas": 4,
+   "n_exp": 8,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 1,
+   "area_atual": "lideranca",
+   "cargo_atual": "Technical Leader",
+   "empresa_atual": "Mercado Livre",
+   "origem": "intl",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 17211,
+   "cluster": 1
+  },
+  {
+   "id": "magno",
+   "label": "AE",
+   "anos": 15.4,
+   "n_empresas": 8,
+   "n_exp": 10,
+   "trilha": 1,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "data",
+   "cargo_atual": "Engenheiro de dados",
+   "empresa_atual": "Paraná Banco S/A",
+   "origem": "nacional",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 12908,
+   "cluster": 0
+  },
+  {
+   "id": "pedro",
+   "label": "AF",
+   "anos": 11.9,
+   "n_empresas": 10,
+   "n_exp": 10,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 0,
+   "area_atual": "dev",
+   "cargo_atual": "Senior Software Engineer",
+   "empresa_atual": "King",
+   "origem": "intl",
+   "senioridade": "Sênior",
+   "med_atual": 16866,
+   "cluster": 1
+  },
+  {
+   "id": "antonio",
+   "label": "AG",
+   "anos": 10.8,
+   "n_empresas": 2,
+   "n_exp": 2,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 0,
+   "area_atual": "dev",
+   "cargo_atual": "Designer de produtos",
+   "empresa_atual": "LabTel - Laboratório de Telecomunicações (UFES)",
+   "origem": "nacional",
+   "senioridade": "Sênior",
+   "med_atual": 17211,
+   "cluster": 1
+  },
+  {
+   "id": "cristian",
+   "label": "AH",
+   "anos": 10.5,
+   "n_empresas": 6,
+   "n_exp": 9,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "gestao",
+   "cargo_atual": "Senior Software Engineer",
+   "empresa_atual": "Truelogic Software",
+   "origem": "intl",
+   "senioridade": "Sênior",
+   "med_atual": 17211,
+   "cluster": 1
+  },
+  {
+   "id": "danilo",
+   "label": "AI",
+   "anos": 10.8,
+   "n_empresas": 4,
+   "n_exp": 6,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "frontend",
+   "cargo_atual": "Desenvolvedor Frontend",
+   "empresa_atual": "Grupo Boticário",
+   "origem": "nacional",
+   "senioridade": "Sênior",
+   "med_atual": 17211,
+   "cluster": 1
+  },
+  {
+   "id": "marlon",
+   "label": "AJ",
+   "anos": 11.8,
+   "n_empresas": 6,
+   "n_exp": 7,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 1,
+   "area_atual": "lideranca",
+   "cargo_atual": "Researcher/Data scientist",
+   "empresa_atual": "Neomed",
+   "origem": "nacional",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 16866,
+   "cluster": 1
+  },
+  {
+   "id": "breno",
+   "label": "AK",
+   "anos": 10.9,
+   "n_empresas": 6,
+   "n_exp": 6,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 1,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "backend",
+   "cargo_atual": "Engenheiro de software",
+   "empresa_atual": "velv",
+   "origem": "intl",
+   "senioridade": "Sênior",
+   "med_atual": 17211,
+   "cluster": 2
+  },
+  {
+   "id": "caio",
+   "label": "AL",
+   "anos": 8.4,
+   "n_empresas": 5,
+   "n_exp": 7,
+   "trilha": 1,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "data",
+   "cargo_atual": "Staff Data Engineer",
+   "empresa_atual": "PicPay",
+   "origem": "nacional",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 16241,
+   "cluster": 0
+  },
+  {
+   "id": "lucas_gomes",
+   "label": "AM",
+   "anos": 9.5,
+   "n_empresas": 6,
+   "n_exp": 6,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "backend",
+   "cargo_atual": "Analista Desenvolvedor Sênior",
+   "empresa_atual": "Hitss Brasil",
+   "origem": "nacional",
+   "senioridade": "Sênior",
+   "med_atual": 15662,
+   "cluster": 1
+  },
+  {
+   "id": "derick",
+   "label": "AN",
+   "anos": 11.0,
+   "n_empresas": 4,
+   "n_exp": 4,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "backend",
+   "cargo_atual": "Senior Backend Developer",
+   "empresa_atual": "Clicksign",
+   "origem": "nacional",
+   "senioridade": "Sênior",
+   "med_atual": 17211,
+   "cluster": 1
+  },
+  {
+   "id": "marcos_carneiro",
+   "label": "AO",
+   "anos": 7.9,
+   "n_empresas": 5,
+   "n_exp": 5,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "backend",
+   "cargo_atual": "Desenvolvedor",
+   "empresa_atual": "IUPI INSTITUICAO DE PAGAMENTO S.A.",
+   "origem": "nacional",
+   "senioridade": "Sênior",
+   "med_atual": 14629,
+   "cluster": 1
+  },
+  {
+   "id": "mateus_garcia",
+   "label": "AP",
+   "anos": 25.5,
+   "n_empresas": 9,
+   "n_exp": 11,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 1,
+   "area_atual": "dev",
+   "cargo_atual": "Arquiteto de soluções",
+   "empresa_atual": "MJV Technology & Innovation",
+   "origem": "nacional",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 15490,
+   "cluster": 1
+  },
+  {
+   "id": "ana_carolina",
+   "label": "AQ",
+   "anos": 4.7,
+   "n_empresas": 0,
+   "n_exp": 4,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "gestao",
+   "cargo_atual": "Product Manager Sr.",
+   "empresa_atual": "Itaú Unibanco",
+   "origem": "nacional",
+   "senioridade": "Pleno",
+   "med_atual": null,
+   "cluster": 1
+  },
+  {
+   "id": "david_pantaleao",
+   "label": "AR",
+   "anos": 11.4,
+   "n_empresas": 6,
+   "n_exp": 7,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "dev",
+   "cargo_atual": "DevOps Engineer",
+   "empresa_atual": "Grupo Autoglass",
+   "origem": "nacional",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 17211,
+   "cluster": 1
+  },
+  {
+   "id": "renato",
+   "label": "AS",
+   "anos": 12.4,
+   "n_empresas": 5,
+   "n_exp": 6,
+   "trilha": 1,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "data",
+   "cargo_atual": "Engenheiro de dados",
+   "empresa_atual": "Hospital Israelita Albert Einstein",
+   "origem": "nacional",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 19448,
+   "cluster": 0
+  },
+  {
+   "id": "kleber",
+   "label": "AT",
+   "anos": 7.5,
+   "n_empresas": 2,
+   "n_exp": 5,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 1,
+   "lideranca": 1,
+   "area_atual": "lideranca",
+   "cargo_atual": "Líder técnico",
+   "empresa_atual": "PD Case Informática Ltda",
+   "origem": "nacional",
+   "senioridade": "Sênior",
+   "med_atual": 14801,
+   "cluster": 1
+  },
+  {
+   "id": "rafael",
+   "label": "AU",
+   "anos": 7.9,
+   "n_empresas": 2,
+   "n_exp": 5,
+   "trilha": 1,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "data",
+   "cargo_atual": "Data Engineer",
+   "empresa_atual": "Vert Analytics",
+   "origem": "nacional",
+   "senioridade": "Sênior",
+   "med_atual": 16241,
+   "cluster": 0
+  },
+  {
+   "id": "andreangelo",
+   "label": "AV",
+   "anos": 17.6,
+   "n_empresas": 8,
+   "n_exp": 12,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "academico",
+   "cargo_atual": "Professor de Educação Profissional e Tecnológica",
+   "empresa_atual": "Secretaria de Estado da Educação - SEDU",
+   "origem": "nacional",
+   "senioridade": "Espec./Tech Lead",
+   "med_atual": 14135,
+   "cluster": 1
+  },
+  {
+   "id": "icaro_gandine",
+   "label": "AW",
+   "anos": 6.8,
+   "n_empresas": 7,
+   "n_exp": 8,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 0,
+   "area_atual": "frontend",
+   "cargo_atual": "Desenvolvedor Front-end Sênior",
+   "empresa_atual": "hub xp",
+   "origem": "nacional",
+   "senioridade": "Sênior",
+   "med_atual": 14801,
+   "cluster": 1
+  },
+  {
+   "id": "paulo_ricardo",
+   "label": "AX",
+   "anos": 15.5,
+   "n_empresas": 6,
+   "n_exp": 9,
+   "trilha": 0,
+   "em_tech": 1,
+   "exterior": 0,
+   "bolsa_ini": 0,
+   "lideranca": 1,
+   "area_atual": "lideranca",
+   "cargo_atual": "Analista Funcional Senior",
+   "empresa_atual": "VIXPar",
+   "origem": "nacional",
+   "senioridade": "Sênior",
+   "med_atual": 19792,
+   "cluster": 1
+  }
+ ],
+ "insights": {
+  "n": 50,
+  "trilha_software": 42,
+  "trilha_dados": 8,
+  "em_tech": 50,
+  "exterior": 4,
+  "comecou_bolsa": 22,
+  "tem_lideranca": 16,
+  "anos_medio": 11.6,
+  "empresas_media": 5.2,
+  "tenure_medio_anos": 2.6
+ },
+ "comparacao": {
+  "egressos_med_atual": 15968,
+  "cf_senior_2026": 14608,
+  "cf_espec_2026": 20602,
+  "egressos_vs_cf_senior_pct": 9,
+  "por_exp": [
+   {
+    "exp": 0,
+    "egressos_epoca": 2361,
+    "mercado_hoje": 3589
+   },
+   {
+    "exp": 3,
+    "egressos_epoca": 6989,
+    "mercado_hoje": 7304
+   },
+   {
+    "exp": 5,
+    "egressos_epoca": 9846,
+    "mercado_hoje": 11935
+   },
+   {
+    "exp": 8,
+    "egressos_epoca": 14348,
+    "mercado_hoje": 14944
+   },
+   {
+    "exp": 11,
+    "egressos_epoca": 17836,
+    "mercado_hoje": 17773
+   },
+   {
+    "exp": 14,
+    "egressos_epoca": 19319,
+    "mercado_hoje": 18173
+   }
+  ]
+ },
+ "cf_2026_senioridade": {
+  "Estágio": 2586.84,
+  "Júnior": 5060.34,
+  "Pleno": 8466.52,
+  "Sênior": 14607.85,
+  "Espec./TL": 20601.64
+ },
+ "cruzamento": {
+  "por_senioridade": [
+   {
+    "senioridade": "Pleno",
+    "n": 1,
+    "labels": [
+     "AQ"
+    ],
+    "med_atual": null,
+    "nac": 1,
+    "intl": 0
+   },
+   {
+    "senioridade": "Sênior",
+    "n": 26,
+    "labels": [
+     "A",
+     "B",
+     "D",
+     "E",
+     "G",
+     "I",
+     "L",
+     "M",
+     "V",
+     "W",
+     "Y",
+     "AA",
+     "AB",
+     "AC",
+     "AF",
+     "AG",
+     "AH",
+     "AI",
+     "AK",
+     "AM",
+     "AN",
+     "AO",
+     "AT",
+     "AU",
+     "AW",
+     "AX"
+    ],
+    "med_atual": 16224,
+    "nac": 18,
+    "intl": 8
+   },
+   {
+    "senioridade": "Espec./Tech Lead",
+    "n": 23,
+    "labels": [
+     "C",
+     "F",
+     "H",
+     "J",
+     "K",
+     "N",
+     "O",
+     "P",
+     "Q",
+     "R",
+     "S",
+     "T",
+     "U",
+     "X",
+     "Z",
+     "AD",
+     "AE",
+     "AJ",
+     "AL",
+     "AP",
+     "AR",
+     "AS",
+     "AV"
+    ],
+    "med_atual": 17211,
+    "nac": 18,
+    "intl": 5
+   }
+  ],
+  "por_origem": {
+   "nacional": {
+    "n": 37,
+    "labels": [
+     "D",
+     "G",
+     "H",
+     "I",
+     "K",
+     "L",
+     "M",
+     "N",
+     "O",
+     "P",
+     "Q",
+     "S",
+     "T",
+     "U",
+     "X",
+     "Y",
+     "Z",
+     "AA",
+     "AB",
+     "AC",
+     "AE",
+     "AG",
+     "AI",
+     "AJ",
+     "AL",
+     "AM",
+     "AN",
+     "AO",
+     "AP",
+     "AQ",
+     "AR",
+     "AS",
+     "AT",
+     "AU",
+     "AV",
+     "AW",
+     "AX"
+    ],
+    "empresas": [
+     "AEVO",
+     "Accenture Brasil",
+     "BTG Pactual",
+     "Banestes",
+     "Clicksign",
+     "Coru",
+     "Drivin Sistemas",
+     "Grupo Autoglass",
+     "Grupo Boticário",
+     "Hitss Brasil",
+     "Hospital Israelita Albert Einstein",
+     "IUPI INSTITUICAO DE PAGAMENTO S.A.",
+     "Itaú Unibanco",
+     "LabTel - Laboratório de Telecomunicações (UFES)",
+     "MJV Technology & Innovation",
+     "Marinha do Brasil",
+     "Neomed",
+     "Neon",
+     "ONR • Registro de Imóveis Eletrônico",
+     "PD Case Informática Ltda",
+     "Paraná Banco S/A",
+     "Paschoalotto",
+     "PicPay",
+     "Pottencial",
+     "Secretaria de Estado da Educação - SEDU",
+     "Soares Atacado",
+     "Unimed Vitória",
+     "UpCities - O App da Sua Cidade",
+     "VIXPar",
+     "Vennx",
+     "Vert Analytics",
+     "hub xp",
+     "will bank"
+    ],
+    "med_atual": 16241,
+    "anos_medio": 11.7
+   },
+   "intl": {
+    "n": 13,
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "E",
+     "F",
+     "J",
+     "R",
+     "V",
+     "W",
+     "AD",
+     "AF",
+     "AH",
+     "AK"
+    ],
+    "empresas": [
+     "Akamai Technologies",
+     "Bliss Applications",
+     "Cognyte",
+     "Doris",
+     "King",
+     "Kranio",
+     "Mercado Livre",
+     "Metris Energy",
+     "MongoDB",
+     "Sporty Group",
+     "Truelogic Software",
+     "velv"
+    ],
+    "med_atual": 17211,
+    "anos_medio": 11.4
+   }
+  },
+  "cruzamento": [
+   {
+    "senioridade": "Pleno",
+    "nacional": {
+     "n": 1,
+     "labels": [
+      "AQ"
+     ],
+     "med": null
+    },
+    "intl": {
+     "n": 0,
+     "labels": [],
+     "med": null
+    }
+   },
+   {
+    "senioridade": "Sênior",
+    "nacional": {
+     "n": 18,
+     "labels": [
+      "D",
+      "G",
+      "I",
+      "L",
+      "M",
+      "Y",
+      "AA",
+      "AB",
+      "AC",
+      "AG",
+      "AI",
+      "AM",
+      "AN",
+      "AO",
+      "AT",
+      "AU",
+      "AW",
+      "AX"
+     ],
+     "med": 15935
+    },
+    "intl": {
+     "n": 8,
+     "labels": [
+      "A",
+      "B",
+      "E",
+      "V",
+      "W",
+      "AF",
+      "AH",
+      "AK"
+     ],
+     "med": 17038
+    }
+   },
+   {
+    "senioridade": "Espec./Tech Lead",
+    "nacional": {
+     "n": 18,
+     "labels": [
+      "H",
+      "K",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "S",
+      "T",
+      "U",
+      "X",
+      "Z",
+      "AE",
+      "AJ",
+      "AL",
+      "AP",
+      "AR",
+      "AS",
+      "AV"
+     ],
+     "med": 16985
+    },
+    "intl": {
+     "n": 5,
+     "labels": [
+      "C",
+      "F",
+      "J",
+      "R",
+      "AD"
+     ],
+     "med": 17211
+    }
+   }
+  ],
+  "premio_intl_vs_nac_pct": 6
+ },
+ "funcoes": [
+  {
+   "funcao": "Engenharia de software",
+   "n": 30
+  },
+  {
+   "funcao": "Tech Lead / liderança técnica",
+   "n": 5
+  },
+  {
+   "funcao": "Gerência / gestão",
+   "n": 5
+  },
+  {
+   "funcao": "Eng. / ciência de dados",
+   "n": 7
+  },
+  {
+   "funcao": "Consultoria (dados/BD)",
+   "n": 2
+  },
+  {
+   "funcao": "Análise de sistemas / PO",
+   "n": 1
+  }
+ ],
+ "lideranca_gestao": {
+  "gestao": 5,
+  "lideranca_tecnica": 5,
+  "total": 10
+ },
+ "metodos": [
+  {
+   "metodo": "Dados / ETL / BI",
+   "n": 21
+  },
+  {
+   "metodo": "Arquitetura / microsserviços",
+   "n": 18
+  },
+  {
+   "metodo": "Cloud (AWS/GCP/Azure)",
+   "n": 15
+  },
+  {
+   "metodo": "DevOps / CI-CD",
+   "n": 13
+  },
+  {
+   "metodo": "Ágil / Scrum",
+   "n": 12
+  },
+  {
+   "metodo": "BPM / automação de processos",
+   "n": 11
+  },
+  {
+   "metodo": "Mobile híbrido",
+   "n": 10
+  },
+  {
+   "metodo": "IA / LLM / ML",
+   "n": 10
+  },
+  {
+   "metodo": "Observabilidade / monitoramento",
+   "n": 4
+  },
+  {
+   "metodo": "ITIL / governança de TI",
+   "n": 3
+  }
+ ],
+ "impacto": {
+  "n": 50,
+  "multiplicador_medio": 8.1,
+  "tempo_ate_senior_mediana_anos": 11,
+  "exp_medio_senior": 10.0,
+  "exp_medio_espec": 13.6,
+  "lideram_hoje": 10,
+  "passaram_lideranca": 16,
+  "intl_hoje": 13,
+  "exp_medio_1o_emprego_intl": 8.0,
+  "premio_intl_pct": 6,
+  "retencao_tech": "50/50",
+  "origem": {
+   "monitoria_ensino": 7,
+   "pesquisa_ic_fapes": 17,
+   "extensao_leds": 25,
+   "empresa_junior_morpheus": 5
+  },
+  "dispersao_por_trilha": {
+   "Software": {
+    "n": 41,
+    "min": 4597,
+    "q1": 14801,
+    "med": 17105,
+    "q3": 17211,
+    "max": 19792
+   },
+   "Dados": {
+    "n": 8,
+    "min": 12908,
+    "q1": 15167,
+    "med": 15866,
+    "q3": 16241,
+    "max": 19448
+   }
+  },
+  "dispersao_por_origem": {
+   "nacional": {
+    "n": 36,
+    "min": 4597,
+    "q1": 14758,
+    "med": 16241,
+    "q3": 17211,
+    "max": 19792
+   },
+   "intl": {
+    "n": 13,
+    "min": 14199,
+    "q1": 15490,
+    "med": 17211,
+    "q3": 17211,
+    "max": 19706
+   }
+  },
+  "trilha_x_senioridade": {
+   "Software": {
+    "Sênior": 23,
+    "Espec./Tech Lead": 18
+   },
+   "Dados": {
+    "Sênior": 3,
+    "Espec./Tech Lead": 5
+   }
+  },
+  "cobertura": {
+   "encontrados": 28,
+   "nao_encontrados": 15
+  }
+ },
+ "sankey": {
+  "vias": [
+   {
+    "nome": "Extensão (IFES)",
+    "n": 25
+   },
+   {
+    "nome": "Pesquisa (IC/FAPES)",
+    "n": 6
+   },
+   {
+    "nome": "Não detectada no LinkedIn",
+    "n": 19
+   }
+  ],
+  "trilhas": [
+   {
+    "nome": "Software",
+    "n": 42
+   },
+   {
+    "nome": "Dados",
+    "n": 8
+   }
+  ],
+  "destinos": [
+   {
+    "nome": "Nacional",
+    "n": 37
+   },
+   {
+    "nome": "Internacional",
+    "n": 13
+   }
+  ],
+  "via_trilha": [
+   {
+    "de": "Extensão (IFES)",
+    "para": "Software",
+    "n": 19
+   },
+   {
+    "de": "Não detectada no LinkedIn",
+    "para": "Software",
+    "n": 18
+   },
+   {
+    "de": "Extensão (IFES)",
+    "para": "Dados",
+    "n": 6
+   },
+   {
+    "de": "Pesquisa (IC/FAPES)",
+    "para": "Software",
+    "n": 5
+   },
+   {
+    "de": "Não detectada no LinkedIn",
+    "para": "Dados",
+    "n": 1
+   },
+   {
+    "de": "Pesquisa (IC/FAPES)",
+    "para": "Dados",
+    "n": 1
+   }
+  ],
+  "trilha_destino": [
+   {
+    "de": "Software",
+    "para": "Nacional",
+    "n": 31
+   },
+   {
+    "de": "Software",
+    "para": "Internacional",
+    "n": 11
+   },
+   {
+    "de": "Dados",
+    "para": "Nacional",
+    "n": 6
+   },
+   {
+    "de": "Dados",
+    "para": "Internacional",
+    "n": 2
+   }
+  ]
+ },
+ "intl_timeline": [
+  {
+   "ano": 2012,
+   "ativos": 14,
+   "intl": 0,
+   "pct": 0
+  },
+  {
+   "ano": 2013,
+   "ativos": 17,
+   "intl": 0,
+   "pct": 0
+  },
+  {
+   "ano": 2014,
+   "ativos": 20,
+   "intl": 0,
+   "pct": 0
+  },
+  {
+   "ano": 2015,
+   "ativos": 28,
+   "intl": 0,
+   "pct": 0
+  },
+  {
+   "ano": 2016,
+   "ativos": 34,
+   "intl": 0,
+   "pct": 0
+  },
+  {
+   "ano": 2017,
+   "ativos": 38,
+   "intl": 0,
+   "pct": 0
+  },
+  {
+   "ano": 2018,
+   "ativos": 47,
+   "intl": 0,
+   "pct": 0
+  },
+  {
+   "ano": 2019,
+   "ativos": 49,
+   "intl": 0,
+   "pct": 0
+  },
+  {
+   "ano": 2020,
+   "ativos": 49,
+   "intl": 2,
+   "pct": 4
+  },
+  {
+   "ano": 2021,
+   "ativos": 50,
+   "intl": 5,
+   "pct": 10
+  },
+  {
+   "ano": 2022,
+   "ativos": 50,
+   "intl": 6,
+   "pct": 12
+  },
+  {
+   "ano": 2023,
+   "ativos": 50,
+   "intl": 8,
+   "pct": 16
+  },
+  {
+   "ano": 2024,
+   "ativos": 50,
+   "intl": 9,
+   "pct": 18
+  },
+  {
+   "ano": 2025,
+   "ativos": 50,
+   "intl": 11,
+   "pct": 22
+  },
+  {
+   "ano": 2026,
+   "ativos": 50,
+   "intl": 12,
+   "pct": 24
+  }
+ ],
+ "empresas": {
+  "regiao": [
+   {
+    "regiao": "ES — Grande Vitória",
+    "n": 25
+   },
+   {
+    "regiao": "Remoto / não-declarado",
+    "n": 13
+   },
+   {
+    "regiao": "Exterior",
+    "n": 4
+   },
+   {
+    "regiao": "Outro (BR)",
+    "n": 3
+   },
+   {
+    "regiao": "São Paulo",
+    "n": 3
+   },
+   {
+    "regiao": "Rio de Janeiro",
+    "n": 1
+   },
+   {
+    "regiao": "Santa Catarina",
+    "n": 1
+   }
+  ],
+  "modalidade": [
+   {
+    "modalidade": "Presencial / não-declarado",
+    "n": 31
+   },
+   {
+    "modalidade": "Remoto",
+    "n": 17
+   },
+   {
+    "modalidade": "Híbrido",
+    "n": 2
+   }
+  ],
+  "setor": [
+   {
+    "setor": "Outros / nacional",
+    "n": 16
+   },
+   {
+    "setor": "Produto / scale-up / startup",
+    "n": 9
+   },
+   {
+    "setor": "Fintech / banco",
+    "n": 8
+   },
+   {
+    "setor": "BigTech / software global",
+    "n": 5
+   },
+   {
+    "setor": "Consultoria / serviços globais",
+    "n": 4
+   },
+   {
+    "setor": "Saúde",
+    "n": 3
+   },
+   {
+    "setor": "Varejo / e-commerce",
+    "n": 3
+   },
+   {
+    "setor": "Energia / indústria",
+    "n": 1
+   },
+   {
+    "setor": "Setor público / defesa",
+    "n": 1
+   }
+  ],
+  "porte": [
+   {
+    "porte": "Startup / scale-up",
+    "n": 18
+   },
+   {
+    "porte": "Grande nacional",
+    "n": 12
+   },
+   {
+    "porte": "Multinacional / BigTech",
+    "n": 9
+   },
+   {
+    "porte": "Média nacional",
+    "n": 5
+   },
+   {
+    "porte": "Não classificada",
+    "n": 4
+   },
+   {
+    "porte": "Setor público",
+    "n": 2
+   }
+  ],
+  "porte_fonte": "Mistral AI (mistral-large) — classificação de porte por nome de empresa",
+  "porte_distintas": [
+   {
+    "porte": "Startup / scale-up",
+    "n": 62
+   },
+   {
+    "porte": "Média nacional",
+    "n": 59
+   },
+   {
+    "porte": "Setor público",
+    "n": 25
+   },
+   {
+    "porte": "Não classificada",
+    "n": 23
+   },
+   {
+    "porte": "Grande nacional",
+    "n": 20
+   },
+   {
+    "porte": "Multinacional / BigTech",
+    "n": 13
+   }
+  ],
+  "origem_empregador": [
+   {
+    "origem": "Nacional",
+    "n": 38
+   },
+   {
+    "origem": "Internacional",
+    "n": 9
+   },
+   {
+    "origem": "Desconhecida",
+    "n": 3
+   }
+  ],
+  "regiao_x_porte": {
+   "regioes": [
+    "ES",
+    "Remoto/ND",
+    "Outro BR",
+    "Exterior"
+   ],
+   "portes": [
+    "Multinacional / BigTech",
+    "Grande nacional",
+    "Média nacional",
+    "Startup / scale-up",
+    "Setor público",
+    "Não classificada"
+   ],
+   "matriz": [
+    [
+     4,
+     6,
+     4,
+     8,
+     1,
+     2
+    ],
+    [
+     2,
+     5,
+     0,
+     4,
+     0,
+     2
+    ],
+    [
+     3,
+     1,
+     0,
+     3,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     1,
+     3,
+     0,
+     0
+    ]
+   ]
+  },
+  "n_empresas_distintas": 201,
+  "n_empresas_classificadas": 202,
+  "top_local_concentracao": 14
+ },
+ "genero": {
+  "metodo": "inferido offline do 1º nome (gender-guesser + heurística PT-BR + revisão manual); binário aproximado, não identidade declarada",
+  "n_total": 50,
+  "F": 7,
+  "M": 43,
+  "pct_f": 14,
+  "detalhe": {
+   "F": {
+    "n": 7,
+    "med_atual": 16726,
+    "med_ini": 1723,
+    "cresc_mediano": 9.2,
+    "em_tech": 7,
+    "gestao_lideranca": 2,
+    "exterior": 0,
+    "intl_empregador": 0,
+    "trilha_dados": 1,
+    "trilha_sw": 6,
+    "senioridade": {
+     "Sênior": 3,
+     "Espec./Tech Lead": 3,
+     "Pleno": 1
+    }
+   },
+   "M": {
+    "n": 43,
+    "med_atual": 16866,
+    "med_ini": 2556,
+    "cresc_mediano": 6.2,
+    "em_tech": 43,
+    "gestao_lideranca": 16,
+    "exterior": 4,
+    "intl_empregador": 13,
+    "trilha_dados": 7,
+    "trilha_sw": 36,
+    "senioridade": {
+     "Sênior": 23,
+     "Espec./Tech Lead": 20
+    }
+   }
+  },
+  "fapes": {
+   "total": 6,
+   "F": 2,
+   "M": 4,
+   "pct_f": 33
+  },
+  "ressalva": "amostra pequena (7 mulheres) — leitura direcional, não estatística"
+ },
+ "extensao": {
+  "fonte": "SRC / IFES Serra — base oficial de ações de extensão (src_etl); match por nome completo",
+  "ressalva": "sem CPF no alunos.json → match por nome (possíveis homônimos); piso/lower bound",
+  "n_encontrados": 30,
+  "n_bolsistas_extensao": 15,
+  "n_bolsa_documentada_oficial": 19,
+  "funcoes": [
+   {
+    "funcao": "ALUNO(A) VOLUNTARIO",
+    "n": 32
+   },
+   {
+    "funcao": "ALUNO(A) BOLSISTA",
+    "n": 23
+   },
+   {
+    "funcao": "PALESTRANTE",
+    "n": 13
+   },
+   {
+    "funcao": "COLABORADOR(A)",
+    "n": 7
+   },
+   {
+    "funcao": "EXPOSITOR(A)",
+    "n": 6
+   },
+   {
+    "funcao": "ORGANIZADOR(A)",
+    "n": 3
+   },
+   {
+    "funcao": "INSTRUTOR(A)",
+    "n": 3
+   },
+   {
+    "funcao": "MONITOR(A)",
+    "n": 2
+   },
+   {
+    "funcao": "AUXILIAR TÉCNICO",
+    "n": 1
+   }
+  ],
+  "genero": {
+   "encontrados": {
+    "F": 5,
+    "M": 25,
+    "total": 30
+   },
+   "bolsistas_extensao": {
+    "F": 1,
+    "M": 14,
+    "total": 15
+   },
+   "bolsa_documentada": {
+    "F": 2,
+    "M": 17,
+    "total": 19
+   }
+  }
+ },
+ "outros_labs": {
+  "fonte": "alunos.json + horizon.db (research_groups/team_members) + SRC participações; match por nome completo normalizado (NFD sem acento, minúsculas), piso/homônimos",
+  "n_leds": 25,
+  "n_com_outro_lab": 9,
+  "n_bolsistas_com_outro_lab": 3,
+  "labs": [
+   {
+    "lab": "LEDS — Laboratório de Extensão em Desenvolvimento de Sistemas (IFES)",
+    "n_egressos": 25
+   },
+   {
+    "lab": "Nu(TeC)² – Núcleo de estudos em Teoria da Computação e Técnicas de Computação (IFES/CNPq)",
+    "n_egressos": 3
+   },
+   {
+    "lab": "LabTel – Laboratório de Telecomunicações (UFES)",
+    "n_egressos": 2
+   },
+   {
+    "lab": "Educação e Tecnologia (IFES/CNPq)",
+    "n_egressos": 1
+   },
+   {
+    "lab": "LAR – Laboratório de Administração de Redes (IFES)",
+    "n_egressos": 1
+   },
+   {
+    "lab": "NEMO – Núcleo de Estudos em Modelagem Conceitual e Ontologias (UFES)",
+    "n_egressos": 1
+   },
+   {
+    "lab": "NERA – Núcleo de Estudos em Robótica e Automação (IFES/CNPq)",
+    "n_egressos": 1
+   },
+   {
+    "lab": "UFES – Projeto SigDesastre (FAPES)",
+    "n_egressos": 1
+   }
+  ]
+ },
+ "trilha_carreira": {
+  "headers": [
+   "Início (1º terço)",
+   "Meio",
+   "Atual"
+  ],
+  "cols": [
+   [
+    [
+     "Software",
+     41
+    ],
+    [
+     "Mobile",
+     5
+    ],
+    [
+     "Dados",
+     1
+    ],
+    [
+     "Gestão/Lid.",
+     3
+    ]
+   ],
+   [
+    [
+     "Software",
+     40
+    ],
+    [
+     "Mobile",
+     3
+    ],
+    [
+     "Dados",
+     4
+    ],
+    [
+     "Gestão/Lid.",
+     3
+    ]
+   ],
+   [
+    [
+     "Software",
+     26
+    ],
+    [
+     "Mobile",
+     3
+    ],
+    [
+     "Dados",
+     8
+    ],
+    [
+     "Gestão/Lid.",
+     12
+    ],
+    [
+     "Acadêmico",
+     1
+    ]
+   ]
+  ],
+  "L12": [
+   [
+    "Software",
+    "Software",
+    33
+   ],
+   [
+    "Software",
+    "Dados",
+    4
+   ],
+   [
+    "Mobile",
+    "Software",
+    4
+   ],
+   [
+    "Software",
+    "Mobile",
+    3
+   ],
+   [
+    "Gestão/Lid.",
+    "Software",
+    2
+   ],
+   [
+    "Software",
+    "Gestão/Lid.",
+    1
+   ],
+   [
+    "Mobile",
+    "Gestão/Lid.",
+    1
+   ],
+   [
+    "Dados",
+    "Software",
+    1
+   ],
+   [
+    "Gestão/Lid.",
+    "Gestão/Lid.",
+    1
+   ]
+  ],
+  "L23": [
+   [
+    "Software",
+    "Software",
+    25
+   ],
+   [
+    "Software",
+    "Gestão/Lid.",
+    8
+   ],
+   [
+    "Software",
+    "Dados",
+    4
+   ],
+   [
+    "Dados",
+    "Dados",
+    3
+   ],
+   [
+    "Gestão/Lid.",
+    "Gestão/Lid.",
+    3
+   ],
+   [
+    "Software",
+    "Mobile",
+    2
+   ],
+   [
+    "Mobile",
+    "Dados",
+    1
+   ],
+   [
+    "Mobile",
+    "Mobile",
+    1
+   ],
+   [
+    "Software",
+    "Acadêmico",
+    1
+   ],
+   [
+    "Dados",
+    "Gestão/Lid.",
+    1
+   ],
+   [
+    "Mobile",
+    "Software",
+    1
+   ]
+  ],
+  "insight": {
+   "entrada_software": 41,
+   "atual_gestao": 12,
+   "atual_dados": 8,
+   "com_transicao": 29
+  }
+ }
+}

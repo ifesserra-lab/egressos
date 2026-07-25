@@ -1,0 +1,60 @@
+{
+  "fonte": "Pesquisa Código Fonte 2026",
+  "url": "https://pesquisa.codigofonte.com.br/2026",
+  "coletado_em": "2026-07-22",
+  "metodologia": {
+    "amostra": 17046,
+    "periodo_coleta": "2026-02-23 a 2026-06-09",
+    "metodo": "formulário online aberto e anônimo, divulgado pelos canais do Código Fonte TV",
+    "vies": "auto-reportado, amostragem por conveniência — panorama de mercado, não censo",
+    "moeda": "BRL",
+    "unidade": "R$/mês (média)"
+  },
+  "por_senioridade": [
+    {"nivel": "Estágio", "media": 2586.84},
+    {"nivel": "Júnior", "media": 5060.34},
+    {"nivel": "Pleno", "media": 8466.52},
+    {"nivel": "Sênior", "media": 14607.85},
+    {"nivel": "Especialista/Tech Lead/Principal", "media": 20601.64}
+  ],
+  "por_contrato": [
+    {"tipo": "CLT", "media": 10165.98},
+    {"tipo": "PJ", "media": 13436.23},
+    {"tipo": "Outro", "media": 10199.77}
+  ],
+  "por_regiao_top10": [
+    {"uf": "DF", "media": 11796.62},
+    {"uf": "RS", "media": 11329.70},
+    {"uf": "SC", "media": 11166.93},
+    {"uf": "SP", "media": 11113.03},
+    {"uf": "MG", "media": 10565.64},
+    {"uf": "RJ", "media": 10382.38},
+    {"uf": "CE", "media": 10348.04},
+    {"uf": "PE", "media": 10318.31},
+    {"uf": "PR", "media": 10160.05},
+    {"uf": "GO", "media": 10084.12}
+  ],
+  "por_linguagem": [
+    {"linguagem": "Go", "media": 13641.58},
+    {"linguagem": "Kotlin", "media": 13505.59},
+    {"linguagem": "Ruby", "media": 12214.47},
+    {"linguagem": "Java", "media": 11456.87},
+    {"linguagem": "C#", "media": 11206.42},
+    {"linguagem": "TypeScript", "media": 11142.04},
+    {"linguagem": "Python", "media": 10644.32},
+    {"linguagem": "SQL", "media": 10587.35},
+    {"linguagem": "Dart", "media": 10565.06},
+    {"linguagem": "PHP", "media": 10210.08},
+    {"linguagem": "JavaScript", "media": 10070.66},
+    {"linguagem": "Delphi", "media": 9364.84}
+  ],
+  "recortes_indisponiveis_na_pagina": [
+    "por área/cargo (só distribuição percentual, sem R$)",
+    "por tempo de experiência em anos (só gráficos, sem R$)",
+    "por gênero (sem valores numéricos)"
+  ],
+  "observacoes": [
+    "Sênior R$ 14.607,85 valida a estimativa atual do dashboard (~R$ 14–15k).",
+    "Estágio de mercado R$ 2.586,84 fica muito acima da bolsa de IC (R$ 400–800), reforçando que a bolsa é subsídio de formação, não salário."
+  ]
+}

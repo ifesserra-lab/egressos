@@ -1,0 +1,230 @@
+{
+ "Accenture Brasil": {
+  "url": "https://www.linkedin.com/company/accenture-brasil/",
+  "slug": "accenture-brasil",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "King": {
+  "url": "https://www.linkedin.com/company/king/",
+  "slug": "king",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Akamai Technologies": {
+  "url": "https://www.linkedin.com/company/akamai-technologies/",
+  "slug": "akamai-technologies",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Banestes": {
+  "url": "https://www.linkedin.com/company/banestes/",
+  "slug": "banestes",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Bliss Applications": {
+  "url": "https://www.linkedin.com/company/bliss-applications/",
+  "slug": "bliss-applications",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Clicksign": {
+  "url": "https://www.linkedin.com/company/clicksign/",
+  "slug": "clicksign",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Cognyte": {
+  "url": "https://www.linkedin.com/company/cognyte/",
+  "slug": "cognyte",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Doris": {
+  "url": "https://www.linkedin.com/company/doris-ai/",
+  "slug": "doris-ai",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Grupo Autoglass": {
+  "url": "https://www.linkedin.com/company/grupoautoglass/",
+  "slug": "grupoautoglass",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Grupo Boticário": {
+  "url": "https://www.linkedin.com/company/grupo-boticario/",
+  "slug": "grupo-boticario",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Hitss Brasil": {
+  "url": "https://www.linkedin.com/company/global-hitss/",
+  "slug": "global-hitss",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Hospital Israelita Albert Einstein": {
+  "url": "https://www.linkedin.com/company/hospital-israelita-albert-einstein/",
+  "slug": "hospital-israelita-albert-einstein",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Itaú Unibanco": {
+  "url": "https://www.linkedin.com/company/itau-unibanco/",
+  "slug": "itau-unibanco",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Kranio": {
+  "url": "https://www.linkedin.com/company/kranio/",
+  "slug": "kranio",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "LabTel - Laboratório de Telecomunicações (UFES)": {
+  "url": "https://www.linkedin.com/company/labtelufes/",
+  "slug": "labtelufes",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Marinha do Brasil": {
+  "url": "https://www.linkedin.com/company/marinha-do-brasil/",
+  "slug": "marinha-do-brasil",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Metris Energy": {
+  "url": "https://www.linkedin.com/company/metris-energy/",
+  "slug": "metris-energy",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "MJV Technology & Innovation": {
+  "url": "https://www.linkedin.com/company/mjv-tech-and-innovation/",
+  "slug": "mjv-tech-and-innovation",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Neomed": {
+  "url": "https://www.linkedin.com/company/neomed/",
+  "slug": "neomed",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Paraná Banco S/A": {
+  "url": "https://www.linkedin.com/company/paranabanco/",
+  "slug": "paranabanco",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Paschoalotto": {
+  "url": "https://www.linkedin.com/company/paschoalotto/",
+  "slug": "paschoalotto",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "PD Case Informática Ltda": {
+  "url": "https://www.linkedin.com/company/pd-case-informatica-ltda/",
+  "slug": "pd-case-informatica-ltda",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "PicPay": {
+  "url": "https://www.linkedin.com/company/picpay/",
+  "slug": "picpay",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Soares Atacado": {
+  "url": "https://www.linkedin.com/company/soares-atacado/",
+  "slug": "soares-atacado",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Sporty Group": {
+  "url": "https://www.linkedin.com/company/sporty-group/",
+  "slug": "sporty-group",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Truelogic Software": {
+  "url": "https://www.linkedin.com/company/truelogicsoftware/",
+  "slug": "truelogicsoftware",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Unimed Vitória": {
+  "url": "https://www.linkedin.com/company/unimedvitoria/",
+  "slug": "unimedvitoria",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Vennx": {
+  "url": "https://www.linkedin.com/company/vennx/",
+  "slug": "vennx",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Vert Analytics": {
+  "url": "https://www.linkedin.com/company/vert-analytics/",
+  "slug": "vert-analytics",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "VIXPar": {
+  "url": "https://www.linkedin.com/company/vixpar/",
+  "slug": "vixpar",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Will Bank": {
+  "url": "https://www.linkedin.com/company/eusouwillbank/",
+  "slug": "eusouwillbank",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "AEVO": {
+  "url": "https://www.linkedin.com/company/aevo-me/",
+  "slug": "aevo-me",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "BTG Pactual": {
+  "url": "https://www.linkedin.com/company/btgpactual/",
+  "slug": "btgpactual",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "hub xp": {
+  "url": "https://www.linkedin.com/company/xp-empresas/",
+  "slug": "xp-empresas",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Mercado Livre": {
+  "url": "https://www.linkedin.com/company/mercadolibre/",
+  "slug": "mercadolibre",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "Secretaria de Estado da Educação - SEDU": {
+  "url": "https://www.linkedin.com/company/seduesgovbr/",
+  "slug": "seduesgovbr",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "velv": {
+  "url": "https://www.linkedin.com/company/velvnearshore/",
+  "slug": "velvnearshore",
+  "confianca": "alta",
+  "via": "browser-use"
+ },
+ "mongodb": {
+  "url": "https://www.linkedin.com/company/mongodb/",
+  "slug": "mongodb",
+  "confianca": "alta",
+  "via": "browser-use"
+ }
+}

@@ -1,0 +1,706 @@
+{
+ "kpi": {
+  "n": 49,
+  "em_tech": 49,
+  "cresc_medio": 8.1,
+  "cresc_max": 17.9,
+  "faixa_inicial_med": 2626,
+  "faixa_atual_lo": 4597,
+  "faixa_atual_hi": 19792,
+  "med_atual": 15968
+ },
+ "perfis": [
+  {
+   "perfil": "Perfil A",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 8,
+   "bolsa": 1187,
+   "med_ini": 1187,
+   "med_atual": 14629,
+   "cresc": 12.3
+  },
+  {
+   "perfil": "Perfil B",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 8,
+   "bolsa": 1187,
+   "med_ini": 1187,
+   "med_atual": 14629,
+   "cresc": 12.3
+  },
+  {
+   "perfil": "Perfil C",
+   "trilha": "Dados",
+   "em_tech": true,
+   "anos": 13,
+   "bolsa": 794,
+   "med_ini": 794,
+   "med_atual": 14199,
+   "cresc": 17.9
+  },
+  {
+   "perfil": "Perfil D",
+   "trilha": "Dados",
+   "em_tech": true,
+   "anos": 8,
+   "bolsa": 1187,
+   "med_ini": 1187,
+   "med_atual": 16241,
+   "cresc": 13.7
+  },
+  {
+   "perfil": "Perfil E",
+   "trilha": "Dados",
+   "em_tech": true,
+   "anos": 14,
+   "bolsa": 1278,
+   "med_ini": 1278,
+   "med_atual": 15490,
+   "cresc": 12.1
+  },
+  {
+   "perfil": "Perfil F",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 14,
+   "bolsa": 1278,
+   "med_ini": 1278,
+   "med_atual": 19706,
+   "cresc": 15.4
+  },
+  {
+   "perfil": "Perfil G",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 9,
+   "bolsa": null,
+   "med_ini": 3065,
+   "med_atual": 15662,
+   "cresc": 5.1
+  },
+  {
+   "perfil": "Perfil H",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 8,
+   "bolsa": 1695,
+   "med_ini": 1695,
+   "med_atual": 14629,
+   "cresc": 8.6
+  },
+  {
+   "perfil": "Perfil I",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 8,
+   "bolsa": 1187,
+   "med_ini": 1187,
+   "med_atual": 14629,
+   "cresc": 12.3
+  },
+  {
+   "perfil": "Perfil J",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 10,
+   "bolsa": null,
+   "med_ini": 3452,
+   "med_atual": 17211,
+   "cresc": 5.0
+  },
+  {
+   "perfil": "Perfil K",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 11,
+   "bolsa": 1751,
+   "med_ini": 1751,
+   "med_atual": 17211,
+   "cresc": 9.8
+  },
+  {
+   "perfil": "Perfil L",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 7,
+   "bolsa": null,
+   "med_ini": 3452,
+   "med_atual": 16208,
+   "cresc": 4.7
+  },
+  {
+   "perfil": "Perfil M",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 9,
+   "bolsa": 1726,
+   "med_ini": 1726,
+   "med_atual": 17105,
+   "cresc": 9.9
+  },
+  {
+   "perfil": "Perfil N",
+   "trilha": "Dados",
+   "em_tech": true,
+   "anos": 14,
+   "bolsa": 1278,
+   "med_ini": 1278,
+   "med_atual": 15490,
+   "cresc": 12.1
+  },
+  {
+   "perfil": "Perfil O",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 14,
+   "bolsa": 1278,
+   "med_ini": 1278,
+   "med_atual": 19706,
+   "cresc": 15.4
+  },
+  {
+   "perfil": "Perfil P",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 6,
+   "bolsa": null,
+   "med_ini": 4412,
+   "med_atual": 6685,
+   "cresc": 1.5
+  },
+  {
+   "perfil": "Perfil Q",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 4,
+   "bolsa": 1751,
+   "med_ini": 1751,
+   "med_atual": 6431,
+   "cresc": 3.7
+  },
+  {
+   "perfil": "Perfil R",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 12,
+   "bolsa": 1278,
+   "med_ini": 1278,
+   "med_atual": 19039,
+   "cresc": 14.9
+  },
+  {
+   "perfil": "Perfil S",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 13,
+   "bolsa": null,
+   "med_ini": 2674,
+   "med_atual": 17211,
+   "cresc": 6.4
+  },
+  {
+   "perfil": "Perfil T",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 17,
+   "bolsa": null,
+   "med_ini": 5204,
+   "med_atual": 18501,
+   "cresc": 3.6
+  },
+  {
+   "perfil": "Perfil U",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 17,
+   "bolsa": 1159,
+   "med_ini": 1159,
+   "med_atual": 18501,
+   "cresc": 16.0
+  },
+  {
+   "perfil": "Perfil V",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 13,
+   "bolsa": 1337,
+   "med_ini": 1337,
+   "med_atual": 17211,
+   "cresc": 12.9
+  },
+  {
+   "perfil": "Perfil W",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 10,
+   "bolsa": null,
+   "med_ini": 3452,
+   "med_atual": 17211,
+   "cresc": 5.0
+  },
+  {
+   "perfil": "Perfil X",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 11,
+   "bolsa": 1278,
+   "med_ini": 1278,
+   "med_atual": 18847,
+   "cresc": 14.7
+  },
+  {
+   "perfil": "Perfil Y",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 9,
+   "bolsa": 1533,
+   "med_ini": 1533,
+   "med_atual": 15662,
+   "cresc": 10.2
+  },
+  {
+   "perfil": "Perfil Z",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 9,
+   "bolsa": 1726,
+   "med_ini": 1726,
+   "med_atual": 17105,
+   "cresc": 9.9
+  },
+  {
+   "perfil": "Perfil AA",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 2,
+   "bolsa": null,
+   "med_ini": 3065,
+   "med_atual": 4597,
+   "cresc": 1.5
+  },
+  {
+   "perfil": "Perfil AB",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 8,
+   "bolsa": 1695,
+   "med_ini": 1695,
+   "med_atual": 14629,
+   "cresc": 8.6
+  },
+  {
+   "perfil": "Perfil AC",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 14,
+   "bolsa": null,
+   "med_ini": 2556,
+   "med_atual": 19706,
+   "cresc": 7.7
+  },
+  {
+   "perfil": "Perfil AD",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 11,
+   "bolsa": null,
+   "med_ini": 3501,
+   "med_atual": 17211,
+   "cresc": 4.9
+  },
+  {
+   "perfil": "Perfil AE",
+   "trilha": "Dados",
+   "em_tech": true,
+   "anos": 15,
+   "bolsa": null,
+   "med_ini": 2318,
+   "med_atual": 12908,
+   "cresc": 5.6
+  },
+  {
+   "perfil": "Perfil AF",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 12,
+   "bolsa": 1367,
+   "med_ini": 1367,
+   "med_atual": 16866,
+   "cresc": 12.3
+  },
+  {
+   "perfil": "Perfil AG",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 11,
+   "bolsa": 1751,
+   "med_ini": 1751,
+   "med_atual": 17211,
+   "cresc": 9.8
+  },
+  {
+   "perfil": "Perfil AH",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 10,
+   "bolsa": null,
+   "med_ini": 3452,
+   "med_atual": 17211,
+   "cresc": 5.0
+  },
+  {
+   "perfil": "Perfil AI",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 11,
+   "bolsa": null,
+   "med_ini": 3501,
+   "med_atual": 17211,
+   "cresc": 4.9
+  },
+  {
+   "perfil": "Perfil AJ",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 12,
+   "bolsa": null,
+   "med_ini": 2733,
+   "med_atual": 16866,
+   "cresc": 6.2
+  },
+  {
+   "perfil": "Perfil AK",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 11,
+   "bolsa": null,
+   "med_ini": 3501,
+   "med_atual": 17211,
+   "cresc": 4.9
+  },
+  {
+   "perfil": "Perfil AL",
+   "trilha": "Dados",
+   "em_tech": true,
+   "anos": 8,
+   "bolsa": null,
+   "med_ini": 5365,
+   "med_atual": 16241,
+   "cresc": 3.0
+  },
+  {
+   "perfil": "Perfil AM",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 9,
+   "bolsa": null,
+   "med_ini": 4852,
+   "med_atual": 15662,
+   "cresc": 3.2
+  },
+  {
+   "perfil": "Perfil AN",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 11,
+   "bolsa": null,
+   "med_ini": 3501,
+   "med_atual": 17211,
+   "cresc": 4.9
+  },
+  {
+   "perfil": "Perfil AO",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 8,
+   "bolsa": null,
+   "med_ini": 3389,
+   "med_atual": 14629,
+   "cresc": 4.3
+  },
+  {
+   "perfil": "Perfil AP",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 25,
+   "bolsa": null,
+   "med_ini": 9136,
+   "med_atual": 15490,
+   "cresc": 1.7
+  },
+  {
+   "perfil": "Perfil AR",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 11,
+   "bolsa": null,
+   "med_ini": 3501,
+   "med_atual": 17211,
+   "cresc": 4.9
+  },
+  {
+   "perfil": "Perfil AS",
+   "trilha": "Dados",
+   "em_tech": true,
+   "anos": 12,
+   "bolsa": null,
+   "med_ini": 2733,
+   "med_atual": 19448,
+   "cresc": 7.1
+  },
+  {
+   "perfil": "Perfil AT",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 7,
+   "bolsa": 1531,
+   "med_ini": 1531,
+   "med_atual": 14801,
+   "cresc": 9.7
+  },
+  {
+   "perfil": "Perfil AU",
+   "trilha": "Dados",
+   "em_tech": true,
+   "anos": 8,
+   "bolsa": null,
+   "med_ini": 3389,
+   "med_atual": 16241,
+   "cresc": 4.8
+  },
+  {
+   "perfil": "Perfil AV",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 15,
+   "bolsa": null,
+   "med_ini": 4867,
+   "med_atual": 14135,
+   "cresc": 2.9
+  },
+  {
+   "perfil": "Perfil AW",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 7,
+   "bolsa": null,
+   "med_ini": 3061,
+   "med_atual": 14801,
+   "cresc": 4.8
+  },
+  {
+   "perfil": "Perfil AX",
+   "trilha": "Software",
+   "em_tech": true,
+   "anos": 15,
+   "bolsa": null,
+   "med_ini": 2318,
+   "med_atual": 19792,
+   "cresc": 8.5
+  }
+ ],
+ "agregado": [
+  {
+   "exp": 0,
+   "lo": 794,
+   "hi": 13894,
+   "med": 2361,
+   "n": 44
+  },
+  {
+   "exp": 1,
+   "lo": 746,
+   "hi": 6947,
+   "med": 2543,
+   "n": 42
+  },
+  {
+   "exp": 2,
+   "lo": 869,
+   "hi": 10688,
+   "med": 2846,
+   "n": 40
+  },
+  {
+   "exp": 3,
+   "lo": 3323,
+   "hi": 16278,
+   "med": 6989,
+   "n": 41
+  },
+  {
+   "exp": 4,
+   "lo": 3012,
+   "hi": 16862,
+   "med": 7915,
+   "n": 42
+  },
+  {
+   "exp": 5,
+   "lo": 3323,
+   "hi": 20424,
+   "med": 9846,
+   "n": 43
+  },
+  {
+   "exp": 6,
+   "lo": 5348,
+   "hi": 22909,
+   "med": 12208,
+   "n": 43
+  },
+  {
+   "exp": 7,
+   "lo": 5475,
+   "hi": 24892,
+   "med": 13535,
+   "n": 44
+  },
+  {
+   "exp": 8,
+   "lo": 5360,
+   "hi": 25843,
+   "med": 14348,
+   "n": 41
+  },
+  {
+   "exp": 9,
+   "lo": 8811,
+   "hi": 34682,
+   "med": 16279,
+   "n": 33
+  },
+  {
+   "exp": 10,
+   "lo": 8427,
+   "hi": 34484,
+   "med": 18190,
+   "n": 27
+  },
+  {
+   "exp": 11,
+   "lo": 7348,
+   "hi": 33634,
+   "med": 17836,
+   "n": 26
+  },
+  {
+   "exp": 12,
+   "lo": 8455,
+   "hi": 36347,
+   "med": 18884,
+   "n": 18
+  },
+  {
+   "exp": 13,
+   "lo": 8643,
+   "hi": 36330,
+   "med": 17509,
+   "n": 14
+  },
+  {
+   "exp": 14,
+   "lo": 11071,
+   "hi": 40761,
+   "med": 19319,
+   "n": 11
+  },
+  {
+   "exp": 15,
+   "lo": 11832,
+   "hi": 34722,
+   "med": 18560,
+   "n": 6
+  },
+  {
+   "exp": 16,
+   "lo": 12659,
+   "hi": 30807,
+   "med": 20222,
+   "n": 3
+  },
+  {
+   "exp": 17,
+   "lo": 12478,
+   "hi": 30979,
+   "med": 18828,
+   "n": 3
+  }
+ ],
+ "pv": [
+  {
+   "exp": 0,
+   "med": 3589
+  },
+  {
+   "exp": 1,
+   "med": 4180
+  },
+  {
+   "exp": 2,
+   "med": 5189
+  },
+  {
+   "exp": 3,
+   "med": 7304
+  },
+  {
+   "exp": 4,
+   "med": 10134
+  },
+  {
+   "exp": 5,
+   "med": 11935
+  },
+  {
+   "exp": 6,
+   "med": 12808
+  },
+  {
+   "exp": 7,
+   "med": 14637
+  },
+  {
+   "exp": 8,
+   "med": 14944
+  },
+  {
+   "exp": 9,
+   "med": 15850
+  },
+  {
+   "exp": 10,
+   "med": 17644
+  },
+  {
+   "exp": 11,
+   "med": 17773
+  },
+  {
+   "exp": 12,
+   "med": 17727
+  },
+  {
+   "exp": 13,
+   "med": 16135
+  },
+  {
+   "exp": 14,
+   "med": 18173
+  },
+  {
+   "exp": 15,
+   "med": 17497
+  },
+  {
+   "exp": 16,
+   "med": 19706
+  },
+  {
+   "exp": 17,
+   "med": 18501
+  }
+ ]
+}
