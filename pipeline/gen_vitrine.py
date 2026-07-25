@@ -366,6 +366,27 @@ if _emp_data:
 else:
     empresas_table = ""
 
+# ---------- mural de vagas (empresas com egresso + contratando agora) ----------
+def _jobs_url(e):
+    u = e.get("url")
+    return (u.rstrip("/") + "/jobs/") if u else None
+_hiring = sorted([e for e in empresas_cards if e.get("hiring")],
+                 key=lambda e: (0 if norm(e["origem"]).startswith("intern") else 1, norm(e["nome"])))
+if _hiring:
+    _hchips = "\n".join(
+        (f'<a class="job" href="{esc(_jobs_url(e))}" target="_blank" rel="noopener" '
+         f'title="{esc(e["nome"])} — vagas no LinkedIn">{esc(e["nome"])}'
+         f'<span>{esc(e.get("size") or "")}{" · " + esc(e["industry"]) if e.get("industry") else ""} ↗</span></a>')
+        for e in _hiring)
+    mural = (
+      '<section class="card">'
+      '<h2>Contratando agora</h2>'
+      f'<p class="hint">{len(_hiring)} empresas onde há egressos do IFES <b>e</b> que estão com vagas abertas hoje '
+      '(LinkedIn). Clique pra ver as vagas — é por onde muita gente entrou.</p>'
+      f'<div class="joblist">{_hchips}</div></section>')
+else:
+    mural = ""
+
 paises_chips = "  ".join(f'<span class="flagchip">{f} {esc(n)}</span>' for n,f in paises_ext)
 
 HTML = f"""<!doctype html>
@@ -458,6 +479,10 @@ HTML = f"""<!doctype html>
   .etab td.etnum{{ font-variant-numeric:tabular-nums; font-weight:700; white-space:nowrap; }}
   .etab td.etc{{ white-space:nowrap; }}
   .etab tr:last-child td{{ border-bottom:none; }}
+  .joblist{{ display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:10px; }}
+  .job{{ text-decoration:none; background:var(--surface-2); border:1px solid var(--border); border-left:3px solid var(--accent); border-radius:11px; padding:12px 14px; color:var(--ink); font-weight:700; font-size:13.5px; display:block; transition:border-color .12s, transform .12s; }}
+  .job:hover{{ border-color:var(--accent); transform:translateY(-1px); }}
+  .job span{{ display:block; margin-top:3px; font-weight:500; font-size:11.5px; color:var(--muted); }}
 
   /* trilhas / origem */
   .pillars{{ display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px; margin-top:4px; }}
@@ -616,6 +641,8 @@ HTML = f"""<!doctype html>
     </section>
 
     {empresas_table}
+
+    {mural}
 
     <!-- TRILHAS -->
     <section class="card">
