@@ -573,6 +573,7 @@ HTML = f"""<!doctype html>
       <a href="index.html">📊 Impacto na carreira →<span>Trajetória de renda vs. mercado (anonimizado)</span></a>
       <a href="dashboard_alunos.html">👥 Panorama por egresso →<span>Linha do tempo e cards (A–…)</span></a>
       <a href="metodologia.html">🔬 Metodologia →<span>Como o estudo foi feito</span></a>
+      <a href="dados-abertos.html">📂 Dados abertos →<span>Baixe os JSON + código (CC BY / MIT)</span></a>
     </nav>
 
     <section class="hero-kpi">
