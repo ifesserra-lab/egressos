@@ -1,0 +1,52 @@
+# Egressos de TI — IFES Campus Serra · Dados abertos
+
+> Estudo longitudinal de carreira dos egressos de TI do IFES Campus Serra (coorte de 50, modelo salarial de 49). Reúne trajetória profissional, renda estimada vs. mercado, e o papel de ensino/pesquisa/extensão. Todos os dados aqui são **agregados ou anonimizados** (coorte A–AX); dados de empresa são **informação pública** (LinkedIn/registros). Nenhum dado pessoal identificável.
+
+Licença: dados CC BY 4.0 · código MIT. Nomes de pessoa nunca são publicados nem enviados a serviços externos de IA. Site experimental (dados preliminares).
+
+## Páginas
+
+- [Onde estão os egressos](egressos-carreiras.html): vitrine de carreiras — perfis, empresas, países, jornada.
+- [Impacto na carreira](index.html): visão executiva — renda estimada vs. mercado (anonimizado).
+- [Metodologia](metodologia.html): fontes, ETL, cálculo salarial, QA e ressalvas.
+- [Dados abertos](dados-abertos.html): esta página (download de JSON + código).
+
+## Datasets (JSON) — o que há em cada arquivo
+
+- [analise.json](dados/analise.json) — **Análises agregadas**. Objeto com chaves de análise: `top_tech` (tecnologias mais citadas), `clusters` (KMeans de perfis de carreira), `funcoes` (distribuição de funções), `lideranca_gestao` (nº em liderança/gestão), `sankey` (fluxo formação→trilha→destino), `intl_timeline` (% internacional por ano), `empresas` (regiao/modalidade/setor/porte agregados), `genero` (distribuição agregada), `extensao` (participação SRC/IFES, agregado), `outros_labs` (labs além do LEDS), `trilha_carreira` (início→meio→atual). Tudo AGREGADO, sem indivíduo. _(estrutura: objeto com 18 chaves: `top_tech, clusters, rows, insights, comparacao, cf_2026_senioridade, cruzamento, funcoes, lideranca_gestao, metodos, impacto, sankey, intl_timeline, empresas`; 18 itens, 39.6 KB)_
+- [consolidado.json](dados/consolidado.json) — **Perfis anonimizados**. Objeto `{kpi, perfis[], agregado, pv}`. `perfis[]` = coorte anonimizada, cada item: `perfil` (rótulo A–AX), `trilha` (Software/Dados/…), `em_tech` (bool), `anos` (anos de carreira), `bolsa` (valor mensal da bolsa em anos de bolsa), `med_ini`/`med_atual` (salário estimado inicial/atual, R$2026), `cresc` (múltiplo de crescimento). SEM nome/empresa/local. _(estrutura: objeto com 4 chaves; cada valor: `n, em_tech, cresc_medio, cresc_max, faixa_inicial_med, faixa_atual_lo, faixa_atual_hi, med_atual`; 4 itens, 10.5 KB)_
+- [por_ano.json](dados/por_ano.json) — **Série por ano**. Métricas da coorte por ano (contagens/ativos). _(estrutura: lista com 9 itens; cada item: `ano, empresa, exp, survey, fx, extrap, p25, med, p75, n`; 9 itens, 1.3 KB)_
+- [codigofonte_2026.json](dados/codigofonte_2026.json) — **Benchmark de mercado 2026**. Faixas salariais por senioridade no mercado BR (Pesquisa Código Fonte 2026). _(estrutura: objeto com 10 chaves: `fonte, url, coletado_em, metodologia, por_senioridade, por_contrato, por_regiao_top10, por_linguagem, recortes_indisponiveis_na_pagina, observacoes`; 10 itens, 2.3 KB)_
+- [codigofonte_historico.json](dados/codigofonte_historico.json) — **Benchmark histórico**. Média salarial por senioridade, série histórica (Código Fonte). _(estrutura: objeto com 5 chaves: `fonte, medida, obs, ipca_fator_para_2026, media_por_senioridade`; 5 itens, 1.1 KB)_
+- [fapes_fomento.json](dados/fapes_fomento.json) — **Fomento FAPES**. Fomento de bolsas FAPES recebido pela coorte (valores agregados). _(estrutura: objeto com 4 chaves: `projetos, total, desfecho, fonte`; 4 itens, 1.1 KB)_
+- [empresas_porte.json](dados/empresas_porte.json) — **Empresas — classificação**. Objeto `{nomeEmpresa: {...}}`. Campos: `porte`/`origem`/`setor`/`funcionarios` (estimativa por nome, Mistral) + VERIFICADOS do LinkedIn quando houver: `nome_oficial`, `headcount_linkedin` (faixa de funcionários), `hq_local` (sede), `industry_linkedin` (setor LinkedIn), `website`, `founded` (ano), `specialties`, `contratando` (bool), `politica_remoto`, `slug`; derivados: `porte_real` (banda de headcount), `setor_real` (taxonomia via Mistral), `fonte`, `verificado_em`. Dado PÚBLICO de empresa (sem vínculo a pessoa). _(estrutura: objeto com 204 chaves; cada valor: `empresa, porte, origem, setor, funcionarios`; 204 itens, 54.9 KB)_
+- [empresas_linkedin_data.json](dados/empresas_linkedin_data.json) — **Empresas — dados LinkedIn**. Objeto `{nomeEmpresa: {...}}` — coleta bruta via browser-use da company page: `nome_oficial`, `industry_linkedin`, `headcount_linkedin`, `hq_local`, `website`, `founded`, `specialties`, `politica_remoto`, `contratando`, `slug`, `verificado_em`. _(estrutura: objeto com 46 chaves; cada valor: `nome_oficial, industry_linkedin, headcount_linkedin, hq_local, website, founded, specialties, politica_remoto, slug, contratando, verificado_em`; 46 itens, 19.3 KB)_
+- [empresas_aliases.json](dados/empresas_aliases.json) — **Empresas — nomes canônicos**. Objeto `{nomeCanonico: {aliases[], atual (bool), n_egressos_atual (contagem)}}` — agrupa variantes de nome da mesma empresa. _(estrutura: objeto com 207 chaves; cada valor: `aliases, atual, n_egressos_atual`; 207 itens, 18.2 KB)_
+- [empresas_linkedin_urls.json](dados/empresas_linkedin_urls.json) — **Empresas — URLs LinkedIn**. Objeto `{nomeEmpresa: {url, slug, confianca, via}}` — URL verificada da company page. _(estrutura: objeto com 38 chaves; cada valor: `url, slug, confianca, via`; 38 itens, 5.8 KB)_
+
+## Código do pipeline (Python)
+
+Reprodução: `python build_report.py` (gera+valida) · `python build_report.py --publish` (publica anonimizado).
+
+- [build_report.py](pipeline/build_report.py) — orquestra o pipeline inteiro (roda todos os passos + QA/PII); `--publish` copia p/ os sites
+- [compute_all.py](pipeline/compute_all.py) — série salarial: cruza perfis × mercado (Stack Overflow) × câmbio × IPCA → consolidado.json
+- [analise.py](pipeline/analise.py) — clusters, sankey, gênero, empresas, trilha, internacionalização → analise.json
+- [genero.py](pipeline/genero.py) — inferência de gênero OFFLINE (gender-guesser + heurística PT-BR) → genero_map (privado)
+- [fapes_fomento.py](pipeline/fapes_fomento.py) — agrega fomento de bolsas FAPES → fapes_fomento.json
+- [src_extensao.py](pipeline/src_extensao.py) — cruza egressos × base oficial de extensão SRC/IFES (privado, por nome)
+- [gen_executivo.py](pipeline/gen_executivo.py) — reescreve os números do dashboard executivo a partir dos JSON
+- [gen_panorama.py](pipeline/gen_panorama.py) — reescreve os cards anonimizados (A–AX) do panorama
+- [gen_vitrine.py](pipeline/gen_vitrine.py) — gera a página-vitrine 'Onde estão os egressos' (perfis + empresas)
+- [qa_report.py](pipeline/qa_report.py) — QA: cruza cada número do HTML com o pipeline + varredura de PII (gate de publicação)
+- [norm_empresas.py](pipeline/norm_empresas.py) — normaliza nomes de empresa e agrupa variantes → empresas_aliases.json
+- [enrich_empresas.py](pipeline/enrich_empresas.py) — browser-use no LinkedIn: headcount/sede/setor/vagas por empresa (dado público)
+- [classify_empresas.py](pipeline/classify_empresas.py) — deriva porte_real (headcount) + setor_real (regras) por empresa
+- [classify_mistral.py](pipeline/classify_mistral.py) — refina setor_real via Mistral (industry+specialties, dado público)
+- [resolve_company_urls.py](pipeline/resolve_company_urls.py) — resolve a URL LinkedIn da empresa via dork de busca (sem login)
+- [mistral_porte.py](pipeline/mistral_porte.py) — classifica porte/setor por NOME de empresa (fallback; só nome público)
+
+## Privacidade
+
+- Publicado: coorte anonimizada (A–AX) + dados públicos de empresa + código.
+- NUNCA publicado: nomes/empresa/local por pessoa, mapas id→atributo (gênero, extensão, pesquisa).
+- O QA (`qa_report.py`) bloqueia a publicação se qualquer nome real vazar.
