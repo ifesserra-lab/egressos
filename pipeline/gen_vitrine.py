@@ -345,6 +345,13 @@ GAZ = [
 ]
 SEM_LUGAR = ("remoto", "remote", "brasil", "brazil", "nao especificado", "")
 
+# Sedes que a coleta do LinkedIn não trouxe e que são informação pública conhecida.
+# Só entram aqui empresas cuja sede dá para afirmar sem chutar.
+SEDE_MANUAL = {
+    "mongodb": "New York, United States",
+    "ibm": "Armonk, New York, United States",
+}
+
 def geo_de(local):
     """Devolve (rótulo, lat, lon, bandeira) ou None quando o local não identifica cidade
     — 'Remoto', 'Brasil' e 'Não especificado' não viram ponto no mapa de propósito:
@@ -357,6 +364,30 @@ def geo_de(local):
             return (rot, lat, lon, flag, grupo)
     return None
 
+def _empresa_chave(nome):
+    return norm(re.sub(r"\s*\(.*?\)", "", nome or "").strip())
+
+_SEDES = {_empresa_chave(k): v.get("hq_local") for k, v in porte.items() if v.get("hq_local")}
+_SEDES.update(SEDE_MANUAL)
+
+def geo_da_experiencia(exp, aluno):
+    """Onde essa experiência acontecia, em ordem de confiança:
+       1. o local declarado na própria experiência;
+       2. quando é 'Remoto'/vazio, a SEDE DA EMPRESA (é de onde o trabalho vem);
+       3. em último caso, a cidade que o egresso declara morar hoje.
+    Devolve (geo, base) — `base` diz qual das três respondeu, e vai para o tooltip."""
+    g = geo_de(exp.get("local"))
+    if g:
+        return g, "local"
+    g = geo_de(_SEDES.get(_empresa_chave(exp.get("empresa"))))
+    if g:
+        return g, "sede"
+    g = geo_de(aluno.get("local_atual"))
+    if g:
+        return g, "egresso"
+    return None, None
+
+
 def _ym(s):
     return (int(s[:4]), int(s[5:7])) if s and len(s) >= 7 else (None, None)
 
@@ -365,7 +396,7 @@ _anos_ini = [int(a["inicio_carreira_dev"][:4]) for a in alunos if a.get("inicio_
 ANO_MAP_INI = max(min(_anos_ini), 2012) if _anos_ini else 2012
 
 # lugares (id estável) e, para cada ano, quantas pessoas estavam em cada lugar
-lugares, por_ano = {}, {}
+lugares, por_ano, bases, sem_lugar_ano = {}, {}, {}, {}
 for a in alunos:
     for Y in range(ANO_MAP_INI, ANO_MAP_FIM + 1):
         ativas = [e for e in a.get("experiencias", [])
@@ -374,10 +405,16 @@ for a in alunos:
         if not ativas:
             continue
         # a experiência mais recente que tenha lugar identificável
-        g = next((x for x in (geo_de(e.get("local")) for e in
-                  sorted(ativas, key=lambda e: e["inicio"], reverse=True)) if x), None)
+        g = base = None
+        for e in sorted(ativas, key=lambda e: e["inicio"], reverse=True):
+            g, base = geo_da_experiencia(e, a)
+            if g:
+                break
         if not g:
+            sem_lugar_ano.setdefault(Y, 0)
+            sem_lugar_ano[Y] += 1
             continue
+        bases[base] = bases.get(base, 0) + 1
         rot, lat, lon, flag, grupo = g
         glat, glon = GRUPOS.get(grupo, (lat, lon))
         lugares.setdefault(rot, {"rotulo": rot, "lat": lat, "lon": lon, "flag": flag,
@@ -393,10 +430,12 @@ MAPA = {
     "lugares": list(lugares.values()),
     "anos": [{"ano": Y, "pontos": por_ano.get(Y, {}),
               "total": sum(por_ano.get(Y, {}).values()),
+              "sem": sem_lugar_ano.get(Y, 0),
               "exterior": sum(n for r, n in por_ano.get(Y, {}).items() if lugares[r]["exterior"])}
              for Y in range(ANO_MAP_INI, ANO_MAP_FIM + 1)],
 }
-_sem_ponto = sum(1 for p in perfis if geo_de(p["local"]) is None)
+_sem_ponto = sem_lugar_ano.get(ANO_MAP_FIM, 0)
+_base_pct = {k: round(100 * v / max(sum(bases.values()), 1)) for k, v in bases.items()}
 
 # países no exterior (distintos, com flag)
 paises_ext = []
@@ -756,6 +795,7 @@ HTML = f"""<!doctype html>
     <section class="card">
       <h2>Onde estão, ano a ano</h2>
       <p class="hint">Cada ponto é um lugar onde havia egresso trabalhando naquele ano; o tamanho é quantos. As linhas saem do <b>IFES — Campus Serra</b>, a origem comum, para onde a turma chegou. Aperte ▶ para ver os {ANO_MAP_INI}–{ANO_MAP_FIM} correrem. Em <b>🇧🇷 Brasil</b> o mapa aproxima e os pontos passam a ser <b>por estado</b> — as quatro cidades da Grande Vitória viram um ponto só.</p>
+      <p class="hint" style="margin-top:-8px">Quando a vaga é <b>remota</b> e não há cidade declarada, o ponto vai para a <b>sede da empresa</b> — é de onde o trabalho vem. A ordem é: local da experiência ({_base_pct.get("local", 0)}%) → sede da empresa ({_base_pct.get("sede", 0)}%) → cidade onde o egresso mora ({_base_pct.get("egresso", 0)}%).</p>
       <div class="mapwrap">
         <div class="mapctl">
           <button id="mapplay" class="mapbtn" aria-label="Reproduzir a animação">▶</button>
@@ -769,7 +809,7 @@ HTML = f"""<!doctype html>
         <div class="mapstats" id="mapstats"></div>
         <div class="chart-scroll"><svg id="mapa" viewBox="0 0 1000 420" role="img" aria-label="Mapa-múndi com a localização dos egressos ao longo dos anos"></svg></div>
       </div>
-      <p class="hint" style="margin-top:12px">Mais {_sem_ponto} egressos aparecem como <b>remoto</b> ou sem cidade declarada — ficam de fora do mapa em vez de virarem um ponto no meio do país, o que o dado não sustenta. Contorno dos continentes: {mapa_base_json["fonte"]}.</p>
+      <p class="hint" style="margin-top:12px">Sobram <b id="mapfora">{_sem_ponto}</b> egressos sem lugar: empresa pequena, sem sede no LinkedIn, e sem cidade declarada. Ficam de fora do mapa em vez de virarem um ponto no meio do país, o que o dado não sustenta. Contorno dos continentes: {mapa_base_json["fonte"]}.</p>
     </section>
 
     <!-- ONDE ESTÃO -->
@@ -951,7 +991,9 @@ const MAPA = {MAPA_JSON};
     stats.innerHTML = `<span>📍 <b>${{A.total}}</b> egressos localizados</span>`
       + `<span>🇧🇷 Brasil <b>${{br}}</b></span>`
       + `<span>🌍 Exterior <b>${{A.exterior}}</b></span>`
-      + `<span>Em <b>${{Object.keys(cont).length}}</b> ${{nivel==='brasil'?'estados/países':'lugares'}}</span>`;
+      + `<span>Em <b>${{Object.keys(cont).length}}</b> ${{nivel==='brasil'?'estados/países':'lugares'}}</span>`
+      + (A.sem ? `<span style="color:var(--muted)">sem lugar <b>${{A.sem}}</b></span>` : '');
+    const fora = document.getElementById('mapfora'); if(fora) fora.textContent = A.sem;
   }}
 
   function aplicaZoom(z){{
