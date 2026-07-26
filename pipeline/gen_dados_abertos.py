@@ -25,6 +25,7 @@ SAFE = [
     ("por_ano.json",           "Série por ano",            "Contagens e métricas por ano da coorte."),
     ("salario_minimo.json",    "Salário mínimo por ano",   "Salário mínimo nacional 2011–2026: valor de janeiro, de dezembro, média ponderada pelos meses, reajuste do decreto, INPC do ano anterior, ganho real e valor em reais do ano-base."),
     ("ibge_series.json",       "Séries macro (IBGE/IPEADATA)","IPCA e INPC (número-índice mensal + média anual + deflatores) e o salário mínimo mensal. Base para toda correção monetária do estudo."),
+    ("mapa_mundi.json",        "Contorno do mapa-múndi",   "Polígonos dos continentes (Natural Earth 110m) já projetados em coordenadas SVG, usados no mapa animado da vitrine de carreiras. Domínio público."),
     ("so_benchmarks.json",     "Benchmarks internacionais","Medianas salariais em US$/mês por país na faixa de experiência do coorte, mediana global, série por edição do survey e — o mais relevante — respondentes do Brasil separados pela MOEDA do contracheque (R$ x US$)."),
     ("codigofonte_2026.json",  "Benchmark de mercado 2026","Faixas salariais por senioridade (Pesquisa Código Fonte)."),
     ("codigofonte_historico.json","Benchmark histórico",   "Média salarial por senioridade, série histórica."),
@@ -37,7 +38,7 @@ SAFE = [
 # código publicado (sanitizado)
 CODE_FILES = ["build_report.py","ibge_series.py","so_benchmarks.py","compute_all.py","analise.py",
               "genero.py","fapes_fomento.py","src_extensao.py","gen_executivo.py","gen_panorama.py",
-              "gen_vitrine.py","gen_reguas.py","gen_nav.py","gen_dados_abertos.py",
+              "mapa_base.py","gen_vitrine.py","gen_reguas.py","gen_nav.py","gen_dados_abertos.py",
               "qa_report.py","norm_empresas.py","enrich_empresas.py","classify_empresas.py",
               "classify_mistral.py","resolve_company_urls.py","mistral_porte.py"]
 
@@ -64,6 +65,9 @@ FIELDS = {
    "`fonte`, `url`, `unidade`, `mensal` (AAAAMM -> valor) e `media_anual`; o IPCA traz também "
    "`deflator_para_base` (multiplicador para levar R$ de um ano ao mês-base). "
    "Baixado direto de IBGE/SIDRA (IPCA tabela 1737 var 2266; INPC tabela 1736 var 2289) e IPEADATA.",
+ "mapa_mundi.json": "Objeto `{viewBox, lat_range, projecao, paths[], fonte}`. `paths[]` são strings "
+   "`d` de SVG já projetadas (equirretangular). Para posicionar um ponto: "
+   "`x = (lon+180)/360*W`, `y = (lat_max-lat)/(lat_max-lat_min)*H`. Fonte: Natural Earth 110m (domínio público).",
  "so_benchmarks.json": "Objeto `{edicao_referencia, filtros, global_usd_mes, por_pais[], "
    "por_moeda_brasil[], serie_anual[]}`. `por_pais[]`: `pais`, `usd_mes` (mediana), `n`. "
    "`por_moeda_brasil[]`: por faixa de experiência, `brl_usd_mes` e `usd_usd_mes` — respondentes DO "
@@ -248,6 +252,7 @@ CODE_DESC = {
  "compute_all.py": "série salarial: cruza perfis × mercado (Stack Overflow) × câmbio × IPCA × salário mínimo → consolidado.json",
  "ibge_series.py": "baixa IPCA e INPC (IBGE/SIDRA) e o salário mínimo (IPEADATA) → salario_minimo.json + ibge_series.json",
  "so_benchmarks.py": "extrai do Stack Overflow as medianas em US$ por país e o corte por moeda do contracheque → so_benchmarks.json",
+ "mapa_base.py": "baixa o Natural Earth 110m e converte em paths SVG projetados -> mapa_mundi.json",
  "gen_reguas.py": "gera a página 'Trajetória salarial' (ano a ano + salário mínimo + comparação mundial)",
  "gen_nav.py": "fonte única do menu — injeta a mesma navegação em todas as páginas",
  "analise.py": "clusters, sankey, gênero, empresas, trilha, internacionalização → analise.json",

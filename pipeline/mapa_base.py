@@ -1,0 +1,168 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Gera data/mapa_mundi.json — o contorno dos continentes já projetado, pronto para virar
+<path> na página. Roda uma vez e fica em cache; o resultado é versionado.
+
+Por que pré-processar em vez de carregar um mapa no navegador: a página é servida no
+GitHub Pages e não deve depender de CDN nem baixar 500 KB de TopoJSON a cada visita.
+Aqui o TopoJSON de 55 KB vira ~30 KB de paths SVG já em coordenadas de tela.
+
+Fonte: world-atlas land-110m (Natural Earth 110m, domínio público) via jsDelivr.
+Projeção: equirretangular (plate carrée) — simples, e a leitura aqui é "onde tem gente",
+não distância nem área.
+
+Uso:  python pipeline/mapa_base.py            (baixa e converte)
+      python pipeline/mapa_base.py --offline  (só converte, a partir do cache)
+"""
+import json, pathlib, sys, urllib.request, urllib.error
+sys.setrecursionlimit(10000)
+
+BASE = pathlib.Path("/caminho/para/salario")
+DATA = BASE / "data"
+CACHE = DATA / "_cache_ibge"          # mesmo diretório de cache dos downloads
+URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json"
+
+W, H = 1000, 420                       # viewBox do mapa
+LAT_MAX = 83                           # corta a Antártida e o topo do Ártico (sem gente aqui)
+LAT_MIN = -56
+CASAS = 1                              # casas decimais nos paths — 0,1 px basta e enxuga o arquivo
+AREA_MIN = 1.2                         # descarta ilhotas menores que isto (em px²)
+EPS = 0.7                              # tolerância do Douglas-Peucker, em px
+
+
+def proj(lon, lat):
+    """Equirretangular, recortada na faixa de latitude que interessa."""
+    x = (lon + 180) / 360 * W
+    y = (LAT_MAX - lat) / (LAT_MAX - LAT_MIN) * H
+    return x, y
+
+
+def baixa(offline):
+    cache = CACHE / "land110m.json"
+    if offline:
+        if not cache.exists():
+            sys.exit(f"ABORT: --offline mas não há cache em {cache}")
+        return json.loads(cache.read_text(encoding="utf-8"))
+    try:
+        with urllib.request.urlopen(URL, timeout=90) as r:
+            raw = r.read().decode("utf-8")
+        CACHE.mkdir(parents=True, exist_ok=True)
+        cache.write_text(raw, encoding="utf-8")
+        print(f"  [rede ] land-110m ({len(raw)//1024} KB)")
+        return json.loads(raw)
+    except (urllib.error.URLError, TimeoutError, OSError) as e:
+        if cache.exists():
+            print(f"  [cache] land-110m (rede falhou: {e})")
+            return json.loads(cache.read_text(encoding="utf-8"))
+        sys.exit(f"ABORT: mapa indisponível e sem cache — {e}")
+
+
+def decodifica_arcos(topo):
+    """TopoJSON guarda os arcos quantizados e em delta; devolve cada um em lon/lat."""
+    sx, sy = topo["transform"]["scale"]
+    tx, ty = topo["transform"]["translate"]
+    out = []
+    for arco in topo["arcs"]:
+        x = y = 0
+        pts = []
+        for dx, dy in arco:
+            x += dx
+            y += dy
+            pts.append((x * sx + tx, y * sy + ty))
+        out.append(pts)
+    return out
+
+
+def anel_para_pontos(indices, arcos):
+    pts = []
+    for i in indices:
+        a = arcos[~i][::-1] if i < 0 else arcos[i]      # índice negativo = arco invertido
+        pts.extend(a if not pts else a[1:])
+    return pts
+
+
+def area(pts):
+    s = 0.0
+    for i in range(len(pts) - 1):
+        s += pts[i][0] * pts[i + 1][1] - pts[i + 1][0] * pts[i][1]
+    return abs(s) / 2
+
+
+def simplifica(pts, eps=EPS):
+    """Douglas-Peucker: tira os pontos que não mudam o traçado além de `eps` pixels.
+    Num mapa de 1000 px de largura, 0,7 px é invisível — e corta ~60% do arquivo."""
+    if len(pts) < 3:
+        return pts
+    ax, ay = pts[0]
+    bx, by = pts[-1]
+    dx, dy = bx - ax, by - ay
+    norma = (dx * dx + dy * dy) ** 0.5
+    pior, idx = -1.0, 0
+    for i in range(1, len(pts) - 1):
+        px, py = pts[i]
+        d = (abs(dy * px - dx * py + bx * ay - by * ax) / norma if norma
+             else ((px - ax) ** 2 + (py - ay) ** 2) ** 0.5)
+        if d > pior:
+            pior, idx = d, i
+    if pior <= eps:
+        return [pts[0], pts[-1]]
+    return simplifica(pts[:idx + 1], eps)[:-1] + simplifica(pts[idx:], eps)
+
+
+def anel_para_path(pts):
+    proj_pts, ant = [], None
+    for lon, lat in pts:
+        lat = max(LAT_MIN, min(LAT_MAX, lat))
+        x, y = proj(lon, lat)
+        p = (round(x, CASAS), round(y, CASAS))
+        if p != ant:                                    # tira pontos repetidos após arredondar
+            proj_pts.append(p)
+            ant = p
+    if len(proj_pts) < 4 or area(proj_pts) < AREA_MIN:
+        return None
+    proj_pts = simplifica(proj_pts)
+    if len(proj_pts) < 4:
+        return None
+    d = "M" + " ".join(f"{x} {y}" for x, y in proj_pts) + "Z"
+    return d.replace("M", "M", 1)
+
+
+def main():
+    offline = "--offline" in sys.argv
+    print("== mapa-múndi (Natural Earth 110m) ==")
+    topo = baixa(offline)
+    arcos = decodifica_arcos(topo)
+    geoms = topo["objects"]["land"]["geometries"]
+
+    paths, descartados = [], 0
+    for g in geoms:
+        poligonos = [g["arcs"]] if g["type"] == "Polygon" else g["arcs"]
+        for poli in poligonos:
+            for anel in poli:                           # anel 0 = contorno, demais = buracos
+                d = anel_para_path(anel_para_pontos(anel, arcos))
+                if d:
+                    paths.append(d)
+                else:
+                    descartados += 1
+
+    out = {
+        "titulo": "Contorno dos continentes, projetado para SVG",
+        "fonte": "Natural Earth 110m (domínio público) via world-atlas land-110m",
+        "url": URL,
+        "gerado_por": "pipeline/mapa_base.py",
+        "projecao": "equirretangular (plate carrée)",
+        "viewBox": [0, 0, W, H],
+        "lat_range": [LAT_MIN, LAT_MAX],
+        "nota": "Use proj(lon,lat) = ((lon+180)/360*W, (LAT_MAX-lat)/(LAT_MAX-LAT_MIN)*H) "
+                "para posicionar qualquer ponto sobre estes paths.",
+        "paths": paths,
+    }
+    alvo = DATA / "mapa_mundi.json"
+    alvo.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    kb = alvo.stat().st_size / 1024
+    print(f"OK — {alvo.name}: {len(paths)} polígonos ({descartados} ilhotas descartadas), {kb:.0f} KB")
+
+
+if __name__ == "__main__":
+    main()

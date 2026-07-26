@@ -4,6 +4,7 @@ Orquestrador do relatório de egressos — gera TUDO a partir dos dados.
 Ordem:
   0. ibge_series.py       -> data/salario_minimo.json  (SM + IPCA + INPC, baixados do IBGE/IPEADATA)
      so_benchmarks.py     -> data/so_benchmarks.json   (medianas US$ por país e por moeda do contracheque)
+     mapa_base.py         -> data/mapa_mundi.json      (contorno dos continentes já projetado p/ SVG)
   1. genero.py            -> data/genero_map.json      (gênero inferido offline)
   2. compute_all.py       -> data/consolidado.json     (série salarial SO+FX+IPCA+SM)
   3. src_extensao.py      -> data/src_extensao.json     (extensão SRC/IFES)
@@ -44,6 +45,7 @@ STEPS = [
     # usam caminho absoluto S internamente, então cwd=BASE serve.
     ("Séries IBGE/IPEADATA",    [PY, str(PIPE/"ibge_series.py")],   BASE),
     ("Benchmarks Stack Overflow",[PY, str(PIPE/"so_benchmarks.py")], BASE),
+    ("Contorno do mapa-múndi",   [PY, str(PIPE/"mapa_base.py")],     BASE),
     ("Gênero (offline)",        [PY, str(PIPE/"genero.py")],        BASE),
     ("Série salarial",          [PY, str(PIPE/"compute_all.py")],   BASE / "data"),
     ("Extensão SRC/IFES",       [PY, str(PIPE/"src_extensao.py")],  BASE),
