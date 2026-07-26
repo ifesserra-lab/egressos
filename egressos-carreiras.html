@@ -66,7 +66,9 @@
     color:var(--ink-2); font:650 12px/1 system-ui; padding:9px 11px; cursor:pointer; white-space:nowrap; }
   .mapzoom button:last-child{ border-right:0; }
   .mapzoom button[aria-pressed="true"]{ background:var(--accent); color:#fff; }
-  #mapa{ transition:none; }
+  .mapzoom button{ min-width:34px; }
+  #mapa{ cursor:grab; touch-action:none; }
+  #mapa.arrastando{ cursor:grabbing; }
   .mapstats{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px; font-size:12.5px; }
   .mapstats span{ background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:4px 11px; }
   .mapstats b{ font-variant-numeric:tabular-nums; }
@@ -252,9 +254,14 @@
       <div class="mapwrap">
         <div class="mapctl">
           <button id="mapplay" class="mapbtn" aria-label="Reproduzir a animação">▶</button>
-          <span class="mapzoom" role="group" aria-label="Nível de zoom">
+          <span class="mapzoom" role="group" aria-label="Enquadramento">
             <button data-z="mundo"  aria-pressed="true">🌍 Mundo</button>
             <button data-z="brasil" aria-pressed="false">🇧🇷 Brasil</button>
+          </span>
+          <span class="mapzoom" role="group" aria-label="Zoom">
+            <button id="zout" aria-label="Afastar" title="Afastar">−</button>
+            <button id="zin"  aria-label="Aproximar" title="Aproximar">+</button>
+            <button id="zfit" aria-label="Enquadrar tudo" title="Enquadrar tudo">⤢</button>
           </span>
           <input id="mapyear" type="range" min="2012" max="2026" value="2026" step="1" aria-label="Ano">
           <b id="maplabel">2026</b>
@@ -472,15 +479,18 @@ const MAPA = {"viewBox":[0,0,1000,420],"lat_range":[-56,83],"paths":["M311.8 413
   // mesma projeção equirretangular usada em pipeline/mapa_base.py
   const px = lon => (lon+180)/360*W, py = lat => (LMAX-lat)/(LMAX-LMIN)*H;
 
-  // Como a projeção é linear, "dar zoom" é só trocar o viewBox. O Brasil em lon/lat:
-  const VB = {
-    mundo:  [0, 0, W, H],
-    brasil: [px(-75), py(7), px(-32)-px(-75), py(-34)-py(7)],
+  // Como a projeção é linear, "dar zoom" é só recortar o viewBox — nada é reprojetado.
+  const ENQ = {
+    mundo:  {x:0, y:0, w:W, h:H},
+    brasil: {x:px(-75), y:py(7), w:px(-32)-px(-75), h:py(-34)-py(7)},
   };
-  let nivel = 'mundo';
-  const escala = () => W / VB[nivel][2];        // quanto o mapa foi ampliado
-  // No zoom do Brasil os pontos passam a ser por estado (glat/glon) em vez de por cidade.
-  const chave = L => nivel === 'brasil' && !L.exterior ? L.grupo : L.rotulo;
+  const W_MIN = 24;                     // não deixa aproximar além de ~9 graus de longitude
+  let view = {...ENQ.mundo};
+  const escala = () => W / view.w;      // quanto o mapa está ampliado
+  // Enquanto os pontos de uma mesma região não separam na tela, agrega por estado.
+  // 40 px de viewBox ≈ 14 graus: abaixo disso as cidades da Grande Vitória já se distinguem.
+  const AGREGA_ATE = 40;
+  const chave = L => (!L.exterior && view.w > AGREGA_ATE) ? L.grupo : L.rotulo;
 
   const gLand=el('g',{}), gArc=el('g',{}), gDot=el('g',{}), gLab=el('g',{});
   MAPA.paths.forEach(d=>gLand.appendChild(el('path',{d,class:'land'})));
@@ -557,18 +567,56 @@ const MAPA = {"viewBox":[0,0,1000,420],"lat_range":[-56,83],"paths":["M311.8 413
     const fora = document.getElementById('mapfora'); if(fora) fora.textContent = A.sem;
   }
 
-  function aplicaZoom(z){
-    nivel = z;
-    svg.setAttribute('viewBox', VB[z].map(v=>v.toFixed(1)).join(' '));
+  function limita(v){
+    v.w = Math.max(W_MIN, Math.min(W, v.w));
+    v.h = v.w * (H / W);
+    v.x = Math.max(-v.w * .15, Math.min(W - v.w * .85, v.x));   // deixa sobrar uma folga
+    v.y = Math.max(-v.h * .15, Math.min(H - v.h * .85, v.y));
+    return v;
+  }
+  function aplicaView(v, preset){
+    view = limita(v);
+    svg.setAttribute('viewBox', [view.x, view.y, view.w, view.h].map(n=>n.toFixed(1)).join(' '));
     const k = escala();
     gLand.querySelectorAll('path').forEach(pth=>pth.setAttribute('stroke-width', (0.6/k).toFixed(3)));
-    document.querySelectorAll('.mapzoom button').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.z===z)));
+    document.querySelectorAll('.mapzoom [data-z]').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.z===preset)));
     origemDot.setAttribute('r', 5/k); origemDot.setAttribute('stroke-width', 2/k);
     origemTxt.setAttribute('font-size', 9.5/k); origemTxt.setAttribute('y', oy + 16/k);
     origemTxt.setAttribute('stroke-width', (2.5/k)+'px');
     desenha(i);
   }
-  document.querySelectorAll('.mapzoom button').forEach(b=>b.addEventListener('click',()=>aplicaZoom(b.dataset.z)));
+  // zoom mantendo fixo o ponto (cx,cy) do mapa — por padrão, o centro da view
+  function zoom(fator, cx, cy){
+    const c = {x: cx==null ? view.x + view.w/2 : cx, y: cy==null ? view.y + view.h/2 : cy};
+    const nw = Math.max(W_MIN, Math.min(W, view.w * fator));
+    const r = nw / view.w;
+    aplicaView({x: c.x - (c.x - view.x) * r, y: c.y - (c.y - view.y) * r, w: nw, h: view.h * r});
+  }
+  document.querySelectorAll('.mapzoom [data-z]').forEach(b =>
+    b.addEventListener('click', () => aplicaView({...ENQ[b.dataset.z]}, b.dataset.z)));
+  document.getElementById('zin' ).addEventListener('click', () => zoom(1/1.6));
+  document.getElementById('zout').addEventListener('click', () => zoom(1.6));
+  document.getElementById('zfit').addEventListener('click', () => aplicaView({...ENQ.mundo}, 'mundo'));
+
+  // Arrastar para deslocar: o ponto do mapa que estava sob o cursor continua sob ele.
+  // Como viewBox_x + fracao_horizontal * largura = ponto_do_mapa, basta isolar viewBox_x.
+  let ancora = null;
+  const fracao = ev => {
+    const r = svg.getBoundingClientRect();
+    return {fx: (ev.clientX - r.left) / r.width, fy: (ev.clientY - r.top) / r.height};
+  };
+  svg.addEventListener('pointerdown', ev => {
+    const {fx, fy} = fracao(ev);
+    ancora = {x: view.x + fx * view.w, y: view.y + fy * view.h};
+    svg.classList.add('arrastando'); svg.setPointerCapture(ev.pointerId);
+  });
+  svg.addEventListener('pointermove', ev => {
+    if(!ancora) return;
+    const {fx, fy} = fracao(ev);
+    aplicaView({...view, x: ancora.x - fx * view.w, y: ancora.y - fy * view.h});
+  });
+  ['pointerup','pointercancel','pointerleave'].forEach(e =>
+    svg.addEventListener(e, () => { ancora = null; svg.classList.remove('arrastando'); }));
 
   let i = anos.length-1, timer=null;
   function para(){ clearInterval(timer); timer=null; botao.textContent='▶'; botao.setAttribute('aria-label','Reproduzir a animação'); }
@@ -585,7 +633,7 @@ const MAPA = {"viewBox":[0,0,1000,420],"lat_range":[-56,83],"paths":["M311.8 413
   }
   botao.addEventListener('click', toca);
   slider.addEventListener('input', e=>{ para(); i = anos.findIndex(a=>a.ano==e.target.value); desenha(i); });
-  aplicaZoom('mundo');
+  aplicaView({...ENQ.mundo}, 'mundo');
 })();
 
 function avatar(p, big){
