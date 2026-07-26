@@ -287,51 +287,61 @@ n_pesquisa = next((v["n"] for v in sankey["vias"] if "Pesquisa" in v["nome"]),0)
 # Cada lugar citado nas experiências vira um ponto (lat, lon). A ordem importa:
 # o primeiro padrão que casar vence, então o exterior e as cidades vêm antes dos
 # estados, e o genérico ("Brasil", "Remoto") fica por último.
+# grupo = como o lugar é agregado no zoom do Brasil (as 4 cidades da Grande Vitória
+# viram um ponto só, senão viram um borrão de 1 px).
+GRUPOS = {
+    "Espírito Santo": (-19.75, -40.34), "São Paulo": (-22.50, -48.00),
+    "Rio de Janeiro": (-22.30, -42.60), "Santa Catarina": (-27.30, -50.30),
+    "Paraná": (-24.70, -51.50), "Distrito Federal": (-15.79, -47.88),
+    "Minas Gerais": (-18.60, -44.50), "Bahia": (-12.60, -41.70),
+    "Pernambuco": (-8.40, -37.90), "Ceará": (-5.20, -39.50),
+    "Rio Grande do Sul": (-30.00, -53.20),
+}
 GAZ = [
     # --- exterior ---
-    (r"london|londres",                     "Londres",           51.51,  -0.13, "🇬🇧"),
-    (r"lisbo[an]|lisbon",                   "Lisboa",            38.72,  -9.14, "🇵🇹"),
-    (r"oeiras",                             "Oeiras",            38.70,  -9.31, "🇵🇹"),
-    (r"porto\b",                            "Porto",             41.15,  -8.61, "🇵🇹"),
-    (r"portugal",                           "Portugal",          39.40,  -8.22, "🇵🇹"),
-    (r"berlim|berlin",                      "Berlim",            52.52,  13.40, "🇩🇪"),
-    (r"alemanha|germany",                   "Alemanha",          51.17,  10.45, "🇩🇪"),
-    (r"estocolmo|stockholm",                "Estocolmo",         59.33,  18.07, "🇸🇪"),
-    (r"su[ée]cia|sweden",                   "Suécia",            60.13,  18.64, "🇸🇪"),
-    (r"santiago",                           "Santiago",         -33.45, -70.67, "🇨🇱"),
-    (r"chile",                              "Chile",            -35.68, -71.54, "🇨🇱"),
-    (r"florida",                            "Flórida (EUA)",     27.99, -81.76, "🇺🇸"),
-    (r"united states|estados unidos|\beua\b|\busa\b", "Estados Unidos", 39.83, -98.58, "🇺🇸"),
-    (r"madrid",                             "Madri",             40.42,  -3.70, "🇪🇸"),
-    (r"barcelona",                          "Barcelona",         41.39,   2.17, "🇪🇸"),
-    (r"espanha|spain",                      "Espanha",           40.46,  -3.75, "🇪🇸"),
-    (r"irlanda|ireland|dublin",             "Dublin",            53.35,  -6.26, "🇮🇪"),
-    (r"canada|canad[áa]|toronto",           "Canadá",            56.13,-106.35, "🇨🇦"),
-    (r"argentina|buenos aires",             "Buenos Aires",     -34.60, -58.38, "🇦🇷"),
-    (r"m[ée]xico",                          "México",            23.63,-102.55, "🇲🇽"),
-    (r"israel|tel aviv",                    "Tel Aviv",          32.09,  34.78, "🇮🇱"),
+    (r"london|londres",                     "Londres",           51.51,  -0.13, "🇬🇧", "Reino Unido"),
+    (r"lisbo[an]|lisbon",                   "Lisboa",            38.72,  -9.14, "🇵🇹", "Portugal"),
+    (r"oeiras",                             "Oeiras",            38.70,  -9.31, "🇵🇹", "Portugal"),
+    (r"porto\b",                            "Porto",             41.15,  -8.61, "🇵🇹", "Portugal"),
+    (r"portugal",                           "Portugal",          39.40,  -8.22, "🇵🇹", "Portugal"),
+    (r"berlim|berlin",                      "Berlim",            52.52,  13.40, "🇩🇪", "Alemanha"),
+    (r"alemanha|germany",                   "Alemanha",          51.17,  10.45, "🇩🇪", "Alemanha"),
+    (r"estocolmo|stockholm",                "Estocolmo",         59.33,  18.07, "🇸🇪", "Suécia"),
+    (r"su[ée]cia|sweden",                   "Suécia",            60.13,  18.64, "🇸🇪", "Suécia"),
+    (r"santiago",                           "Santiago",         -33.45, -70.67, "🇨🇱", "Chile"),
+    (r"chile",                              "Chile",            -35.68, -71.54, "🇨🇱", "Chile"),
+    (r"florida",                            "Flórida (EUA)",     27.99, -81.76, "🇺🇸", "Estados Unidos"),
+    (r"united states|estados unidos|\beua\b|\busa\b", "Estados Unidos", 39.83, -98.58, "🇺🇸", "Estados Unidos"),
+    (r"madrid",                             "Madri",             40.42,  -3.70, "🇪🇸", "Espanha"),
+    (r"barcelona",                          "Barcelona",         41.39,   2.17, "🇪🇸", "Espanha"),
+    (r"espanha|spain",                      "Espanha",           40.46,  -3.75, "🇪🇸", "Espanha"),
+    (r"irlanda|ireland|dublin",             "Dublin",            53.35,  -6.26, "🇮🇪", "Irlanda"),
+    (r"canada|canad[áa]|toronto",           "Canadá",            56.13,-106.35, "🇨🇦", "Canadá"),
+    (r"argentina|buenos aires",             "Buenos Aires",     -34.60, -58.38, "🇦🇷", "Argentina"),
+    (r"m[ée]xico",                          "México",            23.63,-102.55, "🇲🇽", "México"),
+    (r"israel|tel aviv",                    "Tel Aviv",          32.09,  34.78, "🇮🇱", "Israel"),
     # --- Espírito Santo (a origem do coorte) ---
-    (r"vit[óo]ria",                         "Vitória, ES",      -20.32, -40.31, ""),
-    (r"vila velha",                         "Vila Velha, ES",   -20.33, -40.29, ""),
-    (r"cariacica",                          "Cariacica, ES",    -20.26, -40.42, ""),
-    (r"\bserra\b",                          "Serra, ES",        -20.12, -40.31, ""),
-    (r"guarapari",                          "Guarapari, ES",    -20.67, -40.50, ""),
-    (r"linhares",                           "Linhares, ES",     -19.39, -40.07, ""),
-    (r"colatina",                           "Colatina, ES",     -19.54, -40.63, ""),
-    (r"viana",                              "Viana, ES",        -20.39, -40.49, ""),
-    (r"esp[íi]rito santo|\bes\b",           "Espírito Santo",   -19.75, -40.34, ""),
+    (r"vit[óo]ria",                         "Vitória, ES",      -20.32, -40.31, "", "Espírito Santo"),
+    (r"vila velha",                         "Vila Velha, ES",   -20.33, -40.29, "", "Espírito Santo"),
+    (r"cariacica",                          "Cariacica, ES",    -20.26, -40.42, "", "Espírito Santo"),
+    (r"\bserra\b",                          "Serra, ES",        -20.12, -40.31, "", "Espírito Santo"),
+    (r"guarapari",                          "Guarapari, ES",    -20.67, -40.50, "", "Espírito Santo"),
+    (r"linhares",                           "Linhares, ES",     -19.39, -40.07, "", "Espírito Santo"),
+    (r"colatina",                           "Colatina, ES",     -19.54, -40.63, "", "Espírito Santo"),
+    (r"viana",                              "Viana, ES",        -20.39, -40.49, "", "Espírito Santo"),
+    (r"esp[íi]rito santo|\bes\b",           "Espírito Santo",   -19.75, -40.34, "", "Espírito Santo"),
     # --- demais capitais/estados ---
-    (r"s[ãa]o paulo|\bsp\b",                "São Paulo",        -23.55, -46.63, ""),
-    (r"rio de janeiro|\brj\b",              "Rio de Janeiro",   -22.91, -43.17, ""),
-    (r"florian[óo]polis|santa catarina|\bsc\b", "Florianópolis", -27.60, -48.55, ""),
-    (r"curitiba|paran[áa]|\bpr\b",           "Curitiba",         -25.43, -49.27, ""),
-    (r"bras[íi]lia|distrito federal|federal district|\bdf\b", "Brasília", -15.79, -47.88, ""),
-    (r"belo horizonte|minas gerais|\bmg\b",  "Belo Horizonte",   -19.92, -43.94, ""),
-    (r"salvador|bahia|\bba\b",               "Salvador",         -12.97, -38.50, ""),
-    (r"recife|pernambuco|\bpe\b",            "Recife",            -8.05, -34.88, ""),
-    (r"fortaleza|cear[áa]|\bce\b",           "Fortaleza",         -3.73, -38.53, ""),
-    (r"porto alegre|rio grande do sul|\brs\b","Porto Alegre",    -30.03, -51.23, ""),
-    (r"campinas",                           "Campinas",         -22.91, -47.06, ""),
+    (r"s[ãa]o paulo|\bsp\b",                "São Paulo",        -23.55, -46.63, "", "São Paulo"),
+    (r"rio de janeiro|\brj\b",              "Rio de Janeiro",   -22.91, -43.17, "", "Rio de Janeiro"),
+    (r"florian[óo]polis|santa catarina|\bsc\b", "Florianópolis", -27.60, -48.55, "", "Santa Catarina"),
+    (r"curitiba|paran[áa]|\bpr\b",           "Curitiba",         -25.43, -49.27, "", "Paraná"),
+    (r"bras[íi]lia|distrito federal|federal district|\bdf\b", "Brasília", -15.79, -47.88, "", "Distrito Federal"),
+    (r"belo horizonte|minas gerais|\bmg\b",  "Belo Horizonte",   -19.92, -43.94, "", "Minas Gerais"),
+    (r"salvador|bahia|\bba\b",               "Salvador",         -12.97, -38.50, "", "Bahia"),
+    (r"recife|pernambuco|\bpe\b",            "Recife",            -8.05, -34.88, "", "Pernambuco"),
+    (r"fortaleza|cear[áa]|\bce\b",           "Fortaleza",         -3.73, -38.53, "", "Ceará"),
+    (r"porto alegre|rio grande do sul|\brs\b","Porto Alegre",    -30.03, -51.23, "", "Rio Grande do Sul"),
+    (r"campinas",                           "Campinas",         -22.91, -47.06, "", "São Paulo"),
 ]
 SEM_LUGAR = ("remoto", "remote", "brasil", "brazil", "nao especificado", "")
 
@@ -342,9 +352,9 @@ def geo_de(local):
     n = norm(local or "")
     if n.strip() in SEM_LUGAR:
         return None
-    for pat, rot, lat, lon, flag in GAZ:
+    for pat, rot, lat, lon, flag, grupo in GAZ:
         if re.search(pat, n):
-            return (rot, lat, lon, flag)
+            return (rot, lat, lon, flag, grupo)
     return None
 
 def _ym(s):
@@ -368,9 +378,11 @@ for a in alunos:
                   sorted(ativas, key=lambda e: e["inicio"], reverse=True)) if x), None)
         if not g:
             continue
-        rot, lat, lon, flag = g
+        rot, lat, lon, flag, grupo = g
+        glat, glon = GRUPOS.get(grupo, (lat, lon))
         lugares.setdefault(rot, {"rotulo": rot, "lat": lat, "lon": lon, "flag": flag,
-                                 "exterior": bool(flag)})
+                                 "exterior": bool(flag), "grupo": grupo,
+                                 "glat": glat, "glon": glon})
         por_ano.setdefault(Y, {}).setdefault(rot, 0)
         por_ano[Y][rot] += 1
 
@@ -557,6 +569,12 @@ HTML = f"""<!doctype html>
   .mapbtn:hover{{ filter:brightness(1.08); }}
   .mapctl input[type=range]{{ flex:1; accent-color:var(--accent); }}
   .mapctl b{{ flex:0 0 auto; font-size:17px; font-variant-numeric:tabular-nums; min-width:4ch; text-align:right; }}
+  .mapzoom{{ display:inline-flex; border:1px solid var(--border); border-radius:9px; overflow:hidden; flex:0 0 auto; }}
+  .mapzoom button{{ border:0; border-right:1px solid var(--border); background:var(--surface);
+    color:var(--ink-2); font:650 12px/1 system-ui; padding:9px 11px; cursor:pointer; white-space:nowrap; }}
+  .mapzoom button:last-child{{ border-right:0; }}
+  .mapzoom button[aria-pressed="true"]{{ background:var(--accent); color:#fff; }}
+  #mapa{{ transition:none; }}
   .mapstats{{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px; font-size:12.5px; }}
   .mapstats span{{ background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:4px 11px; }}
   .mapstats b{{ font-variant-numeric:tabular-nums; }}
@@ -737,10 +755,14 @@ HTML = f"""<!doctype html>
     <!-- MAPA-MÚNDI ANIMADO -->
     <section class="card">
       <h2>Onde estão, ano a ano</h2>
-      <p class="hint">Cada ponto é um lugar onde havia egresso trabalhando naquele ano; o tamanho é quantos. As linhas saem do <b>IFES — Campus Serra</b>, a origem comum, para onde a turma chegou. Aperte ▶ para ver os {ANO_MAP_INI}–{ANO_MAP_FIM} correrem.</p>
+      <p class="hint">Cada ponto é um lugar onde havia egresso trabalhando naquele ano; o tamanho é quantos. As linhas saem do <b>IFES — Campus Serra</b>, a origem comum, para onde a turma chegou. Aperte ▶ para ver os {ANO_MAP_INI}–{ANO_MAP_FIM} correrem. Em <b>🇧🇷 Brasil</b> o mapa aproxima e os pontos passam a ser <b>por estado</b> — as quatro cidades da Grande Vitória viram um ponto só.</p>
       <div class="mapwrap">
         <div class="mapctl">
           <button id="mapplay" class="mapbtn" aria-label="Reproduzir a animação">▶</button>
+          <span class="mapzoom" role="group" aria-label="Nível de zoom">
+            <button data-z="mundo"  aria-pressed="true">🌍 Mundo</button>
+            <button data-z="brasil" aria-pressed="false">🇧🇷 Brasil</button>
+          </span>
           <input id="mapyear" type="range" min="{ANO_MAP_INI}" max="{ANO_MAP_FIM}" value="{ANO_MAP_FIM}" step="1" aria-label="Ano">
           <b id="maplabel">{ANO_MAP_FIM}</b>
         </div>
@@ -849,31 +871,49 @@ const MAPA = {MAPA_JSON};
   // mesma projeção equirretangular usada em pipeline/mapa_base.py
   const px = lon => (lon+180)/360*W, py = lat => (LMAX-lat)/(LMAX-LMIN)*H;
 
+  // Como a projeção é linear, "dar zoom" é só trocar o viewBox. O Brasil em lon/lat:
+  const VB = {{
+    mundo:  [0, 0, W, H],
+    brasil: [px(-75), py(7), px(-32)-px(-75), py(-34)-py(7)],
+  }};
+  let nivel = 'mundo';
+  const escala = () => W / VB[nivel][2];        // quanto o mapa foi ampliado
+  // No zoom do Brasil os pontos passam a ser por estado (glat/glon) em vez de por cidade.
+  const chave = L => nivel === 'brasil' && !L.exterior ? L.grupo : L.rotulo;
+
   const gLand=el('g',{{}}), gArc=el('g',{{}}), gDot=el('g',{{}}), gLab=el('g',{{}});
   MAPA.paths.forEach(d=>gLand.appendChild(el('path',{{d,class:'land'}})));
   [gLand,gArc,gDot,gLab].forEach(g=>svg.appendChild(g));
 
   const O = MAPA.origem, ox=px(O.lon), oy=py(O.lat);
-  svg.appendChild(el('circle',{{cx:ox,cy:oy,r:5,class:'origem'}}));
-  {{ const t=el('text',{{x:ox,y:oy+16,'text-anchor':'middle','font-size':9.5,'font-weight':750,
+  const origemDot = el('circle',{{cx:ox,cy:oy,r:5,class:'origem'}});
+  const origemTxt = el('text',{{x:ox,y:oy+16,'text-anchor':'middle','font-size':9.5,'font-weight':750,
        fill:'var(--amber,#bd7d00)','paint-order':'stroke',stroke:'var(--surface)','stroke-width':'2.5px'}});
-     t.textContent='IFES · Serra'; svg.appendChild(t); }}
+  origemTxt.textContent='IFES · Serra';
 
-  // um arco por lugar (some/aparece conforme o ano); curva simples pra não virar reta feia
+  // Um nó por chave possível: cidade (visão mundo) e estado (visão Brasil).
   const nodes = {{}};
-  MAPA.lugares.forEach(L=>{{
-    const x=px(L.lon), y=py(L.lat);
+  function cria(chaveNo, lat, lon, rotulo, flag, exterior){{
+    if(nodes[chaveNo]) return;
+    const x=px(lon), y=py(lat);
     const mx=(ox+x)/2, my=(oy+y)/2 - Math.hypot(x-ox,y-oy)*0.22;
     const arc = el('path',{{d:`M${{ox}} ${{oy}}Q${{mx}} ${{my}} ${{x}} ${{y}}`,class:'arc',opacity:0}});
     gArc.appendChild(arc);
-    const dot = el('circle',{{cx:x,cy:y,r:0,class:'dot'+(L.exterior?' ext':'')}});
+    const dot = el('circle',{{cx:x,cy:y,r:0,class:'dot'+(exterior?' ext':'')}});
     dot.appendChild(el('title',{{}}));
     gDot.appendChild(dot);
-    const lab = el('text',{{x,y:y-9,'text-anchor':'middle',class:'dotlab',opacity:0}});
-    lab.textContent=(L.flag?L.flag+' ':'')+L.rotulo;
+    const lab = el('text',{{x,y,'text-anchor':'middle',class:'dotlab',opacity:0}});
+    lab.textContent=(flag?flag+' ':'')+rotulo;
     gLab.appendChild(lab);
-    nodes[L.rotulo]={{arc,dot,lab,L}};
+    nodes[chaveNo]={{arc,dot,lab,x,y,rotulo,exterior}};
+  }}
+  MAPA.lugares.forEach(L=>{{
+    cria(L.rotulo, L.lat, L.lon, L.rotulo, L.flag, L.exterior);
+    if(!L.exterior) cria(L.grupo, L.glat, L.glon, L.grupo, '', false);
   }});
+  const LUG = {{}}; MAPA.lugares.forEach(L=>LUG[L.rotulo]=L);
+
+  svg.appendChild(origemDot); svg.appendChild(origemTxt);
 
   const anos = MAPA.anos, slider=document.getElementById('mapyear'),
         rotulo=document.getElementById('maplabel'), stats=document.getElementById('mapstats'),
@@ -883,20 +923,49 @@ const MAPA = {MAPA_JSON};
     const A = anos[i];
     rotulo.textContent = A.ano;
     slider.value = A.ano;
-    for(const k in nodes){{
-      const {{arc,dot,lab,L}} = nodes[k], n = A.pontos[k]||0;
-      dot.setAttribute('r', n ? (4 + Math.sqrt(n)*3.2) : 0);
-      dot.setAttribute('fill-opacity', n ? .78 : 0);
-      dot.firstChild.textContent = n ? `${{L.rotulo}} — ${{n}} egresso${{n>1?'s':''}} em ${{A.ano}}` : '';
-      arc.setAttribute('opacity', n && L.exterior ? .55 : 0);
-      lab.setAttribute('opacity', n >= 2 || (n && L.exterior) ? 1 : 0);
+    const k = escala();
+    // Contagens já agregadas pela chave do nível atual (cidade ou estado).
+    const cont = {{}};
+    for(const rot in A.pontos) cont[chave(LUG[rot])] = (cont[chave(LUG[rot])]||0) + A.pontos[rot];
+    // Detalhe por cidade, para o tooltip do ponto agregado dizer o que está somando.
+    const det = {{}};
+    for(const rot in A.pontos){{
+      const c = chave(LUG[rot]);
+      (det[c] = det[c] || []).push(`${{rot}} ${{A.pontos[rot]}}`);
+    }}
+    for(const key in nodes){{
+      const no = nodes[key], n = cont[key]||0;
+      no.dot.setAttribute('r', n ? (4 + Math.sqrt(n)*3.2)/k : 0);
+      no.dot.setAttribute('fill-opacity', n ? .78 : 0);
+      no.dot.setAttribute('stroke-width', 1.2/k);
+      const extra = (det[key]||[]).length > 1 ? ` (${{det[key].join(' · ')}})` : '';
+      no.dot.firstChild.textContent = n ? `${{no.rotulo}} — ${{n}} egresso${{n>1?'s':''}} em ${{A.ano}}${{extra}}` : '';
+      no.arc.setAttribute('opacity', n && no.exterior ? .55 : 0);
+      no.arc.setAttribute('stroke-width', 1.2/k);
+      no.lab.setAttribute('opacity', n >= 2 || (n && no.exterior) ? 1 : 0);
+      no.lab.setAttribute('font-size', 9.5/k);
+      no.lab.setAttribute('stroke-width', (2.5/k)+'px');
+      no.lab.setAttribute('y', no.y - (9 + Math.sqrt(Math.max(n,1))*2)/k);
     }}
     const br = A.total - A.exterior;
     stats.innerHTML = `<span>📍 <b>${{A.total}}</b> egressos localizados</span>`
       + `<span>🇧🇷 Brasil <b>${{br}}</b></span>`
       + `<span>🌍 Exterior <b>${{A.exterior}}</b></span>`
-      + `<span>Em <b>${{Object.keys(A.pontos).length}}</b> lugares</span>`;
+      + `<span>Em <b>${{Object.keys(cont).length}}</b> ${{nivel==='brasil'?'estados/países':'lugares'}}</span>`;
   }}
+
+  function aplicaZoom(z){{
+    nivel = z;
+    svg.setAttribute('viewBox', VB[z].map(v=>v.toFixed(1)).join(' '));
+    const k = escala();
+    gLand.querySelectorAll('path').forEach(pth=>pth.setAttribute('stroke-width', (0.6/k).toFixed(3)));
+    document.querySelectorAll('.mapzoom button').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.z===z)));
+    origemDot.setAttribute('r', 5/k); origemDot.setAttribute('stroke-width', 2/k);
+    origemTxt.setAttribute('font-size', 9.5/k); origemTxt.setAttribute('y', oy + 16/k);
+    origemTxt.setAttribute('stroke-width', (2.5/k)+'px');
+    desenha(i);
+  }}
+  document.querySelectorAll('.mapzoom button').forEach(b=>b.addEventListener('click',()=>aplicaZoom(b.dataset.z)));
 
   let i = anos.length-1, timer=null;
   function para(){{ clearInterval(timer); timer=null; botao.textContent='▶'; botao.setAttribute('aria-label','Reproduzir a animação'); }}
@@ -913,7 +982,7 @@ const MAPA = {MAPA_JSON};
   }}
   botao.addEventListener('click', toca);
   slider.addEventListener('input', e=>{{ para(); i = anos.findIndex(a=>a.ano==e.target.value); desenha(i); }});
-  desenha(i);
+  aplicaZoom('mundo');
 }})();
 
 function avatar(p, big){{
