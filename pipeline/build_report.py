@@ -2,15 +2,21 @@
 Orquestrador do relatório de egressos — gera TUDO a partir dos dados.
 
 Ordem:
+  0. ibge_series.py       -> data/salario_minimo.json  (SM + IPCA + INPC, baixados do IBGE/IPEADATA)
+     so_benchmarks.py     -> data/so_benchmarks.json   (medianas US$ por país e por moeda do contracheque)
   1. genero.py            -> data/genero_map.json      (gênero inferido offline)
-  2. compute_all.py       -> data/consolidado.json     (série salarial SO+FX+IPCA)
+  2. compute_all.py       -> data/consolidado.json     (série salarial SO+FX+IPCA+SM)
   3. src_extensao.py      -> data/src_extensao.json     (extensão SRC/IFES)
   4. fapes_fomento.py     -> data/fapes_fomento.json    (fomento FAPES)
   5. analise.py           -> data/analise.json          (clusters, gênero, empresas,
                                                           sankeys, trilha, labs, extensão)
   6. gen_executivo.py     -> reescreve os consts do dashboard_executivo.html
   7. gen_panorama.py      -> reescreve o DB.alunos do dashboard_alunos.html (A–…)
-  8. qa_report.py         -> valida HTML × pipeline + varredura de PII
+  8. gen_reguas.py        -> gera trajetoria_salarial.html (trajetória + SM + mundo);
+                             as páginas antigas viram redirecionamento
+     gen_nav.py           -> injeta o mesmo menu em TODAS as páginas
+  9. gen_dados_abertos.py -> publica JSON + código no repo público
+ 10. qa_report.py         -> valida HTML × pipeline + varredura de PII
 
 Uso:   python data/build_report.py            (gera + valida)
        python data/build_report.py --publish  (após validar, copia p/ os repos públicos)
@@ -33,6 +39,8 @@ PIPE = BASE / "pipeline"   # scripts moved out of data/ (code vs artefatos)
 STEPS = [
     # compute_all.py roda com cwd=data/ (usa public-*.csv / ../alunos.json relativos); os demais
     # usam caminho absoluto S internamente, então cwd=BASE serve.
+    ("Séries IBGE/IPEADATA",    [PY, str(PIPE/"ibge_series.py")],   BASE),
+    ("Benchmarks Stack Overflow",[PY, str(PIPE/"so_benchmarks.py")], BASE),
     ("Gênero (offline)",        [PY, str(PIPE/"genero.py")],        BASE),
     ("Série salarial",          [PY, str(PIPE/"compute_all.py")],   BASE / "data"),
     ("Extensão SRC/IFES",       [PY, str(PIPE/"src_extensao.py")],  BASE),
@@ -40,6 +48,10 @@ STEPS = [
     ("Análise",                 [PY, str(PIPE/"analise.py")],       BASE),
     ("Consts do executivo",     [PY, str(PIPE/"gen_executivo.py")], BASE),
     ("DB do panorama",          [PY, str(PIPE/"gen_panorama.py")],  BASE),
+    ("Vitrine de carreiras",    [PY, str(PIPE/"gen_vitrine.py")],   BASE),
+    ("Duas réguas (SM + mundo)",[PY, str(PIPE/"gen_reguas.py")],    BASE),
+    ("Dados abertos",           [PY, str(PIPE/"gen_dados_abertos.py")], BASE),
+    ("Menu único",              [PY, str(PIPE/"gen_nav.py")],       BASE),
     ("QA + PII",                [PY, str(PIPE/"qa_report.py")],     BASE),
 ]
 
@@ -53,19 +65,22 @@ def run():
     print("\nBUILD OK — relatórios gerados e validados.")
 
 def publish():
-    """Copia executivo→index (com nav), panorama, evolução e metodologia p/ egressos + diretoria.
-    metodologia.html é página estática escrita à mão (não gerada) — só copiada aqui."""
-    import re
+    """Copia as páginas p/ o repo público (egressos/) e p/ o site da diretoria.
+
+    O menu já vem injetado por gen_nav.py em todas elas — o publish só copia.
+    egressos-carreiras.html e dados-abertos.html são gerados direto em egressos/,
+    então aqui só seguem para o site da diretoria."""
     PUB = BASE.parent / "egressos"
     DIR = BASE.parent / "diretoria/docs/relatorios/egressos"
-    exe = (BASE / "dashboard_executivo.html").read_text(encoding="utf-8")
-    old = (PUB / "index.html").read_text(encoding="utf-8")
-    nav = re.search(r'(    <nav aria-label="Outras visões".*?</nav>\n\n)', old, re.S).group(1)
-    anchor = '    <section class="hero-kpi" id="kpi"></section>'
-    (PUB / "index.html").write_text(exe.replace(anchor, nav + anchor, 1), encoding="utf-8")
-    for f in ["dashboard_alunos.html", "evolucao_salario_local.html", "metodologia.html"]:
+    DIR.mkdir(parents=True, exist_ok=True)
+    (PUB / "index.html").write_text(
+        (BASE / "dashboard_executivo.html").read_text(encoding="utf-8"), encoding="utf-8")
+    for f in ["dashboard_alunos.html", "evolucao_salario_local.html", "metodologia.html",
+              "trajetoria_salarial.html", "salario_minimo_mundo.html"]:
         (PUB / f).write_text((BASE / f).read_text(encoding="utf-8"), encoding="utf-8")
-    for f in ["index.html", "dashboard_alunos.html", "evolucao_salario_local.html", "metodologia.html"]:
+    for f in ["index.html", "dashboard_alunos.html", "evolucao_salario_local.html", "metodologia.html",
+              "trajetoria_salarial.html", "salario_minimo_mundo.html",
+              "egressos-carreiras.html", "dados-abertos.html"]:
         (DIR / f).write_text((PUB / f).read_text(encoding="utf-8"), encoding="utf-8")
     print("Publicado em egressos/ e diretoria/docs/relatorios/egressos/ (falta git push + mkdocs gh-deploy).")
 

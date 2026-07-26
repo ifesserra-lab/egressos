@@ -140,6 +140,15 @@
       <p class="sub">Cinquenta egressos do IFES (Campus Serra), uma origem comum (ensino · pesquisa/IC · extensão em labs como o LEDS · Prodest/FAPES) e caminhos que divergem: engenharia de software, dados/ML, consultoria, liderança técnica e gestão de TI — em empresas nacionais e internacionais. Identificados apenas por letra (A–AX); sem nomes, empresas ou localidades reais.</p>
     </header>
 
+
+    <nav aria-label="Seções do relatório" style="display:flex;flex-wrap:wrap;gap:9px;margin:0 0 4px">
+      <a href="index.html" style="flex:1 1 210px;text-decoration:none;background:var(--surface,#fff);border:1px solid var(--border,rgba(0,0,0,.1));border-radius:12px;padding:12px 14px;box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.05));font-weight:650;font-size:13px;line-height:1.35;color:var(--accent,#2a78d6)">📊 Impacto na carreira →<span style="display:block;font-weight:400;color:var(--ink-2,#52565e);font-size:11.5px;margin-top:3px;line-height:1.4">Visão executiva: renda estimada vs. mercado</span></a>
+      <a href="trajetoria_salarial.html" style="flex:1 1 210px;text-decoration:none;background:var(--surface,#fff);border:1px solid var(--border,rgba(0,0,0,.1));border-radius:12px;padding:12px 14px;box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.05));font-weight:650;font-size:13px;line-height:1.35;color:var(--accent,#2a78d6)">📈 Trajetória salarial →<span style="display:block;font-weight:400;color:var(--ink-2,#52565e);font-size:11.5px;margin-top:3px;line-height:1.4">Ano a ano, em salários mínimos e vs. o mundo</span></a>
+      <span style="flex:1 1 210px;text-decoration:none;background:var(--surface,#fff);border:1px solid var(--border,rgba(0,0,0,.1));border-radius:12px;padding:12px 14px;box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.05));font-weight:650;font-size:13px;line-height:1.35;color:var(--accent,#2a78d6);border-width:1.5px;border-color:var(--accent,#2a78d6);cursor:default" aria-current="page">👥 Panorama por egresso<span style="display:block;font-weight:400;color:var(--ink-2,#52565e);font-size:11.5px;margin-top:3px;line-height:1.4">você está aqui</span></span>
+      <a href="egressos-carreiras.html" style="flex:1 1 210px;text-decoration:none;background:var(--surface,#fff);border:1px solid var(--border,rgba(0,0,0,.1));border-radius:12px;padding:12px 14px;box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.05));font-weight:650;font-size:13px;line-height:1.35;color:var(--accent,#2a78d6)">🌍 Onde estão os egressos →<span style="display:block;font-weight:400;color:var(--ink-2,#52565e);font-size:11.5px;margin-top:3px;line-height:1.4">Empresas, países e jornada de cada um</span></a>
+      <a href="metodologia.html" style="flex:1 1 210px;text-decoration:none;background:var(--surface,#fff);border:1px solid var(--border,rgba(0,0,0,.1));border-radius:12px;padding:12px 14px;box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.05));font-weight:650;font-size:13px;line-height:1.35;color:var(--accent,#2a78d6)">🔬 Metodologia →<span style="display:block;font-weight:400;color:var(--ink-2,#52565e);font-size:11.5px;margin-top:3px;line-height:1.4">Fontes, ETL, cálculo salarial e ressalvas</span></a>
+      <a href="dados-abertos.html" style="flex:1 1 210px;text-decoration:none;background:var(--surface,#fff);border:1px solid var(--border,rgba(0,0,0,.1));border-radius:12px;padding:12px 14px;box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.05));font-weight:650;font-size:13px;line-height:1.35;color:var(--accent,#2a78d6)">📂 Dados abertos →<span style="display:block;font-weight:400;color:var(--ink-2,#52565e);font-size:11.5px;margin-top:3px;line-height:1.4">Baixe os JSON e o código (CC BY / MIT)</span></a>
+    </nav>
     <section class="stats" id="stats"></section>
 
     <section class="card">
@@ -298,14 +307,14 @@ const DB = {
       {cargo:"Analista de Sistemas",empresa:"Empresa nacional",tipo:"Freelance",inicio:"2014-09",fim:"2014-11",area:"dev"},
       {cargo:"Analista de Sistemas",empresa:"LEDS/IFES · extensão",tipo:"Estágio",inicio:"2012-04",fim:"2013-06",area:"dev"}
     ]},
-    {id:"o",nome:"Egresso O",cargo_atual:"Gerente",empresa_atual:"Empresa internacional",local_atual:"Internacional · Presencial",area_atual:"lideranca",inicio_carreira_dev:"2012-01",ainda_em_tech:true,experiencias:[
-      {cargo:"Gerente",empresa:"Empresa internacional",tipo:"CLT",inicio:"2026-06",fim:null,area:"lideranca"},
-      {cargo:"Consultor Sênior / Líder Técnico / Arquiteto",empresa:"Empresa internacional",tipo:"CLT",inicio:"2020-10",fim:"2026-06",area:"lideranca"},
-      {cargo:"Consultor / Arquiteto",empresa:"Empresa internacional",tipo:"CLT",inicio:"2019-10",fim:"2020-10",area:"backend"},
-      {cargo:"Software Engineering Sr. Analyst",empresa:"Empresa internacional",tipo:"CLT",inicio:"2018-05",fim:"2019-10",area:"backend"},
+    {id:"o",nome:"Egresso O",cargo_atual:"Gerente",empresa_atual:"Empresa nacional",local_atual:"Nacional · Presencial",area_atual:"lideranca",inicio_carreira_dev:"2012-01",ainda_em_tech:true,experiencias:[
+      {cargo:"Gerente",empresa:"Empresa nacional",tipo:"CLT",inicio:"2026-06",fim:null,area:"lideranca"},
+      {cargo:"Consultor Sênior / Líder Técnico / Arquiteto",empresa:"Empresa nacional",tipo:"CLT",inicio:"2020-10",fim:"2026-06",area:"lideranca"},
+      {cargo:"Consultor / Arquiteto",empresa:"Empresa nacional",tipo:"CLT",inicio:"2019-10",fim:"2020-10",area:"backend"},
+      {cargo:"Software Engineering Sr. Analyst",empresa:"Empresa nacional",tipo:"CLT",inicio:"2018-05",fim:"2019-10",area:"backend"},
       {cargo:"Sócio proprietário",empresa:"Empresa nacional",tipo:"PJ",inicio:"2016-06",fim:null,area:"gestao"},
-      {cargo:"Software Engineering Analyst",empresa:"Empresa internacional",tipo:"CLT",inicio:"2015-05",fim:"2018-05",area:"backend"},
-      {cargo:"Software Engineering Associate",empresa:"Empresa internacional",tipo:"CLT",inicio:"2013-09",fim:"2015-05",area:"dev"},
+      {cargo:"Software Engineering Analyst",empresa:"Empresa nacional",tipo:"CLT",inicio:"2015-05",fim:"2018-05",area:"backend"},
+      {cargo:"Software Engineering Associate",empresa:"Empresa nacional",tipo:"CLT",inicio:"2013-09",fim:"2015-05",area:"dev"},
       {cargo:"Analista de Sistemas Java Jr",empresa:"Empresa nacional",tipo:"CLT",inicio:"2013-05",fim:"2013-09",area:"backend"},
       {cargo:"Analista / Desenvolvedor",empresa:"IFES · estágio",tipo:"Bolsa",inicio:"2012-01",fim:"2012-12",area:"dev"}
     ]},
@@ -335,8 +344,8 @@ const DB = {
       {cargo:"Institutional Scientific Initiation Scholarship Program (PIBIC)",empresa:"CNPq · bolsa",tipo:"(Bolsa)",inicio:"2013-07",fim:"2014-08",area:"mobile"},
       {cargo:"Internship in Software Lab",empresa:"IFES · estágio",tipo:"Estágio",inicio:"2012-06",fim:"2013-06",area:"dev"}
     ]},
-    {id:"s",nome:"Egresso S",cargo_atual:"Desenvolvedora Salesforce",empresa_atual:"Empresa internacional",local_atual:"Internacional · Presencial",area_atual:"dev",inicio_carreira_dev:"2013-01",ainda_em_tech:true,experiencias:[
-      {cargo:"Desenvolvedora Salesforce",empresa:"Empresa internacional",tipo:"Full-time",inicio:"2022-10",fim:null,area:"dev"},
+    {id:"s",nome:"Egresso S",cargo_atual:"Desenvolvedora Salesforce",empresa_atual:"Empresa nacional",local_atual:"Nacional · Presencial",area_atual:"dev",inicio_carreira_dev:"2013-01",ainda_em_tech:true,experiencias:[
+      {cargo:"Desenvolvedora Salesforce",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2022-10",fim:null,area:"dev"},
       {cargo:"Desenvolvedora SalesForce",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2020-08",fim:"2022-10",area:"dev"},
       {cargo:"Estagiária",empresa:"Setor público",tipo:"Internship",inicio:"2019-03",fim:"2019-10",area:"fullstack"},
       {cargo:"Estagiária",empresa:"Empresa nacional",tipo:"Internship",inicio:"2018-07",fim:"2019-01",area:"fullstack"},
@@ -350,7 +359,7 @@ const DB = {
       {cargo:"Team Lead",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2020-01",fim:"2021-03",area:"gestao"},
       {cargo:"IT Business Partner",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2019-05",fim:"2020-01",area:"lideranca"},
       {cargo:"System Analyst",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2016-09",fim:"2019-04",area:"mobile"},
-      {cargo:"System Analyst",empresa:"Empresa internacional",tipo:"Full-time",inicio:"2015-11",fim:"2016-08",area:"mobile"},
+      {cargo:"System Analyst",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2015-11",fim:"2016-08",area:"mobile"},
       {cargo:"System Analyst",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2014-09",fim:"2015-10",area:"mobile"},
       {cargo:"Support Analyst",empresa:"Empresa nacional",tipo:"Full-time",inicio:"2009-04",fim:"2009-12",area:"mobile"}
     ]},
@@ -647,7 +656,7 @@ document.getElementById("stats").innerHTML = `
 // ---- timeline ----
 const YMIN=2012, YMAX=2026.6;
 const px = y => ((y-YMIN)/(YMAX-YMIN))*100;
-const SALTO=[["C",794,14199,17.9,"Dados"],["U",1159,18501,16.0,"Software"],["F",1278,19706,15.4,"Software"],["O",1278,19706,15.4,"Software"],["R",1278,19039,14.9,"Software"],["X",1278,18847,14.7,"Software"],["D",1187,16241,13.7,"Dados"],["V",1337,17211,12.9,"Software"],["A",1187,14629,12.3,"Software"],["B",1187,14629,12.3,"Software"],["I",1187,14629,12.3,"Software"],["AF",1367,16866,12.3,"Software"],["E",1278,15490,12.1,"Dados"],["N",1278,15490,12.1,"Dados"],["Y",1533,15662,10.2,"Software"],["M",1726,17105,9.9,"Software"],["Z",1726,17105,9.9,"Software"],["K",1751,17211,9.8,"Software"],["AG",1751,17211,9.8,"Software"],["AT",1531,14801,9.7,"Software"],["H",1695,14629,8.6,"Software"],["AB",1695,14629,8.6,"Software"],["AX",2318,19792,8.5,"Software"],["AC",2556,19706,7.7,"Software"],["AS",2733,19448,7.1,"Dados"],["S",2674,17211,6.4,"Software"],["AJ",2733,16866,6.2,"Software"],["AE",2318,12908,5.6,"Dados"],["G",3065,15662,5.1,"Software"],["J",3452,17211,5.0,"Software"],["W",3452,17211,5.0,"Software"],["AH",3452,17211,5.0,"Software"],["AD",3501,17211,4.9,"Software"],["AI",3501,17211,4.9,"Software"],["AK",3501,17211,4.9,"Software"],["AN",3501,17211,4.9,"Software"],["AR",3501,17211,4.9,"Software"],["AU",3389,16241,4.8,"Dados"],["AW",3061,14801,4.8,"Software"],["L",3452,16208,4.7,"Software"],["AO",3389,14629,4.3,"Software"],["Q",1751,6431,3.7,"Software"],["T",5204,18501,3.6,"Software"],["AM",4852,15662,3.2,"Software"],["AL",5365,16241,3.0,"Dados"],["AV",4867,14135,2.9,"Software"],["AP",9136,15490,1.7,"Software"],["P",4412,6685,1.5,"Software"],["AA",3065,4597,1.5,"Software"]];
+const SALTO=[["C",813,14373,17.7,"Dados"],["U",1189,18728,15.8,"Software"],["F",1316,19948,15.2,"Software"],["O",1316,19948,15.2,"Software"],["R",1316,19412,14.8,"Software"],["X",1316,19161,14.6,"Software"],["D",1203,16440,13.7,"Dados"],["V",1368,17422,12.7,"Software"],["A",1203,14808,12.3,"Software"],["B",1203,14808,12.3,"Software"],["I",1203,14808,12.3,"Software"],["AF",1404,17073,12.2,"Software"],["E",1316,15680,11.9,"Dados"],["N",1316,15680,11.9,"Dados"],["Y",1552,15854,10.2,"Software"],["M",1756,17797,10.1,"Software"],["Z",1756,17797,10.1,"Software"],["K",1822,17422,9.6,"Software"],["AG",1822,17422,9.6,"Software"],["AT",1561,14983,9.6,"Software"],["H",1714,14808,8.6,"Software"],["AB",1714,14808,8.6,"Software"],["AX",2378,20035,8.4,"Software"],["AC",2633,19948,7.6,"Software"],["AS",2807,19686,7.0,"Dados"],["S",2737,17422,6.4,"Software"],["AJ",2807,17073,6.1,"Software"],["AE",2378,13066,5.5,"Dados"],["G",3105,15854,5.1,"Software"],["J",3512,17422,5.0,"Software"],["W",3512,17422,5.0,"Software"],["AH",3512,17422,5.0,"Software"],["AD",3645,17422,4.8,"Software"],["AI",3645,17422,4.8,"Software"],["AK",3645,17422,4.8,"Software"],["AN",3645,17422,4.8,"Software"],["AR",3645,17422,4.8,"Software"],["AU",3429,16440,4.8,"Dados"],["AW",3122,14983,4.8,"Software"],["L",3512,16478,4.7,"Software"],["AO",3429,14808,4.3,"Software"],["Q",1822,6559,3.6,"Software"],["T",5345,18728,3.5,"Software"],["AM",4914,15854,3.2,"Software"],["AL",5428,16440,3.0,"Dados"],["AV",5013,14371,2.9,"Software"],["AP",9409,15680,1.7,"Software"],["P",4528,6841,1.5,"Software"],["AA",3105,4689,1.5,"Software"]];
 (function(){
   const svg=document.getElementById("salto"); if(!svg) return;
   const NS="http://www.w3.org/2000/svg", E=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};

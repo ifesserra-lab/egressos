@@ -71,6 +71,13 @@ def build():
 if __name__ == "__main__":
     out = build()
     if not out:
+        # A base da FAPES vive em outro repositório e nem sempre está montada (ex.: CI).
+        # Se já houver um fapes_fomento.json gerado antes, mantém e segue — o dado é
+        # histórico e não muda de mês para mês. Só falha se nunca tiver sido gerado.
+        alvo = BASE / "data/fapes_fomento.json"
+        if alvo.exists():
+            print(f"base FAPES não encontrada ({FAPES}) — mantendo {alvo.name} existente")
+            raise SystemExit(0)
         print("base FAPES não encontrada:", FAPES); raise SystemExit(1)
     json.dump(out, open(BASE/"data/fapes_fomento.json", "w"), ensure_ascii=False, indent=1)
     for p in out["projetos"]:

@@ -152,11 +152,24 @@ for a in al["alunos"]:
             p=p.strip()
             if len(p)>2 and p not in KEEP: pii.add(p)
 COBOLS={"Juliana","Roberta","Bárbara","Vinicius","Torres","Kirmes","Manfredini"}
+PUB=pathlib.Path("/caminho/para/egressos")
 files={"exec": S/"dashboard_executivo.html", "alunos": S/"dashboard_alunos.html",
-       "pub-index": pathlib.Path("/caminho/para/egressos/index.html"),
-       "pub-alunos": pathlib.Path("/caminho/para/egressos/dashboard_alunos.html"),
-       "pub-README": pathlib.Path("/caminho/para/egressos/README.md")}
+       "trajetoria": S/"trajetoria_salarial.html",
+       "metodologia": S/"metodologia.html",
+       "pub-index": PUB/"index.html", "pub-alunos": PUB/"dashboard_alunos.html",
+       "pub-trajetoria": PUB/"trajetoria_salarial.html",
+       "pub-dados": PUB/"dados-abertos.html", "pub-llms": PUB/"llms.txt",
+       "pub-README": PUB/"README.md"}
+# egressos-carreiras.html fica FORA desta varredura de propósito: é a vitrine NOMEADA
+# ("Perfis nomeados: empresas, países e a jornada de cada um"), a única página do site em que
+# nome e empresa aparecem. Todas as demais são anonimizadas e são varridas aqui.
 for lbl,f in files.items():
+    if not f.exists():
+        # o QA roda ANTES do publish: na primeira vez a cópia pública ainda não existe.
+        # A versão local dessa mesma página já foi varrida acima, então só avisa.
+        if lbl.startswith("pub-"):
+            print(f"  SKIP PII: {lbl} (ainda não publicado)"); continue
+        chk(f"PII limpo: {lbl}", False, "arquivo não existe"); continue
     txt=f.read_text(encoding="utf-8")
     hits=sorted({p for p in (pii|COBOLS) if re.search(r'\b'+re.escape(p)+r'\b',txt)})
     chk(f"PII limpo: {lbl}", not hits, hits)

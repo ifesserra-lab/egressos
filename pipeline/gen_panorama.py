@@ -1,5 +1,7 @@
-"""Regenera o array DB.alunos do dashboard_alunos.html a partir do alunos.json (45),
-anonimizado. Origem/porte via empresas_porte.json (Mistral) p/ consistência com o executivo."""
+"""Regenera o dashboard_alunos.html a partir dos JSON do pipeline, anonimizado:
+  - DB.alunos  <- alunos.json (cards + linha do tempo), origem/porte via empresas_porte.json
+  - SALTO      <- consolidado.json (início -> hoje de cada perfil, ordenado pelo multiplicador)
+Nenhum dos dois é escrito à mão."""
 import json, re, pathlib
 S = pathlib.Path("/caminho/para/salario")
 al = json.load(open(S/"alunos.json"))["alunos"]
@@ -63,5 +65,15 @@ H = S/"dashboard_alunos.html"; t = H.read_text(encoding="utf-8")
 new, n = re.subn(r"(const DB = \{\n  alunos: \[\n).*?(\n  \]\n\};)",
                  lambda m: m.group(1) + cards + m.group(2), t, count=1, flags=re.S)
 assert n == 1, "DB não casou"
+
+# ---- SALTO: início -> hoje por perfil, direto do consolidado (era hardcoded) ----
+cons = json.load(open(S/"data/consolidado.json"))
+salto = sorted(cons["perfis"], key=lambda p: -p["cresc"])
+js = "const SALTO=[" + ",".join(
+    f'["{p["perfil"].replace("Perfil ", "")}",{p["med_ini"]},{p["med_atual"]},{p["cresc"]},"{p["trilha"]}"]'
+    for p in salto) + "];"
+new, n = re.subn(r"const SALTO=\[.*?\];", lambda m: js, new, count=1, flags=re.S)
+assert n == 1, "SALTO não casou"
+
 H.write_text(new, encoding="utf-8")
-print(f"DB.alunos regenerado: {len(order)} cards (A–{labels[len(order)-1]})")
+print(f"dashboard_alunos regenerado: {len(order)} cards (A–{labels[len(order)-1]}) + SALTO com {len(salto)} perfis")

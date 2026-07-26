@@ -535,11 +535,73 @@ genero={
   "ressalva":f"amostra pequena ({G['F']['n']} mulheres) — leitura direcional, não estatística",
 }
 
+# ---------- TRAJETÓRIA DESTAQUE (alimenta a página de evolução, antes escrita à mão) ----------
+# Escolhe, de forma determinística, o perfil que melhor conta a história do estudo:
+# começou em bolsa/estágio, tem a série mais longa e o maior multiplicador. Tudo anonimizado —
+# o rótulo do empregador vira "Bolsa · pesquisa/extensão" / "Empresa nacional" / "Empresa internacional".
+_cons = json.load(open(BASE/"data/consolidado.json"))
+_FX = {int(k): v for k, v in _cons["fx_por_ano"].items()}
+_IP = {int(k): v for k, v in _cons["deflator_ipca_por_ano"].items()}
+_lab2id = {f"Perfil {r['label']}": r["id"] for r in rows if r.get("label") and r.get("id")}
+byid_al = {a["id"]: a for a in al}
+
+def _empresa_no_ano(a, Y, intern):
+    if intern: return "Bolsa · pesquisa/extensão"
+    ativos = [e for e in a["experiencias"]
+              if int(e["inicio"][:4]) <= Y <= (2026 if e["fim"] is None else int(e["fim"][:4]))]
+    if not ativos: return "Empresa nacional"
+    intl = any(emp_intl(e.get("empresa")) for e in ativos)
+    return "Empresa internacional" if intl else "Empresa nacional"
+
+def _senioridade_no_ano(exp):
+    return " (Sr.)" if exp >= 7 else ""
+
+_cands = []
+for plabel, serie in _cons["series_por_perfil"].items():
+    # a história é "começou em bolsa DOCUMENTADA" (valor real registrado, não estimativa)
+    if not serie or not serie[0].get("bolsa_doc"):
+        continue
+    pid = _lab2id.get(plabel)
+    if not pid or pid not in byid_al:
+        continue
+    p_ = next((x for x in _cons["perfis"] if x["perfil"] == plabel), None)
+    if not p_:
+        continue
+    _cands.append((len(serie), p_["cresc"], plabel, serie, pid))
+_cands.sort(key=lambda c: (-c[0], -c[1], c[2]))
+
+trajetoria = []
+if _cands:
+    _, _, plabel_sel, serie_sel, pid_sel = _cands[0]
+    a_sel = byid_al[pid_sel]
+    ULT_SURVEY = 2023                       # depois disso a estimativa é extrapolada
+    for pt in serie_sel:
+        Y, med_real = pt["ano"], pt["med"]
+        nominal = round(med_real / _IP[Y])
+        trajetoria.append({
+            "ano": Y, "exp": pt["exp"], "fx": _FX[Y], "n": pt["n"],
+            "empresa": _empresa_no_ano(a_sel, Y, pt["intern"]) + _senioridade_no_ano(pt["exp"]),
+            "p25": round((pt.get("mkt_p25") or pt["p25"]) / _IP[Y]), "med": nominal,
+            "p75": round((pt.get("mkt_p75") or pt["p75"]) / _IP[Y]),
+            "mkt": round(pt["mkt_med"] / _IP[Y]) if pt.get("mkt_med") else None,
+            "real": med_real, "usd": round(nominal / _FX[Y]),
+            "ex": Y > ULT_SURVEY, "bolsa": pt.get("bolsa_doc", False),
+        })
+    print(f"\n=== TRAJETÓRIA DESTAQUE === {plabel_sel}: {len(trajetoria)} anos "
+          f"({trajetoria[0]['ano']}–{trajetoria[-1]['ano']}), "
+          f"R$ {trajetoria[0]['med']} -> R$ {trajetoria[-1]['med']}")
+
+# distribuição dos multiplicadores do coorte (o histograma da página de evolução)
+_BINS = [(1,3,"1–3×"),(3,6,"3–6×"),(6,9,"6–9×"),(9,12,"9–12×"),(12,15,"12–15×"),(15,999,"15×+")]
+_cr = [p_["cresc"] for p_ in _cons["perfis"]]
+hist_mult = [{"faixa": rot, "n": sum(1 for c in _cr if lo <= c < hi)} for lo, hi, rot in _BINS]
+
 out={"top_tech":top_tech,"clusters":cl_desc,"rows":rows,"insights":insights,
      "comparacao":comp,"cf_2026_senioridade":cf2026,"cruzamento":cross,
      "funcoes":funcoes,"lideranca_gestao":lid_gestao,"metodos":metodos,"impacto":impacto,
      "sankey":sankey,"intl_timeline":intl_timeline,"empresas":empresas,"genero":genero,
-     "extensao":extensao,"outros_labs":outros_labs,"trilha_carreira":trilha_carreira}
+     "extensao":extensao,"outros_labs":outros_labs,"trilha_carreira":trilha_carreira,
+     "trajetoria_destaque":trajetoria,"hist_multiplicadores":hist_mult}
 json.dump(out, open(BASE/"data/analise.json","w"), ensure_ascii=False, indent=1)
 
 # ---------- stdout ----------

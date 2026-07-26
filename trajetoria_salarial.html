@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trajetória salarial: da bolsa ao mercado mundial — egressos de TI do IFES Campus Serra</title>
+<meta name="description" content="Trajetória salarial dos egressos de TI do IFES Campus Serra: ano a ano, em salários mínimos da época e comparada ao mercado mundial de desenvolvedores em dólar.">
+<style>
+  .viz-root{
+    color-scheme:light;
+    --plane:#f7f8fa; --surface:#fdfdfc; --surface-2:#f0f2f5; --ink:#0b0e12; --ink-2:#52565e; --muted:#8a8e96;
+    --grid:#e4e6ea; --axis:#c4c7cd;
+    --us:#2a78d6; --br:#7a8089; --cf:#d9642b; --glob:#0e8a68; --top:#8557c9; --sm:#a3382f;
+    --border:rgba(11,14,18,.10); --shadow:0 1px 2px rgba(11,14,18,.05),0 8px 24px rgba(11,14,18,.06);
+    background:var(--plane); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+    -webkit-font-smoothing:antialiased; min-height:100%; padding:16px 13px; box-sizing:border-box;
+  }
+  @media (prefers-color-scheme:dark){ :root:where(:not([data-theme="light"])) .viz-root{
+    color-scheme:dark; --plane:#0c0d0f; --surface:#16181b; --surface-2:#1d2125; --ink:#f4f5f7; --ink-2:#b6bac1;
+    --muted:#83878f; --grid:#26292d; --axis:#383c42; --us:#4f97ec; --br:#8d949d; --cf:#ef7d42;
+    --glob:#2fbc90; --top:#a480e0; --sm:#e8776a;
+    --border:rgba(255,255,255,.10); --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 30px rgba(0,0,0,.45); } }
+  :root[data-theme="dark"] .viz-root{
+    color-scheme:dark; --plane:#0c0d0f; --surface:#16181b; --surface-2:#1d2125; --ink:#f4f5f7; --ink-2:#b6bac1;
+    --muted:#83878f; --grid:#26292d; --axis:#383c42; --us:#4f97ec; --br:#8d949d; --cf:#ef7d42;
+    --glob:#2fbc90; --top:#a480e0; --sm:#e8776a; --border:rgba(255,255,255,.10); }
+  *{box-sizing:border-box}
+  .wrap{max-width:920px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--us);margin:0 0 9px}
+  h1{font-size:clamp(23px,3.7vw,34px);line-height:1.11;margin:0 0 12px;font-weight:700;letter-spacing:-.016em;text-wrap:balance}
+  .lede{font-size:16px;line-height:1.55;color:var(--ink-2);margin:0;max-width:64ch}
+  .lede b{color:var(--ink)}
+  .nav{display:flex;flex-wrap:wrap;gap:10px}
+  .nav a{flex:1 1 220px;text-decoration:none;background:var(--surface);border:1px solid var(--border);
+    border-radius:12px;padding:13px 15px;box-shadow:var(--shadow);font-weight:650;font-size:13.5px;color:var(--us)}
+  .nav a span{display:block;font-weight:400;color:var(--ink-2);font-size:12px;margin-top:3px;line-height:1.4}
+  .sechead{display:flex;align-items:baseline;gap:11px;margin:14px 0 -4px}
+  .sechead .num{font-size:11px;font-weight:800;letter-spacing:.09em;color:#fff;background:var(--us);border-radius:6px;padding:4px 9px}
+  .sechead h2{font-size:19px;margin:0;font-weight:700;letter-spacing:-.015em}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:clamp(18px,2.6vw,26px)}
+  .card h3{font-size:15px;margin:0 0 5px;font-weight:680;letter-spacing:-.01em}
+  .hint{font-size:13px;line-height:1.6;color:var(--muted);margin:0 0 18px}
+  .hint b{color:var(--ink-2)}
+  .stats{display:flex;flex-wrap:wrap;gap:12px}
+  .stat{flex:1 1 175px;background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:16px 18px;box-shadow:var(--shadow)}
+  .stat.hero{border-color:var(--us);border-width:1.5px}
+  .stat.warn{border-color:var(--cf);border-width:1.5px}
+  .stat .k{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 7px}
+  .stat .v{font-size:26px;font-weight:720;font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1}
+  .stat .v small{font-size:13px;font-weight:500;color:var(--ink-2);letter-spacing:0}
+  .stat .r{font-size:12.5px;color:var(--ink-2);margin-top:7px;line-height:1.45}
+  .chart-scroll{overflow-x:auto}
+  svg{display:block;width:100%;height:auto;min-width:540px}
+  text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+  .tick{fill:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}
+  .gridline{stroke:var(--grid);stroke-width:1}
+  .xlab{fill:var(--ink-2);font-size:12px;font-weight:650;font-variant-numeric:tabular-nums}
+  .legend{display:flex;flex-wrap:wrap;gap:15px;margin:12px 0 0;font-size:12.5px;color:var(--ink-2)}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .sw{width:18px;height:0;border-top-width:2.5px;border-top-style:solid;display:inline-block}
+  .swb{width:14px;height:12px;border-radius:3px;display:inline-block}
+  table{border-collapse:collapse;width:100%;min-width:520px;font-size:13px;font-variant-numeric:tabular-nums}
+  th,td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--grid)}
+  th:first-child,td:first-child{text-align:left}
+  thead th{color:var(--ink-2);font-weight:600;font-size:11px;letter-spacing:.03em;text-transform:uppercase}
+  tbody tr:last-child td{border-bottom:none}
+  tr.me td{background:rgba(42,120,214,.07);font-weight:700}
+  tr.me td:first-child{color:var(--us)}
+  tr.cen td{background:rgba(217,100,43,.07)}
+  tr.cen td:first-child{color:var(--cf);font-weight:700}
+  .note{background:var(--surface-2);border-left:3px solid var(--cf);border-radius:9px;padding:14px 16px;font-size:13px;line-height:1.6;color:var(--ink-2)}
+  .note b{color:var(--ink)}
+  .src{font-size:12px;line-height:1.7;color:var(--muted)}
+  .src b{color:var(--ink-2)}
+  .src code{font-size:11.5px;background:rgba(127,127,127,.14);padding:1px 5px;border-radius:4px;color:var(--ink-2)}
+  .foot{font-size:11.5px;color:var(--muted);text-align:center;line-height:1.7}
+  @media (min-width:600px){ .viz-root{padding:32px 26px} .wrap{gap:22px} }
+  @media (min-width:960px){ .viz-root{padding:52px} }
+  .exp-banner{position:fixed;top:0;left:0;right:0;z-index:99999;background:#c62828;color:#fff;
+    font:600 14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;
+    padding:11px 18px;letter-spacing:.02em;box-shadow:0 2px 10px rgba(0,0,0,.28);
+    background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.14) 0 14px,transparent 14px 28px)}
+  .exp-banner strong{font-weight:800;letter-spacing:.06em}
+  .viz-root{padding-top:clamp(64px,7vw,80px)!important}
+  @media(max-width:640px){.exp-banner{font-size:12px;padding:9px 12px}}
+</style>
+</head>
+<body>
+<div class="exp-banner" role="alert">
+  ⚠️ <strong>SITE EXPERIMENTAL</strong> — em construção. Metodologia ainda sendo desenvolvida; dados e conclusões preliminares, sujeitos a alteração.
+</div>
+
+<div class="viz-root"><div class="wrap">
+
+  <header>
+    <p class="eyebrow">Ensino · pesquisa · extensão — IFES Campus Serra</p>
+    <h1>A bolsa não pagava um salário mínimo.<br>Hoje a renda paga dez.</h1>
+    <p class="lede">Em 2018 a bolsa de pesquisa era <b>R$ 800</b> — R$ 154 <b>abaixo</b> do piso legal. Hoje a mediana do coorte é <b>R$ 17.073/mês</b>: <b>10,5 salários mínimos</b>, R$ 15.452 acima do piso, todo mês.<br><br>Trocada a régua, a leitura muda: em dólar, a mesma renda é <b>47%</b> do que um dev de igual experiência ganha no mundo. O teto não é a competência — é o câmbio. <b>13 dos 50 já atravessaram essa fronteira</b>, hoje em empregador internacional, onde brasileiros pagos em dólar ganham <b>3,3× mais</b> que os pagos em real.</p>
+  </header>
+
+    <nav aria-label="Seções do relatório" style="display:flex;flex-wrap:wrap;gap:9px;margin:0 0 4px">
+      <a href="index.html" style="flex:1 1 210px;text-decoration:none;background:var(--surface,#fff);border:1px solid var(--border,rgba(0,0,0,.1));border-radius:12px;padding:12px 14px;box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.05));font-weight:650;font-size:13px;line-height:1.35;color:var(--accent,#2a78d6)">📊 Impacto na carreira →<span style="display:block;font-weight:400;color:var(--ink-2,#52565e);font-size:11.5px;margin-top:3px;line-height:1.4">Visão executiva: renda estimada vs. mercado</span></a>
+      <span style="flex:1 1 210px;text-decoration:none;background:var(--surface,#fff);border:1px solid var(--border,rgba(0,0,0,.1));border-radius:12px;padding:12px 14px;box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.05));font-weight:650;font-size:13px;line-height:1.35;color:var(--accent,#2a78d6);border-width:1.5px;border-color:var(--accent,#2a78d6);cursor:default" aria-current="page">📈 Trajetória salarial<span style="display:block;font-weight:400;color:var(--ink-2,#52565e);font-size:11.5px;margin-top:3px;line-height:1.4">você está aqui</span></span>
+      <a href="dashboard_alunos.html" style="flex:1 1 210px;text-decoration:none;background:var(--surface,#fff);border:1px solid var(--border,rgba(0,0,0,.1));border-radius:12px;padding:12px 14px;box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.05));font-weight:650;font-size:13px;line-height:1.35;color:var(--accent,#2a78d6)">👥 Panorama por egresso →<span style="display:block;font-weight:400;color:var(--ink-2,#52565e);font-size:11.5px;margin-top:3px;line-height:1.4">Linha do tempo e cards anonimizados (A–AX)</span></a>
+      <a href="egressos-carreiras.html" style="flex:1 1 210px;text-decoration:none;background:var(--surface,#fff);border:1px solid var(--border,rgba(0,0,0,.1));border-radius:12px;padding:12px 14px;box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.05));font-weight:650;font-size:13px;line-height:1.35;color:var(--accent,#2a78d6)">🌍 Onde estão os egressos →<span style="display:block;font-weight:400;color:var(--ink-2,#52565e);font-size:11.5px;margin-top:3px;line-height:1.4">Empresas, países e jornada de cada um</span></a>
+      <a href="metodologia.html" style="flex:1 1 210px;text-decoration:none;background:var(--surface,#fff);border:1px solid var(--border,rgba(0,0,0,.1));border-radius:12px;padding:12px 14px;box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.05));font-weight:650;font-size:13px;line-height:1.35;color:var(--accent,#2a78d6)">🔬 Metodologia →<span style="display:block;font-weight:400;color:var(--ink-2,#52565e);font-size:11.5px;margin-top:3px;line-height:1.4">Fontes, ETL, cálculo salarial e ressalvas</span></a>
+      <a href="dados-abertos.html" style="flex:1 1 210px;text-decoration:none;background:var(--surface,#fff);border:1px solid var(--border,rgba(0,0,0,.1));border-radius:12px;padding:12px 14px;box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.05));font-weight:650;font-size:13px;line-height:1.35;color:var(--accent,#2a78d6)">📂 Dados abertos →<span style="display:block;font-weight:400;color:var(--ink-2,#52565e);font-size:11.5px;margin-top:3px;line-height:1.4">Baixe os JSON e o código (CC BY / MIT)</span></a>
+    </nav>
+  <section class="stats" id="stats"></section>
+
+  <div class="sechead"><span class="num">1</span><h2>A trajetória, ano a ano</h2></div>
+
+  <section class="card">
+    <h3>De R$ 400 a R$ 14.373 por mês em 13 anos</h3>
+    <p class="hint">Uma trajetória do coorte, anonimizada — a de maior multiplicador entre quem começou com <b>bolsa documentada</b>. Linha azul: o que se ganhava em <b>R$ da época</b>. Linha laranja: o mesmo valor trazido a <b>R$ de 2026</b> pelo IPCA, para comparar poder de compra. Faixa sombreada: o que o mercado pagava (p25–p75) para aquela experiência naquele ano. A partir de 2024 a estimativa é extrapolada — não há edição nova do survey.</p>
+    <div class="chart-scroll"><svg id="cTraj" viewBox="0 0 900 430" role="img" aria-label="Trajetória salarial ano a ano"></svg></div>
+    <div class="legend">
+      <span><i class="sw" style="border-color:var(--us)"></i> Mediana em R$ da época</span>
+      <span><i class="sw" style="border-color:var(--cf)"></i> Mediana em R$ de 2026 (IPCA)</span>
+      <span><i class="swb" style="background:rgba(42,120,214,.13)"></i> Faixa de mercado (p25–p75)</span>
+      <span><i class="sw" style="border-color:var(--muted);border-top-style:dotted"></i> Mediana do coorte</span>
+    </div>
+    <div style="overflow-x:auto;margin-top:20px"><table>
+      <thead><tr><th>Ano</th><th>Situação</th><th>Exp.</th><th>Câmbio</th><th>p25</th><th>Mediana</th><th>p75</th><th>US$/mês</th><th>Em mínimos</th></tr></thead>
+      <tbody id="tbTraj"></tbody>
+    </table></div>
+  </section>
+
+  <div class="sechead"><span class="num">2</span><h2>Acima do salário mínimo</h2></div>
+
+  <section class="card">
+    <h3>Quantos salários mínimos, ano a ano</h3>
+    <p class="hint">Mediana da renda estimada do coorte em cada ano, dividida pelo <b>salário mínimo daquele ano</b>. Bloco claro = 1 mínimo; bloco azul = <b>o que vem acima do piso</b>, com o valor em R$ dentro da barra. Sob cada ano: a renda do mês em <b>R$ e US$</b> (câmbio médio do ano) e quanto isso está <b>acima do mínimo</b>, nas duas moedas. Só anos com pelo menos 10 egressos na série (o primeiro ano exibido, 2012, tem 12).</p>
+    <div class="chart-scroll"><svg id="cSM" viewBox="0 0 900 460" role="img" aria-label="Renda do coorte em salários mínimos por ano"></svg></div>
+    <div class="legend">
+      <span><i class="swb" style="background:rgba(163,56,47,.11);border:1px solid var(--sm)"></i> 1 salário mínimo</span>
+      <span><i class="swb" style="background:var(--us)"></i> Acima do mínimo</span>
+      <span><i class="sw" style="border-color:var(--sm);border-top-style:dashed"></i> Bolsa FAPES de 2018 (0,8 mínimo)</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>A régua também subiu</h3>
+    <p class="hint">De 2012 a 2026 o mínimo subiu <b>161% em R$</b>, mas só <b>+21% em poder de compra</b> (IPCA). Os 10,5 mínimos de hoje valem mais que 10,5 mínimos de 2012 — o ganho real é maior do que o múltiplo sugere.</p>
+    <div class="chart-scroll"><svg id="cSMreal" viewBox="0 0 900 240" role="img" aria-label="Salário mínimo nominal e em poder de compra"></svg></div>
+    <div class="legend">
+      <span><i class="sw" style="border-color:var(--sm)"></i> Mínimo nominal (R$ do ano)</span>
+      <span><i class="sw" style="border-color:var(--cf)"></i> Mínimo em R$ de 2026 (IPCA)</span>
+      <span><i class="swb" style="background:rgba(163,56,47,.18)"></i> anos de perda real</span>
+    </div>
+  </section>
+
+  <div class="sechead"><span class="num">3</span><h2>Na régua mundial</h2></div>
+
+  <section class="card">
+    <h3>Renda mediana em dólar — devs de 9 a 13 anos (mediana de carreira do coorte = 11)</h3>
+    <p class="hint">Stack Overflow Developer Survey 2023, devs de software (back/front/full-stack/mobile), na mesma faixa de experiência da mediana de carreira do coorte. Barra tracejada = <b>cenário</b>: brasileiros que declaram salário em dólar.</p>
+    <div class="chart-scroll"><svg id="cPais" viewBox="0 0 900 500" role="img" aria-label="Renda mediana em dólar por país"></svg></div>
+  </section>
+
+  <section class="card">
+    <h3>Mesma trajetória, duas moedas</h3>
+    <p class="hint">A mediana do coorte em <b>R$</b> (eixo esquerdo) e em <b>US$</b> (direito). Os eixos estão na proporção do câmbio médio do período, então <b>as linhas só se separam quando o câmbio se move</b> — a área entre elas é o efeito cambial.</p>
+    <div class="chart-scroll"><svg id="cDual" viewBox="0 0 900 370" role="img" aria-label="Trajetória do coorte em reais e em dólares"></svg></div>
+    <div class="legend">
+      <span><i class="sw" style="border-color:var(--us)"></i> R$/mês nominal (eixo esquerdo)</span>
+      <span><i class="sw" style="border-color:var(--glob);border-top-style:dashed"></i> US$/mês (eixo direito)</span>
+      <span style="color:var(--muted)">área = efeito do câmbio</span>
+    </div>
+  </section>
+
+  <div class="sechead"><span class="num">4</span><h2>Os que recebem em dólar</h2></div>
+
+  <section class="card">
+    <h3>No Brasil, a moeda do contracheque vale mais que o país</h3>
+    <p class="hint">Stack Overflow 2023, respondentes <b>do Brasil</b>, separados pela moeda em que declaram o salário. Mesmo país, mesma experiência — até <b>3,3× de diferença</b>.</p>
+    <div class="chart-scroll"><svg id="cMoeda" viewBox="0 0 900 320" role="img" aria-label="Brasileiros pagos em real e em dólar"></svg></div>
+    <div class="legend">
+      <span><i class="swb" style="background:var(--br)"></i> Pago em R$</span>
+      <span><i class="swb" style="background:var(--cf)"></i> Pago em US$</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>Onde o coorte está nessa divisão</h3>
+    <p class="hint"><b>13 dos 50 egressos</b> trabalham hoje para empregador internacional — 13 deles em nível Sênior ou superior. Mas o modelo salarial deste estudo precifica <b>todos</b> pela mediana brasileira do Stack Overflow, porque não temos o contracheque real de ninguém.</p>
+    <div class="chart-scroll"><svg id="cIntl" viewBox="0 0 900 250" role="img" aria-label="Egressos por origem do empregador"></svg></div>
+    <div class="note" style="margin-top:18px">
+      <b>O que isso significa para os números deste relatório.</b> O prêmio internacional que o modelo calcula é de apenas <b>+6%</b> — um artefato: os dois grupos são precificados na mesma tabela brasileira.
+      Se os 13 egressos em empregador internacional forem pagos no padrão observado de brasileiros em dólar (<b>US$ 10,000/mês</b>), a renda deles seria <b>≈ R$ 51.524/mês</b> — <b>31,8 salários mínimos</b>, não 10,5.
+      <b>É cenário, não medição:</b> depende de contrato, senioridade e empresa. Para virar dado, seria preciso perguntar faixa salarial e moeda diretamente aos egressos.
+    </div>
+  </section>
+
+  <div class="sechead"><span class="num">5</span><h2>O coorte inteiro</h2></div>
+
+  <section class="card">
+    <h3>Multiplicador de renda entre os 50 egressos</h3>
+    <p class="hint">A página mostra <b>uma</b> trajetória. No coorte inteiro o salto real (início → hoje) varia bastante: mediana <b>8,0×</b>, de 1,5× a 17,7×.</p>
+    <div id="histm"></div>
+    <p class="hint" style="margin-top:12px">A cauda alta vem de quem começou em bolsa de valor baixo e hoje é sênior; os multiplicadores menores são de quem entrou direto no mercado com salário já alto.</p>
+  </section>
+
+  <section class="card">
+    <h3>Como ler — e o que isto não é</h3>
+    <ul class="src" style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:7px">
+      <li><b>É faixa de mercado</b> para a experiência do egresso em cada ano — não o salário efetivamente recebido. Nenhum contracheque foi coletado.</li>
+      <li><b>Os anos de bolsa</b> usam o valor documentado da bolsa; a faixa sombreada mostra o que o mercado pagava para a mesma experiência — a distância entre as duas é o custo de oportunidade da formação.</li>
+      <li><b>A partir de 2024</b> não há edição nova do Stack Overflow: a estimativa é extrapolada e vem marcada como tal.</li>
+      <li>O modelo usa <b>só anos de experiência, país e cargo</b>. Ignora empresa, trabalho remoto pago em moeda forte e negociação — que pesam muito, como mostra a seção 4.</li>
+      <li>Salário do Stack Overflow é bruto anual autorreportado; a mediana usa devs back/front/full-stack do Brasil na faixa de experiência do egresso (±1 ano).</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h3>Consolidado — as três réguas</h3>
+    <p class="hint">Tudo em R$/mês de 2026, US$/mês pelo câmbio médio de 2026 (R$ 5,1524) e em salários mínimos de 2026 (R$ 1.621).</p>
+    <div style="overflow-x:auto"><table>
+      <thead><tr><th>Referência</th><th>R$/mês</th><th>US$/mês</th><th>Mínimos</th><th>vs. egressos</th></tr></thead>
+      <tbody id="tb"></tbody>
+    </table></div>
+  </section>
+
+  <section class="card">
+    <h3>Fontes</h3>
+    <p class="src" style="margin:0">
+      <b>Egressos:</b> coorte de 50 (40 com série salarial em 2026). Mediana da renda estimada, por trilha × experiência — estimativa de mercado, não folha real.<br>
+      <b>Salário mínimo:</b> IPEADATA série MTE12_SALMIN12 — Min. Economia/Trabalho. 2026 = R$ 1.621, conferido com o Decreto 12.797/2025 (+6,79%). Anos com dois valores usam média ponderada pelos meses.<br>
+      <b>Inflação:</b> IBGE/SIDRA tabela 1736, variável 2289 (ganho real) · IBGE/SIDRA tabela 1737, variável 2266 (deflator) — deflator até 202606.<br>
+      <b>Mercado mundial:</b> Stack Overflow Developer Survey 2018–2023 (survey.stackoverflow.co) — campo <code>ConvertedCompYearly</code> (US$, conversão do próprio survey) e <code>Currency</code> para separar quem recebe em R$ e em US$.<br>
+      <b>Mercado brasileiro:</b> Pesquisa Código Fonte 2026 — 17,046 respondentes, coleta 2026-02-23 a 2026-06-09, média em R$/mês, auto-reportado.<br>
+      <b>Câmbio:</b> média anual USD→BRL.
+    </p>
+  </section>
+
+  <p class="foot">Gerado automaticamente por <code>pipeline/gen_reguas.py</code> em 26/07/2026 · IFES — Campus Serra.<br>Todos os números vêm do pipeline; nenhum é digitado à mão.</p>
+
+</div></div>
+
+<script>
+const D={"TRAJ": [{"ano": 2013, "exp": 0, "fx": 2.1576, "n": 425, "empresa": "Bolsa · pesquisa/extensão", "p25": 1010, "med": 400, "p75": 2020, "mkt": 1347, "real": 813, "usd": 185, "ex": false, "bolsa": true, "sm": 0.59}, {"ano": 2014, "exp": 1, "fx": 2.3534, "n": 425, "empresa": "Bolsa · pesquisa/extensão", "p25": 1101, "med": 400, "p75": 2203, "mkt": 1468, "real": 765, "usd": 170, "ex": false, "bolsa": true, "sm": 0.55}, {"ano": 2016, "exp": 3, "fx": 3.4901, "n": 606, "empresa": "Empresa nacional", "p25": 2831, "med": 4146, "p75": 6530, "mkt": null, "real": 6685, "usd": 1188, "ex": false, "bolsa": false, "sm": 4.71}, {"ano": 2017, "exp": 4, "fx": 3.192, "n": 606, "empresa": "Empresa nacional", "p25": 2589, "med": 3792, "p75": 5972, "mkt": null, "real": 5911, "usd": 1188, "ex": false, "bolsa": false, "sm": 4.05}, {"ano": 2020, "exp": 7, "fx": 5.1558, "n": 51, "empresa": "Empresa internacional (Sr.)", "p25": 7528, "med": 9450, "p75": 12697, "mkt": null, "real": 13272, "usd": 1833, "ex": false, "bolsa": false, "sm": 9.05}, {"ano": 2021, "exp": 8, "fx": 5.395, "n": 25, "empresa": "Empresa internacional (Sr.)", "p25": 9269, "med": 11124, "p75": 18537, "mkt": null, "real": 14425, "usd": 2062, "ex": false, "bolsa": false, "sm": 10.11}, {"ano": 2022, "exp": 9, "fx": 5.1648, "n": 26, "empresa": "Empresa internacional (Sr.)", "p25": 12376, "med": 16094, "p75": 18774, "mkt": null, "real": 19097, "usd": 3116, "ex": false, "bolsa": false, "sm": 13.28}, {"ano": 2023, "exp": 10, "fx": 4.995, "n": 11, "empresa": "Empresa internacional (Sr.)", "p25": 17627, "med": 19758, "p75": 28290, "mkt": null, "real": 22415, "usd": 3956, "ex": false, "bolsa": false, "sm": 15.04}, {"ano": 2024, "exp": 11, "fx": 5.3895, "n": 9, "empresa": "Empresa internacional (Sr.)", "p25": 20046, "med": 21317, "p75": 29157, "mkt": null, "real": 23172, "usd": 3955, "ex": true, "bolsa": false, "sm": 15.1}, {"ano": 2025, "exp": 12, "fx": 5.5879, "n": 10, "empresa": "Empresa internacional (Sr.)", "p25": 14879, "med": 21351, "p75": 22530, "mkt": null, "real": 22100, "usd": 3821, "ex": true, "bolsa": false, "sm": 14.07}, {"ano": 2026, "exp": 13, "fx": 5.1524, "n": 8, "empresa": "Empresa internacional (Sr.)", "p25": 13066, "med": 14373, "p75": 20383, "mkt": null, "real": 14373, "usd": 2790, "ex": true, "bolsa": false, "sm": 8.87}], "TJ_COORTE": [2417, 2597, 7203, 8092, 13888, 14664, 16734, 18623, 18194, 19372, 17988], "HIST": [{"faixa": "1–3×", "n": 4}, {"faixa": "3–6×", "n": 18}, {"faixa": "6–9×", "n": 7}, {"faixa": "9–12×", "n": 8}, {"faixa": "12–15×", "n": 8}, {"faixa": "15×+", "n": 4}], "SERIE": [{"ano": 2012, "n": 12, "med_real": 1974, "med_nominal": 915, "sm_ano": 622.0, "em_sm": 1.47, "acima_sm_nominal": 293, "p25_sm": 1.1, "p75_sm": 2.21, "usd": 468, "acima_usd": 150}, {"ano": 2013, "n": 14, "med_real": 2737, "med_nominal": 1347, "sm_ano": 678.0, "em_sm": 1.99, "acima_sm_nominal": 669, "p25_sm": 1.49, "p75_sm": 2.98, "usd": 624, "acima_usd": 310}, {"ano": 2014, "n": 16, "med_real": 2807, "med_nominal": 1468, "sm_ano": 724.0, "em_sm": 2.03, "acima_sm_nominal": 744, "p25_sm": 1.52, "p75_sm": 3.04, "usd": 624, "acima_usd": 316}, {"ano": 2015, "n": 24, "med_real": 3645, "med_nominal": 2079, "sm_ano": 788.0, "em_sm": 2.64, "acima_sm_nominal": 1291, "p25_sm": 1.98, "p75_sm": 3.96, "usd": 624, "acima_usd": 388}, {"ano": 2016, "n": 32, "med_real": 5098, "med_nominal": 3162, "sm_ano": 880.0, "em_sm": 3.59, "acima_sm_nominal": 2282, "p25_sm": 2.54, "p75_sm": 5.57, "usd": 906, "acima_usd": 654}, {"ano": 2017, "n": 34, "med_real": 5911, "med_nominal": 3792, "sm_ano": 937.0, "em_sm": 4.05, "acima_sm_nominal": 2855, "p25_sm": 2.76, "p75_sm": 6.37, "usd": 1188, "acima_usd": 894}, {"ano": 2018, "n": 43, "med_real": 6528, "med_nominal": 4342, "sm_ano": 954.0, "em_sm": 4.55, "acima_sm_nominal": 3388, "p25_sm": 3.11, "p75_sm": 7.17, "usd": 1188, "acima_usd": 927}, {"ano": 2019, "n": 45, "med_real": 6559, "med_nominal": 4525, "sm_ano": 998.0, "em_sm": 4.53, "acima_sm_nominal": 3527, "p25_sm": 3.24, "p75_sm": 7.02, "usd": 1147, "acima_usd": 894}, {"ano": 2020, "n": 44, "med_real": 9123, "med_nominal": 6496, "sm_ano": 1044.5, "em_sm": 6.22, "acima_sm_nominal": 5452, "p25_sm": 4.27, "p75_sm": 8.48, "usd": 1260, "acima_usd": 1057}, {"ano": 2021, "n": 44, "med_real": 14557, "med_nominal": 11226, "sm_ano": 1100.0, "em_sm": 10.21, "acima_sm_nominal": 10126, "p25_sm": 6.74, "p75_sm": 16.38, "usd": 2081, "acima_usd": 1877}, {"ano": 2022, "n": 46, "med_real": 14004, "med_nominal": 11802, "sm_ano": 1212.0, "em_sm": 9.74, "acima_sm_nominal": 10590, "p25_sm": 7.08, "p75_sm": 14.61, "usd": 2285, "acima_usd": 2050}, {"ano": 2023, "n": 46, "med_real": 16478, "med_nominal": 14524, "sm_ano": 1314.0, "em_sm": 11.05, "acima_sm_nominal": 13210, "p25_sm": 7.71, "p75_sm": 16.59, "usd": 2908, "acima_usd": 2645}, {"ano": 2024, "n": 43, "med_real": 18026, "med_nominal": 16583, "sm_ano": 1412.0, "em_sm": 11.74, "acima_sm_nominal": 15171, "p25_sm": 7.74, "p75_sm": 16.78, "usd": 3077, "acima_usd": 2815}, {"ano": 2025, "n": 42, "med_real": 17797, "med_nominal": 17194, "sm_ano": 1518.0, "em_sm": 11.33, "acima_sm_nominal": 15676, "p25_sm": 7.47, "p75_sm": 18.3, "usd": 3077, "acima_usd": 2805}, {"ano": 2026, "n": 40, "med_real": 17073, "med_nominal": 17073, "sm_ano": 1621.0, "em_sm": 10.53, "acima_sm_nominal": 15452, "p25_sm": 6.45, "p75_sm": 16.89, "usd": 3314, "acima_usd": 2999}], "SMG": [{"ano": 2012, "jan": 622.0, "dez": 622.0, "media_ponderada": 622.0, "reajuste_pct": 14.13, "inpc_ano_anterior_pct": 6.08, "ganho_real_pct": 7.59, "dois_valores_no_ano": false, "em_reais_de_2026": 1343}, {"ano": 2013, "jan": 678.0, "dez": 678.0, "media_ponderada": 678.0, "reajuste_pct": 9.0, "inpc_ano_anterior_pct": 6.2, "ganho_real_pct": 2.64, "dois_valores_no_ano": false, "em_reais_de_2026": 1378}, {"ano": 2014, "jan": 724.0, "dez": 724.0, "media_ponderada": 724.0, "reajuste_pct": 6.78, "inpc_ano_anterior_pct": 5.56, "ganho_real_pct": 1.16, "dois_valores_no_ano": false, "em_reais_de_2026": 1384}, {"ano": 2015, "jan": 788.0, "dez": 788.0, "media_ponderada": 788.0, "reajuste_pct": 8.84, "inpc_ano_anterior_pct": 6.23, "ganho_real_pct": 2.46, "dois_valores_no_ano": false, "em_reais_de_2026": 1382}, {"ano": 2016, "jan": 880.0, "dez": 880.0, "media_ponderada": 880.0, "reajuste_pct": 11.68, "inpc_ano_anterior_pct": 11.28, "ganho_real_pct": 0.36, "dois_valores_no_ano": false, "em_reais_de_2026": 1419}, {"ano": 2017, "jan": 937.0, "dez": 937.0, "media_ponderada": 937.0, "reajuste_pct": 6.48, "inpc_ano_anterior_pct": 6.58, "ganho_real_pct": -0.09, "dois_valores_no_ano": false, "em_reais_de_2026": 1461}, {"ano": 2018, "jan": 954.0, "dez": 954.0, "media_ponderada": 954.0, "reajuste_pct": 1.81, "inpc_ano_anterior_pct": 2.07, "ganho_real_pct": -0.25, "dois_valores_no_ano": false, "em_reais_de_2026": 1434}, {"ano": 2019, "jan": 998.0, "dez": 998.0, "media_ponderada": 998.0, "reajuste_pct": 4.61, "inpc_ano_anterior_pct": 3.43, "ganho_real_pct": 1.14, "dois_valores_no_ano": false, "em_reais_de_2026": 1447}, {"ano": 2020, "jan": 1039.0, "dez": 1045.0, "media_ponderada": 1044.5, "reajuste_pct": 4.11, "inpc_ano_anterior_pct": 4.48, "ganho_real_pct": -0.35, "dois_valores_no_ano": true, "em_reais_de_2026": 1467}, {"ano": 2021, "jan": 1100.0, "dez": 1100.0, "media_ponderada": 1100.0, "reajuste_pct": 5.26, "inpc_ano_anterior_pct": 5.45, "ganho_real_pct": -0.18, "dois_valores_no_ano": false, "em_reais_de_2026": 1426}, {"ano": 2022, "jan": 1212.0, "dez": 1212.0, "media_ponderada": 1212.0, "reajuste_pct": 10.18, "inpc_ano_anterior_pct": 10.16, "ganho_real_pct": 0.02, "dois_valores_no_ano": false, "em_reais_de_2026": 1438}, {"ano": 2023, "jan": 1302.0, "dez": 1320.0, "media_ponderada": 1314.0, "reajuste_pct": 7.43, "inpc_ano_anterior_pct": 5.93, "ganho_real_pct": 1.42, "dois_valores_no_ano": true, "em_reais_de_2026": 1491}, {"ano": 2024, "jan": 1412.0, "dez": 1412.0, "media_ponderada": 1412.0, "reajuste_pct": 6.97, "inpc_ano_anterior_pct": 3.71, "ganho_real_pct": 3.14, "dois_valores_no_ano": false, "em_reais_de_2026": 1535}, {"ano": 2025, "jan": 1518.0, "dez": 1518.0, "media_ponderada": 1518.0, "reajuste_pct": 7.51, "inpc_ano_anterior_pct": 4.77, "ganho_real_pct": 2.62, "dois_valores_no_ano": false, "em_reais_de_2026": 1571}, {"ano": 2026, "jan": 1621.0, "dez": 1621.0, "media_ponderada": 1621.0, "reajuste_pct": 6.79, "inpc_ano_anterior_pct": 3.9, "ganho_real_pct": 2.78, "dois_valores_no_ano": false, "em_reais_de_2026": 1621}], "PAIS": [{"l": "Estados Unidos", "v": 13333}, {"l": "Brasileiro pago em US$ *", "v": 10000, "cen": 1}, {"l": "Canadá", "v": 8550}, {"l": "Reino Unido", "v": 7759}, {"l": "Mediana global", "v": 7082, "glob": 1}, {"l": "Alemanha", "v": 6715}, {"l": "Holanda", "v": 6693}, {"l": "Polônia", "v": 5982}, {"l": "Portugal", "v": 5354}, {"l": "Espanha", "v": 5354}, {"l": "México", "v": 4055}, {"l": "Chile", "v": 3749}, {"l": "Brasil", "v": 3381, "br": 1}, {"l": "Egressos IFES", "v": 3314, "me": 1}, {"l": "Sênior BR (Código Fonte)", "v": 2835, "cf": 1}, {"l": "Índia", "v": 2726}], "ORIG": [{"l": "Pleno", "nac": 1, "intl": 0}, {"l": "Sênior", "nac": 18, "intl": 8}, {"l": "Espec./Tech Lead", "nac": 18, "intl": 5}], "MOEDA": [{"faixa": "6 a 8 anos", "brl_usd_mes": 2536, "n_brl": 134, "usd_usd_mes": 6500, "n_usd": 17, "razao": 2.56}, {"faixa": "9 a 13 anos", "brl_usd_mes": 3043, "n_brl": 163, "usd_usd_mes": 10000, "n_usd": 15, "razao": 3.29}, {"faixa": "14 anos ou mais", "brl_usd_mes": 3381, "n_brl": 184, "usd_usd_mes": 8333, "n_usd": 25, "razao": 2.46}, {"faixa": "Todos", "brl_usd_mes": 2367, "n_brl": 782, "usd_usd_mes": 8167, "n_usd": 62, "razao": 3.45}], "TAB": [["Salário mínimo 2026", 1621.0, 0], ["Estágio — Código Fonte 2026", 2586.84, 0], ["Júnior — Código Fonte 2026", 5060.34, 0], ["Pleno — Código Fonte 2026", 8466.52, 0], ["Sênior — Código Fonte 2026", 14607.85, 0], ["Egressos IFES (mediana do coorte)", 17073, 1], ["Brasil — Stack Overflow (9 a 13 anos)", 17420.2644, 0], ["Especialista/Tech Lead/Principal — Código Fonte 2026", 20601.64, 0], ["Mediana global — Stack Overflow", 36489.296800000004, 0], ["Brasileiro pago em US$ — Stack Overflow *", 51524.0, 2], ["Estados Unidos — Stack Overflow", 68696.9492, 0]], "FX": {"2011": 1.675, "2012": 1.9546, "2013": 2.1576, "2014": 2.3534, "2015": 3.3315, "2016": 3.4901, "2017": 3.192, "2018": 3.6545, "2019": 3.9451, "2020": 5.1558, "2021": 5.395, "2022": 5.1648, "2023": 4.995, "2024": 5.3895, "2025": 5.5879, "2026": 5.1524}, "SM_BASE": 1621.0, "FX_BASE": 5.1524, "ANO_BASE": 2026, "BOLSA": {"valor": 800, "ano": 2018, "sm": 0.84}, "EG": {"brl": 17073, "usd": 3314, "sm": 10.53, "acima": 15452, "n": 40, "ano": 2026}, "REF": {"glob": 7082, "eua": 13333, "pct_global": 47, "pct_eua": 25, "usd_pago": 10000, "razao": 3.29, "cf_sen": 14607.85, "cf_esp": 20601.64, "n_intl": 13, "n_tot": 50, "intl_sen": 13, "faixa": "9 a 13 anos (mediana de carreira do coorte = 11)"}};
+const SM_BASE=D.SM_BASE, FX_BASE=D.FX_BASE, EG=D.EG, REF=D.REF;
+const NS="http://www.w3.org/2000/svg";
+const el=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+const usd=n=>"US$ "+Math.round(n).toLocaleString("pt-BR");
+const brl=n=>"R$ "+Math.round(n).toLocaleString("pt-BR");
+const n1=x=>x.toFixed(1).replace(".",",");
+const kbrl=n=>"R$ "+(n/1000).toFixed(1).replace(".",",")+"k";
+
+// ---- tiles ----
+const P0=D.SERIE[0];
+document.getElementById("stats").innerHTML=`
+ <div class="stat"><p class="k">Bolsa de pesquisa · ${D.BOLSA.ano}</p><div class="v">${n1(D.BOLSA.sm)}<small> mínimos</small></div><div class="r">${brl(D.BOLSA.valor)}/mês — abaixo do piso legal</div></div>
+ <div class="stat hero"><p class="k">Coorte hoje · mediana</p><div class="v">${n1(EG.sm)}<small> mínimos</small></div><div class="r">${brl(EG.brl)}/mês · ${usd(EG.usd)}</div></div>
+ <div class="stat"><p class="k">Acima do piso</p><div class="v">+${n1(EG.sm-1)}<small> mínimos</small></div><div class="r">${brl(EG.acima)} a mais que o mínimo, por mês</div></div>
+ <div class="stat"><p class="k">vs. mediana mundial</p><div class="v">${REF.pct_global}%</div><div class="r">dev de mesma experiência no mundo: ${usd(REF.glob)}</div></div>
+ <div class="stat warn"><p class="k">Se pago em dólar *</p><div class="v">${n1(REF.usd_pago*FX_BASE/SM_BASE)}<small> mínimos</small></div><div class="r">cenário p/ os ${REF.n_intl} em empregador internacional</div></div>`;
+
+// ================= 1. trajetória ano a ano =================
+(function(){
+  const T=D.TRAJ, C=D.TJ_COORTE, W=900,H=430,m={t:28,r:26,b:74,l:60}, iw=W-m.l-m.r, ih=H-m.t-m.b;
+  const s=document.getElementById("cTraj");
+  const Y0=T[0].ano, Y1=T[T.length-1].ano;
+  // eixo por ANO, não por índice: a série tem buracos (anos sem vínculo em tecnologia)
+  // e um eixo por índice comprimiria o tempo sem avisar.
+  const xs=i=>m.l+iw*(T[i].ano-Y0)/Math.max(Y1-Y0,1);
+  const YM=Math.ceil(Math.max(...T.map(d=>Math.max(d.p75,d.real)))/5000)*5000;
+  const ys=v=>m.t+ih*(1-v/YM);
+  for(let v=0;v<=YM;v+=YM/5){ s.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:ys(v),y2:ys(v),class:"gridline"}));
+    const t=el("text",{x:m.l-9,y:ys(v)+4,"text-anchor":"end",class:"tick"});
+    t.textContent="R$ "+(v/1000).toFixed(0)+"k"; s.appendChild(t); }
+  s.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:ys(0),y2:ys(0),stroke:"var(--axis)","stroke-width":1}));
+  // faixa p25–p75
+  let u="",lo="";
+  T.forEach((d,i)=>u+=(i?"L":"M")+xs(i)+" "+ys(d.p75)+" ");
+  for(let i=T.length-1;i>=0;i--) lo+="L"+xs(i)+" "+ys(T[i].p25)+" ";
+  s.appendChild(el("path",{d:u+lo+"Z",fill:"var(--us)","fill-opacity":.13}));
+  // divisor do trecho extrapolado
+  const iEx=T.findIndex(d=>d.ex);
+  if(iEx>0){ const dx=(xs(iEx-1)+xs(iEx))/2;
+    s.appendChild(el("line",{x1:dx,x2:dx,y1:m.t,y2:m.t+ih,stroke:"var(--axis)","stroke-width":1,"stroke-dasharray":"2 3"}));
+    const t=el("text",{x:dx+5,y:m.t+11,"font-size":10,fill:"var(--muted)"}); t.textContent="extrapolado →"; s.appendChild(t); }
+  // mediana do coorte
+  let cl=""; C.forEach((v,i)=>cl+=(i?"L":"M")+xs(i)+" "+ys(v)+" ");
+  s.appendChild(el("path",{d:cl,fill:"none",stroke:"var(--muted)","stroke-width":1.6,"stroke-dasharray":"2 3"}));
+  // linha em R$ do ano-base
+  let rl=""; T.forEach((d,i)=>rl+=(i?"L":"M")+xs(i)+" "+ys(d.real)+" ");
+  s.appendChild(el("path",{d:rl,fill:"none",stroke:"var(--cf)","stroke-width":2.1}));
+  // linha nominal: sólida até o survey, tracejada depois
+  const corte=iEx<0?T.length-1:iEx-1;
+  let a=""; for(let i=0;i<=corte;i++) a+=(i?"L":"M")+xs(i)+" "+ys(T[i].med)+" ";
+  s.appendChild(el("path",{d:a,fill:"none",stroke:"var(--us)","stroke-width":2.7,"stroke-linejoin":"round"}));
+  if(iEx>0){ let b=""; for(let i=corte;i<T.length;i++) b+=(i===corte?"M":"L")+xs(i)+" "+ys(T[i].med)+" ";
+    s.appendChild(el("path",{d:b,fill:"none",stroke:"var(--us)","stroke-width":2.7,"stroke-dasharray":"5 4"})); }
+  T.forEach((d,i)=>{
+    s.appendChild(el("circle",{cx:xs(i),cy:ys(d.real),r:2.8,fill:"var(--surface)",stroke:"var(--cf)","stroke-width":2}));
+    s.appendChild(el("circle",{cx:xs(i),cy:ys(d.med),r:3.6,fill:"var(--surface)",stroke:"var(--us)","stroke-width":2}));
+    const xl=el("text",{x:xs(i),y:H-m.b+22,"text-anchor":"middle",class:"xlab","font-size":11});
+    xl.textContent=d.ano+(d.ex?"*":""); s.appendChild(xl);
+    const sl=el("text",{x:xs(i),y:H-m.b+37,"text-anchor":"middle","font-size":9.5,fill:"var(--muted)"});
+    sl.textContent=n1(d.sm)+"×SM"; s.appendChild(sl);
+  });
+  [[0,"start"],[T.length-1,"end"]].forEach(([i,anc])=>{
+    const t=el("text",{x:xs(i)+(anc==="start"?8:-8),y:ys(T[i].med)-11,"text-anchor":anc,"font-size":12,"font-weight":750,fill:"var(--ink)"});
+    t.textContent=brl(T[i].med); s.appendChild(t); });
+  const yt=el("text",{x:-(m.t+ih/2),y:15,"text-anchor":"middle",class:"tick",transform:"rotate(-90)"});
+  yt.textContent="R$ / mês"; s.appendChild(yt);
+  const ft=el("text",{x:m.l,y:H-6,"font-size":10,fill:"var(--muted)"});
+  ft.textContent="sob o ano: quantos salários mínimos daquele ano · * anos extrapolados"; s.appendChild(ft);
+  document.getElementById("tbTraj").innerHTML=T.map(d=>
+    `<tr><td>${d.ano}${d.ex?" *":""}</td><td>${d.empresa}</td><td>${d.exp}a</td>
+     <td>${d.fx.toFixed(2).replace(".",",")}</td>
+     <td style="color:var(--muted)">${brl(d.p25)}</td>
+     <td style="color:var(--us);font-weight:700">${brl(d.med)}${d.bolsa?' <small style="color:var(--muted)">bolsa</small>':""}</td>
+     <td style="color:var(--muted)">${brl(d.p75)}</td>
+     <td style="color:var(--glob)">${usd(d.usd)}</td>
+     <td style="font-weight:650">${n1(d.sm)}×</td></tr>`).join("");
+})();
+
+// ================= 5. histograma de multiplicadores =================
+(function(){
+  const box=document.getElementById("histm"); if(!box) return;
+  const mx=Math.max(...D.HIST.map(h=>h.n));
+  box.innerHTML=D.HIST.map(h=>
+    `<div style="display:flex;align-items:center;gap:10px;margin:5px 0">
+       <div style="flex:0 0 58px;font-size:12px;color:var(--muted);text-align:right">${h.faixa}</div>
+       <div style="flex:1;background:rgba(127,127,127,.14);border-radius:5px;height:20px">
+         <div style="width:${(h.n/mx*100).toFixed(0)}%;background:var(--cf);height:20px;border-radius:5px;min-width:14px"></div>
+       </div><b style="flex:0 0 26px;font-size:12.5px;font-variant-numeric:tabular-nums">${h.n}</b>
+     </div>`).join("");
+})();
+
+// ================= 2. barras: mínimo + excedente =================
+(function(){
+  const S=D.SERIE, W=900,H=460,m={t:38,r:22,b:118,l:48}, iw=W-m.l-m.r, ih=H-m.t-m.b;
+  const YM=Math.ceil(Math.max(...S.map(d=>d.em_sm))/3)*3+3;
+  const s=document.getElementById("cSM");
+  const bw=iw/S.length, ys=v=>m.t+ih*(1-v/YM), y0=H-m.b;
+  for(let v=0;v<=YM;v+=3){ s.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:ys(v),y2:ys(v),class:"gridline"}));
+    const t=el("text",{x:m.l-9,y:ys(v)+4,"text-anchor":"end",class:"tick"}); t.textContent=v+"×"; s.appendChild(t); }
+  s.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:ys(0),y2:ys(0),stroke:"var(--axis)","stroke-width":1}));
+  S.forEach((d,i)=>{
+    const x=m.l+bw*i+bw*0.19, w=bw*0.62, base=Math.min(d.em_sm,1);
+    s.appendChild(el("rect",{x,y:ys(base),width:w,height:ys(0)-ys(base),fill:"rgba(163,56,47,.11)",stroke:"var(--sm)","stroke-width":1,rx:3}));
+    if(d.em_sm>1) s.appendChild(el("rect",{x,y:ys(d.em_sm),width:w,height:ys(1)-ys(d.em_sm),fill:"var(--us)","fill-opacity":.9,rx:3}));
+    const t=el("text",{x:x+w/2,y:ys(Math.max(d.em_sm,1))-9,"text-anchor":"middle","font-size":13,"font-weight":750,fill:"var(--ink)"});
+    t.textContent=n1(d.em_sm)+"×"; s.appendChild(t);
+    if(ys(1)-ys(d.em_sm)>26){
+      const e=el("text",{x:x+w/2,y:(ys(d.em_sm)+ys(1))/2+4,"text-anchor":"middle","font-size":10.5,"font-weight":750,fill:"#fff"});
+      e.textContent="+"+kbrl(d.acima_sm_nominal); s.appendChild(e);
+    }
+    const xl=el("text",{x:x+w/2,y:y0+21,"text-anchor":"middle",class:"xlab"}); xl.textContent=d.ano; s.appendChild(xl);
+    [[38,brl(d.med_nominal),"var(--ink-2)",11,650],[53,usd(d.usd),"var(--glob)",11,650],
+     [73,"+"+brl(d.acima_sm_nominal),"var(--us)",10,700],[86,"+"+usd(d.acima_usd),"var(--muted)",9.5,400]]
+    .forEach(([dy,tx,c,fs,fw])=>{ const t2=el("text",{x:x+w/2,y:y0+dy,"text-anchor":"middle","font-size":fs,"font-weight":fw,fill:c});
+      t2.textContent=tx; s.appendChild(t2); });
+  });
+  s.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:y0+62,y2:y0+62,stroke:"var(--grid)","stroke-width":1}));
+  { const cap=el("text",{x:m.l,y:y0+106,"font-size":10.5});
+    [["sob o ano: renda do mês em ","var(--muted)",400],["R$","var(--ink-2)",700],[" e ","var(--muted)",400],
+     ["US$","var(--glob)",700],["   —   sob a linha: ","var(--muted)",400],
+     ["quanto está acima do salário mínimo","var(--us)",700],[" (R$ e US$)","var(--muted)",400]]
+    .forEach(([tx,c,fw])=>{ const sp=document.createElementNS(NS,"tspan");
+      sp.setAttribute("fill",c); sp.setAttribute("font-weight",fw); sp.textContent=tx; cap.appendChild(sp); });
+    s.appendChild(cap); }
+  // piso legal + bolsa
+  s.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:ys(1),y2:ys(1),stroke:"var(--sm)","stroke-width":1.6,"stroke-dasharray":"5 4"}));
+  { const t=el("text",{x:W-m.r,y:ys(1)-7,"text-anchor":"end","font-size":11,"font-weight":700,fill:"var(--sm)"});
+    t.textContent="piso legal · 1 salário mínimo"; s.appendChild(t); }
+  s.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:ys(D.BOLSA.sm),y2:ys(D.BOLSA.sm),stroke:"var(--sm)","stroke-width":1.4,"stroke-dasharray":"2 3","stroke-opacity":.8}));
+  { const t=el("text",{x:m.l+6,y:ys(D.BOLSA.sm)+13,"font-size":10,"font-weight":700,fill:"var(--sm)"});
+    t.textContent="bolsa FAPES "+D.BOLSA.ano+" · "+n1(D.BOLSA.sm)+" mínimo"; s.appendChild(t); }
+  const yt=el("text",{x:-(m.t+ih/2),y:14,"text-anchor":"middle",class:"tick",transform:"rotate(-90)"});
+  yt.textContent="× salário mínimo do ano"; s.appendChild(yt);
+})();
+
+// ================= 1b. mínimo nominal x real =================
+(function(){
+  const G=D.SMG, W=900,H=240,m={t:22,r:80,b:44,l:58}, iw=W-m.l-m.r, ih=H-m.t-m.b;
+  const key="em_reais_de_"+D.ANO_BASE;
+  const YM=Math.ceil(Math.max(...G.map(d=>Math.max(d.media_ponderada,d[key])))/300)*300+300;
+  const s=document.getElementById("cSMreal");
+  const xs=i=>m.l+iw*i/(G.length-1), ys=v=>m.t+ih*(1-v/YM);
+  for(let v=0;v<=YM;v+=Math.round(YM/3/100)*100){ s.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:ys(v),y2:ys(v),class:"gridline"}));
+    const t=el("text",{x:m.l-9,y:ys(v)+4,"text-anchor":"end",class:"tick"}); t.textContent="R$ "+v.toLocaleString("pt-BR"); s.appendChild(t); }
+  // faixas de perda real
+  G.forEach((d,i)=>{ if(d.ganho_real_pct!=null&&d.ganho_real_pct<0&&i>0){
+    s.appendChild(el("rect",{x:(xs(i-1)+xs(i))/2,y:m.t,width:Math.max((xs(i+1<G.length?i+1:i)-xs(i-1))/2,6),height:ih,fill:"var(--sm)","fill-opacity":.09})); } });
+  let a="",b="";
+  G.forEach((d,i)=>{ a+=(i?"L":"M")+xs(i)+" "+ys(d.media_ponderada)+" "; b+=(i?"L":"M")+xs(i)+" "+ys(d[key])+" "; });
+  s.appendChild(el("path",{d:b,fill:"none",stroke:"var(--cf)","stroke-width":2.3}));
+  s.appendChild(el("path",{d:a,fill:"none",stroke:"var(--sm)","stroke-width":2.5}));
+  G.forEach((d,i)=>{
+    s.appendChild(el("circle",{cx:xs(i),cy:ys(d[key]),r:2.8,fill:"var(--surface)",stroke:"var(--cf)","stroke-width":2}));
+    s.appendChild(el("circle",{cx:xs(i),cy:ys(d.media_ponderada),r:2.8,fill:"var(--surface)",stroke:"var(--sm)","stroke-width":2}));
+    const xl=el("text",{x:xs(i),y:H-m.b+21,"text-anchor":"middle",class:"xlab","font-size":11}); xl.textContent=d.ano; s.appendChild(xl);
+  });
+  const L=G.length-1;
+  [[brl(G[L].media_ponderada),ys(G[L].media_ponderada),"var(--sm)",14],[brl(G[L][key]),ys(G[L][key]),"var(--cf)",-6]]
+   .forEach(([tx,y,c,dy])=>{ const t=el("text",{x:W-m.r+8,y:y+dy,"font-size":11.5,"font-weight":700,fill:c}); t.textContent=tx; s.appendChild(t); });
+})();
+
+// ================= 2. barras por país =================
+(function(){
+  const P=D.PAIS, W=900,H=500,m={t:16,r:104,b:36,l:200}, iw=W-m.l-m.r, ih=H-m.t-m.b;
+  const s=document.getElementById("cPais");
+  const XM=Math.ceil(Math.max(...P.map(d=>d.v))/3500)*3500, rh=ih/P.length, xs=v=>m.l+iw*v/XM;
+  for(let v=0;v<=XM;v+=3500){ s.appendChild(el("line",{x1:xs(v),x2:xs(v),y1:m.t,y2:m.t+ih,class:"gridline"}));
+    const t=el("text",{x:xs(v),y:H-m.b+20,"text-anchor":"middle",class:"tick"}); t.textContent="US$ "+(v/1000)+"k"; s.appendChild(t); }
+  P.forEach((d,i)=>{
+    const y=m.t+rh*i+rh*0.17, h=rh*0.66;
+    const c=d.me?"var(--us)":d.glob?"var(--glob)":d.cen||d.cf?"var(--cf)":d.br?"var(--br)":"var(--axis)";
+    const r=el("rect",{x:m.l,y,width:Math.max(xs(d.v)-m.l,2),height:h,
+      fill:c,"fill-opacity":d.me?1:(d.glob||d.cf||d.br?.8:.42),rx:3});
+    if(d.cen){ r.setAttribute("fill-opacity",.30); r.setAttribute("stroke",c);
+      r.setAttribute("stroke-width",1.6); r.setAttribute("stroke-dasharray","5 3"); }
+    s.appendChild(r);
+    const strong=d.me||d.glob||d.cen;
+    const lb=el("text",{x:m.l-10,y:y+h/2+4,"text-anchor":"end","font-size":12.5,"font-weight":strong?750:550,
+      fill:d.me?"var(--us)":d.glob?"var(--glob)":d.cen?"var(--cf)":"var(--ink-2)"});
+    lb.textContent=d.l; s.appendChild(lb);
+    const vl=el("text",{x:xs(d.v)+8,y:y+h/2+4,"font-size":12,"font-weight":d.me?750:600,
+      fill:d.me?"var(--us)":d.cen?"var(--cf)":"var(--ink-2)"});
+    vl.textContent=usd(d.v); s.appendChild(vl);
+  });
+  s.appendChild(el("line",{x1:xs(EG.usd),x2:xs(EG.usd),y1:m.t,y2:m.t+ih,stroke:"var(--us)","stroke-width":1.4,"stroke-dasharray":"4 4","stroke-opacity":.6}));
+})();
+
+// ================= 2b. duas moedas =================
+(function(){
+  const S=D.SERIE, W=900,H=370,m={t:24,r:76,b:58,l:68}, iw=W-m.l-m.r, ih=H-m.t-m.b;
+  const K=S.reduce((a,d)=>a+D.FX[d.ano],0)/S.length;
+  const RMAX=Math.ceil(Math.max(...S.map(d=>d.med_nominal))/3000)*3000+3000, UMAX=RMAX/K;
+  const s=document.getElementById("cDual");
+  const xs=i=>m.l+iw*i/(S.length-1), yR=v=>m.t+ih*(1-v/RMAX), yU=v=>m.t+ih*(1-v/UMAX);
+  const step=RMAX/4;
+  for(let v=0;v<=RMAX;v+=step){
+    s.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:yR(v),y2:yR(v),class:"gridline"}));
+    const t=el("text",{x:m.l-9,y:yR(v)+4,"text-anchor":"end",class:"tick"}); t.setAttribute("fill","var(--us)");
+    t.textContent="R$ "+(v/1000).toFixed(0)+"k"; s.appendChild(t);
+    const u=el("text",{x:W-m.r+9,y:yR(v)+4,class:"tick"}); u.setAttribute("fill","var(--glob)");
+    u.textContent="$ "+(v/K/1000).toFixed(1).replace(".",",")+"k"; s.appendChild(u);
+  }
+  s.appendChild(el("line",{x1:m.l,x2:W-m.r,y1:yR(0),y2:yR(0),stroke:"var(--axis)","stroke-width":1}));
+  let top="",bot="";
+  S.forEach((d,i)=>top+=(i?"L":"M")+xs(i)+" "+yR(d.med_nominal)+" ");
+  for(let i=S.length-1;i>=0;i--) bot+="L"+xs(i)+" "+yU(S[i].usd)+" ";
+  s.appendChild(el("path",{d:top+bot+"Z",fill:"var(--cf)","fill-opacity":.13}));
+  let pR="",pU="";
+  S.forEach((d,i)=>{ pR+=(i?"L":"M")+xs(i)+" "+yR(d.med_nominal)+" "; pU+=(i?"L":"M")+xs(i)+" "+yU(d.usd)+" "; });
+  s.appendChild(el("path",{d:pU,fill:"none",stroke:"var(--glob)","stroke-width":2.5,"stroke-dasharray":"6 4"}));
+  s.appendChild(el("path",{d:pR,fill:"none",stroke:"var(--us)","stroke-width":2.7}));
+  S.forEach((d,i)=>{
+    s.appendChild(el("circle",{cx:xs(i),cy:yU(d.usd),r:3,fill:"var(--surface)",stroke:"var(--glob)","stroke-width":2}));
+    s.appendChild(el("circle",{cx:xs(i),cy:yR(d.med_nominal),r:3.4,fill:"var(--surface)",stroke:"var(--us)","stroke-width":2}));
+    const xl=el("text",{x:xs(i),y:H-m.b+21,"text-anchor":"middle",class:"xlab","font-size":11}); xl.textContent=d.ano; s.appendChild(xl);
+    const fl=el("text",{x:xs(i),y:H-m.b+37,"text-anchor":"middle","font-size":9.5,fill:"var(--muted)"});
+    fl.textContent=D.FX[d.ano].toFixed(2).replace(".",","); s.appendChild(fl);
+  });
+  const L=S.length-1;
+  { const t=el("text",{x:xs(L)-8,y:yR(S[L].med_nominal)-12,"text-anchor":"end","font-size":12,"font-weight":750,fill:"var(--us)"});
+    t.textContent=brl(S[L].med_nominal); s.appendChild(t); }
+  { const t=el("text",{x:xs(L)-8,y:yU(S[L].usd)+20,"text-anchor":"end","font-size":12,"font-weight":750,fill:"var(--glob)"});
+    t.textContent=usd(S[L].usd); s.appendChild(t); }
+  const ft=el("text",{x:m.l,y:H-6,"font-size":10,fill:"var(--muted)"});
+  ft.textContent="números sob o ano = câmbio médio USD→BRL · em R$ o crescimento é "
+    +(S[L].med_nominal/S[0].med_nominal).toFixed(1).replace(".",",")+"×, em US$ "
+    +(S[L].usd/S[0].usd).toFixed(1).replace(".",",")+"×"; s.appendChild(ft);
+})();
+
+// ================= 3. moeda do contracheque =================
+(function(){
+  const M=D.MOEDA, W=900,H=320,m={t:26,r:24,b:56,l:120}, iw=W-m.l-m.r, ih=H-m.t-m.b;
+  const s=document.getElementById("cMoeda");
+  const XM=Math.ceil(Math.max(...M.map(d=>d.usd_usd_mes))/1000)*1000, rh=ih/M.length, xs=v=>m.l+iw*v/XM;
+  const step=Math.round(XM/4/500)*500;
+  for(let v=0;v<=XM;v+=step){ s.appendChild(el("line",{x1:xs(v),x2:xs(v),y1:m.t,y2:m.t+ih,class:"gridline"}));
+    const t=el("text",{x:xs(v),y:H-m.b+20,"text-anchor":"middle",class:"tick"}); t.textContent="US$ "+(v/1000).toFixed(1).replace(".",",")+"k"; s.appendChild(t); }
+  M.forEach((d,i)=>{
+    const y0=m.t+rh*i+rh*0.14, h=rh*0.32;
+    s.appendChild(el("rect",{x:m.l,y:y0,width:Math.max(xs(d.brl_usd_mes)-m.l,2),height:h,fill:"var(--br)","fill-opacity":.55,rx:3}));
+    s.appendChild(el("rect",{x:m.l,y:y0+h+3,width:Math.max(xs(d.usd_usd_mes)-m.l,2),height:h,fill:"var(--cf)","fill-opacity":.85,rx:3}));
+    const lb=el("text",{x:m.l-10,y:y0+h+2,"text-anchor":"end","font-size":12.5,"font-weight":650,fill:"var(--ink-2)"});
+    lb.textContent=d.faixa; s.appendChild(lb);
+    const v1=el("text",{x:xs(d.brl_usd_mes)+7,y:y0+h-2,"font-size":11,fill:"var(--ink-2)"});
+    v1.textContent=usd(d.brl_usd_mes)+"  (n="+d.n_brl+")"; s.appendChild(v1);
+    const v2=el("text",{x:xs(d.usd_usd_mes)+7,y:y0+2*h+2,"font-size":11.5,"font-weight":700,fill:"var(--cf)"});
+    v2.textContent=usd(d.usd_usd_mes)+"  "+n1(d.razao)+"×  (n="+d.n_usd+")"; s.appendChild(v2);
+  });
+  const xt=el("text",{x:m.l+iw/2,y:H-8,"text-anchor":"middle","font-size":10.5,fill:"var(--muted)"});
+  xt.textContent="mediana US$/mês · respondentes do Brasil, devs de software"; s.appendChild(xt);
+})();
+
+// ================= 3b. coorte por origem =================
+(function(){
+  const G=D.ORIG, W=900,H=250,m={t:32,r:24,b:44,l:160}, iw=W-m.l-m.r, ih=H-m.t-m.b;
+  const s=document.getElementById("cIntl");
+  const MX=Math.max(...G.map(d=>d.nac+d.intl)), rh=ih/G.length, xs=n=>m.l+iw*n/MX;
+  G.forEach((d,i)=>{
+    const y=m.t+rh*i+rh*0.22, h=rh*0.5;
+    if(d.nac) s.appendChild(el("rect",{x:m.l,y,width:Math.max(xs(d.nac)-m.l,2),height:h,fill:"var(--br)","fill-opacity":.5,rx:3}));
+    if(d.intl) s.appendChild(el("rect",{x:xs(d.nac),y,width:Math.max(xs(d.nac+d.intl)-xs(d.nac),2),height:h,fill:"var(--cf)","fill-opacity":.9,rx:3}));
+    const lb=el("text",{x:m.l-10,y:y+h/2+4,"text-anchor":"end","font-size":12.5,"font-weight":650,fill:"var(--ink-2)"});
+    lb.textContent=d.l; s.appendChild(lb);
+    if(d.nac){ const t=el("text",{x:m.l+8,y:y+h/2+4,"font-size":12,"font-weight":700,fill:"var(--ink)"});
+      t.textContent=d.nac+" nacional"; s.appendChild(t); }
+    if(d.intl){ const t=el("text",{x:xs(d.nac)+8,y:y+h/2+4,"font-size":12,"font-weight":750,fill:"#fff"});
+      t.textContent=d.intl+" intl."; s.appendChild(t); }
+  });
+  const ttl=el("text",{x:m.l,y:m.t-10,"font-size":11.5,"font-weight":700,fill:"var(--ink-2)"});
+  ttl.textContent=REF.n_intl+" de "+REF.n_tot+" egressos em empregador internacional"; s.appendChild(ttl);
+  const ft=el("text",{x:m.l,y:H-14,"font-size":10.5,fill:"var(--muted)"});
+  ft.textContent="cinza = empregador nacional · laranja = empregador internacional (sede ou contrato no exterior)"; s.appendChild(ft);
+})();
+
+// ================= tabela =================
+document.getElementById("tb").innerHTML=D.TAB.map(([l,v,kind])=>{
+  const rel=v/EG.brl, cls=kind===1?"me":(kind===2?"cen":"");
+  return `<tr class="${cls}"><td>${l}</td><td>${brl(v)}</td><td>${usd(v/FX_BASE)}</td>
+   <td>${n1(v/SM_BASE)}×</td>
+   <td style="color:${kind===1?'var(--us)':(rel>=1?'var(--glob)':'var(--muted)')}">${kind===1?'—':(rel>=1?"+":"−")+Math.abs(Math.round((rel-1)*100))+"%"}</td></tr>`;
+}).join("")
+ +`<tr><td colspan="5" style="text-align:left;color:var(--muted);font-size:11.5px;padding-top:12px;border:0">
+   <b>*</b> cenário, não medição — mediana de respondentes do Brasil que declaram salário em dólar. Nenhum egresso teve contracheque coletado.</td></tr>`;
+</script>
+</body>
+</html>
