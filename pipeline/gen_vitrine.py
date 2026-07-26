@@ -632,14 +632,18 @@ HTML = f"""<!doctype html>
   .mapstats span{{ background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:4px 11px; }}
   .mapstats b{{ font-variant-numeric:tabular-nums; }}
   #mapa{{ min-width:640px; }}
-  .land{{ fill:var(--surface); stroke:var(--border); stroke-width:.6; }}
-  .arc{{ fill:none; stroke:var(--data); stroke-width:1.2; stroke-opacity:.55; stroke-linecap:round; }}
+  /* vector-effect mantém a espessura em pixels de tela: o traço não engorda com o zoom.
+     Nada aqui define font-size nem stroke-width dos rótulos — quem controla é o JS, e
+     uma regra de classe venceria o atributo de apresentação que ele escreve. */
+  .land{{ fill:var(--surface); stroke:var(--border); stroke-width:.6; vector-effect:non-scaling-stroke; }}
+  .arc{{ fill:none; stroke:var(--data); stroke-width:1.2; stroke-opacity:.55; stroke-linecap:round;
+    vector-effect:non-scaling-stroke; }}
   .dot{{ fill:var(--accent); fill-opacity:.75; stroke:var(--surface); stroke-width:1.2;
-    transition:r .5s ease, fill-opacity .5s ease; }}
+    vector-effect:non-scaling-stroke; transition:r .5s ease, fill-opacity .5s ease; }}
   .dot.ext{{ fill:var(--data); }}
-  .dotlab{{ font-size:9.5px; fill:var(--ink-2); font-weight:650; paint-order:stroke;
-    stroke:var(--surface); stroke-width:2.5px; transition:opacity .4s ease; }}
-  .origem{{ fill:none; stroke:var(--amber,#bd7d00); stroke-width:2; }}
+  .dotlab{{ fill:var(--ink-2); font-weight:650; paint-order:stroke; stroke:var(--surface);
+    vector-effect:non-scaling-stroke; transition:opacity .4s ease; }}
+  .origem{{ fill:none; stroke:var(--amber,#bd7d00); stroke-width:2; vector-effect:non-scaling-stroke; }}
   .nav{{ display:flex; flex-wrap:wrap; gap:10px; }}
   .nav a{{ flex:1 1 220px; text-decoration:none; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:13px 15px; box-shadow:var(--shadow); font-weight:650; font-size:13.5px; color:var(--accent); }}
   .nav a span{{ display:block; font-weight:400; color:var(--ink-2); font-size:12px; margin-top:3px; line-height:1.4; }}
@@ -943,15 +947,38 @@ const MAPA = {MAPA_JSON};
   const AGREGA_ATE = 40;
   const chave = L => (!L.exterior && view.w > AGREGA_ATE) ? L.grupo : L.rotulo;
 
-  const gLand=el('g',{{}}), gArc=el('g',{{}}), gDot=el('g',{{}}), gLab=el('g',{{}});
+  const gLand=el('g',{{}}), gFino=el('g',{{}}), gArc=el('g',{{}}), gDot=el('g',{{}}), gLab=el('g',{{}});
   MAPA.paths.forEach(d=>gLand.appendChild(el('path',{{d,class:'land'}})));
-  [gLand,gArc,gDot,gLab].forEach(g=>svg.appendChild(g));
+
+  // O contorno embutido é o Natural Earth 110m: leve, mas vira um polígono tosco quando
+  // se aproxima. A partir de ~3x troca pelo 50m, buscado uma única vez da própria API.
+  const DETALHE_A_PARTIR_DE = 3;
+  let fino = null;   // null = ainda não pedido | 'carregando' | true = pronto
+  function detalhe(k){{
+    const quer = k >= DETALHE_A_PARTIR_DE;
+    if(quer && fino === null){{
+      fino = 'carregando';
+      fetch('api/mapa/detalhe.json')
+        .then(r => r.ok ? r.json() : Promise.reject(r.status))
+        .then(d => {{
+          d.paths.forEach(p => gFino.appendChild(el('path',{{d:p,class:'land'}})));
+          fino = true; detalhe(escala());
+        }})
+        .catch(() => {{ fino = 'erro'; }});   // sem detalhe, segue com o contorno grosso
+    }}
+    if(fino === true){{
+      gFino.style.display = quer ? '' : 'none';
+      gLand.style.display = quer ? 'none' : '';
+    }}
+  }}
+  [gLand,gFino,gArc,gDot,gLab].forEach(g=>svg.appendChild(g));
 
   const O = MAPA.origem, ox=px(O.lon), oy=py(O.lat);
   const origemDot = el('circle',{{cx:ox,cy:oy,r:5,class:'origem'}});
-  const origemTxt = el('text',{{x:ox,y:oy+16,'text-anchor':'middle','font-size':9.5,'font-weight':750,
-       fill:'var(--amber,#bd7d00)','paint-order':'stroke',stroke:'var(--surface)','stroke-width':'2.5px'}});
+  const origemTxt = el('text',{{x:ox,y:oy+16,'text-anchor':'middle','vector-effect':'non-scaling-stroke'}});
   origemTxt.textContent='IFES · Serra';
+  origemTxt.style.fill='var(--amber,#bd7d00)'; origemTxt.style.fontWeight='750';
+  origemTxt.style.paintOrder='stroke'; origemTxt.style.stroke='var(--surface)';
 
   // Um nó por chave possível: cidade (visão mundo) e estado (visão Brasil).
   const nodes = {{}};
@@ -999,14 +1026,14 @@ const MAPA = {MAPA_JSON};
       const no = nodes[key], n = cont[key]||0;
       no.dot.setAttribute('r', n ? (4 + Math.sqrt(n)*3.2)/k : 0);
       no.dot.setAttribute('fill-opacity', n ? .78 : 0);
-      no.dot.setAttribute('stroke-width', 1.2/k);
       const extra = (det[key]||[]).length > 1 ? ` (${{det[key].join(' · ')}})` : '';
       no.dot.firstChild.textContent = n ? `${{no.rotulo}} — ${{n}} egresso${{n>1?'s':''}} em ${{A.ano}}${{extra}}` : '';
       no.arc.setAttribute('opacity', n && no.exterior ? .55 : 0);
-      no.arc.setAttribute('stroke-width', 1.2/k);
       no.lab.setAttribute('opacity', n >= 2 || (n && no.exterior) ? 1 : 0);
-      no.lab.setAttribute('font-size', 9.5/k);
-      no.lab.setAttribute('stroke-width', (2.5/k)+'px');
+      // style inline, não atributo: a regra .dotlab venceria o atributo e o rótulo
+      // ficaria gigante no zoom (era o bug do texto cobrindo o mapa).
+      no.lab.style.fontSize   = (9.5/k) + 'px';
+      no.lab.style.strokeWidth = (2.5/k) + 'px';
       no.lab.setAttribute('y', no.y - (9 + Math.sqrt(Math.max(n,1))*2)/k);
     }}
     const br = A.total - A.exterior;
@@ -1029,11 +1056,12 @@ const MAPA = {MAPA_JSON};
     view = limita(v);
     svg.setAttribute('viewBox', [view.x, view.y, view.w, view.h].map(n=>n.toFixed(1)).join(' '));
     const k = escala();
-    gLand.querySelectorAll('path').forEach(pth=>pth.setAttribute('stroke-width', (0.6/k).toFixed(3)));
     document.querySelectorAll('.mapzoom [data-z]').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.z===preset)));
-    origemDot.setAttribute('r', 5/k); origemDot.setAttribute('stroke-width', 2/k);
-    origemTxt.setAttribute('font-size', 9.5/k); origemTxt.setAttribute('y', oy + 16/k);
-    origemTxt.setAttribute('stroke-width', (2.5/k)+'px');
+    origemDot.setAttribute('r', 5/k);
+    origemTxt.setAttribute('y', oy + 16/k);
+    origemTxt.style.fontSize = (9.5/k) + 'px';
+    origemTxt.style.strokeWidth = (2.5/k) + 'px';
+    detalhe(k);
     desenha(i);
   }}
   // zoom mantendo fixo o ponto (cx,cy) do mapa — por padrão, o centro da view

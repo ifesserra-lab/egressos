@@ -28,6 +28,7 @@ L = lambda f: json.load(open(BASE / "data" / f, encoding="utf-8"))
 cons, an, smj, so = L("consolidado.json"), L("analise.json"), L("salario_minimo.json"), L("so_benchmarks.json")
 cf, cfh, emp, fap = L("codigofonte_2026.json"), L("codigofonte_historico.json"), L("empresas_porte.json"), L("fapes_fomento.json")
 ibge, mapa = L("ibge_series.json"), L("mapa_mundi.json")
+mapa_det = L("mapa_mundi_detalhe.json")
 
 ANO_BASE = smj["ano_base_deflator"]
 endpoints = []
@@ -151,7 +152,10 @@ escreve("fomento-fapes.json", {**META, **fap},
 # ---------- mapa ----------
 escreve("mapa/base.json", {**META, **{k: v for k, v in mapa.items() if k != "paths"},
     "descricao": mapa["titulo"], "paths": mapa["paths"]},
-    "Contorno dos continentes já projetado para SVG (Natural Earth 110m, domínio público).")
+    "Contorno dos continentes projetado para SVG — resolução 110m, leve (domínio público).")
+escreve("mapa/detalhe.json", {**META, **{k: v for k, v in mapa_det.items() if k != "paths"},
+    "descricao": mapa_det["titulo"] + " — resolução fina, para zoom", "paths": mapa_det["paths"]},
+    "Mesmo contorno em resolução 50m: o mapa da vitrine busca este arquivo ao aproximar.")
 
 # ---------- índice ----------
 n_intl = an["impacto"]["intl_hoje"]

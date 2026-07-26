@@ -75,8 +75,13 @@
   },
   {
    "endpoint": "api/mapa/base.json",
-   "descricao": "Contorno dos continentes já projetado para SVG (Natural Earth 110m, domínio público).",
-   "kb": 29.6
+   "descricao": "Contorno dos continentes projetado para SVG — resolução 110m, leve (domínio público).",
+   "kb": 34.0
+  },
+  {
+   "endpoint": "api/mapa/detalhe.json",
+   "descricao": "Mesmo contorno em resolução 50m: o mapa da vitrine busca este arquivo ao aproximar.",
+   "kb": 289.4
   }
  ]
 }

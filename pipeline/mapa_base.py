@@ -21,14 +21,23 @@ sys.setrecursionlimit(10000)
 BASE = pathlib.Path("/caminho/para/salario")
 DATA = BASE / "data"
 CACHE = DATA / "_cache_ibge"          # mesmo diretório de cache dos downloads
-URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json"
+# Duas resoluções: a grossa vai embutida na página (leve, boa até ~3x de zoom) e a fina
+# fica num arquivo à parte, buscado só quando o leitor aproxima. Sem isso, ou a página
+# carrega meio mega de contorno que quase ninguém usa, ou o litoral vira um polígono tosco
+# no zoom — que é o que acontecia.
+CAMADAS = {
+    "base":    {"url": "https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json",
+                "cache": "land110m.json", "eps": 0.7,  "area_min": 1.2,
+                "saida": "mapa_mundi.json",         "detalhe": "Natural Earth 110m"},
+    "detalhe": {"url": "https://cdn.jsdelivr.net/npm/world-atlas@2/land-50m.json",
+                "cache": "land50m.json",  "eps": 0.10, "area_min": 0.15,
+                "saida": "mapa_mundi_detalhe.json", "detalhe": "Natural Earth 50m"},
+}
 
 W, H = 1000, 420                       # viewBox do mapa
 LAT_MAX = 83                           # corta a Antártida e o topo do Ártico (sem gente aqui)
 LAT_MIN = -56
-CASAS = 1                              # casas decimais nos paths — 0,1 px basta e enxuga o arquivo
-AREA_MIN = 1.2                         # descarta ilhotas menores que isto (em px²)
-EPS = 0.7                              # tolerância do Douglas-Peucker, em px
+CASAS = 2                              # casas decimais nos paths
 
 
 def proj(lon, lat):
@@ -38,8 +47,9 @@ def proj(lon, lat):
     return x, y
 
 
-def baixa(offline):
-    cache = CACHE / "land110m.json"
+def baixa(cam, offline):
+    URL = cam["url"]
+    cache = CACHE / cam["cache"]
     if offline:
         if not cache.exists():
             sys.exit(f"ABORT: --offline mas não há cache em {cache}")
@@ -49,11 +59,11 @@ def baixa(offline):
             raw = r.read().decode("utf-8")
         CACHE.mkdir(parents=True, exist_ok=True)
         cache.write_text(raw, encoding="utf-8")
-        print(f"  [rede ] land-110m ({len(raw)//1024} KB)")
+        print(f"  [rede ] {cam['detalhe']} ({len(raw)//1024} KB)")
         return json.loads(raw)
     except (urllib.error.URLError, TimeoutError, OSError) as e:
         if cache.exists():
-            print(f"  [cache] land-110m (rede falhou: {e})")
+            print(f"  [cache] {cam['detalhe']} (rede falhou: {e})")
             return json.loads(cache.read_text(encoding="utf-8"))
         sys.exit(f"ABORT: mapa indisponível e sem cache — {e}")
 
@@ -89,9 +99,9 @@ def area(pts):
     return abs(s) / 2
 
 
-def simplifica(pts, eps=EPS):
+def simplifica(pts, eps):
     """Douglas-Peucker: tira os pontos que não mudam o traçado além de `eps` pixels.
-    Num mapa de 1000 px de largura, 0,7 px é invisível — e corta ~60% do arquivo."""
+    A tolerância vem da camada: grossa na base, fina no detalhe."""
     if len(pts) < 3:
         return pts
     ax, ay = pts[0]
@@ -110,7 +120,7 @@ def simplifica(pts, eps=EPS):
     return simplifica(pts[:idx + 1], eps)[:-1] + simplifica(pts[idx:], eps)
 
 
-def anel_para_path(pts):
+def anel_para_path(pts, eps, area_min):
     proj_pts, ant = [], None
     for lon, lat in pts:
         lat = max(LAT_MIN, min(LAT_MAX, lat))
@@ -119,19 +129,17 @@ def anel_para_path(pts):
         if p != ant:                                    # tira pontos repetidos após arredondar
             proj_pts.append(p)
             ant = p
-    if len(proj_pts) < 4 or area(proj_pts) < AREA_MIN:
+    if len(proj_pts) < 4 or area(proj_pts) < area_min:
         return None
-    proj_pts = simplifica(proj_pts)
+    proj_pts = simplifica(proj_pts, eps)
     if len(proj_pts) < 4:
         return None
     d = "M" + " ".join(f"{x} {y}" for x, y in proj_pts) + "Z"
     return d.replace("M", "M", 1)
 
 
-def main():
-    offline = "--offline" in sys.argv
-    print("== mapa-múndi (Natural Earth 110m) ==")
-    topo = baixa(offline)
+def gera(nome, cam, offline):
+    topo = baixa(cam, offline)
     arcos = decodifica_arcos(topo)
     geoms = topo["objects"]["land"]["geometries"]
 
@@ -140,7 +148,7 @@ def main():
         poligonos = [g["arcs"]] if g["type"] == "Polygon" else g["arcs"]
         for poli in poligonos:
             for anel in poli:                           # anel 0 = contorno, demais = buracos
-                d = anel_para_path(anel_para_pontos(anel, arcos))
+                d = anel_para_path(anel_para_pontos(anel, arcos), cam["eps"], cam["area_min"])
                 if d:
                     paths.append(d)
                 else:
@@ -148,8 +156,8 @@ def main():
 
     out = {
         "titulo": "Contorno dos continentes, projetado para SVG",
-        "fonte": "Natural Earth 110m (domínio público) via world-atlas land-110m",
-        "url": URL,
+        "fonte": f"{cam['detalhe']} (domínio público) via world-atlas",
+        "url": cam["url"], "camada": nome,
         "gerado_por": "pipeline/mapa_base.py",
         "projecao": "equirretangular (plate carrée)",
         "viewBox": [0, 0, W, H],
@@ -158,10 +166,17 @@ def main():
                 "para posicionar qualquer ponto sobre estes paths.",
         "paths": paths,
     }
-    alvo = DATA / "mapa_mundi.json"
+    alvo = DATA / cam["saida"]
     alvo.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     kb = alvo.stat().st_size / 1024
-    print(f"OK — {alvo.name}: {len(paths)} polígonos ({descartados} ilhotas descartadas), {kb:.0f} KB")
+    print(f"  {alvo.name:28s} {len(paths):5d} polígonos  {kb:6.0f} KB  ({descartados} ilhotas fora)")
+
+
+def main():
+    offline = "--offline" in sys.argv
+    print("== contorno dos continentes ==")
+    for nome, cam in CAMADAS.items():
+        gera(nome, cam, offline)
 
 
 if __name__ == "__main__":
