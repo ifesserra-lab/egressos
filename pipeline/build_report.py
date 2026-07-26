@@ -32,7 +32,10 @@ IMPORTANTE — sincronia de order/labels:
 import subprocess, pathlib, sys
 
 BASE = pathlib.Path("/caminho/para/salario")
-PY = str(BASE / ".venv/bin/python")
+# Interpretador dos subprocessos: o venv local quando existe, senão o próprio Python que
+# está rodando (é o caso do CI, que instala as dependências no ambiente do runner).
+_venv = BASE / ".venv/bin/python"
+PY = str(_venv) if _venv.exists() else sys.executable
 NODE = "node"
 
 PIPE = BASE / "pipeline"   # scripts moved out of data/ (code vs artefatos)
@@ -72,17 +75,21 @@ def publish():
     então aqui só seguem para o site da diretoria."""
     PUB = BASE.parent / "egressos"
     DIR = BASE.parent / "diretoria/docs/relatorios/egressos"
-    DIR.mkdir(parents=True, exist_ok=True)
     (PUB / "index.html").write_text(
         (BASE / "dashboard_executivo.html").read_text(encoding="utf-8"), encoding="utf-8")
     for f in ["dashboard_alunos.html", "evolucao_salario_local.html", "metodologia.html",
               "trajetoria_salarial.html", "salario_minimo_mundo.html"]:
         (PUB / f).write_text((BASE / f).read_text(encoding="utf-8"), encoding="utf-8")
-    for f in ["index.html", "dashboard_alunos.html", "evolucao_salario_local.html", "metodologia.html",
-              "trajetoria_salarial.html", "salario_minimo_mundo.html",
-              "egressos-carreiras.html", "dados-abertos.html"]:
-        (DIR / f).write_text((PUB / f).read_text(encoding="utf-8"), encoding="utf-8")
-    print("Publicado em egressos/ e diretoria/docs/relatorios/egressos/ (falta git push + mkdocs gh-deploy).")
+    # O portal da diretoria vive em outro repositório e nem sempre está montado (no CI não está).
+    # Quando não estiver, publica só no repo do site e avisa — não cria diretório solto.
+    if DIR.parent.parent.exists():
+        for f in ["index.html", "dashboard_alunos.html", "evolucao_salario_local.html", "metodologia.html",
+                  "trajetoria_salarial.html", "salario_minimo_mundo.html",
+                  "egressos-carreiras.html", "dados-abertos.html"]:
+            (DIR / f).write_text((PUB / f).read_text(encoding="utf-8"), encoding="utf-8")
+        print("Publicado em egressos/ e diretoria/docs/relatorios/egressos/ (falta git push).")
+    else:
+        print(f"Publicado em egressos/. Portal da diretoria não montado ({DIR.parent.parent}) — ignorado.")
 
 if __name__ == "__main__":
     run()

@@ -124,6 +124,8 @@ brl = lambda v: "R$ " + f"{round(v):,}".replace(",", ".")
 
 DADOS = {
     "TRAJ": TRAJ, "TJ_COORTE": TJ_COORTE, "HIST": HIST,
+    # trajetória em SM, indexada por ano, para desenhar por cima das barras do coorte
+    "TRAJ_SM": {d["ano"]: d["sm"] for d in TRAJ},
     "SERIE": SERIE, "SMG": SMG, "PAIS": PAIS, "ORIG": ORIG,
     "MOEDA": so["por_moeda_brasil"], "TAB": TAB,
     "FX": FX, "SM_BASE": sm_base, "FX_BASE": fx_base, "ANO_BASE": ANO_BASE,
@@ -268,11 +270,12 @@ HTML = f"""<!doctype html>
 
   <section class="card">
     <h3>Quantos salários mínimos, ano a ano</h3>
-    <p class="hint">Mediana da renda estimada do coorte em cada ano, dividida pelo <b>salário mínimo daquele ano</b>. Bloco claro = 1 mínimo; bloco azul = <b>o que vem acima do piso</b>, com o valor em R$ dentro da barra. Sob cada ano: a renda do mês em <b>R$ e US$</b> (câmbio médio do ano) e quanto isso está <b>acima do mínimo</b>, nas duas moedas. Só anos com pelo menos {N_MIN_ANO} egressos na série (o primeiro ano exibido, {SERIE[0]["ano"]}, tem {SERIE[0]["n"]}).</p>
+    <p class="hint">As barras são a <b>mediana do coorte inteiro</b> em cada ano, dividida pelo <b>salário mínimo daquele ano</b>: bloco claro = 1 mínimo, bloco azul = <b>o que vem acima do piso</b> (valor em R$ dentro da barra). A linha pontilhada é a <b>trajetória individual da seção 1</b>, na mesma régua — dá para ver quando ela corre à frente ou atrás do coorte. Sob cada ano: a renda do mês em <b>R$ e US$</b> (câmbio médio do ano) e quanto isso está <b>acima do mínimo</b>, nas duas moedas. Só anos com pelo menos {N_MIN_ANO} egressos ({SERIE[0]["ano"]}, o primeiro exibido, tem {SERIE[0]["n"]}).</p>
     <div class="chart-scroll"><svg id="cSM" viewBox="0 0 900 460" role="img" aria-label="Renda do coorte em salários mínimos por ano"></svg></div>
     <div class="legend">
       <span><i class="swb" style="background:rgba(163,56,47,.11);border:1px solid var(--sm)"></i> 1 salário mínimo</span>
-      <span><i class="swb" style="background:var(--us)"></i> Acima do mínimo</span>
+      <span><i class="swb" style="background:var(--us)"></i> Mediana do coorte ({n_tot}) acima do mínimo</span>
+      <span><i class="sw" style="border-color:var(--ink-2);border-top-style:dotted"></i> Trajetória individual (seção 1)</span>
       <span><i class="sw" style="border-color:var(--sm);border-top-style:dashed"></i> Bolsa FAPES de {BOLSA_ANO} ({n1(bolsa_sm)} mínimo)</span>
     </div>
   </section>
@@ -321,7 +324,7 @@ HTML = f"""<!doctype html>
 
   <section class="card">
     <h3>Onde o coorte está nessa divisão</h3>
-    <p class="hint"><b>{n_intl} dos {n_tot} egressos</b> trabalham hoje para empregador internacional — {intl_sen} deles em nível Sênior ou superior. Mas o modelo salarial deste estudo precifica <b>todos</b> pela mediana brasileira do Stack Overflow, porque não temos o contracheque real de ninguém.</p>
+    <p class="hint"><b>{n_intl} dos {n_tot} egressos</b> trabalham hoje para empregador internacional — {"todos os " + str(intl_sen) if intl_sen == n_intl else str(intl_sen) + " deles"} em nível Sênior ou superior. Mas o modelo salarial deste estudo precifica <b>todos</b> pela mediana brasileira do Stack Overflow, porque não temos o contracheque real de ninguém.</p>
     <div class="chart-scroll"><svg id="cIntl" viewBox="0 0 900 250" role="img" aria-label="Egressos por origem do empregador"></svg></div>
     <div class="note" style="margin-top:18px">
       <b>O que isso significa para os números deste relatório.</b> O prêmio internacional que o modelo calcula é de apenas <b>+{an["impacto"]["premio_intl_pct"]}%</b> — um artefato: os dois grupos são precificados na mesma tabela brasileira.
@@ -505,6 +508,16 @@ document.getElementById("stats").innerHTML=`
   s.appendChild(el("line",{{x1:m.l,x2:W-m.r,y1:ys(1),y2:ys(1),stroke:"var(--sm)","stroke-width":1.6,"stroke-dasharray":"5 4"}}));
   {{ const t=el("text",{{x:W-m.r,y:ys(1)-7,"text-anchor":"end","font-size":11,"font-weight":700,fill:"var(--sm)"}});
     t.textContent="piso legal · 1 salário mínimo"; s.appendChild(t); }}
+  // trajetória individual (a da seção 1) sobreposta, na mesma régua de mínimos
+  {{ const pts=S.map((d,i)=>[m.l+bw*i+bw/2, D.TRAJ_SM[d.ano]]).filter(q=>q[1]!=null);
+    if(pts.length>1){{
+      let path=""; pts.forEach(([x,v],i)=>path+=(i?"L":"M")+x+" "+ys(v)+" ");
+      s.appendChild(el("path",{{d:path,fill:"none",stroke:"var(--ink-2)","stroke-width":1.8,"stroke-dasharray":"2 3"}}));
+      pts.forEach(([x,v])=>s.appendChild(el("circle",{{cx:x,cy:ys(v),r:2.6,fill:"var(--ink-2)"}})));
+      const [lx,lv]=pts[pts.length-1];
+      const t=el("text",{{x:lx,y:ys(lv)+16,"text-anchor":"end","font-size":10,"font-weight":650,fill:"var(--ink-2)"}});
+      t.textContent="trajetória individual"; s.appendChild(t);
+    }} }}
   s.appendChild(el("line",{{x1:m.l,x2:W-m.r,y1:ys(D.BOLSA.sm),y2:ys(D.BOLSA.sm),stroke:"var(--sm)","stroke-width":1.4,"stroke-dasharray":"2 3","stroke-opacity":.8}}));
   {{ const t=el("text",{{x:m.l+6,y:ys(D.BOLSA.sm)+13,"font-size":10,"font-weight":700,fill:"var(--sm)"}});
     t.textContent="bolsa FAPES "+D.BOLSA.ano+" · "+n1(D.BOLSA.sm)+" mínimo"; s.appendChild(t); }}
