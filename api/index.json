@@ -1,0 +1,82 @@
+{
+ "descricao": "API estática do estudo de egressos de TI — IFES Campus Serra",
+ "privacidade": "Totalmente anonimizada: coorte identificada só por rótulo (A–AX) e dados públicos de empresa. Nenhum nome, empresa ou local por pessoa.",
+ "licenca": "Dados CC BY 4.0 · código MIT. Cite \"Egressos IFES — Campus Serra\".",
+ "site": "https://ifesserra-lab.github.io/egressos",
+ "dados_brutos": "https://ifesserra-lab.github.io/egressos/dados-abertos.html",
+ "ano_base": 2026,
+ "aviso": "Site experimental — dados preliminares, sujeitos a revisão.",
+ "coorte": 50,
+ "coorte_com_serie_salarial": 49,
+ "empresas": 204,
+ "em_empregador_internacional": 13,
+ "mediana_atual_reais": 17073,
+ "mediana_atual_em_salarios_minimos": 10.53,
+ "endpoints": [
+  {
+   "endpoint": "api/coorte.json",
+   "descricao": "Coorte anonimizada A–AX: trilha, anos de carreira, bolsa inicial, renda estimada e crescimento.",
+   "kb": 6.7
+  },
+  {
+   "endpoint": "api/coorte/serie-por-experiencia.json",
+   "descricao": "Curva de carreira por anos de experiência: trajetória real do coorte e o que o mercado paga hoje.",
+   "kb": 1.7
+  },
+  {
+   "endpoint": "api/coorte/serie-por-ano.json",
+   "descricao": "Mediana do coorte por ano civil, em R$ da época, em reais do ano-base e em salários mínimos.",
+   "kb": 2.7
+  },
+  {
+   "endpoint": "api/coorte/trajetoria-destaque.json",
+   "descricao": "Trajetória individual anonimizada, ano a ano, mais a distribuição de multiplicadores do coorte.",
+   "kb": 2.7
+  },
+  {
+   "endpoint": "api/salario-minimo.json",
+   "descricao": "Salário mínimo por ano: valor, reajuste do decreto, INPC, ganho real, deflator IPCA e câmbio.",
+   "kb": 4.4
+  },
+  {
+   "endpoint": "api/indices.json",
+   "descricao": "IPCA, INPC e câmbio USD→BRL: número-índice mensal, médias anuais e deflatores (IBGE/IPEADATA).",
+   "kb": 17.5
+  },
+  {
+   "endpoint": "api/mercado/stackoverflow.json",
+   "descricao": "Benchmarks do Stack Overflow: mediana em US$ por país, global, e o corte por moeda do contracheque.",
+   "kb": 2.4
+  },
+  {
+   "endpoint": "api/mercado/codigofonte.json",
+   "descricao": "Pesquisa Código Fonte: escada de senioridade, contrato e região (2026 + série histórica).",
+   "kb": 3.2
+  },
+  {
+   "endpoint": "api/empresas/index.json",
+   "descricao": "Índice das empresas: porte, origem e setor, com link para o detalhe de cada uma.",
+   "kb": 35.3
+  },
+  {
+   "endpoint": "api/empresas/<slug>.json",
+   "descricao": "Detalhe de uma empresa (204 arquivos): headcount, sede, setor, site, fundação, especialidades, vagas.",
+   "kb": null
+  },
+  {
+   "endpoint": "api/analise.json",
+   "descricao": "Análises agregadas: clusters, sankey, funções, gênero, internacionalização, extensão.",
+   "kb": 13.4
+  },
+  {
+   "endpoint": "api/fomento-fapes.json",
+   "descricao": "Fomento de bolsas FAPES recebido pela coorte (agregado por projeto).",
+   "kb": 1.0
+  },
+  {
+   "endpoint": "api/mapa/base.json",
+   "descricao": "Contorno dos continentes já projetado para SVG (Natural Earth 110m, domínio público).",
+   "kb": 29.6
+  }
+ ]
+}

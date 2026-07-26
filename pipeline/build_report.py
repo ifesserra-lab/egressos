@@ -17,6 +17,7 @@ Ordem:
                              as páginas antigas viram redirecionamento
      gen_nav.py           -> injeta o mesmo menu em TODAS as páginas
   9. gen_dados_abertos.py -> publica JSON + código no repo público
+     gen_api.py           -> gera egressos/api/ (API estática, anonimizada, com índice)
  10. qa_report.py         -> valida HTML × pipeline + varredura de PII
 
 Uso:   python data/build_report.py            (gera + valida)
@@ -56,6 +57,7 @@ STEPS = [
     ("Vitrine de carreiras",    [PY, str(PIPE/"gen_vitrine.py")],   BASE),
     ("Duas réguas (SM + mundo)",[PY, str(PIPE/"gen_reguas.py")],    BASE),
     ("Dados abertos",           [PY, str(PIPE/"gen_dados_abertos.py")], BASE),
+    ("API estática",            [PY, str(PIPE/"gen_api.py")],       BASE),
     ("Menu único",              [PY, str(PIPE/"gen_nav.py")],       BASE),
     ("QA + PII",                [PY, str(PIPE/"qa_report.py")],     BASE),
 ]

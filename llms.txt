@@ -13,6 +13,24 @@ Licença: dados CC BY 4.0 · código MIT. Nomes de pessoa nunca são publicados 
 - [Metodologia](metodologia.html): fontes, ETL, cálculo salarial, QA e ressalvas.
 - [Dados abertos](dados-abertos.html): esta página (download de JSON + código).
 
+## API estática (JSON por endpoint)
+
+Índice legível por máquina: [api/index.json](api/index.json). Sem chave e sem limite — arquivos estáticos regerados a cada atualização. Use quando quiser um recorte; use os datasets abaixo quando quiser tudo.
+
+- [api/coorte.json](api/coorte.json) — Coorte anonimizada A–AX: trilha, anos de carreira, bolsa inicial, renda estimada e crescimento.
+- [api/coorte/serie-por-experiencia.json](api/coorte/serie-por-experiencia.json) — Curva de carreira por anos de experiência: trajetória real do coorte e o que o mercado paga hoje.
+- [api/coorte/serie-por-ano.json](api/coorte/serie-por-ano.json) — Mediana do coorte por ano civil, em R$ da época, em reais do ano-base e em salários mínimos.
+- [api/coorte/trajetoria-destaque.json](api/coorte/trajetoria-destaque.json) — Trajetória individual anonimizada, ano a ano, mais a distribuição de multiplicadores do coorte.
+- [api/salario-minimo.json](api/salario-minimo.json) — Salário mínimo por ano: valor, reajuste do decreto, INPC, ganho real, deflator IPCA e câmbio.
+- [api/indices.json](api/indices.json) — IPCA, INPC e câmbio USD→BRL: número-índice mensal, médias anuais e deflatores (IBGE/IPEADATA).
+- [api/mercado/stackoverflow.json](api/mercado/stackoverflow.json) — Benchmarks do Stack Overflow: mediana em US$ por país, global, e o corte por moeda do contracheque.
+- [api/mercado/codigofonte.json](api/mercado/codigofonte.json) — Pesquisa Código Fonte: escada de senioridade, contrato e região (2026 + série histórica).
+- [api/empresas/index.json](api/empresas/index.json) — Índice das empresas: porte, origem e setor, com link para o detalhe de cada uma.
+- [api/empresas/<slug>.json](api/empresas/<slug>.json) — Detalhe de uma empresa (204 arquivos): headcount, sede, setor, site, fundação, especialidades, vagas.
+- [api/analise.json](api/analise.json) — Análises agregadas: clusters, sankey, funções, gênero, internacionalização, extensão.
+- [api/fomento-fapes.json](api/fomento-fapes.json) — Fomento de bolsas FAPES recebido pela coorte (agregado por projeto).
+- [api/mapa/base.json](api/mapa/base.json) — Contorno dos continentes já projetado para SVG (Natural Earth 110m, domínio público).
+
 ## Datasets (JSON) — o que há em cada arquivo
 
 - [analise.json](dados/analise.json) — **Análises agregadas**. Objeto com chaves de análise: `top_tech` (tecnologias mais citadas), `clusters` (KMeans de perfis de carreira), `funcoes` (distribuição de funções), `lideranca_gestao` (nº em liderança/gestão), `sankey` (fluxo formação→trilha→destino), `intl_timeline` (% internacional por ano), `empresas` (regiao/modalidade/setor/porte agregados), `genero` (distribuição agregada), `extensao` (participação SRC/IFES, agregado), `outros_labs` (labs além do LEDS), `trilha_carreira` (início→meio→atual). Tudo AGREGADO, sem indivíduo. _(estrutura: objeto com 20 chaves: `top_tech, clusters, rows, insights, comparacao, cf_2026_senioridade, cruzamento, funcoes, lideranca_gestao, metodos, impacto, sankey, intl_timeline, empresas`; 20 itens, 42.0 KB)_
@@ -48,6 +66,7 @@ Reprodução: `python build_report.py` (gera+valida) · `python build_report.py 
 - [gen_vitrine.py](pipeline/gen_vitrine.py) — gera a página-vitrine 'Onde estão os egressos' (perfis + empresas)
 - [gen_reguas.py](pipeline/gen_reguas.py) — gera a página 'Trajetória salarial' (ano a ano + salário mínimo + comparação mundial)
 - [gen_nav.py](pipeline/gen_nav.py) — fonte única do menu — injeta a mesma navegação em todas as páginas
+- [gen_api.py](pipeline/gen_api.py) — gera a API estática em egressos/api/ (endpoints anonimizados + índice)
 - [gen_dados_abertos.py](pipeline/gen_dados_abertos.py) — gera esta aba de dados abertos (copia JSON seguros + código sanitizado + llms.txt)
 - [qa_report.py](pipeline/qa_report.py) — QA: cruza cada número do HTML com o pipeline + varredura de PII (gate de publicação)
 - [norm_empresas.py](pipeline/norm_empresas.py) — normaliza nomes de empresa e agrupa variantes → empresas_aliases.json

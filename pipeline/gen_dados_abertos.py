@@ -38,7 +38,7 @@ SAFE = [
 # código publicado (sanitizado)
 CODE_FILES = ["build_report.py","ibge_series.py","so_benchmarks.py","compute_all.py","analise.py",
               "genero.py","fapes_fomento.py","src_extensao.py","gen_executivo.py","gen_panorama.py",
-              "mapa_base.py","gen_vitrine.py","gen_reguas.py","gen_nav.py","gen_dados_abertos.py",
+              "mapa_base.py","gen_vitrine.py","gen_reguas.py","gen_nav.py","gen_api.py","gen_dados_abertos.py",
               "qa_report.py","norm_empresas.py","enrich_empresas.py","classify_empresas.py",
               "classify_mistral.py","resolve_company_urls.py","mistral_porte.py"]
 
@@ -146,6 +146,17 @@ rows = "\n".join(
     f'<td><b>{esc(m["titulo"])}</b><br><small>{esc(m["desc"])}</small></td>'
     f'<td class="num">{m["itens"]}</td><td class="num">{m["kb"]} KB</td></tr>'
     for m in manifest)
+# links da API (o índice é gerado por gen_api.py, que roda logo antes)
+try:
+    _api = json.load(open(PUB/"api"/"index.json", encoding="utf-8"))["endpoints"]
+except (OSError, KeyError, ValueError):
+    _api = []
+api_rows = "\n".join(
+    f'<a class="cf" href="{esc(e["endpoint"])}">{esc(e["endpoint"].removeprefix("api/"))}'
+    f'<span>{e["kb"]} KB</span></a>' if e.get("kb") else
+    f'<span class="cf" style="opacity:.75">{esc(e["endpoint"].removeprefix("api/"))}<span>por item</span></span>'
+    for e in _api)
+
 code_rows = "\n".join(
     f'<a class="cf" href="pipeline/{esc(c["file"])}" download>{esc(c["file"])} <span>{c["kb"]} KB ↓</span></a>'
     for c in code_manifest)
@@ -218,6 +229,14 @@ HTML = f"""<!doctype html>
   </section>
 
   <section class="card">
+    <h2>API estática (JSON por endpoint)</h2>
+    <p class="hint">Se você quer consumir os dados de um site, notebook ou LLM em vez de baixar tudo, use a API: recortes menores, campos estáveis e um índice que lista todos os endpoints. Mesma licença, mesma anonimização.</p>
+    <pre class="code">curl https://ifesserra-lab.github.io/egressos/api/index.json</pre>
+    <div class="codegrid" style="margin-top:12px">{api_rows}</div>
+    <p class="hint" style="margin-top:12px">Sem chave, sem limite de uso, sem servidor: são arquivos estáticos no GitHub Pages, regerados a cada atualização do relatório.</p>
+  </section>
+
+  <section class="card">
     <h2>Código do pipeline</h2>
     <p class="hint">Scripts Python que geram e validam tudo (paths pessoais sanitizados). Reprodução: <code>python build_report.py</code>.</p>
     <div class="codegrid">{code_rows}</div>
@@ -254,6 +273,7 @@ CODE_DESC = {
  "so_benchmarks.py": "extrai do Stack Overflow as medianas em US$ por país e o corte por moeda do contracheque → so_benchmarks.json",
  "mapa_base.py": "baixa o Natural Earth 110m e converte em paths SVG projetados -> mapa_mundi.json",
  "gen_reguas.py": "gera a página 'Trajetória salarial' (ano a ano + salário mínimo + comparação mundial)",
+ "gen_api.py": "gera a API estática em egressos/api/ (endpoints anonimizados + índice)",
  "gen_nav.py": "fonte única do menu — injeta a mesma navegação em todas as páginas",
  "analise.py": "clusters, sankey, gênero, empresas, trilha, internacionalização → analise.json",
  "genero.py": "inferência de gênero OFFLINE (gender-guesser + heurística PT-BR) → genero_map (privado)",
@@ -286,7 +306,13 @@ L.append("- [Trajetória salarial](trajetoria_salarial.html): trajetória ano a 
 L.append("- [Panorama por egresso](dashboard_alunos.html): linha do tempo e cards anonimizados (A–AX).")
 L.append("- [Metodologia](metodologia.html): fontes, ETL, cálculo salarial, QA e ressalvas.")
 L.append("- [Dados abertos](dados-abertos.html): esta página (download de JSON + código).\n")
-L.append("## Datasets (JSON) — o que há em cada arquivo\n")
+L.append("## API estática (JSON por endpoint)\n")
+L.append("Índice legível por máquina: [api/index.json](api/index.json). Sem chave e sem limite — "
+         "arquivos estáticos regerados a cada atualização. Use quando quiser um recorte; use os "
+         "datasets abaixo quando quiser tudo.\n")
+for e in _api:
+    L.append(f"- [{e['endpoint']}]({e['endpoint']}) — {e['descricao']}")
+L.append("\n## Datasets (JSON) — o que há em cada arquivo\n")
 for m in manifest:
     L.append(f"- [{m['file']}](dados/{m['file']}) — **{m['titulo']}**. {m['campos']} _(estrutura: {m['schema']}; {m['itens']} itens, {m['kb']} KB)_")
 L.append("\n## Código do pipeline (Python)\n")
