@@ -945,7 +945,8 @@ const MAPA = {MAPA_JSON};
   // Enquanto os pontos de uma mesma região não separam na tela, agrega por estado.
   // 40 px de viewBox ≈ 14 graus: abaixo disso as cidades da Grande Vitória já se distinguem.
   const AGREGA_ATE = 40;
-  const chave = L => (!L.exterior && view.w > AGREGA_ATE) ? L.grupo : L.rotulo;
+  const agregando = () => view.w > AGREGA_ATE;
+  const chave = L => (!L.exterior && agregando()) ? L.grupo : L.rotulo;
 
   const gLand=el('g',{{}}), gFino=el('g',{{}}), gArc=el('g',{{}}), gDot=el('g',{{}}), gLab=el('g',{{}});
   MAPA.paths.forEach(d=>gLand.appendChild(el('path',{{d,class:'land'}})));
@@ -1040,7 +1041,7 @@ const MAPA = {MAPA_JSON};
     stats.innerHTML = `<span>📍 <b>${{A.total}}</b> egressos localizados</span>`
       + `<span>🇧🇷 Brasil <b>${{br}}</b></span>`
       + `<span>🌍 Exterior <b>${{A.exterior}}</b></span>`
-      + `<span>Em <b>${{Object.keys(cont).length}}</b> ${{nivel==='brasil'?'estados/países':'lugares'}}</span>`
+      + `<span>Em <b>${{Object.keys(cont).length}}</b> ${{agregando()?'estados/países':'lugares'}}</span>`
       + (A.sem ? `<span style="color:var(--muted)">sem lugar <b>${{A.sem}}</b></span>` : '');
     const fora = document.getElementById('mapfora'); if(fora) fora.textContent = A.sem;
   }}
