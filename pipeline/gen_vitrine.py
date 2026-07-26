@@ -310,6 +310,14 @@ GAZ = [
     (r"su[ée]cia|sweden",                   "Suécia",            60.13,  18.64, "🇸🇪", "Suécia"),
     (r"santiago",                           "Santiago",         -33.45, -70.67, "🇨🇱", "Chile"),
     (r"chile",                              "Chile",            -35.68, -71.54, "🇨🇱", "Chile"),
+    (r"armonk",                             "Armonk, NY",        41.13, -73.71, "🇺🇸", "Estados Unidos"),
+    (r"new york|nova york|\bnyc\b|brooklyn|manhattan", "Nova York",  40.71, -74.01, "🇺🇸", "Estados Unidos"),
+    (r"cambridge, ?ma|boston",              "Boston",            42.36, -71.06, "🇺🇸", "Estados Unidos"),
+    (r"atlanta",                            "Atlanta",           33.75, -84.39, "🇺🇸", "Estados Unidos"),
+    (r"san francisco|bay area|palo alto|mountain view", "São Francisco", 37.77, -122.42, "🇺🇸", "Estados Unidos"),
+    (r"seattle|redmond",                    "Seattle",           47.61,-122.33, "🇺🇸", "Estados Unidos"),
+    (r"austin",                             "Austin",            30.27,  -97.74, "🇺🇸", "Estados Unidos"),
+    (r"chicago",                            "Chicago",           41.88,  -87.63, "🇺🇸", "Estados Unidos"),
     (r"florida",                            "Flórida (EUA)",     27.99, -81.76, "🇺🇸", "Estados Unidos"),
     (r"united states|estados unidos|\beua\b|\busa\b", "Estados Unidos", 39.83, -98.58, "🇺🇸", "Estados Unidos"),
     (r"madrid",                             "Madri",             40.42,  -3.70, "🇪🇸", "Espanha"),
@@ -320,6 +328,7 @@ GAZ = [
     (r"argentina|buenos aires",             "Buenos Aires",     -34.60, -58.38, "🇦🇷", "Argentina"),
     (r"m[ée]xico",                          "México",            23.63,-102.55, "🇲🇽", "México"),
     (r"israel|tel aviv",                    "Tel Aviv",          32.09,  34.78, "🇮🇱", "Israel"),
+    (r"guatemala",                          "Guatemala",         14.63,  -90.51, "🇬🇹", "Guatemala"),
     # --- Espírito Santo (a origem do coorte) ---
     (r"vit[óo]ria",                         "Vitória, ES",      -20.32, -40.31, "", "Espírito Santo"),
     (r"vila velha",                         "Vila Velha, ES",   -20.33, -40.29, "", "Espírito Santo"),
@@ -347,8 +356,11 @@ SEM_LUGAR = ("remoto", "remote", "brasil", "brazil", "nao especificado", "")
 
 # Sedes que a coleta do LinkedIn não trouxe e que são informação pública conhecida.
 # Só entram aqui empresas cuja sede dá para afirmar sem chutar.
+# Sede MUNDIAL, conferida na fonte primária (formulários da SEC / site oficial):
+#   MongoDB, Inc. — 1633 Broadway, 38th Floor, New York, NY 10019
+#   IBM (International Business Machines Corp.) — 1 New Orchard Road, Armonk, NY 10504
 SEDE_MANUAL = {
-    "mongodb": "New York, United States",
+    "mongodb": "New York, New York, United States",
     "ibm": "Armonk, New York, United States",
 }
 
