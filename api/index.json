@@ -46,7 +46,7 @@
   {
    "endpoint": "api/mercado/stackoverflow.json",
    "descricao": "Benchmarks do Stack Overflow: mediana em US$ por país, global, e o corte por moeda do contracheque.",
-   "kb": 4.4
+   "kb": 5.7
   },
   {
    "endpoint": "api/mercado/codigofonte.json",

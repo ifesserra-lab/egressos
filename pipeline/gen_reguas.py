@@ -79,7 +79,12 @@ sm_real_var = SMG[-1][f"em_reais_de_{ANO_BASE}"] / SMG[0][f"em_reais_de_{ANO_BAS
 # ---- mundo ----
 glob = so["global_usd_mes"]
 eua = next(p["usd_mes"] for p in so["por_pais"] if p["pais"] == "Estados Unidos")
-moeda_ref = next(m for m in so["por_moeda_brasil"] if m["faixa"] == so["faixa_experiencia_referencia"][:11])
+# O recorte por moeda vem NOMEADO do artefato. Antes, esta linha achava a faixa fatiando os 11
+# primeiros caracteres de `faixa_experiencia_referencia` e casando com um rótulo de
+# `por_moeda_brasil` — o que só funcionava enquanto as duas partições coincidissem por acidente.
+# Quando a faixa de referência passou a ser o intervalo interquartil do coorte (8 a 13), deixou
+# de coincidir, e a página quebrava com StopIteration.
+moeda_ref = so["moeda_referencia"]
 usd_pago = moeda_ref["usd_usd_mes"]
 razao_moeda = moeda_ref["razao"]
 
@@ -301,7 +306,7 @@ HTML = f"""<!doctype html>
 
   <section class="card">
     <h3>Renda mediana em dólar — devs de {so["faixa_experiencia_referencia"]}</h3>
-    <p class="hint">Stack Overflow Developer Survey {so["edicao_referencia"]}, devs de software (back/front/full-stack/mobile), na mesma faixa de experiência da mediana de carreira do coorte. Barra tracejada = <b>cenário</b>: brasileiros que declaram salário em dólar.</p>
+    <p class="hint">Stack Overflow Developer Survey {so["edicao_referencia"]}, devs de software (back/front/full-stack/mobile), na faixa de experiência da <b>metade do meio do coorte</b> ({so["faixa_experiencia_referencia"]}; mediana de carreira = 11 anos). Barra tracejada = <b>cenário</b>: brasileiros que declaram salário em dólar, com {so["moeda_referencia"]["n_usd"]} respondentes.</p>
     <div class="chart-scroll"><svg id="cPais" viewBox="0 0 900 500" role="img" aria-label="Renda mediana em dólar por país"></svg></div>
   </section>
 
@@ -320,7 +325,7 @@ HTML = f"""<!doctype html>
 
   <section class="card">
     <h3>No Brasil, a moeda do contracheque vale mais que o país</h3>
-    <p class="hint">Stack Overflow {so["edicao_referencia"]}, respondentes <b>do Brasil</b>, separados pela moeda em que declaram o salário. Mesmo país, mesma experiência — até <b>{n1(razao_moeda)}× de diferença</b>.</p>
+    <p class="hint">Stack Overflow {so["edicao_referencia"]}, respondentes <b>do Brasil</b>, separados pela moeda em que declaram o salário. Mesmo país, mesma experiência — <b>{n1(razao_moeda)}× de diferença</b> no corte de <b>{moeda_ref["faixa"]}</b> (n={moeda_ref["n_brl"]} em R$, {moeda_ref["n_usd"]} em US$); nas faixas finas abaixo, a razão vai de {n1(min(m["razao"] for m in so["por_moeda_brasil"]))}× a {n1(max(m["razao"] for m in so["por_moeda_brasil"]))}×.</p>
     <div class="chart-scroll"><svg id="cMoeda" viewBox="0 0 900 320" role="img" aria-label="Brasileiros pagos em real e em dólar"></svg></div>
     <div class="legend">
       <span><i class="swb" style="background:var(--br)"></i> Pago em R$</span>
