@@ -24,9 +24,15 @@ Uso:  python pipeline/ibge_series.py            (baixa e grava)
 Se a rede falhar e houver cache, usa o cache e avisa. Se não houver, aborta — o pipeline
 NÃO deve seguir com número inventado.
 """
-import json, pathlib, sys, urllib.request, urllib.error
+import datetime
+import json
+import sys
+import urllib.error
+import urllib.request
 
-BASE = pathlib.Path("/caminho/para/salario")
+from egressos_core import dados, deflator
+from egressos_core.paths import ROOT as BASE
+
 DATA = BASE / "data"
 CACHE = DATA / "_cache_ibge"
 
@@ -100,15 +106,15 @@ def parse_ipea(raw):
     return out
 
 
-def media_anual(mensal):
-    por_ano = {}
-    for p, v in mensal.items():
-        por_ano.setdefault(int(p[:4]), []).append(v)
-    return {y: sum(v) / len(v) for y, v in por_ano.items()}
+def executar(*, hoje: datetime.date | None = None, offline: bool = False) -> None:
+    """Baixa as séries e grava `salario_minimo` e `ibge_series`.
 
-
-def main():
-    offline = "--offline" in sys.argv
+    Esta é a única etapa que **define** a data de referência do relatório em vez de recebê-la: o
+    `mes_base` é o último mês publicado do IPCA, e sai daqui para as outras 15 etapas. O parâmetro
+    `hoje` existe para a assinatura ser uniforme (ver o contrato das etapas) e é ignorado de
+    propósito — usá-lo aqui seria deixar o relógio da máquina decidir até onde a série vai.
+    """
+    del hoje
     print("== séries macro (IBGE + IPEADATA) ==")
     ipca = parse_sidra(baixa("ipca", offline))
     inpc = parse_sidra(baixa("inpc", offline))
@@ -116,43 +122,16 @@ def main():
     fx   = parse_ipea(baixa("fx", offline))
 
     ult_ipca = max(ipca)                 # ex.: "202606"
-    ipca_ano = media_anual(ipca)
-    inpc_ano = media_anual(inpc)
-    base_ipca = ipca[ult_ipca]           # deflaciona para o último mês publicado
+    ipca_ano = deflator.media_anual(ipca)
+    inpc_ano = deflator.media_anual(inpc)
+    # (não há mais `base_ipca` do último mês: a base virou a MÉDIA do ano-base, abaixo)
 
-    # ---- deflatores IPCA ----
-    # Base = MÉDIA DO ANO-BASE (com os meses já publicados), não um mês específico.
-    # Assim "R$ de 2026" quer dizer literalmente reais médios de 2026 e o deflator do
-    # próprio ano-base é 1,0000 — o rótulo das páginas fica verdadeiro.
-    base_ano = ipca_ano[ANO_BASE]
-    deflator = {y: round(base_ano / ipca_ano[y], 4)
-                for y in range(ANO_INI, ANO_BASE + 1) if y in ipca_ano}
-    fx_ano = {y: round(v, 4) for y, v in media_anual(fx).items()
-              if ANO_INI <= y <= ANO_BASE}
+    # Deflatores, câmbio e a tabela do salário mínimo: a conta mora em egressos_core.deflator,
+    # com teste de caracterização contra estes mesmos JSONs (tests/test_deflator.py).
+    deflatores = deflator.deflatores_ipca(ipca, ano_ini=ANO_INI, ano_base=ANO_BASE)
+    fx_ano = deflator.cambio_por_ano(fx, ano_ini=ANO_INI, ano_base=ANO_BASE)
 
-    # ---- salário mínimo por ano ----
-    anos = []
-    for y in range(ANO_INI, ANO_BASE + 1):
-        meses = {p: v for p, v in sm.items() if p.startswith(str(y))}
-        if len(meses) < 12:
-            continue
-        vals = [meses[f"{y}{m:02d}"] for m in range(1, 13)]
-        jan, dez = vals[0], vals[-1]
-        prev_dez = sm.get(f"{y-1}12")
-        # reajuste oficial = valor de janeiro sobre o último valor vigente do ano anterior
-        reajuste = round((jan / prev_dez - 1) * 100, 2) if prev_dez else None
-        # a política de valorização usa o INPC ACUMULADO do ano anterior (dez/dez)
-        i_ant, i_ant2 = inpc.get(f"{y-1}12"), inpc.get(f"{y-2}12")
-        inpc_pct = round((i_ant / i_ant2 - 1) * 100, 2) if (i_ant and i_ant2) else None
-        real = (round(((1 + reajuste / 100) / (1 + inpc_pct / 100) - 1) * 100, 2)
-                if (reajuste is not None and inpc_pct is not None) else None)
-        media = round(sum(vals) / 12, 2)
-        anos.append({
-            "ano": y, "jan": jan, "dez": dez, "media_ponderada": media,
-            "reajuste_pct": reajuste, "inpc_ano_anterior_pct": inpc_pct, "ganho_real_pct": real,
-            "dois_valores_no_ano": jan != dez,
-            f"em_reais_de_{ANO_BASE}": round(media * deflator[y]) if y in deflator else None,
-        })
+    anos = deflator.salario_minimo_por_ano(sm, inpc, ipca, ano_ini=ANO_INI, ano_base=ANO_BASE)
 
     smj = {
         "titulo": "Salário mínimo nacional por ano — nominal, reajuste e ganho real",
@@ -174,11 +153,10 @@ def main():
         "por_ano": anos,
         # atalhos para consumo direto no pipeline salarial
         "sm_por_ano": {a["ano"]: a["media_ponderada"] for a in anos},
-        "deflator_ipca_por_ano": deflator,
+        "deflator_ipca_por_ano": deflatores,
         "cambio_por_ano": fx_ano,
     }
-    (DATA / "salario_minimo.json").write_text(
-        json.dumps(smj, ensure_ascii=False, indent=1), encoding="utf-8")
+    dados.gravar("salario_minimo", smj)
 
     ser = {
         "titulo": "Séries macroeconômicas de referência do estudo de egressos",
@@ -190,7 +168,7 @@ def main():
                      "primeiro": min(ipca), "ultimo": ult_ipca, "n_meses": len(ipca),
                      "mensal": {p: ipca[p] for p in sorted(ipca) if p >= f"{ANO_INI}01"},
                      "media_anual": {y: round(v, 2) for y, v in sorted(ipca_ano.items()) if y >= ANO_INI},
-                     "deflator_para_base": deflator},
+                     "deflator_para_base": deflatores},
             "inpc": {"titulo": FONTES["inpc"]["titulo"], "fonte": FONTES["inpc"]["fonte"],
                      "url": FONTES["inpc"]["url"], "unidade": "número-índice",
                      "primeiro": min(inpc), "ultimo": max(inpc), "n_meses": len(inpc),
@@ -207,16 +185,15 @@ def main():
                        "mensal": {p: fx[p] for p in sorted(fx) if p >= f"{ANO_INI}01"},
                        "media_anual": fx_ano}},
     }
-    (DATA / "ibge_series.json").write_text(
-        json.dumps(ser, ensure_ascii=False, indent=1), encoding="utf-8")
+    dados.gravar("ibge_series", ser)
 
     print(f"\nOK — IPCA até {ult_ipca} · INPC até {max(inpc)} · SM até {max(sm)} · câmbio até {max(fx)}")
     print(f"  data/salario_minimo.json  ({len(anos)} anos)")
-    print(f"  data/ibge_series.json     (3 séries)")
+    print("  data/ibge_series.json     (3 séries)")
     u = anos[-1]
     print(f"  {u['ano']}: SM R$ {u['media_ponderada']:.2f} · reajuste {u['reajuste_pct']}% · "
           f"real {u['ganho_real_pct']}% · em R$ de {ANO_BASE}: {u[f'em_reais_de_{ANO_BASE}']}")
 
 
 if __name__ == "__main__":
-    main()
+    executar(offline="--offline" in sys.argv)

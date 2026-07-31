@@ -46,12 +46,12 @@
   {
    "endpoint": "api/mercado/stackoverflow.json",
    "descricao": "Benchmarks do Stack Overflow: mediana em US$ por país, global, e o corte por moeda do contracheque.",
-   "kb": 2.4
+   "kb": 4.4
   },
   {
    "endpoint": "api/mercado/codigofonte.json",
    "descricao": "Pesquisa Código Fonte: escada de senioridade, contrato e região (2026 + série histórica).",
-   "kb": 3.2
+   "kb": 4.1
   },
   {
    "endpoint": "api/empresas/index.json",

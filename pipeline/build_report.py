@@ -31,9 +31,11 @@ IMPORTANTE — sincronia de order/labels:
   gen_executivo.py e gen_panorama.py lêem apenas consolidado.json/analise.json/
   alunos.json — os números do dashboard vêm SEMPRE do pipeline, nunca à mão.
 """
-import subprocess, pathlib, sys
+import subprocess
+import sys
 
-BASE = pathlib.Path("/caminho/para/salario")
+from egressos_core.paths import ROOT as BASE
+
 # Interpretador dos subprocessos: o venv local quando existe, senão o próprio Python que
 # está rodando (é o caso do CI, que instala as dependências no ambiente do runner).
 _venv = BASE / ".venv/bin/python"

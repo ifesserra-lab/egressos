@@ -6,27 +6,33 @@ Saída: data/src_extensao.json (AGREGADO + ids; privado — fica só no repo de 
 Ressalva: match por nome completo (sem CPF no alunos.json) — possíveis homônimos;
 tratar como piso (lower bound). Todos são egressos do IFES Serra, então o prior
 de "mesmo nome = mesma pessoa" é alto."""
-import json, glob, unicodedata, collections, re, pathlib
+import collections
+import glob
+import json
 
-BASE = pathlib.Path("/caminho/para/salario")
-SRC = pathlib.Path("/caminho/para/src_etl/data")
+from egressos_core.paths import ROOT as BASE
+from egressos_core.paths import SRC_ETL_DATA as SRC
+from egressos_core.text import norm_ws
+
 FAPES_IDS = ["barbosa", "gary", "helen", "marialuiza", "icaro", "tarcisio"]  # cf. fapes_fomento.ANCORA
 
-def norm(s):
-    s = "".join(c for c in unicodedata.normalize("NFD", s or "") if unicodedata.category(c) != "Mn")
-    return re.sub(r"\s+", " ", s.lower().strip())
-
 al = json.load(open(BASE / "alunos.json"))["alunos"]
-egn = {norm(a["nome"]): a["id"] for a in al}
+egn = {norm_ws(a["nome"]): a["id"] for a in al}
 gmap = json.load(open(BASE / "data/genero_map.json"))
 
 hits = collections.defaultdict(list)  # id -> [(processo, funcao)]
+# A base do SRC vive em outro repositório e nem sempre está montada (no CI não está).
+# Degradar aqui é intencional — mas em voz alta: sem o aviso, "0 bolsistas de extensão"
+# é indistinguível de "a fonte não estava lá".
+if not SRC.exists():
+    print(f"AVISO: base do SRC não montada em {SRC} — seguindo sem a seção de extensão. "
+          f"Defina EGRESSOS_SRC_ETL se ela estiver em outro lugar.")
 for f in glob.glob(str(SRC / "participacoes/*.json")):
     proc = f.split("participacoes_")[1].replace(".json", "")
     d = json.load(open(f))
     for at in d.get("atividades", []):
         for e in at.get("equipe_execucao", []):
-            nm = norm(e.get("Nome", ""))
+            nm = norm_ws(e.get("Nome", ""))
             if nm in egn:
                 hits[egn[nm]].append((proc, e.get("Função", "")))
 

@@ -14,10 +14,11 @@ A página atual aparece no menu marcada e sem link, para o leitor saber onde est
 
 Uso:  python pipeline/gen_nav.py
 """
-import pathlib, re, sys
+import re
+import sys
 
-BASE = pathlib.Path("/caminho/para/salario")
-PUB  = BASE.parent / "egressos"   # gen_vitrine e gen_dados_abertos escrevem direto aqui
+from egressos_core.paths import PUB
+from egressos_core.paths import ROOT as BASE
 
 # (raiz, arquivo, nome no site publicado, ícone, título, subtítulo)
 # raiz "L" = repo local salario/ (a página é copiada no publish)

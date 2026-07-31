@@ -8,10 +8,16 @@ mistral_porte.py). Nenhum nome de egresso é enviado — só nome/industry/speci
 Uso:  .venv/bin/python pipeline/classify_mistral.py            # só os que estão 'Outros'/sem setor_real
       .venv/bin/python pipeline/classify_mistral.py --all      # reclassifica todos os enriquecidos
 """
-import os, json, time, pathlib, sys, urllib.request
+import json
+import os
+import sys
+import time
+import urllib.request
+
 from dotenv import load_dotenv
 
-BASE = pathlib.Path("/caminho/para/salario")
+from egressos_core.paths import ROOT as BASE
+
 load_dotenv(BASE / ".env")
 KEY = os.environ["MISTRAL_API_KEY"]
 PORTE = BASE / "data" / "empresas_porte.json"

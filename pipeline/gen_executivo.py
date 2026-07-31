@@ -1,7 +1,10 @@
 """Regenera os consts/tabelas/prosa do dashboard_executivo.html a partir de
 consolidado.json + analise.json para o coorte de 45 (modelo salarial = 44)."""
-import json, re, pathlib
-S = pathlib.Path("/caminho/para/salario")
+import json
+import re
+
+from egressos_core.paths import ROOT as S
+
 H = S/"dashboard_executivo.html"
 c = json.load(open(S/"data/consolidado.json")); a = json.load(open(S/"data/analise.json"))
 html = H.read_text(encoding="utf-8")

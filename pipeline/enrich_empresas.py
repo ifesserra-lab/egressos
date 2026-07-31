@@ -15,10 +15,25 @@ Uso:  (Chrome logado no LinkedIn)
   .venv/bin/python data/enrich_empresas.py                # empregadores ATUAIS
   .venv/bin/python data/enrich_empresas.py --all          # todas
 """
-import asyncio, random, json, re, sys, pathlib, datetime, glob, shutil, tempfile, time, os
+import asyncio
+import datetime
+import glob
+import json
+import os
+import random
+import re
+import shutil
+import sys
+import tempfile
+import time
 from urllib.parse import quote
-from dotenv import load_dotenv
+
 from browser_use import Agent, Browser, ChatMistral
+from dotenv import load_dotenv
+
+from egressos_core.paths import ROOT as BASE
+from egressos_core.text import slug_linkedin
+
 
 def sweep_browseruse_temp(older_than=90):
     """browser-use copia o profile inteiro (~115MB) por sessão e NÃO limpa no kill().
@@ -33,7 +48,6 @@ def sweep_browseruse_temp(older_than=90):
     if freed:
         print(f"  [limpeza] removidos {freed} profiles temporários órfãos")
 
-BASE = pathlib.Path("/caminho/para/salario")
 load_dotenv(str(BASE / ".env"))
 
 ALIASES = BASE / "data" / "empresas_aliases.json"
@@ -56,14 +70,8 @@ SLUG_OVERRIDE = {
     "velv": "wearevelv",
 }
 
-import unicodedata
-def slugify(nome):
-    """chute do slug LinkedIn a partir do nome (barato: evita o fluxo de busca)."""
-    s = "".join(c for c in unicodedata.normalize("NFD", nome) if unicodedata.category(c) != "Mn")
-    s = s.lower()
-    s = re.sub(r"[/&.,()']", " ", s)
-    s = re.sub(r"\s+", "-", s.strip())
-    return s.strip("-")
+
+
 
 def is_empty(parsed):
     """True se o parse não trouxe nenhum campo útil (slug errado / About vazia)."""
@@ -291,7 +299,7 @@ async def main():
     for i, nome in enumerate(alvos, 1):
         print(f"\n===== [{i}/{len(alvos)}] {nome} =====")
         # 1) tenta slug-direto (barato em chamadas Mistral) — override > chute
-        slug = SLUG_OVERRIDE.get(nome) or slugify(nome)
+        slug = SLUG_OVERRIDE.get(nome) or slug_linkedin(nome)
         _, res = await run_url(f"company/{slug}/about/", pdir, llm)
         parsed = parse(res)
         via = f"slug-direto ({slug})"
@@ -310,7 +318,7 @@ async def main():
             d = load(DATA, {}); d[nome] = {"nao_encontrado": True,
                     "verificado_em": datetime.date.today().isoformat()}
             DATA.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
-            print(f"  ✗ não encontrada")
+            print("  ✗ não encontrada")
         sweep_browseruse_temp()   # apaga a cópia de profile (~115MB) que o browser-use deixou
         if i < len(alvos):
             pausa = random.uniform(45, 75)   # pacing maior: alivia rate-limit Mistral + LinkedIn

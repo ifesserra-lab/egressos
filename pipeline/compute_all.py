@@ -1,4 +1,19 @@
-import pandas as pd, json, pathlib
+import json
+import pathlib
+
+import pandas as pd
+
+# ATENÇÃO: este script depende do DIRETÓRIO CORRENTE. Ele lê `../alunos.json` e grava
+# `consolidado.json` como caminhos relativos, o que só funciona quando é executado com
+# `cwd=data/` (é assim que build_report.py o chama). É o pior caso do que a fase 002
+# resolveu no resto do pipeline: quem usa o catálogo (`egressos_core.dados`) não depende de
+# onde o processo foi iniciado.
+#
+# Não foi convertido aqui de propósito: este arquivo vira `egressos_core/salarios.py` na F2,
+# e mexer nele agora significaria migrá-lo duas vezes. Ao migrar, trocar as leituras/gravações
+# por `dados.ler("alunos")` / `dados.gravar("consolidado", …)` e apagar este aviso.
+# Ver docs/ARQUITETURA.md (mapa de migração) e specs/002-banco-json-local/tasks.md, T034.
+
 SAL={2018:"ConvertedSalary",2019:"ConvertedComp",2020:"ConvertedComp",2021:"ConvertedCompYearly",2022:"ConvertedCompYearly",2023:"ConvertedCompYearly"}
 # salário mínimo por ano (média ponderada pelos meses) — vem de pipeline/ibge_series.py,
 # que baixa a série oficial. Régua alternativa ao IPCA: "quantos mínimos da época".
@@ -12,10 +27,18 @@ IP={int(k):v for k,v in _smj["deflator_ipca_por_ano"].items()}
 ANO_FIM=max(IP)+1
 SW=["back-end","front-end","full-stack","back end","front end","full stack","mobile developer","developer, mobile"]
 DA=["data scientist","machine learning","data or business analyst","engineer, data","data engineer","business analyst"]
-# Os CSVs do Stack Overflow (~700 MB) não vão para o git: são grandes e re-baixáveis à mão.
-# Sem eles não dá para recalcular a série salarial — mas ela também não muda de mês para mês
-# (não há edição nova do survey desde 2023). Então, em ambiente sem os CSVs (CI), mantém o
-# consolidado.json já versionado e segue. Só falha se nunca tiver sido gerado.
+# Os CSVs do Stack Overflow não vão para o git: são grandes (~150 MB por edição) e
+# re-obteníveis com `python pipeline/so_dataset.py --edicao <ano>`, que verifica o sha256
+# publicado pela origem. Sem eles não dá para recalcular a série salarial — e ela não muda de
+# mês para mês, porque o survey é anual; quem detecta edição nova é o vigia mensal
+# (pipeline/vigia_fontes.py). Então, em ambiente sem os CSVs (CI), mantém o consolidado.json
+# já versionado e segue. Só falha se nunca tiver sido gerado.
+#
+# PENDENTE, e é decisão separada: o SAL acima trava o survey em 2023, e `mkt()` abaixo clampa
+# o ano em 2023. Existem 2024 e 2025 em disco desde a fatia C da 004. Incorporá-las aqui muda
+# o salário ESTIMADO do coorte — o número central do estudo —, então pede PR próprio, com
+# diff campo a campo e nota ao leitor. A edição 2025 ainda por cima não publica YearsCodePro,
+# que é como este arquivo casa a faixa de experiência (ver 004/research.md, D6 e D11).
 _falta=[y for y in SAL if not pathlib.Path(f"public-{y}.csv").exists()]
 if _falta:
     _alvo=pathlib.Path("consolidado.json")

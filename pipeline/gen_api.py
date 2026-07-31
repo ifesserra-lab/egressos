@@ -17,10 +17,13 @@ por pessoa — só a coorte A–AX e dados públicos de empresa. A vitrine nomea
 
 Uso:  python pipeline/gen_api.py
 """
-import json, pathlib, re, shutil, unicodedata
+import json
+import shutil
 
-BASE = pathlib.Path("/caminho/para/salario")
-PUB = BASE.parent / "egressos"
+from egressos_core.paths import PUB
+from egressos_core.paths import ROOT as BASE
+from egressos_core.text import slug, strip_accents
+
 API = PUB / "api"
 SITE = "https://ifesserra-lab.github.io/egressos"
 
@@ -42,11 +45,6 @@ def escreve(rel, obj, descricao):
     endpoints.append({"endpoint": f"api/{rel}", "descricao": descricao,
                       "kb": round(alvo.stat().st_size / 1024, 1)})
     return alvo
-
-
-def slug(s):
-    s = "".join(c for c in unicodedata.normalize("NFD", s or "") if unicodedata.category(c) != "Mn")
-    return re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", s.lower())).strip("-") or "sem-nome"
 
 
 META = {"fonte": "Estudo de egressos de TI — IFES Campus Serra",
@@ -177,12 +175,11 @@ indice = {
 (API / "index.json").write_text(json.dumps(indice, ensure_ascii=False, indent=1), encoding="utf-8")
 
 # ---------- porta de PII: nenhum nome de aluno pode ter vazado ----------
-sa = lambda s: "".join(c for c in unicodedata.normalize("NFD", s or "") if unicodedata.category(c) != "Mn")
 al = json.load(open(BASE / "alunos.json", encoding="utf-8"))
 al = al if isinstance(al, list) else (al.get("alunos") or list(al.values())[0])
-nomes = {sa(a["nome"]).lower().strip() for a in al if a.get("nome")}
+nomes = {strip_accents(a["nome"]).lower().strip() for a in al if a.get("nome")}
 for arq in sorted(API.rglob("*.json")):
-    txt = sa(arq.read_text(encoding="utf-8")).lower()
+    txt = strip_accents(arq.read_text(encoding="utf-8")).lower()
     achou = [n for n in nomes if n and n in txt]
     if achou:
         raise SystemExit(f"ABORT: PII em {arq.relative_to(PUB)}: {achou[:3]} — API não publicada")

@@ -21,9 +21,11 @@ As duas páginas antigas viram redirecionamentos para esta, para não quebrar li
 
 Uso:  python pipeline/gen_reguas.py
 """
-import json, pathlib, datetime
+import json
 
-BASE = pathlib.Path("/caminho/para/salario")
+from egressos_core import dados, deflator
+from egressos_core.paths import ROOT as BASE
+
 OUT = BASE / "trajetoria_salarial.html"
 ANTIGAS = ["salario_minimo_mundo.html", "evolucao_salario_local.html"]
 ANO_BASE = 2026
@@ -117,7 +119,11 @@ TAB = sorted([
     ["Estados Unidos — Stack Overflow", eua * fx_base, 0],
 ], key=lambda r: r[1])
 
-HOJE = datetime.date.today().strftime("%d/%m/%Y")
+# A data exibida é a COMPETÊNCIA DO DADO (mes_base do IPCA), não a data do build. Duas razões:
+# `date.today()` fazia todo build gerar diff mesmo sem número mudar — o que treina quem revisa a
+# ignorar o diff — e "gerado em 31/07" sobre dado de junho informa a data errada a quem lê.
+# Determinístico porque vem do dado. Ver egressos_core.deflator.Competencia.
+REFERENCIA = deflator.data_referencia(dados.ler("ibge_series")).rotulo_pt()
 J = lambda o: json.dumps(o, ensure_ascii=False)
 n1 = lambda x: f"{x:.1f}".replace(".", ",")
 brl = lambda v: "R$ " + f"{round(v):,}".replace(",", ".")
@@ -374,7 +380,7 @@ HTML = f"""<!doctype html>
     </p>
   </section>
 
-  <p class="foot">Gerado automaticamente por <code>pipeline/gen_reguas.py</code> em {HOJE} · IFES — Campus Serra.<br>Todos os números vêm do pipeline; nenhum é digitado à mão.</p>
+  <p class="foot">Dados com base em {REFERENCIA} · gerado por <code>pipeline/gen_reguas.py</code> · IFES — Campus Serra.<br>Todos os números vêm do pipeline; nenhum é digitado à mão.</p>
 
 </div></div>
 

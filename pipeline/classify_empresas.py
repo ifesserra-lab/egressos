@@ -11,15 +11,21 @@ Imprime um resumo (contagem por porte_real e setor_real) p/ análise.
 Só dados PÚBLICOS de empresa. Sem LLM (regras determinísticas). Sem rede.
 Uso:  .venv/bin/python pipeline/classify_empresas.py
 """
-import json, os, re, unicodedata
+import json
+import os
+import re
 from collections import Counter
 
-BASE = "/caminho/para/salario"
+from egressos_core.paths import ROOT as _ROOT
+from egressos_core.text import strip_accents
+
+BASE = str(_ROOT)
 PORTE = os.path.join(BASE, "data", "empresas_porte.json")
 
+# Sem `.strip()` de propósito: NÃO é o `text.norm` do núcleo. Trocar mudaria a chave
+# de agrupamento de todo valor com espaço nas pontas — e o dado do LinkedIn tem desses.
 def norm(s):
-    return "".join(c for c in unicodedata.normalize("NFD", s or "")
-                   if unicodedata.category(c) != "Mn").lower()
+    return strip_accents(s).lower()
 
 # --- porte por headcount (bandas LinkedIn) ---
 def porte_por_headcount(hc):

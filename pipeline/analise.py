@@ -3,13 +3,18 @@ Análise dos egressos (alunos.json): clusters, tecnologias, insights e comparaç
 com as bases externas usadas (Stack Overflow survey via consolidado.json e Código Fonte 2026).
 Sem sklearn — KMeans em numpy (n pequeno). Saída: data/analise.json + insights no stdout.
 """
-import json, numpy as np, pathlib, collections, re
+import collections
+import re
 
-BASE = pathlib.Path("/caminho/para/salario")
-al = json.load(open(BASE/"alunos.json"))["alunos"]
-cons = json.load(open(BASE/"data/consolidado.json"))
-cf = json.load(open(BASE/"data/codigofonte_2026.json"))
-cfh = json.load(open(BASE/"data/codigofonte_historico.json"))
+import numpy as np
+
+from egressos_core import dados
+from egressos_core.paths import ROOT as BASE  # ainda usado por _count(), que lê .md/.txt
+
+al = dados.ler("alunos")["alunos"]
+cons = dados.ler("consolidado")
+cf = dados.ler("codigofonte_2026")
+cfh = dados.ler("codigofonte_historico")
 
 HOJE_Y = 2026 + 6/12  # ~jul/2026
 def ymnum(s): y,m=s.split("-"); return int(y)+(int(m)-1)/12
@@ -20,8 +25,12 @@ def anos_exp(a): return round(HOJE_Y - ymnum(a["inicio_carreira_dev"]),1)
 NORM = {
   "nodejs":"Node.js","node":"Node.js","nestjs":"NestJS","asp.net":".NET",".net":".NET",
   "c#":"C#","react native":"React Native","react":"React","vue":"Vue","angular":"Angular",
-  "angularjs":"Angular","postgres":"PostgreSQL","postgresql":"PostgreSQL","mongodb":"MongoDB",
+  "angularjs":"Angular","postgres":"PostgreSQL","postgresql":"PostgreSQL",
   "graphql":"GraphQL","docker":"Docker","kubernetes":"Kubernetes","aws":"AWS","gcp":"GCP",
+  # "mongodb" estava declarado duas vezes: primeiro como "MongoDB", depois como "NoSQL".
+  # Em dict literal a última ganha, então o efeito sempre foi "NoSQL" e o mapeamento para
+  # "MongoDB" era código morto. Removido o morto, sem mudar resultado. Se a intenção era
+  # contar MongoDB à parte, é decisão de dado — muda número publicado e não cabe nesta fase.
   "mongodb":"NoSQL","mongo":"NoSQL",
   "azure ml":"Azure","go":"Go","python":"Python","java":"Java","kotlin":"Kotlin","php":"PHP",
   "laravel":"Laravel","ionic":"Ionic","flutter":"Flutter","spring":"Spring","django":"Django",
@@ -300,7 +309,6 @@ for r in rows:
     tr="Dados" if r["trilha"]==1 else "Software"
     if r["senioridade"] in SENS: trilha_sen[tr][r["senioridade"]]+=1
 # cobertura da pesquisa
-import pathlib as _pl
 def _count(fn):
     p=BASE/fn
     if not p.exists(): return None
@@ -396,7 +404,7 @@ def _cls(c,m,default):
     return default
 # porte/origem do EMPREGADOR ATUAL: classificação via Mistral AI (data/empresas_porte.json).
 # Só nomes de EMPRESA foram enviados ao modelo (dado público) — nunca nomes de egressos.
-_MPORTE=json.load(open(BASE/"data/empresas_porte.json"))
+_MPORTE=dados.ler("empresas_porte")
 _PBKT={"Multinacional/BigTech":"Multinacional / BigTech","Grande nacional":"Grande nacional",
        "Média":"Média nacional","Startup":"Startup / scale-up","Scale-up":"Startup / scale-up",
        "Setor público":"Setor público","Desconhecida":"Não classificada"}
@@ -449,7 +457,7 @@ empresas={
 # ---------- 12) GÊNERO (inferido offline do 1º nome; agregado; amostra pequena) ----------
 # genero_map.json é privado (só repo de dados). Método aproximado/binário para
 # representação agregada — NÃO é declaração de identidade de gênero de ninguém.
-gmap = json.load(open(BASE/"data/genero_map.json"))
+gmap = dados.ler("genero_map")
 sal = _perfil_id  # por id, robusto a perfis puladas (label-join)
 def _is_gestao(r): return bool(r["lideranca"]) or any(x in (r["cargo_atual"] or "").lower() for x in ["geren","gestor","head","coorden","diretor"])
 G={}
@@ -470,7 +478,7 @@ for g in ("F","M"):
       "senioridade":dict(collections.Counter(r["senioridade"] for r in grp)),
     }
 # extensão SRC (base oficial IFES Serra) — cruzamento em data/src_extensao.py
-srcext = json.load(open(BASE/"data/src_extensao.json"))
+srcext = dados.ler("src_extensao")
 extensao = {
   "fonte": srcext["fonte"], "ressalva": srcext["ressalva"],
   "n_encontrados": srcext["n_encontrados"],
@@ -481,7 +489,7 @@ extensao = {
 }
 # outros laboratórios além do LEDS — cross-ref em data/outros_labs.py (subagent)
 try:
-    _ol = json.load(open(BASE/"data/outros_labs.json"))
+    _ol = dados.ler("outros_labs")
     _leds_n = impacto["origem"]["extensao_leds"]
     _labs = [{"lab":"LEDS — Laboratório de Extensão em Desenvolvimento de Sistemas (IFES)","n_egressos":_leds_n}] + _ol["labs"]
     outros_labs = {"fonte":_ol["fonte"],"n_leds":_leds_n,"n_com_outro_lab":_ol["n_com_outro_lab"],
@@ -539,7 +547,7 @@ genero={
 # Escolhe, de forma determinística, o perfil que melhor conta a história do estudo:
 # começou em bolsa/estágio, tem a série mais longa e o maior multiplicador. Tudo anonimizado —
 # o rótulo do empregador vira "Bolsa · pesquisa/extensão" / "Empresa nacional" / "Empresa internacional".
-_cons = json.load(open(BASE/"data/consolidado.json"))
+_cons = dados.ler("consolidado")
 _FX = {int(k): v for k, v in _cons["fx_por_ano"].items()}
 _IP = {int(k): v for k, v in _cons["deflator_ipca_por_ano"].items()}
 _lab2id = {f"Perfil {r['label']}": r["id"] for r in rows if r.get("label") and r.get("id")}
@@ -602,7 +610,7 @@ out={"top_tech":top_tech,"clusters":cl_desc,"rows":rows,"insights":insights,
      "sankey":sankey,"intl_timeline":intl_timeline,"empresas":empresas,"genero":genero,
      "extensao":extensao,"outros_labs":outros_labs,"trilha_carreira":trilha_carreira,
      "trajetoria_destaque":trajetoria,"hist_multiplicadores":hist_mult}
-json.dump(out, open(BASE/"data/analise.json","w"), ensure_ascii=False, indent=1)
+dados.gravar("analise", out)
 
 # ---------- stdout ----------
 print("=== TECNOLOGIAS (top por nº de pessoas) ===")
@@ -631,5 +639,6 @@ print("\n=== MÉTODOS / PRÁTICAS (presença por egresso) ===")
 for m in metodos: print(f"  {m['metodo']:<32} {m['n']}")
 print("\n=== INDICADORES DE IMPACTO ===")
 import json as _j
+
 print(_j.dumps(impacto, ensure_ascii=False, indent=1))
 print("\nSalvo em data/analise.json")

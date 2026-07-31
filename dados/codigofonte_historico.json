@@ -1,6 +1,10 @@
 {
   "fonte": "pesquisa.codigofonte.com.br — média salarial mensal (R$ nominais) por nível de senioridade, por edição",
   "medida": "média (mean), remuneração geral (sem filtro CLT/PJ)",
+  "licenca": "não declarada pela fonte",
+  "licenca_obs": "A fonte publica os resultados em página web, sem termos de uso nem licença de dados. Uso aqui: referência de mercado agregada e citada. Registrar a ausência é diferente de omitir.",
+  "atribuicao": "Pesquisa Código Fonte — pesquisa.codigofonte.com.br",
+  "n_por_recorte": "não publicado pela fonte: a metodologia divulga só o total da edição, então nenhum valor daqui entra em cálculo ponderado por amostra",
   "obs": "Categoria 'Especialista/Tech Lead' aparece como 'Outro' nas edições antigas — amostra pequena e ruidosa em 2021/2022 (fica abaixo do Sênior). 1ª edição = 2021; não há dados anteriores.",
   "ipca_fator_para_2026": {"2021":1.237,"2022":1.169,"2023":1.117,"2024":1.066,"2025":1.020,"2026":1.000},
   "media_por_senioridade": {

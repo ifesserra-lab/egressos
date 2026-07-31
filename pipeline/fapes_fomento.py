@@ -3,10 +3,11 @@ Lê a base FAPES (relatorio_alocacao_bolsas.json do fapes-dashboard) e agrega os
 que financiaram os egressos. Vínculo egresso↔projeto é CURADO (verificado por projeto+período+
 sigla — cross por nome puro dá homônimo). Saída: data/fapes_fomento.json.
 """
-import json, re, pathlib
+import json
+import re
 
-BASE = pathlib.Path("/caminho/para/salario")
-FAPES = pathlib.Path("/caminho/para/fapes-dashboard/downloads/relatorio_alocacao_bolsas.json")
+from egressos_core.paths import FAPES_ALOCACAO as FAPES
+from egressos_core.paths import ROOT as BASE
 
 # projeto-âncora -> egressos (ids do alunos.json) verificados por projeto+período+sigla
 ANCORA = {
