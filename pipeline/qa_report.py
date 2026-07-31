@@ -1,8 +1,13 @@
 """QA final: cruza os valores hardcoded no dashboard_executivo.html com o pipeline
 (consolidado.json + analise.json + fapes_fomento.json). PASS/FAIL por checagem."""
-import json, re, subprocess, pathlib, sys
+import json
+import re
+import subprocess
+import sys
 
-S = pathlib.Path("/caminho/para/salario")
+from egressos_core.paths import PUB
+from egressos_core.paths import ROOT as S
+
 SCR = S/"data"  # scripts de QA vivem em data/
 HTML = S/"dashboard_executivo.html"
 htmltxt = HTML.read_text(encoding="utf-8")
@@ -56,7 +61,7 @@ print("== BOX (dispersão) ==")
 bx={b["l"].split(" (")[0]:b for b in C["IMPACTO"]["box"]}
 imp=an["impacto"]
 def boxok(label,src):
-    b=bx.get(label);
+    b=bx.get(label)
     return b and b["med"]==src["med"] and b["q1"]==src["q1"] and b["q3"]==src["q3"] and b["min"]==src["min"] and b["max"]==src["max"]
 chk("box Software == analise", boxok("Software",imp["dispersao_por_trilha"]["Software"]))
 chk("box Dados == analise", boxok("Dados",imp["dispersao_por_trilha"]["Dados"]))
@@ -152,7 +157,6 @@ for a in al["alunos"]:
             p=p.strip()
             if len(p)>2 and p not in KEEP: pii.add(p)
 COBOLS={"Juliana","Roberta","Bárbara","Vinicius","Torres","Kirmes","Manfredini"}
-PUB=pathlib.Path("/caminho/para/egressos")
 files={"exec": S/"dashboard_executivo.html", "alunos": S/"dashboard_alunos.html",
        "trajetoria": S/"trajetoria_salarial.html",
        "metodologia": S/"metodologia.html",

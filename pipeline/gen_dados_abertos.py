@@ -7,22 +7,30 @@ Gera a aba de DADOS ABERTOS no repo público egressos:
   - gera egressos/dados-abertos.html (índice com download + dicionário + licença + repro)
 
 NUNCA copia: alunos.json, *_reais, egressos_result.md, genero_map, src_extensao,
-horizon_pesquisa, lattes_orientacoes, outros_labs, consolidado_raw (PII / id->atributo).
+horizon_pesquisa, lattes_orientacoes, outros_labs, consolidado_raw (PII / id->atributo)
+e por_ano (despublicado em 2026-07-31: trajetória individual, não agregado).
+A lista de liberados NÃO é a SAFE abaixo — quem decide é egressos_core.dados.
 Roda a varredura de PII antes de copiar cada JSON (cruza com nomes de alunos.json) e ABORTA se achar.
 """
-import json, os, re, shutil, unicodedata, pathlib, html
+import html
+import json
+import os
+import pathlib
+import shutil
 
-BASE = pathlib.Path("/caminho/para/salario")
-PUB  = pathlib.Path("/caminho/para/egressos")
+from egressos_core import dados
+from egressos_core.paths import PUB
+from egressos_core.paths import ROOT as BASE
+from egressos_core.text import strip_accents
+
 DADOS_OUT = PUB / "dados"
 CODE_OUT  = PUB / "pipeline"
-PERSONAL_PATH = "/caminho/para/salario"
+PERSONAL_PATH = str(BASE)
 
 # ---- datasets liberados (arquivo, título, descrição) ----
 SAFE = [
     ("analise.json",           "Análises agregadas",       "Clusters de carreira, Sankey formação→trilha→destino, distribuição por empresa (região/setor/porte), gênero (agregado), extensão, trilha no tempo, internacionalização."),
     ("consolidado.json",       "Perfis anonimizados",      "Coorte A–AX: trilha, anos de carreira, bolsa, salário estimado inicial/atual e crescimento — sem nome/empresa/local individual."),
-    ("por_ano.json",           "Série por ano",            "Contagens e métricas por ano da coorte."),
     ("salario_minimo.json",    "Salário mínimo por ano",   "Salário mínimo nacional 2011–2026: valor de janeiro, de dezembro, média ponderada pelos meses, reajuste do decreto, INPC do ano anterior, ganho real e valor em reais do ano-base."),
     ("ibge_series.json",       "Séries macro (IBGE/IPEADATA)","IPCA e INPC (número-índice mensal + média anual + deflatores) e o salário mínimo mensal. Base para toda correção monetária do estudo."),
     ("mapa_mundi.json",        "Contorno do mapa-múndi",   "Polígonos dos continentes (Natural Earth 110m) já projetados em coordenadas SVG, usados no mapa animado da vitrine de carreiras. Domínio público."),
@@ -54,7 +62,6 @@ FIELDS = {
    "`perfil` (rótulo A–AX), `trilha` (Software/Dados/…), `em_tech` (bool), `anos` (anos de carreira), "
    "`bolsa` (valor mensal da bolsa em anos de bolsa), `med_ini`/`med_atual` (salário estimado inicial/atual, R$2026), "
    "`cresc` (múltiplo de crescimento). SEM nome/empresa/local.",
- "por_ano.json": "Métricas da coorte por ano (contagens/ativos).",
  "salario_minimo.json": "Objeto `{titulo, fonte_*, ano_base_deflator, notas[], por_ano[], sm_por_ano, "
    "deflator_ipca_por_ano}`. Cada item de `por_ano[]`: `ano`, `jan`/`dez` (valores vigentes), "
    "`media_ponderada` (média dos 12 meses — importa nos anos com dois valores, 2020 e 2023), "
@@ -102,24 +109,41 @@ def schema_str(d):
     return "—"
 
 # ---- PII sweep (aborta se achar nome real) ----
-def sa(s): return "".join(c for c in unicodedata.normalize("NFD", s or "") if unicodedata.category(c) != "Mn")
-al = json.load(open(BASE/"alunos.json"))
+al = dados.ler("alunos")
 al = al if isinstance(al, list) else (al.get("alunos") or list(al.values())[0])
-NAMES = {sa(a.get("nome","")).lower().strip() for a in al if a.get("nome")}
+NAMES = {strip_accents(a.get("nome","")).lower().strip() for a in al if a.get("nome")}
 NAMES = {n for n in NAMES if n}
 def pii_hits(path):
-    txt = sa(open(path, encoding="utf-8", errors="ignore").read()).lower()
+    txt = strip_accents(open(path, encoding="utf-8", errors="ignore").read()).lower()
     return [n for n in NAMES if n and n in txt]
 
 DADOS_OUT.mkdir(parents=True, exist_ok=True)
+
+# Quem DECIDE o que pode ser publicado é o catálogo (egressos_core.dados). A lista SAFE acima
+# ficou sendo só apresentação — título, descrição e a ORDEM das linhas da página. Antes, a
+# fronteira de privacidade eram duas listas escritas à mão (a SAFE e o "NUNCA copia" do
+# docstring) que precisavam concordar, e nada verificava que concordavam.
+_NOME_POR_ARQUIVO = {ds.arquivo.removeprefix("data/"): ds.nome for ds in dados.CATALOGO.values()}
+_do_catalogo = {dados.caminho(n).name for n in dados.publicaveis()}
+_declarados = {fn for fn, *_ in SAFE}
+if _do_catalogo != _declarados:
+    raise SystemExit(
+        "ABORT: catálogo e SAFE divergem — "
+        f"só no catálogo: {sorted(_do_catalogo - _declarados)}; "
+        f"só na SAFE: {sorted(_declarados - _do_catalogo)}. "
+        "Classifique em egressos_core.dados antes de publicar."
+    )
+
 manifest = []
 for fn, titulo, desc in SAFE:
-    src = BASE/"data"/fn
+    nome = _NOME_POR_ARQUIVO[fn]
+    dados.exige_publicavel(nome)      # portão: dataset pii ou interno para aqui
+    src = dados.caminho(nome)
     hits = pii_hits(src)
     if hits:
         raise SystemExit(f"ABORT: PII em {fn}: {hits[:3]} — NÃO publicar")
     shutil.copy2(src, DADOS_OUT/fn)
-    d = json.load(open(src, encoding="utf-8"))
+    d = dados.ler(nome)
     n = len(d) if isinstance(d, (list, dict)) else 0
     manifest.append({"file": fn, "titulo": titulo, "desc": desc,
                      "kb": round(os.path.getsize(src)/1024, 1),
@@ -133,14 +157,37 @@ for cf in CODE_FILES:
     src = BASE/"pipeline"/cf
     if not src.exists():
         continue
+    # Saneamento do código publicado: tira qualquer caminho da máquina de quem gerou.
+    # Derivado de BASE, não escrito à mão — um literal aqui volta a prender o pipeline a
+    # um usuário (princípio IV da constituição) e falha calado na máquina de outra pessoa.
     code = src.read_text(encoding="utf-8").replace(PERSONAL_PATH, "/caminho/para/salario")
-    code = re.sub(r"/caminho/para", "/caminho/para", code)  # src_etl/horizon/etc
-    code = code.replace("/caminho/para/usuario", "/caminho/para/usuario")          # qualquer resto
+    code = code.replace(str(BASE.parent), "/caminho/para")                  # src_etl/horizon/etc
+    code = code.replace(str(pathlib.Path.home()), "/caminho/para/usuario")  # qualquer resto
     (CODE_OUT/cf).write_text(code, encoding="utf-8")
     code_manifest.append({"file": cf, "kb": round(os.path.getsize(src)/1024, 1)})
 
 # ---- HTML ----
 esc = lambda s: html.escape(str(s or ""))
+
+# Licença de dado de TERCEIRO, lida do próprio artefato (egressos_core.dados). Não é lista
+# escrita à mão de propósito: a fronteira de privacidade deste projeto quase vazou por duas
+# listas que precisavam concordar e nada verificava que concordavam. E "sem licença declarada"
+# aparece como o que é — um fato sobre a fonte, não uma omissão nossa.
+_terceiros = dados.licencas_de_terceiros()
+if _terceiros:
+    _linhas = "\n".join(
+        "<li><code>{}</code> — {}{}<br><small>{}{}</small></li>".format(
+            esc(t["arquivo"]),
+            f'<a href="{esc(t["licenca_url"])}" style="color:var(--accent)">{esc(t["licenca"])}</a>'
+            if t["licenca_url"] else f'<b>{esc(t["licenca"])}</b>',
+            f' · atribuição: {esc(t["atribuicao"])}' if t["atribuicao"] else "",
+            esc(t["licenca_obs"] or ""),
+            "" if t["licenca_obs"] else esc(t["fonte"] or ""),
+        )
+        for t in _terceiros)
+    TERCEIROS = f'<ul style="margin:8px 0 0 18px">{_linhas}</ul>'
+else:
+    TERCEIROS = ""
 rows = "\n".join(
     f'<tr><td class="dn"><a href="dados/{esc(m["file"])}" download>{esc(m["file"])} ↓</a></td>'
     f'<td><b>{esc(m["titulo"])}</b><br><small>{esc(m["desc"])}</small></td>'
@@ -253,7 +300,9 @@ python build_report.py --publish  # copia a versão anonimizada p/ os sites</pre
   <section class="card">
     <h2>Licença &amp; privacidade</h2>
     <div class="lic">
-      <b>Licença:</b> dados sob <b>CC BY 4.0</b> · código sob <b>MIT</b>. Cite "Egressos IFES — Campus Serra".<br><br>
+      <b>Licença do estudo:</b> dados sob <b>CC BY 4.0</b> · código sob <b>MIT</b>. Cite "Egressos IFES — Campus Serra".<br><br>
+      <b>Licença de dado de terceiro:</b> parte dos arquivos acima é <b>derivada de fontes externas</b>, e essas fontes têm licença própria — que continua valendo para quem baixar o arquivo daqui. A licença de cada um está dentro do próprio JSON (campo <code>licenca</code>), porque o arquivo circula sozinho.
+      {TERCEIROS}<br>
       <b>Privacidade:</b> nenhum dado individual identificável é publicado. Egressos aparecem só como coorte anonimizada (A–AX). Dados de empresa são informação pública (LinkedIn/registros). Nomes de pessoa nunca saem da máquina local nem vão a serviços externos de IA.<br><br>
       <span class="warn">⚠️ Site experimental — dados preliminares, sujeitos a revisão. Egresso que queira correção/remoção: falar com a coordenação.</span>
     </div>
@@ -297,6 +346,13 @@ L.append("> Estudo longitudinal de carreira dos egressos de TI do IFES Campus Se
          "modelo salarial de 49). Reúne trajetória profissional, renda estimada vs. mercado, e o papel "
          "de ensino/pesquisa/extensão. Todos os dados aqui são **agregados ou anonimizados** (coorte A–AX); "
          "dados de empresa são **informação pública** (LinkedIn/registros). Nenhum dado pessoal identificável.\n")
+if _terceiros:
+    L.append("Licença de dado de terceiro: alguns datasets são derivados de fontes externas com "
+             "licença própria, que continua valendo para quem baixar daqui. Cada arquivo traz a "
+             "sua no campo `licenca`: "
+             + " · ".join(f"`{t['arquivo']}` = {t['licenca']}"
+                          + (f" (atribuição: {t['atribuicao']})" if t["atribuicao"] else "")
+                          for t in _terceiros) + "\n")
 L.append("Licença: dados CC BY 4.0 · código MIT. Nomes de pessoa nunca são publicados nem enviados a "
          "serviços externos de IA. Site experimental (dados preliminares).\n")
 L.append("## Páginas\n")

@@ -9,8 +9,12 @@ Saída:   data/empresas_aliases.json = { canonico: {"aliases":[...], "atual": bo
 Determín­istico, offline, sem rede. Base p/ resolve_company_urls.py não duplicar buscas
 e p/ contagem correta de empresas distintas nas pesquisas.
 """
-import json, os, re, unicodedata
+import json
+import os
+import re
 from collections import defaultdict
+
+from egressos_core.text import strip_accents
 
 HERE = os.path.dirname(os.path.abspath(__file__))   # pipeline/
 ROOT = os.path.dirname(HERE)                          # salario/
@@ -45,9 +49,6 @@ MANUAL = {
     "ifes - instituto federal do espírito santo": "Instituto Federal do Espírito Santo",
 }
 
-def strip_accents(s):
-    return "".join(c for c in unicodedata.normalize("NFD", s or "")
-                   if unicodedata.category(c) != "Mn")
 
 def key_of(nome):
     """chave de agrupamento: minúsculo, sem acento, sem pontuação, sem sufixo corp/loc/TI."""

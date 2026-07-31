@@ -2,8 +2,11 @@
   - DB.alunos  <- alunos.json (cards + linha do tempo), origem/porte via empresas_porte.json
   - SALTO      <- consolidado.json (início -> hoje de cada perfil, ordenado pelo multiplicador)
 Nenhum dos dois é escrito à mão."""
-import json, re, pathlib
-S = pathlib.Path("/caminho/para/salario")
+import json
+import re
+
+from egressos_core.paths import ROOT as S
+
 al = json.load(open(S/"alunos.json"))["alunos"]
 por = json.load(open(S/"data/empresas_porte.json"))
 order = ["barbosa","gary","possatti","helen","renan","andre","tarcisio","joel","icaro","gustavo","marialuiza",

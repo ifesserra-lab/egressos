@@ -12,7 +12,12 @@ remoção (linha de opt-out no rodapé).
 Lê (local, com PII):  alunos.json, data/analise.json, data/empresas_porte.json
 Escreve (repo público): ../egressos/egressos-carreiras.html
 """
-import json, os, unicodedata, re, html
+import html
+import json
+import os
+import re
+
+from egressos_core.text import norm
 
 HERE = os.path.dirname(os.path.abspath(__file__))   # pipeline/
 ROOT = os.path.dirname(HERE)                          # salario/
@@ -40,12 +45,6 @@ aliases_raw = load_opt(os.path.join(DATA, "empresas_aliases.json"))   # passo 0
 li_urls     = load_opt(os.path.join(DATA, "empresas_linkedin_urls.json"))  # passo 1
 
 # ---------- helpers ----------
-def strip_accents(s):
-    return "".join(c for c in unicodedata.normalize("NFD", s or "")
-                   if unicodedata.category(c) != "Mn")
-
-def norm(s):
-    return strip_accents(s).lower().strip()
 
 def initials(nome):
     parts = [p for p in re.split(r"\s+", (nome or "").strip()) if p]
@@ -472,6 +471,8 @@ def bars(items, key, val, accent="var(--accent)"):
     return "\n".join(rows)
 
 import urllib.parse as _up
+
+
 def linkedin_search(nome):
     # busca de EMPRESAS direto no LinkedIn -> abre a company page correta no navegador
     # do usuário (logado). Sem scraping, sem intermediário.

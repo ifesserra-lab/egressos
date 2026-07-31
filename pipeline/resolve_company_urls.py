@@ -16,7 +16,14 @@ Uso:
     .venv/bin/python data/resolve_company_urls.py --all      # todas as 206
     .venv/bin/python data/resolve_company_urls.py --limit 5  # teste
 """
-import json, os, re, sys, time, random, urllib.parse
+import json
+import os
+import random
+import re
+import sys
+import time
+import urllib.parse
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -44,6 +51,11 @@ def decode_ddg(href):
 SLUG_RE = re.compile(r"linkedin\.com/company/([A-Za-z0-9\-\_%\.]+)")
 
 def slug_from(url):
+    """Extrai o slug de uma URL de company page — não gera slug a partir de nome.
+
+    Não é substituível por `egressos_core.text.slug_linkedin`: aquela **adivinha** o
+    slug a partir do nome da empresa; esta **lê** o slug que o LinkedIn já publicou.
+    """
     m = SLUG_RE.search(url or "")
     if not m:
         return None

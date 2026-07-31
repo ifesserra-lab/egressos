@@ -1,9 +1,37 @@
 {
  "titulo": "Benchmarks salariais internacionais — Stack Overflow Developer Survey",
- "fonte": "Stack Overflow Developer Survey 2018–2023 (survey.stackoverflow.co)",
+ "fonte": "Stack Overflow Developer Survey 2018–2025 (survey.stackoverflow.co)",
  "gerado_por": "pipeline/so_benchmarks.py",
  "edicao_referencia": 2023,
- "unidade": "US$/mês (mediana) — ConvertedCompYearly ÷ 12, conversão do próprio survey",
+ "edicao_mais_recente_na_serie": 2025,
+ "criterio_da_edicao_referencia": "amostra utilizável no recorte país × faixa de experiência × moeda, não recência: uma edição mais nova com metade da amostra derruba país da lista e esvazia a tabela por moeda. A medição das candidatas está em candidatas_a_referencia.",
+ "candidatas_a_referencia": [
+  {
+   "edicao": 2022,
+   "n_faixa_referencia": 5410,
+   "paises_publicaveis": 12,
+   "faixas_de_moeda_publicaveis": 4,
+   "global_usd_mes": 6399
+  },
+  {
+   "edicao": 2023,
+   "n_faixa_referencia": 6350,
+   "paises_publicaveis": 12,
+   "faixas_de_moeda_publicaveis": 3,
+   "global_usd_mes": 7082
+  },
+  {
+   "edicao": 2024,
+   "n_faixa_referencia": 2840,
+   "paises_publicaveis": 11,
+   "faixas_de_moeda_publicaveis": 0,
+   "global_usd_mes": 6667
+  }
+ ],
+ "licenca": "ODbL 1.0 (base de dados) + DbCL 1.0 (conteúdo)",
+ "licenca_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+ "atribuicao": "Stack Overflow Annual Developer Survey — survey.stackoverflow.co",
+ "unidade": "US$/mês (mediana) — remuneração anual convertida ÷ 12, conversão do próprio survey",
  "filtros": {
   "devtype_contem": [
    "back-end",
@@ -19,8 +47,10 @@
  },
  "faixa_experiencia_referencia": "9 a 13 anos (mediana de carreira do coorte = 11)",
  "notas": [
-  "por_moeda_brasil usa o campo Currency declarado pelo respondente: mesmo país e mesma experiência, separados por moeda do contracheque.",
-  "Não há edição do survey após 2023 — a série anual termina nesse ano."
+  "por_moeda_brasil usa o campo de moeda declarado pelo respondente: mesmo país e mesma experiência, separados por moeda do contracheque.",
+  "A série anual passou a cobrir 2018–2025: entraram as edições 2024 e 2025, que faltavam. Nenhum valor de edição anterior mudou — é acréscimo.",
+  "Os recortes por país e por moeda continuam saindo da edição 2023, e por dois motivos diferentes. A edição 2025 não pode ser referência porque deixou de publicar experiência PROFISSIONAL, e as colunas que ela traz no lugar medem outra população (trabalho de qualquer natureza, ou programação incluindo os anos de estudo). A edição 2024 poderia, mas tem menos da metade da amostra utilizável: usá-la derrubaria um país da lista e esvaziaria a comparação BRL×USD por faixa. Ver candidatas_a_referencia.",
+  "A amostra do survey encolheu depois de 2023: 2025 tem cerca de 40% do total filtrado de 2023. A queda aparece na série como n_total, e é por isso que a variação ano a ano das edições recentes não deve ser lida como movimento de mercado."
  ],
  "global_usd_mes": 7082,
  "global_n": 6350,
@@ -168,6 +198,22 @@
    "eua_usd_mes": 12292,
    "n_brasil": 852,
    "n_total": 30462
+  },
+  {
+   "ano": 2024,
+   "brasil_usd_mes": 1943,
+   "global_usd_mes": 5415,
+   "eua_usd_mes": 11833,
+   "n_brasil": 474,
+   "n_total": 14448
+  },
+  {
+   "ano": 2025,
+   "brasil_usd_mes": 2571,
+   "global_usd_mes": 6284,
+   "eua_usd_mes": 12500,
+   "n_brasil": 360,
+   "n_total": 12530
   }
  ]
 }

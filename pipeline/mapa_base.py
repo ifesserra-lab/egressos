@@ -15,10 +15,15 @@ não distância nem área.
 Uso:  python pipeline/mapa_base.py            (baixa e converte)
       python pipeline/mapa_base.py --offline  (só converte, a partir do cache)
 """
-import json, pathlib, sys, urllib.request, urllib.error
+import json
+import sys
+import urllib.error
+import urllib.request
+
+from egressos_core.paths import ROOT as BASE
+
 sys.setrecursionlimit(10000)
 
-BASE = pathlib.Path("/caminho/para/salario")
 DATA = BASE / "data"
 CACHE = DATA / "_cache_ibge"          # mesmo diretório de cache dos downloads
 # Duas resoluções: a grossa vai embutida na página (leve, boa até ~3x de zoom) e a fina

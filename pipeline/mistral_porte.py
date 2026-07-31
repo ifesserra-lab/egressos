@@ -1,8 +1,13 @@
 """Classifica o porte/setor/origem das empresas via Mistral. Só nomes de EMPRESA (público)."""
-import os, json, time, pathlib, urllib.request
+import json
+import os
+import time
+import urllib.request
+
 from dotenv import load_dotenv
 
-BASE = pathlib.Path("/caminho/para/salario")
+from egressos_core.paths import ROOT as BASE
+
 load_dotenv(BASE/".env")
 KEY = os.environ["MISTRAL_API_KEY"]
 def mistral(sys_p, user_p):
