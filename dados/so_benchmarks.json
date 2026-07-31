@@ -4,28 +4,61 @@
  "gerado_por": "pipeline/so_benchmarks.py",
  "edicao_referencia": 2023,
  "edicao_mais_recente_na_serie": 2025,
- "criterio_da_edicao_referencia": "amostra utilizável no recorte país × faixa de experiência × moeda, não recência: uma edição mais nova com metade da amostra derruba país da lista e esvazia a tabela por moeda. A medição das candidatas está em candidatas_a_referencia.",
+ "criterio_da_edicao_referencia": "amostra utilizável no recorte país × faixa de experiência × moeda, não recência: uma edição mais nova com metade da amostra derruba país da lista e esvazia a tabela por moeda. A medição das candidatas está em candidatas_a_referencia, e corroboracao mostra o que as outras edições dizem no corte que elas sustentam.",
+ "faixa_referencia_derivada_de": "intervalo interquartil dos anos de carreira do coorte (consolidado.json): q1=8, mediana=11, q3=13, n=49. Antes era um ±2 em volta da mediana, escolhido à mão.",
+ "corroboracao": {
+  "o_que_e": "O mesmo corte (Brasil, 8 anos ou mais, BRL × USD) calculado em cada edição avaliada. Responde 'o número da edição de referência ainda vale?' com dado de outra amostra, em vez de trocar a referência por uma edição que não sustenta os recortes finos.",
+  "por_edicao": [
+   {
+    "edicao": 2022,
+    "faixa": "8 anos ou mais",
+    "brl_usd_mes": 3116,
+    "n_brl": 435,
+    "usd_usd_mes": 7192,
+    "n_usd": 43,
+    "razao": 2.31
+   },
+   {
+    "edicao": 2023,
+    "faixa": "8 anos ou mais",
+    "brl_usd_mes": 3162,
+    "n_brl": 391,
+    "usd_usd_mes": 8333,
+    "n_usd": 44,
+    "razao": 2.64
+   },
+   {
+    "edicao": 2024,
+    "faixa": "8 anos ou mais",
+    "brl_usd_mes": 2797,
+    "n_brl": 198,
+    "usd_usd_mes": 7500,
+    "n_usd": 25,
+    "razao": 2.68
+   }
+  ]
+ },
  "candidatas_a_referencia": [
   {
    "edicao": 2022,
-   "n_faixa_referencia": 5410,
+   "n_faixa_referencia": 7053,
    "paises_publicaveis": 12,
    "faixas_de_moeda_publicaveis": 4,
-   "global_usd_mes": 6399
+   "global_usd_mes": 6238
   },
   {
    "edicao": 2023,
-   "n_faixa_referencia": 6350,
+   "n_faixa_referencia": 8175,
    "paises_publicaveis": 12,
    "faixas_de_moeda_publicaveis": 3,
-   "global_usd_mes": 7082
+   "global_usd_mes": 6902
   },
   {
    "edicao": 2024,
-   "n_faixa_referencia": 2840,
+   "n_faixa_referencia": 3702,
    "paises_publicaveis": 11,
    "faixas_de_moeda_publicaveis": 0,
-   "global_usd_mes": 6667
+   "global_usd_mes": 6444
   }
  ],
  "licenca": "ODbL 1.0 (base de dados) + DbCL 1.0 (conteúdo)",
@@ -45,75 +78,88 @@
   ],
   "n_minimo_para_publicar": 12
  },
- "faixa_experiencia_referencia": "9 a 13 anos (mediana de carreira do coorte = 11)",
+ "faixa_experiencia_referencia": "8 a 13 anos",
+ "faixa_referencia": {
+  "de": 8,
+  "ate": 13
+ },
+ "moeda_referencia": {
+  "faixa": "8 anos ou mais",
+  "brl_usd_mes": 3162,
+  "n_brl": 391,
+  "usd_usd_mes": 8333,
+  "n_usd": 44,
+  "razao": 2.64
+ },
  "notas": [
   "por_moeda_brasil usa o campo de moeda declarado pelo respondente: mesmo país e mesma experiência, separados por moeda do contracheque.",
   "A série anual passou a cobrir 2018–2025: entraram as edições 2024 e 2025, que faltavam. Nenhum valor de edição anterior mudou — é acréscimo.",
   "Os recortes por país e por moeda continuam saindo da edição 2023, e por dois motivos diferentes. A edição 2025 não pode ser referência porque deixou de publicar experiência PROFISSIONAL, e as colunas que ela traz no lugar medem outra população (trabalho de qualquer natureza, ou programação incluindo os anos de estudo). A edição 2024 poderia, mas tem menos da metade da amostra utilizável: usá-la derrubaria um país da lista e esvaziaria a comparação BRL×USD por faixa. Ver candidatas_a_referencia.",
-  "A amostra do survey encolheu depois de 2023: 2025 tem cerca de 40% do total filtrado de 2023. A queda aparece na série como n_total, e é por isso que a variação ano a ano das edições recentes não deve ser lida como movimento de mercado."
+  "A amostra do survey encolheu depois de 2023: 2025 tem cerca de 40% do total filtrado de 2023. A queda aparece na série como n_total, e é por isso que a variação ano a ano das edições recentes não deve ser lida como movimento de mercado.",
+  "A faixa de referência passou de '9 a 13 anos' para '8 a 13': ela agora é o intervalo interquartil medido do coorte, não um ±2 em volta da mediana escolhido à mão. Os valores por país e a mediana global mudaram por isso — mesma edição, mesma conta, faixa derivada do dado. O recorte por moeda não muda: ele usa as faixas finas, que são outras."
  ],
- "global_usd_mes": 7082,
- "global_n": 6350,
+ "global_usd_mes": 6902,
+ "global_n": 8175,
  "por_pais": [
   {
    "pais": "Estados Unidos",
    "usd_mes": 13333,
-   "n": 1437
+   "n": 1859
   },
   {
    "pais": "Canadá",
-   "usd_mes": 8550,
-   "n": 281
+   "usd_mes": 8364,
+   "n": 367
   },
   {
    "pais": "Reino Unido",
    "usd_mes": 7759,
-   "n": 473
+   "n": 599
   },
   {
    "pais": "Alemanha",
-   "usd_mes": 6715,
-   "n": 526
+   "usd_mes": 6693,
+   "n": 679
   },
   {
    "pais": "Holanda",
    "usd_mes": 6693,
-   "n": 195
+   "n": 252
   },
   {
    "pais": "Polônia",
    "usd_mes": 5982,
-   "n": 222
+   "n": 288
   },
   {
    "pais": "Portugal",
-   "usd_mes": 5354,
-   "n": 87
+   "usd_mes": 5582,
+   "n": 108
   },
   {
    "pais": "Espanha",
-   "usd_mes": 5354,
-   "n": 165
+   "usd_mes": 5176,
+   "n": 213
   },
   {
    "pais": "México",
-   "usd_mes": 4055,
-   "n": 47
+   "usd_mes": 4151,
+   "n": 60
   },
   {
    "pais": "Chile",
-   "usd_mes": 3749,
-   "n": 22
+   "usd_mes": 3624,
+   "n": 29
   },
   {
    "pais": "Brasil",
-   "usd_mes": 3381,
-   "n": 181
+   "usd_mes": 3162,
+   "n": 229
   },
   {
    "pais": "Índia",
-   "usd_mes": 2726,
-   "n": 232
+   "usd_mes": 2625,
+   "n": 325
   }
  ],
  "por_moeda_brasil": [

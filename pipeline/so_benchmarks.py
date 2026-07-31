@@ -81,7 +81,17 @@ PAISES = [("United States of America", "Estados Unidos"), ("Canada", "Canadá"),
           ("Chile", "Chile"), ("Brazil", "Brasil"), ("India", "Índia")]
 FAIXAS = [(0, 2, "0 a 2 anos"), (3, 5, "3 a 5 anos"), (6, 8, "6 a 8 anos"),
           (9, 13, "9 a 13 anos"), (14, 60, "14 anos ou mais")]
-FAIXA_REFERENCIA = (9, 13)      # mediana de carreira do coorte = 11 anos
+#: Faixa de experiência em que o mercado é comparado com o coorte. Ela **sai do coorte**, não
+#: de um arredondamento: é o intervalo interquartil medido em consolidado.json — q1=8,
+#: mediana=11, q3=13, n=49. Antes era (9, 13), um ±2 em volta da mediana escolhido à mão; a
+#: mediana continua 11, mas a metade do meio do coorte começa em 8.
+#:
+#: Não é derivada aqui em tempo de execução de propósito: `so_benchmarks.py` roda ANTES de
+#: `compute_all.py` no build (build_report.py, passos 50 e 53), então ler consolidado.json
+#: daqui pegaria o coorte da execução anterior. Quem confere que a declaração continua igual ao
+#: coorte é a suíte, que lê os dois artefatos sem depender de ordem.
+FAIXA_REFERENCIA = (8, 13)
+QUARTIS_DO_COORTE = {"q1": 8, "mediana": 11, "q3": 13, "n": 49}
 N_MIN = 12                      # abaixo disso a mediana não é publicável
 
 LICENCA = {
@@ -184,6 +194,18 @@ def recortes(ano):
                       "usd_usd_mes": med(tu), "n_usd": int(len(tu)),
                       "razao": round(med(tu) / med(tb), 2)})
 
+    # Corte AGRUPADO por moeda, do piso da faixa de referência em diante. Serve para uma coisa
+    # só: comparar edições entre si. As faixas finas acima não existem nas edições recentes (a
+    # 2024 tem 32 respondentes em dólar no Brasil INTEIRO, espalhados em cinco faixas), e sem um
+    # corte que as duas edições sustentem não há como responder "o número de 2023 ainda vale?".
+    grosso = br[br.exp >= lo]
+    gb, gu = grosso[grosso.cur == "BRL"].mes, grosso[grosso.cur == "USD"].mes
+    mgb, mgu = med(gb), med(gu)
+    agrupado = None
+    if mgb and mgu:
+        agrupado = {"faixa": f"{lo} anos ou mais", "brl_usd_mes": mgb, "n_brl": int(len(gb)),
+                    "usd_usd_mes": mgu, "n_usd": int(len(gu)), "razao": round(mgu / mgb, 2)}
+
     return {
         "edicao": ano,
         "global_usd_mes": med(ref.mes),
@@ -192,6 +214,7 @@ def recortes(ano):
         "faixas_de_moeda_publicaveis": faixas_com_dado,
         "por_pais": por_pais,
         "por_moeda_brasil": por_moeda,
+        "moeda_agrupada": agrupado,
     }
 
 
@@ -243,7 +266,24 @@ def main():
         "criterio_da_edicao_referencia":
             "amostra utilizável no recorte país × faixa de experiência × moeda, não recência: "
             "uma edição mais nova com metade da amostra derruba país da lista e esvazia a "
-            "tabela por moeda. A medição das candidatas está em candidatas_a_referencia.",
+            "tabela por moeda. A medição das candidatas está em candidatas_a_referencia, e "
+            "corroboracao mostra o que as outras edições dizem no corte que elas sustentam.",
+        "faixa_referencia_derivada_de":
+            "intervalo interquartil dos anos de carreira do coorte (consolidado.json): "
+            f"q1={QUARTIS_DO_COORTE['q1']}, mediana={QUARTIS_DO_COORTE['mediana']}, "
+            f"q3={QUARTIS_DO_COORTE['q3']}, n={QUARTIS_DO_COORTE['n']}. Antes era um ±2 em "
+            "volta da mediana, escolhido à mão.",
+        "corroboracao": {
+            "o_que_e":
+                f"O mesmo corte (Brasil, {lo} anos ou mais, BRL × USD) calculado em cada edição "
+                "avaliada. Responde 'o número da edição de referência ainda vale?' com dado de "
+                "outra amostra, em vez de trocar a referência por uma edição que não sustenta "
+                "os recortes finos.",
+            "por_edicao": [
+                {"edicao": r["edicao"], **r["moeda_agrupada"]}
+                for r in avaliadas if r["moeda_agrupada"]
+            ],
+        },
         "candidatas_a_referencia": [
             {k: r[k] for k in ("edicao", "n_faixa_referencia", "paises_publicaveis",
                                "faixas_de_moeda_publicaveis", "global_usd_mes")}
@@ -254,7 +294,15 @@ def main():
                    "próprio survey",
         "filtros": {"devtype_contem": SW, "salario_anual_usd": [3000, 500000],
                     "n_minimo_para_publicar": N_MIN},
-        "faixa_experiencia_referencia": f"{lo} a {hi} anos (mediana de carreira do coorte = 11)",
+        # Curto de propósito: vai direto no título da página. A explicação fica no campo
+        # `faixa_referencia_derivada_de`, e a forma legível por máquina em `faixa_referencia` —
+        # antes, quem precisava dos números fatiava esta string (`[:11]` em gen_reguas.py).
+        "faixa_experiencia_referencia": f"{lo} a {hi} anos",
+        "faixa_referencia": {"de": lo, "ate": hi},
+        # O corte por moeda do MESMO piso da faixa de referência. É o que a página usa para o
+        # cenário "brasileiro pago em dólar": mesma edição, mesmo piso de experiência, e amostra
+        # de dólar bem maior que a de qualquer faixa fina (44 contra 15 na edição de referência).
+        "moeda_referencia": escolhida["moeda_agrupada"],
         "notas": [
             "por_moeda_brasil usa o campo de moeda declarado pelo respondente: mesmo país e "
             "mesma experiência, separados por moeda do contracheque.",
@@ -271,6 +319,11 @@ def main():
             "filtrado de 2023. A queda aparece na série como n_total, e é por isso que a "
             "variação ano a ano das edições recentes não deve ser lida como movimento de "
             "mercado.",
+            f"A faixa de referência passou de '9 a 13 anos' para '{lo} a {hi}': ela agora é o "
+            "intervalo interquartil medido do coorte, não um ±2 em volta da mediana escolhido à "
+            "mão. Os valores por país e a mediana global mudaram por isso — mesma edição, mesma "
+            "conta, faixa derivada do dado. O recorte por moeda não muda: ele usa as faixas "
+            "finas, que são outras.",
         ],
         "global_usd_mes": escolhida["global_usd_mes"],
         "global_n": escolhida["n_faixa_referencia"],
