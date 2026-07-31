@@ -46,17 +46,15 @@
   <header>
     <p class="eyebrow">Dados abertos · IFES — Campus Serra</p>
     <h1>Dados abertos — egressos de TI</h1>
-    <p class="lede">Todos os dados <b>agregados e anonimizados</b> do estudo de egressos, mais o <b>código do pipeline</b> que os gera. Baixe, reproduza, audite. Dados de pessoa nunca são publicados — só coorte anonimizada (A–AX) e dados <b>públicos</b> de empresa. 14 datasets · 338.4 KB.</p>
+    <p class="lede">Todos os dados <b>agregados e anonimizados</b> do estudo de egressos, mais o <b>código do pipeline</b> que os gera. Baixe, reproduza, audite. Dados de pessoa nunca são publicados — só coorte anonimizada (A–AX) e dados <b>públicos</b> de empresa. 13 datasets · 337.1 KB.</p>
   </header>
 
-    <nav aria-label="Seções do relatório" style="display:flex;flex-wrap:wrap;gap:9px;margin:0 0 4px">
-      <a href="index.html" style="flex:1 1 210px;text-decoration:none;background:var(--surface,#fff);border:1px solid var(--border,rgba(0,0,0,.1));border-radius:12px;padding:12px 14px;box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.05));font-weight:650;font-size:13px;line-height:1.35;color:var(--accent,#2a78d6)">📊 Impacto na carreira →<span style="display:block;font-weight:400;color:var(--ink-2,#52565e);font-size:11.5px;margin-top:3px;line-height:1.4">Visão executiva: renda estimada vs. mercado</span></a>
-      <a href="trajetoria_salarial.html" style="flex:1 1 210px;text-decoration:none;background:var(--surface,#fff);border:1px solid var(--border,rgba(0,0,0,.1));border-radius:12px;padding:12px 14px;box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.05));font-weight:650;font-size:13px;line-height:1.35;color:var(--accent,#2a78d6)">📈 Trajetória salarial →<span style="display:block;font-weight:400;color:var(--ink-2,#52565e);font-size:11.5px;margin-top:3px;line-height:1.4">Ano a ano, em salários mínimos e vs. o mundo</span></a>
-      <a href="dashboard_alunos.html" style="flex:1 1 210px;text-decoration:none;background:var(--surface,#fff);border:1px solid var(--border,rgba(0,0,0,.1));border-radius:12px;padding:12px 14px;box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.05));font-weight:650;font-size:13px;line-height:1.35;color:var(--accent,#2a78d6)">👥 Panorama por egresso →<span style="display:block;font-weight:400;color:var(--ink-2,#52565e);font-size:11.5px;margin-top:3px;line-height:1.4">Linha do tempo e cards anonimizados (A–AX)</span></a>
-      <a href="egressos-carreiras.html" style="flex:1 1 210px;text-decoration:none;background:var(--surface,#fff);border:1px solid var(--border,rgba(0,0,0,.1));border-radius:12px;padding:12px 14px;box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.05));font-weight:650;font-size:13px;line-height:1.35;color:var(--accent,#2a78d6)">🌍 Onde estão os egressos →<span style="display:block;font-weight:400;color:var(--ink-2,#52565e);font-size:11.5px;margin-top:3px;line-height:1.4">Empresas, países e jornada de cada um</span></a>
-      <a href="metodologia.html" style="flex:1 1 210px;text-decoration:none;background:var(--surface,#fff);border:1px solid var(--border,rgba(0,0,0,.1));border-radius:12px;padding:12px 14px;box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.05));font-weight:650;font-size:13px;line-height:1.35;color:var(--accent,#2a78d6)">🔬 Metodologia →<span style="display:block;font-weight:400;color:var(--ink-2,#52565e);font-size:11.5px;margin-top:3px;line-height:1.4">Fontes, ETL, cálculo salarial e ressalvas</span></a>
-      <span style="flex:1 1 210px;text-decoration:none;background:var(--surface,#fff);border:1px solid var(--border,rgba(0,0,0,.1));border-radius:12px;padding:12px 14px;box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.05));font-weight:650;font-size:13px;line-height:1.35;color:var(--accent,#2a78d6);border-width:1.5px;border-color:var(--accent,#2a78d6);cursor:default" aria-current="page">📂 Dados abertos<span style="display:block;font-weight:400;color:var(--ink-2,#52565e);font-size:11.5px;margin-top:3px;line-height:1.4">você está aqui</span></span>
-    </nav>
+  <nav class="nav" aria-label="Outras páginas">
+    <a href="egressos-carreiras.html">🌍 Onde estão os egressos →<span>Vitrine de carreiras</span></a>
+    <a href="index.html">📊 Impacto na carreira →<span>Visão executiva</span></a>
+    <a href="metodologia.html">🔬 Metodologia →<span>Como foi feito</span></a>
+  </nav>
+
   <section class="card">
     <h2>Datasets (JSON)</h2>
     <p class="hint">Clique para baixar. Dicionário de campos por arquivo em <a href="llms.txt" style="color:var(--accent)">llms.txt</a> (índice legível por humanos e LLMs).</p>
@@ -64,7 +62,6 @@
       <thead><tr><th>Arquivo</th><th>Conteúdo</th><th>Itens</th><th>Tam.</th></tr></thead>
       <tbody><tr><td class="dn"><a href="dados/analise.json" download>analise.json ↓</a></td><td><b>Análises agregadas</b><br><small>Clusters de carreira, Sankey formação→trilha→destino, distribuição por empresa (região/setor/porte), gênero (agregado), extensão, trilha no tempo, internacionalização.</small></td><td class="num">20</td><td class="num">42.0 KB</td></tr>
 <tr><td class="dn"><a href="dados/consolidado.json" download>consolidado.json ↓</a></td><td><b>Perfis anonimizados</b><br><small>Coorte A–AX: trilha, anos de carreira, bolsa, salário estimado inicial/atual e crescimento — sem nome/empresa/local individual.</small></td><td class="num">8</td><td class="num">126.4 KB</td></tr>
-<tr><td class="dn"><a href="dados/por_ano.json" download>por_ano.json ↓</a></td><td><b>Série por ano</b><br><small>Contagens e métricas por ano da coorte.</small></td><td class="num">9</td><td class="num">1.3 KB</td></tr>
 <tr><td class="dn"><a href="dados/salario_minimo.json" download>salario_minimo.json ↓</a></td><td><b>Salário mínimo por ano</b><br><small>Salário mínimo nacional 2011–2026: valor de janeiro, de dezembro, média ponderada pelos meses, reajuste do decreto, INPC do ano anterior, ganho real e valor em reais do ano-base.</small></td><td class="num">12</td><td class="num">5.6 KB</td></tr>
 <tr><td class="dn"><a href="dados/ibge_series.json" download>ibge_series.json ↓</a></td><td><b>Séries macro (IBGE/IPEADATA)</b><br><small>IPCA e INPC (número-índice mensal + média anual + deflatores) e o salário mínimo mensal. Base para toda correção monetária do estudo.</small></td><td class="num">5</td><td class="num">23.5 KB</td></tr>
 <tr><td class="dn"><a href="dados/mapa_mundi.json" download>mapa_mundi.json ↓</a></td><td><b>Contorno do mapa-múndi</b><br><small>Polígonos dos continentes (Natural Earth 110m) já projetados em coordenadas SVG, usados no mapa animado da vitrine de carreiras. Domínio público.</small></td><td class="num">10</td><td class="num">33.9 KB</td></tr>
@@ -103,29 +100,29 @@
   <section class="card">
     <h2>Código do pipeline</h2>
     <p class="hint">Scripts Python que geram e validam tudo (paths pessoais sanitizados). Reprodução: <code>python build_report.py</code>.</p>
-    <div class="codegrid"><a class="cf" href="pipeline/build_report.py" download>build_report.py <span>5.9 KB ↓</span></a>
+    <div class="codegrid"><a class="cf" href="pipeline/build_report.py" download>build_report.py <span>5.8 KB ↓</span></a>
 <a class="cf" href="pipeline/ibge_series.py" download>ibge_series.py <span>10.9 KB ↓</span></a>
 <a class="cf" href="pipeline/so_benchmarks.py" download>so_benchmarks.py <span>7.0 KB ↓</span></a>
-<a class="cf" href="pipeline/compute_all.py" download>compute_all.py <span>10.6 KB ↓</span></a>
-<a class="cf" href="pipeline/analise.py" download>analise.py <span>34.9 KB ↓</span></a>
+<a class="cf" href="pipeline/compute_all.py" download>compute_all.py <span>11.4 KB ↓</span></a>
+<a class="cf" href="pipeline/analise.py" download>analise.py <span>35.0 KB ↓</span></a>
 <a class="cf" href="pipeline/genero.py" download>genero.py <span>1.8 KB ↓</span></a>
-<a class="cf" href="pipeline/fapes_fomento.py" download>fapes_fomento.py <span>4.8 KB ↓</span></a>
-<a class="cf" href="pipeline/src_extensao.py" download>src_extensao.py <span>3.3 KB ↓</span></a>
+<a class="cf" href="pipeline/fapes_fomento.py" download>fapes_fomento.py <span>4.7 KB ↓</span></a>
+<a class="cf" href="pipeline/src_extensao.py" download>src_extensao.py <span>3.5 KB ↓</span></a>
 <a class="cf" href="pipeline/gen_executivo.py" download>gen_executivo.py <span>8.6 KB ↓</span></a>
-<a class="cf" href="pipeline/gen_panorama.py" download>gen_panorama.py <span>4.9 KB ↓</span></a>
+<a class="cf" href="pipeline/gen_panorama.py" download>gen_panorama.py <span>4.8 KB ↓</span></a>
 <a class="cf" href="pipeline/mapa_base.py" download>mapa_base.py <span>6.8 KB ↓</span></a>
-<a class="cf" href="pipeline/gen_vitrine.py" download>gen_vitrine.py <span>68.4 KB ↓</span></a>
-<a class="cf" href="pipeline/gen_reguas.py" download>gen_reguas.py <span>48.0 KB ↓</span></a>
-<a class="cf" href="pipeline/gen_nav.py" download>gen_nav.py <span>4.4 KB ↓</span></a>
-<a class="cf" href="pipeline/gen_api.py" download>gen_api.py <span>10.6 KB ↓</span></a>
-<a class="cf" href="pipeline/gen_dados_abertos.py" download>gen_dados_abertos.py <span>25.2 KB ↓</span></a>
+<a class="cf" href="pipeline/gen_vitrine.py" download>gen_vitrine.py <span>68.2 KB ↓</span></a>
+<a class="cf" href="pipeline/gen_reguas.py" download>gen_reguas.py <span>47.9 KB ↓</span></a>
+<a class="cf" href="pipeline/gen_nav.py" download>gen_nav.py <span>4.3 KB ↓</span></a>
+<a class="cf" href="pipeline/gen_api.py" download>gen_api.py <span>10.4 KB ↓</span></a>
+<a class="cf" href="pipeline/gen_dados_abertos.py" download>gen_dados_abertos.py <span>26.3 KB ↓</span></a>
 <a class="cf" href="pipeline/qa_report.py" download>qa_report.py <span>11.2 KB ↓</span></a>
-<a class="cf" href="pipeline/norm_empresas.py" download>norm_empresas.py <span>5.8 KB ↓</span></a>
-<a class="cf" href="pipeline/enrich_empresas.py" download>enrich_empresas.py <span>13.4 KB ↓</span></a>
-<a class="cf" href="pipeline/classify_empresas.py" download>classify_empresas.py <span>5.0 KB ↓</span></a>
-<a class="cf" href="pipeline/classify_mistral.py" download>classify_mistral.py <span>4.0 KB ↓</span></a>
-<a class="cf" href="pipeline/resolve_company_urls.py" download>resolve_company_urls.py <span>5.4 KB ↓</span></a>
-<a class="cf" href="pipeline/mistral_porte.py" download>mistral_porte.py <span>2.4 KB ↓</span></a></div>
+<a class="cf" href="pipeline/norm_empresas.py" download>norm_empresas.py <span>5.7 KB ↓</span></a>
+<a class="cf" href="pipeline/enrich_empresas.py" download>enrich_empresas.py <span>13.1 KB ↓</span></a>
+<a class="cf" href="pipeline/classify_empresas.py" download>classify_empresas.py <span>5.1 KB ↓</span></a>
+<a class="cf" href="pipeline/classify_mistral.py" download>classify_mistral.py <span>3.9 KB ↓</span></a>
+<a class="cf" href="pipeline/resolve_company_urls.py" download>resolve_company_urls.py <span>5.7 KB ↓</span></a>
+<a class="cf" href="pipeline/mistral_porte.py" download>mistral_porte.py <span>2.3 KB ↓</span></a></div>
   </section>
 
   <section class="card">
