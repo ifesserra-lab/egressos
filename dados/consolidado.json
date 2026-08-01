@@ -7895,5 +7895,6 @@
   "2024": 1.087,
   "2025": 1.0351,
   "2026": 1.0
- }
+ },
+ "nota_cambio": "Cada ano usa o câmbio DAQUELE ano — nunca uma taxa única aplicada à série. Consequência de 2024 em diante: a edição do survey está congelada na de 2023, então a variação ano a ano nesses anos carrega o CÂMBIO, e não uma mudança de mercado medida. Nesse intervalo o câmbio variou 8.5%, e isso está dentro dos valores."
 }

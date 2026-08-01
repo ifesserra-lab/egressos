@@ -145,6 +145,19 @@ def executar() -> dict:
     for rotulo, ident in pulados:
         print(f"  [skip perfil {rotulo}] {ident}: sem série de mercado")
 
+    # A regra, e a consequência dela — no artefato, porque é ele que a página lê. Os anos são
+    # derivados: se a edição de referência avançar, o texto acompanha em vez de mentir.
+    ano_base = max(ipca)
+    congelados = [a for a in sorted(fx) if EDICAO_MERCADO < a <= ano_base]
+    variacao = (max(fx[a] for a in congelados) / min(fx[a] for a in congelados) - 1) * 100 \
+        if congelados else 0.0
+    consolidado["nota_cambio"] = (
+        "Cada ano usa o câmbio DAQUELE ano — nunca uma taxa única aplicada à série. "
+        f"Consequência de {congelados[0]} em diante: a edição do survey está congelada na de "
+        f"{EDICAO_MERCADO}, então a variação ano a ano nesses anos carrega o CÂMBIO, e não uma "
+        f"mudança de mercado medida. Nesse intervalo o câmbio variou {variacao:.1f}%, e isso "
+        "está dentro dos valores."
+    ) if congelados else "Cada ano usa o câmbio daquele ano."
     dados.gravar("consolidado", consolidado)
     return consolidado
 
