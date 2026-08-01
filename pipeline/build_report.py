@@ -56,6 +56,9 @@ STEPS = [
     ("Extensão SRC/IFES",       [PY, str(PIPE/"src_extensao.py")],  BASE),
     ("Fomento FAPES",           [PY, str(PIPE/"fapes_fomento.py")], BASE),
     ("Análise",                 [PY, str(PIPE/"analise.py")],       BASE),
+    # Depois da análise: a vitrine nomeada e a faixa por cargo saem do cruzamento dela com o
+    # consolidado. Dois arquivos, contratos diferentes — ver o docstring de gen_perfis.py.
+    ("Perfis e renda por cargo", [PY, str(PIPE/"gen_perfis.py")],   BASE),
     ("Consts do executivo",     [PY, str(PIPE/"gen_executivo.py")], BASE),
     ("DB do panorama",          [PY, str(PIPE/"gen_panorama.py")],  BASE),
     ("Vitrine de carreiras",    [PY, str(PIPE/"gen_vitrine.py")],   BASE),

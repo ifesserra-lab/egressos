@@ -3,65 +3,126 @@
  "gerado_por": "pipeline/gen_perfis.py",
  "e_estimativa": true,
  "aviso": "ESTIMATIVA, não contracheque. Nenhum salário foi coletado de ninguém. O valor é a faixa que o mercado pagava para aquele nível de experiência, a partir das medianas do Stack Overflow Developer Survey, convertidas pelo câmbio do ano e trazidas a reais do ano-base pelo IPCA. Para uma pessoa concreta pode ser MAIOR ou MENOR: a faixa p25–p75 mostra o tamanho dessa incerteza, e ela é larga de propósito.",
- "unidade": "R$/mês, em reais de 2026",
- "metodo": "mediana do Stack Overflow Developer Survey para a faixa de experiência × câmbio do ano × deflator IPCA ÷ 12",
- "fonte_de_mercado": "Stack Overflow Developer Survey (ODbL 1.0 + DbCL 1.0)",
+ "unidade": "R$/mês (as duas referências; a do estudo em reais de 2026)",
+ "por_que_duas_referencias": "Elas medem coisas diferentes e se movem por motivos diferentes. A Código Fonte nasce em reais e cobre os cinco níveis, mas publica média sem amostra por nível. O modelo do estudo publica mediana com faixa, mas nasce em dólar — o câmbio entra no número — e só existe onde o coorte tem gente. Escolher uma esconderia isso.",
  "minimo_de_pessoas_por_grupo": 5,
- "por_que_o_minimo": "Com menos que isso, a 'faixa do cargo' é a estimativa de um indivíduo com outro rótulo — o mesmo defeito por outro caminho.",
+ "por_que_o_minimo": "Com menos que isso, a 'faixa do cargo' seria a estimativa de um indivíduo com outro rótulo — o mesmo defeito por outro caminho.",
  "licenca": "CC BY 4.0",
  "atribuicao": "Estudo de egressos de TI — Ifes Campus Serra",
  "cargos": [
   {
-   "senioridade": "Sênior",
-   "trilha": null,
-   "p25": 10453,
-   "mediana": 16440,
-   "p75": 25610,
-   "n_pessoas_no_grupo": 26,
-   "n_respondentes_de_mercado": 124
+   "nivel": "Estágio",
+   "referencias": [
+    {
+     "fonte": "Pesquisa Código Fonte 2026",
+     "estatistica": "média",
+     "moeda_de_origem": "BRL",
+     "valor": 2586.84,
+     "n_por_nivel": null,
+     "n_da_edicao": 17046,
+     "licenca": "não declarada pela fonte",
+     "observacao": "Nativa em reais — o câmbio não entra. A fonte publica MÉDIA e não divulga amostra por nível, só o total da edição; por isso não há faixa aqui."
+    }
+   ]
   },
   {
-   "senioridade": "Sênior",
-   "trilha": "Software",
-   "p25": 10453,
-   "mediana": 16478,
-   "p75": 25610,
-   "n_pessoas_no_grupo": 23,
-   "n_respondentes_de_mercado": 127
+   "nivel": "Júnior",
+   "referencias": [
+    {
+     "fonte": "Pesquisa Código Fonte 2026",
+     "estatistica": "média",
+     "moeda_de_origem": "BRL",
+     "valor": 5060.34,
+     "n_por_nivel": null,
+     "n_da_edicao": 17046,
+     "licenca": "não declarada pela fonte",
+     "observacao": "Nativa em reais — o câmbio não entra. A fonte publica MÉDIA e não divulga amostra por nível, só o total da edição; por isso não há faixa aqui."
+    }
+   ]
   },
   {
-   "senioridade": "Espec./Tech Lead",
-   "trilha": null,
-   "p25": 11734,
-   "mediana": 17422,
-   "p75": 29072,
-   "n_pessoas_no_grupo": 23,
-   "n_respondentes_de_mercado": 95
+   "nivel": "Pleno",
+   "referencias": [
+    {
+     "fonte": "Pesquisa Código Fonte 2026",
+     "estatistica": "média",
+     "moeda_de_origem": "BRL",
+     "valor": 8466.52,
+     "n_por_nivel": null,
+     "n_da_edicao": 17046,
+     "licenca": "não declarada pela fonte",
+     "observacao": "Nativa em reais — o câmbio não entra. A fonte publica MÉDIA e não divulga amostra por nível, só o total da edição; por isso não há faixa aqui."
+    }
+   ]
   },
   {
-   "senioridade": "Espec./Tech Lead",
-   "trilha": "Software",
-   "p25": 10928,
-   "mediana": 17422,
-   "p75": 30161,
-   "n_pessoas_no_grupo": 18,
-   "n_respondentes_de_mercado": 108
+   "nivel": "Sênior",
+   "referencias": [
+    {
+     "fonte": "Pesquisa Código Fonte 2026",
+     "estatistica": "média",
+     "moeda_de_origem": "BRL",
+     "valor": 14607.85,
+     "n_por_nivel": null,
+     "n_da_edicao": 17046,
+     "licenca": "não declarada pela fonte",
+     "observacao": "Nativa em reais — o câmbio não entra. A fonte publica MÉDIA e não divulga amostra por nível, só o total da edição; por isso não há faixa aqui."
+    },
+    {
+     "fonte": "Modelo do estudo · Stack Overflow 2023",
+     "estatistica": "mediana, com faixa p25–p75",
+     "moeda_de_origem": "USD",
+     "p25": 10453,
+     "mediana": 16440,
+     "p75": 25610,
+     "n_pessoas_no_grupo": 26,
+     "cambio_aplicado": 5.1524,
+     "observacao": "Nasce em dólar: passa pelo câmbio do ano e é trazido a reais do ano-base pelo IPCA. O câmbio variou 11,9% entre 2023 e 2026, e essa variação está aqui dentro. Só existe nos níveis em que o coorte tem pelo menos 5 pessoas."
+    }
+   ]
   },
   {
-   "senioridade": "Espec./Tech Lead",
-   "trilha": "Dados",
-   "p25": 13066,
-   "mediana": 15680,
-   "p75": 20383,
-   "n_pessoas_no_grupo": 5,
-   "n_respondentes_de_mercado": 8
+   "nivel": "Especialista/Tech Lead/Principal",
+   "referencias": [
+    {
+     "fonte": "Pesquisa Código Fonte 2026",
+     "estatistica": "média",
+     "moeda_de_origem": "BRL",
+     "valor": 20601.64,
+     "n_por_nivel": null,
+     "n_da_edicao": 17046,
+     "licenca": "não declarada pela fonte",
+     "observacao": "Nativa em reais — o câmbio não entra. A fonte publica MÉDIA e não divulga amostra por nível, só o total da edição; por isso não há faixa aqui."
+    },
+    {
+     "fonte": "Modelo do estudo · Stack Overflow 2023",
+     "estatistica": "mediana, com faixa p25–p75",
+     "moeda_de_origem": "USD",
+     "p25": 11734,
+     "mediana": 17422,
+     "p75": 29072,
+     "n_pessoas_no_grupo": 23,
+     "cambio_aplicado": 5.1524,
+     "observacao": "Nasce em dólar: passa pelo câmbio do ano e é trazido a reais do ano-base pelo IPCA. O câmbio variou 11,9% entre 2023 e 2026, e essa variação está aqui dentro. Só existe nos níveis em que o coorte tem pelo menos 5 pessoas."
+    }
+   ]
   }
  ],
- "grupos_pequenos_nao_publicados": [
+ "niveis_sem_referencia_do_modelo": [
   {
-   "senioridade": "Sênior",
-   "trilha": "Dados",
-   "n_pessoas_no_grupo": 3
+   "nivel": "Estágio",
+   "n_pessoas_no_grupo": 0,
+   "motivo": "o coorte não ocupa este nível"
+  },
+  {
+   "nivel": "Júnior",
+   "n_pessoas_no_grupo": 0,
+   "motivo": "o coorte não ocupa este nível"
+  },
+  {
+   "nivel": "Pleno",
+   "n_pessoas_no_grupo": 0,
+   "motivo": "o coorte não ocupa este nível"
   }
  ]
 }
