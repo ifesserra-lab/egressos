@@ -8,7 +8,7 @@ import re
 
 import numpy as np
 
-from egressos_core import dados
+from egressos_core import dados, kmeans
 from egressos_core.paths import ROOT as BASE  # ainda usado por _count(), que lê .md/.txt
 
 al = dados.ler("alunos")["alunos"]
@@ -131,22 +131,12 @@ for a in al:
 
 FEATS=["anos","n_empresas","trilha","em_tech","exterior","bolsa_ini","lideranca"]
 X=np.array([[r[f] for f in FEATS] for r in rows],dtype=float)
-mu,sd=X.mean(0),X.std(0); sd[sd==0]=1; Z=(X-mu)/sd
+Z=kmeans.padronizar(X)
 
-def kmeans(Z,k,iters=100,seed=0):
-    rng=np.random.RandomState(seed); C=Z[rng.choice(len(Z),k,replace=False)]
-    for _ in range(iters):
-        d=((Z[:,None,:]-C[None,:,:])**2).sum(2); lab=d.argmin(1)
-        newC=np.array([Z[lab==j].mean(0) if (lab==j).any() else C[j] for j in range(k)])
-        if np.allclose(newC,C): C=newC; break
-        C=newC
-    inertia=((Z-C[lab])**2).sum()
-    return lab,inertia
-best=None
-for seed in range(20):
-    lab,inr=kmeans(Z,3,seed=seed)
-    if best is None or inr<best[1]: best=(lab,inr,seed)
-clusters=best[0]
+# O agrupamento mora em egressos_core.kmeans: semente e número de tentativas são parâmetro,
+# não detalhe escondido. Os clusters aparecem no relatório publicado, então dois builds do
+# mesmo dado têm de produzir os mesmos rótulos.
+clusters, _inercia, _semente = kmeans.agrupar(Z, 3)
 for r,c in zip(rows,clusters): r["cluster"]=int(c)
 
 # rótulo descritivo de cada cluster
@@ -604,7 +594,24 @@ _BINS = [(1,3,"1–3×"),(3,6,"3–6×"),(6,9,"6–9×"),(9,12,"9–12×"),(12,1
 _cr = [p_["cresc"] for p_ in _cons["perfis"]]
 hist_mult = [{"faixa": rot, "n": sum(1 for c in _cr if lo <= c < hi)} for lo, hi, rot in _BINS]
 
-out={"top_tech":top_tech,"clusters":cl_desc,"rows":rows,"insights":insights,
+# FRONTEIRA DE PRIVACIDADE — não remover sem ler.
+# `rows` é usado no cálculo com os campos identificadores (id, empresa e cargo reais vêm de
+# alunos.json), mas o artefato é `publicavel`: ele foi para o site público com 50 registros
+# individuais ligando SLUG DE PESSOA a empregador, cargo e salário estimado, dentro de um
+# arquivo descrito como "tudo agregado, sem indivíduo". Era reidentificação direta — bastava
+# procurar o cargo e a empresa.
+#
+# É o mesmo defeito de por_ano.json (specs/003, decisão 1): a varredura de PII cruza NOMES
+# COMPLETOS e não pega slug ("barbosa") nem combinação de campos. O que pega é o teste de
+# estrutura em tests/test_privacidade_estrutural.py.
+#
+# Ficam no publicado: `label` (A–AX, a identidade anonimizada autorizada) e os atributos
+# numéricos que as páginas usam. Quem precisar do vínculo pessoa→empresa lê alunos.json, que é
+# `pii` e nunca sai do repositório privado.
+CAMPOS_IDENTIFICADORES = ("id", "empresa_atual", "cargo_atual")
+rows_publicaveis = [{k: v for k, v in r.items() if k not in CAMPOS_IDENTIFICADORES} for r in rows]
+
+out={"top_tech":top_tech,"clusters":cl_desc,"rows":rows_publicaveis,"insights":insights,
      "comparacao":comp,"cf_2026_senioridade":cf2026,"cruzamento":cross,
      "funcoes":funcoes,"lideranca_gestao":lid_gestao,"metodos":metodos,"impacto":impacto,
      "sankey":sankey,"intl_timeline":intl_timeline,"empresas":empresas,"genero":genero,

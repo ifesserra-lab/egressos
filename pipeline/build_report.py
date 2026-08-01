@@ -44,13 +44,15 @@ NODE = "node"
 
 PIPE = BASE / "pipeline"   # scripts moved out of data/ (code vs artefatos)
 STEPS = [
-    # compute_all.py roda com cwd=data/ (usa public-*.csv / ../alunos.json relativos); os demais
-    # usam caminho absoluto S internamente, então cwd=BASE serve.
+    # Nenhuma etapa depende mais do diretório corrente: todas resolvem caminho pelo catálogo
+    # (egressos_core.dados) ou pela raiz detectada. A `Série salarial` era a última que exigia
+    # cwd=data/ — lia `../alunos.json` e gravava `consolidado.json` relativos — e deixou de
+    # exigir na fatia C da F2. Passar BASE em todas é agora só uma escolha, não um requisito.
     ("Séries IBGE/IPEADATA",    [PY, str(PIPE/"ibge_series.py")],   BASE),
     ("Benchmarks Stack Overflow",[PY, str(PIPE/"so_benchmarks.py")], BASE),
     ("Contorno do mapa-múndi",   [PY, str(PIPE/"mapa_base.py")],     BASE),
     ("Gênero (offline)",        [PY, str(PIPE/"genero.py")],        BASE),
-    ("Série salarial",          [PY, str(PIPE/"compute_all.py")],   BASE / "data"),
+    ("Série salarial",          [PY, str(PIPE/"compute_all.py")],   BASE),
     ("Extensão SRC/IFES",       [PY, str(PIPE/"src_extensao.py")],  BASE),
     ("Fomento FAPES",           [PY, str(PIPE/"fapes_fomento.py")], BASE),
     ("Análise",                 [PY, str(PIPE/"analise.py")],       BASE),

@@ -85,6 +85,7 @@ eua = next(p["usd_mes"] for p in so["por_pais"] if p["pais"] == "Estados Unidos"
 # Quando a faixa de referência passou a ser o intervalo interquartil do coorte (8 a 13), deixou
 # de coincidir, e a página quebrava com StopIteration.
 moeda_ref = so["moeda_referencia"]
+
 usd_pago = moeda_ref["usd_usd_mes"]
 razao_moeda = moeda_ref["razao"]
 
@@ -132,6 +133,54 @@ REFERENCIA = deflator.data_referencia(dados.ler("ibge_series")).rotulo_pt()
 J = lambda o: json.dumps(o, ensure_ascii=False)
 n1 = lambda x: f"{x:.1f}".replace(".", ",")
 brl = lambda v: "R$ " + f"{round(v):,}".replace(",", ".")
+# Faltava o par do `brl`: os valores em dólar saíam com separador de milhar em padrão inglês
+# ("US$ 8,333") no meio de uma página em português, onde a vírgula é decimal.
+usd = lambda v: "US$ " + f"{round(v):,}".replace(",", ".")
+
+# ---- corroboração entre edições ----
+# A pergunta que um número de 2023 provoca é "isso ainda vale?". A resposta honesta não é
+# projetar o valor para hoje com inflação — testei, e a projeção erra 12,7% no global e 16,6%
+# no Brasil justamente no ano em que dá para conferir (specs/004-vigia-fontes-anuais,
+# research.md D13). A série oscila 10,4% ao ano por composição de amostra, não por preço.
+#
+# A resposta que o dado sustenta é mostrar o MESMO corte em edições independentes e deixar o
+# leitor ver a estabilidade — ou a falta dela. Vem pronto do artefato.
+_corr = so.get("corroboracao", {}).get("por_edicao", [])
+if len(_corr) >= 2:
+    _cels = []
+    for c in _corr:
+        e_ref = c["edicao"] == so["edicao_referencia"]
+        destaque = ' style="font-weight:600"' if e_ref else ""
+        rotulo = f'{c["edicao"]}{" (referência)" if e_ref else ""}'
+        _cels.append(
+            f"        <tr{destaque}><td>{rotulo}</td>"
+            f'<td class="num">{usd(c["brl_usd_mes"])}</td>'
+            f'<td class="num">{usd(c["usd_usd_mes"])}</td>'
+            f'<td class="num">{n1(c["razao"])}×</td>'
+            f'<td class="num">{c["n_brl"]} · {c["n_usd"]}</td></tr>')
+    _linhas = "\n".join(_cels)
+    _faixa_corr = _corr[0]["faixa"]
+    _razoes = [c["razao"] for c in _corr]
+    CORROBORACAO = f"""
+    <div class="note" style="margin-top:18px">
+      <b>Esse número é de {so["edicao_referencia"]}. Ainda vale?</b> Em vez de projetar o valor
+      para hoje — a série oscila cerca de 10% ao ano por composição de amostra, quatro vezes mais
+      que a inflação, então projetar erraria mais do que corrigiria —, aqui está o
+      <b>mesmo corte</b> ({_faixa_corr}, respondentes do Brasil) medido em edições independentes:
+      <div style="overflow-x:auto;margin-top:12px"><table>
+        <thead><tr><th>Edição</th><th>Pago em R$</th><th>Pago em US$</th><th>Razão</th>
+          <th>n (R$ · US$)</th></tr></thead>
+        <tbody>
+{_linhas}
+        </tbody>
+      </table></div>
+      A razão vai de <b>{n1(min(_razoes))}×</b> a <b>{n1(max(_razoes))}×</b> em
+      {len(_corr)} edições com amostras que não se sobrepõem. A edição de referência não é a mais
+      recente porque as recentes não sustentam os recortes finos — a de {max(c["edicao"] for c in _corr)}
+      tem menos da metade da amostra na faixa de experiência.
+    </div>"""
+else:
+    CORROBORACAO = ""
 
 DADOS = {
     "TRAJ": TRAJ, "TJ_COORTE": TJ_COORTE, "HIST": HIST,
@@ -331,6 +380,7 @@ HTML = f"""<!doctype html>
       <span><i class="swb" style="background:var(--br)"></i> Pago em R$</span>
       <span><i class="swb" style="background:var(--cf)"></i> Pago em US$</span>
     </div>
+    {CORROBORACAO}
   </section>
 
   <section class="card">
@@ -339,7 +389,7 @@ HTML = f"""<!doctype html>
     <div class="chart-scroll"><svg id="cIntl" viewBox="0 0 900 250" role="img" aria-label="Egressos por origem do empregador"></svg></div>
     <div class="note" style="margin-top:18px">
       <b>O que isso significa para os números deste relatório.</b> O prêmio internacional que o modelo calcula é de apenas <b>+{an["impacto"]["premio_intl_pct"]}%</b> — um artefato: os dois grupos são precificados na mesma tabela brasileira.
-      Se os {n_intl} egressos em empregador internacional forem pagos no padrão observado de brasileiros em dólar (<b>US$ {usd_pago:,}/mês</b>), a renda deles seria <b>≈ {brl(usd_pago*fx_base)}/mês</b> — <b>{n1(usd_pago*fx_base/sm_base)} salários mínimos</b>, não {n1(eg_sm)}.
+      Se os {n_intl} egressos em empregador internacional forem pagos no padrão observado de brasileiros em dólar (<b>{usd(usd_pago)}/mês</b>), a renda deles seria <b>≈ {brl(usd_pago*fx_base)}/mês</b> — <b>{n1(usd_pago*fx_base/sm_base)} salários mínimos</b>, não {n1(eg_sm)}.
       <b>É cenário, não medição:</b> depende de contrato, senioridade e empresa. Para virar dado, seria preciso perguntar faixa salarial e moeda diretamente aos egressos.
     </div>
   </section>
