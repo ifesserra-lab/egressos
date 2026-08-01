@@ -46,7 +46,7 @@
   <header>
     <p class="eyebrow">Dados abertos · IFES — Campus Serra</p>
     <h1>Dados abertos — egressos de TI</h1>
-    <p class="lede">Todos os dados <b>agregados e anonimizados</b> do estudo de egressos, mais o <b>código do pipeline</b> que os gera. Baixe, reproduza, audite. Dados de pessoa nunca são publicados — só coorte anonimizada (A–AX) e dados <b>públicos</b> de empresa. 13 datasets · 341.7 KB.</p>
+    <p class="lede">Todos os dados <b>agregados e anonimizados</b> do estudo de egressos, mais o <b>código do pipeline</b> que os gera. Baixe, reproduza, audite. Dados de pessoa nunca são publicados — só coorte anonimizada (A–AX) e dados <b>públicos</b> de empresa. 13 datasets · 336.6 KB.</p>
   </header>
 
   <nav class="nav" aria-label="Outras páginas">
@@ -60,7 +60,7 @@
     <p class="hint">Clique para baixar. Dicionário de campos por arquivo em <a href="llms.txt" style="color:var(--accent)">llms.txt</a> (índice legível por humanos e LLMs).</p>
     <div class="scroll"><table>
       <thead><tr><th>Arquivo</th><th>Conteúdo</th><th>Itens</th><th>Tam.</th></tr></thead>
-      <tbody><tr><td class="dn"><a href="dados/analise.json" download>analise.json ↓</a></td><td><b>Análises agregadas</b><br><small>Clusters de carreira, Sankey formação→trilha→destino, distribuição por empresa (região/setor/porte), gênero (agregado), extensão, trilha no tempo, internacionalização.</small></td><td class="num">20</td><td class="num">42.0 KB</td></tr>
+      <tbody><tr><td class="dn"><a href="dados/analise.json" download>analise.json ↓</a></td><td><b>Análises agregadas</b><br><small>Clusters de carreira, Sankey formação→trilha→destino, distribuição por empresa (região/setor/porte), gênero (agregado), extensão, trilha no tempo, internacionalização.</small></td><td class="num">20</td><td class="num">36.9 KB</td></tr>
 <tr><td class="dn"><a href="dados/consolidado.json" download>consolidado.json ↓</a></td><td><b>Perfis anonimizados</b><br><small>Coorte A–AX: trilha, anos de carreira, bolsa, salário estimado inicial/atual e crescimento — sem nome/empresa/local individual.</small></td><td class="num">8</td><td class="num">126.4 KB</td></tr>
 <tr><td class="dn"><a href="dados/salario_minimo.json" download>salario_minimo.json ↓</a></td><td><b>Salário mínimo por ano</b><br><small>Salário mínimo nacional 2011–2026: valor de janeiro, de dezembro, média ponderada pelos meses, reajuste do decreto, INPC do ano anterior, ganho real e valor em reais do ano-base.</small></td><td class="num">12</td><td class="num">5.6 KB</td></tr>
 <tr><td class="dn"><a href="dados/ibge_series.json" download>ibge_series.json ↓</a></td><td><b>Séries macro (IBGE/IPEADATA)</b><br><small>IPCA e INPC (número-índice mensal + média anual + deflatores) e o salário mínimo mensal. Base para toda correção monetária do estudo.</small></td><td class="num">5</td><td class="num">23.5 KB</td></tr>
@@ -86,7 +86,7 @@
 <a class="cf" href="api/coorte/trajetoria-destaque.json">coorte/trajetoria-destaque.json<span>2.7 KB</span></a>
 <a class="cf" href="api/salario-minimo.json">salario-minimo.json<span>4.4 KB</span></a>
 <a class="cf" href="api/indices.json">indices.json<span>17.5 KB</span></a>
-<a class="cf" href="api/mercado/stackoverflow.json">mercado/stackoverflow.json<span>4.4 KB</span></a>
+<a class="cf" href="api/mercado/stackoverflow.json">mercado/stackoverflow.json<span>5.7 KB</span></a>
 <a class="cf" href="api/mercado/codigofonte.json">mercado/codigofonte.json<span>4.1 KB</span></a>
 <a class="cf" href="api/empresas/index.json">empresas/index.json<span>35.3 KB</span></a>
 <span class="cf" style="opacity:.75">empresas/&lt;slug&gt;.json<span>por item</span></span>
@@ -100,29 +100,29 @@
   <section class="card">
     <h2>Código do pipeline</h2>
     <p class="hint">Scripts Python que geram e validam tudo (paths pessoais sanitizados). Reprodução: <code>python build_report.py</code>.</p>
-    <div class="codegrid"><a class="cf" href="pipeline/build_report.py" download>build_report.py <span>5.8 KB ↓</span></a>
+    <div class="codegrid"><a class="cf" href="pipeline/build_report.py" download>build_report.py <span>6.0 KB ↓</span></a>
 <a class="cf" href="pipeline/ibge_series.py" download>ibge_series.py <span>9.8 KB ↓</span></a>
 <a class="cf" href="pipeline/so_benchmarks.py" download>so_benchmarks.py <span>18.1 KB ↓</span></a>
-<a class="cf" href="pipeline/compute_all.py" download>compute_all.py <span>12.0 KB ↓</span></a>
-<a class="cf" href="pipeline/analise.py" download>analise.py <span>35.0 KB ↓</span></a>
-<a class="cf" href="pipeline/genero.py" download>genero.py <span>1.8 KB ↓</span></a>
+<a class="cf" href="pipeline/compute_all.py" download>compute_all.py <span>9.0 KB ↓</span></a>
+<a class="cf" href="pipeline/analise.py" download>analise.py <span>35.8 KB ↓</span></a>
+<a class="cf" href="pipeline/genero.py" download>genero.py <span>1.2 KB ↓</span></a>
 <a class="cf" href="pipeline/fapes_fomento.py" download>fapes_fomento.py <span>4.7 KB ↓</span></a>
 <a class="cf" href="pipeline/src_extensao.py" download>src_extensao.py <span>3.5 KB ↓</span></a>
 <a class="cf" href="pipeline/gen_executivo.py" download>gen_executivo.py <span>8.6 KB ↓</span></a>
 <a class="cf" href="pipeline/gen_panorama.py" download>gen_panorama.py <span>4.8 KB ↓</span></a>
 <a class="cf" href="pipeline/mapa_base.py" download>mapa_base.py <span>6.8 KB ↓</span></a>
 <a class="cf" href="pipeline/gen_vitrine.py" download>gen_vitrine.py <span>68.2 KB ↓</span></a>
-<a class="cf" href="pipeline/gen_reguas.py" download>gen_reguas.py <span>49.1 KB ↓</span></a>
+<a class="cf" href="pipeline/gen_reguas.py" download>gen_reguas.py <span>51.7 KB ↓</span></a>
 <a class="cf" href="pipeline/gen_nav.py" download>gen_nav.py <span>4.3 KB ↓</span></a>
 <a class="cf" href="pipeline/gen_api.py" download>gen_api.py <span>10.4 KB ↓</span></a>
 <a class="cf" href="pipeline/gen_dados_abertos.py" download>gen_dados_abertos.py <span>28.1 KB ↓</span></a>
 <a class="cf" href="pipeline/qa_report.py" download>qa_report.py <span>11.2 KB ↓</span></a>
-<a class="cf" href="pipeline/norm_empresas.py" download>norm_empresas.py <span>5.7 KB ↓</span></a>
+<a class="cf" href="pipeline/norm_empresas.py" download>norm_empresas.py <span>4.0 KB ↓</span></a>
 <a class="cf" href="pipeline/enrich_empresas.py" download>enrich_empresas.py <span>13.1 KB ↓</span></a>
-<a class="cf" href="pipeline/classify_empresas.py" download>classify_empresas.py <span>5.1 KB ↓</span></a>
+<a class="cf" href="pipeline/classify_empresas.py" download>classify_empresas.py <span>2.4 KB ↓</span></a>
 <a class="cf" href="pipeline/classify_mistral.py" download>classify_mistral.py <span>3.9 KB ↓</span></a>
 <a class="cf" href="pipeline/resolve_company_urls.py" download>resolve_company_urls.py <span>5.7 KB ↓</span></a>
-<a class="cf" href="pipeline/mistral_porte.py" download>mistral_porte.py <span>2.3 KB ↓</span></a></div>
+<a class="cf" href="pipeline/mistral_porte.py" download>mistral_porte.py <span>5.1 KB ↓</span></a></div>
   </section>
 
   <section class="card">

@@ -1,150 +1,111 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Passo 0 — normaliza nomes de empresa e agrupa variantes/aliases.
+"""Passo 0 — agrupa as variantes de nome de cada empregador.
 
-Entrada: alunos.json (empresa_atual + experiencias[].empresa) e data/_empresas_lista.json
-Saída:   data/empresas_aliases.json = { canonico: {"aliases":[...], "atual": bool, "n_egressos": int} }
+Entrada: `alunos` (empresa atual + histórico) e `_empresas_lista`.
+Saída:   `empresas_aliases` = `{canonico: {"aliases": [...], "atual": bool, "n_egressos_atual": int}}`
 
-Determín­istico, offline, sem rede. Base p/ resolve_company_urls.py não duplicar buscas
-e p/ contagem correta de empresas distintas nas pesquisas.
+A regra de agrupamento mora em `egressos_core.empresas` — aqui ficam só a coleta dos nomes e a
+gravação. Determinístico, offline, sem rede: o mesmo empregador escrito de três jeitos no
+cadastro vira uma empresa, e é isso que faz a contagem por empregador publicada estar certa.
 """
-import json
-import os
+from __future__ import annotations
+
 import re
+import sys
 from collections import defaultdict
 
+from egressos_core import dados, empresas
 from egressos_core.text import strip_accents
 
-HERE = os.path.dirname(os.path.abspath(__file__))   # pipeline/
-ROOT = os.path.dirname(HERE)                          # salario/
-DATA = os.path.join(ROOT, "data")                     # salario/data/
-OUT  = os.path.join(DATA, "empresas_aliases.json")
 
-# nomes que NÃO são empregador (falsos positivos conhecidos — ver memória do projeto)
-# NB: "MongoDB" é falso-positivo APENAS em listas de stack; aqui 2 egressos são
-# empregados da MongoDB Inc (empresa real) -> mantido como empresa.
-NAO_EMPRESA = {"alem", "autonomo", "freelance", "freelancer"}
+def nomes_do_cadastro() -> tuple[set[str], set[str]]:
+    """Todo nome de empresa que aparece no projeto, e quais são empregador ATUAL."""
+    alunos = dados.ler("alunos")
+    if isinstance(alunos, dict):
+        alunos = alunos.get("alunos") or list(alunos.values())[0]
 
-# strip de sufixos corporativos e de localidade (tokens no fim do nome)
-SUF_CORP = ["s/a", "s.a", "s a", "sa", "ltda", "ltda.", "me", "epp", "eireli",
-            "inc", "inc.", "llc", "co", "co.", "corp", "corporation", "group",
-            "consultoria & sistemas", "consultoria e sistemas"]
-SUF_LOC  = ["chile", "brasil", "brazil", "do brasil", "of brazil", "us", "usa",
-            "espirito santo"]
-SUF_TAIL = [" ti"]  # "AEVO TI" -> "AEVO"
+    atuais: set[str] = set()
+    todos: set[str] = set()
+    for a in alunos:
+        atual = (a.get("empresa_atual") or "").strip()
+        if atual:
+            atuais.add(atual)
+            todos.add(atual)
+        for e in a.get("experiencias", []):
+            nome = (e.get("empresa") or "").strip()
+            if nome:
+                todos.add(nome)
 
-# fusões manuais (casos que a normalização automática não pega) -> chave canônica
-MANUAL = {
-    "banestes s/a – banco do estado do espírito santo": "Banestes",
-    "banestes s/a - banco do estado do espírito santo": "Banestes",
-    "getty/io chile": "Getty/IO",
-    "will bank": "Will Bank",
-    "conexos - consulting and systems": "CONEXOS",
-    "vixteam consultoria & sistemas": "Vixteam",
-    "facile soluções em sistemas": "Facile",
-    "lifepet saúde": "Lifepet",
-    "getty/io": "Getty/IO",
-    "leds - ifes": "LEDS - IFES",
-    "ifes - instituto federal do espírito santo": "Instituto Federal do Espírito Santo",
-}
+    try:
+        lista = dados.ler("_empresas_lista")
+        todos.update(x.strip() for x in lista if x and x.strip())
+    except dados.DatasetAusente:
+        pass                                   # a lista é insumo opcional do porte por LLM
+
+    return todos, atuais
 
 
-def key_of(nome):
-    """chave de agrupamento: minúsculo, sem acento, sem pontuação, sem sufixo corp/loc/TI."""
-    s = strip_accents(nome).lower().strip()
-    s = re.sub(r"[–—\-]", " ", s)          # travessões -> espaço
-    for suf in SUF_TAIL:
-        if s.endswith(suf):
-            s = s[: -len(suf)].strip()
-    # remove pontuação exceto / (usado em Getty/IO) — depois tira / p/ casar
-    s = re.sub(r"[.,()]", " ", s)
-    s = re.sub(r"\s+", " ", s).strip()
-    # remove sufixo corporativo/localidade no fim (itera até estabilizar)
-    changed = True
-    while changed:
-        changed = False
-        for suf in SUF_CORP + SUF_LOC:
-            if s.endswith(" " + suf) or s == suf:
-                s = s[: len(s) - len(suf)].strip()
-                changed = True
-    s = s.replace("/", "")
-    s = re.sub(r"\s+", " ", s).strip()
-    return s
+def _grupos(nomes: set[str]) -> dict[str, set[str]]:
+    """Agrupa pela regra do núcleo, tolerando o travessão que o cadastro usa em dois formatos.
 
-# ---- coleta nomes (atuais + histórico) ----
-alunos = json.load(open(os.path.join(ROOT, "alunos.json"), encoding="utf-8"))
-if isinstance(alunos, dict):
-    alunos = alunos.get("alunos") or list(alunos.values())[0]
+    A fusão manual é indexada pelo nome em minúsculo; um mesmo nome aparece com travessão longo
+    e com hífen, e os dois têm de encontrar a mesma entrada.
+    """
+    grupos: dict[str, set[str]] = defaultdict(set)
+    for nome in nomes:
+        variantes = {strip_accents(nome).lower().strip(),
+                     re.sub(r"[–—\-]", "-", nome).lower().strip(),
+                     nome.lower().strip()}
+        if variantes & empresas.NAO_EMPRESA or empresas.chave_de_agrupamento(nome) in empresas.NAO_EMPRESA:
+            continue
+        alvo = next((empresas.FUSOES_MANUAIS[v] for v in variantes
+                     if v in empresas.FUSOES_MANUAIS), None)
+        if alvo:
+            chave = empresas.chave_de_agrupamento(alvo)
+            grupos[chave].update({nome, alvo})
+        else:
+            grupos[empresas.chave_de_agrupamento(nome)].add(nome)
+    return grupos
 
-atuais = set()
-counts_atual = defaultdict(int)          # canonico -> nº egressos com empresa atual
-raw_names = set()
-for a in alunos:
-    ea = (a.get("empresa_atual") or "").strip()
-    if ea:
-        atuais.add(ea); raw_names.add(ea)
-    for e in a.get("experiencias", []):
-        emp = (e.get("empresa") or "").strip()
-        if emp:
-            raw_names.add(emp)
 
-try:
-    lista = json.load(open(os.path.join(DATA, "_empresas_lista.json"), encoding="utf-8"))
-    raw_names.update(x.strip() for x in lista if x and x.strip())
-except FileNotFoundError:
-    pass
+def executar() -> dict:
+    todos, atuais = nomes_do_cadastro()
+    grupos = _grupos(todos)
 
-# ---- agrupa ----
-groups = defaultdict(set)   # key -> {nomes crus}
-for nome in raw_names:
-    if key_of(nome) in NAO_EMPRESA or strip_accents(nome).lower().strip() in NAO_EMPRESA:
-        continue
-    low = strip_accents(nome).lower().strip()
-    low2 = re.sub(r"[–—\-]", "-", nome).lower().strip()
-    if low in MANUAL:
-        k = key_of(MANUAL[low]); groups[k].add(nome); groups[k].add(MANUAL[low]); continue
-    if low2 in MANUAL:
-        k = key_of(MANUAL[low2]); groups[k].add(nome); groups[k].add(MANUAL[low2]); continue
-    groups[key_of(nome)].add(nome)
+    por_chave_atual: dict[str, int] = defaultdict(int)
+    alunos = dados.ler("alunos")["alunos"]
+    for a in alunos:
+        atual = (a.get("empresa_atual") or "").strip()
+        if atual:
+            por_chave_atual[empresas.chave_de_agrupamento(atual)] += 1
 
-def canonico(nomes):
-    """escolhe o nome canônico: mais curto que não seja sigla-só, senão o mais comum."""
-    nomes = sorted(nomes, key=lambda n: (len(n), n))
-    # prefere nome com maiúscula/mista (evita 'will bank' vs 'Will Bank')
-    caps = [n for n in nomes if n != n.lower()]
-    return (caps or nomes)[0]
+    saida = {}
+    for chave, nomes in sorted(grupos.items()):
+        if not chave:
+            continue
+        canonico = empresas.canonico(nomes)
+        saida[canonico] = {
+            "aliases": sorted(n for n in nomes if n != canonico),
+            "atual": any(n in atuais for n in nomes),
+            "n_egressos_atual": por_chave_atual.get(chave, 0),
+        }
+    dados.gravar("empresas_aliases", saida)
+    return saida
 
-# nº egressos atuais por canonico
-current_key = {}
-for a in alunos:
-    ea = (a.get("empresa_atual") or "").strip()
-    if ea:
-        current_key.setdefault(key_of(ea), 0)
-        current_key[key_of(ea)] += 1
 
-out = {}
-for k, nomes in sorted(groups.items()):
-    if not k:
-        continue
-    can = canonico(nomes)
-    aliases = sorted(n for n in nomes if n != can)
-    is_atual = any(n in atuais for n in nomes)
-    out[can] = {
-        "aliases": aliases,
-        "atual": is_atual,
-        "n_egressos_atual": current_key.get(k, 0),
-    }
+def main() -> int:
+    saida = executar()
+    print(f"wrote {dados.caminho('empresas_aliases')}")
+    print(f"  {len(saida)} empresas canônicas "
+          f"({sum(1 for v in saida.values() if v['atual'])} são empregador ATUAL de algum egresso)")
+    print(f"  {sum(1 for v in saida.values() if v['aliases'])} tiveram variantes agrupadas")
+    print("  exemplos de merge:")
+    for canonico, v in saida.items():
+        if v["aliases"]:
+            print(f"    {canonico!r} <- {v['aliases']}")
+    return 0
 
-json.dump(out, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
-n_total = len(out)
-n_atual = sum(1 for v in out.values() if v["atual"])
-n_merged = sum(1 for v in out.values() if v["aliases"])
-print(f"wrote {OUT}")
-print(f"  {n_total} empresas canônicas ({n_atual} são empregador ATUAL de algum egresso)")
-print(f"  {n_merged} tiveram variantes agrupadas")
-print("  exemplos de merge:")
-for can, v in out.items():
-    if v["aliases"]:
-        print(f"    {can!r} <- {v['aliases']}")
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,106 +1,62 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Classifica empresas por dados VERIFICADOS do LinkedIn (browser-use):
-  - porte_real  <- headcount_linkedin  (bandas padrão do LinkedIn, determinístico)
-  - setor_real  <- industry_linkedin + specialties  (regras por palavra-chave)
+"""Classifica empresas pelo dado VERIFICADO da company page (coletado por browser-use).
 
-Aditivo em data/empresas_porte.json (não apaga a estimativa Mistral; marca fonte).
-Imprime um resumo (contagem por porte_real e setor_real) p/ análise.
+  porte_real  <- headcount_linkedin        (bandas do LinkedIn, determinístico)
+  setor_real  <- industry + specialties    (regras por palavra-chave)
 
-Só dados PÚBLICOS de empresa. Sem LLM (regras determinísticas). Sem rede.
-Uso:  .venv/bin/python pipeline/classify_empresas.py
+As duas regras moram em `egressos_core.empresas`; aqui ficam a leitura, a gravação e o resumo.
+Aditivo em `empresas_porte`: não apaga a estimativa por LLM, marca a fonte.
+
+Só dado PÚBLICO de empresa. **Sem LLM e sem rede** — é o caminho determinístico, o que sempre
+existe. Quando o LLM entra (pipeline/mistral_porte.py), ele é a outra estratégia, nunca a única.
+
+Uso:  python pipeline/classify_empresas.py
 """
-import json
-import os
-import re
+from __future__ import annotations
+
+import sys
 from collections import Counter
 
-from egressos_core.paths import ROOT as _ROOT
-from egressos_core.text import strip_accents
+from egressos_core import dados, empresas
 
-BASE = str(_ROOT)
-PORTE = os.path.join(BASE, "data", "empresas_porte.json")
 
-# Sem `.strip()` de propósito: NÃO é o `text.norm` do núcleo. Trocar mudaria a chave
-# de agrupamento de todo valor com espaço nas pontas — e o dado do LinkedIn tem desses.
-def norm(s):
-    return strip_accents(s).lower()
+def executar() -> tuple[dict, int, int]:
+    porte = dados.ler("empresas_porte")
+    n_porte = n_setor = 0
+    for nome, dado in porte.items():
+        classificado_porte = empresas.porte_por_headcount(dado.get("headcount_linkedin"))
+        if classificado_porte:
+            dado["porte_real"] = classificado_porte
+            n_porte += 1
+        classificado_setor = empresas.setor_por_palavra_chave(
+            dado.get("industry_linkedin"), dado.get("specialties"), empresa=nome)
+        if classificado_setor:
+            dado["setor_real"] = classificado_setor
+            n_setor += 1
+        if classificado_porte or classificado_setor:
+            dado["classificacao_fonte"] = "linkedin+regras"
+    dados.gravar("empresas_porte", porte)
+    return porte, n_porte, n_setor
 
-# --- porte por headcount (bandas LinkedIn) ---
-def porte_por_headcount(hc):
-    if not hc:
-        return None
-    hc = re.sub(r"(\d)\s*[kK]\b", lambda m: m.group(1) + "000", hc)   # "1K"->"1000"
-    dig = lambda s: int(re.sub(r"\D", "", s) or 0)
-    # só a 1ª faixa X-Y (ignora "(12.000 especialistas)" e afins); senão X+ ; senão 1º número
-    m = re.search(r"(\d[\d.,]*)\s*[-–]\s*(\d[\d.,]*)", hc)
-    if m:
-        top = dig(m.group(2))
-    else:
-        m = re.search(r"(\d[\d.,]*)\s*\+", hc) or re.search(r"\d[\d.,]*", hc)
-        top = dig(m.group(m.lastindex or 0)) if m else 0
-    if not top:
-        return None
-    if top <= 10:    return "Micro (1-10)"
-    if top <= 50:    return "Pequena (11-50)"
-    if top <= 200:   return "Pequena-Média (51-200)"
-    if top <= 500:   return "Média (201-500)"
-    if top <= 1000:  return "Média-Grande (501-1k)"
-    if top <= 5000:  return "Grande (1k-5k)"
-    if top <= 10000: return "Grande (5k-10k)"
-    return "Enterprise (10k+)"
 
-# --- setor por industry + specialties (regras; ordem específica -> genérica) ---
-SETOR_RULES = [
-    ("Fintech / Banco",        r"fintech|bank|banco|payment|pagament|credit|crédit|lending|empréstim|seguro|insurance|financ|wallet|carteira digital"),
-    ("Games",                  r"\bgame|jogo|gaming|entertainment provider"),
-    ("Saúde / Bio",            r"health|saúde|saude|medical|médic|hospital|pharma|farma|clinic|clínic|\bbio|life science|pet"),
-    ("E-commerce / Varejo",    r"e-?commerce|retail|varejo|marketplace|\bloja|consumer goods|cosmétic|cosmetic|department store"),
-    ("Consultoria / Serviços TI", r"consult|it services|outsourc|systems integrat|serviços de ti|integração de sistemas|professional services"),
-    ("Dados / IA",             r"\bdata\b|dados|analytics|machine learning|artificial intelligence|inteligência artificial|\bai\b|\bia\b|big data"),
-    ("Segurança / Cyber",      r"security|segurança|cyber|ciberseg|antifraud|antifraude"),
-    ("Telecom / Redes",        r"telecom|telecommunicat|conectividade|network|redes|internet service"),
-    ("Educação",               r"educat|educaç|edtech|ensino|e-learning|aprendizag"),
-    ("Governo / Defesa",       r"government|govern|público|public administration|defense|defesa|marinha|tribunal|prefeitura|registro público"),
-    ("Indústria / Energia / Logística", r"manufactur|indústr|industry|energy|energia|logístic|logistic|automotiv|petról|mineraç|construç"),
-    ("Software / Produto",     r"software|technology|tecnologia|saas|\bapp\b|platform|plataforma|development|desenvolvimento de software|information technology"),
-]
-def setor_por_texto(industry, specialties):
-    txt = norm(f"{industry or ''} ; {specialties or ''}")
-    if not txt.strip(" ;"):
-        return None
-    for nome, pat in SETOR_RULES:
-        if re.search(pat, txt):
-            return nome
-    return "Outros"
+def main() -> int:
+    porte, n_porte, n_setor = executar()
+    print(f"classificadas: {n_porte} por headcount (porte_real), "
+          f"{n_setor} por industry/specialties (setor_real)\n")
 
-def main():
-    porte = json.load(open(PORTE, encoding="utf-8"))
-    n_hc = n_setor = 0
-    for k, v in porte.items():
-        hc = v.get("headcount_linkedin")
-        pr = porte_por_headcount(hc)
-        if pr:
-            v["porte_real"] = pr; n_hc += 1
-        sr = setor_por_texto(v.get("industry_linkedin"), v.get("specialties"))
-        if sr:
-            v["setor_real"] = sr; n_setor += 1
-        if pr or sr:
-            v["classificacao_fonte"] = "linkedin+regras"
-    json.dump(porte, open(PORTE, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    contagem_porte = Counter(v["porte_real"] for v in porte.values() if v.get("porte_real"))
+    contagem_setor = Counter(v["setor_real"] for v in porte.values() if v.get("setor_real"))
 
-    print(f"classificadas: {n_hc} por headcount (porte_real), {n_setor} por industry/specialties (setor_real)\n")
-    pc = Counter(v["porte_real"] for v in porte.values() if v.get("porte_real"))
-    sc = Counter(v["setor_real"] for v in porte.values() if v.get("setor_real"))
-    order = ["Micro (1-10)","Pequena (11-50)","Pequena-Média (51-200)","Média (201-500)",
-             "Média-Grande (501-1k)","Grande (1k-5k)","Grande (5k-10k)","Enterprise (10k+)"]
     print("== PORTE REAL (headcount LinkedIn) ==")
-    for p in order:
-        if pc.get(p): print(f"  {pc[p]:2}  {p}")
+    for _, nome in empresas.BANDAS_DE_PORTE + ((None, empresas.PORTE_ACIMA_DA_ULTIMA_BANDA),):
+        if contagem_porte.get(nome):
+            print(f"  {contagem_porte[nome]:2}  {nome}")
     print("\n== SETOR REAL (industry + specialties) ==")
-    for s, n in sc.most_common():
-        print(f"  {n:2}  {s}")
+    for nome, n in contagem_setor.most_common():
+        print(f"  {n:2}  {nome}")
+    return 0
+
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
