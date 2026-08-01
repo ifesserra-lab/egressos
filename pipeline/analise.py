@@ -11,7 +11,8 @@ import numpy as np
 from egressos_core import dados, kmeans
 from egressos_core.paths import ROOT as BASE  # ainda usado por _count(), que lê .md/.txt
 
-al = dados.ler("alunos")["alunos"]
+_cadastro = dados.ler("alunos")
+al = _cadastro["alunos"]
 cons = dados.ler("consolidado")
 cf = dados.ler("codigofonte_2026")
 cfh = dados.ler("codigofonte_historico")
@@ -120,7 +121,7 @@ rows=[]
 for a in al:
     n_emp = len({e["empresa"] for e in a["experiencias"] if e["area"] in TRACKD})
     rows.append({
-        "id":a["id"],"label":idlabel.get(a["id"],"?"),
+        "id":a["id"],"label":idlabel.get(a["id"],"?"),"curso":a.get("curso","bsi"),
         "anos":anos_exp(a),"n_empresas":n_emp,"n_exp":len(a["experiencias"]),
         "trilha":track_atual(a),"em_tech":int(a["ainda_em_tech"]),
         "exterior":exterior(a),"bolsa_ini":comecou_bolsa(a),"lideranca":tem_lideranca(a),
@@ -608,10 +609,15 @@ hist_mult = [{"faixa": rot, "n": sum(1 for c in _cr if lo <= c < hi)} for lo, hi
 # Ficam no publicado: `label` (A–AX, a identidade anonimizada autorizada) e os atributos
 # numéricos que as páginas usam. Quem precisar do vínculo pessoa→empresa lê alunos.json, que é
 # `pii` e nunca sai do repositório privado.
+# Cursos do campus, do catálogo do próprio cadastro. O curso sem egresso levantado entra com
+# n=0 de propósito: "0 egressos" é resposta que a tela pode mostrar; campo ausente não é.
+CURSOS = {c: {**d, "n_egressos": sum(1 for a in al if a.get("curso", "bsi") == c)}
+          for c, d in (_cadastro.get("cursos") or {"bsi": {"nome": "Bacharelado em Sistemas de Informação"}}).items()}
+
 CAMPOS_IDENTIFICADORES = ("id", "empresa_atual", "cargo_atual")
 rows_publicaveis = [{k: v for k, v in r.items() if k not in CAMPOS_IDENTIFICADORES} for r in rows]
 
-out={"top_tech":top_tech,"clusters":cl_desc,"rows":rows_publicaveis,"insights":insights,
+out={"cursos":CURSOS,"top_tech":top_tech,"clusters":cl_desc,"rows":rows_publicaveis,"insights":insights,
      "comparacao":comp,"cf_2026_senioridade":cf2026,"cruzamento":cross,
      "funcoes":funcoes,"lideranca_gestao":lid_gestao,"metodos":metodos,"impacto":impacto,
      "sankey":sankey,"intl_timeline":intl_timeline,"empresas":empresas,"genero":genero,
