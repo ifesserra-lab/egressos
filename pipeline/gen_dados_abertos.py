@@ -34,6 +34,8 @@ SAFE = [
     ("salario_minimo.json",    "Salário mínimo por ano",   "Salário mínimo nacional 2011–2026: valor de janeiro, de dezembro, média ponderada pelos meses, reajuste do decreto, INPC do ano anterior, ganho real e valor em reais do ano-base."),
     ("ibge_series.json",       "Séries macro (IBGE/IPEADATA)","IPCA e INPC (número-índice mensal + média anual + deflatores) e o salário mínimo mensal. Base para toda correção monetária do estudo."),
     ("mapa_mundi.json",        "Contorno do mapa-múndi",   "Polígonos dos continentes (Natural Earth 110m) já projetados em coordenadas SVG, usados no mapa animado da vitrine de carreiras. Domínio público."),
+    ("egressos_perfil.json",   "Perfis dos egressos",      "Nome, curso, cargo, empresa e cidade de cada egresso, mais senioridade e anos de carreira. Dado de nível LinkedIn — o que a própria pessoa publica —, divulgado por decisão da coordenação. NÃO contém renda: a estimativa é por CARGO, no arquivo ao lado."),
+    ("renda_por_cargo.json",   "Renda estimada por cargo", "Faixa p25–mediana–p75 ESTIMADA por senioridade e trilha, com a amostra de mercado de cada uma. Nenhum salário foi coletado de ninguém: o valor é o que o mercado pagava para aquele nível de experiência, e para uma pessoa concreta pode ser maior ou menor. Sem nenhuma chave de pessoa."),
     ("so_benchmarks.json",     "Benchmarks internacionais","Medianas salariais em US$/mês por país na faixa de experiência do coorte, mediana global, série por edição do survey e — o mais relevante — respondentes do Brasil separados pela MOEDA do contracheque (R$ x US$)."),
     ("codigofonte_2026.json",  "Benchmark de mercado 2026","Faixas salariais por senioridade (Pesquisa Código Fonte)."),
     ("codigofonte_historico.json","Benchmark histórico",   "Média salarial por senioridade, série histórica."),
@@ -113,7 +115,32 @@ al = dados.ler("alunos")
 al = al if isinstance(al, list) else (al.get("alunos") or list(al.values())[0])
 NAMES = {strip_accents(a.get("nome","")).lower().strip() for a in al if a.get("nome")}
 NAMES = {n for n in NAMES if n}
+# A vitrine nomeada é exceção AUTORIZADA: nome, cargo, empresa e cidade são dado de nível
+# LinkedIn, que a própria pessoa publica, e a coordenação decidiu divulgar. A varredura de nomes
+# não se aplica a ela — se aplicasse, ela nunca publicaria.
+#
+# Mas exceção sem portão é buraco. O que torna a vitrine aceitável não é a autorização sozinha:
+# é ela NÃO TER RENDA. O número de renda nunca foi da pessoa (é a faixa de mercado para a
+# experiência dela), e foi juntar as duas coisas no mesmo registro que fez analise.json publicar
+# nome + empresa + cargo + salário estimado. Então a exceção vem com verificação própria, que
+# roda a cada publicação — não só na suíte.
+VITRINE_NOMEADA = {"egressos_perfil.json"}
+CHEIRO_DE_RENDA = ("salario", "renda", "med_atual", "med_ini", "remunera", "p25", "p75",
+                   "mediana", "cresc", "brl", "usd")
+
+
+def renda_em_registro_de_pessoa(caminho):
+    """Chaves de dinheiro dentro dos registros da vitrine. Vazio = pode publicar."""
+    conteudo = json.load(open(caminho, encoding="utf-8"))
+    return sorted({
+        chave for pessoa in conteudo.get("egressos", []) for chave in pessoa
+        if any(t in chave.lower() for t in CHEIRO_DE_RENDA)
+    })
+
+
 def pii_hits(path):
+    if os.path.basename(path) in VITRINE_NOMEADA:
+        return []                       # nome é a decisão; o portão dela é o de renda
     txt = strip_accents(open(path, encoding="utf-8", errors="ignore").read()).lower()
     return [n for n in NAMES if n and n in txt]
 
@@ -142,6 +169,13 @@ for fn, titulo, desc in SAFE:
     hits = pii_hits(src)
     if hits:
         raise SystemExit(f"ABORT: PII em {fn}: {hits[:3]} — NÃO publicar")
+    if fn in VITRINE_NOMEADA:
+        com_renda = renda_em_registro_de_pessoa(src)
+        if com_renda:
+            raise SystemExit(
+                f"ABORT: {fn} é a vitrine NOMEADA e ganhou campo de renda: {com_renda}. "
+                "Renda por pessoa é estimativa que a metodologia não mede no indivíduo — ela "
+                "vai em renda_por_cargo.json, atrelada ao cargo. NÃO publicar.")
     shutil.copy2(src, DADOS_OUT/fn)
     d = dados.ler(nome)
     n = len(d) if isinstance(d, (list, dict)) else 0

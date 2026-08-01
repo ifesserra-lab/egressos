@@ -46,7 +46,7 @@
   <header>
     <p class="eyebrow">Dados abertos · IFES — Campus Serra</p>
     <h1>Dados abertos — egressos de TI</h1>
-    <p class="lede">Todos os dados <b>agregados e anonimizados</b> do estudo de egressos, mais o <b>código do pipeline</b> que os gera. Baixe, reproduza, audite. Dados de pessoa nunca são publicados — só coorte anonimizada (A–AX) e dados <b>públicos</b> de empresa. 13 datasets · 337.9 KB.</p>
+    <p class="lede">Todos os dados <b>agregados e anonimizados</b> do estudo de egressos, mais o <b>código do pipeline</b> que os gera. Baixe, reproduza, audite. Dados de pessoa nunca são publicados — só coorte anonimizada (A–AX) e dados <b>públicos</b> de empresa. 15 datasets · 361.2 KB.</p>
   </header>
 
   <nav class="nav" aria-label="Outras páginas">
@@ -65,6 +65,8 @@
 <tr><td class="dn"><a href="dados/salario_minimo.json" download>salario_minimo.json ↓</a></td><td><b>Salário mínimo por ano</b><br><small>Salário mínimo nacional 2011–2026: valor de janeiro, de dezembro, média ponderada pelos meses, reajuste do decreto, INPC do ano anterior, ganho real e valor em reais do ano-base.</small></td><td class="num">12</td><td class="num">5.6 KB</td></tr>
 <tr><td class="dn"><a href="dados/ibge_series.json" download>ibge_series.json ↓</a></td><td><b>Séries macro (IBGE/IPEADATA)</b><br><small>IPCA e INPC (número-índice mensal + média anual + deflatores) e o salário mínimo mensal. Base para toda correção monetária do estudo.</small></td><td class="num">5</td><td class="num">23.5 KB</td></tr>
 <tr><td class="dn"><a href="dados/mapa_mundi.json" download>mapa_mundi.json ↓</a></td><td><b>Contorno do mapa-múndi</b><br><small>Polígonos dos continentes (Natural Earth 110m) já projetados em coordenadas SVG, usados no mapa animado da vitrine de carreiras. Domínio público.</small></td><td class="num">10</td><td class="num">33.9 KB</td></tr>
+<tr><td class="dn"><a href="dados/egressos_perfil.json" download>egressos_perfil.json ↓</a></td><td><b>Perfis dos egressos</b><br><small>Nome, curso, cargo, empresa e cidade de cada egresso, mais senioridade e anos de carreira. Dado de nível LinkedIn — o que a própria pessoa publica —, divulgado por decisão da coordenação. NÃO contém renda: a estimativa é por CARGO, no arquivo ao lado.</small></td><td class="num">8</td><td class="num">21.2 KB</td></tr>
+<tr><td class="dn"><a href="dados/renda_por_cargo.json" download>renda_por_cargo.json ↓</a></td><td><b>Renda estimada por cargo</b><br><small>Faixa p25–mediana–p75 ESTIMADA por senioridade e trilha, com a amostra de mercado de cada uma. Nenhum salário foi coletado de ninguém: o valor é o que o mercado pagava para aquele nível de experiência, e para uma pessoa concreta pode ser maior ou menor. Sem nenhuma chave de pessoa.</small></td><td class="num">13</td><td class="num">2.1 KB</td></tr>
 <tr><td class="dn"><a href="dados/so_benchmarks.json" download>so_benchmarks.json ↓</a></td><td><b>Benchmarks internacionais</b><br><small>Medianas salariais em US$/mês por país na faixa de experiência do coorte, mediana global, série por edição do survey e — o mais relevante — respondentes do Brasil separados pela MOEDA do contracheque (R$ x US$).</small></td><td class="num">23</td><td class="num">6.7 KB</td></tr>
 <tr><td class="dn"><a href="dados/codigofonte_2026.json" download>codigofonte_2026.json ↓</a></td><td><b>Benchmark de mercado 2026</b><br><small>Faixas salariais por senioridade (Pesquisa Código Fonte).</small></td><td class="num">13</td><td class="num">2.7 KB</td></tr>
 <tr><td class="dn"><a href="dados/codigofonte_historico.json" download>codigofonte_historico.json ↓</a></td><td><b>Benchmark histórico</b><br><small>Média salarial por senioridade, série histórica.</small></td><td class="num">9</td><td class="num">1.6 KB</td></tr>
@@ -90,7 +92,7 @@
 <a class="cf" href="api/mercado/codigofonte.json">mercado/codigofonte.json<span>4.1 KB</span></a>
 <a class="cf" href="api/empresas/index.json">empresas/index.json<span>35.3 KB</span></a>
 <span class="cf" style="opacity:.75">empresas/&lt;slug&gt;.json<span>por item</span></span>
-<a class="cf" href="api/analise.json">analise.json<span>13.4 KB</span></a>
+<a class="cf" href="api/analise.json">analise.json<span>13.7 KB</span></a>
 <a class="cf" href="api/fomento-fapes.json">fomento-fapes.json<span>1.0 KB</span></a>
 <a class="cf" href="api/mapa/base.json">mapa/base.json<span>34.0 KB</span></a>
 <a class="cf" href="api/mapa/detalhe.json">mapa/detalhe.json<span>289.4 KB</span></a></div>
@@ -115,7 +117,7 @@
 <a class="cf" href="pipeline/gen_reguas.py" download>gen_reguas.py <span>51.7 KB ↓</span></a>
 <a class="cf" href="pipeline/gen_nav.py" download>gen_nav.py <span>4.3 KB ↓</span></a>
 <a class="cf" href="pipeline/gen_api.py" download>gen_api.py <span>10.4 KB ↓</span></a>
-<a class="cf" href="pipeline/gen_dados_abertos.py" download>gen_dados_abertos.py <span>28.1 KB ↓</span></a>
+<a class="cf" href="pipeline/gen_dados_abertos.py" download>gen_dados_abertos.py <span>30.5 KB ↓</span></a>
 <a class="cf" href="pipeline/qa_report.py" download>qa_report.py <span>11.2 KB ↓</span></a>
 <a class="cf" href="pipeline/norm_empresas.py" download>norm_empresas.py <span>4.0 KB ↓</span></a>
 <a class="cf" href="pipeline/enrich_empresas.py" download>enrich_empresas.py <span>13.1 KB ↓</span></a>
@@ -140,6 +142,8 @@ python build_report.py --publish  # copia a versão anonimizada p/ os sites</pre
       <b>Licença de dado de terceiro:</b> parte dos arquivos acima é <b>derivada de fontes externas</b>, e essas fontes têm licença própria — que continua valendo para quem baixar o arquivo daqui. A licença de cada um está dentro do próprio JSON (campo <code>licenca</code>), porque o arquivo circula sozinho.
       <ul style="margin:8px 0 0 18px"><li><code>codigofonte_2026.json</code> — <b>não declarada pela fonte</b> · atribuição: Pesquisa Código Fonte — pesquisa.codigofonte.com.br<br><small>A fonte publica os resultados em página web, sem termos de uso nem licença de dados. Uso aqui: referência de mercado agregada e citada. Registrar a ausência é diferente de omitir — quem redistribuir este arquivo herda a mesma indefinição.</small></li>
 <li><code>codigofonte_historico.json</code> — <b>não declarada pela fonte</b> · atribuição: Pesquisa Código Fonte — pesquisa.codigofonte.com.br<br><small>A fonte publica os resultados em página web, sem termos de uso nem licença de dados. Uso aqui: referência de mercado agregada e citada. Registrar a ausência é diferente de omitir.</small></li>
+<li><code>egressos_perfil.json</code> — <b>CC BY 4.0</b> · atribuição: Estudo de egressos de TI — Ifes Campus Serra<br><small></small></li>
+<li><code>renda_por_cargo.json</code> — <b>CC BY 4.0</b> · atribuição: Estudo de egressos de TI — Ifes Campus Serra<br><small></small></li>
 <li><code>so_benchmarks.json</code> — <a href="https://opendatacommons.org/licenses/odbl/1-0/" style="color:var(--accent)">ODbL 1.0 (base de dados) + DbCL 1.0 (conteúdo)</a> · atribuição: Stack Overflow Annual Developer Survey — survey.stackoverflow.co<br><small>Stack Overflow Developer Survey 2018–2025 (survey.stackoverflow.co)</small></li></ul><br>
       <b>Privacidade:</b> nenhum dado individual identificável é publicado. Egressos aparecem só como coorte anonimizada (A–AX). Dados de empresa são informação pública (LinkedIn/registros). Nomes de pessoa nunca saem da máquina local nem vão a serviços externos de IA.<br><br>
       <span class="warn">⚠️ Site experimental — dados preliminares, sujeitos a revisão. Egresso que queira correção/remoção: falar com a coordenação.</span>
