@@ -66,7 +66,7 @@
   {
    "endpoint": "api/analise.json",
    "descricao": "Análises agregadas: clusters, sankey, funções, gênero, internacionalização, extensão.",
-   "kb": 13.4
+   "kb": 13.7
   },
   {
    "endpoint": "api/fomento-fapes.json",

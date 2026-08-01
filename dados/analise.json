@@ -1,4 +1,19 @@
 {
+ "cursos": {
+  "bsi": {
+   "nome": "Bacharelado em Sistemas de Informação",
+   "grau": "bacharelado",
+   "campus": "Serra",
+   "n_egressos": 50
+  },
+  "engenharia": {
+   "nome": "Engenharia — nome oficial a confirmar",
+   "grau": "bacharelado",
+   "campus": "Serra",
+   "situacao": "sem egressos levantados; o slot existe para a tela já filtrar por curso",
+   "n_egressos": 0
+  }
+ },
  "top_tech": [
   {
    "tech": "Angular",
@@ -217,6 +232,7 @@
  "rows": [
   {
    "label": "A",
+   "curso": "bsi",
    "anos": 8.2,
    "n_empresas": 6,
    "n_exp": 9,
@@ -233,6 +249,7 @@
   },
   {
    "label": "B",
+   "curso": "bsi",
    "anos": 7.9,
    "n_empresas": 7,
    "n_exp": 9,
@@ -249,6 +266,7 @@
   },
   {
    "label": "D",
+   "curso": "bsi",
    "anos": 7.9,
    "n_empresas": 5,
    "n_exp": 8,
@@ -265,6 +283,7 @@
   },
   {
    "label": "C",
+   "curso": "bsi",
    "anos": 13.2,
    "n_empresas": 4,
    "n_exp": 5,
@@ -281,6 +300,7 @@
   },
   {
    "label": "E",
+   "curso": "bsi",
    "anos": 14.3,
    "n_empresas": 6,
    "n_exp": 9,
@@ -297,6 +317,7 @@
   },
   {
    "label": "F",
+   "curso": "bsi",
    "anos": 14.1,
    "n_empresas": 5,
    "n_exp": 7,
@@ -313,6 +334,7 @@
   },
   {
    "label": "G",
+   "curso": "bsi",
    "anos": 8.9,
    "n_empresas": 8,
    "n_exp": 10,
@@ -329,6 +351,7 @@
   },
   {
    "label": "H",
+   "curso": "bsi",
    "anos": 7.9,
    "n_empresas": 4,
    "n_exp": 5,
@@ -345,6 +368,7 @@
   },
   {
    "label": "I",
+   "curso": "bsi",
    "anos": 8.5,
    "n_empresas": 5,
    "n_exp": 5,
@@ -361,6 +385,7 @@
   },
   {
    "label": "J",
+   "curso": "bsi",
    "anos": 9.7,
    "n_empresas": 4,
    "n_exp": 6,
@@ -377,6 +402,7 @@
   },
   {
    "label": "K",
+   "curso": "bsi",
    "anos": 10.8,
    "n_empresas": 4,
    "n_exp": 7,
@@ -393,6 +419,7 @@
   },
   {
    "label": "L",
+   "curso": "bsi",
    "anos": 10.4,
    "n_empresas": 4,
    "n_exp": 4,
@@ -409,6 +436,7 @@
   },
   {
    "label": "M",
+   "curso": "bsi",
    "anos": 9.8,
    "n_empresas": 3,
    "n_exp": 7,
@@ -425,6 +453,7 @@
   },
   {
    "label": "N",
+   "curso": "bsi",
    "anos": 14.2,
    "n_empresas": 7,
    "n_exp": 8,
@@ -441,6 +470,7 @@
   },
   {
    "label": "O",
+   "curso": "bsi",
    "anos": 14.5,
    "n_empresas": 3,
    "n_exp": 9,
@@ -457,6 +487,7 @@
   },
   {
    "label": "P",
+   "curso": "bsi",
    "anos": 19.2,
    "n_empresas": 2,
    "n_exp": 5,
@@ -473,6 +504,7 @@
   },
   {
    "label": "Q",
+   "curso": "bsi",
    "anos": 11.5,
    "n_empresas": 2,
    "n_exp": 5,
@@ -489,6 +521,7 @@
   },
   {
    "label": "R",
+   "curso": "bsi",
    "anos": 14.1,
    "n_empresas": 10,
    "n_exp": 10,
@@ -505,6 +538,7 @@
   },
   {
    "label": "S",
+   "curso": "bsi",
    "anos": 13.5,
    "n_empresas": 7,
    "n_exp": 7,
@@ -521,6 +555,7 @@
   },
   {
    "label": "T",
+   "curso": "bsi",
    "anos": 17.2,
    "n_empresas": 6,
    "n_exp": 8,
@@ -537,6 +572,7 @@
   },
   {
    "label": "U",
+   "curso": "bsi",
    "anos": 17.2,
    "n_empresas": 4,
    "n_exp": 6,
@@ -553,6 +589,7 @@
   },
   {
    "label": "V",
+   "curso": "bsi",
    "anos": 13.5,
    "n_empresas": 8,
    "n_exp": 8,
@@ -569,6 +606,7 @@
   },
   {
    "label": "W",
+   "curso": "bsi",
    "anos": 9.8,
    "n_empresas": 4,
    "n_exp": 4,
@@ -585,6 +623,7 @@
   },
   {
    "label": "X",
+   "curso": "bsi",
    "anos": 13.8,
    "n_empresas": 8,
    "n_exp": 9,
@@ -601,6 +640,7 @@
   },
   {
    "label": "Y",
+   "curso": "bsi",
    "anos": 9.2,
    "n_empresas": 5,
    "n_exp": 7,
@@ -617,6 +657,7 @@
   },
   {
    "label": "Z",
+   "curso": "bsi",
    "anos": 9.9,
    "n_empresas": 5,
    "n_exp": 6,
@@ -633,6 +674,7 @@
   },
   {
    "label": "AA",
+   "curso": "bsi",
    "anos": 9.5,
    "n_empresas": 2,
    "n_exp": 3,
@@ -649,6 +691,7 @@
   },
   {
    "label": "AB",
+   "curso": "bsi",
    "anos": 7.8,
    "n_empresas": 5,
    "n_exp": 7,
@@ -665,6 +708,7 @@
   },
   {
    "label": "AC",
+   "curso": "bsi",
    "anos": 14.5,
    "n_empresas": 7,
    "n_exp": 9,
@@ -681,6 +725,7 @@
   },
   {
    "label": "AD",
+   "curso": "bsi",
    "anos": 10.6,
    "n_empresas": 4,
    "n_exp": 8,
@@ -697,6 +742,7 @@
   },
   {
    "label": "AE",
+   "curso": "bsi",
    "anos": 15.4,
    "n_empresas": 8,
    "n_exp": 10,
@@ -713,6 +759,7 @@
   },
   {
    "label": "AF",
+   "curso": "bsi",
    "anos": 11.9,
    "n_empresas": 10,
    "n_exp": 10,
@@ -729,6 +776,7 @@
   },
   {
    "label": "AG",
+   "curso": "bsi",
    "anos": 10.8,
    "n_empresas": 2,
    "n_exp": 2,
@@ -745,6 +793,7 @@
   },
   {
    "label": "AH",
+   "curso": "bsi",
    "anos": 10.5,
    "n_empresas": 6,
    "n_exp": 9,
@@ -761,6 +810,7 @@
   },
   {
    "label": "AI",
+   "curso": "bsi",
    "anos": 10.8,
    "n_empresas": 4,
    "n_exp": 6,
@@ -777,6 +827,7 @@
   },
   {
    "label": "AJ",
+   "curso": "bsi",
    "anos": 11.8,
    "n_empresas": 6,
    "n_exp": 7,
@@ -793,6 +844,7 @@
   },
   {
    "label": "AK",
+   "curso": "bsi",
    "anos": 10.9,
    "n_empresas": 6,
    "n_exp": 6,
@@ -809,6 +861,7 @@
   },
   {
    "label": "AL",
+   "curso": "bsi",
    "anos": 8.4,
    "n_empresas": 5,
    "n_exp": 7,
@@ -825,6 +878,7 @@
   },
   {
    "label": "AM",
+   "curso": "bsi",
    "anos": 9.5,
    "n_empresas": 6,
    "n_exp": 6,
@@ -841,6 +895,7 @@
   },
   {
    "label": "AN",
+   "curso": "bsi",
    "anos": 11.0,
    "n_empresas": 4,
    "n_exp": 4,
@@ -857,6 +912,7 @@
   },
   {
    "label": "AO",
+   "curso": "bsi",
    "anos": 7.9,
    "n_empresas": 5,
    "n_exp": 5,
@@ -873,6 +929,7 @@
   },
   {
    "label": "AP",
+   "curso": "bsi",
    "anos": 25.5,
    "n_empresas": 9,
    "n_exp": 11,
@@ -889,6 +946,7 @@
   },
   {
    "label": "AQ",
+   "curso": "bsi",
    "anos": 4.7,
    "n_empresas": 0,
    "n_exp": 4,
@@ -905,6 +963,7 @@
   },
   {
    "label": "AR",
+   "curso": "bsi",
    "anos": 11.4,
    "n_empresas": 6,
    "n_exp": 7,
@@ -921,6 +980,7 @@
   },
   {
    "label": "AS",
+   "curso": "bsi",
    "anos": 12.4,
    "n_empresas": 5,
    "n_exp": 6,
@@ -937,6 +997,7 @@
   },
   {
    "label": "AT",
+   "curso": "bsi",
    "anos": 7.5,
    "n_empresas": 2,
    "n_exp": 5,
@@ -953,6 +1014,7 @@
   },
   {
    "label": "AU",
+   "curso": "bsi",
    "anos": 7.9,
    "n_empresas": 2,
    "n_exp": 5,
@@ -969,6 +1031,7 @@
   },
   {
    "label": "AV",
+   "curso": "bsi",
    "anos": 17.6,
    "n_empresas": 8,
    "n_exp": 12,
@@ -985,6 +1048,7 @@
   },
   {
    "label": "AW",
+   "curso": "bsi",
    "anos": 6.8,
    "n_empresas": 7,
    "n_exp": 8,
@@ -1001,6 +1065,7 @@
   },
   {
    "label": "AX",
+   "curso": "bsi",
    "anos": 15.5,
    "n_empresas": 6,
    "n_exp": 9,
