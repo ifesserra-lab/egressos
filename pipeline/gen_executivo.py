@@ -5,7 +5,7 @@ import re
 
 from egressos_core.paths import ROOT as S
 
-H = S/"dashboard_executivo.html"
+H = S/"old"/"paginas"/"dashboard_executivo.html"
 c = json.load(open(S/"data/consolidado.json")); a = json.load(open(S/"data/analise.json"))
 html = H.read_text(encoding="utf-8")
 NC = a["genero"]["n_total"]  # coorte (dinâmico)

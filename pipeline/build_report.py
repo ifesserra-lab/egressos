@@ -43,6 +43,10 @@ PY = str(_venv) if _venv.exists() else sys.executable
 NODE = "node"
 
 PIPE = BASE / "pipeline"   # scripts moved out of data/ (code vs artefatos)
+# Os geradores de HTML e o QA por engenharia reversa vivem em `old/`: têm sucessor nomeado
+# (o Astro e `egressos_site.portao`) e data de morte por fatia. Ver old/README.md. Eles não
+# foram desligados — enquanto a página deles não migrou, é o que mantém o site no ar.
+OLD = BASE / "old/pipeline"
 STEPS = [
     # Nenhuma etapa depende mais do diretório corrente: todas resolvem caminho pelo catálogo
     # (egressos_core.dados) ou pela raiz detectada. A `Série salarial` era a última que exigia
@@ -59,14 +63,14 @@ STEPS = [
     # Depois da análise: a vitrine nomeada e a faixa por cargo saem do cruzamento dela com o
     # consolidado. Dois arquivos, contratos diferentes — ver o docstring de gen_perfis.py.
     ("Perfis e renda por cargo", [PY, str(PIPE/"gen_perfis.py")],   BASE),
-    ("Consts do executivo",     [PY, str(PIPE/"gen_executivo.py")], BASE),
-    ("DB do panorama",          [PY, str(PIPE/"gen_panorama.py")],  BASE),
-    ("Vitrine de carreiras",    [PY, str(PIPE/"gen_vitrine.py")],   BASE),
-    ("Duas réguas (SM + mundo)",[PY, str(PIPE/"gen_reguas.py")],    BASE),
+    ("Consts do executivo",     [PY, str(OLD/"gen_executivo.py")], BASE),
+    ("DB do panorama",          [PY, str(OLD/"gen_panorama.py")],  BASE),
+    ("Vitrine de carreiras",    [PY, str(OLD/"gen_vitrine.py")],   BASE),
+    ("Duas réguas (SM + mundo)",[PY, str(OLD/"gen_reguas.py")],    BASE),
     ("Dados abertos",           [PY, str(PIPE/"gen_dados_abertos.py")], BASE),
     ("API estática",            [PY, str(PIPE/"gen_api.py")],       BASE),
-    ("Menu único",              [PY, str(PIPE/"gen_nav.py")],       BASE),
-    ("QA + PII",                [PY, str(PIPE/"qa_report.py")],     BASE),
+    ("Menu único",              [PY, str(OLD/"gen_nav.py")],       BASE),
+    ("QA + PII",                [PY, str(OLD/"qa_report.py")],     BASE),
 ]
 
 def run():
@@ -79,28 +83,28 @@ def run():
     print("\nBUILD OK — relatórios gerados e validados.")
 
 def publish():
-    """Copia as páginas p/ o repo público (egressos/) e p/ o site da diretoria.
+    """Publica pelo portão: build do site, verificação, e só então a cópia.
 
-    O menu já vem injetado por gen_nav.py em todas elas — o publish só copia.
-    egressos-carreiras.html e dados-abertos.html são gerados direto em egressos/,
-    então aqui só seguem para o site da diretoria."""
-    PUB = BASE.parent / "egressos"
-    DIR = BASE.parent / "diretoria/docs/relatorios/egressos"
-    (PUB / "index.html").write_text(
-        (BASE / "dashboard_executivo.html").read_text(encoding="utf-8"), encoding="utf-8")
-    for f in ["dashboard_alunos.html", "evolucao_salario_local.html", "metodologia.html",
-              "trajetoria_salarial.html", "salario_minimo_mundo.html"]:
-        (PUB / f).write_text((BASE / f).read_text(encoding="utf-8"), encoding="utf-8")
-    # O portal da diretoria vive em outro repositório e nem sempre está montado (no CI não está).
-    # Quando não estiver, publica só no repo do site e avisa — não cria diretório solto.
-    if DIR.parent.parent.exists():
-        for f in ["index.html", "dashboard_alunos.html", "evolucao_salario_local.html", "metodologia.html",
-                  "trajetoria_salarial.html", "salario_minimo_mundo.html",
-                  "egressos-carreiras.html", "dados-abertos.html"]:
-            (DIR / f).write_text((PUB / f).read_text(encoding="utf-8"), encoding="utf-8")
-        print("Publicado em egressos/ e diretoria/docs/relatorios/egressos/ (falta git push).")
-    else:
-        print(f"Publicado em egressos/. Portal da diretoria não montado ({DIR.parent.parent}) — ignorado.")
+    Antes esta função tinha DUAS listas de arquivos escritas à mão — uma para o repositório
+    público, outra para o portal da diretoria — e elas já divergiam entre si. Página nova
+    exigia lembrar das duas; página migrada, das duas de novo.
+
+    Agora quem sabe quais páginas existem é `paginas.json`, e quem sabe de ONDE cada uma sai é
+    o portão (`site/` para as migradas, a raiz e o repositório público para as que ainda não).
+    A cópia é consequência da aprovação, não um passo à parte que pode ser esquecido.
+    """
+    from egressos_site import build, publica
+
+    print("\n== Site (Astro) ==")
+    print(f"  {build.constroi()} arquivos em site/")
+    try:
+        copiados = publica.publica()
+    except publica.NaoAprovado as e:
+        print(e)
+        sys.exit(1)
+    print(f"  {len(copiados)} cópias:")
+    for c in copiados:
+        print(f"    {c}")
 
 if __name__ == "__main__":
     run()

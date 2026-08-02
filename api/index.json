@@ -70,13 +70,13 @@
   },
   {
    "endpoint": "api/egressos/perfis.json",
-   "descricao": "Perfil público de cada egresso: nome, curso, cargo, empresa, cidade e senioridade. Sem renda — a estimativa é por cargo, no endpoint ao lado.",
-   "kb": 17.8
+   "descricao": "Perfil público de cada egresso: nome, curso, cargo, empresa, cidade e senioridade. Sem renda — a estimativa é por senioridade, no endpoint ao lado.",
+   "kb": 78.3
   },
   {
-   "endpoint": "api/egressos/renda-por-cargo.json",
-   "descricao": "Faixa de renda ESTIMADA por cargo, com as duas referências lado a lado: a Pesquisa Código Fonte (média, nativa em reais) e o modelo do estudo (mediana com p25–p75, nascida em dólar). Sem nenhuma chave de pessoa.",
-   "kb": 4.4
+   "endpoint": "api/egressos/renda-por-senioridade.json",
+   "descricao": "Faixa de renda ESTIMADA por senioridade, com as duas referências lado a lado: a Pesquisa Código Fonte (média, nativa em reais) e o modelo do estudo (mediana com p25–p75, nascida em dólar). Sem nenhuma chave de pessoa.",
+   "kb": 6.1
   },
   {
    "endpoint": "api/fomento-fapes.json",

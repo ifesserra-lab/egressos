@@ -32,7 +32,7 @@ cons, an, smj, so = L("consolidado.json"), L("analise.json"), L("salario_minimo.
 cf, cfh, emp, fap = L("codigofonte_2026.json"), L("codigofonte_historico.json"), L("empresas_porte.json"), L("fapes_fomento.json")
 ibge, mapa = L("ibge_series.json"), L("mapa_mundi.json")
 mapa_det = L("mapa_mundi_detalhe.json")
-perfil, renda = L("egressos_perfil.json"), L("renda_por_cargo.json")
+perfil, renda = L("egressos_perfil.json"), L("renda_por_senioridade.json")
 
 ANO_BASE = smj["ano_base_deflator"]
 endpoints = []
@@ -145,15 +145,15 @@ escreve("analise.json", {**META,
     **{k: v for k, v in an.items() if k not in ("rows", "trajetoria_destaque", "hist_multiplicadores")}},
     "Análises agregadas: clusters, sankey, funções, gênero, internacionalização, extensão.")
 
-# A vitrine e a faixa por cargo entram como DOIS endpoints, pelo mesmo motivo de serem dois
+# A vitrine e a faixa por senioridade entram como DOIS endpoints, pelo mesmo motivo de serem dois
 # arquivos: o perfil identifica e não tem renda; a faixa tem renda e não identifica. Juntá-los
 # num endpoint só reconstruiria, na API, o vínculo que os dois arquivos existem para separar.
 escreve("egressos/perfis.json", {**META, **perfil},
     "Perfil público de cada egresso: nome, curso, cargo, empresa, cidade e senioridade. "
-    "Sem renda — a estimativa é por cargo, no endpoint ao lado.")
+    "Sem renda — a estimativa é por senioridade, no endpoint ao lado.")
 
-escreve("egressos/renda-por-cargo.json", {**META, **renda},
-    "Faixa de renda ESTIMADA por cargo, com as duas referências lado a lado: a Pesquisa "
+escreve("egressos/renda-por-senioridade.json", {**META, **renda},
+    "Faixa de renda ESTIMADA por senioridade, com as duas referências lado a lado: a Pesquisa "
     "Código Fonte (média, nativa em reais) e o modelo do estudo (mediana com p25–p75, nascida "
     "em dólar). Sem nenhuma chave de pessoa.")
 
@@ -199,7 +199,27 @@ indice = {
 # analise.json vazou. A faixa mora no endpoint ao lado, atrelada ao CARGO.
 VITRINE_NOMEADA = {"egressos/perfis.json"}
 CHEIRO_DE_RENDA = ("salario", "renda", "med_atual", "med_ini", "remunera", "p25", "p75",
-                   "mediana", "cresc", "brl", "usd")
+                   "mediana", "cresc", "brl", "usd", "valor")
+
+
+def _chaves_de_dinheiro(no):
+    """Toda chave com cheiro de dinheiro, em QUALQUER profundidade.
+
+    Recursivo porque a versão rasa deixava passar o caso real: `bolsa_valor_mensal` mora dentro
+    de `experiencias[]`, não no topo do registro da pessoa. Portão que só olha o primeiro nível
+    dá a impressão de proteger e não protege.
+    """
+    achadas = set()
+    if isinstance(no, dict):
+        for chave, valor in no.items():
+            if any(t in chave.lower() for t in CHEIRO_DE_RENDA):
+                achadas.add(chave)
+            achadas |= _chaves_de_dinheiro(valor)
+    elif isinstance(no, list):
+        for item in no:
+            achadas |= _chaves_de_dinheiro(item)
+    return achadas
+
 
 al = json.load(open(BASE / "alunos.json", encoding="utf-8"))
 al = al if isinstance(al, list) else (al.get("alunos") or list(al.values())[0])
@@ -207,13 +227,13 @@ nomes = {strip_accents(a["nome"]).lower().strip() for a in al if a.get("nome")}
 for arq in sorted(API.rglob("*.json")):
     rel = str(arq.relative_to(API))
     if rel in VITRINE_NOMEADA:
-        com_renda = sorted({c for e in json.loads(arq.read_text(encoding="utf-8")).get("egressos", [])
-                            for c in e if any(x in c.lower() for x in CHEIRO_DE_RENDA)})
+        com_renda = sorted(_chaves_de_dinheiro(
+            json.loads(arq.read_text(encoding="utf-8")).get("egressos", [])))
         if com_renda:
             raise SystemExit(
                 f"ABORT: {rel} é a vitrine NOMEADA e ganhou campo de renda: {com_renda}. "
                 "Renda por pessoa é estimativa que a metodologia não mede no indivíduo — ela "
-                "vai em egressos/renda-por-cargo.json. API não publicada.")
+                "vai em egressos/renda-por-senioridade.json. API não publicada.")
         continue
     txt = strip_accents(arq.read_text(encoding="utf-8")).lower()
     achou = [n for n in nomes if n and n in txt]

@@ -17,10 +17,15 @@ import json
 import os
 import re
 
+from egressos_core.paths import ROOT as _ROOT
 from egressos_core.text import norm
 
 HERE = os.path.dirname(os.path.abspath(__file__))   # pipeline/
-ROOT = os.path.dirname(HERE)                          # salario/
+# A raiz vem de `egressos_core.paths`, não de subir um nível a partir do arquivo: este
+# script mudou de `pipeline/` para `old/pipeline/` (spec 005, fatia A) e a derivação
+# por localização passou a apontar para `old/`. Princípio IV — resolução de caminho é
+# do núcleo, não de cada script.
+ROOT = str(_ROOT)                                     # salario/
 DATA = os.path.join(ROOT, "data")                     # salario/data/
 OUT  = os.path.abspath(os.path.join(ROOT, "..", "egressos", "egressos-carreiras.html"))
 

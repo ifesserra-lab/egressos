@@ -64,7 +64,7 @@ def card(pid):
             f'ainda_em_tech:{str(a["ainda_em_tech"]).lower()},experiencias:[\n{body}\n    ]}}')
 
 cards = ",\n".join(card(pid) for pid in order if pid in byid)
-H = S/"dashboard_alunos.html"; t = H.read_text(encoding="utf-8")
+H = S/"old"/"paginas"/"dashboard_alunos.html"; t = H.read_text(encoding="utf-8")
 new, n = re.subn(r"(const DB = \{\n  alunos: \[\n).*?(\n  \]\n\};)",
                  lambda m: m.group(1) + cards + m.group(2), t, count=1, flags=re.S)
 assert n == 1, "DB não casou"

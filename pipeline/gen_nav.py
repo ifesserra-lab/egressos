@@ -14,6 +14,7 @@ A página atual aparece no menu marcada e sem link, para o leitor saber onde est
 
 Uso:  python pipeline/gen_nav.py
 """
+import json
 import re
 import sys
 
@@ -21,16 +22,29 @@ from egressos_core.paths import PUB
 from egressos_core.paths import ROOT as BASE
 
 # (raiz, arquivo, nome no site publicado, ícone, título, subtítulo)
-# raiz "L" = repo local salario/ (a página é copiada no publish)
-# raiz "P" = repo público egressos/ (a página já é gerada lá)
+# A LISTA vem de `paginas.json` — a mesma que o Astro e o portão leem. Enquanto esta tabela
+# vivia aqui escrita à mão, ela era uma de duas que precisavam concordar (a outra está em
+# build_report.py) e nada verificava que concordavam.
+#
+# Página já migrada para Astro é PULADA: o menu dela vem do `Base.astro`, e injetar aqui
+# escreveria por cima de arquivo que este script não produz. Quando a última migrar, a lista
+# fica vazia e o script deixa de ter o que fazer — é assim que ele morre, sem data marcada.
+LISTA = json.loads(
+    (BASE / "packages/egressos-site/app/src/lib/paginas.json").read_text(encoding="utf-8"))
+
+#: (onde, arquivo na origem, nome publicado, ícone, título, subtítulo)
+#: "L" = raiz do repo local · "P" = repo público, onde a página já é gerada
 PAGES = [
-    ("L", "dashboard_executivo.html",    "index.html",                   "📊", "Impacto na carreira",       "Visão executiva: renda estimada vs. mercado"),
-    ("L", "trajetoria_salarial.html",    "trajetoria_salarial.html",     "📈", "Trajetória salarial",       "Ano a ano, em salários mínimos e vs. o mundo"),
-    ("L", "dashboard_alunos.html",       "dashboard_alunos.html",        "👥", "Panorama por egresso",      "Linha do tempo e cards anonimizados (A–AX)"),
-    ("P", "egressos-carreiras.html",     "egressos-carreiras.html",      "🌍", "Onde estão os egressos",    "Empresas, países e jornada de cada um"),
-    ("L", "metodologia.html",            "metodologia.html",             "🔬", "Metodologia",               "Fontes, ETL, cálculo salarial e ressalvas"),
-    ("P", "dados-abertos.html",          "dados-abertos.html",           "📂", "Dados abertos",             "Baixe os JSON e o código (CC BY / MIT)"),
+    ("P" if p["origem"] == "publico" else "L",
+     p.get("arquivo_fonte", f'{p["slug"]}.html'),
+     f'{p["slug"]}.html',
+     p["icone"], p["titulo"], p["subtitulo"])
+    for p in LISTA["paginas"] if p["origem"] != "astro"
 ]
+
+#: O menu precisa listar TODAS as páginas, inclusive as que já migraram — quem está numa
+#: página antiga tem de conseguir chegar nas novas.
+TODAS = [(f'{p["slug"]}.html', p["icone"], p["titulo"], p["subtitulo"]) for p in LISTA["paginas"]]
 
 CARD = ("flex:1 1 210px;text-decoration:none;background:var(--surface,#fff);"
         "border:1px solid var(--border,rgba(0,0,0,.1));border-radius:12px;padding:12px 14px;"
@@ -43,8 +57,10 @@ WRAP = "display:flex;flex-wrap:wrap;gap:9px;margin:0 0 4px"
 
 
 def nav_html(atual):
+    # Itera TODAS as páginas, não só as legadas: quem está numa página antiga precisa
+    # conseguir chegar nas que já migraram.
     itens = []
-    for _, _, href, ico, tit, sub in PAGES:
+    for href, ico, tit, sub in TODAS:
         if href == atual:
             itens.append(f'      <span style="{CARD_ON}" aria-current="page">{ico} {tit}'
                          f'<span style="{SUB}">você está aqui</span></span>')
@@ -86,7 +102,10 @@ def inject(raiz, arq, atual):
 
 
 def main():
-    print(f"== menu único em {len(PAGES)} páginas ==")
+    if not PAGES:
+        print("== menu único: nenhuma página legada restou; o Base.astro cobre todas ==")
+        return
+    print(f"== menu único em {len(PAGES)} páginas legadas (de {len(TODAS)}) ==")
     ok = all([inject(raiz, arq, href) for raiz, arq, href, *_ in PAGES])
     if not ok:
         sys.exit("ABORT: alguma página ficou sem menu")

@@ -1,157 +1,57 @@
-<!doctype html>
-<html lang="pt-BR"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dados abertos — egressos IFES Campus Serra</title>
-<meta name="description" content="Datasets abertos (JSON) e código do estudo de egressos de TI do IFES Campus Serra. Dados anonimizados e agregados, sob CC BY 4.0.">
-<style>
-  .root{ color-scheme:light; --plane:#f3f6f4; --surface:#fff; --surface-2:#eef3f0; --ink:#122019; --ink-2:#4a5a53; --muted:#83918a; --border:rgba(18,32,25,.10); --accent:#0e8a68; --amber:#bd7d00; --shadow:0 1px 2px rgba(18,32,25,.05),0 8px 24px rgba(18,32,25,.07); background:var(--plane); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; min-height:100%; padding:16px 13px; box-sizing:border-box; }
-  @media (prefers-color-scheme:dark){ :root:where(:not([data-theme="light"])) .root{ color-scheme:dark; --plane:#0a0e0c; --surface:#141a17; --surface-2:#1d2521; --ink:#eef3f0; --ink-2:#aebab4; --muted:#7a877f; --border:rgba(255,255,255,.10); --accent:#2fbc90; --amber:#dda52f; --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.5); } }
-  :root[data-theme="dark"] .root{ color-scheme:dark; --plane:#0a0e0c; --surface:#141a17; --surface-2:#1d2521; --ink:#eef3f0; --ink-2:#aebab4; --muted:#7a877f; --border:rgba(255,255,255,.10); --accent:#2fbc90; --amber:#dda52f; }
-  *{ box-sizing:border-box; }
-  .wrap{ max-width:1000px; margin:0 auto; display:flex; flex-direction:column; gap:18px; }
-  .eyebrow{ font-size:12px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--accent); margin:0 0 10px; }
-  h1{ font-size:clamp(24px,4.5vw,40px); line-height:1.08; margin:0 0 12px; font-weight:780; letter-spacing:-.02em; }
-  .lede{ font-size:clamp(15px,1.7vw,17px); line-height:1.55; color:var(--ink-2); margin:0; max-width:70ch; }
-  .lede b{ color:var(--ink); }
-  .card{ background:var(--surface); border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); padding:clamp(18px,2.6vw,26px); }
-  .card>h2{ font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-2); margin:0 0 4px; font-weight:700; }
-  .card .hint{ font-size:12.5px; color:var(--muted); margin:0 0 16px; }
-  .nav{ display:flex; flex-wrap:wrap; gap:10px; }
-  .nav a{ flex:1 1 220px; text-decoration:none; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:13px 15px; box-shadow:var(--shadow); font-weight:650; font-size:13.5px; color:var(--accent); }
-  .nav a span{ display:block; font-weight:400; color:var(--ink-2); font-size:12px; margin-top:3px; }
-  table{ width:100%; border-collapse:collapse; font-size:13.5px; }
-  th,td{ text-align:left; padding:11px 12px; border-bottom:1px solid var(--border); vertical-align:top; }
-  th{ color:var(--muted); font-weight:700; font-size:10.5px; text-transform:uppercase; letter-spacing:.04em; }
-  td.dn a{ color:var(--accent); text-decoration:none; font-weight:700; white-space:nowrap; }
-  td.dn a:hover{ text-decoration:underline; }
-  td small{ color:var(--muted); line-height:1.45; display:block; margin-top:2px; }
-  td.num{ text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; color:var(--ink-2); }
-  tr:last-child td{ border-bottom:none; }
-  .scroll{ overflow-x:auto; } table{ min-width:560px; }
-  .codegrid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:8px; }
-  .cf{ text-decoration:none; background:var(--surface-2); border:1px solid var(--border); border-radius:10px; padding:10px 13px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px; color:var(--ink); display:flex; justify-content:space-between; gap:8px; }
-  .cf span{ color:var(--muted); font-family:system-ui; }
-  .cf:hover{ border-color:var(--accent); color:var(--accent); }
-  .lic{ background:var(--surface-2); border:1px solid var(--border); border-left:3px solid var(--accent); border-radius:10px; padding:15px 17px; font-size:13.5px; line-height:1.6; color:var(--ink-2); }
-  .lic b{ color:var(--ink); }
-  .code{ background:var(--surface-2); border:1px solid var(--border); border-radius:10px; padding:14px 16px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px; color:var(--ink); overflow-x:auto; }
-  .warn{ font-size:12.5px; color:var(--amber); }
-  .foot{ font-size:11.5px; color:var(--muted); text-align:center; line-height:1.7; margin-top:4px; }
-  .foot a{ color:var(--accent); }
-  @media (min-width:600px){ .root{ padding:32px 26px; } .wrap{ gap:24px; } }
-  @media (min-width:960px){ .root{ padding:52px; } }
-</style></head>
-<body><div class="root"><div class="wrap">
-
-  <header>
-    <p class="eyebrow">Dados abertos · IFES — Campus Serra</p>
-    <h1>Dados abertos — egressos de TI</h1>
-    <p class="lede">Todos os dados <b>agregados e anonimizados</b> do estudo de egressos, mais o <b>código do pipeline</b> que os gera. Baixe, reproduza, audite. Dados de pessoa nunca são publicados — só coorte anonimizada (A–AX) e dados <b>públicos</b> de empresa. 15 datasets · 364.5 KB.</p>
-  </header>
-
-  <nav class="nav" aria-label="Outras páginas">
-    <a href="egressos-carreiras.html">🌍 Onde estão os egressos →<span>Vitrine de carreiras</span></a>
-    <a href="index.html">📊 Impacto na carreira →<span>Visão executiva</span></a>
-    <a href="metodologia.html">🔬 Metodologia →<span>Como foi feito</span></a>
-  </nav>
-
-  <section class="card">
-    <h2>Datasets (JSON)</h2>
-    <p class="hint">Clique para baixar. Dicionário de campos por arquivo em <a href="llms.txt" style="color:var(--accent)">llms.txt</a> (índice legível por humanos e LLMs).</p>
-    <div class="scroll"><table>
-      <thead><tr><th>Arquivo</th><th>Conteúdo</th><th>Itens</th><th>Tam.</th></tr></thead>
-      <tbody><tr><td class="dn"><a href="dados/analise.json" download>analise.json ↓</a></td><td><b>Análises agregadas</b><br><small>Clusters de carreira, Sankey formação→trilha→destino, distribuição por empresa (região/setor/porte), gênero (agregado), extensão, trilha no tempo, internacionalização.</small></td><td class="num">21</td><td class="num">38.2 KB</td></tr>
-<tr><td class="dn"><a href="dados/consolidado.json" download>consolidado.json ↓</a></td><td><b>Perfis anonimizados</b><br><small>Coorte A–AX: trilha, anos de carreira, bolsa, salário estimado inicial/atual e crescimento — sem nome/empresa/local individual.</small></td><td class="num">9</td><td class="num">126.8 KB</td></tr>
-<tr><td class="dn"><a href="dados/salario_minimo.json" download>salario_minimo.json ↓</a></td><td><b>Salário mínimo por ano</b><br><small>Salário mínimo nacional 2011–2026: valor de janeiro, de dezembro, média ponderada pelos meses, reajuste do decreto, INPC do ano anterior, ganho real e valor em reais do ano-base.</small></td><td class="num">12</td><td class="num">5.6 KB</td></tr>
-<tr><td class="dn"><a href="dados/ibge_series.json" download>ibge_series.json ↓</a></td><td><b>Séries macro (IBGE/IPEADATA)</b><br><small>IPCA e INPC (número-índice mensal + média anual + deflatores) e o salário mínimo mensal. Base para toda correção monetária do estudo.</small></td><td class="num">5</td><td class="num">23.5 KB</td></tr>
-<tr><td class="dn"><a href="dados/mapa_mundi.json" download>mapa_mundi.json ↓</a></td><td><b>Contorno do mapa-múndi</b><br><small>Polígonos dos continentes (Natural Earth 110m) já projetados em coordenadas SVG, usados no mapa animado da vitrine de carreiras. Domínio público.</small></td><td class="num">10</td><td class="num">33.9 KB</td></tr>
-<tr><td class="dn"><a href="dados/egressos_perfil.json" download>egressos_perfil.json ↓</a></td><td><b>Perfis dos egressos</b><br><small>Nome, curso, cargo, empresa e cidade de cada egresso, mais senioridade e anos de carreira. Dado de nível LinkedIn — o que a própria pessoa publica —, divulgado por decisão da coordenação. NÃO contém renda: a estimativa é por CARGO, no arquivo ao lado.</small></td><td class="num">8</td><td class="num">21.2 KB</td></tr>
-<tr><td class="dn"><a href="dados/renda_por_cargo.json" download>renda_por_cargo.json ↓</a></td><td><b>Renda estimada por cargo</b><br><small>Faixa p25–mediana–p75 ESTIMADA por senioridade e trilha, com a amostra de mercado de cada uma. Nenhum salário foi coletado de ninguém: o valor é o que o mercado pagava para aquele nível de experiência, e para uma pessoa concreta pode ser maior ou menor. Sem nenhuma chave de pessoa.</small></td><td class="num">12</td><td class="num">5.0 KB</td></tr>
-<tr><td class="dn"><a href="dados/so_benchmarks.json" download>so_benchmarks.json ↓</a></td><td><b>Benchmarks internacionais</b><br><small>Medianas salariais em US$/mês por país na faixa de experiência do coorte, mediana global, série por edição do survey e — o mais relevante — respondentes do Brasil separados pela MOEDA do contracheque (R$ x US$).</small></td><td class="num">23</td><td class="num">6.7 KB</td></tr>
-<tr><td class="dn"><a href="dados/codigofonte_2026.json" download>codigofonte_2026.json ↓</a></td><td><b>Benchmark de mercado 2026</b><br><small>Faixas salariais por senioridade (Pesquisa Código Fonte).</small></td><td class="num">13</td><td class="num">2.7 KB</td></tr>
-<tr><td class="dn"><a href="dados/codigofonte_historico.json" download>codigofonte_historico.json ↓</a></td><td><b>Benchmark histórico</b><br><small>Média salarial por senioridade, série histórica.</small></td><td class="num">9</td><td class="num">1.6 KB</td></tr>
-<tr><td class="dn"><a href="dados/fapes_fomento.json" download>fapes_fomento.json ↓</a></td><td><b>Fomento FAPES</b><br><small>Fomento de bolsas FAPES (agregado).</small></td><td class="num">4</td><td class="num">1.1 KB</td></tr>
-<tr><td class="dn"><a href="dados/empresas_porte.json" download>empresas_porte.json ↓</a></td><td><b>Empresas — classificação</b><br><small>Por empresa: porte/origem/setor estimados + dados VERIFICADOS do LinkedIn (headcount, sede, setor, vagas), porte_real e setor_real. Dado público de empresa.</small></td><td class="num">204</td><td class="num">54.9 KB</td></tr>
-<tr><td class="dn"><a href="dados/empresas_linkedin_data.json" download>empresas_linkedin_data.json ↓</a></td><td><b>Empresas — dados LinkedIn</b><br><small>Coleta bruta por empresa via browser-use: nome oficial, tamanho, sede, setor, site, fundação, especialidades, vagas.</small></td><td class="num">46</td><td class="num">19.3 KB</td></tr>
-<tr><td class="dn"><a href="dados/empresas_aliases.json" download>empresas_aliases.json ↓</a></td><td><b>Empresas — nomes canônicos</b><br><small>Agrupamento de variantes de nome (aliases) + contagem de egressos atuais por empresa.</small></td><td class="num">207</td><td class="num">18.2 KB</td></tr>
-<tr><td class="dn"><a href="dados/empresas_linkedin_urls.json" download>empresas_linkedin_urls.json ↓</a></td><td><b>Empresas — URLs LinkedIn</b><br><small>Slug/URL verificada da company page no LinkedIn.</small></td><td class="num">38</td><td class="num">5.8 KB</td></tr></tbody>
-    </table></div>
-  </section>
-
-  <section class="card">
-    <h2>API estática (JSON por endpoint)</h2>
-    <p class="hint">Se você quer consumir os dados de um site, notebook ou LLM em vez de baixar tudo, use a API: recortes menores, campos estáveis e um índice que lista todos os endpoints. Mesma licença, mesma anonimização.</p>
-    <pre class="code">curl https://ifesserra-lab.github.io/egressos/api/index.json</pre>
-    <div class="codegrid" style="margin-top:12px"><a class="cf" href="api/coorte.json">coorte.json<span>6.7 KB</span></a>
-<a class="cf" href="api/coorte/serie-por-experiencia.json">coorte/serie-por-experiencia.json<span>1.7 KB</span></a>
-<a class="cf" href="api/coorte/serie-por-ano.json">coorte/serie-por-ano.json<span>2.7 KB</span></a>
-<a class="cf" href="api/coorte/trajetoria-destaque.json">coorte/trajetoria-destaque.json<span>2.7 KB</span></a>
-<a class="cf" href="api/salario-minimo.json">salario-minimo.json<span>4.4 KB</span></a>
-<a class="cf" href="api/indices.json">indices.json<span>17.5 KB</span></a>
-<a class="cf" href="api/mercado/stackoverflow.json">mercado/stackoverflow.json<span>5.7 KB</span></a>
-<a class="cf" href="api/mercado/codigofonte.json">mercado/codigofonte.json<span>4.1 KB</span></a>
-<a class="cf" href="api/empresas/index.json">empresas/index.json<span>35.3 KB</span></a>
-<span class="cf" style="opacity:.75">empresas/&lt;slug&gt;.json<span>por item</span></span>
-<a class="cf" href="api/analise.json">analise.json<span>13.7 KB</span></a>
-<a class="cf" href="api/egressos/perfis.json">egressos/perfis.json<span>17.8 KB</span></a>
-<a class="cf" href="api/egressos/renda-por-cargo.json">egressos/renda-por-cargo.json<span>4.4 KB</span></a>
-<a class="cf" href="api/fomento-fapes.json">fomento-fapes.json<span>1.0 KB</span></a>
-<a class="cf" href="api/mapa/base.json">mapa/base.json<span>34.0 KB</span></a>
-<a class="cf" href="api/mapa/detalhe.json">mapa/detalhe.json<span>289.4 KB</span></a></div>
-    <p class="hint" style="margin-top:12px">Sem chave, sem limite de uso, sem servidor: são arquivos estáticos no GitHub Pages, regerados a cada atualização do relatório.</p>
-  </section>
-
-  <section class="card">
-    <h2>Código do pipeline</h2>
-    <p class="hint">Scripts Python que geram e validam tudo (paths pessoais sanitizados). Reprodução: <code>python build_report.py</code>.</p>
-    <div class="codegrid"><a class="cf" href="pipeline/build_report.py" download>build_report.py <span>6.3 KB ↓</span></a>
-<a class="cf" href="pipeline/ibge_series.py" download>ibge_series.py <span>9.8 KB ↓</span></a>
-<a class="cf" href="pipeline/so_benchmarks.py" download>so_benchmarks.py <span>18.1 KB ↓</span></a>
-<a class="cf" href="pipeline/compute_all.py" download>compute_all.py <span>10.0 KB ↓</span></a>
-<a class="cf" href="pipeline/analise.py" download>analise.py <span>36.3 KB ↓</span></a>
-<a class="cf" href="pipeline/genero.py" download>genero.py <span>1.2 KB ↓</span></a>
-<a class="cf" href="pipeline/fapes_fomento.py" download>fapes_fomento.py <span>4.7 KB ↓</span></a>
-<a class="cf" href="pipeline/src_extensao.py" download>src_extensao.py <span>3.5 KB ↓</span></a>
-<a class="cf" href="pipeline/gen_executivo.py" download>gen_executivo.py <span>8.6 KB ↓</span></a>
-<a class="cf" href="pipeline/gen_panorama.py" download>gen_panorama.py <span>4.8 KB ↓</span></a>
-<a class="cf" href="pipeline/mapa_base.py" download>mapa_base.py <span>6.8 KB ↓</span></a>
-<a class="cf" href="pipeline/gen_vitrine.py" download>gen_vitrine.py <span>68.2 KB ↓</span></a>
-<a class="cf" href="pipeline/gen_reguas.py" download>gen_reguas.py <span>51.7 KB ↓</span></a>
-<a class="cf" href="pipeline/gen_nav.py" download>gen_nav.py <span>4.3 KB ↓</span></a>
-<a class="cf" href="pipeline/gen_api.py" download>gen_api.py <span>12.6 KB ↓</span></a>
-<a class="cf" href="pipeline/gen_dados_abertos.py" download>gen_dados_abertos.py <span>30.5 KB ↓</span></a>
-<a class="cf" href="pipeline/qa_report.py" download>qa_report.py <span>11.2 KB ↓</span></a>
-<a class="cf" href="pipeline/norm_empresas.py" download>norm_empresas.py <span>4.0 KB ↓</span></a>
-<a class="cf" href="pipeline/enrich_empresas.py" download>enrich_empresas.py <span>13.1 KB ↓</span></a>
-<a class="cf" href="pipeline/classify_empresas.py" download>classify_empresas.py <span>2.4 KB ↓</span></a>
-<a class="cf" href="pipeline/classify_mistral.py" download>classify_mistral.py <span>3.9 KB ↓</span></a>
-<a class="cf" href="pipeline/resolve_company_urls.py" download>resolve_company_urls.py <span>5.7 KB ↓</span></a>
-<a class="cf" href="pipeline/mistral_porte.py" download>mistral_porte.py <span>5.1 KB ↓</span></a></div>
-  </section>
-
-  <section class="card">
-    <h2>Como reproduzir</h2>
-    <pre class="code"># requer os JSONs de mercado (Stack Overflow / IPCA) e a base de perfis (não pública)
-python build_report.py            # gera todos os JSON + valida (QA + PII)
-python build_report.py --publish  # copia a versão anonimizada p/ os sites</pre>
-    <p class="hint" style="margin-top:12px">O passo de QA falha a publicação se qualquer nome de pessoa vazar para o HTML/JSON público. <a href="metodologia.html" style="color:var(--accent)">Metodologia completa →</a></p>
-  </section>
-
-  <section class="card">
-    <h2>Licença &amp; privacidade</h2>
-    <div class="lic">
-      <b>Licença do estudo:</b> dados sob <b>CC BY 4.0</b> · código sob <b>MIT</b>. Cite "Egressos IFES — Campus Serra".<br><br>
-      <b>Licença de dado de terceiro:</b> parte dos arquivos acima é <b>derivada de fontes externas</b>, e essas fontes têm licença própria — que continua valendo para quem baixar o arquivo daqui. A licença de cada um está dentro do próprio JSON (campo <code>licenca</code>), porque o arquivo circula sozinho.
-      <ul style="margin:8px 0 0 18px"><li><code>codigofonte_2026.json</code> — <b>não declarada pela fonte</b> · atribuição: Pesquisa Código Fonte — pesquisa.codigofonte.com.br<br><small>A fonte publica os resultados em página web, sem termos de uso nem licença de dados. Uso aqui: referência de mercado agregada e citada. Registrar a ausência é diferente de omitir — quem redistribuir este arquivo herda a mesma indefinição.</small></li>
-<li><code>codigofonte_historico.json</code> — <b>não declarada pela fonte</b> · atribuição: Pesquisa Código Fonte — pesquisa.codigofonte.com.br<br><small>A fonte publica os resultados em página web, sem termos de uso nem licença de dados. Uso aqui: referência de mercado agregada e citada. Registrar a ausência é diferente de omitir.</small></li>
-<li><code>egressos_perfil.json</code> — <b>CC BY 4.0</b> · atribuição: Estudo de egressos de TI — Ifes Campus Serra<br><small></small></li>
-<li><code>renda_por_cargo.json</code> — <b>CC BY 4.0</b> · atribuição: Estudo de egressos de TI — Ifes Campus Serra<br><small></small></li>
-<li><code>so_benchmarks.json</code> — <a href="https://opendatacommons.org/licenses/odbl/1-0/" style="color:var(--accent)">ODbL 1.0 (base de dados) + DbCL 1.0 (conteúdo)</a> · atribuição: Stack Overflow Annual Developer Survey — survey.stackoverflow.co<br><small>Stack Overflow Developer Survey 2018–2025 (survey.stackoverflow.co)</small></li></ul><br>
-      <b>Privacidade:</b> nenhum dado individual identificável é publicado. Egressos aparecem só como coorte anonimizada (A–AX). Dados de empresa são informação pública (LinkedIn/registros). Nomes de pessoa nunca saem da máquina local nem vão a serviços externos de IA.<br><br>
-      <span class="warn">⚠️ Site experimental — dados preliminares, sujeitos a revisão. Egresso que queira correção/remoção: falar com a coordenação.</span>
-    </div>
-  </section>
-
-  <p class="foot">Dados abertos do estudo de egressos · IFES — Campus Serra · ensino, pesquisa e extensão.<br>Gerado com apoio de Claude Code.</p>
-
-</div></div></body></html>
+<!DOCTYPE html><html lang="pt-BR" data-astro-cid-5hce7sga> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Dados abertos — Egressos de TI · IFES Campus Serra</title><meta name="description" content="Datasets abertos (JSON) e código do estudo de egressos de TI do IFES Campus Serra. Dados anonimizados e agregados, sob CC BY 4.0."><link rel="icon" href="/egressos/favicon.svg" type="image/svg+xml"><style>table[data-astro-cid-3q33plkn]{width:100%;min-width:560px;border-collapse:collapse;font-size:13.5px}th[data-astro-cid-3q33plkn],td[data-astro-cid-3q33plkn]{text-align:left;padding:10px 12px;border-bottom:1px solid var(--borda);vertical-align:top}th[data-astro-cid-3q33plkn]{color:var(--sutil-2);font-weight:500;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}td[data-astro-cid-3q33plkn]{color:var(--sutil);line-height:1.5}.num[data-astro-cid-3q33plkn]{text-align:right;font-family:var(--mono);white-space:nowrap}.baixar[data-astro-cid-3q33plkn] a[data-astro-cid-3q33plkn]{color:var(--verde-escuro);text-decoration:none;font-family:var(--mono);font-size:12.5px;white-space:nowrap}.baixar[data-astro-cid-3q33plkn] a[data-astro-cid-3q33plkn]:hover{text-decoration:underline}tr[data-astro-cid-3q33plkn]:last-child td[data-astro-cid-3q33plkn]{border-bottom:0}.chamada[data-astro-cid-gpl6x4yu]{font-size:17px;line-height:1.55;color:var(--sutil);max-width:70ch;margin:0 0 var(--e5)}.chamada[data-astro-cid-gpl6x4yu] b[data-astro-cid-gpl6x4yu]{color:var(--tinta);font-weight:500}.bloco[data-astro-cid-gpl6x4yu]{background:var(--superficie);border:1px solid var(--borda);border-radius:var(--raio);padding:var(--e4);margin-bottom:var(--e4)}.bloco[data-astro-cid-gpl6x4yu] h2[data-astro-cid-gpl6x4yu]{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--sutil);font-weight:500;margin:0 0 var(--e2)}.dica[data-astro-cid-gpl6x4yu]{font-size:12.5px;color:var(--sutil-2);margin:0 0 var(--e3);line-height:1.55}.dica[data-astro-cid-gpl6x4yu].recuo{margin:var(--e3) 0 0}.codigo[data-astro-cid-gpl6x4yu]{background:var(--trilho);border:1px solid var(--borda);border-radius:var(--raio);padding:var(--e3);font-family:var(--mono);font-size:12.5px;color:var(--tinta);overflow-x:auto;margin:0}.grade[data-astro-cid-gpl6x4yu]{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:var(--e2);margin-top:var(--e3)}.arquivo[data-astro-cid-gpl6x4yu]{display:flex;justify-content:space-between;gap:var(--e2);background:var(--trilho);border:1px solid var(--borda);border-radius:var(--raio);padding:var(--e2) var(--e3);font-family:var(--mono);font-size:12.5px;color:var(--tinta);text-decoration:none}.arquivo[data-astro-cid-gpl6x4yu] span[data-astro-cid-gpl6x4yu]{color:var(--sutil-2);font-family:var(--sans)}.arquivo[data-astro-cid-gpl6x4yu]:hover{border-color:var(--verde)}.arquivo[data-astro-cid-gpl6x4yu].inerte{opacity:.7}.licenca[data-astro-cid-gpl6x4yu]{background:var(--trilho);border:1px solid var(--borda);border-left:3px solid var(--verde);border-radius:var(--raio);padding:var(--e3) var(--e4);font-size:13.5px;line-height:1.6;color:var(--sutil)}.licenca[data-astro-cid-gpl6x4yu] p[data-astro-cid-gpl6x4yu]{margin:0 0 var(--e3)}.licenca[data-astro-cid-gpl6x4yu] p[data-astro-cid-gpl6x4yu]:last-child{margin-bottom:0}.licenca[data-astro-cid-gpl6x4yu] b[data-astro-cid-gpl6x4yu]{color:var(--tinta);font-weight:500}.aviso[data-astro-cid-gpl6x4yu]{color:var(--vermelho)}
+</style>
+<link rel="stylesheet" href="/egressos/_astro/busca.B5UkqNE1.css"></head> <body data-astro-cid-5hce7sga> <a class="pular" href="#conteudo" data-astro-cid-5hce7sga>Pular para o conteúdo</a> <header class="cabecalho" data-astro-cid-5hce7sga> <div class="faixa" aria-hidden="true" data-astro-cid-5hce7sga></div> <div class="miolo" data-astro-cid-5hce7sga> <p class="chapeu" data-astro-cid-5hce7sga>Egressos de TI · IFES Campus Serra</p> <h1 data-astro-cid-5hce7sga>Dados abertos</h1> <p class="sub" data-astro-cid-5hce7sga>Baixe os JSON e o código (CC BY / MIT)</p> </div> </header> <nav class="menu" aria-label="Outras visões" data-astro-cid-5hce7sga> <div class="miolo cartoes" data-astro-cid-5hce7sga> <a class="cartao" href="/egressos/index.html" data-astro-cid-5hce7sga> <b data-astro-cid-5hce7sga>📊 Impacto na carreira</b> <em data-astro-cid-5hce7sga>Visão executiva: renda estimada vs. mercado</em> </a><a class="cartao" href="/egressos/trajetoria_salarial.html" data-astro-cid-5hce7sga> <b data-astro-cid-5hce7sga>📈 Trajetória salarial</b> <em data-astro-cid-5hce7sga>Ano a ano, em salários mínimos e vs. o mundo</em> </a><a class="cartao" href="/egressos/dashboard_alunos.html" data-astro-cid-5hce7sga> <b data-astro-cid-5hce7sga>👥 Panorama por egresso</b> <em data-astro-cid-5hce7sga>Linha do tempo e cards anonimizados (A–AX)</em> </a><a class="cartao" href="/egressos/busca.html" data-astro-cid-5hce7sga> <b data-astro-cid-5hce7sga>🔎 Buscar</b> <em data-astro-cid-5hce7sga>Egressos, empresas e faixas de renda do mercado</em> </a><a class="cartao" href="/egressos/egressos-carreiras.html" data-astro-cid-5hce7sga> <b data-astro-cid-5hce7sga>🌍 Onde estão os egressos</b> <em data-astro-cid-5hce7sga>Empresas, países e jornada de cada um</em> </a><a class="cartao" href="/egressos/metodologia.html" data-astro-cid-5hce7sga> <b data-astro-cid-5hce7sga>🔬 Metodologia</b> <em data-astro-cid-5hce7sga>Fontes, ETL, cálculo salarial e ressalvas</em> </a><span class="cartao aqui" aria-current="page" data-astro-cid-5hce7sga> <b data-astro-cid-5hce7sga>📂 Dados abertos</b> <em data-astro-cid-5hce7sga>Baixe os JSON e o código (CC BY / MIT)</em> </span> </div> </nav> <main id="conteudo" class="miolo" data-astro-cid-5hce7sga>  <p class="chamada" data-astro-cid-gpl6x4yu>
+Todos os dados <b data-astro-cid-gpl6x4yu>agregados e anonimizados</b> do estudo, mais o <b data-astro-cid-gpl6x4yu>código do pipeline</b>
+que os gera. Baixe, reproduza, audite. Dado de pessoa não é publicado — só a coorte
+    anonimizada (A–AX) e dado <b data-astro-cid-gpl6x4yu>público</b> de empresa.
+<b data-astro-cid-gpl6x4yu>16 datasets · 471,2 KB.</b> </p> <section class="bloco" data-astro-cid-gpl6x4yu> <h2 data-astro-cid-gpl6x4yu>Datasets (JSON)</h2> <p class="dica" data-astro-cid-gpl6x4yu>
+Clique para baixar. O dicionário de campos de cada arquivo está em
+<a href="/egressos/llms.txt" data-astro-cid-gpl6x4yu>llms.txt</a> — índice legível por gente e por LLM.
+</p> <div class="rolagem" data-astro-cid-3q33plkn> <table data-astro-cid-3q33plkn> <thead data-astro-cid-3q33plkn> <tr data-astro-cid-3q33plkn> <th data-astro-cid-3q33plkn>Arquivo</th> <th data-astro-cid-3q33plkn>Conteúdo</th> <th class="num" data-astro-cid-3q33plkn>Itens</th> <th class="num" data-astro-cid-3q33plkn>Tamanho</th> </tr> </thead> <tbody data-astro-cid-3q33plkn> <tr data-astro-cid-3q33plkn> <td class="baixar" data-astro-cid-3q33plkn> <a href="/egressos/dados/analise.json" download data-astro-cid-3q33plkn> analise.json ↓
+</a> </td> <td data-astro-cid-3q33plkn>Clusters, sankey, tecnologias, trilha — tudo agregado.</td> <td class="num" data-astro-cid-3q33plkn>50</td> <td class="num" data-astro-cid-3q33plkn>38,2 KB</td> </tr><tr data-astro-cid-3q33plkn> <td class="baixar" data-astro-cid-3q33plkn> <a href="/egressos/dados/cargos_ao_longo_do_tempo.json" download data-astro-cid-3q33plkn> cargos_ao_longo_do_tempo.json ↓
+</a> </td> <td data-astro-cid-3q33plkn>Mediana de R$/mês por CARGO no Brasil, 2018-2025, deflacionada. Câmbio do ano de cada resposta. Sem pessoa: é a distribuição do survey, não do coorte.</td> <td class="num" data-astro-cid-3q33plkn>28</td> <td class="num" data-astro-cid-3q33plkn>21,1 KB</td> </tr><tr data-astro-cid-3q33plkn> <td class="baixar" data-astro-cid-3q33plkn> <a href="/egressos/dados/codigofonte_2026.json" download data-astro-cid-3q33plkn> codigofonte_2026.json ↓
+</a> </td> <td data-astro-cid-3q33plkn>Faixas salariais por senioridade — Pesquisa Código Fonte 2026. Curado à mão.</td> <td class="num" data-astro-cid-3q33plkn>12</td> <td class="num" data-astro-cid-3q33plkn>2,7 KB</td> </tr><tr data-astro-cid-3q33plkn> <td class="baixar" data-astro-cid-3q33plkn> <a href="/egressos/dados/codigofonte_historico.json" download data-astro-cid-3q33plkn> codigofonte_historico.json ↓
+</a> </td> <td data-astro-cid-3q33plkn>Média salarial por senioridade, série histórica. Curado à mão.</td> <td class="num" data-astro-cid-3q33plkn>9</td> <td class="num" data-astro-cid-3q33plkn>1,6 KB</td> </tr><tr data-astro-cid-3q33plkn> <td class="baixar" data-astro-cid-3q33plkn> <a href="/egressos/dados/consolidado.json" download data-astro-cid-3q33plkn> consolidado.json ↓
+</a> </td> <td data-astro-cid-3q33plkn>Coorte anonimizada A–AX: trilha, anos, bolsa, salário estimado.</td> <td class="num" data-astro-cid-3q33plkn>49</td> <td class="num" data-astro-cid-3q33plkn>126,8 KB</td> </tr><tr data-astro-cid-3q33plkn> <td class="baixar" data-astro-cid-3q33plkn> <a href="/egressos/dados/egressos_perfil.json" download data-astro-cid-3q33plkn> egressos_perfil.json ↓
+</a> </td> <td data-astro-cid-3q33plkn>Perfil público de cada egresso: nome, curso, cargo, empresa, cidade, senioridade. SEM renda — nível LinkedIn, publicado por decisão da coordenação.</td> <td class="num" data-astro-cid-3q33plkn>50</td> <td class="num" data-astro-cid-3q33plkn>104,9 KB</td> </tr><tr data-astro-cid-3q33plkn> <td class="baixar" data-astro-cid-3q33plkn> <a href="/egressos/dados/empresas_aliases.json" download data-astro-cid-3q33plkn> empresas_aliases.json ↓
+</a> </td> <td data-astro-cid-3q33plkn>Variantes de nome de empresa agrupadas em canônico.</td> <td class="num" data-astro-cid-3q33plkn>207</td> <td class="num" data-astro-cid-3q33plkn>18,2 KB</td> </tr><tr data-astro-cid-3q33plkn> <td class="baixar" data-astro-cid-3q33plkn> <a href="/egressos/dados/empresas_linkedin_data.json" download data-astro-cid-3q33plkn> empresas_linkedin_data.json ↓
+</a> </td> <td data-astro-cid-3q33plkn>Coleta bruta da company page (dado público de empresa).</td> <td class="num" data-astro-cid-3q33plkn>46</td> <td class="num" data-astro-cid-3q33plkn>19,3 KB</td> </tr><tr data-astro-cid-3q33plkn> <td class="baixar" data-astro-cid-3q33plkn> <a href="/egressos/dados/empresas_linkedin_urls.json" download data-astro-cid-3q33plkn> empresas_linkedin_urls.json ↓
+</a> </td> <td data-astro-cid-3q33plkn>Slug e URL verificada da company page.</td> <td class="num" data-astro-cid-3q33plkn>38</td> <td class="num" data-astro-cid-3q33plkn>5,8 KB</td> </tr><tr data-astro-cid-3q33plkn> <td class="baixar" data-astro-cid-3q33plkn> <a href="/egressos/dados/empresas_porte.json" download data-astro-cid-3q33plkn> empresas_porte.json ↓
+</a> </td> <td data-astro-cid-3q33plkn>Porte, origem e setor por empresa — estimado e verificado.</td> <td class="num" data-astro-cid-3q33plkn>204</td> <td class="num" data-astro-cid-3q33plkn>54,9 KB</td> </tr><tr data-astro-cid-3q33plkn> <td class="baixar" data-astro-cid-3q33plkn> <a href="/egressos/dados/fapes_fomento.json" download data-astro-cid-3q33plkn> fapes_fomento.json ↓
+</a> </td> <td data-astro-cid-3q33plkn>Fomento de bolsas FAPES da coorte, agregado.</td> <td class="num" data-astro-cid-3q33plkn>2</td> <td class="num" data-astro-cid-3q33plkn>1,1 KB</td> </tr><tr data-astro-cid-3q33plkn> <td class="baixar" data-astro-cid-3q33plkn> <a href="/egressos/dados/ibge_series.json" download data-astro-cid-3q33plkn> ibge_series.json ↓
+</a> </td> <td data-astro-cid-3q33plkn>IPCA, INPC e salário mínimo: índice mensal, média anual, deflatores.</td> <td class="num" data-astro-cid-3q33plkn>5</td> <td class="num" data-astro-cid-3q33plkn>23,5 KB</td> </tr><tr data-astro-cid-3q33plkn> <td class="baixar" data-astro-cid-3q33plkn> <a href="/egressos/dados/mapa_mundi.json" download data-astro-cid-3q33plkn> mapa_mundi.json ↓
+</a> </td> <td data-astro-cid-3q33plkn>Contorno dos continentes projetado em SVG (Natural Earth 110m).</td> <td class="num" data-astro-cid-3q33plkn>113</td> <td class="num" data-astro-cid-3q33plkn>33,9 KB</td> </tr><tr data-astro-cid-3q33plkn> <td class="baixar" data-astro-cid-3q33plkn> <a href="/egressos/dados/renda_por_senioridade.json" download data-astro-cid-3q33plkn> renda_por_senioridade.json ↓
+</a> </td> <td data-astro-cid-3q33plkn>Faixa de renda ESTIMADA por nível de senioridade, com p25–p75 e amostra. Sem nenhuma chave de pessoa, e sem recorte por cargo — nenhuma fonte publica salário por cargo.</td> <td class="num" data-astro-cid-3q33plkn>5</td> <td class="num" data-astro-cid-3q33plkn>6,9 KB</td> </tr><tr data-astro-cid-3q33plkn> <td class="baixar" data-astro-cid-3q33plkn> <a href="/egressos/dados/salario_minimo.json" download data-astro-cid-3q33plkn> salario_minimo.json ↓
+</a> </td> <td data-astro-cid-3q33plkn>Salário mínimo por ano: jan, dez, média ponderada, reajuste, ganho real.</td> <td class="num" data-astro-cid-3q33plkn>16</td> <td class="num" data-astro-cid-3q33plkn>5,6 KB</td> </tr><tr data-astro-cid-3q33plkn> <td class="baixar" data-astro-cid-3q33plkn> <a href="/egressos/dados/so_benchmarks.json" download data-astro-cid-3q33plkn> so_benchmarks.json ↓
+</a> </td> <td data-astro-cid-3q33plkn>Medianas do Stack Overflow Survey por país, moeda e edição.</td> <td class="num" data-astro-cid-3q33plkn>12</td> <td class="num" data-astro-cid-3q33plkn>6,7 KB</td> </tr> </tbody> </table> </div>  </section> <section class="bloco" data-astro-cid-gpl6x4yu> <h2 data-astro-cid-gpl6x4yu>API estática</h2> <p class="dica" data-astro-cid-gpl6x4yu>
+Para consumir de um site, notebook ou LLM em vez de baixar tudo: recortes menores,
+          campos estáveis e um índice que lista todos os endpoints. Mesma licença, mesma
+          anonimização.
+</p> <pre class="codigo" data-astro-cid-gpl6x4yu>curl https://ifesserra-lab.github.io/egressos/api/index.json</pre> <div class="grade" data-astro-cid-gpl6x4yu> <a class="arquivo" href="/egressos/api/coorte.json" data-astro-cid-gpl6x4yu> coorte.json <span data-astro-cid-gpl6x4yu>6,7 KB</span> </a><a class="arquivo" href="/egressos/api/coorte/serie-por-experiencia.json" data-astro-cid-gpl6x4yu> coorte/serie-por-experiencia.json <span data-astro-cid-gpl6x4yu>1,7 KB</span> </a><a class="arquivo" href="/egressos/api/coorte/serie-por-ano.json" data-astro-cid-gpl6x4yu> coorte/serie-por-ano.json <span data-astro-cid-gpl6x4yu>2,7 KB</span> </a><a class="arquivo" href="/egressos/api/coorte/trajetoria-destaque.json" data-astro-cid-gpl6x4yu> coorte/trajetoria-destaque.json <span data-astro-cid-gpl6x4yu>2,7 KB</span> </a><a class="arquivo" href="/egressos/api/salario-minimo.json" data-astro-cid-gpl6x4yu> salario-minimo.json <span data-astro-cid-gpl6x4yu>4,4 KB</span> </a><a class="arquivo" href="/egressos/api/indices.json" data-astro-cid-gpl6x4yu> indices.json <span data-astro-cid-gpl6x4yu>17,5 KB</span> </a><a class="arquivo" href="/egressos/api/mercado/stackoverflow.json" data-astro-cid-gpl6x4yu> mercado/stackoverflow.json <span data-astro-cid-gpl6x4yu>5,7 KB</span> </a><a class="arquivo" href="/egressos/api/mercado/codigofonte.json" data-astro-cid-gpl6x4yu> mercado/codigofonte.json <span data-astro-cid-gpl6x4yu>4,1 KB</span> </a><a class="arquivo" href="/egressos/api/empresas/index.json" data-astro-cid-gpl6x4yu> empresas/index.json <span data-astro-cid-gpl6x4yu>35,3 KB</span> </a><span class="arquivo inerte" data-astro-cid-gpl6x4yu> empresas/&lt;slug&gt;.json <span data-astro-cid-gpl6x4yu>por item</span> </span><a class="arquivo" href="/egressos/api/analise.json" data-astro-cid-gpl6x4yu> analise.json <span data-astro-cid-gpl6x4yu>13,7 KB</span> </a><a class="arquivo" href="/egressos/api/egressos/perfis.json" data-astro-cid-gpl6x4yu> egressos/perfis.json <span data-astro-cid-gpl6x4yu>78,3 KB</span> </a><a class="arquivo" href="/egressos/api/egressos/renda-por-senioridade.json" data-astro-cid-gpl6x4yu> egressos/renda-por-senioridade.json <span data-astro-cid-gpl6x4yu>6,1 KB</span> </a><a class="arquivo" href="/egressos/api/fomento-fapes.json" data-astro-cid-gpl6x4yu> fomento-fapes.json <span data-astro-cid-gpl6x4yu>1 KB</span> </a><a class="arquivo" href="/egressos/api/mapa/base.json" data-astro-cid-gpl6x4yu> mapa/base.json <span data-astro-cid-gpl6x4yu>34 KB</span> </a><a class="arquivo" href="/egressos/api/mapa/detalhe.json" data-astro-cid-gpl6x4yu> mapa/detalhe.json <span data-astro-cid-gpl6x4yu>289,4 KB</span> </a> </div> <p class="dica recuo" data-astro-cid-gpl6x4yu>
+Sem chave, sem limite de uso e sem servidor: são arquivos estáticos no GitHub Pages,
+          regerados a cada atualização do relatório.
+</p> </section><section class="bloco" data-astro-cid-gpl6x4yu> <h2 data-astro-cid-gpl6x4yu>Como reproduzir</h2> <pre class="codigo" data-astro-cid-gpl6x4yu># exige os JSON de mercado (Stack Overflow, IPCA) e a base de perfis, que não é pública
+make build       # gera todos os JSON e valida (QA + varredura de PII)
+make site-build  # constrói o site a partir deles
+make publish     # copia a versão aprovada para os sites</pre> <p class="dica recuo" data-astro-cid-gpl6x4yu>
+O portão de publicação reprova se qualquer nome de pessoa vazar para o HTML ou o JSON
+      público — e reprovando, nada é copiado.
+<a href="/egressos/metodologia.html" data-astro-cid-gpl6x4yu>Metodologia completa →</a> </p> </section> <section class="bloco" data-astro-cid-gpl6x4yu> <h2 data-astro-cid-gpl6x4yu>Licença e privacidade</h2> <div class="licenca" data-astro-cid-gpl6x4yu> <p data-astro-cid-gpl6x4yu> <b data-astro-cid-gpl6x4yu>Licença do estudo:</b> dados sob <b data-astro-cid-gpl6x4yu>CC BY 4.0</b>, código sob <b data-astro-cid-gpl6x4yu>MIT</b>. Cite
+        “Egressos IFES — Campus Serra”.
+</p> <p data-astro-cid-gpl6x4yu> <b data-astro-cid-gpl6x4yu>Licença de dado de terceiro:</b> parte dos arquivos acima é <b data-astro-cid-gpl6x4yu>derivada de fontes
+        externas</b>, e a licença dessas fontes continua valendo para quem baixar daqui. Ela
+        está dentro do próprio JSON, no campo <code data-astro-cid-gpl6x4yu>licenca</code>, porque o arquivo circula
+        sozinho.
+</p> <p data-astro-cid-gpl6x4yu> <b data-astro-cid-gpl6x4yu>Privacidade:</b> nenhum dado individual identificável é publicado. Egressos aparecem
+        como coorte anonimizada (A–AX); dado de empresa é informação pública. Nome de pessoa
+        não sai da máquina local nem vai para serviço externo de IA.
+</p> <p class="aviso" data-astro-cid-gpl6x4yu>
+Site experimental — dados preliminares, sujeitos a revisão. Egresso que queira correção
+        ou remoção deve falar com a coordenação.
+</p> </div> </section>  </main> <footer class="rodape" data-astro-cid-5hce7sga> <div class="miolo" data-astro-cid-5hce7sga> <p data-astro-cid-5hce7sga>
+Estudo de trajetória de egressos de TI do <b data-astro-cid-5hce7sga>IFES Campus Serra</b>. Todo número desta
+          página vem dos dados abertos publicados ao lado — nenhum é escrito à mão.
+</p> <p class="sutil" data-astro-cid-5hce7sga>
+Os valores de renda são <b data-astro-cid-5hce7sga>estimativa de mercado</b>, não contracheque: para uma pessoa
+          concreta podem ser maiores ou menores. Dados sob CC BY; código sob MIT.
+</p> </div> </footer>  </body> </html> 
