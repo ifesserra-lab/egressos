@@ -27,7 +27,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))   # pipeline/
 # do núcleo, não de cada script.
 ROOT = str(_ROOT)                                     # salario/
 DATA = os.path.join(ROOT, "data")                     # salario/data/
-OUT  = os.path.abspath(os.path.join(ROOT, "..", "egressos", "egressos-carreiras.html"))
+# Escreve em `old/paginas/`, não no repositório público. Enquanto ele escrevia lá
+# direto, a página do Astro publicada era sobrescrita pela legada a cada build — e a
+# conversão passou a ler a própria saída dela, o que não converge.
+OUT  = os.path.join(ROOT, "old", "paginas", "egressos-carreiras.html")
 
 def load(p):
     with open(p, encoding="utf-8") as f:
