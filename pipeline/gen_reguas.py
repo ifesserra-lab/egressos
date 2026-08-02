@@ -26,7 +26,7 @@ import json
 from egressos_core import dados, deflator
 from egressos_core.paths import ROOT as BASE
 
-OUT = BASE / "trajetoria_salarial.html"
+OUT = BASE / "old" / "paginas" / "trajetoria_salarial.html"
 ANTIGAS = ["salario_minimo_mundo.html", "evolucao_salario_local.html"]
 ANO_BASE = 2026
 BOLSA_FAPES = 800          # bolsa nível VI do projeto Prodest/FAPES (valor documentado, 2018)
@@ -741,21 +741,13 @@ document.getElementById("tb").innerHTML=D.TAB.map(([l,v,kind])=>{{
 
 OUT.write_text(HTML, encoding="utf-8")
 
-# As duas páginas antigas viraram esta. Ficam como redirecionamento para não quebrar
-# links já publicados (nav antigo, mkdocs, marcadores de quem já abriu o relatório).
-STUB = """<!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8">
-<title>Movido — Trajetória salarial</title>
-<link rel="canonical" href="{alvo}">
-<meta http-equiv="refresh" content="0; url={alvo}">
-<meta name="robots" content="noindex">
-</head><body style="font:16px/1.6 system-ui;padding:48px;max-width:44ch;margin:0 auto">
-<p>Esta página virou parte de <a href="{alvo}">Trajetória salarial</a>.</p>
-<p><a href="{alvo}">Ir agora →</a></p>
-</body></html>
-"""
-for antiga in ANTIGAS:
-    (BASE / antiga).write_text(STUB.format(alvo=OUT.name), encoding="utf-8")
+# As duas páginas antigas viraram esta, e continuam existindo como redirecionamento para não
+# quebrar link já publicado. Desde a fatia A da spec 005 quem as escreve é o **Astro** —
+# `app/src/pages/{evolucao_salario_local,salario_minimo_mundo}.astro`, com saída em `site/`.
+#
+# Este script parou de escrevê-las de propósito: o portão de publicação REPROVA página que
+# apareça nas duas origens (`site/` e a raiz), porque a cópia sobrescreveria uma pela outra
+# conforme a ordem — e deixar a sorte decidir qual versão vai ao ar não é opção.
 
 print(f"OK — {OUT.name} ({len(HTML)//1024} KB)")
 print(f"  redirecionam para ela: {', '.join(ANTIGAS)}")

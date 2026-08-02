@@ -1,264 +1,24 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Trajetória salarial: da bolsa ao mercado mundial — egressos de TI do IFES Campus Serra</title>
-<meta name="description" content="Trajetória salarial dos egressos de TI do IFES Campus Serra: ano a ano, em salários mínimos da época e comparada ao mercado mundial de desenvolvedores em dólar.">
-<style>
-  .viz-root{
-    color-scheme:light;
-    --plane:#f7f8fa; --surface:#fdfdfc; --surface-2:#f0f2f5; --ink:#0b0e12; --ink-2:#52565e; --muted:#8a8e96;
-    --grid:#e4e6ea; --axis:#c4c7cd;
-    --us:#2a78d6; --br:#7a8089; --cf:#d9642b; --glob:#0e8a68; --top:#8557c9; --sm:#a3382f;
-    --border:rgba(11,14,18,.10); --shadow:0 1px 2px rgba(11,14,18,.05),0 8px 24px rgba(11,14,18,.06);
-    background:var(--plane); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
-    -webkit-font-smoothing:antialiased; min-height:100%; padding:16px 13px; box-sizing:border-box;
-  }
-  @media (prefers-color-scheme:dark){ :root:where(:not([data-theme="light"])) .viz-root{
-    color-scheme:dark; --plane:#0c0d0f; --surface:#16181b; --surface-2:#1d2125; --ink:#f4f5f7; --ink-2:#b6bac1;
-    --muted:#83878f; --grid:#26292d; --axis:#383c42; --us:#4f97ec; --br:#8d949d; --cf:#ef7d42;
-    --glob:#2fbc90; --top:#a480e0; --sm:#e8776a;
-    --border:rgba(255,255,255,.10); --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 30px rgba(0,0,0,.45); } }
-  :root[data-theme="dark"] .viz-root{
-    color-scheme:dark; --plane:#0c0d0f; --surface:#16181b; --surface-2:#1d2125; --ink:#f4f5f7; --ink-2:#b6bac1;
-    --muted:#83878f; --grid:#26292d; --axis:#383c42; --us:#4f97ec; --br:#8d949d; --cf:#ef7d42;
-    --glob:#2fbc90; --top:#a480e0; --sm:#e8776a; --border:rgba(255,255,255,.10); }
-  *{box-sizing:border-box}
-  .wrap{max-width:920px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
-  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--us);margin:0 0 9px}
-  h1{font-size:clamp(23px,3.7vw,34px);line-height:1.11;margin:0 0 12px;font-weight:700;letter-spacing:-.016em;text-wrap:balance}
-  .lede{font-size:16px;line-height:1.55;color:var(--ink-2);margin:0;max-width:64ch}
-  .lede b{color:var(--ink)}
-  .nav{display:flex;flex-wrap:wrap;gap:10px}
-  .nav a{flex:1 1 220px;text-decoration:none;background:var(--surface);border:1px solid var(--border);
-    border-radius:12px;padding:13px 15px;box-shadow:var(--shadow);font-weight:650;font-size:13.5px;color:var(--us)}
-  .nav a span{display:block;font-weight:400;color:var(--ink-2);font-size:12px;margin-top:3px;line-height:1.4}
-  .sechead{display:flex;align-items:baseline;gap:11px;margin:14px 0 -4px}
-  .sechead .num{font-size:11px;font-weight:800;letter-spacing:.09em;color:#fff;background:var(--us);border-radius:6px;padding:4px 9px}
-  .sechead h2{font-size:19px;margin:0;font-weight:700;letter-spacing:-.015em}
-  .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:clamp(18px,2.6vw,26px)}
-  .card h3{font-size:15px;margin:0 0 5px;font-weight:680;letter-spacing:-.01em}
-  .hint{font-size:13px;line-height:1.6;color:var(--muted);margin:0 0 18px}
-  .hint b{color:var(--ink-2)}
-  .stats{display:flex;flex-wrap:wrap;gap:12px}
-  .stat{flex:1 1 175px;background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:16px 18px;box-shadow:var(--shadow)}
-  .stat.hero{border-color:var(--us);border-width:1.5px}
-  .stat.warn{border-color:var(--cf);border-width:1.5px}
-  .stat .k{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 7px}
-  .stat .v{font-size:26px;font-weight:720;font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1}
-  .stat .v small{font-size:13px;font-weight:500;color:var(--ink-2);letter-spacing:0}
-  .stat .r{font-size:12.5px;color:var(--ink-2);margin-top:7px;line-height:1.45}
-  .chart-scroll{overflow-x:auto}
-  svg{display:block;width:100%;height:auto;min-width:540px}
-  text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
-  .tick{fill:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}
-  .gridline{stroke:var(--grid);stroke-width:1}
-  .xlab{fill:var(--ink-2);font-size:12px;font-weight:650;font-variant-numeric:tabular-nums}
-  .legend{display:flex;flex-wrap:wrap;gap:15px;margin:12px 0 0;font-size:12.5px;color:var(--ink-2)}
-  .legend span{display:inline-flex;align-items:center;gap:7px}
-  .sw{width:18px;height:0;border-top-width:2.5px;border-top-style:solid;display:inline-block}
-  .swb{width:14px;height:12px;border-radius:3px;display:inline-block}
-  table{border-collapse:collapse;width:100%;min-width:520px;font-size:13px;font-variant-numeric:tabular-nums}
-  th,td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--grid)}
-  th:first-child,td:first-child{text-align:left}
-  thead th{color:var(--ink-2);font-weight:600;font-size:11px;letter-spacing:.03em;text-transform:uppercase}
-  tbody tr:last-child td{border-bottom:none}
-  tr.me td{background:rgba(42,120,214,.07);font-weight:700}
-  tr.me td:first-child{color:var(--us)}
-  tr.cen td{background:rgba(217,100,43,.07)}
-  tr.cen td:first-child{color:var(--cf);font-weight:700}
-  .note{background:var(--surface-2);border-left:3px solid var(--cf);border-radius:9px;padding:14px 16px;font-size:13px;line-height:1.6;color:var(--ink-2)}
-  .note b{color:var(--ink)}
-  .src{font-size:12px;line-height:1.7;color:var(--muted)}
-  .src b{color:var(--ink-2)}
-  .src code{font-size:11.5px;background:rgba(127,127,127,.14);padding:1px 5px;border-radius:4px;color:var(--ink-2)}
-  .foot{font-size:11.5px;color:var(--muted);text-align:center;line-height:1.7}
-  @media (min-width:600px){ .viz-root{padding:32px 26px} .wrap{gap:22px} }
-  @media (min-width:960px){ .viz-root{padding:52px} }
-  .exp-banner{position:fixed;top:0;left:0;right:0;z-index:99999;background:#c62828;color:#fff;
-    font:600 14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;
-    padding:11px 18px;letter-spacing:.02em;box-shadow:0 2px 10px rgba(0,0,0,.28);
-    background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.14) 0 14px,transparent 14px 28px)}
-  .exp-banner strong{font-weight:800;letter-spacing:.06em}
-  .viz-root{padding-top:clamp(64px,7vw,80px)!important}
-  @media(max-width:640px){.exp-banner{font-size:12px;padding:9px 12px}}
-</style>
-</head>
-<body>
-<div class="exp-banner" role="alert">
-  ⚠️ <strong>SITE EXPERIMENTAL</strong> — em construção. Metodologia ainda sendo desenvolvida; dados e conclusões preliminares, sujeitos a alteração.
-</div>
-
-<div class="viz-root"><div class="wrap">
-
-  <header>
-    <p class="eyebrow">Ensino · pesquisa · extensão — IFES Campus Serra</p>
-    <h1>A bolsa não pagava um salário mínimo.<br>Hoje a renda paga dez.</h1>
-    <p class="lede">Em 2018 a bolsa de pesquisa era <b>R$ 800</b> — R$ 154 <b>abaixo</b> do piso legal. Hoje a mediana do coorte é <b>R$ 17.073/mês</b>: <b>10,5 salários mínimos</b>, R$ 15.452 acima do piso, todo mês.<br><br>Trocada a régua, a leitura muda: em dólar, a mesma renda é <b>48%</b> do que um dev de igual experiência ganha no mundo. O teto não é a competência — é o câmbio. <b>13 dos 50 já atravessaram essa fronteira</b>, hoje em empregador internacional, onde brasileiros pagos em dólar ganham <b>2,6× mais</b> que os pagos em real.</p>
-  </header>
-
-  <nav class="nav" aria-label="Outras visões">
-    <a href="index.html">📊 Impacto na carreira →<span>Visão executiva do estudo</span></a>
-    <a href="evolucao_salario_local.html">📈 Evolução salarial ano a ano →<span>Trajetória individual estimada</span></a>
-    <a href="egressos-carreiras.html">🌍 Onde estão os egressos →<span>Empresas, países e jornada</span></a>
-    <a href="metodologia.html">🔬 Metodologia →<span>Fontes, ETL e ressalvas</span></a>
-    <a href="dados-abertos.html">📂 Dados abertos →<span>Baixe os JSON e o código</span></a>
-  </nav>
-
-  <section class="stats" id="stats"></section>
-
-  <div class="sechead"><span class="num">1</span><h2>A trajetória, ano a ano</h2></div>
-
-  <section class="card">
-    <h3>De R$ 400 a R$ 14.373 por mês em 13 anos</h3>
-    <p class="hint">Uma trajetória do coorte, anonimizada — a de maior multiplicador entre quem começou com <b>bolsa documentada</b>. Linha azul: o que se ganhava em <b>R$ da época</b>. Linha laranja: o mesmo valor trazido a <b>R$ de 2026</b> pelo IPCA, para comparar poder de compra. Faixa sombreada: o que o mercado pagava (p25–p75) para aquela experiência naquele ano. A partir de 2024 a estimativa é extrapolada — não há edição nova do survey.</p>
-    <div class="chart-scroll"><svg id="cTraj" viewBox="0 0 900 430" role="img" aria-label="Trajetória salarial ano a ano"></svg></div>
-    <div class="legend">
-      <span><i class="sw" style="border-color:var(--us)"></i> Mediana em R$ da época</span>
-      <span><i class="sw" style="border-color:var(--cf)"></i> Mediana em R$ de 2026 (IPCA)</span>
-      <span><i class="swb" style="background:rgba(42,120,214,.13)"></i> Faixa de mercado (p25–p75)</span>
-      <span><i class="sw" style="border-color:var(--muted);border-top-style:dotted"></i> Mediana do coorte</span>
-    </div>
-    <div style="overflow-x:auto;margin-top:20px"><table>
-      <thead><tr><th>Ano</th><th>Situação</th><th>Exp.</th><th>Câmbio</th><th>p25</th><th>Mediana</th><th>p75</th><th>US$/mês</th><th>Em mínimos</th></tr></thead>
-      <tbody id="tbTraj"></tbody>
-    </table></div>
-  </section>
-
-  <div class="sechead"><span class="num">2</span><h2>Acima do salário mínimo</h2></div>
-
-  <section class="card">
-    <h3>Quantos salários mínimos, ano a ano</h3>
-    <p class="hint">As barras são a <b>mediana do coorte inteiro</b> em cada ano, dividida pelo <b>salário mínimo daquele ano</b>: bloco claro = 1 mínimo, bloco azul = <b>o que vem acima do piso</b> (valor em R$ dentro da barra). A linha pontilhada é a <b>trajetória individual da seção 1</b>, na mesma régua — dá para ver quando ela corre à frente ou atrás do coorte. Sob cada ano: a renda do mês em <b>R$ e US$</b> (câmbio médio do ano) e quanto isso está <b>acima do mínimo</b>, nas duas moedas. Só anos com pelo menos 10 egressos (2012, o primeiro exibido, tem 12).</p>
-    <div class="chart-scroll"><svg id="cSM" viewBox="0 0 900 460" role="img" aria-label="Renda do coorte em salários mínimos por ano"></svg></div>
-    <div class="legend">
-      <span><i class="swb" style="background:rgba(163,56,47,.11);border:1px solid var(--sm)"></i> 1 salário mínimo</span>
-      <span><i class="swb" style="background:var(--us)"></i> Mediana do coorte (50) acima do mínimo</span>
-      <span><i class="sw" style="border-color:var(--ink-2);border-top-style:dotted"></i> Trajetória individual (seção 1)</span>
-      <span><i class="sw" style="border-color:var(--sm);border-top-style:dashed"></i> Bolsa FAPES de 2018 (0,8 mínimo)</span>
-    </div>
-  </section>
-
-  <section class="card">
-    <h3>A régua também subiu</h3>
-    <p class="hint">De 2012 a 2026 o mínimo subiu <b>161% em R$</b>, mas só <b>+21% em poder de compra</b> (IPCA). Os 10,5 mínimos de hoje valem mais que 10,5 mínimos de 2012 — o ganho real é maior do que o múltiplo sugere.</p>
-    <div class="chart-scroll"><svg id="cSMreal" viewBox="0 0 900 240" role="img" aria-label="Salário mínimo nominal e em poder de compra"></svg></div>
-    <div class="legend">
-      <span><i class="sw" style="border-color:var(--sm)"></i> Mínimo nominal (R$ do ano)</span>
-      <span><i class="sw" style="border-color:var(--cf)"></i> Mínimo em R$ de 2026 (IPCA)</span>
-      <span><i class="swb" style="background:rgba(163,56,47,.18)"></i> anos de perda real</span>
-    </div>
-  </section>
-
-  <div class="sechead"><span class="num">3</span><h2>Na régua mundial</h2></div>
-
-  <section class="card">
-    <h3>Renda mediana em dólar — devs de 8 a 13 anos</h3>
-    <p class="hint">Stack Overflow Developer Survey 2023, devs de software (back/front/full-stack/mobile), na faixa de experiência da <b>metade do meio do coorte</b> (8 a 13 anos; mediana de carreira = 11 anos). Barra tracejada = <b>cenário</b>: brasileiros que declaram salário em dólar, com 44 respondentes.</p>
-    <div class="chart-scroll"><svg id="cPais" viewBox="0 0 900 500" role="img" aria-label="Renda mediana em dólar por país"></svg></div>
-  </section>
-
-  <section class="card">
-    <h3>Mesma trajetória, duas moedas</h3>
-    <p class="hint">A mediana do coorte em <b>R$</b> (eixo esquerdo) e em <b>US$</b> (direito). Os eixos estão na proporção do câmbio médio do período, então <b>as linhas só se separam quando o câmbio se move</b> — a área entre elas é o efeito cambial.</p>
-    <div class="chart-scroll"><svg id="cDual" viewBox="0 0 900 370" role="img" aria-label="Trajetória do coorte em reais e em dólares"></svg></div>
-    <div class="legend">
-      <span><i class="sw" style="border-color:var(--us)"></i> R$/mês nominal (eixo esquerdo)</span>
-      <span><i class="sw" style="border-color:var(--glob);border-top-style:dashed"></i> US$/mês (eixo direito)</span>
-      <span style="color:var(--muted)">área = efeito do câmbio</span>
-    </div>
-  </section>
-
-  <div class="sechead"><span class="num">4</span><h2>Os que recebem em dólar</h2></div>
-
-  <section class="card">
-    <h3>No Brasil, a moeda do contracheque vale mais que o país</h3>
-    <p class="hint">Stack Overflow 2023, respondentes <b>do Brasil</b>, separados pela moeda em que declaram o salário. Mesmo país, mesma experiência — <b>2,6× de diferença</b> no corte de <b>8 anos ou mais</b> (n=391 em R$, 44 em US$); nas faixas finas abaixo, a razão vai de 2,5× a 3,5×.</p>
-    <div class="chart-scroll"><svg id="cMoeda" viewBox="0 0 900 320" role="img" aria-label="Brasileiros pagos em real e em dólar"></svg></div>
-    <div class="legend">
-      <span><i class="swb" style="background:var(--br)"></i> Pago em R$</span>
-      <span><i class="swb" style="background:var(--cf)"></i> Pago em US$</span>
-    </div>
-    
-    <div class="note" style="margin-top:18px">
-      <b>Esse número é de 2023. Ainda vale?</b> Em vez de projetar o valor
+<!DOCTYPE html><html lang="pt-BR" data-astro-cid-5hce7sga> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Trajetória salarial — Egressos de TI · IFES Campus Serra</title><meta name="description" content="Trajetória salarial ano a ano dos egressos de TI do IFES Campus Serra, em salários mínimos da época e comparada ao mercado mundial."><link rel="icon" href="/egressos/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/egressos/_astro/busca.B5UkqNE1.css">
+<link rel="stylesheet" href="/egressos/_astro/trajetoria_salarial.Dw0otUej.css"></head> <body data-astro-cid-5hce7sga> <a class="pular" href="#conteudo" data-astro-cid-5hce7sga>Pular para o conteúdo</a> <header class="cabecalho" data-astro-cid-5hce7sga> <div class="faixa" aria-hidden="true" data-astro-cid-5hce7sga></div> <div class="miolo" data-astro-cid-5hce7sga> <p class="chapeu" data-astro-cid-5hce7sga>Egressos de TI · IFES Campus Serra</p> <h1 data-astro-cid-5hce7sga>Trajetória salarial</h1> <p class="sub" data-astro-cid-5hce7sga>Ano a ano, em salários mínimos e vs. o mundo</p> </div> </header> <nav class="menu" aria-label="Outras visões" data-astro-cid-5hce7sga> <div class="miolo cartoes" data-astro-cid-5hce7sga> <a class="cartao" href="/egressos/index.html" data-astro-cid-5hce7sga> <b data-astro-cid-5hce7sga>📊 Impacto na carreira</b> <em data-astro-cid-5hce7sga>Visão executiva: renda estimada vs. mercado</em> </a><span class="cartao aqui" aria-current="page" data-astro-cid-5hce7sga> <b data-astro-cid-5hce7sga>📈 Trajetória salarial</b> <em data-astro-cid-5hce7sga>Ano a ano, em salários mínimos e vs. o mundo</em> </span><a class="cartao" href="/egressos/dashboard_alunos.html" data-astro-cid-5hce7sga> <b data-astro-cid-5hce7sga>👥 Panorama por egresso</b> <em data-astro-cid-5hce7sga>Linha do tempo e cards anonimizados (A–AX)</em> </a><a class="cartao" href="/egressos/busca.html" data-astro-cid-5hce7sga> <b data-astro-cid-5hce7sga>🔎 Buscar</b> <em data-astro-cid-5hce7sga>Egressos, empresas e faixas de renda do mercado</em> </a><a class="cartao" href="/egressos/egressos-carreiras.html" data-astro-cid-5hce7sga> <b data-astro-cid-5hce7sga>🌍 Onde estão os egressos</b> <em data-astro-cid-5hce7sga>Empresas, países e jornada de cada um</em> </a><a class="cartao" href="/egressos/metodologia.html" data-astro-cid-5hce7sga> <b data-astro-cid-5hce7sga>🔬 Metodologia</b> <em data-astro-cid-5hce7sga>Fontes, ETL, cálculo salarial e ressalvas</em> </a><a class="cartao" href="/egressos/dados-abertos.html" data-astro-cid-5hce7sga> <b data-astro-cid-5hce7sga>📂 Dados abertos</b> <em data-astro-cid-5hce7sga>Baixe os JSON e o código (CC BY / MIT)</em> </a> </div> </nav> <main id="conteudo" class="miolo" data-astro-cid-5hce7sga>  <div class="trajetoria-salarial"> <p class="aviso-experimental" role="note">⚠️ <strong>SITE EXPERIMENTAL</strong> — em construção. Metodologia ainda sendo desenvolvida; dados e conclusões preliminares, sujeitos a alteração.</p> <p class="lede">Em 2018 a bolsa de pesquisa era <b>R$ 800</b> — R$ 154 <b>abaixo</b> do piso legal. Hoje a mediana do coorte é <b>R$ 17.073/mês</b>: <b>10,5 salários mínimos</b>, R$ 15.452 acima do piso, todo mês.<br><br>Trocada a régua, a leitura muda: em dólar, a mesma renda é <b>48%</b> do que um dev de igual experiência ganha no mundo. O teto não é a competência — é o câmbio. <b>13 dos 50 já atravessaram essa fronteira</b>, hoje em empregador internacional, onde brasileiros pagos em dólar ganham <b>2,6× mais</b> que os pagos em real.</p> <nav class="nav" aria-label="Outras visões"> <a href="index.html">📊 Impacto na carreira →<span>Visão executiva do estudo</span></a> <a href="evolucao_salario_local.html">📈 Evolução salarial ano a ano →<span>Trajetória individual estimada</span></a> <a href="egressos-carreiras.html">🌍 Onde estão os egressos →<span>Empresas, países e jornada</span></a> <a href="metodologia.html">🔬 Metodologia →<span>Fontes, ETL e ressalvas</span></a> <a href="dados-abertos.html">📂 Dados abertos →<span>Baixe os JSON e o código</span></a> </nav> <section class="stats" id="stats"></section> <div class="sechead"><span class="num">1</span><h2>A trajetória, ano a ano</h2></div> <section class="card"> <h3>De R$ 400 a R$ 14.373 por mês em 13 anos</h3> <p class="hint">Uma trajetória do coorte, anonimizada — a de maior multiplicador entre quem começou com <b>bolsa documentada</b>. Linha azul: o que se ganhava em <b>R$ da época</b>. Linha laranja: o mesmo valor trazido a <b>R$ de 2026</b> pelo IPCA, para comparar poder de compra. Faixa sombreada: o que o mercado pagava (p25–p75) para aquela experiência naquele ano. A partir de 2024 a estimativa é extrapolada — não há edição nova do survey.</p> <div class="chart-scroll"><svg id="cTraj" viewBox="0 0 900 430" role="img" aria-label="Trajetória salarial ano a ano"></svg></div> <div class="legend"> <span><i class="sw" style="border-color:var(--us)"></i> Mediana em R$ da época</span> <span><i class="sw" style="border-color:var(--cf)"></i> Mediana em R$ de 2026 (IPCA)</span> <span><i class="swb" style="background:rgba(42,120,214,.13)"></i> Faixa de mercado (p25–p75)</span> <span><i class="sw" style="border-color:var(--muted);border-top-style:dotted"></i> Mediana do coorte</span> </div> <div style="overflow-x:auto;margin-top:20px"><table> <thead><tr><th>Ano</th><th>Situação</th><th>Exp.</th><th>Câmbio</th><th>p25</th><th>Mediana</th><th>p75</th><th>US$/mês</th><th>Em mínimos</th></tr></thead> <tbody id="tbTraj"></tbody> </table></div> </section> <div class="sechead"><span class="num">2</span><h2>Acima do salário mínimo</h2></div> <section class="card"> <h3>Quantos salários mínimos, ano a ano</h3> <p class="hint">As barras são a <b>mediana do coorte inteiro</b> em cada ano, dividida pelo <b>salário mínimo daquele ano</b>: bloco claro = 1 mínimo, bloco azul = <b>o que vem acima do piso</b> (valor em R$ dentro da barra). A linha pontilhada é a <b>trajetória individual da seção 1</b>, na mesma régua — dá para ver quando ela corre à frente ou atrás do coorte. Sob cada ano: a renda do mês em <b>R$ e US$</b> (câmbio médio do ano) e quanto isso está <b>acima do mínimo</b>, nas duas moedas. Só anos com pelo menos 10 egressos (2012, o primeiro exibido, tem 12).</p> <div class="chart-scroll"><svg id="cSM" viewBox="0 0 900 460" role="img" aria-label="Renda do coorte em salários mínimos por ano"></svg></div> <div class="legend"> <span><i class="swb" style="background:rgba(163,56,47,.11);border:1px solid var(--sm)"></i> 1 salário mínimo</span> <span><i class="swb" style="background:var(--us)"></i> Mediana do coorte (50) acima do mínimo</span> <span><i class="sw" style="border-color:var(--ink-2);border-top-style:dotted"></i> Trajetória individual (seção 1)</span> <span><i class="sw" style="border-color:var(--sm);border-top-style:dashed"></i> Bolsa FAPES de 2018 (0,8 mínimo)</span> </div> </section> <section class="card"> <h3>A régua também subiu</h3> <p class="hint">De 2012 a 2026 o mínimo subiu <b>161% em R$</b>, mas só <b>+21% em poder de compra</b> (IPCA). Os 10,5 mínimos de hoje valem mais que 10,5 mínimos de 2012 — o ganho real é maior do que o múltiplo sugere.</p> <div class="chart-scroll"><svg id="cSMreal" viewBox="0 0 900 240" role="img" aria-label="Salário mínimo nominal e em poder de compra"></svg></div> <div class="legend"> <span><i class="sw" style="border-color:var(--sm)"></i> Mínimo nominal (R$ do ano)</span> <span><i class="sw" style="border-color:var(--cf)"></i> Mínimo em R$ de 2026 (IPCA)</span> <span><i class="swb" style="background:rgba(163,56,47,.18)"></i> anos de perda real</span> </div> </section> <div class="sechead"><span class="num">3</span><h2>Na régua mundial</h2></div> <section class="card"> <h3>Renda mediana em dólar — devs de 8 a 13 anos</h3> <p class="hint">Stack Overflow Developer Survey 2023, devs de software (back/front/full-stack/mobile), na faixa de experiência da <b>metade do meio do coorte</b> (8 a 13 anos; mediana de carreira = 11 anos). Barra tracejada = <b>cenário</b>: brasileiros que declaram salário em dólar, com 44 respondentes.</p> <div class="chart-scroll"><svg id="cPais" viewBox="0 0 900 500" role="img" aria-label="Renda mediana em dólar por país"></svg></div> </section> <section class="card"> <h3>Mesma trajetória, duas moedas</h3> <p class="hint">A mediana do coorte em <b>R$</b> (eixo esquerdo) e em <b>US$</b> (direito). Os eixos estão na proporção do câmbio médio do período, então <b>as linhas só se separam quando o câmbio se move</b> — a área entre elas é o efeito cambial.</p> <div class="chart-scroll"><svg id="cDual" viewBox="0 0 900 370" role="img" aria-label="Trajetória do coorte em reais e em dólares"></svg></div> <div class="legend"> <span><i class="sw" style="border-color:var(--us)"></i> R$/mês nominal (eixo esquerdo)</span> <span><i class="sw" style="border-color:var(--glob);border-top-style:dashed"></i> US$/mês (eixo direito)</span> <span style="color:var(--muted)">área = efeito do câmbio</span> </div> </section> <div class="sechead"><span class="num">4</span><h2>Os que recebem em dólar</h2></div> <section class="card"> <h3>No Brasil, a moeda do contracheque vale mais que o país</h3> <p class="hint">Stack Overflow 2023, respondentes <b>do Brasil</b>, separados pela moeda em que declaram o salário. Mesmo país, mesma experiência — <b>2,6× de diferença</b> no corte de <b>8 anos ou mais</b> (n=391 em R$, 44 em US$); nas faixas finas abaixo, a razão vai de 2,5× a 3,5×.</p> <div class="chart-scroll"><svg id="cMoeda" viewBox="0 0 900 320" role="img" aria-label="Brasileiros pagos em real e em dólar"></svg></div> <div class="legend"> <span><i class="swb" style="background:var(--br)"></i> Pago em R$</span> <span><i class="swb" style="background:var(--cf)"></i> Pago em US$</span> </div> <div class="note" style="margin-top:18px"> <b>Esse número é de 2023. Ainda vale?</b> Em vez de projetar o valor
       para hoje — a série oscila cerca de 10% ao ano por composição de amostra, quatro vezes mais
       que a inflação, então projetar erraria mais do que corrigiria —, aqui está o
-      <b>mesmo corte</b> (8 anos ou mais, respondentes do Brasil) medido em edições independentes:
-      <div style="overflow-x:auto;margin-top:12px"><table>
-        <thead><tr><th>Edição</th><th>Pago em R$</th><th>Pago em US$</th><th>Razão</th>
-          <th>n (R$ · US$)</th></tr></thead>
-        <tbody>
-        <tr><td>2022</td><td class="num">US$ 3.116</td><td class="num">US$ 7.192</td><td class="num">2,3×</td><td class="num">435 · 43</td></tr>
-        <tr style="font-weight:600"><td>2023 (referência)</td><td class="num">US$ 3.162</td><td class="num">US$ 8.333</td><td class="num">2,6×</td><td class="num">391 · 44</td></tr>
-        <tr><td>2024</td><td class="num">US$ 2.797</td><td class="num">US$ 7.500</td><td class="num">2,7×</td><td class="num">198 · 25</td></tr>
-        </tbody>
-      </table></div>
-      A razão vai de <b>2,3×</b> a <b>2,7×</b> em
+<b>mesmo corte</b> (8 anos ou mais, respondentes do Brasil) medido em edições independentes:
+<div style="overflow-x:auto;margin-top:12px"><table> <thead><tr><th>Edição</th><th>Pago em R$</th><th>Pago em US$</th><th>Razão</th> <th>n (R$ · US$)</th></tr></thead> <tbody> <tr><td>2022</td><td class="num">US$ 3.116</td><td class="num">US$ 7.192</td><td class="num">2,3×</td><td class="num">435 · 43</td></tr> <tr style="font-weight:600"><td>2023 (referência)</td><td class="num">US$ 3.162</td><td class="num">US$ 8.333</td><td class="num">2,6×</td><td class="num">391 · 44</td></tr> <tr><td>2024</td><td class="num">US$ 2.797</td><td class="num">US$ 7.500</td><td class="num">2,7×</td><td class="num">198 · 25</td></tr> </tbody> </table></div>
+A razão vai de <b>2,3×</b> a <b>2,7×</b> em
       3 edições com amostras que não se sobrepõem. A edição de referência não é a mais
       recente porque as recentes não sustentam os recortes finos — a de 2024
       tem menos da metade da amostra na faixa de experiência.
-    </div>
-  </section>
-
-  <section class="card">
-    <h3>Onde o coorte está nessa divisão</h3>
-    <p class="hint"><b>13 dos 50 egressos</b> trabalham hoje para empregador internacional — todos os 13 em nível Sênior ou superior. Mas o modelo salarial deste estudo precifica <b>todos</b> pela mediana brasileira do Stack Overflow, porque não temos o contracheque real de ninguém.</p>
-    <div class="chart-scroll"><svg id="cIntl" viewBox="0 0 900 250" role="img" aria-label="Egressos por origem do empregador"></svg></div>
-    <div class="note" style="margin-top:18px">
-      <b>O que isso significa para os números deste relatório.</b> O prêmio internacional que o modelo calcula é de apenas <b>+6%</b> — um artefato: os dois grupos são precificados na mesma tabela brasileira.
+</div> </section> <section class="card"> <h3>Onde o coorte está nessa divisão</h3> <p class="hint"><b>13 dos 50 egressos</b> trabalham hoje para empregador internacional — todos os 13 em nível Sênior ou superior. Mas o modelo salarial deste estudo precifica <b>todos</b> pela mediana brasileira do Stack Overflow, porque não temos o contracheque real de ninguém.</p> <div class="chart-scroll"><svg id="cIntl" viewBox="0 0 900 250" role="img" aria-label="Egressos por origem do empregador"></svg></div> <div class="note" style="margin-top:18px"> <b>O que isso significa para os números deste relatório.</b> O prêmio internacional que o modelo calcula é de apenas <b>+6%</b> — um artefato: os dois grupos são precificados na mesma tabela brasileira.
       Se os 13 egressos em empregador internacional forem pagos no padrão observado de brasileiros em dólar (<b>US$ 8.333/mês</b>), a renda deles seria <b>≈ R$ 42.935/mês</b> — <b>26,5 salários mínimos</b>, não 10,5.
-      <b>É cenário, não medição:</b> depende de contrato, senioridade e empresa. Para virar dado, seria preciso perguntar faixa salarial e moeda diretamente aos egressos.
-    </div>
-  </section>
-
-  <div class="sechead"><span class="num">5</span><h2>O coorte inteiro</h2></div>
-
-  <section class="card">
-    <h3>Multiplicador de renda entre os 50 egressos</h3>
-    <p class="hint">A página mostra <b>uma</b> trajetória. No coorte inteiro o salto real (início → hoje) varia bastante: mediana <b>8,0×</b>, de 1,5× a 17,7×.</p>
-    <div id="histm"></div>
-    <p class="hint" style="margin-top:12px">A cauda alta vem de quem começou em bolsa de valor baixo e hoje é sênior; os multiplicadores menores são de quem entrou direto no mercado com salário já alto.</p>
-  </section>
-
-  <section class="card">
-    <h3>Como ler — e o que isto não é</h3>
-    <ul class="src" style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:7px">
-      <li><b>É faixa de mercado</b> para a experiência do egresso em cada ano — não o salário efetivamente recebido. Nenhum contracheque foi coletado.</li>
-      <li><b>Os anos de bolsa</b> usam o valor documentado da bolsa; a faixa sombreada mostra o que o mercado pagava para a mesma experiência — a distância entre as duas é o custo de oportunidade da formação.</li>
-      <li><b>A partir de 2024</b> não há edição nova do Stack Overflow: a estimativa é extrapolada e vem marcada como tal.</li>
-      <li>O modelo usa <b>só anos de experiência, país e cargo</b>. Ignora empresa, trabalho remoto pago em moeda forte e negociação — que pesam muito, como mostra a seção 4.</li>
-      <li>Salário do Stack Overflow é bruto anual autorreportado; a mediana usa devs back/front/full-stack do Brasil na faixa de experiência do egresso (±1 ano).</li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h3>Consolidado — as três réguas</h3>
-    <p class="hint">Tudo em R$/mês de 2026, US$/mês pelo câmbio médio de 2026 (R$ 5,1524) e em salários mínimos de 2026 (R$ 1.621).</p>
-    <div style="overflow-x:auto"><table>
-      <thead><tr><th>Referência</th><th>R$/mês</th><th>US$/mês</th><th>Mínimos</th><th>vs. egressos</th></tr></thead>
-      <tbody id="tb"></tbody>
-    </table></div>
-  </section>
-
-  <section class="card">
-    <h3>Fontes</h3>
-    <p class="src" style="margin:0">
-      <b>Egressos:</b> coorte de 50 (40 com série salarial em 2026). Mediana da renda estimada, por trilha × experiência — estimativa de mercado, não folha real.<br>
-      <b>Salário mínimo:</b> IPEADATA série MTE12_SALMIN12 — Min. Economia/Trabalho. 2026 = R$ 1.621, conferido com o Decreto 12.797/2025 (+6,79%). Anos com dois valores usam média ponderada pelos meses.<br>
-      <b>Inflação:</b> IBGE/SIDRA tabela 1736, variável 2289 (ganho real) · IBGE/SIDRA tabela 1737, variável 2266 (deflator) — deflator até 202606.<br>
-      <b>Mercado mundial:</b> Stack Overflow Developer Survey 2018–2025 (survey.stackoverflow.co) — campo <code>ConvertedCompYearly</code> (US$, conversão do próprio survey) e <code>Currency</code> para separar quem recebe em R$ e em US$.<br>
-      <b>Mercado brasileiro:</b> Pesquisa Código Fonte 2026 — 17,046 respondentes, coleta 2026-02-23 a 2026-06-09, média em R$/mês, auto-reportado.<br>
-      <b>Câmbio:</b> média anual USD→BRL.
-    </p>
-  </section>
-
-  <p class="foot">Dados com base em jun/2026 · gerado por <code>pipeline/gen_reguas.py</code> · IFES — Campus Serra.<br>Todos os números vêm do pipeline; nenhum é digitado à mão.</p>
-
-</div></div>
-
-<script>
+<b>É cenário, não medição:</b> depende de contrato, senioridade e empresa. Para virar dado, seria preciso perguntar faixa salarial e moeda diretamente aos egressos.
+</div> </section> <div class="sechead"><span class="num">5</span><h2>O coorte inteiro</h2></div> <section class="card"> <h3>Multiplicador de renda entre os 50 egressos</h3> <p class="hint">A página mostra <b>uma</b> trajetória. No coorte inteiro o salto real (início → hoje) varia bastante: mediana <b>8,0×</b>, de 1,5× a 17,7×.</p> <div id="histm"></div> <p class="hint" style="margin-top:12px">A cauda alta vem de quem começou em bolsa de valor baixo e hoje é sênior; os multiplicadores menores são de quem entrou direto no mercado com salário já alto.</p> </section> <section class="card"> <h3>Como ler — e o que isto não é</h3> <ul class="src" style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:7px"> <li><b>É faixa de mercado</b> para a experiência do egresso em cada ano — não o salário efetivamente recebido. Nenhum contracheque foi coletado.</li> <li><b>Os anos de bolsa</b> usam o valor documentado da bolsa; a faixa sombreada mostra o que o mercado pagava para a mesma experiência — a distância entre as duas é o custo de oportunidade da formação.</li> <li><b>A partir de 2024</b> não há edição nova do Stack Overflow: a estimativa é extrapolada e vem marcada como tal.</li> <li>O modelo usa <b>só anos de experiência, país e cargo</b>. Ignora empresa, trabalho remoto pago em moeda forte e negociação — que pesam muito, como mostra a seção 4.</li> <li>Salário do Stack Overflow é bruto anual autorreportado; a mediana usa devs back/front/full-stack do Brasil na faixa de experiência do egresso (±1 ano).</li> </ul> </section> <section class="card"> <h3>Consolidado — as três réguas</h3> <p class="hint">Tudo em R$/mês de 2026, US$/mês pelo câmbio médio de 2026 (R$ 5,1524) e em salários mínimos de 2026 (R$ 1.621).</p> <div style="overflow-x:auto"><table> <thead><tr><th>Referência</th><th>R$/mês</th><th>US$/mês</th><th>Mínimos</th><th>vs. egressos</th></tr></thead> <tbody id="tb"></tbody> </table></div> </section> <section class="card"> <h3>Fontes</h3> <p class="src" style="margin:0"> <b>Egressos:</b> coorte de 50 (40 com série salarial em 2026). Mediana da renda estimada, por trilha × experiência — estimativa de mercado, não folha real.<br> <b>Salário mínimo:</b> IPEADATA série MTE12_SALMIN12 — Min. Economia/Trabalho. 2026 = R$ 1.621, conferido com o Decreto 12.797/2025 (+6,79%). Anos com dois valores usam média ponderada pelos meses.<br> <b>Inflação:</b> IBGE/SIDRA tabela 1736, variável 2289 (ganho real) · IBGE/SIDRA tabela 1737, variável 2266 (deflator) — deflator até 202606.<br> <b>Mercado mundial:</b> Stack Overflow Developer Survey 2018–2025 (survey.stackoverflow.co) — campo <code>ConvertedCompYearly</code> (US$, conversão do próprio survey) e <code>Currency</code> para separar quem recebe em R$ e em US$.<br> <b>Mercado brasileiro:</b> Pesquisa Código Fonte 2026 — 17,046 respondentes, coleta 2026-02-23 a 2026-06-09, média em R$/mês, auto-reportado.<br> <b>Câmbio:</b> média anual USD→BRL.
+</p> </section> </div>  </main> <footer class="rodape" data-astro-cid-5hce7sga> <div class="miolo" data-astro-cid-5hce7sga> <p data-astro-cid-5hce7sga>
+Estudo de trajetória de egressos de TI do <b data-astro-cid-5hce7sga>IFES Campus Serra</b>. Todo número desta
+          página vem dos dados abertos publicados ao lado — nenhum é escrito à mão.
+</p> <p class="sutil" data-astro-cid-5hce7sga>
+Os valores de renda são <b data-astro-cid-5hce7sga>estimativa de mercado</b>, não contracheque: para uma pessoa
+          concreta podem ser maiores ou menores. Dados sob CC BY; código sob MIT.
+</p> </div> </footer>  </body> </html> <script>
 const D={"TRAJ": [{"ano": 2013, "exp": 0, "fx": 2.1576, "n": 425, "empresa": "Bolsa · pesquisa/extensão", "p25": 1010, "med": 400, "p75": 2020, "mkt": 1347, "real": 813, "usd": 185, "ex": false, "bolsa": true, "sm": 0.59}, {"ano": 2014, "exp": 1, "fx": 2.3534, "n": 425, "empresa": "Bolsa · pesquisa/extensão", "p25": 1101, "med": 400, "p75": 2203, "mkt": 1468, "real": 765, "usd": 170, "ex": false, "bolsa": true, "sm": 0.55}, {"ano": 2016, "exp": 3, "fx": 3.4901, "n": 606, "empresa": "Empresa nacional", "p25": 2831, "med": 4146, "p75": 6530, "mkt": null, "real": 6685, "usd": 1188, "ex": false, "bolsa": false, "sm": 4.71}, {"ano": 2017, "exp": 4, "fx": 3.192, "n": 606, "empresa": "Empresa nacional", "p25": 2589, "med": 3792, "p75": 5972, "mkt": null, "real": 5911, "usd": 1188, "ex": false, "bolsa": false, "sm": 4.05}, {"ano": 2020, "exp": 7, "fx": 5.1558, "n": 51, "empresa": "Empresa internacional (Sr.)", "p25": 7528, "med": 9450, "p75": 12697, "mkt": null, "real": 13272, "usd": 1833, "ex": false, "bolsa": false, "sm": 9.05}, {"ano": 2021, "exp": 8, "fx": 5.395, "n": 25, "empresa": "Empresa internacional (Sr.)", "p25": 9269, "med": 11124, "p75": 18537, "mkt": null, "real": 14425, "usd": 2062, "ex": false, "bolsa": false, "sm": 10.11}, {"ano": 2022, "exp": 9, "fx": 5.1648, "n": 26, "empresa": "Empresa internacional (Sr.)", "p25": 12376, "med": 16094, "p75": 18774, "mkt": null, "real": 19097, "usd": 3116, "ex": false, "bolsa": false, "sm": 13.28}, {"ano": 2023, "exp": 10, "fx": 4.995, "n": 11, "empresa": "Empresa internacional (Sr.)", "p25": 17627, "med": 19758, "p75": 28290, "mkt": null, "real": 22415, "usd": 3956, "ex": false, "bolsa": false, "sm": 15.04}, {"ano": 2024, "exp": 11, "fx": 5.3895, "n": 9, "empresa": "Empresa internacional (Sr.)", "p25": 20046, "med": 21317, "p75": 29157, "mkt": null, "real": 23172, "usd": 3955, "ex": true, "bolsa": false, "sm": 15.1}, {"ano": 2025, "exp": 12, "fx": 5.5879, "n": 10, "empresa": "Empresa internacional (Sr.)", "p25": 14879, "med": 21351, "p75": 22530, "mkt": null, "real": 22100, "usd": 3821, "ex": true, "bolsa": false, "sm": 14.07}, {"ano": 2026, "exp": 13, "fx": 5.1524, "n": 8, "empresa": "Empresa internacional (Sr.)", "p25": 13066, "med": 14373, "p75": 20383, "mkt": null, "real": 14373, "usd": 2790, "ex": true, "bolsa": false, "sm": 8.87}], "TJ_COORTE": [2417, 2597, 7203, 8092, 13888, 14664, 16734, 18623, 18194, 19372, 17988], "HIST": [{"faixa": "1–3×", "n": 4}, {"faixa": "3–6×", "n": 18}, {"faixa": "6–9×", "n": 7}, {"faixa": "9–12×", "n": 8}, {"faixa": "12–15×", "n": 8}, {"faixa": "15×+", "n": 4}], "TRAJ_SM": {"2013": 0.59, "2014": 0.55, "2016": 4.71, "2017": 4.05, "2020": 9.05, "2021": 10.11, "2022": 13.28, "2023": 15.04, "2024": 15.1, "2025": 14.07, "2026": 8.87}, "SERIE": [{"ano": 2012, "n": 12, "med_real": 1974, "med_nominal": 915, "sm_ano": 622.0, "em_sm": 1.47, "acima_sm_nominal": 293, "p25_sm": 1.1, "p75_sm": 2.21, "usd": 468, "acima_usd": 150}, {"ano": 2013, "n": 14, "med_real": 2737, "med_nominal": 1347, "sm_ano": 678.0, "em_sm": 1.99, "acima_sm_nominal": 669, "p25_sm": 1.49, "p75_sm": 2.98, "usd": 624, "acima_usd": 310}, {"ano": 2014, "n": 16, "med_real": 2807, "med_nominal": 1468, "sm_ano": 724.0, "em_sm": 2.03, "acima_sm_nominal": 744, "p25_sm": 1.52, "p75_sm": 3.04, "usd": 624, "acima_usd": 316}, {"ano": 2015, "n": 24, "med_real": 3645, "med_nominal": 2079, "sm_ano": 788.0, "em_sm": 2.64, "acima_sm_nominal": 1291, "p25_sm": 1.98, "p75_sm": 3.96, "usd": 624, "acima_usd": 388}, {"ano": 2016, "n": 32, "med_real": 5098, "med_nominal": 3162, "sm_ano": 880.0, "em_sm": 3.59, "acima_sm_nominal": 2282, "p25_sm": 2.54, "p75_sm": 5.57, "usd": 906, "acima_usd": 654}, {"ano": 2017, "n": 34, "med_real": 5911, "med_nominal": 3792, "sm_ano": 937.0, "em_sm": 4.05, "acima_sm_nominal": 2855, "p25_sm": 2.76, "p75_sm": 6.37, "usd": 1188, "acima_usd": 894}, {"ano": 2018, "n": 43, "med_real": 6528, "med_nominal": 4342, "sm_ano": 954.0, "em_sm": 4.55, "acima_sm_nominal": 3388, "p25_sm": 3.11, "p75_sm": 7.17, "usd": 1188, "acima_usd": 927}, {"ano": 2019, "n": 45, "med_real": 6559, "med_nominal": 4525, "sm_ano": 998.0, "em_sm": 4.53, "acima_sm_nominal": 3527, "p25_sm": 3.24, "p75_sm": 7.02, "usd": 1147, "acima_usd": 894}, {"ano": 2020, "n": 44, "med_real": 9123, "med_nominal": 6496, "sm_ano": 1044.5, "em_sm": 6.22, "acima_sm_nominal": 5452, "p25_sm": 4.27, "p75_sm": 8.48, "usd": 1260, "acima_usd": 1057}, {"ano": 2021, "n": 44, "med_real": 14557, "med_nominal": 11226, "sm_ano": 1100.0, "em_sm": 10.21, "acima_sm_nominal": 10126, "p25_sm": 6.74, "p75_sm": 16.38, "usd": 2081, "acima_usd": 1877}, {"ano": 2022, "n": 46, "med_real": 14004, "med_nominal": 11802, "sm_ano": 1212.0, "em_sm": 9.74, "acima_sm_nominal": 10590, "p25_sm": 7.08, "p75_sm": 14.61, "usd": 2285, "acima_usd": 2050}, {"ano": 2023, "n": 46, "med_real": 16478, "med_nominal": 14524, "sm_ano": 1314.0, "em_sm": 11.05, "acima_sm_nominal": 13210, "p25_sm": 7.71, "p75_sm": 16.59, "usd": 2908, "acima_usd": 2645}, {"ano": 2024, "n": 43, "med_real": 18026, "med_nominal": 16583, "sm_ano": 1412.0, "em_sm": 11.74, "acima_sm_nominal": 15171, "p25_sm": 7.74, "p75_sm": 16.78, "usd": 3077, "acima_usd": 2815}, {"ano": 2025, "n": 42, "med_real": 17797, "med_nominal": 17194, "sm_ano": 1518.0, "em_sm": 11.33, "acima_sm_nominal": 15676, "p25_sm": 7.47, "p75_sm": 18.3, "usd": 3077, "acima_usd": 2805}, {"ano": 2026, "n": 40, "med_real": 17073, "med_nominal": 17073, "sm_ano": 1621.0, "em_sm": 10.53, "acima_sm_nominal": 15452, "p25_sm": 6.45, "p75_sm": 16.89, "usd": 3314, "acima_usd": 2999}], "SMG": [{"ano": 2012, "jan": 622.0, "dez": 622.0, "media_ponderada": 622.0, "reajuste_pct": 14.13, "inpc_ano_anterior_pct": 6.08, "ganho_real_pct": 7.59, "dois_valores_no_ano": false, "em_reais_de_2026": 1343}, {"ano": 2013, "jan": 678.0, "dez": 678.0, "media_ponderada": 678.0, "reajuste_pct": 9.0, "inpc_ano_anterior_pct": 6.2, "ganho_real_pct": 2.64, "dois_valores_no_ano": false, "em_reais_de_2026": 1378}, {"ano": 2014, "jan": 724.0, "dez": 724.0, "media_ponderada": 724.0, "reajuste_pct": 6.78, "inpc_ano_anterior_pct": 5.56, "ganho_real_pct": 1.16, "dois_valores_no_ano": false, "em_reais_de_2026": 1384}, {"ano": 2015, "jan": 788.0, "dez": 788.0, "media_ponderada": 788.0, "reajuste_pct": 8.84, "inpc_ano_anterior_pct": 6.23, "ganho_real_pct": 2.46, "dois_valores_no_ano": false, "em_reais_de_2026": 1382}, {"ano": 2016, "jan": 880.0, "dez": 880.0, "media_ponderada": 880.0, "reajuste_pct": 11.68, "inpc_ano_anterior_pct": 11.28, "ganho_real_pct": 0.36, "dois_valores_no_ano": false, "em_reais_de_2026": 1419}, {"ano": 2017, "jan": 937.0, "dez": 937.0, "media_ponderada": 937.0, "reajuste_pct": 6.48, "inpc_ano_anterior_pct": 6.58, "ganho_real_pct": -0.09, "dois_valores_no_ano": false, "em_reais_de_2026": 1461}, {"ano": 2018, "jan": 954.0, "dez": 954.0, "media_ponderada": 954.0, "reajuste_pct": 1.81, "inpc_ano_anterior_pct": 2.07, "ganho_real_pct": -0.25, "dois_valores_no_ano": false, "em_reais_de_2026": 1434}, {"ano": 2019, "jan": 998.0, "dez": 998.0, "media_ponderada": 998.0, "reajuste_pct": 4.61, "inpc_ano_anterior_pct": 3.43, "ganho_real_pct": 1.14, "dois_valores_no_ano": false, "em_reais_de_2026": 1447}, {"ano": 2020, "jan": 1039.0, "dez": 1045.0, "media_ponderada": 1044.5, "reajuste_pct": 4.11, "inpc_ano_anterior_pct": 4.48, "ganho_real_pct": -0.35, "dois_valores_no_ano": true, "em_reais_de_2026": 1467}, {"ano": 2021, "jan": 1100.0, "dez": 1100.0, "media_ponderada": 1100.0, "reajuste_pct": 5.26, "inpc_ano_anterior_pct": 5.45, "ganho_real_pct": -0.18, "dois_valores_no_ano": false, "em_reais_de_2026": 1426}, {"ano": 2022, "jan": 1212.0, "dez": 1212.0, "media_ponderada": 1212.0, "reajuste_pct": 10.18, "inpc_ano_anterior_pct": 10.16, "ganho_real_pct": 0.02, "dois_valores_no_ano": false, "em_reais_de_2026": 1438}, {"ano": 2023, "jan": 1302.0, "dez": 1320.0, "media_ponderada": 1314.0, "reajuste_pct": 7.43, "inpc_ano_anterior_pct": 5.93, "ganho_real_pct": 1.42, "dois_valores_no_ano": true, "em_reais_de_2026": 1491}, {"ano": 2024, "jan": 1412.0, "dez": 1412.0, "media_ponderada": 1412.0, "reajuste_pct": 6.97, "inpc_ano_anterior_pct": 3.71, "ganho_real_pct": 3.14, "dois_valores_no_ano": false, "em_reais_de_2026": 1535}, {"ano": 2025, "jan": 1518.0, "dez": 1518.0, "media_ponderada": 1518.0, "reajuste_pct": 7.51, "inpc_ano_anterior_pct": 4.77, "ganho_real_pct": 2.62, "dois_valores_no_ano": false, "em_reais_de_2026": 1571}, {"ano": 2026, "jan": 1621.0, "dez": 1621.0, "media_ponderada": 1621.0, "reajuste_pct": 6.79, "inpc_ano_anterior_pct": 3.9, "ganho_real_pct": 2.78, "dois_valores_no_ano": false, "em_reais_de_2026": 1621}], "PAIS": [{"l": "Estados Unidos", "v": 13333}, {"l": "Canadá", "v": 8364}, {"l": "Brasileiro pago em US$ *", "v": 8333, "cen": 1}, {"l": "Reino Unido", "v": 7759}, {"l": "Mediana global", "v": 6902, "glob": 1}, {"l": "Alemanha", "v": 6693}, {"l": "Holanda", "v": 6693}, {"l": "Polônia", "v": 5982}, {"l": "Portugal", "v": 5582}, {"l": "Espanha", "v": 5176}, {"l": "México", "v": 4151}, {"l": "Chile", "v": 3624}, {"l": "Egressos IFES", "v": 3314, "me": 1}, {"l": "Brasil", "v": 3162, "br": 1}, {"l": "Sênior BR (Código Fonte)", "v": 2835, "cf": 1}, {"l": "Índia", "v": 2625}], "ORIG": [{"l": "Pleno", "nac": 1, "intl": 0}, {"l": "Sênior", "nac": 18, "intl": 8}, {"l": "Espec./Tech Lead", "nac": 18, "intl": 5}], "MOEDA": [{"faixa": "6 a 8 anos", "brl_usd_mes": 2536, "n_brl": 134, "usd_usd_mes": 6500, "n_usd": 17, "razao": 2.56}, {"faixa": "9 a 13 anos", "brl_usd_mes": 3043, "n_brl": 163, "usd_usd_mes": 10000, "n_usd": 15, "razao": 3.29}, {"faixa": "14 anos ou mais", "brl_usd_mes": 3381, "n_brl": 184, "usd_usd_mes": 8333, "n_usd": 25, "razao": 2.46}, {"faixa": "Todos", "brl_usd_mes": 2367, "n_brl": 782, "usd_usd_mes": 8167, "n_usd": 62, "razao": 3.45}], "TAB": [["Salário mínimo 2026", 1621.0, 0], ["Estágio — Código Fonte 2026", 2586.84, 0], ["Júnior — Código Fonte 2026", 5060.34, 0], ["Pleno — Código Fonte 2026", 8466.52, 0], ["Sênior — Código Fonte 2026", 14607.85, 0], ["Brasil — Stack Overflow (8 a 13 anos)", 16291.8888, 0], ["Egressos IFES (mediana do coorte)", 17073, 1], ["Especialista/Tech Lead/Principal — Código Fonte 2026", 20601.64, 0], ["Mediana global — Stack Overflow", 35561.8648, 0], ["Brasileiro pago em US$ — Stack Overflow *", 42934.9492, 2], ["Estados Unidos — Stack Overflow", 68696.9492, 0]], "FX": {"2011": 1.675, "2012": 1.9546, "2013": 2.1576, "2014": 2.3534, "2015": 3.3315, "2016": 3.4901, "2017": 3.192, "2018": 3.6545, "2019": 3.9451, "2020": 5.1558, "2021": 5.395, "2022": 5.1648, "2023": 4.995, "2024": 5.3895, "2025": 5.5879, "2026": 5.1524}, "SM_BASE": 1621.0, "FX_BASE": 5.1524, "ANO_BASE": 2026, "BOLSA": {"valor": 800, "ano": 2018, "sm": 0.84}, "EG": {"brl": 17073, "usd": 3314, "sm": 10.53, "acima": 15452, "n": 40, "ano": 2026}, "REF": {"glob": 6902, "eua": 13333, "pct_global": 48, "pct_eua": 25, "usd_pago": 8333, "razao": 2.64, "cf_sen": 14607.85, "cf_esp": 20601.64, "n_intl": 13, "n_tot": 50, "intl_sen": 13, "faixa": "8 a 13 anos"}};
 const SM_BASE=D.SM_BASE, FX_BASE=D.FX_BASE, EG=D.EG, REF=D.REF;
 const NS="http://www.w3.org/2000/svg";
@@ -553,6 +313,4 @@ document.getElementById("tb").innerHTML=D.TAB.map(([l,v,kind])=>{
 }).join("")
  +`<tr><td colspan="5" style="text-align:left;color:var(--muted);font-size:11.5px;padding-top:12px;border:0">
    <b>*</b> cenário, não medição — mediana de respondentes do Brasil que declaram salário em dólar. Nenhum egresso teve contracheque coletado.</td></tr>`;
-</script>
-</body>
-</html>
+</script> 

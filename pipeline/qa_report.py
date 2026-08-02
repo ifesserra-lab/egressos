@@ -1,6 +1,7 @@
 """QA final: cruza os valores hardcoded no dashboard_executivo.html com o pipeline
 (consolidado.json + analise.json + fapes_fomento.json). PASS/FAIL por checagem."""
 import json
+import pathlib
 import re
 import subprocess
 import sys
@@ -9,11 +10,11 @@ from egressos_core.paths import PUB
 from egressos_core.paths import ROOT as S
 
 SCR = S/"data"  # scripts de QA vivem em data/
-HTML = S/"dashboard_executivo.html"
+HTML = S/"site"/"index.html"
 htmltxt = HTML.read_text(encoding="utf-8")
 
 # extrai consts JS via node
-subprocess.run(["node", str(SCR/"qa_extract.js"), str(HTML), str(SCR/"qa_consts.json")], check=True)
+subprocess.run(["node", str(pathlib.Path(__file__).parent/"qa_extract.js"), str(HTML), str(pathlib.Path(__file__).parent/"qa_consts.json")], check=True)
 C = json.load(open(SCR/"qa_consts.json"))
 cons = json.load(open(S/"data/consolidado.json"))
 an = json.load(open(S/"data/analise.json"))
@@ -157,9 +158,11 @@ for a in al["alunos"]:
             p=p.strip()
             if len(p)>2 and p not in KEEP: pii.add(p)
 COBOLS={"Juliana","Roberta","Bárbara","Vinicius","Torres","Kirmes","Manfredini"}
-files={"exec": S/"dashboard_executivo.html", "alunos": S/"dashboard_alunos.html",
-       "trajetoria": S/"trajetoria_salarial.html",
-       "metodologia": S/"metodologia.html",
+files={"exec": S/"site"/"index.html", "alunos": S/"site"/"dashboard_alunos.html",
+       "trajetoria": S/"site"/"trajetoria_salarial.html",
+       # A metodologia migrou para Astro (fatia C): a curada virou referência em
+# old/paginas/, e quem varre a versão publicada agora é egressos_site.portao.
+"metodologia": S/"site"/"metodologia.html",
        "pub-index": PUB/"index.html", "pub-alunos": PUB/"dashboard_alunos.html",
        "pub-trajetoria": PUB/"trajetoria_salarial.html",
        "pub-dados": PUB/"dados-abertos.html", "pub-llms": PUB/"llms.txt",

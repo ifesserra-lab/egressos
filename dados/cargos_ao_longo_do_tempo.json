@@ -1,0 +1,1313 @@
+{
+ "e_estimativa": true,
+ "aviso": "ESTIMATIVA de mercado por CARGO, não contracheque de ninguém. É a mediana das respostas brasileiras do survey em cada ano — o salário real de uma pessoa concreta pode ser MAIOR ou MENOR que estes valores.",
+ "o_que_mede": "Mediana da remuneração mensal por cargo, no Brasil, de 2018 a 2025, a preços de 2026.",
+ "nao_e_o_coorte": "Nenhum egresso deste estudo está neste arquivo. É a distribuição do mercado brasileiro inteiro no survey — milhares de respondentes anônimos por edição. Quem quiser o coorte procura egressos_perfil (sem renda, por decisão) e renda_por_senioridade (sem pessoa, por decisão).",
+ "cargo_nao_e_senioridade": "Cargo é 'back-end', 'DBA', 'DevOps'. Senioridade é júnior, pleno, sênior — outro eixo, no arquivo renda_por_senioridade. Nenhuma fonte publica os dois cruzados com amostra suficiente: a Pesquisa Código Fonte divulga cargo só em percentual, sem R$, e no microdado do Stack Overflow o cruzamento cargo × faixa de experiência esvazia quase toda célula no recorte brasileiro.",
+ "por_que_deflacionado": "A série cruza 8 anos. Em valor nominal a linha sobe só por inflação: quem via R$ 4.000 em 2018 e R$ 6.000 hoje teve ganho nominal e perda real. Todos os valores estão a preços de 2026 (IPCA); `nominal` guarda o valor da época para quem quiser a outra leitura.",
+ "cambio": "Cada resposta converte pela taxa média do ANO DELA, nunca por uma taxa única — a variação cambial faz parte do que a série mostra.",
+ "devtype_e_multipla_escolha": "Uma resposta pode marcar vários cargos, e conta em cada um. A soma dos `n` passa do total de respondentes da edição: não é fatia de bolo.",
+ "por_que_o_minimo": "Ano com menos de 12 respostas no cargo não vira ponto. A lacuna fica em `edicoes_ausentes` em vez de ser ligada por interpolação — interpolar inventaria um dado que a amostra não sustenta.",
+ "amostra_encolheu": "O total brasileiro caiu de 1070 em 2018 para 584 em 2025. É por isso que os cargos menores somem das edições recentes — o cargo não deixou de existir, a amostra é que não sustenta a mediana.",
+ "rotulos_mudam_de_nome": "O questionário renomeia cargo entre edições: 'Back-end developer' (2018) virou 'Developer, back-end' (2019+), 'DevOps specialist' virou 'DevOps engineer or professional' (2024+), 'Database administrator' virou 'Database administrator or engineer'. Sem unificar, nenhum cargo apareceria nas oito edições e a série se leria como 'o cargo sumiu do mercado'. Mapa em egressos_core.cargos.CANONICO.",
+ "unidade": "R$/mês, a preços de 2026",
+ "ano_base": 2026,
+ "minimo_de_respostas_por_ponto": 12,
+ "edicoes": [
+  2018,
+  2019,
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025
+ ],
+ "n_respostas_por_edicao": {
+  "2018": 1070,
+  "2019": 1360,
+  "2020": 1129,
+  "2021": 1545,
+  "2022": 1260,
+  "2023": 1199,
+  "2024": 654,
+  "2025": 584
+ },
+ "filtros": {
+  "pais": "Brazil",
+  "salario_anual_usd": [
+   3000,
+   500000
+  ]
+ },
+ "cargos": [
+  {
+   "cargo": "back-end",
+   "nome": "Back-end",
+   "pontos": [
+    {
+     "ano": 2018,
+     "nominal": 5703,
+     "real": 8575,
+     "n": 704
+    },
+    {
+     "ano": 2019,
+     "nominal": 5929,
+     "real": 8595,
+     "n": 760
+    },
+    {
+     "ano": 2020,
+     "nominal": 7387,
+     "real": 10374,
+     "n": 724
+    },
+    {
+     "ano": 2021,
+     "nominal": 11124,
+     "real": 14425,
+     "n": 802
+    },
+    {
+     "ano": 2022,
+     "nominal": 12876,
+     "real": 15278,
+     "n": 658
+    },
+    {
+     "ano": 2023,
+     "nominal": 14153,
+     "real": 16056,
+     "n": 289
+    },
+    {
+     "ano": 2024,
+     "nominal": 12563,
+     "real": 13656,
+     "n": 142
+    },
+    {
+     "ano": 2025,
+     "nominal": 16377,
+     "real": 16952,
+     "n": 123
+    }
+   ],
+   "n_edicoes": 8,
+   "edicoes_ausentes": [],
+   "de": 2018,
+   "ate": 2025,
+   "variacao_pct": 97.7
+  },
+  {
+   "cargo": "desktop",
+   "nome": "Desktop / corporativo",
+   "pontos": [
+    {
+     "ano": 2018,
+     "nominal": 6838,
+     "real": 10281,
+     "n": 221
+    },
+    {
+     "ano": 2019,
+     "nominal": 6466,
+     "real": 9372,
+     "n": 312
+    },
+    {
+     "ano": 2020,
+     "nominal": 8149,
+     "real": 11444,
+     "n": 286
+    },
+    {
+     "ano": 2021,
+     "nominal": 9889,
+     "real": 12823,
+     "n": 230
+    },
+    {
+     "ano": 2022,
+     "nominal": 10727,
+     "real": 12729,
+     "n": 186
+    },
+    {
+     "ano": 2023,
+     "nominal": 12667,
+     "real": 14371,
+     "n": 61
+    },
+    {
+     "ano": 2024,
+     "nominal": 12145,
+     "real": 13201,
+     "n": 23
+    },
+    {
+     "ano": 2025,
+     "nominal": 12206,
+     "real": 12635,
+     "n": 31
+    }
+   ],
+   "n_edicoes": 8,
+   "edicoes_ausentes": [],
+   "de": 2018,
+   "ate": 2025,
+   "variacao_pct": 22.9
+  },
+  {
+   "cargo": "front-end",
+   "nome": "Front-end",
+   "pontos": [
+    {
+     "ano": 2018,
+     "nominal": 4787,
+     "real": 7198,
+     "n": 451
+    },
+    {
+     "ano": 2019,
+     "nominal": 5389,
+     "real": 7811,
+     "n": 471
+    },
+    {
+     "ano": 2020,
+     "nominal": 6917,
+     "real": 9714,
+     "n": 450
+    },
+    {
+     "ano": 2021,
+     "nominal": 10132,
+     "real": 13138,
+     "n": 423
+    },
+    {
+     "ano": 2022,
+     "nominal": 10727,
+     "real": 12729,
+     "n": 309
+    },
+    {
+     "ano": 2023,
+     "nominal": 14525,
+     "real": 16478,
+     "n": 86
+    },
+    {
+     "ano": 2024,
+     "nominal": 11819,
+     "real": 12847,
+     "n": 36
+    },
+    {
+     "ano": 2025,
+     "nominal": 16953,
+     "real": 17548,
+     "n": 27
+    }
+   ],
+   "n_edicoes": 8,
+   "edicoes_ausentes": [],
+   "de": 2018,
+   "ate": 2025,
+   "variacao_pct": 143.8
+  },
+  {
+   "cargo": "full-stack",
+   "nome": "Full-stack",
+   "pontos": [
+    {
+     "ano": 2018,
+     "nominal": 5705,
+     "real": 8578,
+     "n": 605
+    },
+    {
+     "ano": 2019,
+     "nominal": 5929,
+     "real": 8595,
+     "n": 865
+    },
+    {
+     "ano": 2020,
+     "nominal": 7677,
+     "real": 10782,
+     "n": 662
+    },
+    {
+     "ano": 2021,
+     "nominal": 10133,
+     "real": 13139,
+     "n": 812
+    },
+    {
+     "ano": 2022,
+     "nominal": 10727,
+     "real": 12729,
+     "n": 615
+    },
+    {
+     "ano": 2023,
+     "nominal": 11183,
+     "real": 12687,
+     "n": 436
+    },
+    {
+     "ano": 2024,
+     "nominal": 9046,
+     "real": 9833,
+     "n": 274
+    },
+    {
+     "ano": 2025,
+     "nominal": 11867,
+     "real": 12284,
+     "n": 194
+    }
+   ],
+   "n_edicoes": 8,
+   "edicoes_ausentes": [],
+   "de": 2018,
+   "ate": 2025,
+   "variacao_pct": 43.2
+  },
+  {
+   "cargo": "mobile",
+   "nome": "Mobile",
+   "pontos": [
+    {
+     "ano": 2018,
+     "nominal": 5131,
+     "real": 7715,
+     "n": 307
+    },
+    {
+     "ano": 2019,
+     "nominal": 5389,
+     "real": 7811,
+     "n": 327
+    },
+    {
+     "ano": 2020,
+     "nominal": 7321,
+     "real": 10282,
+     "n": 283
+    },
+    {
+     "ano": 2021,
+     "nominal": 9889,
+     "real": 12823,
+     "n": 272
+    },
+    {
+     "ano": 2022,
+     "nominal": 10710,
+     "real": 12709,
+     "n": 186
+    },
+    {
+     "ano": 2023,
+     "nominal": 15201,
+     "real": 17245,
+     "n": 41
+    },
+    {
+     "ano": 2024,
+     "nominal": 11307,
+     "real": 12291,
+     "n": 22
+    },
+    {
+     "ano": 2025,
+     "nominal": 21404,
+     "real": 22155,
+     "n": 16
+    }
+   ],
+   "n_edicoes": 8,
+   "edicoes_ausentes": [],
+   "de": 2018,
+   "ate": 2025,
+   "variacao_pct": 187.2
+  },
+  {
+   "cargo": "cientista-dados",
+   "nome": "Ciência de dados",
+   "pontos": [
+    {
+     "ano": 2018,
+     "nominal": 7978,
+     "real": 11995,
+     "n": 87
+    },
+    {
+     "ano": 2019,
+     "nominal": 6466,
+     "real": 9372,
+     "n": 104
+    },
+    {
+     "ano": 2020,
+     "nominal": 8265,
+     "real": 11607,
+     "n": 87
+    },
+    {
+     "ano": 2021,
+     "nominal": 10008,
+     "real": 12977,
+     "n": 85
+    },
+    {
+     "ano": 2022,
+     "nominal": 10193,
+     "real": 12095,
+     "n": 50
+    },
+    {
+     "ano": 2023,
+     "nominal": 13934,
+     "real": 15808,
+     "n": 24
+    },
+    {
+     "ano": 2024,
+     "nominal": 15076,
+     "real": 16388,
+     "n": 13
+    }
+   ],
+   "n_edicoes": 7,
+   "edicoes_ausentes": [
+    2025
+   ],
+   "de": 2018,
+   "ate": 2024,
+   "variacao_pct": 36.6
+  },
+  {
+   "cargo": "embarcado",
+   "nome": "Embarcados",
+   "pontos": [
+    {
+     "ano": 2018,
+     "nominal": 6384,
+     "real": 9600,
+     "n": 75
+    },
+    {
+     "ano": 2019,
+     "nominal": 6466,
+     "real": 9372,
+     "n": 140
+    },
+    {
+     "ano": 2020,
+     "nominal": 6496,
+     "real": 9123,
+     "n": 102
+    },
+    {
+     "ano": 2021,
+     "nominal": 9889,
+     "real": 12823,
+     "n": 89
+    },
+    {
+     "ano": 2022,
+     "nominal": 10727,
+     "real": 12729,
+     "n": 71
+    },
+    {
+     "ano": 2023,
+     "nominal": 12160,
+     "real": 13796,
+     "n": 13
+    },
+    {
+     "ano": 2025,
+     "nominal": 9579,
+     "real": 9915,
+     "n": 14
+    }
+   ],
+   "n_edicoes": 7,
+   "edicoes_ausentes": [
+    2024
+   ],
+   "de": 2018,
+   "ate": 2025,
+   "variacao_pct": 3.3
+  },
+  {
+   "cargo": "eng-dados",
+   "nome": "Engenharia de dados",
+   "pontos": [
+    {
+     "ano": 2019,
+     "nominal": 8029,
+     "real": 11639,
+     "n": 68
+    },
+    {
+     "ano": 2020,
+     "nominal": 10729,
+     "real": 15068,
+     "n": 80
+    },
+    {
+     "ano": 2021,
+     "nominal": 12360,
+     "real": 16027,
+     "n": 88
+    },
+    {
+     "ano": 2022,
+     "nominal": 13412,
+     "real": 15914,
+     "n": 70
+    },
+    {
+     "ano": 2023,
+     "nominal": 17482,
+     "real": 19834,
+     "n": 17
+    },
+    {
+     "ano": 2024,
+     "nominal": 10051,
+     "real": 10925,
+     "n": 21
+    },
+    {
+     "ano": 2025,
+     "nominal": 16953,
+     "real": 17548,
+     "n": 17
+    }
+   ],
+   "n_edicoes": 7,
+   "edicoes_ausentes": [
+    2018
+   ],
+   "de": 2019,
+   "ate": 2025,
+   "variacao_pct": 50.8
+  },
+  {
+   "cargo": "gerente-eng",
+   "nome": "Gerência de engenharia",
+   "pontos": [
+    {
+     "ano": 2018,
+     "nominal": 9118,
+     "real": 13710,
+     "n": 55
+    },
+    {
+     "ano": 2019,
+     "nominal": 10778,
+     "real": 15623,
+     "n": 61
+    },
+    {
+     "ano": 2020,
+     "nominal": 14173,
+     "real": 19905,
+     "n": 48
+    },
+    {
+     "ano": 2021,
+     "nominal": 18537,
+     "real": 24037,
+     "n": 77
+    },
+    {
+     "ano": 2022,
+     "nominal": 21460,
+     "real": 25464,
+     "n": 66
+    },
+    {
+     "ano": 2023,
+     "nominal": 26390,
+     "real": 29939,
+     "n": 28
+    },
+    {
+     "ano": 2025,
+     "nominal": 25430,
+     "real": 26323,
+     "n": 16
+    }
+   ],
+   "n_edicoes": 7,
+   "edicoes_ausentes": [
+    2024
+   ],
+   "de": 2018,
+   "ate": 2025,
+   "variacao_pct": 92.0
+  },
+  {
+   "cargo": "analista-dados",
+   "nome": "Análise de dados / BI",
+   "pontos": [
+    {
+     "ano": 2018,
+     "nominal": 6838,
+     "real": 10281,
+     "n": 108
+    },
+    {
+     "ano": 2019,
+     "nominal": 7543,
+     "real": 10934,
+     "n": 123
+    },
+    {
+     "ano": 2020,
+     "nominal": 8265,
+     "real": 11607,
+     "n": 102
+    },
+    {
+     "ano": 2021,
+     "nominal": 9640,
+     "real": 12500,
+     "n": 110
+    },
+    {
+     "ano": 2022,
+     "nominal": 9835,
+     "real": 11670,
+     "n": 71
+    },
+    {
+     "ano": 2023,
+     "nominal": 10134,
+     "real": 11497,
+     "n": 21
+    }
+   ],
+   "n_edicoes": 6,
+   "edicoes_ausentes": [
+    2024,
+    2025
+   ],
+   "de": 2018,
+   "ate": 2023,
+   "variacao_pct": 11.8
+  },
+  {
+   "cargo": "devops",
+   "nome": "DevOps",
+   "pontos": [
+    {
+     "ano": 2018,
+     "nominal": 8118,
+     "real": 12207,
+     "n": 112
+    },
+    {
+     "ano": 2019,
+     "nominal": 8624,
+     "real": 12500,
+     "n": 140
+    },
+    {
+     "ano": 2020,
+     "nominal": 10631,
+     "real": 14931,
+     "n": 124
+    },
+    {
+     "ano": 2021,
+     "nominal": 12360,
+     "real": 16027,
+     "n": 150
+    },
+    {
+     "ano": 2022,
+     "nominal": 15647,
+     "real": 18566,
+     "n": 92
+    },
+    {
+     "ano": 2023,
+     "nominal": 14056,
+     "real": 15947,
+     "n": 20
+    }
+   ],
+   "n_edicoes": 6,
+   "edicoes_ausentes": [
+    2024,
+    2025
+   ],
+   "de": 2018,
+   "ate": 2023,
+   "variacao_pct": 30.6
+  },
+  {
+   "cargo": "executivo",
+   "nome": "Direção (C-level / VP)",
+   "pontos": [
+    {
+     "ano": 2018,
+     "nominal": 7068,
+     "real": 10627,
+     "n": 37
+    },
+    {
+     "ano": 2019,
+     "nominal": 11855,
+     "real": 17184,
+     "n": 27
+    },
+    {
+     "ano": 2020,
+     "nominal": 11812,
+     "real": 16589,
+     "n": 15
+    },
+    {
+     "ano": 2021,
+     "nominal": 16066,
+     "real": 20833,
+     "n": 38
+    },
+    {
+     "ano": 2022,
+     "nominal": 19311,
+     "real": 22915,
+     "n": 29
+    },
+    {
+     "ano": 2023,
+     "nominal": 24068,
+     "real": 27305,
+     "n": 18
+    }
+   ],
+   "n_edicoes": 6,
+   "edicoes_ausentes": [
+    2024,
+    2025
+   ],
+   "de": 2018,
+   "ate": 2023,
+   "variacao_pct": 156.9
+  },
+  {
+   "cargo": "pesquisador",
+   "nome": "Pesquisa acadêmica",
+   "pontos": [
+    {
+     "ano": 2019,
+     "nominal": 4312,
+     "real": 6250,
+     "n": 143
+    },
+    {
+     "ano": 2020,
+     "nominal": 6496,
+     "real": 9123,
+     "n": 125
+    },
+    {
+     "ano": 2021,
+     "nominal": 10132,
+     "real": 13138,
+     "n": 79
+    },
+    {
+     "ano": 2022,
+     "nominal": 9121,
+     "real": 10823,
+     "n": 37
+    },
+    {
+     "ano": 2023,
+     "nominal": 10176,
+     "real": 11545,
+     "n": 18
+    },
+    {
+     "ano": 2025,
+     "nominal": 10172,
+     "real": 10529,
+     "n": 17
+    }
+   ],
+   "n_edicoes": 6,
+   "edicoes_ausentes": [
+    2018,
+    2024
+   ],
+   "de": 2019,
+   "ate": 2025,
+   "variacao_pct": 68.5
+  },
+  {
+   "cargo": "dba",
+   "nome": "Banco de dados (DBA)",
+   "pontos": [
+    {
+     "ano": 2018,
+     "nominal": 5701,
+     "real": 8572,
+     "n": 171
+    },
+    {
+     "ano": 2019,
+     "nominal": 6466,
+     "real": 9372,
+     "n": 136
+    },
+    {
+     "ano": 2020,
+     "nominal": 8265,
+     "real": 11607,
+     "n": 109
+    },
+    {
+     "ano": 2021,
+     "nominal": 8648,
+     "real": 11214,
+     "n": 117
+    },
+    {
+     "ano": 2022,
+     "nominal": 10624,
+     "real": 12606,
+     "n": 93
+    }
+   ],
+   "n_edicoes": 5,
+   "edicoes_ausentes": [
+    2023,
+    2024,
+    2025
+   ],
+   "de": 2018,
+   "ate": 2022,
+   "variacao_pct": 47.1
+  },
+  {
+   "cargo": "designer",
+   "nome": "Design / UX",
+   "pontos": [
+    {
+     "ano": 2018,
+     "nominal": 3190,
+     "real": 4797,
+     "n": 104
+    },
+    {
+     "ano": 2019,
+     "nominal": 4387,
+     "real": 6359,
+     "n": 90
+    },
+    {
+     "ano": 2020,
+     "nominal": 5078,
+     "real": 7132,
+     "n": 76
+    },
+    {
+     "ano": 2021,
+     "nominal": 6555,
+     "real": 8500,
+     "n": 52
+    },
+    {
+     "ano": 2022,
+     "nominal": 8047,
+     "real": 9548,
+     "n": 29
+    }
+   ],
+   "n_edicoes": 5,
+   "edicoes_ausentes": [
+    2023,
+    2024,
+    2025
+   ],
+   "de": 2018,
+   "ate": 2022,
+   "variacao_pct": 99.0
+  },
+  {
+   "cargo": "docente",
+   "nome": "Docência",
+   "pontos": [
+    {
+     "ano": 2018,
+     "nominal": 5701,
+     "real": 8572,
+     "n": 54
+    },
+    {
+     "ano": 2019,
+     "nominal": 9161,
+     "real": 13278,
+     "n": 67
+    },
+    {
+     "ano": 2020,
+     "nominal": 8620,
+     "real": 12107,
+     "n": 59
+    },
+    {
+     "ano": 2021,
+     "nominal": 14831,
+     "real": 19231,
+     "n": 50
+    },
+    {
+     "ano": 2022,
+     "nominal": 10952,
+     "real": 12995,
+     "n": 30
+    }
+   ],
+   "n_edicoes": 5,
+   "edicoes_ausentes": [
+    2023,
+    2024,
+    2025
+   ],
+   "de": 2018,
+   "ate": 2022,
+   "variacao_pct": 51.6
+  },
+  {
+   "cargo": "gerente-produto",
+   "nome": "Gerência de produto",
+   "pontos": [
+    {
+     "ano": 2018,
+     "nominal": 7979,
+     "real": 11997,
+     "n": 60
+    },
+    {
+     "ano": 2019,
+     "nominal": 8624,
+     "real": 12500,
+     "n": 91
+    },
+    {
+     "ano": 2020,
+     "nominal": 8858,
+     "real": 12440,
+     "n": 55
+    },
+    {
+     "ano": 2021,
+     "nominal": 10319,
+     "real": 13380,
+     "n": 84
+    },
+    {
+     "ano": 2022,
+     "nominal": 11802,
+     "real": 14004,
+     "n": 51
+    }
+   ],
+   "n_edicoes": 5,
+   "edicoes_ausentes": [
+    2023,
+    2024,
+    2025
+   ],
+   "de": 2018,
+   "ate": 2022,
+   "variacao_pct": 16.7
+  },
+  {
+   "cargo": "infra",
+   "nome": "Administração de sistemas",
+   "pontos": [
+    {
+     "ano": 2018,
+     "nominal": 5701,
+     "real": 8572,
+     "n": 123
+    },
+    {
+     "ano": 2019,
+     "nominal": 5929,
+     "real": 8595,
+     "n": 139
+    },
+    {
+     "ano": 2020,
+     "nominal": 8265,
+     "real": 11607,
+     "n": 119
+    },
+    {
+     "ano": 2021,
+     "nominal": 9889,
+     "real": 12823,
+     "n": 123
+    },
+    {
+     "ano": 2022,
+     "nominal": 11623,
+     "real": 13792,
+     "n": 91
+    }
+   ],
+   "n_edicoes": 5,
+   "edicoes_ausentes": [
+    2023,
+    2024,
+    2025
+   ],
+   "de": 2018,
+   "ate": 2022,
+   "variacao_pct": 60.9
+  },
+  {
+   "cargo": "jogos",
+   "nome": "Jogos e gráficos",
+   "pontos": [
+    {
+     "ano": 2018,
+     "nominal": 3991,
+     "real": 6000,
+     "n": 47
+    },
+    {
+     "ano": 2019,
+     "nominal": 4580,
+     "real": 6639,
+     "n": 88
+    },
+    {
+     "ano": 2020,
+     "nominal": 5316,
+     "real": 7465,
+     "n": 54
+    },
+    {
+     "ano": 2021,
+     "nominal": 11124,
+     "real": 14425,
+     "n": 24
+    },
+    {
+     "ano": 2022,
+     "nominal": 11313,
+     "real": 13424,
+     "n": 18
+    }
+   ],
+   "n_edicoes": 5,
+   "edicoes_ausentes": [
+    2023,
+    2024,
+    2025
+   ],
+   "de": 2018,
+   "ate": 2022,
+   "variacao_pct": 123.7
+  },
+  {
+   "cargo": "qa",
+   "nome": "QA / testes",
+   "pontos": [
+    {
+     "ano": 2018,
+     "nominal": 6827,
+     "real": 10264,
+     "n": 79
+    },
+    {
+     "ano": 2019,
+     "nominal": 6466,
+     "real": 9372,
+     "n": 107
+    },
+    {
+     "ano": 2020,
+     "nominal": 7321,
+     "real": 10282,
+     "n": 79
+    },
+    {
+     "ano": 2021,
+     "nominal": 9423,
+     "real": 12219,
+     "n": 87
+    },
+    {
+     "ano": 2022,
+     "nominal": 13725,
+     "real": 16287,
+     "n": 54
+    }
+   ],
+   "n_edicoes": 5,
+   "edicoes_ausentes": [
+    2023,
+    2024,
+    2025
+   ],
+   "de": 2018,
+   "ate": 2022,
+   "variacao_pct": 58.7
+  },
+  {
+   "cargo": "cientista",
+   "nome": "Pesquisa aplicada",
+   "pontos": [
+    {
+     "ano": 2019,
+     "nominal": 5281,
+     "real": 7654,
+     "n": 70
+    },
+    {
+     "ano": 2020,
+     "nominal": 7390,
+     "real": 10378,
+     "n": 59
+    },
+    {
+     "ano": 2021,
+     "nominal": 12339,
+     "real": 15999,
+     "n": 44
+    },
+    {
+     "ano": 2022,
+     "nominal": 13950,
+     "real": 16553,
+     "n": 19
+    }
+   ],
+   "n_edicoes": 4,
+   "edicoes_ausentes": [
+    2018,
+    2023,
+    2024,
+    2025
+   ],
+   "de": 2019,
+   "ate": 2022,
+   "variacao_pct": 116.3
+  },
+  {
+   "cargo": "sre",
+   "nome": "SRE / confiabilidade",
+   "pontos": [
+    {
+     "ano": 2019,
+     "nominal": 9054,
+     "real": 13124,
+     "n": 41
+    },
+    {
+     "ano": 2020,
+     "nominal": 11219,
+     "real": 15756,
+     "n": 51
+    },
+    {
+     "ano": 2021,
+     "nominal": 12592,
+     "real": 16328,
+     "n": 56
+    },
+    {
+     "ano": 2022,
+     "nominal": 18059,
+     "real": 21429,
+     "n": 34
+    }
+   ],
+   "n_edicoes": 4,
+   "edicoes_ausentes": [
+    2018,
+    2023,
+    2024,
+    2025
+   ],
+   "de": 2019,
+   "ate": 2022,
+   "variacao_pct": 63.3
+  },
+  {
+   "cargo": "cloud",
+   "nome": "Infraestrutura em nuvem",
+   "pontos": [
+    {
+     "ano": 2022,
+     "nominal": 17168,
+     "real": 20371,
+     "n": 103
+    },
+    {
+     "ano": 2023,
+     "nominal": 13934,
+     "real": 15808,
+     "n": 13
+    }
+   ],
+   "n_edicoes": 2,
+   "edicoes_ausentes": [
+    2018,
+    2019,
+    2020,
+    2021,
+    2024,
+    2025
+   ],
+   "de": 2022,
+   "ate": 2023,
+   "variacao_pct": -22.4
+  },
+  {
+   "cargo": "arquiteto",
+   "nome": "Arquitetura de software",
+   "pontos": [
+    {
+     "ano": 2025,
+     "nominal": 20344,
+     "real": 21058,
+     "n": 40
+    }
+   ],
+   "n_edicoes": 1,
+   "edicoes_ausentes": [
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+   ],
+   "de": 2025,
+   "ate": 2025,
+   "variacao_pct": null
+  },
+  {
+   "cargo": "blockchain",
+   "nome": "Blockchain",
+   "pontos": [
+    {
+     "ano": 2022,
+     "nominal": 17882,
+     "real": 21219,
+     "n": 19
+    }
+   ],
+   "n_edicoes": 1,
+   "edicoes_ausentes": [
+    2018,
+    2019,
+    2020,
+    2021,
+    2023,
+    2024,
+    2025
+   ],
+   "de": 2022,
+   "ate": 2022,
+   "variacao_pct": null
+  },
+  {
+   "cargo": "gerente-projeto",
+   "nome": "Gerência de projetos",
+   "pontos": [
+    {
+     "ano": 2022,
+     "nominal": 9658,
+     "real": 11460,
+     "n": 69
+    }
+   ],
+   "n_edicoes": 1,
+   "edicoes_ausentes": [
+    2018,
+    2019,
+    2020,
+    2021,
+    2023,
+    2024,
+    2025
+   ],
+   "de": 2022,
+   "ate": 2022,
+   "variacao_pct": null
+  },
+  {
+   "cargo": "p&d",
+   "nome": "Pesquisa e desenvolvimento",
+   "pontos": [
+    {
+     "ano": 2023,
+     "nominal": 20689,
+     "real": 23472,
+     "n": 16
+    }
+   ],
+   "n_edicoes": 1,
+   "edicoes_ausentes": [
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2024,
+    2025
+   ],
+   "de": 2023,
+   "ate": 2023,
+   "variacao_pct": null
+  },
+  {
+   "cargo": "seguranca",
+   "nome": "Segurança da informação",
+   "pontos": [
+    {
+     "ano": 2022,
+     "nominal": 14805,
+     "real": 17567,
+     "n": 16
+    }
+   ],
+   "n_edicoes": 1,
+   "edicoes_ausentes": [
+    2018,
+    2019,
+    2020,
+    2021,
+    2023,
+    2024,
+    2025
+   ],
+   "de": 2022,
+   "ate": 2022,
+   "variacao_pct": null
+  }
+ ],
+ "licenca": "ODbL 1.0 (base de dados) + DbCL 1.0 (conteúdo)",
+ "licenca_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+ "atribuicao": "Stack Overflow Annual Developer Survey — survey.stackoverflow.co"
+}

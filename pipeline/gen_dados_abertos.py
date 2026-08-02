@@ -12,7 +12,6 @@ e por_ano (despublicado em 2026-07-31: trajetória individual, não agregado).
 A lista de liberados NÃO é a SAFE abaixo — quem decide é egressos_core.dados.
 Roda a varredura de PII antes de copiar cada JSON (cruza com nomes de alunos.json) e ABORTA se achar.
 """
-import html
 import json
 import os
 import pathlib
@@ -34,8 +33,9 @@ SAFE = [
     ("salario_minimo.json",    "Salário mínimo por ano",   "Salário mínimo nacional 2011–2026: valor de janeiro, de dezembro, média ponderada pelos meses, reajuste do decreto, INPC do ano anterior, ganho real e valor em reais do ano-base."),
     ("ibge_series.json",       "Séries macro (IBGE/IPEADATA)","IPCA e INPC (número-índice mensal + média anual + deflatores) e o salário mínimo mensal. Base para toda correção monetária do estudo."),
     ("mapa_mundi.json",        "Contorno do mapa-múndi",   "Polígonos dos continentes (Natural Earth 110m) já projetados em coordenadas SVG, usados no mapa animado da vitrine de carreiras. Domínio público."),
-    ("egressos_perfil.json",   "Perfis dos egressos",      "Nome, curso, cargo, empresa e cidade de cada egresso, mais senioridade e anos de carreira. Dado de nível LinkedIn — o que a própria pessoa publica —, divulgado por decisão da coordenação. NÃO contém renda: a estimativa é por CARGO, no arquivo ao lado."),
-    ("renda_por_cargo.json",   "Renda estimada por cargo", "Faixa p25–mediana–p75 ESTIMADA por senioridade e trilha, com a amostra de mercado de cada uma. Nenhum salário foi coletado de ninguém: o valor é o que o mercado pagava para aquele nível de experiência, e para uma pessoa concreta pode ser maior ou menor. Sem nenhuma chave de pessoa."),
+    ("egressos_perfil.json",   "Perfis dos egressos",      "Nome, curso, cargo, empresa e cidade de cada egresso, mais senioridade e anos de carreira. Dado de nível LinkedIn — o que a própria pessoa publica —, divulgado por decisão da coordenação. NÃO contém renda: a estimativa é por SENIORIDADE, no arquivo ao lado."),
+    ("renda_por_senioridade.json",   "Renda estimada por senioridade", "Faixa p25–mediana–p75 ESTIMADA por senioridade e trilha, com a amostra de mercado de cada uma. Nenhum salário foi coletado de ninguém: o valor é o que o mercado pagava para aquele nível de experiência, e para uma pessoa concreta pode ser maior ou menor. Sem nenhuma chave de pessoa."),
+    ("cargos_ao_longo_do_tempo.json","Renda estimada por cargo, 2018–2025","Mediana de R$/mês por CARGO no mercado brasileiro (back-end, DBA, DevOps, ciência de dados...), ano a ano, a preços de hoje. Cargo é o outro eixo: senioridade é júnior/pleno/sênior, e está no arquivo ao lado. Cada resposta converte pelo câmbio do ANO dela e é deflacionada pelo IPCA. Mercado inteiro do survey — nenhuma pessoa deste estudo está aqui."),
     ("so_benchmarks.json",     "Benchmarks internacionais","Medianas salariais em US$/mês por país na faixa de experiência do coorte, mediana global, série por edição do survey e — o mais relevante — respondentes do Brasil separados pela MOEDA do contracheque (R$ x US$)."),
     ("codigofonte_2026.json",  "Benchmark de mercado 2026","Faixas salariais por senioridade (Pesquisa Código Fonte)."),
     ("codigofonte_historico.json","Benchmark histórico",   "Média salarial por senioridade, série histórica."),
@@ -77,6 +77,14 @@ FIELDS = {
  "mapa_mundi.json": "Objeto `{viewBox, lat_range, projecao, paths[], fonte}`. `paths[]` são strings "
    "`d` de SVG já projetadas (equirretangular). Para posicionar um ponto: "
    "`x = (lon+180)/360*W`, `y = (lat_max-lat)/(lat_max-lat_min)*H`. Fonte: Natural Earth 110m (domínio público).",
+ "cargos_ao_longo_do_tempo.json": "Objeto `{unidade, ano_base, edicoes[], "
+   "minimo_de_respostas_por_ponto, n_respostas_por_edicao{}, cargos[]}`. Cada item de "
+   "`cargos[]`: `cargo` (chave), `nome`, `pontos[]` com `{ano, real, nominal, n}`, mais "
+   "`n_edicoes`, `edicoes_ausentes[]` e `variacao_pct` (real; `null` quando há um ponto só). "
+   "`real` está a preços do `ano_base` (IPCA); `nominal` é o valor da época. Ano cuja amostra "
+   "não chega ao mínimo NÃO vira ponto — fica em `edicoes_ausentes`, sem interpolação. "
+   "`DevType` é múltipla escolha, então a soma dos `n` passa do total de respondentes. "
+   "Fonte: Stack Overflow Developer Survey 2018–2025 (agregado; nenhum microdado é republicado).",
  "so_benchmarks.json": "Objeto `{edicao_referencia, filtros, global_usd_mes, por_pais[], "
    "por_moeda_brasil[], serie_anual[]}`. `por_pais[]`: `pais`, `usd_mes` (mediana), `n`. "
    "`por_moeda_brasil[]`: por faixa de experiência, `brl_usd_mes` e `usd_usd_mes` — respondentes DO "
@@ -126,16 +134,33 @@ NAMES = {n for n in NAMES if n}
 # roda a cada publicação — não só na suíte.
 VITRINE_NOMEADA = {"egressos_perfil.json"}
 CHEIRO_DE_RENDA = ("salario", "renda", "med_atual", "med_ini", "remunera", "p25", "p75",
-                   "mediana", "cresc", "brl", "usd")
+                   "mediana", "cresc", "brl", "usd", "valor")
+
+
+def _chaves_de_dinheiro(no):
+    """Toda chave com cheiro de dinheiro, em QUALQUER profundidade.
+
+    Recursivo porque a versão rasa deixava passar o caso real: `bolsa_valor_mensal` mora dentro
+    de `experiencias[]`, não no topo do registro da pessoa. Portão que só olha o primeiro nível
+    dá a impressão de proteger e não protege.
+    """
+    achadas = set()
+    if isinstance(no, dict):
+        for chave, valor in no.items():
+            if any(t in chave.lower() for t in CHEIRO_DE_RENDA):
+                achadas.add(chave)
+            achadas |= _chaves_de_dinheiro(valor)
+    elif isinstance(no, list):
+        for item in no:
+            achadas |= _chaves_de_dinheiro(item)
+    return achadas
+
 
 
 def renda_em_registro_de_pessoa(caminho):
     """Chaves de dinheiro dentro dos registros da vitrine. Vazio = pode publicar."""
     conteudo = json.load(open(caminho, encoding="utf-8"))
-    return sorted({
-        chave for pessoa in conteudo.get("egressos", []) for chave in pessoa
-        if any(t in chave.lower() for t in CHEIRO_DE_RENDA)
-    })
+    return sorted(_chaves_de_dinheiro(conteudo.get("egressos", [])))
 
 
 def pii_hits(path):
@@ -175,7 +200,7 @@ for fn, titulo, desc in SAFE:
             raise SystemExit(
                 f"ABORT: {fn} é a vitrine NOMEADA e ganhou campo de renda: {com_renda}. "
                 "Renda por pessoa é estimativa que a metodologia não mede no indivíduo — ela "
-                "vai em renda_por_cargo.json, atrelada ao cargo. NÃO publicar.")
+                "vai em renda_por_senioridade.json, atrelada ao cargo. NÃO publicar.")
     shutil.copy2(src, DADOS_OUT/fn)
     d = dados.ler(nome)
     n = len(d) if isinstance(d, (list, dict)) else 0
@@ -187,10 +212,22 @@ for fn, titulo, desc in SAFE:
 # ---- código sanitizado ----
 CODE_OUT.mkdir(parents=True, exist_ok=True)
 code_manifest = []
+# Dois diretórios: `pipeline/` e `old/pipeline/`. Os geradores de HTML e o QA foram para
+# `old/` na fatia A da spec 005 — continuam rodando e continuam sendo o código que produz o
+# site, então continuam publicados. Ver old/README.md.
+DIRS_DE_CODIGO = [BASE/"pipeline", BASE/"old"/"pipeline"]
 for cf in CODE_FILES:
-    src = BASE/"pipeline"/cf
-    if not src.exists():
-        continue
+    src = next((d/cf for d in DIRS_DE_CODIGO if (d/cf).exists()), None)
+    if src is None:
+        # ABORTA em vez de pular. O `continue` silencioso que estava aqui fez seis scripts
+        # sumirem da publicação quando eles mudaram de diretório — e o único sinal foi a
+        # contagem no fim, que ninguém compara com nada.
+        raise SystemExit(
+            f"ABORT: {cf} está em CODE_FILES e não foi encontrado em "
+            f"{', '.join(str(d.relative_to(BASE)) for d in DIRS_DE_CODIGO)}. "
+            "Se o arquivo foi apagado, tire-o da lista; se mudou de lugar, acrescente o "
+            "diretório novo. Sumir da publicação em silêncio, não."
+        )
     # Saneamento do código publicado: tira qualquer caminho da máquina de quem gerou.
     # Derivado de BASE, não escrito à mão — um literal aqui volta a prender o pipeline a
     # um usuário (princípio IV da constituição) e falha calado na máquina de outra pessoa.
@@ -200,153 +237,29 @@ for cf in CODE_FILES:
     (CODE_OUT/cf).write_text(code, encoding="utf-8")
     code_manifest.append({"file": cf, "kb": round(os.path.getsize(src)/1024, 1)})
 
-# ---- HTML ----
-esc = lambda s: html.escape(str(s or ""))
+# ---- HTML: NÃO SAI MAIS DAQUI ----
+#
+# A página `dados-abertos.html` passou a ser gerada pelo Astro na fatia B da spec 005:
+# `packages/egressos-site/app/src/pages/dados-abertos.astro`. Este script continua fazendo o
+# que só ele faz — copiar os JSON liberados e o código sanitizado para o repositório público,
+# e rodar a varredura de PII em cada arquivo antes de copiar.
+#
+# O que a migração corrigiu, além do CSS duplicado: a constante `SAFE` acima era a TERCEIRA
+# lista de datasets publicáveis do projeto, escrita à mão, ao lado do catálogo e do
+# "NUNCA copia" do docstring. A página em Astro deriva a lista de `dados.publicaveis()` —
+# dataset novo aparece sozinho, despublicado some sozinho.
+#
+# O portão REPROVA se esta página aparecer nas duas origens (aqui e em `site/`), então
+# escrever daqui de novo não passa despercebido.
 
-# Licença de dado de TERCEIRO, lida do próprio artefato (egressos_core.dados). Não é lista
-# escrita à mão de propósito: a fronteira de privacidade deste projeto quase vazou por duas
-# listas que precisavam concordar e nada verificava que concordavam. E "sem licença declarada"
-# aparece como o que é — um fato sobre a fonte, não uma omissão nossa.
+# Estes três valores serviam à página E ao llms.txt. A página saiu daqui na fatia B; o
+# llms.txt continua, então eles continuam.
 _terceiros = dados.licencas_de_terceiros()
-if _terceiros:
-    _linhas = "\n".join(
-        "<li><code>{}</code> — {}{}<br><small>{}{}</small></li>".format(
-            esc(t["arquivo"]),
-            f'<a href="{esc(t["licenca_url"])}" style="color:var(--accent)">{esc(t["licenca"])}</a>'
-            if t["licenca_url"] else f'<b>{esc(t["licenca"])}</b>',
-            f' · atribuição: {esc(t["atribuicao"])}' if t["atribuicao"] else "",
-            esc(t["licenca_obs"] or ""),
-            "" if t["licenca_obs"] else esc(t["fonte"] or ""),
-        )
-        for t in _terceiros)
-    TERCEIROS = f'<ul style="margin:8px 0 0 18px">{_linhas}</ul>'
-else:
-    TERCEIROS = ""
-rows = "\n".join(
-    f'<tr><td class="dn"><a href="dados/{esc(m["file"])}" download>{esc(m["file"])} ↓</a></td>'
-    f'<td><b>{esc(m["titulo"])}</b><br><small>{esc(m["desc"])}</small></td>'
-    f'<td class="num">{m["itens"]}</td><td class="num">{m["kb"]} KB</td></tr>'
-    for m in manifest)
-# links da API (o índice é gerado por gen_api.py, que roda logo antes)
 try:
-    _api = json.load(open(PUB/"api"/"index.json", encoding="utf-8"))["endpoints"]
+    _api = json.load(open(PUB / "api" / "index.json", encoding="utf-8"))["endpoints"]
 except (OSError, KeyError, ValueError):
     _api = []
-api_rows = "\n".join(
-    f'<a class="cf" href="{esc(e["endpoint"])}">{esc(e["endpoint"].removeprefix("api/"))}'
-    f'<span>{e["kb"]} KB</span></a>' if e.get("kb") else
-    f'<span class="cf" style="opacity:.75">{esc(e["endpoint"].removeprefix("api/"))}<span>por item</span></span>'
-    for e in _api)
-
-code_rows = "\n".join(
-    f'<a class="cf" href="pipeline/{esc(c["file"])}" download>{esc(c["file"])} <span>{c["kb"]} KB ↓</span></a>'
-    for c in code_manifest)
 total_kb = round(sum(m["kb"] for m in manifest), 1)
-
-HTML = f"""<!doctype html>
-<html lang="pt-BR"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dados abertos — egressos IFES Campus Serra</title>
-<meta name="description" content="Datasets abertos (JSON) e código do estudo de egressos de TI do IFES Campus Serra. Dados anonimizados e agregados, sob CC BY 4.0.">
-<style>
-  .root{{ color-scheme:light; --plane:#f3f6f4; --surface:#fff; --surface-2:#eef3f0; --ink:#122019; --ink-2:#4a5a53; --muted:#83918a; --border:rgba(18,32,25,.10); --accent:#0e8a68; --amber:#bd7d00; --shadow:0 1px 2px rgba(18,32,25,.05),0 8px 24px rgba(18,32,25,.07); background:var(--plane); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; min-height:100%; padding:16px 13px; box-sizing:border-box; }}
-  @media (prefers-color-scheme:dark){{ :root:where(:not([data-theme="light"])) .root{{ color-scheme:dark; --plane:#0a0e0c; --surface:#141a17; --surface-2:#1d2521; --ink:#eef3f0; --ink-2:#aebab4; --muted:#7a877f; --border:rgba(255,255,255,.10); --accent:#2fbc90; --amber:#dda52f; --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.5); }} }}
-  :root[data-theme="dark"] .root{{ color-scheme:dark; --plane:#0a0e0c; --surface:#141a17; --surface-2:#1d2521; --ink:#eef3f0; --ink-2:#aebab4; --muted:#7a877f; --border:rgba(255,255,255,.10); --accent:#2fbc90; --amber:#dda52f; }}
-  *{{ box-sizing:border-box; }}
-  .wrap{{ max-width:1000px; margin:0 auto; display:flex; flex-direction:column; gap:18px; }}
-  .eyebrow{{ font-size:12px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--accent); margin:0 0 10px; }}
-  h1{{ font-size:clamp(24px,4.5vw,40px); line-height:1.08; margin:0 0 12px; font-weight:780; letter-spacing:-.02em; }}
-  .lede{{ font-size:clamp(15px,1.7vw,17px); line-height:1.55; color:var(--ink-2); margin:0; max-width:70ch; }}
-  .lede b{{ color:var(--ink); }}
-  .card{{ background:var(--surface); border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); padding:clamp(18px,2.6vw,26px); }}
-  .card>h2{{ font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-2); margin:0 0 4px; font-weight:700; }}
-  .card .hint{{ font-size:12.5px; color:var(--muted); margin:0 0 16px; }}
-  .nav{{ display:flex; flex-wrap:wrap; gap:10px; }}
-  .nav a{{ flex:1 1 220px; text-decoration:none; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:13px 15px; box-shadow:var(--shadow); font-weight:650; font-size:13.5px; color:var(--accent); }}
-  .nav a span{{ display:block; font-weight:400; color:var(--ink-2); font-size:12px; margin-top:3px; }}
-  table{{ width:100%; border-collapse:collapse; font-size:13.5px; }}
-  th,td{{ text-align:left; padding:11px 12px; border-bottom:1px solid var(--border); vertical-align:top; }}
-  th{{ color:var(--muted); font-weight:700; font-size:10.5px; text-transform:uppercase; letter-spacing:.04em; }}
-  td.dn a{{ color:var(--accent); text-decoration:none; font-weight:700; white-space:nowrap; }}
-  td.dn a:hover{{ text-decoration:underline; }}
-  td small{{ color:var(--muted); line-height:1.45; display:block; margin-top:2px; }}
-  td.num{{ text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; color:var(--ink-2); }}
-  tr:last-child td{{ border-bottom:none; }}
-  .scroll{{ overflow-x:auto; }} table{{ min-width:560px; }}
-  .codegrid{{ display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:8px; }}
-  .cf{{ text-decoration:none; background:var(--surface-2); border:1px solid var(--border); border-radius:10px; padding:10px 13px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px; color:var(--ink); display:flex; justify-content:space-between; gap:8px; }}
-  .cf span{{ color:var(--muted); font-family:system-ui; }}
-  .cf:hover{{ border-color:var(--accent); color:var(--accent); }}
-  .lic{{ background:var(--surface-2); border:1px solid var(--border); border-left:3px solid var(--accent); border-radius:10px; padding:15px 17px; font-size:13.5px; line-height:1.6; color:var(--ink-2); }}
-  .lic b{{ color:var(--ink); }}
-  .code{{ background:var(--surface-2); border:1px solid var(--border); border-radius:10px; padding:14px 16px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px; color:var(--ink); overflow-x:auto; }}
-  .warn{{ font-size:12.5px; color:var(--amber); }}
-  .foot{{ font-size:11.5px; color:var(--muted); text-align:center; line-height:1.7; margin-top:4px; }}
-  .foot a{{ color:var(--accent); }}
-  @media (min-width:600px){{ .root{{ padding:32px 26px; }} .wrap{{ gap:24px; }} }}
-  @media (min-width:960px){{ .root{{ padding:52px; }} }}
-</style></head>
-<body><div class="root"><div class="wrap">
-
-  <header>
-    <p class="eyebrow">Dados abertos · IFES — Campus Serra</p>
-    <h1>Dados abertos — egressos de TI</h1>
-    <p class="lede">Todos os dados <b>agregados e anonimizados</b> do estudo de egressos, mais o <b>código do pipeline</b> que os gera. Baixe, reproduza, audite. Dados de pessoa nunca são publicados — só coorte anonimizada (A–AX) e dados <b>públicos</b> de empresa. {len(manifest)} datasets · {total_kb} KB.</p>
-  </header>
-
-  <nav class="nav" aria-label="Outras páginas">
-    <a href="egressos-carreiras.html">🌍 Onde estão os egressos →<span>Vitrine de carreiras</span></a>
-    <a href="index.html">📊 Impacto na carreira →<span>Visão executiva</span></a>
-    <a href="metodologia.html">🔬 Metodologia →<span>Como foi feito</span></a>
-  </nav>
-
-  <section class="card">
-    <h2>Datasets (JSON)</h2>
-    <p class="hint">Clique para baixar. Dicionário de campos por arquivo em <a href="llms.txt" style="color:var(--accent)">llms.txt</a> (índice legível por humanos e LLMs).</p>
-    <div class="scroll"><table>
-      <thead><tr><th>Arquivo</th><th>Conteúdo</th><th>Itens</th><th>Tam.</th></tr></thead>
-      <tbody>{rows}</tbody>
-    </table></div>
-  </section>
-
-  <section class="card">
-    <h2>API estática (JSON por endpoint)</h2>
-    <p class="hint">Se você quer consumir os dados de um site, notebook ou LLM em vez de baixar tudo, use a API: recortes menores, campos estáveis e um índice que lista todos os endpoints. Mesma licença, mesma anonimização.</p>
-    <pre class="code">curl https://ifesserra-lab.github.io/egressos/api/index.json</pre>
-    <div class="codegrid" style="margin-top:12px">{api_rows}</div>
-    <p class="hint" style="margin-top:12px">Sem chave, sem limite de uso, sem servidor: são arquivos estáticos no GitHub Pages, regerados a cada atualização do relatório.</p>
-  </section>
-
-  <section class="card">
-    <h2>Código do pipeline</h2>
-    <p class="hint">Scripts Python que geram e validam tudo (paths pessoais sanitizados). Reprodução: <code>python build_report.py</code>.</p>
-    <div class="codegrid">{code_rows}</div>
-  </section>
-
-  <section class="card">
-    <h2>Como reproduzir</h2>
-    <pre class="code"># requer os JSONs de mercado (Stack Overflow / IPCA) e a base de perfis (não pública)
-python build_report.py            # gera todos os JSON + valida (QA + PII)
-python build_report.py --publish  # copia a versão anonimizada p/ os sites</pre>
-    <p class="hint" style="margin-top:12px">O passo de QA falha a publicação se qualquer nome de pessoa vazar para o HTML/JSON público. <a href="metodologia.html" style="color:var(--accent)">Metodologia completa →</a></p>
-  </section>
-
-  <section class="card">
-    <h2>Licença &amp; privacidade</h2>
-    <div class="lic">
-      <b>Licença do estudo:</b> dados sob <b>CC BY 4.0</b> · código sob <b>MIT</b>. Cite "Egressos IFES — Campus Serra".<br><br>
-      <b>Licença de dado de terceiro:</b> parte dos arquivos acima é <b>derivada de fontes externas</b>, e essas fontes têm licença própria — que continua valendo para quem baixar o arquivo daqui. A licença de cada um está dentro do próprio JSON (campo <code>licenca</code>), porque o arquivo circula sozinho.
-      {TERCEIROS}<br>
-      <b>Privacidade:</b> nenhum dado individual identificável é publicado. Egressos aparecem só como coorte anonimizada (A–AX). Dados de empresa são informação pública (LinkedIn/registros). Nomes de pessoa nunca saem da máquina local nem vão a serviços externos de IA.<br><br>
-      <span class="warn">⚠️ Site experimental — dados preliminares, sujeitos a revisão. Egresso que queira correção/remoção: falar com a coordenação.</span>
-    </div>
-  </section>
-
-  <p class="foot">Dados abertos do estudo de egressos · IFES — Campus Serra · ensino, pesquisa e extensão.<br>Gerado com apoio de Claude Code.</p>
-
-</div></div></body></html>
-"""
-(PUB/"dados-abertos.html").write_text(HTML, encoding="utf-8")
 
 # ---- llms.txt (llmstxt.org) — índice legível por LLM, dicionário por arquivo ----
 CODE_DESC = {
@@ -418,4 +331,4 @@ L.append("- O QA (`qa_report.py`) bloqueia a publicação se qualquer nome real 
 print(f"OK: {len(manifest)} datasets ({total_kb} KB) -> {DADOS_OUT}")
 print(f"    llms.txt -> {PUB/'llms.txt'}")
 print(f"    {len(code_manifest)} scripts -> {CODE_OUT}")
-print(f"    página -> {PUB/'dados-abertos.html'}")
+print("    página dados-abertos.html -> gerada pelo Astro (site/), não daqui")
