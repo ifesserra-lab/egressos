@@ -36,6 +36,7 @@ SAFE = [
     ("egressos_perfil.json",   "Perfis dos egressos",      "Nome, curso, cargo, empresa e cidade de cada egresso, mais senioridade e anos de carreira. Dado de nível LinkedIn — o que a própria pessoa publica —, divulgado por decisão da coordenação. NÃO contém renda: a estimativa é por SENIORIDADE, no arquivo ao lado."),
     ("renda_por_senioridade.json",   "Renda estimada por senioridade", "Faixa p25–mediana–p75 ESTIMADA por senioridade e trilha, com a amostra de mercado de cada uma. Nenhum salário foi coletado de ninguém: o valor é o que o mercado pagava para aquele nível de experiência, e para uma pessoa concreta pode ser maior ou menor. Sem nenhuma chave de pessoa."),
     ("cargos_ao_longo_do_tempo.json","Renda estimada por cargo, 2018–2025","Mediana de R$/mês por CARGO no mercado brasileiro (back-end, DBA, DevOps, ciência de dados...), ano a ano, a preços de hoje. Cargo é o outro eixo: senioridade é júnior/pleno/sênior, e está no arquivo ao lado. Cada resposta converte pelo câmbio do ANO dela e é deflacionada pelo IPCA. Mercado inteiro do survey — nenhuma pessoa deste estudo está aqui."),
+    ("trajetoria.json",        "Trajetória salarial, ano a ano","Tudo o que a página de trajetória mostra, já calculado: a série do coorte em R$, US$ e salários mínimos da época; uma trajetória individual anonimizada contra a mediana do coorte na mesma experiência; a régua internacional; e o recorte por moeda do contracheque, com a corroboração entre edições do survey. Anonimizado — nenhuma pessoa é identificável."),
     ("so_benchmarks.json",     "Benchmarks internacionais","Medianas salariais em US$/mês por país na faixa de experiência do coorte, mediana global, série por edição do survey e — o mais relevante — respondentes do Brasil separados pela MOEDA do contracheque (R$ x US$)."),
     ("codigofonte_2026.json",  "Benchmark de mercado 2026","Faixas salariais por senioridade (Pesquisa Código Fonte)."),
     ("codigofonte_historico.json","Benchmark histórico",   "Média salarial por senioridade, série histórica."),
@@ -48,7 +49,7 @@ SAFE = [
 # código publicado (sanitizado)
 CODE_FILES = ["build_report.py","ibge_series.py","so_benchmarks.py","compute_all.py","analise.py",
               "genero.py","fapes_fomento.py","src_extensao.py","gen_executivo.py","gen_panorama.py",
-              "mapa_base.py","gen_vitrine.py","gen_reguas.py","gen_nav.py","gen_api.py","gen_dados_abertos.py",
+              "mapa_base.py","gen_vitrine.py","gen_nav.py","gen_trajetoria.py","gen_api.py","gen_dados_abertos.py",
               "qa_report.py","norm_empresas.py","enrich_empresas.py","classify_empresas.py",
               "classify_mistral.py","resolve_company_urls.py","mistral_porte.py"]
 
@@ -85,6 +86,15 @@ FIELDS = {
    "não chega ao mínimo NÃO vira ponto — fica em `edicoes_ausentes`, sem interpolação. "
    "`DevType` é múltipla escolha, então a soma dos `n` passa do total de respondentes. "
    "Fonte: Stack Overflow Developer Survey 2018–2025 (agregado; nenhum microdado é republicado).",
+ "trajetoria.json": "Objeto com o que a página de trajetória publica. `serie[]`: por ano, "
+   "`med_nominal`, `med_real`, `em_sm` (salários mínimos da época), `usd` (convertido pelo "
+   "câmbio DAQUELE ano) e `n`. `trajetoria[]`: um perfil anonimizado, ano a ano. "
+   "`trajetoria_indicadores`: múltiplo nominal e real, CAGR e tempo para dobrar — o CAGR sai "
+   "do valor REAL, porque em nominal a inflação entra como ganho. `regua[]`: comparação "
+   "internacional em US$, com o `papel` de cada barra (pais, brasil, coorte, global, cenario, "
+   "referencia). `corroboracao_por_edicao[]`: o mesmo corte medido em edições independentes, "
+   "que é como se responde \"o número de 2023 ainda vale?\" sem projetar. "
+   "`premio_internacional`: o prêmio de +6% que o modelo calcula, e por que ele é artefato.",
  "so_benchmarks.json": "Objeto `{edicao_referencia, filtros, global_usd_mes, por_pais[], "
    "por_moeda_brasil[], serie_anual[]}`. `por_pais[]`: `pais`, `usd_mes` (mediana), `n`. "
    "`por_moeda_brasil[]`: por faixa de experiência, `brl_usd_mes` e `usd_usd_mes` — respondentes DO "
@@ -268,7 +278,7 @@ CODE_DESC = {
  "ibge_series.py": "baixa IPCA e INPC (IBGE/SIDRA) e o salário mínimo (IPEADATA) → salario_minimo.json + ibge_series.json",
  "so_benchmarks.py": "extrai do Stack Overflow as medianas em US$ por país e o corte por moeda do contracheque → so_benchmarks.json",
  "mapa_base.py": "baixa o Natural Earth 110m e converte em paths SVG projetados -> mapa_mundi.json",
- "gen_reguas.py": "gera a página 'Trajetória salarial' (ano a ano + salário mínimo + comparação mundial)",
+ "gen_trajetoria.py": "monta o dataset da trajetória: série do coorte em R$/US$/salários mínimos, régua internacional e recorte por moeda. A conta vem de egressos_core.trajetoria; quem mostra é a página em Astro",
  "gen_api.py": "gera a API estática em egressos/api/ (endpoints anonimizados + índice)",
  "gen_nav.py": "fonte única do menu — injeta a mesma navegação em todas as páginas",
  "analise.py": "clusters, sankey, gênero, empresas, trilha, internacionalização → analise.json",
