@@ -66,7 +66,10 @@ STEPS = [
     ("Consts do executivo",     [PY, str(OLD/"gen_executivo.py")], BASE),
     ("DB do panorama",          [PY, str(OLD/"gen_panorama.py")],  BASE),
     ("Vitrine de carreiras",    [PY, str(OLD/"gen_vitrine.py")],   BASE),
-    ("Duas réguas (SM + mundo)",[PY, str(OLD/"gen_reguas.py")],    BASE),
+    # A trajetória virou dado + página Astro. O `gen_reguas.py` (757 linhas de conta e
+    # marcação na mesma f-string) saiu: quem calcula é egressos_core.trajetoria, quem
+    # mostra é trajetoria_salarial.astro.
+    ("Trajetória (dataset)",    [PY, str(PIPE/"gen_trajetoria.py")], BASE),
     ("Dados abertos",           [PY, str(PIPE/"gen_dados_abertos.py")], BASE),
     ("API estática",            [PY, str(PIPE/"gen_api.py")],       BASE),
     ("Menu único",              [PY, str(OLD/"gen_nav.py")],       BASE),

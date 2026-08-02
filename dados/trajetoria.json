@@ -1,0 +1,892 @@
+{
+ "e_estimativa": true,
+ "aviso": "ESTIMATIVA. A renda de cada ano é a mediana do coorte naquele ano, convertida pelo câmbio do próprio ano e deflacionada. Para uma pessoa concreta pode ser MAIOR ou MENOR.",
+ "ano_base": 2026,
+ "referencia": "jun/2026",
+ "minimo_de_pessoas_por_ano": 10,
+ "por_que_o_minimo": "Ano com menos pessoas que isso não vira ponto: a mediana seria de um punhado de gente, com o rótulo do coorte inteiro.",
+ "cambio_por_ano": "Cada ano converte pela taxa média DELE. Taxa única faria a série mostrar variação cambial como se fosse variação de salário.",
+ "serie": [
+  {
+   "ano": 2012,
+   "n": 12,
+   "med_real": 1974,
+   "med_nominal": 915,
+   "sm_ano": 622.0,
+   "em_sm": 1.47,
+   "acima_sm_nominal": 293,
+   "p25_sm": 1.1,
+   "p75_sm": 2.21,
+   "usd": 468,
+   "acima_usd": 150
+  },
+  {
+   "ano": 2013,
+   "n": 14,
+   "med_real": 2737,
+   "med_nominal": 1347,
+   "sm_ano": 678.0,
+   "em_sm": 1.99,
+   "acima_sm_nominal": 669,
+   "p25_sm": 1.49,
+   "p75_sm": 2.98,
+   "usd": 624,
+   "acima_usd": 310
+  },
+  {
+   "ano": 2014,
+   "n": 16,
+   "med_real": 2807,
+   "med_nominal": 1468,
+   "sm_ano": 724.0,
+   "em_sm": 2.03,
+   "acima_sm_nominal": 744,
+   "p25_sm": 1.52,
+   "p75_sm": 3.04,
+   "usd": 624,
+   "acima_usd": 316
+  },
+  {
+   "ano": 2015,
+   "n": 24,
+   "med_real": 3645,
+   "med_nominal": 2079,
+   "sm_ano": 788.0,
+   "em_sm": 2.64,
+   "acima_sm_nominal": 1291,
+   "p25_sm": 1.98,
+   "p75_sm": 3.96,
+   "usd": 624,
+   "acima_usd": 388
+  },
+  {
+   "ano": 2016,
+   "n": 32,
+   "med_real": 5098,
+   "med_nominal": 3162,
+   "sm_ano": 880.0,
+   "em_sm": 3.59,
+   "acima_sm_nominal": 2282,
+   "p25_sm": 2.54,
+   "p75_sm": 5.57,
+   "usd": 906,
+   "acima_usd": 654
+  },
+  {
+   "ano": 2017,
+   "n": 34,
+   "med_real": 5911,
+   "med_nominal": 3792,
+   "sm_ano": 937.0,
+   "em_sm": 4.05,
+   "acima_sm_nominal": 2855,
+   "p25_sm": 2.76,
+   "p75_sm": 6.37,
+   "usd": 1188,
+   "acima_usd": 894
+  },
+  {
+   "ano": 2018,
+   "n": 43,
+   "med_real": 6528,
+   "med_nominal": 4342,
+   "sm_ano": 954.0,
+   "em_sm": 4.55,
+   "acima_sm_nominal": 3388,
+   "p25_sm": 3.11,
+   "p75_sm": 7.17,
+   "usd": 1188,
+   "acima_usd": 927
+  },
+  {
+   "ano": 2019,
+   "n": 45,
+   "med_real": 6559,
+   "med_nominal": 4525,
+   "sm_ano": 998.0,
+   "em_sm": 4.53,
+   "acima_sm_nominal": 3527,
+   "p25_sm": 3.24,
+   "p75_sm": 7.02,
+   "usd": 1147,
+   "acima_usd": 894
+  },
+  {
+   "ano": 2020,
+   "n": 44,
+   "med_real": 9123,
+   "med_nominal": 6496,
+   "sm_ano": 1044.5,
+   "em_sm": 6.22,
+   "acima_sm_nominal": 5452,
+   "p25_sm": 4.27,
+   "p75_sm": 8.48,
+   "usd": 1260,
+   "acima_usd": 1057
+  },
+  {
+   "ano": 2021,
+   "n": 44,
+   "med_real": 14557,
+   "med_nominal": 11226,
+   "sm_ano": 1100.0,
+   "em_sm": 10.21,
+   "acima_sm_nominal": 10126,
+   "p25_sm": 6.74,
+   "p75_sm": 16.38,
+   "usd": 2081,
+   "acima_usd": 1877
+  },
+  {
+   "ano": 2022,
+   "n": 46,
+   "med_real": 14004,
+   "med_nominal": 11802,
+   "sm_ano": 1212.0,
+   "em_sm": 9.74,
+   "acima_sm_nominal": 10590,
+   "p25_sm": 7.08,
+   "p75_sm": 14.61,
+   "usd": 2285,
+   "acima_usd": 2050
+  },
+  {
+   "ano": 2023,
+   "n": 46,
+   "med_real": 16478,
+   "med_nominal": 14524,
+   "sm_ano": 1314.0,
+   "em_sm": 11.05,
+   "acima_sm_nominal": 13210,
+   "p25_sm": 7.71,
+   "p75_sm": 16.59,
+   "usd": 2908,
+   "acima_usd": 2645
+  },
+  {
+   "ano": 2024,
+   "n": 43,
+   "med_real": 18026,
+   "med_nominal": 16583,
+   "sm_ano": 1412.0,
+   "em_sm": 11.74,
+   "acima_sm_nominal": 15171,
+   "p25_sm": 7.74,
+   "p75_sm": 16.78,
+   "usd": 3077,
+   "acima_usd": 2815
+  },
+  {
+   "ano": 2025,
+   "n": 42,
+   "med_real": 17797,
+   "med_nominal": 17194,
+   "sm_ano": 1518.0,
+   "em_sm": 11.33,
+   "acima_sm_nominal": 15676,
+   "p25_sm": 7.47,
+   "p75_sm": 18.3,
+   "usd": 3077,
+   "acima_usd": 2805
+  },
+  {
+   "ano": 2026,
+   "n": 40,
+   "med_real": 17073,
+   "med_nominal": 17073,
+   "sm_ano": 1621.0,
+   "em_sm": 10.53,
+   "acima_sm_nominal": 15452,
+   "p25_sm": 6.45,
+   "p75_sm": 16.89,
+   "usd": 3314,
+   "acima_usd": 2999
+  }
+ ],
+ "bolsa": {
+  "valor": 800,
+  "ano": 2018,
+  "em_sm": 0.8385744234800838,
+  "sm_do_ano": 954.0,
+  "abaixo_do_piso": 154,
+  "acima_do_piso_hoje": 15452,
+  "fonte": "Bolsa nível VI, projeto Prodest/FAPES (valor documentado)"
+ },
+ "trajetoria": [
+  {
+   "ano": 2013,
+   "exp": 0,
+   "fx": 2.1576,
+   "n": 425,
+   "empresa": "Bolsa · pesquisa/extensão",
+   "p25": 1010,
+   "med": 400,
+   "p75": 2020,
+   "mkt": 1347,
+   "real": 813,
+   "usd": 185,
+   "ex": false,
+   "bolsa": true,
+   "sm": 0.59
+  },
+  {
+   "ano": 2014,
+   "exp": 1,
+   "fx": 2.3534,
+   "n": 425,
+   "empresa": "Bolsa · pesquisa/extensão",
+   "p25": 1101,
+   "med": 400,
+   "p75": 2203,
+   "mkt": 1468,
+   "real": 765,
+   "usd": 170,
+   "ex": false,
+   "bolsa": true,
+   "sm": 0.55
+  },
+  {
+   "ano": 2016,
+   "exp": 3,
+   "fx": 3.4901,
+   "n": 606,
+   "empresa": "Empresa nacional",
+   "p25": 2831,
+   "med": 4146,
+   "p75": 6530,
+   "mkt": null,
+   "real": 6685,
+   "usd": 1188,
+   "ex": false,
+   "bolsa": false,
+   "sm": 4.71
+  },
+  {
+   "ano": 2017,
+   "exp": 4,
+   "fx": 3.192,
+   "n": 606,
+   "empresa": "Empresa nacional",
+   "p25": 2589,
+   "med": 3792,
+   "p75": 5972,
+   "mkt": null,
+   "real": 5911,
+   "usd": 1188,
+   "ex": false,
+   "bolsa": false,
+   "sm": 4.05
+  },
+  {
+   "ano": 2020,
+   "exp": 7,
+   "fx": 5.1558,
+   "n": 51,
+   "empresa": "Empresa internacional (Sr.)",
+   "p25": 7528,
+   "med": 9450,
+   "p75": 12697,
+   "mkt": null,
+   "real": 13272,
+   "usd": 1833,
+   "ex": false,
+   "bolsa": false,
+   "sm": 9.05
+  },
+  {
+   "ano": 2021,
+   "exp": 8,
+   "fx": 5.395,
+   "n": 25,
+   "empresa": "Empresa internacional (Sr.)",
+   "p25": 9269,
+   "med": 11124,
+   "p75": 18537,
+   "mkt": null,
+   "real": 14425,
+   "usd": 2062,
+   "ex": false,
+   "bolsa": false,
+   "sm": 10.11
+  },
+  {
+   "ano": 2022,
+   "exp": 9,
+   "fx": 5.1648,
+   "n": 26,
+   "empresa": "Empresa internacional (Sr.)",
+   "p25": 12376,
+   "med": 16094,
+   "p75": 18774,
+   "mkt": null,
+   "real": 19097,
+   "usd": 3116,
+   "ex": false,
+   "bolsa": false,
+   "sm": 13.28
+  },
+  {
+   "ano": 2023,
+   "exp": 10,
+   "fx": 4.995,
+   "n": 11,
+   "empresa": "Empresa internacional (Sr.)",
+   "p25": 17627,
+   "med": 19758,
+   "p75": 28290,
+   "mkt": null,
+   "real": 22415,
+   "usd": 3956,
+   "ex": false,
+   "bolsa": false,
+   "sm": 15.04
+  },
+  {
+   "ano": 2024,
+   "exp": 11,
+   "fx": 5.3895,
+   "n": 9,
+   "empresa": "Empresa internacional (Sr.)",
+   "p25": 20046,
+   "med": 21317,
+   "p75": 29157,
+   "mkt": null,
+   "real": 23172,
+   "usd": 3955,
+   "ex": true,
+   "bolsa": false,
+   "sm": 15.1
+  },
+  {
+   "ano": 2025,
+   "exp": 12,
+   "fx": 5.5879,
+   "n": 10,
+   "empresa": "Empresa internacional (Sr.)",
+   "p25": 14879,
+   "med": 21351,
+   "p75": 22530,
+   "mkt": null,
+   "real": 22100,
+   "usd": 3821,
+   "ex": true,
+   "bolsa": false,
+   "sm": 14.07
+  },
+  {
+   "ano": 2026,
+   "exp": 13,
+   "fx": 5.1524,
+   "n": 8,
+   "empresa": "Empresa internacional (Sr.)",
+   "p25": 13066,
+   "med": 14373,
+   "p75": 20383,
+   "mkt": null,
+   "real": 14373,
+   "usd": 2790,
+   "ex": true,
+   "bolsa": false,
+   "sm": 8.87
+  }
+ ],
+ "trajetoria_indicadores": {
+  "anos": 13,
+  "mult": 35.9325,
+  "mult_real": 17.678966789667896,
+  "cagr_pct": 24.726352363437343,
+  "anos_para_dobrar": 2.8032730844072917
+ },
+ "trajetoria_extremos": {
+  "inicio_brl": 400,
+  "fim_brl": 14373,
+  "de": 2013,
+  "ate": 2026
+ },
+ "trajetoria_coorte": [
+  2417,
+  2597,
+  7203,
+  8092,
+  13888,
+  14664,
+  16734,
+  18623,
+  18194,
+  19372,
+  17988
+ ],
+ "salario_minimo": {
+  "nominal_pct": 160.61093247588425,
+  "real_pct": 20.699925539836194,
+  "de": 2012,
+  "ate": 2026
+ },
+ "sm_por_ano": [
+  {
+   "ano": 2012,
+   "jan": 622.0,
+   "dez": 622.0,
+   "media_ponderada": 622.0,
+   "reajuste_pct": 14.13,
+   "inpc_ano_anterior_pct": 6.08,
+   "ganho_real_pct": 7.59,
+   "dois_valores_no_ano": false,
+   "em_reais_de_2026": 1343
+  },
+  {
+   "ano": 2013,
+   "jan": 678.0,
+   "dez": 678.0,
+   "media_ponderada": 678.0,
+   "reajuste_pct": 9.0,
+   "inpc_ano_anterior_pct": 6.2,
+   "ganho_real_pct": 2.64,
+   "dois_valores_no_ano": false,
+   "em_reais_de_2026": 1378
+  },
+  {
+   "ano": 2014,
+   "jan": 724.0,
+   "dez": 724.0,
+   "media_ponderada": 724.0,
+   "reajuste_pct": 6.78,
+   "inpc_ano_anterior_pct": 5.56,
+   "ganho_real_pct": 1.16,
+   "dois_valores_no_ano": false,
+   "em_reais_de_2026": 1384
+  },
+  {
+   "ano": 2015,
+   "jan": 788.0,
+   "dez": 788.0,
+   "media_ponderada": 788.0,
+   "reajuste_pct": 8.84,
+   "inpc_ano_anterior_pct": 6.23,
+   "ganho_real_pct": 2.46,
+   "dois_valores_no_ano": false,
+   "em_reais_de_2026": 1382
+  },
+  {
+   "ano": 2016,
+   "jan": 880.0,
+   "dez": 880.0,
+   "media_ponderada": 880.0,
+   "reajuste_pct": 11.68,
+   "inpc_ano_anterior_pct": 11.28,
+   "ganho_real_pct": 0.36,
+   "dois_valores_no_ano": false,
+   "em_reais_de_2026": 1419
+  },
+  {
+   "ano": 2017,
+   "jan": 937.0,
+   "dez": 937.0,
+   "media_ponderada": 937.0,
+   "reajuste_pct": 6.48,
+   "inpc_ano_anterior_pct": 6.58,
+   "ganho_real_pct": -0.09,
+   "dois_valores_no_ano": false,
+   "em_reais_de_2026": 1461
+  },
+  {
+   "ano": 2018,
+   "jan": 954.0,
+   "dez": 954.0,
+   "media_ponderada": 954.0,
+   "reajuste_pct": 1.81,
+   "inpc_ano_anterior_pct": 2.07,
+   "ganho_real_pct": -0.25,
+   "dois_valores_no_ano": false,
+   "em_reais_de_2026": 1434
+  },
+  {
+   "ano": 2019,
+   "jan": 998.0,
+   "dez": 998.0,
+   "media_ponderada": 998.0,
+   "reajuste_pct": 4.61,
+   "inpc_ano_anterior_pct": 3.43,
+   "ganho_real_pct": 1.14,
+   "dois_valores_no_ano": false,
+   "em_reais_de_2026": 1447
+  },
+  {
+   "ano": 2020,
+   "jan": 1039.0,
+   "dez": 1045.0,
+   "media_ponderada": 1044.5,
+   "reajuste_pct": 4.11,
+   "inpc_ano_anterior_pct": 4.48,
+   "ganho_real_pct": -0.35,
+   "dois_valores_no_ano": true,
+   "em_reais_de_2026": 1467
+  },
+  {
+   "ano": 2021,
+   "jan": 1100.0,
+   "dez": 1100.0,
+   "media_ponderada": 1100.0,
+   "reajuste_pct": 5.26,
+   "inpc_ano_anterior_pct": 5.45,
+   "ganho_real_pct": -0.18,
+   "dois_valores_no_ano": false,
+   "em_reais_de_2026": 1426
+  },
+  {
+   "ano": 2022,
+   "jan": 1212.0,
+   "dez": 1212.0,
+   "media_ponderada": 1212.0,
+   "reajuste_pct": 10.18,
+   "inpc_ano_anterior_pct": 10.16,
+   "ganho_real_pct": 0.02,
+   "dois_valores_no_ano": false,
+   "em_reais_de_2026": 1438
+  },
+  {
+   "ano": 2023,
+   "jan": 1302.0,
+   "dez": 1320.0,
+   "media_ponderada": 1314.0,
+   "reajuste_pct": 7.43,
+   "inpc_ano_anterior_pct": 5.93,
+   "ganho_real_pct": 1.42,
+   "dois_valores_no_ano": true,
+   "em_reais_de_2026": 1491
+  },
+  {
+   "ano": 2024,
+   "jan": 1412.0,
+   "dez": 1412.0,
+   "media_ponderada": 1412.0,
+   "reajuste_pct": 6.97,
+   "inpc_ano_anterior_pct": 3.71,
+   "ganho_real_pct": 3.14,
+   "dois_valores_no_ano": false,
+   "em_reais_de_2026": 1535
+  },
+  {
+   "ano": 2025,
+   "jan": 1518.0,
+   "dez": 1518.0,
+   "media_ponderada": 1518.0,
+   "reajuste_pct": 7.51,
+   "inpc_ano_anterior_pct": 4.77,
+   "ganho_real_pct": 2.62,
+   "dois_valores_no_ano": false,
+   "em_reais_de_2026": 1571
+  },
+  {
+   "ano": 2026,
+   "jan": 1621.0,
+   "dez": 1621.0,
+   "media_ponderada": 1621.0,
+   "reajuste_pct": 6.79,
+   "inpc_ano_anterior_pct": 3.9,
+   "ganho_real_pct": 2.78,
+   "dois_valores_no_ano": false,
+   "em_reais_de_2026": 1621
+  }
+ ],
+ "regua": [
+  {
+   "rotulo": "Estados Unidos",
+   "usd": 13333,
+   "papel": "pais"
+  },
+  {
+   "rotulo": "Canadá",
+   "usd": 8364,
+   "papel": "pais"
+  },
+  {
+   "rotulo": "Brasileiro pago em US$ *",
+   "usd": 8333,
+   "papel": "cenario"
+  },
+  {
+   "rotulo": "Reino Unido",
+   "usd": 7759,
+   "papel": "pais"
+  },
+  {
+   "rotulo": "Mediana global",
+   "usd": 6902,
+   "papel": "global"
+  },
+  {
+   "rotulo": "Alemanha",
+   "usd": 6693,
+   "papel": "pais"
+  },
+  {
+   "rotulo": "Holanda",
+   "usd": 6693,
+   "papel": "pais"
+  },
+  {
+   "rotulo": "Polônia",
+   "usd": 5982,
+   "papel": "pais"
+  },
+  {
+   "rotulo": "Portugal",
+   "usd": 5582,
+   "papel": "pais"
+  },
+  {
+   "rotulo": "Espanha",
+   "usd": 5176,
+   "papel": "pais"
+  },
+  {
+   "rotulo": "México",
+   "usd": 4151,
+   "papel": "pais"
+  },
+  {
+   "rotulo": "Chile",
+   "usd": 3624,
+   "papel": "pais"
+  },
+  {
+   "rotulo": "Egressos IFES",
+   "usd": 3314,
+   "papel": "coorte"
+  },
+  {
+   "rotulo": "Brasil",
+   "usd": 3162,
+   "papel": "brasil"
+  },
+  {
+   "rotulo": "Sênior BR (Código Fonte)",
+   "usd": 2835,
+   "papel": "referencia"
+  },
+  {
+   "rotulo": "Índia",
+   "usd": 2625,
+   "papel": "pais"
+  }
+ ],
+ "tabela_em_reais": [
+  {
+   "rotulo": "Salário mínimo 2026",
+   "brl": 1621.0,
+   "papel": "referencia"
+  },
+  {
+   "rotulo": "Estágio — Código Fonte 2026",
+   "brl": 2586.84,
+   "papel": "referencia"
+  },
+  {
+   "rotulo": "Júnior — Código Fonte 2026",
+   "brl": 5060.34,
+   "papel": "referencia"
+  },
+  {
+   "rotulo": "Pleno — Código Fonte 2026",
+   "brl": 8466.52,
+   "papel": "referencia"
+  },
+  {
+   "rotulo": "Sênior — Código Fonte 2026",
+   "brl": 14607.85,
+   "papel": "referencia"
+  },
+  {
+   "rotulo": "Brasil — Stack Overflow (8 a 13 anos)",
+   "brl": 16291.8888,
+   "papel": "referencia"
+  },
+  {
+   "rotulo": "Egressos IFES (mediana do coorte)",
+   "brl": 17073,
+   "papel": "coorte"
+  },
+  {
+   "rotulo": "Especialista/Tech Lead/Principal — Código Fonte 2026",
+   "brl": 20601.64,
+   "papel": "referencia"
+  },
+  {
+   "rotulo": "Mediana global — Stack Overflow",
+   "brl": 35561.8648,
+   "papel": "referencia"
+  },
+  {
+   "rotulo": "Brasileiro pago em US$ — Stack Overflow *",
+   "brl": 42934.9492,
+   "papel": "cenario"
+  },
+  {
+   "rotulo": "Estados Unidos — Stack Overflow",
+   "brl": 68696.9492,
+   "papel": "referencia"
+  }
+ ],
+ "mundo": {
+  "global_usd": 6902,
+  "eua_usd": 13333,
+  "egressos_usd": 3314,
+  "egressos_brl": 17073,
+  "egressos_em_sm": 10.53,
+  "pct_do_global": 48,
+  "pct_dos_eua": 25,
+  "faixa_de_experiencia": "8 a 13 anos"
+ },
+ "moeda_do_contracheque": {
+  "usd_pago_em_dolar": 8333,
+  "usd_pago_em_real": 3162,
+  "razao": 2.64,
+  "n_dolar": 44,
+  "n_real": 391,
+  "o_que_e": "Mesmo país, mesma faixa de experiência — o que muda é a moeda em que o salário é pago."
+ },
+ "por_origem_do_empregador": [
+  {
+   "senioridade": "Pleno",
+   "nacional": 1,
+   "internacional": 0
+  },
+  {
+   "senioridade": "Sênior",
+   "nacional": 18,
+   "internacional": 8
+  },
+  {
+   "senioridade": "Espec./Tech Lead",
+   "nacional": 18,
+   "internacional": 5
+  }
+ ],
+ "internacional": {
+  "hoje": 13,
+  "total": 50,
+  "senior_ou_acima": 13
+ },
+ "fontes": {
+  "salario_minimo": "IPEADATA série MTE12_SALMIN12 — Min. Economia/Trabalho",
+  "inflacao": "IBGE/SIDRA tabela 1736, variável 2289 (ganho real) · IBGE/SIDRA tabela 1737, variável 2266 (deflator)",
+  "ultimo_reajuste": {
+   "ano": 2026,
+   "valor": 1621.0,
+   "reajuste_pct": 6.79,
+   "ganho_real_pct": 2.78
+  }
+ },
+ "multiplicadores": [
+  {
+   "faixa": "1–3×",
+   "n": 4
+  },
+  {
+   "faixa": "3–6×",
+   "n": 18
+  },
+  {
+   "faixa": "6–9×",
+   "n": 7
+  },
+  {
+   "faixa": "9–12×",
+   "n": 8
+  },
+  {
+   "faixa": "12–15×",
+   "n": 8
+  },
+  {
+   "faixa": "15×+",
+   "n": 4
+  }
+ ],
+ "crescimento": {
+  "minimo": 1.5,
+  "central": 8.0,
+  "rotulo_central": "mediana",
+  "ressalva_do_rotulo": "O KPI de origem chama este valor de `cresc_medio`; a página o rotula como mediana desde a primeira versão. A mediana aritmética dos 49 perfis é 7,0. Reconciliar os dois é decisão de método, não de layout.",
+  "maximo": 17.7
+ },
+ "corroboracao_por_edicao": [
+  {
+   "edicao": 2022,
+   "faixa": "8 anos ou mais",
+   "brl_usd_mes": 3116,
+   "n_brl": 435,
+   "usd_usd_mes": 7192,
+   "n_usd": 43,
+   "razao": 2.31
+  },
+  {
+   "edicao": 2023,
+   "faixa": "8 anos ou mais",
+   "brl_usd_mes": 3162,
+   "n_brl": 391,
+   "usd_usd_mes": 8333,
+   "n_usd": 44,
+   "razao": 2.64
+  },
+  {
+   "edicao": 2024,
+   "faixa": "8 anos ou mais",
+   "brl_usd_mes": 2797,
+   "n_brl": 198,
+   "usd_usd_mes": 7500,
+   "n_usd": 25,
+   "razao": 2.68
+  }
+ ],
+ "corroboracao_o_que_e": "O mesmo corte (Brasil, 8 anos ou mais, BRL × USD) calculado em cada edição avaliada. Responde 'o número da edição de referência ainda vale?' com dado de outra amostra, em vez de trocar a referência por uma edição que não sustenta os recortes finos.",
+ "corroboracao_oscilacao_pct": 17.02535130238374,
+ "edicao_de_referencia": 2023,
+ "por_que_esta_edicao": "Os recortes por país e por moeda continuam saindo da edição 2023, e por dois motivos diferentes. A edição 2025 não pode ser referência porque deixou de publicar experiência PROFISSIONAL, e as colunas que ela traz no lugar medem outra população (trabalho de qualquer natureza, ou programação incluindo os anos de estudo). A edição 2024 poderia, mas tem menos da metade da amostra utilizável: usá-la derrubaria um país da lista e esvaziaria a comparação BRL×USD por faixa. Ver candidatas_a_referencia.",
+ "premio_internacional": {
+  "pct": 6,
+  "por_que_e_artefato": "Os dois grupos são precificados na MESMA tabela brasileira: o modelo estima cada egresso pela mediana de mercado da faixa de experiência dele, e não sabe em que moeda ele recebe. O prêmio que sobra é resíduo de composição, não diferença de remuneração.",
+  "cenario": {
+   "usd_mes": 8333,
+   "brl_mes": 42935,
+   "em_sm": 26.5,
+   "n_egressos": 13,
+   "o_que_e": "Se os egressos com empregador internacional fossem pagos no padrão OBSERVADO de brasileiros que recebem em dólar."
+  }
+ },
+ "moeda_por_faixa": [
+  {
+   "faixa": "6 a 8 anos",
+   "brl_usd_mes": 2536,
+   "n_brl": 134,
+   "usd_usd_mes": 6500,
+   "n_usd": 17,
+   "razao": 2.56
+  },
+  {
+   "faixa": "9 a 13 anos",
+   "brl_usd_mes": 3043,
+   "n_brl": 163,
+   "usd_usd_mes": 10000,
+   "n_usd": 15,
+   "razao": 3.29
+  },
+  {
+   "faixa": "14 anos ou mais",
+   "brl_usd_mes": 3381,
+   "n_brl": 184,
+   "usd_usd_mes": 8333,
+   "n_usd": 25,
+   "razao": 2.46
+  },
+  {
+   "faixa": "Todos",
+   "brl_usd_mes": 2367,
+   "n_brl": 782,
+   "usd_usd_mes": 8167,
+   "n_usd": 62,
+   "razao": 3.45
+  }
+ ]
+}
