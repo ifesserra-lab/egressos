@@ -57,14 +57,19 @@ def build():
     medatual = {order[i]: cons["perfis"][i]["med_atual"] for i in range(min(len(order), len(cons["perfis"])))}
     meds = [medatual[i] for i in ids if i in medatual]
     em_tech = sum(1 for a in al if a["id"] in ids and a["ainda_em_tech"])
-    BOLSA_EPOCA, BOLSA_2026 = 800, 1187
+    # A bolsa em poder de compra de hoje vem do deflator do IPCA, não de constante: era 1187
+    # cravado aqui e 1203 derivado no gen_impacto — o mesmo fato com dois números, e o cravado
+    # envelhecendo em silêncio a cada mês de IPCA novo.
+    BOLSA_EPOCA, BOLSA_ANO = 800, 2018
+    ipca = json.load(open(BASE/"data/ibge_series.json"))["series"]["ipca"]["deflator_para_base"]
+    bolsa_hoje = round(BOLSA_EPOCA * ipca[str(BOLSA_ANO)])
     med_hoje = round(statistics.median(meds)) if meds else None
     desfecho = {
         "egressos": len(ids), "em_tech": em_tech,
         "mediana_hoje": med_hoje,
-        "bolsa_epoca_mensal": BOLSA_EPOCA, "bolsa_em_2026": BOLSA_2026,
+        "bolsa_epoca_mensal": BOLSA_EPOCA, "bolsa_ano": BOLSA_ANO, "bolsa_em_2026": bolsa_hoje,
         "mult_nominal": round(med_hoje/BOLSA_EPOCA) if med_hoje else None,
-        "mult_real": round(med_hoje/BOLSA_2026) if med_hoje else None,
+        "mult_real": round(med_hoje/bolsa_hoje) if med_hoje else None,
     }
     return {"projetos": projetos, "total": tot, "desfecho": desfecho,
             "fonte": "FAPES · relatorio_alocacao_bolsas (via PRODEST); vínculo egresso↔projeto curado"}
