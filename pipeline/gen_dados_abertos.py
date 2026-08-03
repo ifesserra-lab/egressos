@@ -51,7 +51,7 @@ SAFE = [
 CODE_FILES = ["build_report.py","ibge_series.py","so_benchmarks.py","compute_all.py","analise.py",
               "genero.py","fapes_fomento.py","src_extensao.py","gen_panorama.py","gen_impacto.py",
               "mapa_base.py","gen_vitrine.py","gen_nav.py","gen_trajetoria.py","gen_api.py","gen_dados_abertos.py",
-              "qa_report.py","norm_empresas.py","enrich_empresas.py","classify_empresas.py",
+              "norm_empresas.py","enrich_empresas.py","classify_empresas.py",
               "classify_mistral.py","resolve_company_urls.py","mistral_porte.py"]
 
 # ---- glossário de campos por arquivo (o que será achado) ----
@@ -298,10 +298,8 @@ CODE_DESC = {
  "fapes_fomento.py": "agrega fomento de bolsas FAPES → fapes_fomento.json",
  "src_extensao.py": "cruza egressos × base oficial de extensão SRC/IFES (privado, por nome)",
  "gen_impacto.py": "monta o dataset do painel de impacto: indicadores, renda por experiência, dispersão, fluxo de formação, referência nacional, empresas, gênero e extensão. Projeção do consolidado + análise; quem mostra é a página em Astro",
- "_gen_executivo_removido": "reescreve os números do dashboard executivo a partir dos JSON",
  "gen_panorama.py": "reescreve os cards anonimizados (A–AX) do panorama",
  "gen_vitrine.py": "gera a página-vitrine 'Onde estão os egressos' (perfis + empresas)",
- "qa_report.py": "QA: cruza cada número do HTML com o pipeline + varredura de PII (gate de publicação)",
  "norm_empresas.py": "normaliza nomes de empresa e agrupa variantes → empresas_aliases.json",
  "enrich_empresas.py": "browser-use no LinkedIn: headcount/sede/setor/vagas por empresa (dado público)",
  "classify_empresas.py": "deriva porte_real (headcount) + setor_real (regras) por empresa",
@@ -348,7 +346,7 @@ for c in code_manifest:
 L.append("\n## Privacidade\n")
 L.append("- Publicado: coorte anonimizada (A–AX) + dados públicos de empresa + código.")
 L.append("- NUNCA publicado: nomes/empresa/local por pessoa, mapas id→atributo (gênero, extensão, pesquisa).")
-L.append("- O QA (`qa_report.py`) bloqueia a publicação se qualquer nome real vazar.")
+L.append("- O portão de publicação (`egressos_site.portao`, cláusula P2) varre a saída inteira\n  contra o cadastro e bloqueia se qualquer nome real vazar.")
 (PUB/"llms.txt").write_text("\n".join(L) + "\n", encoding="utf-8")
 
 print(f"OK: {len(manifest)} datasets ({total_kb} KB) -> {DADOS_OUT}")

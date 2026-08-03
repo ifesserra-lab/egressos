@@ -77,7 +77,6 @@ Reprodução: `python build_report.py` (gera+valida) · `python build_report.py 
 - [gen_trajetoria.py](pipeline/gen_trajetoria.py) — monta o dataset da trajetória: série do coorte em R$/US$/salários mínimos, régua internacional e recorte por moeda. A conta vem de egressos_core.trajetoria; quem mostra é a página em Astro
 - [gen_api.py](pipeline/gen_api.py) — gera a API estática em egressos/api/ (endpoints anonimizados + índice)
 - [gen_dados_abertos.py](pipeline/gen_dados_abertos.py) — gera esta aba de dados abertos (copia JSON seguros + código sanitizado + llms.txt)
-- [qa_report.py](pipeline/qa_report.py) — QA: cruza cada número do HTML com o pipeline + varredura de PII (gate de publicação)
 - [norm_empresas.py](pipeline/norm_empresas.py) — normaliza nomes de empresa e agrupa variantes → empresas_aliases.json
 - [enrich_empresas.py](pipeline/enrich_empresas.py) — browser-use no LinkedIn: headcount/sede/setor/vagas por empresa (dado público)
 - [classify_empresas.py](pipeline/classify_empresas.py) — deriva porte_real (headcount) + setor_real (regras) por empresa
@@ -89,4 +88,5 @@ Reprodução: `python build_report.py` (gera+valida) · `python build_report.py 
 
 - Publicado: coorte anonimizada (A–AX) + dados públicos de empresa + código.
 - NUNCA publicado: nomes/empresa/local por pessoa, mapas id→atributo (gênero, extensão, pesquisa).
-- O QA (`qa_report.py`) bloqueia a publicação se qualquer nome real vazar.
+- O portão de publicação (`egressos_site.portao`, cláusula P2) varre a saída inteira
+  contra o cadastro e bloqueia se qualquer nome real vazar.
