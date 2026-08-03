@@ -12,7 +12,7 @@ Ordem:
   5. analise.py           -> data/analise.json          (clusters, gênero, empresas,
                                                           sankeys, trilha, labs, extensão)
   6. gen_impacto.py       -> data/impacto.json          (o que a página de entrada mostra)
-  7. gen_panorama.py      -> reescreve o DB.alunos do dashboard_alunos.html (A–…)
+  7. gen_panorama.py      -> data/panorama.json          (coorte anonimizada A–AX)
   8. gen_trajetoria.py    -> data/trajetoria.json       (trajetória + SM + mundo)
      gen_nav.py           -> injeta o mesmo menu nas páginas legadas que restarem
   9. gen_dados_abertos.py -> publica JSON + código no repo público
@@ -65,7 +65,9 @@ STEPS = [
     # A página de entrada virou dado + Astro. O `gen_executivo.py` fazia substituição de
     # constante JS dentro de HTML autoral — dez `re.subn` com `assert n == 1`.
     ("Impacto (dataset)",      [PY, str(PIPE/"gen_impacto.py")], BASE),
-    ("DB do panorama",          [PY, str(OLD/"gen_panorama.py")],  BASE),
+    # O panorama virou dado + página Astro. O antigo trocava, por expressão regular, um objeto
+    # JavaScript de 64 KB dentro do HTML — e a anonimização era montagem de string.
+    ("Panorama (dataset)",      [PY, str(PIPE/"gen_panorama.py")], BASE),
     ("Vitrine de carreiras",    [PY, str(OLD/"gen_vitrine.py")],   BASE),
     # A trajetória virou dado + página Astro. O `gen_reguas.py` (757 linhas de conta e
     # marcação na mesma f-string) saiu: quem calcula é egressos_core.trajetoria, quem
