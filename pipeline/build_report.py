@@ -11,14 +11,13 @@ Ordem:
   4. fapes_fomento.py     -> data/fapes_fomento.json    (fomento FAPES)
   5. analise.py           -> data/analise.json          (clusters, gênero, empresas,
                                                           sankeys, trilha, labs, extensão)
-  6. gen_executivo.py     -> reescreve os consts do dashboard_executivo.html
+  6. gen_impacto.py       -> data/impacto.json          (o que a página de entrada mostra)
   7. gen_panorama.py      -> reescreve o DB.alunos do dashboard_alunos.html (A–…)
-  8. gen_reguas.py        -> gera trajetoria_salarial.html (trajetória + SM + mundo);
-                             as páginas antigas viram redirecionamento
-     gen_nav.py           -> injeta o mesmo menu em TODAS as páginas
+  8. gen_trajetoria.py    -> data/trajetoria.json       (trajetória + SM + mundo)
+     gen_nav.py           -> injeta o mesmo menu nas páginas legadas que restarem
   9. gen_dados_abertos.py -> publica JSON + código no repo público
      gen_api.py           -> gera egressos/api/ (API estática, anonimizada, com índice)
- 10. qa_report.py         -> valida HTML × pipeline + varredura de PII
+ 10. pytest P9            -> valida dataset × fonte (PII é P2, no portão)
 
 Uso:   python data/build_report.py            (gera + valida)
        python data/build_report.py --publish  (após validar, copia p/ os repos públicos)
@@ -28,7 +27,7 @@ IMPORTANTE — sincronia de order/labels:
   order[]/labels[] dos egressos. Ao adicionar egresso, estender as TRÊS na mesma
   ordem (o join salário↔perfil em analise.py é por LABEL, robusto a perfis puladas).
 
-  gen_executivo.py e gen_panorama.py lêem apenas consolidado.json/analise.json/
+  gen_impacto.py e gen_panorama.py lêem apenas consolidado.json/analise.json/
   alunos.json — os números do dashboard vêm SEMPRE do pipeline, nunca à mão.
 """
 import subprocess
@@ -63,7 +62,9 @@ STEPS = [
     # Depois da análise: a vitrine nomeada e a faixa por cargo saem do cruzamento dela com o
     # consolidado. Dois arquivos, contratos diferentes — ver o docstring de gen_perfis.py.
     ("Perfis e renda por cargo", [PY, str(PIPE/"gen_perfis.py")],   BASE),
-    ("Consts do executivo",     [PY, str(OLD/"gen_executivo.py")], BASE),
+    # A página de entrada virou dado + Astro. O `gen_executivo.py` fazia substituição de
+    # constante JS dentro de HTML autoral — dez `re.subn` com `assert n == 1`.
+    ("Impacto (dataset)",      [PY, str(PIPE/"gen_impacto.py")], BASE),
     ("DB do panorama",          [PY, str(OLD/"gen_panorama.py")],  BASE),
     ("Vitrine de carreiras",    [PY, str(OLD/"gen_vitrine.py")],   BASE),
     # A trajetória virou dado + página Astro. O `gen_reguas.py` (757 linhas de conta e
@@ -73,7 +74,12 @@ STEPS = [
     ("Dados abertos",           [PY, str(PIPE/"gen_dados_abertos.py")], BASE),
     ("API estática",            [PY, str(PIPE/"gen_api.py")],       BASE),
     ("Menu único",              [PY, str(OLD/"gen_nav.py")],       BASE),
-    ("QA + PII",                [PY, str(OLD/"qa_report.py")],     BASE),
+    # P9 — números × fonte. Era o `qa_report.py`, que extraía constantes JS do HTML com `node`
+    # e comparava. Duas coisas o mataram: a página não tem mais JS, e ele estava lendo um dump
+    # de constantes de dois dias antes (gravava em old/pipeline/, lia em data/) — 71 checagens
+    # verdes sem tocar no artefato. A varredura de PII que ele fazia numa página está no
+    # portão, como P2, sobre a união das origens.
+    ("Números × fonte (P9)",    [PY, "-m", "pytest", "-q", "tests/test_projecao_impacto.py"], BASE),
 ]
 
 def run():

@@ -36,6 +36,7 @@ SAFE = [
     ("egressos_perfil.json",   "Perfis dos egressos",      "Nome, curso, cargo, empresa e cidade de cada egresso, mais senioridade e anos de carreira. Dado de nível LinkedIn — o que a própria pessoa publica —, divulgado por decisão da coordenação. NÃO contém renda: a estimativa é por SENIORIDADE, no arquivo ao lado."),
     ("renda_por_senioridade.json",   "Renda estimada por senioridade", "Faixa p25–mediana–p75 ESTIMADA por senioridade e trilha, com a amostra de mercado de cada uma. Nenhum salário foi coletado de ninguém: o valor é o que o mercado pagava para aquele nível de experiência, e para uma pessoa concreta pode ser maior ou menor. Sem nenhuma chave de pessoa."),
     ("cargos_ao_longo_do_tempo.json","Renda estimada por cargo, 2018–2025","Mediana de R$/mês por CARGO no mercado brasileiro (back-end, DBA, DevOps, ciência de dados...), ano a ano, a preços de hoje. Cargo é o outro eixo: senioridade é júnior/pleno/sênior, e está no arquivo ao lado. Cada resposta converte pelo câmbio do ANO dela e é deflacionada pelo IPCA. Mercado inteiro do survey — nenhuma pessoa deste estudo está aqui."),
+    ("impacto.json",           "Painel de impacto na carreira","Tudo o que a página de entrada mostra, já calculado: indicadores de impacto, renda estimada por anos de experiência (faixa p25–p75 e mediana), dispersão por trilha e por origem do empregador, fluxo formação→trilha→destino, referência do mercado brasileiro (Código Fonte), empresas por região/setor/porte, gênero e extensão. Agregado — nenhum indivíduo identificável."),
     ("trajetoria.json",        "Trajetória salarial, ano a ano","Tudo o que a página de trajetória mostra, já calculado: a série do coorte em R$, US$ e salários mínimos da época; uma trajetória individual anonimizada contra a mediana do coorte na mesma experiência; a régua internacional; e o recorte por moeda do contracheque, com a corroboração entre edições do survey. Anonimizado — nenhuma pessoa é identificável."),
     ("so_benchmarks.json",     "Benchmarks internacionais","Medianas salariais em US$/mês por país na faixa de experiência do coorte, mediana global, série por edição do survey e — o mais relevante — respondentes do Brasil separados pela MOEDA do contracheque (R$ x US$)."),
     ("codigofonte_2026.json",  "Benchmark de mercado 2026","Faixas salariais por senioridade (Pesquisa Código Fonte)."),
@@ -48,7 +49,7 @@ SAFE = [
 ]
 # código publicado (sanitizado)
 CODE_FILES = ["build_report.py","ibge_series.py","so_benchmarks.py","compute_all.py","analise.py",
-              "genero.py","fapes_fomento.py","src_extensao.py","gen_executivo.py","gen_panorama.py",
+              "genero.py","fapes_fomento.py","src_extensao.py","gen_panorama.py","gen_impacto.py",
               "mapa_base.py","gen_vitrine.py","gen_nav.py","gen_trajetoria.py","gen_api.py","gen_dados_abertos.py",
               "qa_report.py","norm_empresas.py","enrich_empresas.py","classify_empresas.py",
               "classify_mistral.py","resolve_company_urls.py","mistral_porte.py"]
@@ -86,6 +87,17 @@ FIELDS = {
    "não chega ao mínimo NÃO vira ponto — fica em `edicoes_ausentes`, sem interpolação. "
    "`DevType` é múltipla escolha, então a soma dos `n` passa do total de respondentes. "
    "Fonte: Stack Overflow Developer Survey 2018–2025 (agregado; nenhum microdado é republicado).",
+ "impacto.json": "Objeto com o que a página de entrada publica. `indicadores[]`: valor e "
+   "rótulo de cada indicador de topo — o rótulo é parte do dado, porque o número sozinho fica "
+   "sem unidade e sem ressalva. `por_experiencia[]`: por ano de carreira, `lo`/`hi` (p25–p75), "
+   "`med` e `n`. `por_experiencia_hoje[]`: o que o mercado de HOJE paga por aquela "
+   "experiência — a segunda linha do gráfico. `dispersao[]`: mínimo, quartis e máximo por "
+   "trilha e por origem do empregador, porque a mediana sozinha esconde a variação. `fluxo`: "
+   "colunas e ligações de formação→trilha→destino. `mercado_br`: a referência nacional "
+   "(Pesquisa Código Fonte) por senioridade, contrato, região e linguagem, mais a série "
+   "histórica. `achados[]` e `ressalvas[]`: a leitura e os limites, com os números vindos do "
+   "dado em vez de escritos no texto. `genero`: agregado, com o método de inferência "
+   "declarado. Nenhum indivíduo aparece.",
  "trajetoria.json": "Objeto com o que a página de trajetória publica. `serie[]`: por ano, "
    "`med_nominal`, `med_real`, `em_sm` (salários mínimos da época), `usd` (convertido pelo "
    "câmbio DAQUELE ano) e `n`. `trajetoria[]`: um perfil anonimizado, ano a ano. "
@@ -285,7 +297,8 @@ CODE_DESC = {
  "genero.py": "inferência de gênero OFFLINE (gender-guesser + heurística PT-BR) → genero_map (privado)",
  "fapes_fomento.py": "agrega fomento de bolsas FAPES → fapes_fomento.json",
  "src_extensao.py": "cruza egressos × base oficial de extensão SRC/IFES (privado, por nome)",
- "gen_executivo.py": "reescreve os números do dashboard executivo a partir dos JSON",
+ "gen_impacto.py": "monta o dataset do painel de impacto: indicadores, renda por experiência, dispersão, fluxo de formação, referência nacional, empresas, gênero e extensão. Projeção do consolidado + análise; quem mostra é a página em Astro",
+ "_gen_executivo_removido": "reescreve os números do dashboard executivo a partir dos JSON",
  "gen_panorama.py": "reescreve os cards anonimizados (A–AX) do panorama",
  "gen_vitrine.py": "gera a página-vitrine 'Onde estão os egressos' (perfis + empresas)",
  "qa_report.py": "QA: cruza cada número do HTML com o pipeline + varredura de PII (gate de publicação)",
