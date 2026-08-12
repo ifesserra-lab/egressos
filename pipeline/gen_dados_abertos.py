@@ -36,6 +36,7 @@ SAFE = [
     ("egressos_perfil.json",   "Perfis dos egressos",      "Nome, curso, cargo, empresa e cidade de cada egresso, mais senioridade e anos de carreira. Dado de nível LinkedIn — o que a própria pessoa publica —, divulgado por decisão da coordenação. NÃO contém renda: a estimativa é por SENIORIDADE, no arquivo ao lado."),
     ("renda_por_senioridade.json",   "Renda estimada por senioridade", "Faixa p25–mediana–p75 ESTIMADA por senioridade e trilha, com a amostra de mercado de cada uma. Nenhum salário foi coletado de ninguém: o valor é o que o mercado pagava para aquele nível de experiência, e para uma pessoa concreta pode ser maior ou menor. Sem nenhuma chave de pessoa."),
     ("cargos_ao_longo_do_tempo.json","Renda estimada por cargo, 2018–2025","Mediana de R$/mês por CARGO no mercado brasileiro (back-end, DBA, DevOps, ciência de dados...), ano a ano, a preços de hoje. Cargo é o outro eixo: senioridade é júnior/pleno/sênior, e está no arquivo ao lado. Cada resposta converte pelo câmbio do ANO dela e é deflacionada pelo IPCA. Mercado inteiro do survey — nenhuma pessoa deste estudo está aqui."),
+    ("vitrine.json",           "Onde estão os egressos (nomeado)","Os perfis NOMEADOS da vitrine — nome, cargo, empresa, lugar, trilha, nível e jornada —, as empresas com dado público verificado do LinkedIn (tamanho, sede, setor, vagas) e o mapa ano a ano. Página nomeada por decisão da coordenação; dado de nível LinkedIn, que a própria pessoa publica. NÃO contém renda por pessoa em nenhuma profundidade."),
     ("panorama.json",          "Panorama da coorte (anonimizado)","Uma linha por egresso, identificado só por rótulo (A–AX): cargo atual, empregador como categoria (nacional, internacional, setor público, autônomo ou instituição pública de fomento), modalidade de trabalho, anos de carreira e a jornada completa, posição por posição. Mais o salto de cada um, do ponto de partida à renda estimada de hoje. Nome, empresa privada e cidade NÃO estão aqui."),
     ("impacto.json",           "Painel de impacto na carreira","Tudo o que a página de entrada mostra, já calculado: indicadores de impacto, renda estimada por anos de experiência (faixa p25–p75 e mediana), dispersão por trilha e por origem do empregador, fluxo formação→trilha→destino, referência do mercado brasileiro (Código Fonte), empresas por região/setor/porte, gênero e extensão. Agregado — nenhum indivíduo identificável."),
     ("trajetoria.json",        "Trajetória salarial, ano a ano","Tudo o que a página de trajetória mostra, já calculado: a série do coorte em R$, US$ e salários mínimos da época; uma trajetória individual anonimizada contra a mediana do coorte na mesma experiência; a régua internacional; e o recorte por moeda do contracheque, com a corroboração entre edições do survey. Anonimizado — nenhuma pessoa é identificável."),
@@ -88,6 +89,16 @@ FIELDS = {
    "não chega ao mínimo NÃO vira ponto — fica em `edicoes_ausentes`, sem interpolação. "
    "`DevType` é múltipla escolha, então a soma dos `n` passa do total de respondentes. "
    "Fonte: Stack Overflow Developer Survey 2018–2025 (agregado; nenhum microdado é republicado).",
+ "vitrine.json": "Objeto com o que a página nomeada publica. `perfis[]`: nome, monograma, "
+   "cargo, empresa, `lugar` já legível (\"Vitória, ES\", \"Londres\"), região, trilha, nível e "
+   "a jornada. Tem também `rotulo` (A–AX), que é o que permite cruzar esta página com as "
+   "anonimizadas sem publicar o identificador do cadastro. `empresas[]`: uma por empregador "
+   "distinto, com tamanho, sede e setor quando há dado público verificado, e `contratando` "
+   "quando havia vaga aberta na coleta. `mapa`: contorno dos continentes, os lugares com "
+   "coordenada e, para cada ano, quantas pessoas estavam em cada um — mais "
+   "`mapa_sem_ponto`, que diz quantas NÃO viraram ponto, porque \"Remoto\" e \"Brasil\" no "
+   "centro geográfico do país afirmariam o que o dado não diz. Renda por pessoa não existe "
+   "neste arquivo: a estimativa vive atrelada a cargo, em renda_por_senioridade.",
  "panorama.json": "Objeto com o que a página de panorama publica. `coorte[]`: uma pessoa por "
    "entrada, com `rotulo` no lugar do nome — o mesmo rótulo usado nas outras páginas, para que "
    "\"Egresso C\" seja a mesma pessoa em todas. `empregador_atual` é CATEGORIA, nunca o nome de "
@@ -167,7 +178,11 @@ NAMES = {n for n in NAMES if n}
 # experiência dela), e foi juntar as duas coisas no mesmo registro que fez analise.json publicar
 # nome + empresa + cargo + salário estimado. Então a exceção vem com verificação própria, que
 # roda a cada publicação — não só na suíte.
-VITRINE_NOMEADA = {"egressos_perfil.json"}
+#
+# São DOIS arquivos, e cada um guarda as pessoas sob uma chave diferente — daí o mapa em vez de
+# um conjunto. Sem a chave certa, o portão de renda leria uma lista vazia e aprovaria por
+# ausência: o modo de falha que o próprio portão existe para impedir.
+VITRINE_NOMEADA = {"egressos_perfil.json": "egressos", "vitrine.json": "perfis"}
 CHEIRO_DE_RENDA = ("salario", "renda", "med_atual", "med_ini", "remunera", "p25", "p75",
                    "mediana", "cresc", "brl", "usd", "valor")
 
@@ -192,10 +207,20 @@ def _chaves_de_dinheiro(no):
 
 
 
-def renda_em_registro_de_pessoa(caminho):
-    """Chaves de dinheiro dentro dos registros da vitrine. Vazio = pode publicar."""
+def renda_em_registro_de_pessoa(caminho, chave):
+    """Chaves de dinheiro dentro dos registros da vitrine. Vazio = pode publicar.
+
+    `chave` é onde a lista de pessoas mora no arquivo (`egressos` num, `perfis` no outro). Ela
+    é obrigatória de propósito: com um valor padrão, um arquivo novo cuja lista se chame outra
+    coisa passaria pelo portão sem nada ter sido verificado.
+    """
     conteudo = json.load(open(caminho, encoding="utf-8"))
-    return sorted(_chaves_de_dinheiro(conteudo.get("egressos", [])))
+    pessoas = conteudo.get(chave)
+    if not pessoas:
+        raise SystemExit(
+            f"ABORT: {os.path.basename(caminho)} é vitrine nomeada e não tem registros em "
+            f"{chave!r}. O portão de renda não roda sobre lista vazia — corrija a chave.")
+    return sorted(_chaves_de_dinheiro(pessoas))
 
 
 def pii_hits(path):
@@ -230,7 +255,7 @@ for fn, titulo, desc in SAFE:
     if hits:
         raise SystemExit(f"ABORT: PII em {fn}: {hits[:3]} — NÃO publicar")
     if fn in VITRINE_NOMEADA:
-        com_renda = renda_em_registro_de_pessoa(src)
+        com_renda = renda_em_registro_de_pessoa(src, VITRINE_NOMEADA[fn])
         if com_renda:
             raise SystemExit(
                 f"ABORT: {fn} é a vitrine NOMEADA e ganhou campo de renda: {com_renda}. "
@@ -334,8 +359,18 @@ if _terceiros:
              + " · ".join(f"`{t['arquivo']}` = {t['licenca']}"
                           + (f" (atribuição: {t['atribuicao']})" if t["atribuicao"] else "")
                           for t in _terceiros) + "\n")
-L.append("Licença: dados CC BY 4.0 · código MIT. Nomes de pessoa nunca são publicados nem enviados a "
-         "serviços externos de IA. Site experimental (dados preliminares).\n")
+# A frase antiga dizia "Nomes de pessoa nunca são publicados", e isso deixou de ser verdade no dia
+# em que a vitrine nomeada foi autorizada — `egressos_perfil.json` e `vitrine.json` publicam nome.
+# Uma declaração de privacidade que o próprio diretório contradiz é pior que nenhuma: quem lê por
+# máquina acredita nela. O que se afirma agora é o que os portões de fato garantem — nome só nos
+# dois arquivos nomeados, nunca ao lado de renda, e nunca enviado a serviço externo de IA.
+L.append(
+    "Licença: dados CC BY 4.0 · código MIT. Nome de pessoa aparece em DOIS arquivos — "
+    + " e ".join(f"`{fn}`" for fn in sorted(VITRINE_NOMEADA))
+    + " —, por decisão da coordenação, e é dado de nível LinkedIn: cargo, empresa e cidade que a "
+    "própria pessoa publica, mais o endereço do perfil de onde isso vem. Nenhum dos dois tem "
+    "renda por pessoa, e nenhum outro dataset traz nome, slug ou identificador do cadastro. "
+    "Nome nunca é enviado a serviço externo de IA. Site experimental (dados preliminares).\n")
 L.append("## Páginas\n")
 L.append("- [Onde estão os egressos](egressos-carreiras.html): vitrine de carreiras — perfis, empresas, países, jornada.")
 L.append("- [Impacto na carreira](index.html): visão executiva — renda estimada vs. mercado (anonimizado).")
