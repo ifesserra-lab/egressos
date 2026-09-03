@@ -43,11 +43,14 @@ Filtros (iguais aos de compute_all.py, para os números conversarem entre si):
 Uso:  python pipeline/so_benchmarks.py
       python pipeline/so_dataset.py --edicao <ano>   # para obter uma edição verificada
 """
-import json
+from __future__ import annotations
+
+import sys
 
 import pandas as pd
 
-from egressos_core import fontes
+from egressos_core import dados, deflator, fontes
+from egressos_core.deflator import Competencia
 from egressos_core.paths import ROOT as BASE
 
 DATA = BASE / "data"
@@ -218,18 +221,24 @@ def recortes(ano):
     }
 
 
-def main():
+def executar(*, hoje: Competencia) -> dict:   # noqa: ARG001 - fronteira única das etapas
+    """Grava e devolve `so_benchmarks`.
+
+    `hoje` não é usado: o survey é anual e a edição de referência é constante declarada
+    (`EDICAO_REFERENCIA`), não "a mais recente". Ver o contrato das etapas.
+
+    Sem os CSVs — que não são versionados —, o benchmark já commitado continua válido e é o que
+    volta. Quem detecta edição nova é o vigia mensal (`pipeline/vigia_fontes.py`), não a
+    ausência de arquivo aqui.
+    """
     falta = [a for a in EDICOES if not (DATA / f"public-{a}.csv").exists()]
     if falta:
-        # Os CSVs não são versionados (~150 MB por edição, re-obteníveis). Sem eles, o
-        # benchmark já commitado continua válido: quem detecta edição nova é o vigia mensal
-        # (pipeline/vigia_fontes.py), não a ausência de arquivo aqui.
-        alvo = DATA / "so_benchmarks.json"
-        if alvo.exists():
-            print(f"CSVs do Stack Overflow ausentes {falta} — mantendo {alvo.name} versionado")
-            return
-        raise SystemExit(f"ABORT: faltam os CSVs {falta} e não há so_benchmarks.json — "
-                         "obtenha as edições com `python pipeline/so_dataset.py --edicao <ano>`")
+        if dados.caminho("so_benchmarks").exists():
+            print(f"CSVs do Stack Overflow ausentes {falta} — mantendo so_benchmarks.json versionado")
+            return dados.ler("so_benchmarks")
+        raise FileNotFoundError(
+            f"faltam os CSVs {falta} e não há so_benchmarks.json versionado — obtenha as "
+            "edições com `python pipeline/so_dataset.py --edicao <ano>`")
 
     avaliadas = [recortes(a) for a in AVALIADAS]
     escolhida = next(r for r in avaliadas if r["edicao"] == EDICAO_REFERENCIA)
@@ -329,17 +338,25 @@ def main():
         "global_n": escolhida["n_faixa_referencia"],
         "por_pais": por_pais, "por_moeda_brasil": por_moeda, "serie_anual": serie,
     }
-    (DATA / "so_benchmarks.json").write_text(
-        json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    dados.gravar("so_benchmarks", out)
+    return out
 
+
+def main() -> int:
+    out = executar(hoje=deflator.data_referencia(dados.ler("ibge_series")))
+    lo, hi = FAIXA_REFERENCIA
+    por_moeda = out["por_moeda_brasil"]
     print("OK — data/so_benchmarks.json")
-    print(f"  edição de referência: {EDICAO_REFERENCIA} · série até {ultima}")
+    print(f"  edição de referência: {EDICAO_REFERENCIA} · série até "
+          f"{out['serie_anual'][-1]['ano']}")
     print(f"  global {lo}-{hi} anos: US$ {out['global_usd_mes']:,}/mês (n={out['global_n']})")
-    print(f"  {len(por_pais)} países · {len(por_moeda)} faixas de moeda · {len(serie)} edições")
+    print(f"  {len(out['por_pais'])} países · {len(por_moeda)} faixas de moeda · "
+          f"{len(out['serie_anual'])} edições")
     for m in por_moeda:
         print(f"    {m['faixa']:18s} BRL US$ {m['brl_usd_mes']:6,} (n={m['n_brl']:4d})  "
               f"USD US$ {m['usd_usd_mes']:6,} (n={m['n_usd']:3d})  {m['razao']}x")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

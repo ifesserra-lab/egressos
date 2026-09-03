@@ -15,17 +15,23 @@ não distância nem área.
 Uso:  python pipeline/mapa_base.py            (baixa e converte)
       python pipeline/mapa_base.py --offline  (só converte, a partir do cache)
 """
+from __future__ import annotations
+
 import json
 import sys
 import urllib.error
 import urllib.request
 
+from egressos_core import dados, deflator
+from egressos_core.deflator import Competencia
 from egressos_core.paths import ROOT as BASE
 
-sys.setrecursionlimit(10000)
+CACHE = BASE / "data" / "_cache_ibge"   # mesmo diretório de cache dos downloads
 
-DATA = BASE / "data"
-CACHE = DATA / "_cache_ibge"          # mesmo diretório de cache dos downloads
+#: Douglas-Peucker é recursivo e o litoral fino estoura o limite padrão de 1000 quadros.
+#: O ajuste é de processo, então é feito **dentro** de `executar` — importar este módulo não
+#: pode mudar o limite de recursão do build inteiro.
+RECURSAO_MINIMA = 10000
 # Duas resoluções: a grossa vai embutida na página (leve, boa até ~3x de zoom) e a fina
 # fica num arquivo à parte, buscado só quando o leitor aproxima. Sem isso, ou a página
 # carrega meio mega de contorno que quase ninguém usa, ou o litoral vira um polígono tosco
@@ -33,10 +39,10 @@ CACHE = DATA / "_cache_ibge"          # mesmo diretório de cache dos downloads
 CAMADAS = {
     "base":    {"url": "https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json",
                 "cache": "land110m.json", "eps": 0.7,  "area_min": 1.2,
-                "saida": "mapa_mundi.json",         "detalhe": "Natural Earth 110m"},
+                "dataset": "mapa_mundi",         "detalhe": "Natural Earth 110m"},
     "detalhe": {"url": "https://cdn.jsdelivr.net/npm/world-atlas@2/land-50m.json",
                 "cache": "land50m.json",  "eps": 0.10, "area_min": 0.15,
-                "saida": "mapa_mundi_detalhe.json", "detalhe": "Natural Earth 50m"},
+                "dataset": "mapa_mundi_detalhe", "detalhe": "Natural Earth 50m"},
 }
 
 W, H = 1000, 420                       # viewBox do mapa
@@ -57,7 +63,7 @@ def baixa(cam, offline):
     cache = CACHE / cam["cache"]
     if offline:
         if not cache.exists():
-            sys.exit(f"ABORT: --offline mas não há cache em {cache}")
+            raise FileNotFoundError(f"--offline pedido, mas não há cache em {cache}")
         return json.loads(cache.read_text(encoding="utf-8"))
     try:
         with urllib.request.urlopen(URL, timeout=90) as r:
@@ -70,7 +76,7 @@ def baixa(cam, offline):
         if cache.exists():
             print(f"  [cache] {cam['detalhe']} (rede falhou: {e})")
             return json.loads(cache.read_text(encoding="utf-8"))
-        sys.exit(f"ABORT: mapa indisponível e sem cache — {e}")
+        raise RuntimeError(f"mapa indisponível e sem cache em {cache}: {e}") from e
 
 
 def decodifica_arcos(topo):
@@ -171,18 +177,28 @@ def gera(nome, cam, offline):
                 "para posicionar qualquer ponto sobre estes paths.",
         "paths": paths,
     }
-    alvo = DATA / cam["saida"]
-    alvo.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    alvo = dados.gravar(cam["dataset"], out)
     kb = alvo.stat().st_size / 1024
     print(f"  {alvo.name:28s} {len(paths):5d} polígonos  {kb:6.0f} KB  ({descartados} ilhotas fora)")
 
 
-def main():
-    offline = "--offline" in sys.argv
+def executar(*, hoje: Competencia, offline: bool = False) -> None:   # noqa: ARG001
+    """`hoje` não é usado: o contorno dos continentes não tem data. Ver o contrato das etapas.
+
+    `offline` existe para o modo `--offline` da linha de comando; o orquestrador não passa,
+    e o caminho normal já cai no cache sozinho quando a rede falha.
+    """
+    sys.setrecursionlimit(max(sys.getrecursionlimit(), RECURSAO_MINIMA))
     print("== contorno dos continentes ==")
     for nome, cam in CAMADAS.items():
         gera(nome, cam, offline)
 
 
+def main() -> int:
+    executar(hoje=deflator.data_referencia(dados.ler("ibge_series")),
+             offline="--offline" in sys.argv)
+    return 0
+
+
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

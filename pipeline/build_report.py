@@ -1,99 +1,126 @@
+"""Orquestrador do relatório de egressos — gera TUDO a partir dos dados.
+
+Cada etapa é uma **função importada**, não um processo filho. O que atravessa uma falha agora é
+a exceção, com tipo, mensagem e pilha; antes era um `returncode` inteiro, e quem lia o log via
+"FALHOU em: Análise (exit 1)" sem saber o quê.
+
+## A data de referência é resolvida uma vez
+
+`hoje` é a competência do último mês publicado do IPCA (`mes_base` de `ibge_series`) — vem do
+dado, nunca do relógio da máquina. Ela é resolvida **uma vez** aqui e passada igual a todas as
+etapas. Antes, cada etapa que precisava dela relia `ibge_series` e chamava `data_referencia` de
+novo: a mesma data resolvida em vários lugares é como duas datas passam a existir.
+
+`ibge_series` roda **fora** do laço porque é ela que **produz** essa data. Exigir `hoje` dela
+obrigaria o orquestrador a ter o valor antes de existir arquivo de onde tirá-lo — num clone
+novo, não há. É a única exceção à fronteira uniforme, e está declarada no contrato
+(`specs/003-dominio-no-nucleo/contracts/etapas-e-orquestracao.md`).
+
+## Ordem
+
+A ordem reflete dependência real de dado: ingest → domínio → datasets de página → publicação →
+portão de números. Ela não é decorativa e não muda sem motivo escrito.
+
+IMPORTANTE — sincronia de order/labels: `compute_all`, `egressos_core.analise` e `gen_panorama`
+têm as listas de ordem e rótulos dos egressos. Ao integrar egresso novo, estender as três na
+mesma ordem (o join salário↔perfil na análise é por RÓTULO, robusto a perfis puladas).
+
+Uso:   python pipeline/build_report.py            (gera + valida)
+       python pipeline/build_report.py --publish  (após validar, publica)
 """
-Orquestrador do relatório de egressos — gera TUDO a partir dos dados.
+from __future__ import annotations
 
-Ordem:
-  0. ibge_series.py       -> data/salario_minimo.json  (SM + IPCA + INPC, baixados do IBGE/IPEADATA)
-     so_benchmarks.py     -> data/so_benchmarks.json   (medianas US$ por país e por moeda do contracheque)
-     mapa_base.py         -> data/mapa_mundi.json      (contorno dos continentes já projetado p/ SVG)
-  1. genero.py            -> data/genero_map.json      (gênero inferido offline)
-  2. compute_all.py       -> data/consolidado.json     (série salarial SO+FX+IPCA+SM)
-  3. src_extensao.py      -> data/src_extensao.json     (extensão SRC/IFES)
-  4. fapes_fomento.py     -> data/fapes_fomento.json    (fomento FAPES)
-  5. analise.py           -> data/analise.json          (clusters, gênero, empresas,
-                                                          sankeys, trilha, labs, extensão)
-  6. gen_impacto.py       -> data/impacto.json          (o que a página de entrada mostra)
-  7. gen_panorama.py      -> data/panorama.json          (coorte anonimizada A–AX)
-  8. gen_trajetoria.py    -> data/trajetoria.json       (trajetória + SM + mundo)
-     gen_nav.py           -> injeta o mesmo menu nas páginas legadas que restarem
-  9. gen_dados_abertos.py -> publica JSON + código no repo público
-     gen_api.py           -> gera egressos/api/ (API estática, anonimizada, com índice)
- 10. pytest P9            -> valida dataset × fonte (PII é P2, no portão)
-
-Uso:   python data/build_report.py            (gera + valida)
-       python data/build_report.py --publish  (após validar, copia p/ os repos públicos)
-
-IMPORTANTE — sincronia de order/labels:
-  data/compute_all.py, data/analise.py e data/gen_panorama.py têm as listas
-  order[]/labels[] dos egressos. Ao adicionar egresso, estender as TRÊS na mesma
-  ordem (o join salário↔perfil em analise.py é por LABEL, robusto a perfis puladas).
-
-  gen_impacto.py e gen_panorama.py lêem apenas consolidado.json/analise.json/
-  alunos.json — os números do dashboard vêm SEMPRE do pipeline, nunca à mão.
-"""
-import subprocess
 import sys
 
-from egressos_core.paths import ROOT as BASE
+import analise
+import compute_all
+import fapes_fomento
+import gen_api
+import gen_dados_abertos
+import gen_impacto
+import gen_panorama
+import gen_perfis
+import gen_trajetoria
+import genero
+import ibge_series
+import mapa_base
+import so_benchmarks
+import src_extensao
+from egressos_core import dados, deflator
+from egressos_core.deflator import Competencia
+from egressos_core.paths import ROOT
 
-# Interpretador dos subprocessos: o venv local quando existe, senão o próprio Python que
-# está rodando (é o caso do CI, que instala as dependências no ambiente do runner).
-_venv = BASE / ".venv/bin/python"
-PY = str(_venv) if _venv.exists() else sys.executable
-NODE = "node"
 
-PIPE = BASE / "pipeline"   # scripts moved out of data/ (code vs artefatos)
-# Os geradores de HTML e o QA por engenharia reversa vivem em `old/`: têm sucessor nomeado
-# (o Astro e `egressos_site.portao`) e data de morte por fatia. Ver old/README.md. Eles não
-# foram desligados — enquanto a página deles não migrou, é o que mantém o site no ar.
-OLD = BASE / "old/pipeline"
-STEPS = [
-    # Nenhuma etapa depende mais do diretório corrente: todas resolvem caminho pelo catálogo
-    # (egressos_core.dados) ou pela raiz detectada. A `Série salarial` era a última que exigia
-    # cwd=data/ — lia `../alunos.json` e gravava `consolidado.json` relativos — e deixou de
-    # exigir na fatia C da F2. Passar BASE em todas é agora só uma escolha, não um requisito.
-    ("Séries IBGE/IPEADATA",    [PY, str(PIPE/"ibge_series.py")],   BASE),
-    ("Benchmarks Stack Overflow",[PY, str(PIPE/"so_benchmarks.py")], BASE),
-    ("Contorno do mapa-múndi",   [PY, str(PIPE/"mapa_base.py")],     BASE),
-    ("Gênero (offline)",        [PY, str(PIPE/"genero.py")],        BASE),
-    ("Série salarial",          [PY, str(PIPE/"compute_all.py")],   BASE),
-    ("Extensão SRC/IFES",       [PY, str(PIPE/"src_extensao.py")],  BASE),
-    ("Fomento FAPES",           [PY, str(PIPE/"fapes_fomento.py")], BASE),
-    ("Análise",                 [PY, str(PIPE/"analise.py")],       BASE),
+def numeros_contra_fonte(*, hoje: Competencia) -> None:   # noqa: ARG001
+    """Cláusula P9 — os números publicados batem com o dataset que os originou.
+
+    A única etapa que **não** é uma função de domínio: é um portão, e a verificação mora na
+    suíte (`tests/test_projecao_impacto.py`), onde ela também roda no CI. Chamar `pytest.main`
+    aqui é import, não processo filho — o que a fase eliminou foi o `subprocess`, não o reuso
+    do que já está escrito.
+
+    O antecessor era `old/pipeline/qa_report.py`, que chamava `node` para reler o HTML que o
+    próprio pipeline tinha acabado de escrever. Ele saiu quando as páginas deixaram de ter
+    JavaScript para engenharia-reversar.
+    """
+    import pytest
+
+    codigo = pytest.main(["-q", str(ROOT / "tests/test_projecao_impacto.py")])
+    if codigo != 0:
+        raise RuntimeError(f"P9 reprovou: números publicados divergem da fonte (pytest {codigo})")
+
+
+#: As 14 etapas do laço, na ordem. `ibge_series` não está aqui: ela roda antes, porque produz
+#: a data de referência que as outras recebem. Ver o docstring do módulo.
+ETAPAS = [
+    ("Benchmarks Stack Overflow", so_benchmarks.executar),
+    ("Contorno do mapa-múndi",    mapa_base.executar),
+    ("Gênero (offline)",          genero.executar),
+    ("Série salarial",            compute_all.executar),
+    ("Extensão SRC/IFES",         src_extensao.executar),
+    ("Fomento FAPES",             fapes_fomento.executar),
+    ("Análise",                   analise.executar),
     # Depois da análise: a vitrine nomeada e a faixa por cargo saem do cruzamento dela com o
     # consolidado. Dois arquivos, contratos diferentes — ver o docstring de gen_perfis.py.
-    ("Perfis e renda por cargo", [PY, str(PIPE/"gen_perfis.py")],   BASE),
-    # A página de entrada virou dado + Astro. O `gen_executivo.py` fazia substituição de
-    # constante JS dentro de HTML autoral — dez `re.subn` com `assert n == 1`.
-    ("Impacto (dataset)",      [PY, str(PIPE/"gen_impacto.py")], BASE),
-    # O panorama virou dado + página Astro. O antigo trocava, por expressão regular, um objeto
-    # JavaScript de 64 KB dentro do HTML — e a anonimização era montagem de string.
-    ("Panorama (dataset)",      [PY, str(PIPE/"gen_panorama.py")], BASE),
-    ("Vitrine de carreiras",    [PY, str(OLD/"gen_vitrine.py")],   BASE),
-    # A trajetória virou dado + página Astro. O `gen_reguas.py` (757 linhas de conta e
-    # marcação na mesma f-string) saiu: quem calcula é egressos_core.trajetoria, quem
-    # mostra é trajetoria_salarial.astro.
-    ("Trajetória (dataset)",    [PY, str(PIPE/"gen_trajetoria.py")], BASE),
-    ("Dados abertos",           [PY, str(PIPE/"gen_dados_abertos.py")], BASE),
-    ("API estática",            [PY, str(PIPE/"gen_api.py")],       BASE),
-    ("Menu único",              [PY, str(OLD/"gen_nav.py")],       BASE),
-    # P9 — números × fonte. Era o `qa_report.py`, que extraía constantes JS do HTML com `node`
-    # e comparava. Duas coisas o mataram: a página não tem mais JS, e ele estava lendo um dump
-    # de constantes de dois dias antes (gravava em old/pipeline/, lia em data/) — 71 checagens
-    # verdes sem tocar no artefato. A varredura de PII que ele fazia numa página está no
-    # portão, como P2, sobre a união das origens.
-    ("Números × fonte (P9)",    [PY, "-m", "pytest", "-q", "tests/test_projecao_impacto.py"], BASE),
+    ("Perfis e renda por cargo",  gen_perfis.executar),
+    ("Impacto (dataset)",         gen_impacto.executar),
+    ("Panorama (dataset)",        gen_panorama.executar),
+    ("Trajetória (dataset)",      gen_trajetoria.executar),
+    ("Dados abertos",             gen_dados_abertos.executar),
+    ("API estática",              gen_api.executar),
+    ("Números × fonte (P9)",      numeros_contra_fonte),
 ]
 
-def run():
-    for desc, args, cwd in STEPS:
-        print(f"\n=== {desc} ===", flush=True)
-        r = subprocess.run(args, cwd=str(cwd))
-        if r.returncode != 0:
-            print(f"FALHOU em: {desc} (exit {r.returncode})", flush=True)
-            sys.exit(r.returncode)
+
+def run(*, hoje: Competencia | None = None) -> None:
+    """Roda as etapas na ordem. Exceção de etapa **sobe**, com tipo e pilha originais.
+
+    `hoje` é resolvido do dado quando não vem por parâmetro. Passá-lo existe para o teste — e
+    para o dia em que alguém quiser reprocessar contra outra competência sem editar código.
+    """
+    print("\n=== Séries IBGE/IPEADATA ===", flush=True)
+    ibge_series.executar()          # produz o `mes_base` que as outras 14 consomem
+
+    if hoje is None:
+        hoje = deflator.data_referencia(dados.ler("ibge_series"))
+    print(f"    data de referência do build: {hoje.rotulo_pt()}", flush=True)
+
+    for nome, etapa in ETAPAS:
+        print(f"\n=== {nome} ===", flush=True)
+        try:
+            etapa(hoje=hoje)
+        except Exception as erro:
+            # `add_note` e não `raise ... from ...`: o segundo troca o tipo que sobe, e quem
+            # trata a falha lá em cima perde a informação que interessa. Aqui o tipo, a
+            # mensagem e a pilha originais atravessam intactos, com o nome da etapa junto —
+            # que é justamente o que o `returncode` do `subprocess` não carregava.
+            erro.add_note(f"etapa que falhou: {nome}")
+            raise
+
     print("\nBUILD OK — relatórios gerados e validados.")
 
-def publish():
+
+def publish() -> None:
     """Publica pelo portão: build do site, verificação, e só então a cópia.
 
     Antes esta função tinha DUAS listas de arquivos escritas à mão — uma para o repositório
@@ -108,16 +135,24 @@ def publish():
 
     print("\n== Site (Astro) ==")
     print(f"  {build.constroi()} arquivos em site/")
-    try:
-        copiados = publica.publica()
-    except publica.NaoAprovado as e:
-        print(e)
-        sys.exit(1)
+    copiados = publica.publica()
     print(f"  {len(copiados)} cópias:")
     for c in copiados:
         print(f"    {c}")
 
-if __name__ == "__main__":
+
+def main() -> int:
     run()
     if "--publish" in sys.argv:
-        publish()
+        from egressos_site import publica
+        try:
+            publish()
+        except publica.NaoAprovado as erro:
+            # Portão reprovado não é defeito de programa: é a resposta dele. Mensagem, não pilha.
+            print(erro)
+            return 1
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

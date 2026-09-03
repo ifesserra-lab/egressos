@@ -24,7 +24,8 @@ import sys
 import pandas as pd
 
 import so_dataset
-from egressos_core import dados, fontes, salarios
+from egressos_core import dados, deflator, fontes, salarios
+from egressos_core.deflator import Competencia
 
 # Edições do survey que o modelo usa. A tabela de nomes de coluna NÃO está aqui: ela mudou três
 # vezes entre 2018 e 2025 e mora em `egressos_core.fontes`.
@@ -129,8 +130,29 @@ def mercado_hoje_factory(cambio_base: float):
     return mercado_hoje
 
 
-def executar() -> dict:
-    """Recalcula e grava `consolidado.json`. Devolve o que gravou."""
+def executar(*, hoje: Competencia) -> dict:   # noqa: ARG001 - fronteira única das etapas
+    """Recalcula e grava `consolidado.json`. Devolve o que gravou.
+
+    `hoje` não é usado: o ano-base da conta vem de `salario_minimo`, e a edição de mercado é
+    constante declarada (`EDICAO_MERCADO`). Ver o contrato das etapas.
+
+    Sem os CSVs do Stack Overflow — que não são versionados, ~150 MB por edição —, o
+    consolidado já commitado continua válido e é o que volta: o survey é anual, e quem detecta
+    edição nova é `pipeline/vigia_fontes.py`. A degradação é da ETAPA, não do domínio: o núcleo
+    não sabe que existe arquivo.
+    """
+    faltando = [a for a in range(PRIMEIRA_EDICAO, EDICAO_MERCADO + 1)
+                if not so_dataset.caminho_da_edicao(a).exists()]
+    if faltando:
+        if dados.caminho("consolidado").exists():
+            print(f"  CSVs do Stack Overflow ausentes {faltando} — mantendo consolidado.json "
+                  "versionado")
+            return dados.ler("consolidado")
+        raise FileNotFoundError(
+            f"faltam os CSVs {faltando} e não há consolidado.json versionado — obtenha as "
+            "edições com `python pipeline/so_dataset.py --edicao <ano>` (verifica o sha256 "
+            "da origem)")
+
     series = dados.ler("salario_minimo")
     sm = {int(k): v for k, v in series["sm_por_ano"].items()}
     fx = {int(k): v for k, v in series["cambio_por_ano"].items()}
@@ -168,20 +190,7 @@ def _js(itens, chaves):
 
 
 def main() -> int:
-    # Sem os CSVs (é o caso do CI), o consolidado já versionado continua válido: o survey é
-    # anual, e quem detecta edição nova é pipeline/vigia_fontes.py. Este é um comportamento da
-    # CASCA, não do domínio — o núcleo não sabe que existe arquivo.
-    faltando = [a for a in range(PRIMEIRA_EDICAO, EDICAO_MERCADO + 1)
-                if not so_dataset.caminho_da_edicao(a).exists()]
-    if faltando:
-        if dados.caminho("consolidado").exists():
-            print(f"CSVs do Stack Overflow ausentes {faltando} — mantendo consolidado.json versionado")
-            return 0
-        raise SystemExit(
-            f"ABORT: faltam os CSVs {faltando} e não há consolidado.json — obtenha as edições "
-            "com `python pipeline/so_dataset.py --edicao <ano>` (verifica o sha256 da origem)")
-
-    consolidado = executar()
+    consolidado = executar(hoje=deflator.data_referencia(dados.ler("ibge_series")))
 
     print("KPI:", json.dumps(consolidado["kpi"], ensure_ascii=False))
     print("\nPERFIS_JS:")

@@ -21,7 +21,8 @@ from __future__ import annotations
 
 import sys
 
-from egressos_core import dados
+from egressos_core import dados, deflator
+from egressos_core.deflator import Competencia
 
 #: Rótulo curto para porte de empresa, no eixo do mapa de calor. Nome inteiro não cabe numa
 #: coluna de matriz, e abreviar dentro do componente esconderia a decisão.
@@ -89,7 +90,8 @@ def _br(v: float, casas: int = 1) -> str:
     return f"{v:.{casas}f}".replace(".", ",")
 
 
-def executar() -> dict:
+def executar(*, hoje: Competencia) -> dict:   # noqa: ARG001
+    """`hoje` não é usado: os números saem de `consolidado` e `analise`. Ver o contrato."""
     cons = dados.ler("consolidado")
     an = dados.ler("analise")
     cf = dados.ler("codigofonte_2026")
@@ -377,7 +379,7 @@ def executar() -> dict:
 
 
 def main() -> int:
-    a = executar()
+    a = executar(hoje=deflator.data_referencia(dados.ler("ibge_series")))
     print(f"OK — {dados.caminho('impacto')}")
     print(f"  coorte: {a['coorte']['n']} · modelo salarial: {a['coorte']['n_no_modelo_salarial']}")
     print(f"  indicadores: {len(a['indicadores'])} · dispersão: {len(a['dispersao'])} grupos")

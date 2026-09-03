@@ -17,13 +17,11 @@ O cadastro real (`alunos.json`) NUNCA sai deste processo: entra aqui, sai anonim
 """
 from __future__ import annotations
 
-import json
+import sys
 
-from egressos_core import dados, panorama
-from egressos_core.deflator import data_referencia
+from egressos_core import dados, deflator, panorama
+from egressos_core.deflator import Competencia
 from egressos_core.paths import ROOT
-
-DESTINO = ROOT / "data/panorama.json"
 
 #: Ordem do cadastro → rótulo publicado. A mesma lista de `compute_all.py` e `analise.py`;
 #: o vínculo entre as três é por POSIÇÃO, e é o que mantém "Egresso C" sendo a mesma pessoa
@@ -111,15 +109,15 @@ def _publica(e: panorama.Experiencia, hoje: str) -> dict[str, object]:
     }
 
 
-def monta() -> dict[str, object]:
-    cadastro = json.loads((ROOT / "alunos.json").read_text(encoding="utf-8"))["alunos"]
+def monta(*, referencia: Competencia) -> dict[str, object]:
+    cadastro = dados.ler("alunos")["alunos"]
     portes = dados.ler("empresas_porte")
     consolidado = dados.ler("consolidado")
     # A data de "hoje" vem do último mês publicado do IPCA, não do relógio: era `const HOJE =
     # "2026-07"` cravado no HTML, que envelhecia em silêncio e fazia toda barra em curso parar
-    # no mês em que alguém editou o arquivo pela última vez.
-    ref = data_referencia(dados.ler("ibge_series"))
-    hoje = f"{ref.ano}-{ref.mes:02d}"
+    # no mês em que alguém editou o arquivo pela última vez. Agora ela chega de fora, resolvida
+    # UMA vez pelo orquestrador e passada igual às 16 etapas.
+    hoje = f"{referencia.ano}-{referencia.mes:02d}"
 
     por_id = {a["id"]: a for a in cadastro}
     faltando = [i for i in ORDEM if i not in por_id]
@@ -193,9 +191,14 @@ def _origem_comum(coorte: list[panorama.Egresso]) -> list[dict[str, object]]:
             for k, v in sorted(contagem.items(), key=lambda kv: -kv[1])]
 
 
-if __name__ == "__main__":
-    saida = monta()
-    DESTINO.write_text(json.dumps(saida, ensure_ascii=False, indent=1), encoding="utf-8")
+def executar(*, hoje: Competencia) -> dict:
+    saida = monta(referencia=hoje)
+    dados.gravar("panorama", saida)
+    return saida
+
+
+def main() -> int:
+    saida = executar(hoje=deflator.data_referencia(dados.ler("ibge_series")))
     ind = saida["indicadores"]
     print(f"  coorte: {ind['n']} egressos (A–{saida['coorte'][-1]['rotulo']}) · "
           f"{ind['em_tech']} em tech · média {ind['anos_media']} anos "
@@ -206,4 +209,9 @@ if __name__ == "__main__":
     print(f"  salto: {len(saida['salto'])} perfis, {saida['salto_fora']['n']} fora")
     print("  origem comum: " + ", ".join(
         f"{o['instituicao'].split(' ·')[0]} {o['n']}" for o in saida["origem_comum"][:4]))
-    print(f"OK: {DESTINO.relative_to(ROOT)}")
+    print(f"OK: {dados.caminho('panorama').relative_to(ROOT)}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

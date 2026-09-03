@@ -24,17 +24,18 @@ Uso:  python pipeline/ibge_series.py            (baixa e grava)
 Se a rede falhar e houver cache, usa o cache e avisa. Se não houver, aborta — o pipeline
 NÃO deve seguir com número inventado.
 """
-import datetime
+from __future__ import annotations
+
 import json
 import sys
 import urllib.error
 import urllib.request
 
 from egressos_core import dados, deflator
+from egressos_core.deflator import Competencia
 from egressos_core.paths import ROOT as BASE
 
-DATA = BASE / "data"
-CACHE = DATA / "_cache_ibge"
+CACHE = BASE / "data" / "_cache_ibge"
 
 ANO_BASE = 2026          # tudo que for "em R$ de X" usa este ano
 ANO_INI  = 2011          # o pipeline salarial começa aqui
@@ -64,7 +65,7 @@ def baixa(key, offline=False):
     cache = CACHE / meta["cache"]
     if offline:
         if not cache.exists():
-            sys.exit(f"ABORT: --offline mas não há cache em {cache}")
+            raise FileNotFoundError(f"--offline pedido, mas não há cache em {cache}")
         print(f"  [cache] {key}")
         return json.loads(cache.read_text(encoding="utf-8"))
     try:
@@ -78,7 +79,7 @@ def baixa(key, offline=False):
         if cache.exists():
             print(f"  [cache] {key}  (rede falhou: {e})")
             return json.loads(cache.read_text(encoding="utf-8"))
-        sys.exit(f"ABORT: {key} indisponível e sem cache — {e}")
+        raise RuntimeError(f"{key} indisponível e sem cache em {cache}: {e}") from e
 
 
 def parse_sidra(raw):
@@ -90,7 +91,7 @@ def parse_sidra(raw):
             continue
         out[row["D3C"]] = float(v)
     if not out:
-        sys.exit("ABORT: SIDRA devolveu série vazia")
+        raise ValueError("SIDRA devolveu série vazia — o pipeline não segue com número inventado")
     return out
 
 
@@ -102,17 +103,21 @@ def parse_ipea(raw):
             continue
         out[row["VALDATA"][:7].replace("-", "")] = float(row["VALVALOR"])
     if not out:
-        sys.exit("ABORT: IPEADATA devolveu série vazia")
+        raise ValueError("IPEADATA devolveu série vazia — o pipeline não segue com número inventado")
     return out
 
 
-def executar(*, hoje: datetime.date | None = None, offline: bool = False) -> None:
+def executar(*, hoje: Competencia | None = None, offline: bool = False) -> None:
     """Baixa as séries e grava `salario_minimo` e `ibge_series`.
 
-    Esta é a única etapa que **define** a data de referência do relatório em vez de recebê-la: o
-    `mes_base` é o último mês publicado do IPCA, e sai daqui para as outras 15 etapas. O parâmetro
-    `hoje` existe para a assinatura ser uniforme (ver o contrato das etapas) e é ignorado de
-    propósito — usá-lo aqui seria deixar o relógio da máquina decidir até onde a série vai.
+    **A exceção declarada da fronteira das etapas.** As outras recebem `hoje` como palavra-chave
+    obrigatória; esta o aceita opcional porque é ela que **produz** a data de referência em vez
+    de consumi-la: `mes_base` é o último mês publicado do IPCA, e sai daqui para as demais.
+
+    Exigir `hoje` aqui obrigaria o orquestrador a ter a data antes de existir arquivo de onde
+    tirá-la — num clone novo, não há. Por isso ela roda **fora** do laço em `build_report.run`,
+    e o parâmetro é ignorado de propósito: usá-lo seria deixar o relógio da máquina decidir até
+    onde a série vai.
     """
     del hoje
     print("== séries macro (IBGE + IPEADATA) ==")
@@ -195,5 +200,10 @@ def executar(*, hoje: datetime.date | None = None, offline: bool = False) -> Non
           f"real {u['ganho_real_pct']}% · em R$ de {ANO_BASE}: {u[f'em_reais_de_{ANO_BASE}']}")
 
 
-if __name__ == "__main__":
+def main() -> int:
     executar(offline="--offline" in sys.argv)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -20,6 +20,7 @@ from __future__ import annotations
 import sys
 
 from egressos_core import dados, deflator, trajetoria
+from egressos_core.deflator import Competencia
 
 #: Bolsa nível VI do projeto Prodest/FAPES, valor documentado de 2018. É o piso de onde a
 #: maior parte do coorte partiu, e o contraste dela com o salário mínimo do MESMO ano é o que
@@ -31,7 +32,12 @@ BOLSA_FAPES, BOLSA_ANO = 800, 2018
 N_MIN_ANO = 10
 
 
-def executar() -> dict:
+def executar(*, hoje: Competencia) -> dict:
+    """A competência de referência chega de fora, resolvida UMA vez pelo orquestrador.
+
+    Antes esta etapa relia `ibge_series` só para chamar `data_referencia` de novo — a mesma
+    data resolvida em dois lugares, que é como duas datas passam a existir.
+    """
     cons = dados.ler("consolidado")
     smj = dados.ler("salario_minimo")
     so = dados.ler("so_benchmarks")
@@ -86,7 +92,7 @@ def executar() -> dict:
                  "convertida pelo câmbio do próprio ano e deflacionada. Para uma pessoa "
                  "concreta pode ser MAIOR ou MENOR.",
         "ano_base": ano_base,
-        "referencia": deflator.data_referencia(dados.ler("ibge_series")).rotulo_pt(),
+        "referencia": hoje.rotulo_pt(),
         "minimo_de_pessoas_por_ano": N_MIN_ANO,
         "por_que_o_minimo":
             "Ano com menos pessoas que isso não vira ponto: a mediana seria de um punhado de "
@@ -217,7 +223,7 @@ def executar() -> dict:
 
 
 def main() -> int:
-    a = executar()
+    a = executar(hoje=deflator.data_referencia(dados.ler("ibge_series")))
     ind = a["trajetoria_indicadores"]
     print(f"OK — {dados.caminho('trajetoria')}")
     print(f"  série: {len(a['serie'])} anos ({a['serie'][0]['ano']}–{a['serie'][-1]['ano']}), "

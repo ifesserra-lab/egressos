@@ -15,12 +15,21 @@ import sys
 
 import gender_guesser.detector as gg
 
-from egressos_core import dados, genero
+from egressos_core import dados, deflator, genero
+from egressos_core.deflator import Competencia
 
 _detector = gg.Detector(case_sensitive=False)
 
 
-def executar() -> dict[str, str]:
+def executar(*, hoje: Competencia) -> dict[str, str]:   # noqa: ARG001 - ver docstring
+    """Grava e devolve `genero_map`.
+
+    `hoje` não é usado: inferir gênero pelo primeiro nome não depende de data. O parâmetro
+    existe porque a fronteira das 16 etapas é **uma só** (`specs/003-dominio-no-nucleo/
+    contracts/etapas-e-orquestracao.md`), e o orquestrador chama todas do mesmo jeito. Etapa
+    que aceita uma assinatura diferente obriga o orquestrador a saber qual é qual — e é
+    exatamente o que a fase acabou de eliminar.
+    """
     mapa = genero.mapa_do_coorte(dados.ler("alunos")["alunos"],
                                  consultar_base=_detector.get_gender)
     dados.gravar("genero_map", mapa)
@@ -28,7 +37,7 @@ def executar() -> dict[str, str]:
 
 
 def main() -> int:
-    mapa = executar()
+    mapa = executar(hoje=deflator.data_referencia(dados.ler("ibge_series")))
     f = sum(1 for v in mapa.values() if v == "F")
     print(f"genero_map.json: {len(mapa)} egressos -> {f} F ({100 * f / len(mapa):.0f}%) "
           f"/ {len(mapa) - f} M")

@@ -1,0 +1,1186 @@
+{
+ "titulo": "Recorte por curso — BSI e ECA, contagens e distribuições cruas",
+ "gerado_por": "pipeline/gen_cursos.py",
+ "atencao": "Vitrine nomeada no contrato do egressos_perfil (nome, cargo, empresa, cidade, endereço do perfil — nível LinkedIn, decisão da coordenação). ZERO campo de renda. Cargo e empresa CRUS, sem classificação: o vocabulário nasce do dado.",
+ "o_que_este_arquivo_nao_tem": "Renda: a estimativa mora em renda_por_senioridade, sem chave de pessoa, porque o valor nunca foi da pessoa — é a faixa de mercado para o nível de experiência. Headline e experiências cruas: texto livre não sai; a jornada entra curada, como a dos 50 do estudo.",
+ "cursos": {
+  "bsi": {
+   "curso": "bsi",
+   "nome_curso": "Sistemas de Informação",
+   "contagens": {
+    "formandos_na_fila": 170,
+    "processados_pela_coleta": 66,
+    "confirmados_pela_coleta": 64,
+    "confirmados_a_mao": 31,
+    "aguardando_conferencia": 1,
+    "no_estudo_original": 50,
+    "identificados": 114
+   },
+   "cargos": [
+    {
+     "texto": "Senior Software Engineer",
+     "n": 5
+    },
+    {
+     "texto": "Tech Lead",
+     "n": 3
+    },
+    {
+     "texto": "Engenheiro de Dados",
+     "n": 2
+    },
+    {
+     "texto": "Staff Software Engineer",
+     "n": 2
+    },
+    {
+     "texto": "Engenheiro de dados",
+     "n": 2
+    },
+    {
+     "texto": "Software Engineer",
+     "n": 2
+    },
+    {
+     "texto": "Engenheiro de Software Sênior",
+     "n": 1
+    },
+    {
+     "texto": "Consulting Engineer",
+     "n": 1
+    },
+    {
+     "texto": "Analista de Dados",
+     "n": 1
+    },
+    {
+     "texto": "Senior Consulting Engineer",
+     "n": 1
+    },
+    {
+     "texto": "Android Developer",
+     "n": 1
+    },
+    {
+     "texto": "IT Analyst",
+     "n": 1
+    }
+   ],
+   "empresas": [
+    {
+     "texto": "AEVO",
+     "n": 3
+    },
+    {
+     "texto": "MongoDB",
+     "n": 2
+    },
+    {
+     "texto": "PicPay",
+     "n": 2
+    },
+    {
+     "texto": "Hospital Israelita Albert Einstein",
+     "n": 2
+    },
+    {
+     "texto": "Accenture Brasil",
+     "n": 2
+    },
+    {
+     "texto": "Mercado Livre",
+     "n": 2
+    },
+    {
+     "texto": "LabTel - Laboratório de Telecomunicações (UFES)",
+     "n": 2
+    },
+    {
+     "texto": "Hitss Brasil",
+     "n": 2
+    },
+    {
+     "texto": "Ifes - Instituto Federal do Espírito Santo",
+     "n": 2
+    },
+    {
+     "texto": "Metris Energy",
+     "n": 1
+    },
+    {
+     "texto": "Doris",
+     "n": 1
+    },
+    {
+     "texto": "Marinha do Brasil",
+     "n": 1
+    }
+   ],
+   "vitrine": [
+    {
+     "nome": "Abner Benicio Silva",
+     "monograma": "AS",
+     "cargo": null,
+     "empresa": null,
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/abner-benicio-303763235/",
+     "jornada": []
+    },
+    {
+     "nome": "Aline Bravin Prasser",
+     "monograma": "AP",
+     "cargo": "Senior Frontend Developer",
+     "empresa": "BIX Tech",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/aline-bravin-prasser/",
+     "jornada": []
+    },
+    {
+     "nome": "Alvaro Vinícius de Almeida Martins",
+     "monograma": "AM",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/alvaromartins7/",
+     "jornada": []
+    },
+    {
+     "nome": "Amanda Ferreira de Souza",
+     "monograma": "AS",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/amanda-souza-03a11a182/",
+     "jornada": []
+    },
+    {
+     "nome": "Ana Elisa Paim Dias Rezende",
+     "monograma": "AR",
+     "cargo": "Quality Assurance Analyst",
+     "empresa": "NTT DATA",
+     "local": "Brazil",
+     "linkedin": "https://www.linkedin.com/in/ana-elisa-rezende-qa/",
+     "jornada": []
+    },
+    {
+     "nome": "Ana Gabriella Gomes de Almeida Ferreira",
+     "monograma": "AF",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/anagabriellagomes/",
+     "jornada": []
+    },
+    {
+     "nome": "Ana Júlia Caetano Martins",
+     "monograma": "AM",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/ana-julia-c-martins/",
+     "jornada": []
+    },
+    {
+     "nome": "Ana Paula Martins Guimarães Mutz",
+     "monograma": "AM",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/ana-paula-martins-dias-guimaraes/",
+     "jornada": []
+    },
+    {
+     "nome": "Andre Felipe Santos Martins",
+     "monograma": "AM",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/objetovazio/",
+     "jornada": []
+    },
+    {
+     "nome": "Andre Luiz Coelho Silva",
+     "monograma": "AS",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/andreluizcoelhosilva/",
+     "jornada": []
+    },
+    {
+     "nome": "André Altivo de Oliveira",
+     "monograma": "AO",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/andrealtivooliveira/",
+     "jornada": []
+    },
+    {
+     "nome": "André Barbosa da Vitória",
+     "monograma": "AV",
+     "cargo": "Especialista em Infraestrutura de TI",
+     "empresa": "Prodest - Processo Digital e Tecnologia da Informação do Estado do ES",
+     "local": "Espírito Santo, Brasil",
+     "linkedin": "https://www.linkedin.com/in/andre-vitoria/",
+     "jornada": []
+    },
+    {
+     "nome": "Antônio Carlos Durães da Silva",
+     "monograma": "AS",
+     "cargo": "Tech Lead",
+     "empresa": "AEVO",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/antonio-carlos-duraes-da-silva/",
+     "jornada": []
+    },
+    {
+     "nome": "Aroldo de Sa Vargas Neto",
+     "monograma": "AN",
+     "cargo": "Supervisor de Dados",
+     "empresa": "Eurotextil Comércio e Importação",
+     "local": "Vila Velha, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/aroldo-vargas-977321150/",
+     "jornada": []
+    },
+    {
+     "nome": "Arthur Delpupo Coelho",
+     "monograma": "AC",
+     "cargo": "Desenvolvedor ABAP",
+     "empresa": "FORTLEV",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/arthurdelpupo/",
+     "jornada": []
+    },
+    {
+     "nome": "Beatriz Auer Mariano",
+     "monograma": "BM",
+     "cargo": "Analista de Sistemas Pleno",
+     "empresa": "CI&T",
+     "local": "Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/beatriz-auer-mariano-141737219/",
+     "jornada": []
+    },
+    {
+     "nome": "Bianca Albuquerque da Silva",
+     "monograma": "BS",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/bianca-albuquerque/",
+     "jornada": []
+    },
+    {
+     "nome": "Brenno Alcantara Milanezi",
+     "monograma": "BM",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/brenno-milanezi/",
+     "jornada": []
+    },
+    {
+     "nome": "Bruno Carvalho Caxias",
+     "monograma": "BC",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/bruno-caxias/",
+     "jornada": []
+    },
+    {
+     "nome": "Bruno Moreto de Oliveira",
+     "monograma": "BO",
+     "cargo": "Desenvolvimento tecnicologico industrial",
+     "empresa": "LabTel - Laboratório de Telecomunicações (UFES)",
+     "local": "Vila Velha, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/bruno-moreto-de-oliveira-b2a879252/",
+     "jornada": []
+    },
+    {
+     "nome": "Bruno Schneider Plazzi",
+     "monograma": "BP",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/brunoplazzi/",
+     "jornada": []
+    },
+    {
+     "nome": "Caicke Carvalho Pinheiro",
+     "monograma": "CP",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/caicke/",
+     "jornada": []
+    },
+    {
+     "nome": "Caio Lessa Simão",
+     "monograma": "CS",
+     "cargo": "Desenvolvedor Back-End com foco em automação",
+     "empresa": "Leds - Ifes",
+     "local": "Brazil",
+     "linkedin": "https://www.linkedin.com/in/caio-lessa-simao/",
+     "jornada": []
+    },
+    {
+     "nome": "Caio Pupolin Antonio",
+     "monograma": "CA",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/caio-pupolin-010867155/",
+     "jornada": []
+    },
+    {
+     "nome": "Carlos Augusto Ribeiro Junior",
+     "monograma": "CJ",
+     "cargo": "Senior Software Engineer",
+     "empresa": "Mercado Livre",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/carlosribeiro41/",
+     "jornada": []
+    },
+    {
+     "nome": "Carlos Guilherme Felismino Pedroni",
+     "monograma": "CP",
+     "cargo": "Aluno",
+     "empresa": "Ifes - Instituto Federal do Espírito Santo",
+     "local": "Cariacica, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/guilherme-pedroni-47b29a2a9/",
+     "jornada": []
+    },
+    {
+     "nome": "Carlos Henrique Costa Matos",
+     "monograma": "CM",
+     "cargo": null,
+     "empresa": "CNPq - Conselho Nacional de Desenvolvimento Científico e Tecnológico · Ifes - Instituto Federal do Espírito Santo",
+     "local": "Cariacica, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/carloshenriquematos/",
+     "jornada": []
+    },
+    {
+     "nome": "Claudio Magno Barbieri Junior",
+     "monograma": "CJ",
+     "cargo": "Senior Android Developer",
+     "empresa": "SOUTH SYSTEM",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/claudio-barbieri/",
+     "jornada": []
+    },
+    {
+     "nome": "Cléber de Jesus Salustiano",
+     "monograma": "CS",
+     "cargo": "Desenvolvedor Backend",
+     "empresa": "GFT Technologies",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/clebersalustiano/",
+     "jornada": []
+    },
+    {
+     "nome": "Cristhian Fontana Mattiuzzi",
+     "monograma": "CM",
+     "cargo": null,
+     "empresa": "Unitá Soluções Digitais",
+     "local": "Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/cristhian-fontana-mattiuzzi-724899236/",
+     "jornada": []
+    },
+    {
+     "nome": "Daniel Henrique Comério",
+     "monograma": "DC",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/daniel-henrique-com%C3%A9rio-92b271150/",
+     "jornada": []
+    },
+    {
+     "nome": "Daniel Martins Patricio",
+     "monograma": "DP",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/daniel-patricio-65b294248/",
+     "jornada": []
+    },
+    {
+     "nome": "Diego Gava Monteiro",
+     "monograma": "DM",
+     "cargo": "Analyst, Database Engineering",
+     "empresa": "Visa/Pismo",
+     "local": "Vila Velha, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/diego-gava-monteiro/",
+     "jornada": []
+    },
+    {
+     "nome": "Diego Rodrigo Perez Pacheco",
+     "monograma": "DP",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/diego-perez-758760101/",
+     "jornada": []
+    },
+    {
+     "nome": "Douglas Campos Sutil",
+     "monograma": "DS",
+     "cargo": "Analista de sistemas",
+     "empresa": "ed",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/douglas-campos-sutil/",
+     "jornada": []
+    },
+    {
+     "nome": "Douglas Correa Nunes",
+     "monograma": "DN",
+     "cargo": null,
+     "empresa": "Arte Assinada",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/douglas-nunes-3b16b9247/",
+     "jornada": []
+    },
+    {
+     "nome": "Douglas Inácio Rodrigues Bravim Braga",
+     "monograma": "DB",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/douglasallanbraga/",
+     "jornada": []
+    },
+    {
+     "nome": "Edson Simões Boldrini",
+     "monograma": "EB",
+     "cargo": "Senior Engineering Lead",
+     "empresa": "Superset",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/edsonboldrini/",
+     "jornada": []
+    },
+    {
+     "nome": "Eduarda Rodrigues Simões",
+     "monograma": "ES",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/eduardarsimoes/",
+     "jornada": []
+    },
+    {
+     "nome": "Eduardo Alves Figueiredo",
+     "monograma": "EF",
+     "cargo": "Desenvolvedor de software",
+     "empresa": "Otus7",
+     "local": "Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/eduardo-alves-figueiredo-71b6b21b3/",
+     "jornada": []
+    },
+    {
+     "nome": "Eduardo Henrique Prospero Souza",
+     "monograma": "ES",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/eduardo-prospero/",
+     "jornada": []
+    },
+    {
+     "nome": "Elimar Rodrigues da Macena",
+     "monograma": "EM",
+     "cargo": "Software Engineer",
+     "empresa": "Wellhub",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/elimarmacena/",
+     "jornada": []
+    },
+    {
+     "nome": "Emanuel Medeiros Claudino",
+     "monograma": "EC",
+     "cargo": "Suporte técnico",
+     "empresa": "Consys - Consultoria e Sistemas",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/emanuel-medeiros-claudino-b2bb55209/",
+     "jornada": []
+    },
+    {
+     "nome": "Emanuel Norjosa Luz",
+     "monograma": "EL",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/emanuel-norjosa-luz-9a6bb6196/",
+     "jornada": []
+    },
+    {
+     "nome": "Emanuel Rampinelli Gloria",
+     "monograma": "EG",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/emanuel-rampinelli/",
+     "jornada": []
+    },
+    {
+     "nome": "Everson Delmaschio dos Santos",
+     "monograma": "ES",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/eversondelmaschio/",
+     "jornada": []
+    },
+    {
+     "nome": "Ewerson Vieira Nascimento",
+     "monograma": "EN",
+     "cargo": "Software Engineer",
+     "empresa": "EBANX",
+     "local": "Vila Velha, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/v1eira/",
+     "jornada": []
+    },
+    {
+     "nome": "Ezequiel Furtado Mapel",
+     "monograma": "EM",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/ezequielmapel/",
+     "jornada": []
+    },
+    {
+     "nome": "Fabio Henrique Fantin Ribeiro Cozer",
+     "monograma": "FC",
+     "cargo": "Analista de planejamento",
+     "empresa": "ES Gás",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/fabio-henrique-fantin-ribeiro-cozer-a23b3a221/",
+     "jornada": []
+    },
+    {
+     "nome": "Fernanda Jaimara do Nascimento",
+     "monograma": "FN",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/fernandajaimara/",
+     "jornada": []
+    },
+    {
+     "nome": "Filipe Suhett Nogueira Silva",
+     "monograma": "FS",
+     "cargo": "Engenheiro DevOps",
+     "empresa": "Trustly",
+     "local": "Vitoria, Brazil Metropolitan Area",
+     "linkedin": "https://www.linkedin.com/in/filipe-suhett/en/",
+     "jornada": []
+    },
+    {
+     "nome": "Gabriel Nascimento dos Passos",
+     "monograma": "GP",
+     "cargo": "Coordenador de Atendimento e Suporte ao Usuário",
+     "empresa": "Prefeitura de Vitória",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/gabrieldospassos/",
+     "jornada": []
+    },
+    {
+     "nome": "Gabriel Pontes Marchezi",
+     "monograma": "GM",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/gabriel-marchezi-43a0b819a/",
+     "jornada": []
+    },
+    {
+     "nome": "Gabriel Viggiano Fonseca",
+     "monograma": "GF",
+     "cargo": "Tech Lead",
+     "empresa": "SafetyTec Tecnologia e Inovação em Segurança do Trabalho",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/gabriel-viggiano-fonseca/",
+     "jornada": []
+    },
+    {
+     "nome": "Gabriela Piffer Marinato",
+     "monograma": "GM",
+     "cargo": "Desenvolvedor full stack",
+     "empresa": "Hitss Brasil",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/gabriela-piffer-marinato-8a48a11b0/",
+     "jornada": []
+    },
+    {
+     "nome": "Gabrielle Azevedo Barros da Cunha Duda",
+     "monograma": "GD",
+     "cargo": "Analista de Processo Pleno",
+     "empresa": null,
+     "local": "Vila Velha, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/gabrielle-azevedo-duda-45b634141/",
+     "jornada": []
+    },
+    {
+     "nome": "Giovanna Scalfoni Sales",
+     "monograma": "GS",
+     "cargo": "Associate Developer",
+     "empresa": "Thoughtworks",
+     "local": "Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/giovanna-scalfoni-sales-a78ab0298/",
+     "jornada": []
+    },
+    {
+     "nome": "Giseli Nunes Siqueira",
+     "monograma": "GS",
+     "cargo": "Engenheiro de Dados",
+     "empresa": "Taipa FIDC - Fundo de Investimento em Direitos Creditórios",
+     "local": "Brazil",
+     "linkedin": "https://www.linkedin.com/in/giseli-siqueira/",
+     "jornada": []
+    },
+    {
+     "nome": "Gislaine Jéssica Tiburcio de Almeida",
+     "monograma": "GA",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/gislainejessica/",
+     "jornada": []
+    },
+    {
+     "nome": "Graziene Viana Martins",
+     "monograma": "GM",
+     "cargo": "AI Engineering Intern",
+     "empresa": "PHOENIXX Experts en Intelligence Artificielle",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/grazienemartins/",
+     "jornada": []
+    },
+    {
+     "nome": "Guilherme Bodart de Oliveira Castro",
+     "monograma": "GC",
+     "cargo": "Senior Full Stack Engineer",
+     "empresa": "Ifes - Instituto Federal do Espírito Santo",
+     "local": "Vitoria, Brazil Metropolitan Area",
+     "linkedin": "https://www.linkedin.com/in/guilherme-bodart-de-oliveira-castro-819205194/",
+     "jornada": []
+    },
+    {
+     "nome": "Guilherme Firme Fiorot",
+     "monograma": "GF",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/guilhermefirmefiorot/",
+     "jornada": []
+    },
+    {
+     "nome": "Éllen Oliveira Silva Neves",
+     "monograma": "ÉN",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/eosn/",
+     "jornada": []
+    },
+    {
+     "nome": "Éverton Sales",
+     "monograma": "ÉS",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/everton-sales-60647618/",
+     "jornada": []
+    }
+   ]
+  },
+  "eca": {
+   "curso": "eca",
+   "nome_curso": "Engenharia de Controle e Automação",
+   "contagens": {
+    "formandos_na_fila": 110,
+    "processados_pela_coleta": 35,
+    "confirmados_pela_coleta": 28,
+    "confirmados_a_mao": 17,
+    "aguardando_conferencia": 7,
+    "no_estudo_original": 0,
+    "identificados": 28
+   },
+   "cargos": [
+    {
+     "texto": "Engenheira de Manutenção Sênior",
+     "n": 1
+    },
+    {
+     "texto": "Data Scientist",
+     "n": 1
+    },
+    {
+     "texto": "Assistente Técnico III",
+     "n": 1
+    },
+    {
+     "texto": "Software Engineer",
+     "n": 1
+    },
+    {
+     "texto": "Automation Specialist",
+     "n": 1
+    },
+    {
+     "texto": "Analista de automação",
+     "n": 1
+    },
+    {
+     "texto": "eletrotécnico",
+     "n": 1
+    },
+    {
+     "texto": "Instrutor de Língua Inglesa",
+     "n": 1
+    },
+    {
+     "texto": "Estagiário",
+     "n": 1
+    },
+    {
+     "texto": "Tecnico em automação industrial",
+     "n": 1
+    },
+    {
+     "texto": "Engenheiro de Petróleo",
+     "n": 1
+    }
+   ],
+   "empresas": [
+    {
+     "texto": "Vale",
+     "n": 1
+    },
+    {
+     "texto": "ArcelorMittal",
+     "n": 1
+    },
+    {
+     "texto": "Satel Brasil",
+     "n": 1
+    },
+    {
+     "texto": "Swap",
+     "n": 1
+    },
+    {
+     "texto": "FACOM - F. de Almeida Construções Ltda.",
+     "n": 1
+    },
+    {
+     "texto": "LYNX PROCESS",
+     "n": 1
+    },
+    {
+     "texto": "JB Serviços Elétricos",
+     "n": 1
+    },
+    {
+     "texto": "Ballpark",
+     "n": 1
+    },
+    {
+     "texto": "Vixteam Consultoria & Sistemas",
+     "n": 1
+    },
+    {
+     "texto": "CEP Manutenção de sistemas ltda",
+     "n": 1
+    },
+    {
+     "texto": "Petrobras",
+     "n": 1
+    }
+   ],
+   "vitrine": [
+    {
+     "nome": "Alessandra Cardoso de Freitas",
+     "monograma": "AF",
+     "cargo": "Engenheira de Manutenção Sênior",
+     "empresa": "Vale",
+     "local": "Brazil",
+     "linkedin": "https://www.linkedin.com/in/alessandra-cardoso-de-freitas-382b0a124/",
+     "jornada": [
+      {
+       "cargo": "Engenheira de Manutenção Sênior",
+       "empresa": "Vale",
+       "tipo": "Full-time",
+       "inicio": "Apr 2021",
+       "fim": "atual",
+       "duracao": "5 yrs 5 mos",
+       "local": "Brazil"
+      },
+      {
+       "cargo": "Analista sênior",
+       "empresa": "Vale",
+       "tipo": "-> -",
+       "inicio": "Jul 2020",
+       "fim": "Apr 2021",
+       "duracao": "10 mos",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Analista de Manutenção Pleno",
+       "empresa": "Vale",
+       "tipo": "-> -",
+       "inicio": "Jun 2012",
+       "fim": "Jul 2020",
+       "duracao": "8 yrs 2 mos",
+       "local": "Vitória e Região, Brasil"
+      },
+      {
+       "cargo": "Analista operacional",
+       "empresa": "Vale",
+       "tipo": "-> -",
+       "inicio": "Jul 2011",
+       "fim": "May 2012",
+       "duracao": "11 mos",
+       "local": "-> -"
+      },
+      {
+       "cargo": "Técnico de manutenção especiaizado",
+       "empresa": "Vale",
+       "tipo": "-> -",
+       "inicio": "Apr 2011",
+       "fim": "Jun 2011",
+       "duracao": "3 mos",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Técnico em eletrônica",
+       "empresa": "Vale",
+       "tipo": "-> -",
+       "inicio": "Nov 2004",
+       "fim": "Mar 2011",
+       "duracao": "6 yrs 5 mos",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Instrumentista",
+       "empresa": "Vale",
+       "tipo": "-> -",
+       "inicio": "Oct 2003",
+       "fim": "Oct 2004",
+       "duracao": "1 yr 1 mo",
+       "local": "Vitória, Espírito Santo, Brazil"
+      }
+     ]
+    },
+    {
+     "nome": "Alexia Coelho Barbosa",
+     "monograma": "AB",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/alexiacoelho-barbosa/",
+     "jornada": []
+    },
+    {
+     "nome": "Amanda Lucas Pereira",
+     "monograma": "AP",
+     "cargo": "Data Scientist",
+     "empresa": "ArcelorMittal",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/amandalpereira/",
+     "jornada": [
+      {
+       "cargo": "Researcher",
+       "empresa": "Researcher",
+       "tipo": "-> -",
+       "inicio": "Mar 2021",
+       "fim": "Aug 2022",
+       "duracao": "1 yr 6 mos",
+       "local": "Rio de Janeiro, Brazil"
+      },
+      {
+       "cargo": "Developer",
+       "empresa": "Olho do Dono S/A",
+       "tipo": "Full-time",
+       "inicio": "Oct 2019",
+       "fim": "Feb 2021",
+       "duracao": "1 yr 5 mos",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Intern",
+       "empresa": "Olho do Dono S/A",
+       "tipo": "-> -",
+       "inicio": "Dec 2018",
+       "fim": "Oct 2019",
+       "duracao": "11 mos",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Intern",
+       "empresa": "Dikma Facilities",
+       "tipo": "-> -",
+       "inicio": "Sep 2017",
+       "fim": "Sep 2018",
+       "duracao": "1 yr 1 mo",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Intern",
+       "empresa": "Seloco, Inc.",
+       "tipo": "-> -",
+       "inicio": "Jul 2016",
+       "fim": "Aug 2016",
+       "duracao": "2 mos",
+       "local": "Seoul, South Korea"
+      },
+      {
+       "cargo": "Scholar",
+       "empresa": "CNPq",
+       "tipo": "-> -",
+       "inicio": "Aug 2015",
+       "fim": "Aug 2016",
+       "duracao": "1 yr 1 mo",
+       "local": "South Korea"
+      },
+      {
+       "cargo": "Intern",
+       "empresa": "Hyundai Motor Company",
+       "tipo": "-> -",
+       "inicio": "Jan 2016",
+       "fim": "Feb 2016",
+       "duracao": "2 mos",
+       "local": "Hwaseong, Gyeonggi, South Korea"
+      }
+     ]
+    },
+    {
+     "nome": "André Athaydes Martins",
+     "monograma": "AM",
+     "cargo": "Assistente Técnico III",
+     "empresa": "Satel Brasil",
+     "local": "Vila Velha, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/andreathaydes/",
+     "jornada": []
+    },
+    {
+     "nome": "Antonione da Silva Mascarenhas Pinho",
+     "monograma": "AP",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/antonione/",
+     "jornada": []
+    },
+    {
+     "nome": "Artur Dias Rodrigues Vicente",
+     "monograma": "AV",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/artur-dias-750082247/",
+     "jornada": []
+    },
+    {
+     "nome": "Bernardo Vieira de Siqueira Botelho",
+     "monograma": "BB",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/bvsbotelho/",
+     "jornada": []
+    },
+    {
+     "nome": "Breno Nogueira de Castro",
+     "monograma": "BC",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/b-nogueira/",
+     "jornada": []
+    },
+    {
+     "nome": "Bruno Meschiatti Vasconcellos",
+     "monograma": "BV",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/bruno-meschiatti/",
+     "jornada": []
+    },
+    {
+     "nome": "Bruno Paiva Smit de Freitas",
+     "monograma": "BF",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/brnsmit/",
+     "jornada": []
+    },
+    {
+     "nome": "Bruno Rocha Pratti",
+     "monograma": "BP",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/bruno-pratti-71104a234/",
+     "jornada": []
+    },
+    {
+     "nome": "Caio Lopes de Oliveira",
+     "monograma": "CO",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/caio-lopes-3058a0256/",
+     "jornada": []
+    },
+    {
+     "nome": "Caio Mario Carletti Vilela Santos",
+     "monograma": "CS",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/caiomcarletti/",
+     "jornada": []
+    },
+    {
+     "nome": "Conrado Costa",
+     "monograma": "CC",
+     "cargo": "Software Engineer",
+     "empresa": "Swap",
+     "local": "Vitória, Espírito Santo, Brasil",
+     "linkedin": "https://www.linkedin.com/in/conrado-costa-a19467/",
+     "jornada": []
+    },
+    {
+     "nome": "Danilo Menon Leal",
+     "monograma": "DL",
+     "cargo": "Automation Specialist",
+     "empresa": "FACOM - F. de Almeida Construções Ltda.",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/danilomleal/",
+     "jornada": []
+    },
+    {
+     "nome": "Davi Aragão Ascacibas",
+     "monograma": "DA",
+     "cargo": "Analista de automação",
+     "empresa": "LYNX PROCESS",
+     "local": "Cariacica, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/davi-aragão-ascacibas-a6a7a21a0/",
+     "jornada": []
+    },
+    {
+     "nome": "Davson de Sousa dos Santos",
+     "monograma": "DS",
+     "cargo": "eletrotécnico",
+     "empresa": "JB Serviços Elétricos",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/davson-de-sousa-dos-santos-ba5b409b/",
+     "jornada": []
+    },
+    {
+     "nome": "Diego Pereira de Carvalho Pires",
+     "monograma": "DP",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/diego-pires-208593167/",
+     "jornada": []
+    },
+    {
+     "nome": "Diego de Deus Bazilio",
+     "monograma": "DB",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/diegodedeus/",
+     "jornada": []
+    },
+    {
+     "nome": "Douglas Loureiro Pimentel",
+     "monograma": "DP",
+     "cargo": "Instrutor de Língua Inglesa",
+     "empresa": "Ballpark",
+     "local": "Vila Velha, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/douglas-loureiro-pimentel-51a61a16a/",
+     "jornada": []
+    },
+    {
+     "nome": "Eduardo Lemos Loureiro",
+     "monograma": "EL",
+     "cargo": "Estagiário",
+     "empresa": "Vixteam Consultoria & Sistemas",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/eduardo-pitanga-loureiro/",
+     "jornada": []
+    },
+    {
+     "nome": "Emanoel Carlos de Souza Vitor",
+     "monograma": "EV",
+     "cargo": "Tecnico em automação industrial",
+     "empresa": "CEP Manutenção de sistemas ltda",
+     "local": "Vila Velha, Espírito Santo, Brasil",
+     "linkedin": "https://www.linkedin.com/in/emanoel-carlos-de-souza-vitor-1b678bb/",
+     "jornada": []
+    },
+    {
+     "nome": "Fabiano de Oliveira Ferreira",
+     "monograma": "FF",
+     "cargo": "Engenheiro de Petróleo",
+     "empresa": "Petrobras",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/fabiano-de-oliveira-ferreira-a6667498/",
+     "jornada": []
+    },
+    {
+     "nome": "Fabricio Sant'anna Rêlo",
+     "monograma": "FR",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/fabriciorelo/",
+     "jornada": []
+    },
+    {
+     "nome": "Frederico Ramos Wernesbach",
+     "monograma": "FW",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/frederico-wernesbach/",
+     "jornada": []
+    },
+    {
+     "nome": "Gabriel Saade Pagani",
+     "monograma": "GP",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/gabriel-pagani-573464136/",
+     "jornada": []
+    },
+    {
+     "nome": "Geovani Lima Telles",
+     "monograma": "GT",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/geovani-telles-22960177/",
+     "jornada": []
+    },
+    {
+     "nome": "Guilherme Souza Otone",
+     "monograma": "GO",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/guilhermeotone/",
+     "jornada": []
+    }
+   ]
+  }
+ }
+}
