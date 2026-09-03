@@ -9,10 +9,10 @@
    "n_egressos": 50
   },
   "engenharia": {
-   "nome": "Engenharia — nome oficial a confirmar",
+   "nome": "Engenharia de Controle e Automação",
    "grau": "bacharelado",
    "campus": "Serra",
-   "situacao": "sem egressos levantados; o slot existe para a tela já filtrar por curso",
+   "situacao": "no escopo da coleta, ainda sem egressos levantados; nome oficial confirmado pelas listas de formados do SIGA (data/formandos), que trazem 110 formandos do curso",
    "n_egressos": 0
   }
  },
