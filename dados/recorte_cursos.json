@@ -116,6 +116,20 @@
      "n": 1
     }
    ],
+   "cobertura": {
+    "cargo": {
+     "com": 80,
+     "de": 114
+    },
+    "empresa": {
+     "com": 82,
+     "de": 114
+    },
+    "jornada": {
+     "com": 23,
+     "de": 64
+    }
+   },
    "vitrine": [
     {
      "nome": "Abner Benicio Silva",
@@ -133,7 +147,59 @@
      "empresa": "BIX Tech",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/aline-bravin-prasser/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Senior Frontend Developer",
+       "empresa": "BIX Tech",
+       "tipo": "Full-time",
+       "inicio": "2024-06",
+       "duracao": "2 anos 3 meses",
+       "local": "Remote"
+      },
+      {
+       "cargo": "Senior Frontend Developer",
+       "empresa": "Code n'App",
+       "tipo": "Full-time",
+       "inicio": "2024-02",
+       "fim": "2024-06",
+       "duracao": "5 meses",
+       "local": "Vitória, Espírito Santo, Brasil (Hybrid)"
+      },
+      {
+       "cargo": "Frontend Developer",
+       "empresa": "Code n'App",
+       "tipo": "Full-time",
+       "inicio": "2021-09",
+       "fim": "2024-02",
+       "duracao": "2 anos 6 meses"
+      },
+      {
+       "cargo": "UX Designer",
+       "empresa": "UseRH",
+       "tipo": "Full-time",
+       "inicio": "2021-06",
+       "fim": "2021-08",
+       "duracao": "3 meses",
+       "local": "Remote"
+      },
+      {
+       "cargo": "Full Stack Engineer",
+       "empresa": "Freelance",
+       "tipo": "Freelance",
+       "inicio": "2020-12",
+       "fim": "2021-05",
+       "duracao": "6 meses"
+      },
+      {
+       "cargo": "Database Analyst",
+       "empresa": "Databasers",
+       "tipo": "Full-time",
+       "inicio": "2019-07",
+       "fim": "2020-11",
+       "duracao": "1 ano 5 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Alvaro Vinícius de Almeida Martins",
@@ -142,7 +208,52 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/alvaromartins7/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Engenheiro de Inteligência Artificial",
+       "empresa": "Vale",
+       "tipo": "Full-time",
+       "inicio": "2025-02",
+       "duracao": "1 ano 7 meses",
+       "local": "Vitória, Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Analista de Sistemas Pleno III",
+       "empresa": "LYNX PROCESS",
+       "tipo": "Full-time",
+       "inicio": "2024-05",
+       "fim": "2025-01",
+       "duracao": "9 meses",
+       "local": "Vitória, Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Analista de Sistemas e BI",
+       "empresa": "Politintas",
+       "tipo": "Full-time",
+       "inicio": "2024-01",
+       "fim": "2024-05",
+       "duracao": "5 meses",
+       "local": "Cariacica, Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Engenheiro de Dados (Data Office)",
+       "empresa": "ArcelorMittal Brasil",
+       "tipo": "Internship",
+       "inicio": "2023-03",
+       "fim": "2023-12",
+       "duracao": "10 meses",
+       "local": "Serra, Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Analista de Sistemas (Backoffice)",
+       "empresa": "Autoglass - Brasil",
+       "tipo": "Internship",
+       "inicio": "2021-05",
+       "fim": "2023-03",
+       "duracao": "1 ano 11 meses",
+       "local": "Vila Velha, Espírito Santo, Brasil"
+      }
+     ]
     },
     {
      "nome": "Amanda Ferreira de Souza",
@@ -151,7 +262,51 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/amanda-souza-03a11a182/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Instrutora de TI",
+       "empresa": "Senac Espírito Santo",
+       "tipo": "Part-time",
+       "inicio": "2026-05",
+       "duracao": "4 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Analista de Suporte Junior",
+       "empresa": "Athenas Tecnologia em Softwares",
+       "tipo": "Full-time",
+       "inicio": "2024-01",
+       "duracao": "2 anos 8 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Instrutora de TI",
+       "empresa": "Instituto João XXIII",
+       "tipo": "Part-time",
+       "inicio": "2025-06",
+       "fim": "2025-12",
+       "duracao": "7 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiária",
+       "empresa": "Prosperi",
+       "tipo": "Internship",
+       "inicio": "2022-01",
+       "fim": "2024-01",
+       "duracao": "2 anos 1 mês",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiária Suprimentos",
+       "empresa": "Vale",
+       "tipo": "Internship",
+       "inicio": "2020-02",
+       "fim": "2021-11",
+       "duracao": "1 ano 10 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      }
+     ]
     },
     {
      "nome": "Ana Elisa Paim Dias Rezende",
@@ -160,7 +315,46 @@
      "empresa": "NTT DATA",
      "local": "Brazil",
      "linkedin": "https://www.linkedin.com/in/ana-elisa-rezende-qa/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Analista de QA",
+       "empresa": "NTT DATA, Inc.",
+       "tipo": "Integral",
+       "inicio": "2024-07",
+       "duracao": "2 anos 2 meses"
+      },
+      {
+       "cargo": "Analista de QA",
+       "empresa": "iSmartBlue",
+       "tipo": "Self-employed",
+       "inicio": "2024-04",
+       "fim": "2024-11",
+       "duracao": "8 meses"
+      },
+      {
+       "cargo": "Analista de QA",
+       "empresa": "DXC Technology",
+       "tipo": "Integral",
+       "inicio": "2021-09",
+       "fim": "2024-07",
+       "duracao": "2 anos 11 meses"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "Vale",
+       "tipo": "Estágio",
+       "inicio": "2019-09",
+       "fim": "2021-09",
+       "duracao": "2 anos 1 mês"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "Databasers",
+       "tipo": "Estágio",
+       "inicio": "2019-08",
+       "duracao": "1 mês"
+      }
+     ]
     },
     {
      "nome": "Ana Gabriella Gomes de Almeida Ferreira",
@@ -169,7 +363,25 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/anagabriellagomes/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Assistente de infraestrutura",
+       "empresa": "TOTVS LESTE",
+       "tipo": "Full-time",
+       "inicio": "2024-01",
+       "duracao": "2 anos 8 meses",
+       "local": "missing"
+      },
+      {
+       "cargo": "Estagiária de TI",
+       "empresa": "TOTVS LESTE",
+       "tipo": "Internship",
+       "inicio": "2022-01",
+       "fim": "2024-01",
+       "duracao": "2 anos 1 mês",
+       "local": "Vila Velha, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Ana Júlia Caetano Martins",
@@ -178,7 +390,51 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/ana-julia-c-martins/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Master’s Student in Applied Computing",
+       "empresa": "IFES - Instituto Federal do Espírito Santo",
+       "tipo": "On-site",
+       "inicio": "2026-04",
+       "duracao": "5 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Undergraduate Research — ML Solutions for DDoS Attack Detection and Mitigation in Scrubbing Centers",
+       "empresa": "IFES - Instituto Federal do Espírito Santo",
+       "tipo": "On-site",
+       "inicio": "2025-09",
+       "fim": "2026-04",
+       "duracao": "8 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Undergraduate Researcher – Software-Defined Networking (SDN)",
+       "empresa": "IFES - Instituto Federal do Espírito Santo",
+       "tipo": "On-site",
+       "inicio": "2024-09",
+       "fim": "2025-08",
+       "duracao": "1 ano",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "System Development & IT Support",
+       "empresa": "IFES - Instituto Federal do Espírito Santo",
+       "tipo": "Internship",
+       "inicio": "2023",
+       "fim": "2024",
+       "local": "Serra, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Auxiliar de Escritório",
+       "empresa": "JW RESTAURANTE ESPACO DO SABOR LTDA",
+       "tipo": "Full-time",
+       "inicio": "2022-06",
+       "fim": "2022-08",
+       "duracao": "3 meses",
+       "local": "Serra, Espírito Santo, Brazil · On-site"
+      }
+     ]
     },
     {
      "nome": "Ana Paula Martins Guimarães Mutz",
@@ -187,7 +443,31 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/ana-paula-martins-dias-guimaraes/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Analista de Métricas de Software",
+       "empresa": "FATTO Consultoria e Sistemas",
+       "tipo": "Full-time",
+       "inicio": "2021-11",
+       "duracao": "4 anos 10 meses"
+      },
+      {
+       "cargo": "Estagiária em Análise de Pontos de Função",
+       "empresa": "FATTO Consultoria e Sistemas",
+       "tipo": "Internship",
+       "inicio": "2020-10",
+       "fim": "2021-11",
+       "duracao": "1 ano 2 meses"
+      },
+      {
+       "cargo": "Iniciação Científica",
+       "empresa": "Instituto Federal de Educação, Ciência e Tecnologia do Espírito Santo",
+       "inicio": "2018-08",
+       "fim": "2020-08",
+       "duracao": "2 anos 1 mês",
+       "local": "Espírito Santo"
+      }
+     ]
     },
     {
      "nome": "Andre Felipe Santos Martins",
@@ -196,7 +476,79 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/objetovazio/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Analista de TI",
+       "empresa": "Sesc Espírito Santo",
+       "tipo": "Full-time",
+       "inicio": "2025-08",
+       "duracao": "1 ano 1 mês",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Desenvolvedor de software pleno",
+       "empresa": "LiberFly",
+       "tipo": "Full-time",
+       "inicio": "2024-10",
+       "fim": "2025-07",
+       "duracao": "10 meses",
+       "local": "Vitória, Espírito Santo, Brazil · Hybrid"
+      },
+      {
+       "cargo": "Software Engineer",
+       "empresa": "LexisNexis Risk Solutions",
+       "tipo": "Full-time",
+       "inicio": "2021-01",
+       "fim": "2023-10",
+       "duracao": "2 anos 10 meses",
+       "local": "São Paulo, Brazil · Remote"
+      },
+      {
+       "cargo": "Internship",
+       "empresa": "LexisNexis Risk Solutions",
+       "tipo": "Internship",
+       "inicio": "2019-03",
+       "fim": "2021-01",
+       "duracao": "1 ano 11 meses",
+       "local": "São Paulo, Brasil"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "PROSPERI - OTIMIZANDO PROJETOS, GERANDO RESULTADOS",
+       "tipo": "Internship",
+       "inicio": "2018-11",
+       "fim": "2019-03",
+       "duracao": "5 meses",
+       "local": "Vitória, Espírito Santo"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "Phidelis Tecnologia",
+       "tipo": "Internship",
+       "inicio": "2018-03",
+       "fim": "2018-11",
+       "duracao": "9 meses",
+       "local": "Vila Velha, Espírito Santo · On-site"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "ETAURE TI & AUTOMAÇÃO",
+       "tipo": "Internship",
+       "inicio": "2017-03",
+       "fim": "2018-03",
+       "duracao": "1 ano 1 mês",
+       "local": "Vitória, Espírito Santo"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "Vixteam Consultoria & Sistemas",
+       "tipo": "Internship",
+       "inicio": "2015-01",
+       "fim": "2017-01",
+       "duracao": "2 anos 1 mês",
+       "local": "Vitória, Espírito Santo"
+      }
+     ]
     },
     {
      "nome": "Andre Luiz Coelho Silva",
@@ -205,7 +557,34 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/andreluizcoelhosilva/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "DevOps Analyst",
+       "empresa": "Leds - Ifes",
+       "tipo": "Full-time",
+       "inicio": "2025-03",
+       "duracao": "1 ano 6 meses",
+       "local": "Hybrid"
+      },
+      {
+       "cargo": "Desenvolvedor full stack",
+       "empresa": "Leds - Ifes",
+       "tipo": "Part-time",
+       "inicio": "2024-05",
+       "fim": "2025-02",
+       "duracao": "10 meses",
+       "local": "On-site"
+      },
+      {
+       "cargo": "Desenvolvedor de software",
+       "empresa": "Lead Applied Solutions",
+       "tipo": "Part-time",
+       "inicio": "2021-05",
+       "fim": "2023-11",
+       "duracao": "2 anos 7 meses",
+       "local": "Vitória, Espírito Santo, Brazil · Remote"
+      }
+     ]
     },
     {
      "nome": "André Altivo de Oliveira",
@@ -214,7 +593,33 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/andrealtivooliveira/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Aprendiz",
+       "empresa": "V1 App",
+       "tipo": "Part-time",
+       "inicio": "2024-10",
+       "duracao": "1 ano 11 meses",
+       "local": "Vitória, Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Aprendiz",
+       "empresa": "Findes",
+       "tipo": "Part-time",
+       "inicio": "2024-09",
+       "duracao": "2 anos",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Professor de computação",
+       "empresa": "Senac Espírito Santo",
+       "tipo": "Contract",
+       "inicio": "2023-10",
+       "fim": "2024-01",
+       "duracao": "4 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "André Barbosa da Vitória",
@@ -223,7 +628,51 @@
      "empresa": "Prodest - Processo Digital e Tecnologia da Informação do Estado do ES",
      "local": "Espírito Santo, Brasil",
      "linkedin": "https://www.linkedin.com/in/andre-vitoria/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Senior Data & AI Architect",
+       "empresa": "Vale",
+       "tipo": "Full-time",
+       "inicio": "2024-07",
+       "duracao": "2 anos 2 meses",
+       "local": "Vitória, Espírito Santo, Brazil · Remote"
+      },
+      {
+       "cargo": "Staff Machine Learning Engineer",
+       "empresa": "PicPay",
+       "tipo": "Full-time",
+       "inicio": "2022-05",
+       "fim": "2024-07",
+       "duracao": "2 anos 3 meses",
+       "local": "Vitória, Espírito Santo, Brasil · Remote"
+      },
+      {
+       "cargo": "Advanced Analytics Architect",
+       "empresa": "TIVIT",
+       "tipo": "Full-time",
+       "inicio": "2019-12",
+       "fim": "2022-04",
+       "duracao": "2 anos 5 meses",
+       "local": "Vitória e Região, Brasil"
+      },
+      {
+       "cargo": "Analytics Architecture Intern",
+       "empresa": "Vale",
+       "tipo": "Internship",
+       "inicio": "2018-04",
+       "fim": "2019-12",
+       "duracao": "1 ano 9 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Scientific Researcher",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "inicio": "2016-08",
+       "fim": "2017-07",
+       "duracao": "1 ano",
+       "local": "Serra"
+      }
+     ]
     },
     {
      "nome": "Antônio Carlos Durães da Silva",
@@ -232,7 +681,33 @@
      "empresa": "AEVO",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/antonio-carlos-duraes-da-silva/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Líder técnico",
+       "empresa": "AEVO",
+       "tipo": "Full-time",
+       "inicio": "2022-05",
+       "duracao": "4 anos 4 meses"
+      },
+      {
+       "cargo": "Analista e Desenvolvedor de Software",
+       "empresa": "AEVO",
+       "tipo": "Full-time",
+       "inicio": "2019-07",
+       "fim": "2022-04",
+       "duracao": "2 anos 10 meses",
+       "local": "Vitória, Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Desenvolvedor de Software",
+       "empresa": "AEVO",
+       "tipo": "Internship",
+       "inicio": "2018-07",
+       "fim": "2019-07",
+       "duracao": "1 ano 1 mês",
+       "local": "Vitória, Espírito Santo, Brasil"
+      }
+     ]
     },
     {
      "nome": "Aroldo de Sa Vargas Neto",
@@ -241,7 +716,51 @@
      "empresa": "Eurotextil Comércio e Importação",
      "local": "Vila Velha, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/aroldo-vargas-977321150/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Analista de Dados Pleno | Mid-Level Data Analyst",
+       "empresa": "Eurotextil Comércio e Importação",
+       "tipo": "Full-time",
+       "inicio": "2024-06",
+       "duracao": "2 anos 3 meses",
+       "local": "Vila Velha, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Analista de Dados Júnior | Entry-Level Data Analyst",
+       "empresa": "Eurotextil Comércio e Importação",
+       "tipo": "Full-time",
+       "inicio": "2023-01",
+       "fim": "2024-06",
+       "duracao": "1 ano 6 meses",
+       "local": "Vila Velha, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Analista de Sistemas | Systems Analyst",
+       "empresa": "Eurotextil Comércio e Importação",
+       "tipo": "Full-time",
+       "inicio": "2021-01",
+       "fim": "2022-12",
+       "duracao": "2 anos",
+       "local": "Vila Velha, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário de Sistemas de Informação | Intern Systems Analyst",
+       "empresa": "Eurotextil Comércio e Importação",
+       "tipo": "Internship",
+       "inicio": "2020-08",
+       "fim": "2020-12",
+       "duracao": "5 meses",
+       "local": "Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Pesquisador",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "inicio": "2019-08",
+       "fim": "2021-07",
+       "duracao": "2 anos",
+       "local": "Serra, Espírito Santo"
+      }
+     ]
     },
     {
      "nome": "Arthur Delpupo Coelho",
@@ -250,7 +769,57 @@
      "empresa": "FORTLEV",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/arthurdelpupo/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Analista de Sistemas - ABAP",
+       "empresa": "FORTLEV",
+       "tipo": "Full-time",
+       "inicio": "2026-04",
+       "duracao": "5 meses",
+       "local": "Serra, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Analista de integração",
+       "empresa": "Triágil",
+       "tipo": "Full-time",
+       "inicio": "2024-12",
+       "duracao": "1 ano 9 meses",
+       "local": "Vitória, Espírito Santo, Brazil · Remote"
+      },
+      {
+       "cargo": "Estagiário de desenvolvimento",
+       "empresa": "Triágil",
+       "tipo": "Internship",
+       "inicio": "2024-04",
+       "fim": "2024-12",
+       "duracao": "9 meses"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "ArcelorMittal Brasil",
+       "tipo": "Apprenticeship",
+       "inicio": "2023-03",
+       "fim": "2025-05",
+       "duracao": "2 anos 3 meses",
+       "local": "Vitória, Espírito Santo, Brazil · Remote"
+      },
+      {
+       "cargo": "Desenvolvedor Django",
+       "empresa": "Leds - Ifes",
+       "tipo": "Internship",
+       "inicio": "2022-07",
+       "fim": "2024-05",
+       "duracao": "1 ano 11 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Django Developer",
+       "empresa": "LEDS - Laboratório de Extensão em Desenvolvimento de Soluções (IFES - Serra, ES)",
+       "inicio": "2021",
+       "fim": "2024-03",
+       "local": "Serra, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Beatriz Auer Mariano",
@@ -259,7 +828,43 @@
      "empresa": "CI&T",
      "local": "Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/beatriz-auer-mariano-141737219/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Desenvolvedora back end",
+       "empresa": "CI&T",
+       "tipo": "Full-time",
+       "inicio": "2025-02",
+       "duracao": "1 ano 7 meses",
+       "local": "Remote"
+      },
+      {
+       "cargo": "Estagiária de desenvolvimento de software",
+       "empresa": "CI&T",
+       "tipo": "Internship",
+       "inicio": "2023-03",
+       "fim": "2025-02",
+       "duracao": "2 anos",
+       "local": "Campinas, São Paulo, Brazil"
+      },
+      {
+       "cargo": "Estagiária de TI",
+       "empresa": "UFES - Universidade Federal do Espírito Santo",
+       "tipo": "Internship",
+       "inicio": "2022-09",
+       "fim": "2022-12",
+       "duracao": "4 meses",
+       "local": "Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Aprendiz de técnico",
+       "empresa": "ArcelorMittal",
+       "tipo": "Apprenticeship",
+       "inicio": "2020-02",
+       "fim": "2021-07",
+       "duracao": "1 ano 6 meses",
+       "local": "Espírito Santo, Brazil · On-site"
+      }
+     ]
     },
     {
      "nome": "Bianca Albuquerque da Silva",
@@ -268,7 +873,44 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/bianca-albuquerque/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Desenvolvedor de front-end Pleno",
+       "empresa": "Grupo Quattror",
+       "inicio": "2025-10",
+       "duracao": "11 meses"
+      },
+      {
+       "cargo": "Desenvolvedor de front-end Júnior",
+       "empresa": "Grupo Quattror",
+       "inicio": "2024-08",
+       "fim": "2025-10",
+       "duracao": "1 ano 3 meses"
+      },
+      {
+       "cargo": "Desenvolvedor JR",
+       "empresa": "americanas s.a.",
+       "inicio": "2022-06",
+       "fim": "2023-08",
+       "duracao": "1 ano 3 meses"
+      },
+      {
+       "cargo": "Assistente de projetos",
+       "empresa": "americanas s.a.",
+       "inicio": "2021-11",
+       "fim": "2022-06",
+       "duracao": "8 meses"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "FATTO Consultoria e Sistemas",
+       "tipo": "Internship",
+       "inicio": "2020-03",
+       "fim": "2021-07",
+       "duracao": "1 ano 5 meses",
+       "local": "Vitória, Espírito Santo, Brasil"
+      }
+     ]
     },
     {
      "nome": "Brenno Alcantara Milanezi",
@@ -277,7 +919,40 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/brenno-milanezi/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Analista Desenvolvedor",
+       "empresa": "V1 App",
+       "tipo": "Full-time",
+       "inicio": "2022-06",
+       "duracao": "4 anos 3 meses"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "V1 App",
+       "tipo": "Internship",
+       "inicio": "2021-05",
+       "fim": "2022-05",
+       "duracao": "1 ano 1 mês"
+      },
+      {
+       "cargo": "Software Developer",
+       "empresa": "Super Estágios",
+       "tipo": "Full-time",
+       "inicio": "2019-02",
+       "fim": "2020-12",
+       "duracao": "1 ano 11 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "Super Estágios",
+       "tipo": "Internship",
+       "inicio": "2017-06",
+       "fim": "2019-01",
+       "duracao": "1 ano 8 meses"
+      }
+     ]
     },
     {
      "nome": "Bruno Carvalho Caxias",
@@ -286,7 +961,42 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/bruno-caxias/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Desenvolvedor Java",
+       "empresa": "Green Ocean Technologies",
+       "tipo": "Contract",
+       "inicio": "2025-06",
+       "fim": "2026-02",
+       "duracao": "9 meses"
+      },
+      {
+       "cargo": "Desenvolvedor Backend",
+       "empresa": "Leds - Ifes",
+       "tipo": "Full-time",
+       "inicio": "2024-06",
+       "fim": "2025-04",
+       "duracao": "11 meses",
+       "local": "Hybrid"
+      },
+      {
+       "cargo": "Desenvolvedor Backend",
+       "empresa": "Leds - Ifes",
+       "tipo": "Part-time",
+       "inicio": "2024-01",
+       "fim": "2024-06",
+       "duracao": "6 meses",
+       "local": "Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Full Stack Developer",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "inicio": "2023-05",
+       "fim": "2023-12",
+       "duracao": "8 meses",
+       "local": "Remote"
+      }
+     ]
     },
     {
      "nome": "Bruno Moreto de Oliveira",
@@ -295,7 +1005,16 @@
      "empresa": "LabTel - Laboratório de Telecomunicações (UFES)",
      "local": "Vila Velha, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/bruno-moreto-de-oliveira-b2a879252/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Desenvolvimento tecnicologico industrial",
+       "empresa": "LabTel - Laboratório de Telecomunicações (UFES)",
+       "tipo": "Full-time",
+       "inicio": "2023-09",
+       "duracao": "3 anos",
+       "local": "Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Bruno Schneider Plazzi",
@@ -304,7 +1023,23 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/brunoplazzi/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Analista de sistemas",
+       "empresa": "Crea-ES",
+       "tipo": "Full-time",
+       "inicio": "2026-03",
+       "duracao": "6 meses"
+      },
+      {
+       "cargo": "Programa STEM",
+       "empresa": "ArcelorMittal Brasil",
+       "tipo": "Internship",
+       "inicio": "2024-05",
+       "fim": "2026-02",
+       "duracao": "1 ano 10 meses"
+      }
+     ]
     },
     {
      "nome": "Caicke Carvalho Pinheiro",
@@ -313,7 +1048,34 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/caicke/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Desenvolvedor full stack",
+       "empresa": "Agrometrika",
+       "tipo": "Full-time",
+       "inicio": "2026-05",
+       "duracao": "4 meses",
+       "local": "Campinas, São Paulo, Brazil"
+      },
+      {
+       "cargo": "Desenvolvedor back-end júnior",
+       "empresa": "Listo",
+       "tipo": "Full-time",
+       "inicio": "2022-10",
+       "fim": "2026-04",
+       "duracao": "3 anos 7 meses",
+       "local": "São Paulo, Brazil"
+      },
+      {
+       "cargo": "Desenvolvedor Júnior Fullstack",
+       "empresa": "Mitis",
+       "tipo": "Full-time",
+       "inicio": "2021-02",
+       "fim": "2022-10",
+       "duracao": "1 ano 9 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Caio Lessa Simão",
@@ -322,7 +1084,12 @@
      "empresa": "Leds - Ifes",
      "local": "Brazil",
      "linkedin": "https://www.linkedin.com/in/caio-lessa-simao/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "(Extraction pending after scrolling to load all experiences)",
+       "empresa": null
+      }
+     ]
     },
     {
      "nome": "Caio Pupolin Antonio",
@@ -331,7 +1098,52 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/caio-pupolin-010867155/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Gerente de Projetos CX",
+       "empresa": "SMT",
+       "tipo": "Integral",
+       "inicio": "2024-04",
+       "duracao": "2 anos 5 meses",
+       "local": "Vitória, Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Analista CX",
+       "empresa": "SMT",
+       "tipo": "Integral",
+       "inicio": "2021-04",
+       "fim": "2024-04",
+       "duracao": "3 anos 1 mês",
+       "local": "Vitória, Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Assessor/Gerente de projetos",
+       "empresa": "Morpheus Jr.",
+       "tipo": "Part-time",
+       "inicio": "2019-08",
+       "fim": "2021-01",
+       "duracao": "1 ano 6 meses",
+       "local": "Serra, Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Estagiário no setor de Gestão de Projetos/Quality Assurance",
+       "empresa": "Tribunal de Justica do Espirito Santo",
+       "tipo": "Estágio",
+       "inicio": "2018-12",
+       "fim": "2020-06",
+       "duracao": "1 ano 7 meses",
+       "local": "Vitória, Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Estagiário no setor de Gestão de projetos",
+       "empresa": "Vale",
+       "tipo": "Estágio",
+       "inicio": "2017-02",
+       "fim": "2018-12",
+       "duracao": "1 ano 11 meses",
+       "local": "Vitória, Espírito Santo, Brasil"
+      }
+     ]
     },
     {
      "nome": "Carlos Augusto Ribeiro Junior",
@@ -799,6 +1611,20 @@
      "n": 1
     }
    ],
+   "cobertura": {
+    "cargo": {
+     "com": 11,
+     "de": 28
+    },
+    "empresa": {
+     "com": 11,
+     "de": 28
+    },
+    "jornada": {
+     "com": 12,
+     "de": 28
+    }
+   },
    "vitrine": [
     {
      "nome": "Alessandra Cardoso de Freitas",
@@ -812,63 +1638,55 @@
        "cargo": "Engenheira de Manutenção Sênior",
        "empresa": "Vale",
        "tipo": "Full-time",
-       "inicio": "Apr 2021",
-       "fim": "atual",
-       "duracao": "5 yrs 5 mos",
+       "inicio": "2021-04",
+       "duracao": "5 anos 5 meses",
        "local": "Brazil"
       },
       {
        "cargo": "Analista sênior",
        "empresa": "Vale",
-       "tipo": "-> -",
-       "inicio": "Jul 2020",
-       "fim": "Apr 2021",
-       "duracao": "10 mos",
+       "inicio": "2020-07",
+       "fim": "2021-04",
+       "duracao": "10 meses",
        "local": "Vitória, Espírito Santo, Brazil"
       },
       {
        "cargo": "Analista de Manutenção Pleno",
        "empresa": "Vale",
-       "tipo": "-> -",
-       "inicio": "Jun 2012",
-       "fim": "Jul 2020",
-       "duracao": "8 yrs 2 mos",
+       "inicio": "2012-06",
+       "fim": "2020-07",
+       "duracao": "8 anos 2 meses",
        "local": "Vitória e Região, Brasil"
       },
       {
        "cargo": "Analista operacional",
        "empresa": "Vale",
-       "tipo": "-> -",
-       "inicio": "Jul 2011",
-       "fim": "May 2012",
-       "duracao": "11 mos",
-       "local": "-> -"
+       "inicio": "2011-07",
+       "fim": "2012-05",
+       "duracao": "11 meses"
       },
       {
        "cargo": "Técnico de manutenção especiaizado",
        "empresa": "Vale",
-       "tipo": "-> -",
-       "inicio": "Apr 2011",
-       "fim": "Jun 2011",
-       "duracao": "3 mos",
+       "inicio": "2011-04",
+       "fim": "2011-06",
+       "duracao": "3 meses",
        "local": "Vitória, Espírito Santo, Brazil"
       },
       {
        "cargo": "Técnico em eletrônica",
        "empresa": "Vale",
-       "tipo": "-> -",
-       "inicio": "Nov 2004",
-       "fim": "Mar 2011",
-       "duracao": "6 yrs 5 mos",
+       "inicio": "2004-11",
+       "fim": "2011-03",
+       "duracao": "6 anos 5 meses",
        "local": "Vitória, Espírito Santo, Brazil"
       },
       {
        "cargo": "Instrumentista",
        "empresa": "Vale",
-       "tipo": "-> -",
-       "inicio": "Oct 2003",
-       "fim": "Oct 2004",
-       "duracao": "1 yr 1 mo",
+       "inicio": "2003-10",
+       "fim": "2004-10",
+       "duracao": "1 ano 1 mês",
        "local": "Vitória, Espírito Santo, Brazil"
       }
      ]
@@ -880,7 +1698,16 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/alexiacoelho-barbosa/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Analista PL de Sistemas de Automação",
+       "empresa": "Autvix Group",
+       "tipo": "Full-time",
+       "inicio": "2021-09",
+       "duracao": "5 anos",
+       "local": "Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Amanda Lucas Pereira",
@@ -893,64 +1720,58 @@
       {
        "cargo": "Researcher",
        "empresa": "Researcher",
-       "tipo": "-> -",
-       "inicio": "Mar 2021",
-       "fim": "Aug 2022",
-       "duracao": "1 yr 6 mos",
+       "inicio": "2021-03",
+       "fim": "2022-08",
+       "duracao": "1 ano 6 meses",
        "local": "Rio de Janeiro, Brazil"
       },
       {
        "cargo": "Developer",
        "empresa": "Olho do Dono S/A",
        "tipo": "Full-time",
-       "inicio": "Oct 2019",
-       "fim": "Feb 2021",
-       "duracao": "1 yr 5 mos",
+       "inicio": "2019-10",
+       "fim": "2021-02",
+       "duracao": "1 ano 5 meses",
        "local": "Vitória, Espírito Santo, Brazil"
       },
       {
        "cargo": "Intern",
        "empresa": "Olho do Dono S/A",
-       "tipo": "-> -",
-       "inicio": "Dec 2018",
-       "fim": "Oct 2019",
-       "duracao": "11 mos",
+       "inicio": "2018-12",
+       "fim": "2019-10",
+       "duracao": "11 meses",
        "local": "Vitória, Espírito Santo, Brazil"
       },
       {
        "cargo": "Intern",
        "empresa": "Dikma Facilities",
-       "tipo": "-> -",
-       "inicio": "Sep 2017",
-       "fim": "Sep 2018",
-       "duracao": "1 yr 1 mo",
+       "inicio": "2017-09",
+       "fim": "2018-09",
+       "duracao": "1 ano 1 mês",
        "local": "Serra, Espírito Santo, Brazil"
       },
       {
        "cargo": "Intern",
        "empresa": "Seloco, Inc.",
-       "tipo": "-> -",
-       "inicio": "Jul 2016",
-       "fim": "Aug 2016",
-       "duracao": "2 mos",
+       "inicio": "2016-07",
+       "fim": "2016-08",
+       "duracao": "2 meses",
        "local": "Seoul, South Korea"
       },
       {
        "cargo": "Scholar",
        "empresa": "CNPq",
-       "tipo": "-> -",
-       "inicio": "Aug 2015",
-       "fim": "Aug 2016",
-       "duracao": "1 yr 1 mo",
+       "inicio": "2015-08",
+       "fim": "2016-08",
+       "duracao": "1 ano 1 mês",
        "local": "South Korea"
       },
       {
        "cargo": "Intern",
        "empresa": "Hyundai Motor Company",
-       "tipo": "-> -",
-       "inicio": "Jan 2016",
-       "fim": "Feb 2016",
-       "duracao": "2 mos",
+       "inicio": "2016-01",
+       "fim": "2016-02",
+       "duracao": "2 meses",
        "local": "Hwaseong, Gyeonggi, South Korea"
       }
      ]
@@ -962,7 +1783,25 @@
      "empresa": "Satel Brasil",
      "local": "Vila Velha, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/andreathaydes/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Assistente Técnico lll",
+       "empresa": "Satel Brasil",
+       "tipo": "Full-time",
+       "inicio": "2025-10",
+       "duracao": "11 meses",
+       "local": "Vila Velha, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário Técnico em Eletrotécnica",
+       "empresa": "EDP Brasil",
+       "tipo": "Internship",
+       "inicio": "2024-11",
+       "fim": "2025-10",
+       "duracao": "1 ano",
+       "local": "Vitória, Espírito Santo, Brasil"
+      }
+     ]
     },
     {
      "nome": "Antonione da Silva Mascarenhas Pinho",
@@ -971,7 +1810,52 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/antonione/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Pesquisador científico",
+       "empresa": "Facto",
+       "tipo": "Contract",
+       "inicio": "2019-01",
+       "fim": "2021-05",
+       "duracao": "2 anos 5 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Membro fundador",
+       "empresa": "Morpheus Jr.",
+       "inicio": "2017-01",
+       "fim": "2020-01",
+       "duracao": "3 anos 1 mês",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Bolsista de Iniciação Científica",
+       "empresa": "Leds - Ifes",
+       "tipo": "Contract",
+       "inicio": "2017-01",
+       "fim": "2018-12",
+       "duracao": "2 anos",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Técnico em elétrica / Técnico em Planejamento",
+       "empresa": "Vale",
+       "tipo": "Full-time",
+       "inicio": "2006-05",
+       "fim": "2015-05",
+       "duracao": "9 anos 1 mês",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Estagiário técnico",
+       "empresa": "Vale",
+       "tipo": "Internship",
+       "inicio": "2005-01",
+       "fim": "2005-12",
+       "duracao": "1 ano",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      }
+     ]
     },
     {
      "nome": "Artur Dias Rodrigues Vicente",
@@ -980,7 +1864,34 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/artur-dias-750082247/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Especialista em desenvolvimento sênior",
+       "empresa": "NTT DATA Europe & Latam",
+       "tipo": "Full-time",
+       "inicio": "2026-04",
+       "duracao": "5 meses",
+       "local": "Uberlândia, MG · Remote"
+      },
+      {
+       "cargo": "Desenvolvedor de software",
+       "empresa": "Auvo Tecnologia",
+       "tipo": "Full-time",
+       "inicio": "2024-11",
+       "fim": "2026-03",
+       "duracao": "1 ano 5 meses",
+       "local": "Goiás, Brazil · Remote"
+      },
+      {
+       "cargo": "Desenvolvedor de software",
+       "empresa": "Tozato Measurements",
+       "tipo": "Full-time",
+       "inicio": "2020-10",
+       "fim": "2024-11",
+       "duracao": "4 anos 2 meses",
+       "local": "Serra, Espírito Santo, Brazil · On-site"
+      }
+     ]
     },
     {
      "nome": "Bernardo Vieira de Siqueira Botelho",
@@ -989,7 +1900,97 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/bvsbotelho/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Engenheiro de Controle e Automação Sr",
+       "empresa": "TSA Tecnologia de Sistemas de Automação SA",
+       "tipo": "Full-time",
+       "inicio": "2025-07",
+       "duracao": "1 ano 2 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Engenheiro de Controle e Automação Sr",
+       "empresa": "Autorn Engenharia Ltda.",
+       "tipo": "Full-time",
+       "inicio": "2024-02",
+       "fim": "2025-07",
+       "duracao": "1 ano 6 meses",
+       "local": "Formosa, Goiás, Brazil"
+      },
+      {
+       "cargo": "Engenheiro de Controle e Automação Sr",
+       "empresa": "TSA Tecnologia de Sistemas de Automação SA",
+       "tipo": "Full-time",
+       "inicio": "2023-01",
+       "fim": "2024-02",
+       "duracao": "1 ano 2 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Supervisor de Automação",
+       "empresa": "Cast group",
+       "tipo": "Full-time",
+       "inicio": "2022-07",
+       "fim": "2023-01",
+       "duracao": "7 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Especialista de Automação LATAM",
+       "empresa": "Planlink",
+       "tipo": "Full-time",
+       "inicio": "2021-12",
+       "fim": "2022-07",
+       "duracao": "8 meses",
+       "local": "Formosa, Goiás, Brazil"
+      },
+      {
+       "cargo": "Engenheiro de Controle e Automação",
+       "empresa": "Micapel Slate - Mineração Capão das Pedras Ltda",
+       "tipo": "Full-time",
+       "inicio": "2021-06",
+       "fim": "2021-12",
+       "duracao": "7 meses",
+       "local": "Pompéu, Minas Gerais, Brazil"
+      },
+      {
+       "cargo": "Analista de automação NV IV",
+       "empresa": "Cast group",
+       "tipo": "Full-time",
+       "inicio": "2018-12",
+       "fim": "2021-06",
+       "duracao": "2 anos 7 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Analista de automação NV I",
+       "empresa": "LOGIX | uma empresa Cast group",
+       "tipo": "Full-time",
+       "inicio": "2018-12",
+       "fim": "2020-01",
+       "duracao": "1 ano 2 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "Vale",
+       "tipo": "Internship",
+       "inicio": "2012-07",
+       "fim": "2014-07",
+       "duracao": "2 anos 1 mês",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Auxiliar Administrativo",
+       "empresa": "Grupo Pisalle Calçados",
+       "tipo": "Full-time",
+       "inicio": "2010-09",
+       "fim": "2010-12",
+       "duracao": "4 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Breno Nogueira de Castro",
@@ -998,7 +1999,16 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/b-nogueira/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Técnico controle de redes I",
+       "empresa": "Nexa Tecnologia",
+       "inicio": "2019-07",
+       "fim": "2020-03",
+       "duracao": "9 meses",
+       "local": "Vitória"
+      }
+     ]
     },
     {
      "nome": "Bruno Meschiatti Vasconcellos",
@@ -1007,7 +2017,41 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/bruno-meschiatti/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Software Engineer",
+       "empresa": "Instituto de Tecnologia da Informação e Comunicação do Estado do Espirito Santo (Prodest)",
+       "tipo": "Full-time",
+       "inicio": "2024-09",
+       "duracao": "2 anos"
+      },
+      {
+       "cargo": "TechLead - RPA",
+       "empresa": "Spread Tecnologia",
+       "tipo": "Full-time",
+       "inicio": "2022-04",
+       "fim": "2024-09",
+       "duracao": "2 anos 6 meses",
+       "local": "São Paulo, Brazil"
+      },
+      {
+       "cargo": "Software Engineer - RPA",
+       "empresa": "Bernhoeft",
+       "tipo": "Full-time",
+       "inicio": "2021-05",
+       "fim": "2022-04",
+       "duracao": "1 ano",
+       "local": "Pernambuco, Brazil"
+      },
+      {
+       "cargo": "Researcher Developer",
+       "empresa": "IFES - Instituto Federal do Espírito Santo",
+       "inicio": "2019-03",
+       "fim": "2021-05",
+       "duracao": "2 anos 3 meses",
+       "local": "Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Bruno Paiva Smit de Freitas",
@@ -1016,7 +2060,79 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/brnsmit/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "AI Engineer",
+       "empresa": "Doris",
+       "tipo": "Full-time",
+       "inicio": "2025-08",
+       "fim": "2026-02",
+       "duracao": "7 meses",
+       "local": "São Paulo, Brasil"
+      },
+      {
+       "cargo": "Automation Systems Development Specialist",
+       "empresa": "ArcelorMittal Brasil",
+       "tipo": "Full-time",
+       "inicio": "2024-04",
+       "fim": "2025-08",
+       "duracao": "1 ano 5 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Equipment Maintenance Electrician",
+       "empresa": "ArcelorMittal Brasil",
+       "inicio": "2021-02",
+       "fim": "2024-03",
+       "duracao": "3 anos 2 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Business Analyst",
+       "empresa": "Superzelador - Assessoria e Gestão de Condomínios",
+       "tipo": "Full-time",
+       "inicio": "2019-03",
+       "fim": "2021-01",
+       "duracao": "1 ano 11 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Sales Development Representative",
+       "empresa": "AEVO",
+       "tipo": "Full-time",
+       "inicio": "2018-01",
+       "fim": "2019-02",
+       "duracao": "1 ano 2 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Undergraduate Scientific Researcher",
+       "empresa": "CNPq - Conselho Nacional de Desenvolvimento Científico e Tecnológico",
+       "tipo": "Part-time",
+       "inicio": "2015-07",
+       "fim": "2016-06",
+       "duracao": "1 ano",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Electrical Installations Monitor",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Part-time",
+       "inicio": "2015-01",
+       "fim": "2015-06",
+       "duracao": "6 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Young Apprentice",
+       "empresa": "ArcelorMittal Brasil",
+       "tipo": "Part-time",
+       "inicio": "2013-01",
+       "fim": "2013-12",
+       "duracao": "1 ano",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      }
+     ]
     },
     {
      "nome": "Bruno Rocha Pratti",
@@ -1025,7 +2141,42 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/bruno-pratti-71104a234/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Desenvolvedor",
+       "empresa": "Grupo SERENG",
+       "tipo": "Full-time",
+       "inicio": "2024-07",
+       "duracao": "2 anos 2 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Desenvolvedor Jr",
+       "empresa": "ETAURE",
+       "tipo": "Full-time",
+       "inicio": "2023-12",
+       "fim": "2024-06",
+       "duracao": "7 meses"
+      },
+      {
+       "cargo": "Estagiário de engenharia",
+       "empresa": "ArcelorMittal Brasil",
+       "tipo": "Internship",
+       "inicio": "2022-05",
+       "fim": "2023-12",
+       "duracao": "1 ano 8 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Iniciação Científica",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Part-time",
+       "inicio": "2020-03",
+       "fim": "2021-12",
+       "duracao": "1 ano 10 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Caio Lopes de Oliveira",
@@ -1043,7 +2194,48 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/caiomcarletti/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Tech Lead | Arquiteto de Soluções Sênior",
+       "empresa": "Tata Consultancy Services",
+       "tipo": "Full-time",
+       "inicio": "2025-09",
+       "duracao": "1 ano",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Machine Learning Engineer",
+       "empresa": "GainTech Tecnologia",
+       "inicio": "2023-03",
+       "fim": "2025-09",
+       "duracao": "2 anos 7 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Co-founder",
+       "empresa": "VisionTech",
+       "inicio": "2020-10",
+       "fim": "2025-09",
+       "duracao": "5 anos",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Pesquisador no GAIn (Grupo de Automação Industrial - Ifes Serra)",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "inicio": "2019-04",
+       "fim": "2025-09",
+       "duracao": "6 anos 6 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Bolsista em \"Federated Union of Telecommunications Research Facilities For NA EU-BR Open Laboratory\"",
+       "empresa": "Universidade Federal do Espírito Santo (Oficial)",
+       "inicio": "2017-07",
+       "fim": "2018-07",
+       "duracao": "1 ano 1 mês",
+       "local": "Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Conrado Costa",

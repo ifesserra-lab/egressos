@@ -32,7 +32,7 @@ from __future__ import annotations
 import collections
 import sys
 
-from egressos_core import dados, vitrine
+from egressos_core import dados, jornada, vitrine
 
 CURSOS = {
     "bsi": "Sistemas de Informação",
@@ -92,7 +92,15 @@ def _vitrine_da_coleta(coleta, curso):
     A jornada sai da segunda passada (`busca_perfis.py --trajetoria`) e sai PROJETADA na
     lista fechada de campos — cargo, empresa, tipo, início, fim, duração, local. Não é o
     bruto: o prompt da passada nem captura a `descricao`, e a projeção aqui garante que um
-    campo novo no cru não vaza para o publicável por acidente."""
+    campo novo no cru não vaza para o publicável por acidente.
+
+    A projeção passa por `egressos_core.jornada.normaliza`, e é aí que a forma das duas
+    fontes converge: a passada grava o texto CRU da página (`"Apr 2021"`, `"Present"`,
+    `"5 yrs 5 mos"`) e o cadastro do estudo já guarda normalizado (`"2023-10"`, `fim: null`,
+    `"2 anos 10 meses"`). Sem essa passagem, o cartão publicava inglês numa página em
+    português — e publicava também o resto de seletor que a raspagem deixa (`"-> -"` em 20
+    das 150 posições da primeira coleta). O que o normalizador NÃO faz é vocabulário: `tipo`
+    passa como veio, `Integral` e `Full-time` seguem distintos."""
     JORNADA_PUBLICA = ("cargo", "empresa", "tipo", "inicio", "fim", "duracao", "local")
     return sorted([{
         "nome": p["nome"],
@@ -101,7 +109,7 @@ def _vitrine_da_coleta(coleta, curso):
         "empresa": _limpo(p.get("empresa_atual")),
         "local": _limpo(p.get("local")),
         "linkedin": _linkedin(p.get("slug")),
-        "jornada": [{c: x.get(c) for c in JORNADA_PUBLICA}
+        "jornada": [jornada.normaliza({c: x.get(c) for c in JORNADA_PUBLICA})
                     for x in (p.get("experiencias") or [])],
     } for p in coleta["perfis"]
         if p.get("confirmado") and p.get("curso") == curso and p.get("slug")],
@@ -112,6 +120,21 @@ def _distribuicao(linhas, campo):
     """Contagem do texto cru, string idêntica a string idêntica. Sem classificar."""
     freq = collections.Counter(v[campo] for v in linhas if v[campo])
     return [{"texto": texto, "n": n} for texto, n in freq.most_common(TOP)]
+
+
+def _cobertura(linhas, campo):
+    """Quantas das `linhas` têm o campo — o DENOMINADOR da distribuição ao lado.
+
+    Existe por causa de uma leitura errada que a página convidava. A ECA anuncia "28 egressos
+    identificados" e desenhava as barras de cargo logo abaixo; as barras somam 11, porque 17
+    dos 28 foram confirmados por conferência humana e a página do perfil nunca foi lida — sem
+    cargo, não entram em distribuição nenhuma. Nada dizia isso, então o gráfico parecia estar
+    perdendo gente.
+
+    `_distribuicao` sozinha não consegue contar isto: ela já filtrou os vazios, e `sum(n)` dá
+    11 sem saber que o universo era 28. O par (contagem, base) tem de sair daqui.
+    """
+    return {"com": sum(1 for v in linhas if v[campo]), "de": len(linhas)}
 
 
 def recorte():
@@ -134,6 +157,7 @@ def recorte():
             [v for v in _linhas_do_estudo(perfil) if _curso_do_estudo(perfil, v["nome"]) == curso]
             + [v for v in _linhas_da_coleta(coleta) if _curso_da_coleta(coleta, v["nome"]) == curso])
         confirmados_coleta = sum(1 for v in linhas if v["fonte"] == "coleta")
+        vitrine_do_curso = _vitrine_da_coleta(coleta, curso)
         cursos[curso] = {
             "curso": curso,
             "nome_curso": nome_curso,
@@ -148,7 +172,16 @@ def recorte():
             },
             "cargos": _distribuicao(linhas, "cargo"),
             "empresas": _distribuicao(linhas, "empresa"),
-            "vitrine": _vitrine_da_coleta(coleta, curso),
+            # A cobertura de cargo/empresa é sobre `linhas` (o universo das CONTAGENS: estudo
+            # + coleta). A de jornada é sobre a VITRINE, que é outro universo — só a coleta,
+            # e só quem tem slug. Medir as três no mesmo denominador diria que faltam
+            # jornadas dos 50 do estudo, que nem passam pela vitrine.
+            "cobertura": {
+                "cargo": _cobertura(linhas, "cargo"),
+                "empresa": _cobertura(linhas, "empresa"),
+                "jornada": _cobertura(vitrine_do_curso, "jornada"),
+            },
+            "vitrine": vitrine_do_curso,
         }
     return {
         "titulo": "Recorte por curso — BSI e ECA, contagens e distribuições cruas",
