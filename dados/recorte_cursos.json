@@ -13,6 +13,7 @@
     "confirmados_pela_coleta": 64,
     "confirmados_a_mao": 31,
     "aguardando_conferencia": 1,
+    "falhou_a_rodada": 1,
     "no_estudo_original": 50,
     "identificados": 114
    },
@@ -126,7 +127,7 @@
      "de": 114
     },
     "jornada": {
-     "com": 23,
+     "com": 30,
      "de": 64
     }
    },
@@ -138,7 +139,42 @@
      "empresa": null,
      "local": "Vitória, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/abner-benicio-303763235/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Software Analyst Junior",
+       "empresa": "Prosperi",
+       "tipo": "Full-time",
+       "inicio": "2026-01",
+       "local": "Espírito Santo, Brazil · Hybrid"
+      },
+      {
+       "cargo": "Software Analyst Trainee",
+       "empresa": "Prosperi",
+       "tipo": "Full-time",
+       "inicio": "2025-07",
+       "fim": "2026-01",
+       "duracao": "7 meses",
+       "local": "Brazil · Hybrid"
+      },
+      {
+       "cargo": "Analista de Sistemas",
+       "empresa": "Prosperi",
+       "tipo": "Internship",
+       "inicio": "2024-06",
+       "fim": "2025-07",
+       "duracao": "1 ano 2 meses",
+       "local": "Brazil · On-site"
+      },
+      {
+       "cargo": "Estagiário de TI",
+       "empresa": "Bandes ES",
+       "tipo": "Internship",
+       "inicio": "2023-07",
+       "fim": "2024-04",
+       "duracao": "10 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Aline Bravin Prasser",
@@ -1152,7 +1188,55 @@
      "empresa": "Mercado Livre",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/carlosribeiro41/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Senior Software Engineer",
+       "empresa": "Mercado Livre",
+       "tipo": "Full-time",
+       "inicio": "2022-08",
+       "duracao": "4 anos 2 meses",
+       "local": "Remote"
+      },
+      {
+       "cargo": "Senior Analyst",
+       "empresa": "Banco next",
+       "tipo": "Full-time",
+       "inicio": "2022-03",
+       "fim": "2022-08",
+       "duracao": "6 meses"
+      },
+      {
+       "cargo": "Senior Backend Developer",
+       "empresa": "will bank",
+       "inicio": "2021-07",
+       "fim": "2022-03",
+       "duracao": "9 meses"
+      },
+      {
+       "cargo": "Back End Developer",
+       "empresa": "will bank",
+       "inicio": "2020-07",
+       "fim": "2021-07",
+       "duracao": "1 ano 1 mês",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Full Stack Developer",
+       "empresa": "Spassu Tecnologia e Serviços",
+       "inicio": "2019-07",
+       "fim": "2020-07",
+       "duracao": "1 ano 1 mês",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Software Developer",
+       "empresa": "ETAURE TI & AUTOMAÇÃO",
+       "inicio": "2014-08",
+       "fim": "2019-06",
+       "duracao": "4 anos 11 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      }
+     ]
     },
     {
      "nome": "Carlos Guilherme Felismino Pedroni",
@@ -1170,7 +1254,34 @@
      "empresa": "CNPq - Conselho Nacional de Desenvolvimento Científico e Tecnológico · Ifes - Instituto Federal do Espírito Santo",
      "local": "Cariacica, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/carloshenriquematos/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Machine Learning Researcher",
+       "empresa": "CNPq - Conselho Nacional de Desenvolvimento Científico e Tecnológico",
+       "tipo": "Contract",
+       "inicio": "2025-01",
+       "duracao": "1 ano 9 meses",
+       "local": "Brazil · Hybrid"
+      },
+      {
+       "cargo": "Developer",
+       "empresa": "Econocargo",
+       "tipo": "Full-time",
+       "inicio": "2024-02",
+       "fim": "2024-07",
+       "duracao": "6 meses",
+       "local": "Serra, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Extension Project Lampex",
+       "empresa": "Lampex - Ifes",
+       "tipo": "Part-time",
+       "inicio": "2023-07",
+       "fim": "2023-12",
+       "duracao": "6 meses",
+       "local": "Serra, Espírito Santo, Brazil · On-site"
+      }
+     ]
     },
     {
      "nome": "Claudio Magno Barbieri Junior",
@@ -1179,7 +1290,25 @@
      "empresa": "SOUTH SYSTEM",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/claudio-barbieri/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Senior Android Developer",
+       "empresa": "SOUTH SYSTEM",
+       "tipo": "Full-time",
+       "inicio": "2023-07",
+       "duracao": "3 anos 3 meses",
+       "local": "Remote"
+      },
+      {
+       "cargo": "Android Developer",
+       "empresa": "UpperSoft",
+       "tipo": "Full-time",
+       "inicio": "2020-03",
+       "fim": "2023-07",
+       "duracao": "3 anos 5 meses",
+       "local": "Vitória, Espírito Santo, Brazil · Remote"
+      }
+     ]
     },
     {
      "nome": "Cléber de Jesus Salustiano",
@@ -1188,7 +1317,90 @@
      "empresa": "GFT Technologies",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/clebersalustiano/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Desenvolvedor Backend",
+       "empresa": "GFT Technologies",
+       "tipo": "Full-time",
+       "fim": "2025-11",
+       "duracao": "11 meses",
+       "local": "Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Desenvolvedor de Software - Externo (bolsista)",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Part-time",
+       "inicio": "2025-03",
+       "duracao": "1 ano 7 meses"
+      },
+      {
+       "cargo": "Desenvolvedor de Software Sênior / Líder Técnico",
+       "empresa": "Code n'App",
+       "tipo": "Full-time",
+       "inicio": "2025-06",
+       "fim": "2025-11",
+       "duracao": "6 meses",
+       "local": "Remote"
+      },
+      {
+       "cargo": "Desenvolvedor de Software Pleno II",
+       "empresa": "Code n'App",
+       "tipo": "Full-time",
+       "inicio": "2024-07",
+       "fim": "2025-05",
+       "duracao": "11 meses",
+       "local": "Hybrid"
+      },
+      {
+       "cargo": "Desenvolvedor de Software Pleno",
+       "empresa": "Code n'App",
+       "tipo": "Full-time",
+       "inicio": "2024-02",
+       "fim": "2024-07",
+       "duracao": "6 meses",
+       "local": "Espírito Santo, Brazil · Hybrid"
+      },
+      {
+       "cargo": "Desenvolvedor de Software Júnior",
+       "empresa": "Code n'App",
+       "tipo": "Full-time",
+       "inicio": "2023-04",
+       "fim": "2024-02",
+       "duracao": "11 meses",
+       "local": "Vitória, Espírito Santo, Brasil · On-site"
+      },
+      {
+       "cargo": "Desenvolvedor Fullstack - Bolsista",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Part-time",
+       "inicio": "2023-01",
+       "fim": "2024-12",
+       "duracao": "2 anos",
+       "local": "Vitória, Espírito Santo, Brasil · Remote"
+      },
+      {
+       "cargo": "Desenvolvedor Full Stack Júnior",
+       "empresa": "Directy",
+       "tipo": "Full-time",
+       "inicio": "2022-11",
+       "fim": "2023-04",
+       "duracao": "6 meses",
+       "local": "Vila Velha, Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Analista Desenvolvedor de Sistema",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Internship",
+       "inicio": "2021-11",
+       "fim": "2022-11",
+       "duracao": "1 ano 1 mês",
+       "local": "Vitória, Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Campos que não apareceram foram marcados com '-'. Todos os dados foram copiados exatamente como visíveis na página sem tradução ou resumo.",
+       "empresa": null
+      }
+     ]
     },
     {
      "nome": "Cristhian Fontana Mattiuzzi",
@@ -1197,7 +1409,97 @@
      "empresa": "Unitá Soluções Digitais",
      "local": "Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/cristhian-fontana-mattiuzzi-724899236/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Líder técnico",
+       "empresa": "Unitá Soluções Digitais",
+       "tipo": "Full-time",
+       "inicio": "2026-04",
+       "duracao": "6 meses",
+       "local": "Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Tech Lead",
+       "empresa": "UseRH",
+       "tipo": "Full-time",
+       "inicio": "2024-07",
+       "fim": "2026-03",
+       "duracao": "1 ano 9 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Backend Developer",
+       "empresa": "UseRH",
+       "tipo": "Full-time",
+       "inicio": "2023-03",
+       "fim": "2024-06",
+       "duracao": "1 ano 4 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Full Stack Developer",
+       "empresa": "UseRH",
+       "tipo": "Full-time",
+       "inicio": "2022-09",
+       "fim": "2023-03",
+       "duracao": "7 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Full Stack Developer",
+       "empresa": "Compet Engenharia",
+       "tipo": "Freelance",
+       "inicio": "2023-06",
+       "fim": "2024-05",
+       "duracao": "1 ano",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Full Stack Developer",
+       "empresa": "Docêncis",
+       "tipo": "Freelance",
+       "inicio": "2021-11",
+       "fim": "2023-10",
+       "duracao": "2 anos",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Full Stack Developer",
+       "empresa": "Editora Milfontes",
+       "tipo": "Full-time",
+       "inicio": "2018-01",
+       "fim": "2022-10",
+       "duracao": "4 anos 10 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Pesquisador",
+       "empresa": "IFES - Instituto Federal do Espírito Santo",
+       "tipo": "Part-time",
+       "inicio": "2020-09",
+       "fim": "2021-07",
+       "duracao": "11 meses",
+       "local": "Serra, Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "FDCI - Faculdade de Direito de Cachoeiro de Itapemirim",
+       "tipo": "Part-time",
+       "inicio": "2016-06",
+       "fim": "2017-12",
+       "duracao": "1 ano 7 meses",
+       "local": "Cachoeiro de Itapemirim, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Monitor Hardware",
+       "empresa": "IFES - Instituto Federal do Espírito Santo",
+       "tipo": "Part-time",
+       "inicio": "2015-02",
+       "fim": "2016-01",
+       "duracao": "1 ano",
+       "local": "Cachoeiro de Itapemirim, Espírito Santo, Brasil"
+      }
+     ]
     },
     {
      "nome": "Daniel Henrique Comério",
@@ -1206,7 +1508,34 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/daniel-henrique-com%C3%A9rio-92b271150/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Analista Bancário - Sistemas",
+       "empresa": "Bandes ES",
+       "tipo": "Full-time",
+       "inicio": "2025-02",
+       "duracao": "1 ano 8 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Bolsista de Mestrado",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Full-time",
+       "inicio": "2021-09",
+       "fim": "2024-05",
+       "duracao": "2 anos 9 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário de desenvolvimento de software",
+       "empresa": "PROSPERI - OTIMIZANDO PROJETOS, GERANDO RESULTADOS",
+       "tipo": "Internship",
+       "inicio": "2019-09",
+       "fim": "2021-02",
+       "duracao": "1 ano 6 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Daniel Martins Patricio",
@@ -1516,6 +1845,7 @@
     "confirmados_pela_coleta": 28,
     "confirmados_a_mao": 17,
     "aguardando_conferencia": 7,
+    "falhou_a_rodada": 0,
     "no_estudo_original": 0,
     "identificados": 28
    },
@@ -1621,7 +1951,7 @@
      "de": 28
     },
     "jornada": {
-     "com": 12,
+     "com": 13,
      "de": 28
     }
    },
@@ -2185,7 +2515,41 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/caio-lopes-3058a0256/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Sócio",
+       "empresa": "GainTech Tecnologia",
+       "tipo": "Full-time",
+       "inicio": "2023-08",
+       "duracao": "3 anos 2 meses",
+       "local": "On-site"
+      },
+      {
+       "cargo": "Estagiário em Engenharia de Controle e Automação",
+       "empresa": "GainTech Tecnologia",
+       "tipo": "Internship",
+       "inicio": "2022-09",
+       "fim": "2023-09",
+       "duracao": "1 ano 1 mês"
+      },
+      {
+       "cargo": "Estagiário de Engenharia de Controle e Automação",
+       "empresa": "GainTech Tecnologia",
+       "tipo": "Internship",
+       "inicio": "2022-09",
+       "fim": "2023-09",
+       "duracao": "1 ano 1 mês"
+      },
+      {
+       "cargo": "Pesquisador",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Full-time",
+       "inicio": "2018-07",
+       "fim": "2022-07",
+       "duracao": "4 anos 1 mês",
+       "local": "Serra, Espírito Santo, Brazil · On-site"
+      }
+     ]
     },
     {
      "nome": "Caio Mario Carletti Vilela Santos",

@@ -109,11 +109,27 @@ def _vitrine_da_coleta(coleta, curso):
         "empresa": _limpo(p.get("empresa_atual")),
         "local": _limpo(p.get("local")),
         "linkedin": _linkedin(p.get("slug")),
-        "jornada": [jornada.normaliza({c: x.get(c) for c in JORNADA_PUBLICA})
-                    for x in (p.get("experiencias") or [])],
+        "jornada": _jornada_publicavel(p.get("experiencias"), JORNADA_PUBLICA),
     } for p in coleta["perfis"]
         if p.get("confirmado") and p.get("curso") == curso and p.get("slug")],
         key=lambda v: v["nome"])
+
+
+def _jornada_publicavel(experiencias, campos):
+    """A jornada projetada e normalizada — ou VAZIA, se alguma posição veio mal lida.
+
+    Recusa por PESSOA, não por posição. Uma jornada é uma sequência: publicar o subconjunto
+    que sobrou afirma, sem dizer, que é a carreira inteira. O perfil quebrado da coleta de
+    03/09/2026 tinha 6 posições, 5 com os campos deslocados — mostrar a 6ª faria o cartão
+    dele exibir um emprego onde houve seis, o que é pior que não exibir nada.
+
+    Sem jornada, o cartão diz "trajetória ainda não coletada" — que é verdade: nada
+    utilizável foi capturado. `busca_perfis.py` relê o perfil e ela volta inteira.
+    """
+    posicoes = [{c: x.get(c) for c in campos} for x in (experiencias or [])]
+    if any(not jornada.plausivel(pos) for pos in posicoes):
+        return []
+    return [jornada.normaliza(pos) for pos in posicoes]
 
 
 def _distribuicao(linhas, campo):
@@ -150,6 +166,19 @@ def recorte():
     a_mao = collections.Counter(
         p["curso"] for p in coleta["perfis"]
         if p.get("confirmado") and p.get("confirmado_por") == "conferência humana")
+    # A rodada que o LinkedIn não carregou E que segue sem identidade. Sem esta contagem a
+    # aritmética da página NÃO FECHA: o BSI dizia 66 processados, e 64 confirmados + 1
+    # aguardando conferência somam 65. O 66º existia — falhou e ninguém o publicava.
+    # `busca_perfis.py --refazer` é quem o retoma.
+    #
+    # O `not confirmado` não é detalhe: `falhou_a_rodada` PERMANECE gravado em quem falhou
+    # numa rodada e foi achado na seguinte. Contar o flag cru dava 3 no BSI e a soma passava
+    # de 66 para 68 — a contagem criada para fechar a conta quebrava a conta. A partição
+    # correta é confirmado | falhou-e-não-confirmado | aguardando conferência, e ela soma
+    # exatamente os processados nos dois cursos.
+    falhou = collections.Counter(
+        p["curso"] for p in coleta["perfis"]
+        if p.get("falhou_a_rodada") and not p.get("confirmado"))
 
     cursos = {}
     for curso, nome_curso in CURSOS.items():
@@ -167,6 +196,7 @@ def recorte():
                 "confirmados_pela_coleta": confirmados_coleta,
                 "confirmados_a_mao": a_mao.get(curso, 0),
                 "aguardando_conferencia": nao_ident.get(curso, 0),
+                "falhou_a_rodada": falhou.get(curso, 0),
                 "no_estudo_original": sum(1 for v in linhas if v["fonte"] == "estudo"),
                 "identificados": len(linhas),
             },
