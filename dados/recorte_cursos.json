@@ -1841,13 +1841,13 @@
    "nome_curso": "Engenharia de Controle e Automação",
    "contagens": {
     "formandos_na_fila": 110,
-    "processados_pela_coleta": 60,
-    "confirmados_pela_coleta": 45,
+    "processados_pela_coleta": 69,
+    "confirmados_pela_coleta": 49,
     "confirmados_a_mao": 25,
-    "aguardando_conferencia": 15,
+    "aguardando_conferencia": 20,
     "falhou_a_rodada": 0,
     "no_estudo_original": 0,
-    "identificados": 45
+    "identificados": 49
    },
    "cargos": [
     {
@@ -1951,16 +1951,16 @@
    ],
    "cobertura": {
     "cargo": {
-     "com": 16,
-     "de": 45
+     "com": 20,
+     "de": 49
     },
     "empresa": {
-     "com": 16,
-     "de": 45
+     "com": 20,
+     "de": 49
     },
     "jornada": {
      "com": 45,
-     "de": 45
+     "de": 49
     }
    },
    "vitrine": [
@@ -4111,6 +4111,42 @@
        "local": "Vila Velha ES"
       }
      ]
+    },
+    {
+     "nome": "Lohany Letro Melo",
+     "monograma": "LM",
+     "cargo": "Tecnica de Operações",
+     "empresa": "Cobra Tecnologia S/A",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/lohany-letro-a8937433/",
+     "jornada": []
+    },
+    {
+     "nome": "Magnu Windell Araújo Santos",
+     "monograma": "MS",
+     "cargo": "Engenheiro de Controle & Automação",
+     "empresa": "Chemtrade",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/magnuwindell/",
+     "jornada": []
+    },
+    {
+     "nome": "Marcelo Victor Ferreira Barbosa",
+     "monograma": "MB",
+     "cargo": "Piloto de ROV",
+     "empresa": "DOF",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/marcelo-victor-ferreira-barbosa-371208162/",
+     "jornada": []
+    },
+    {
+     "nome": "Mardoqueu de Oliveira Neto",
+     "monograma": "MN",
+     "cargo": "Proprietário",
+     "empresa": "Mardotech Engenharia",
+     "local": "Vila Velha, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/mardoqueu-de-o-neto-03658467/",
+     "jornada": []
     }
    ]
   }
