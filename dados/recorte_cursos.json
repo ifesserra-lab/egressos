@@ -1842,12 +1842,12 @@
    "contagens": {
     "formandos_na_fila": 110,
     "processados_pela_coleta": 60,
-    "confirmados_pela_coleta": 37,
-    "confirmados_a_mao": 17,
-    "aguardando_conferencia": 23,
+    "confirmados_pela_coleta": 45,
+    "confirmados_a_mao": 25,
+    "aguardando_conferencia": 15,
     "falhou_a_rodada": 0,
     "no_estudo_original": 0,
-    "identificados": 37
+    "identificados": 45
    },
    "cargos": [
     {
@@ -1952,15 +1952,15 @@
    "cobertura": {
     "cargo": {
      "com": 16,
-     "de": 37
+     "de": 45
     },
     "empresa": {
      "com": 16,
-     "de": 37
+     "de": 45
     },
     "jornada": {
-     "com": 37,
-     "de": 37
+     "com": 45,
+     "de": 45
     }
    },
    "vitrine": [
@@ -3311,6 +3311,241 @@
      ]
     },
     {
+     "nome": "Gustavo do Amaral Arruda",
+     "monograma": "GA",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/gustavodoamaral/",
+     "jornada": [
+      {
+       "cargo": "Gerente de vendas | Sales Manager",
+       "empresa": "AEVO",
+       "tipo": "Full-time",
+       "inicio": "2025-01",
+       "duracao": "1 ano 10 meses",
+       "local": "São Paulo, Brasil · Hybrid"
+      },
+      {
+       "cargo": "Sales Coordinator",
+       "empresa": "AEVO",
+       "tipo": "Full-time",
+       "inicio": "2022-02",
+       "fim": "2025-01",
+       "duracao": "3 anos",
+       "local": "Vitória, Espírito Santo, Brazil · Hybrid"
+      },
+      {
+       "cargo": "Account Executive",
+       "empresa": "AEVO",
+       "tipo": "Full-time",
+       "inicio": "2018-08",
+       "fim": "2022-02",
+       "duracao": "3 anos 7 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Sales Development Representative (SDR)",
+       "empresa": "AEVO",
+       "inicio": "2017-12",
+       "fim": "2018-07",
+       "duracao": "8 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Sales Manager",
+       "empresa": "AEVO Innovate",
+       "tipo": "Full-time",
+       "inicio": "2017-10",
+       "duracao": "9 anos 1 mês",
+       "local": "São Paulo, Brazil · Hybrid"
+      }
+     ]
+    },
+    {
+     "nome": "Higor Luiz Soares",
+     "monograma": "HS",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/higor-soares-b16846180/",
+     "jornada": [
+      {
+       "cargo": "Orçamentista",
+       "empresa": "Usiplan Engenharia",
+       "tipo": "Full-time",
+       "inicio": "2022-12",
+       "duracao": "3 anos 11 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Auxiliar técnico de automação PL II",
+       "empresa": "LYNX PROCESS",
+       "tipo": "Full-time",
+       "inicio": "2022-03",
+       "duracao": "4 anos 8 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Assistente administrativo",
+       "empresa": "Usiplan Engenharia LTDA",
+       "tipo": "Full-time",
+       "inicio": "2020-02",
+       "fim": "2022-03",
+       "duracao": "2 anos 2 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Pesquisa - iniciação científica",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Part-time",
+       "inicio": "2019-02",
+       "fim": "2020-02",
+       "duracao": "1 ano 1 mês",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Monitor de circuitos elétricos",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Contract",
+       "inicio": "2019-03",
+       "fim": "2019-12",
+       "duracao": "10 meses"
+      },
+      {
+       "cargo": "Monitor de cálculo",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Contract",
+       "inicio": "2018-08",
+       "fim": "2018-12",
+       "duracao": "5 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      }
+     ]
+    },
+    {
+     "nome": "Hudson Curto Dalpra",
+     "monograma": "HD",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/hudson-dalpra-b402a7266/",
+     "jornada": [
+      {
+       "cargo": "Firmware Engineer",
+       "empresa": "B Duncan Ltd",
+       "tipo": "Full-time",
+       "inicio": "2023-05",
+       "duracao": "3 anos 6 meses",
+       "local": "Auckland, Auckland, New Zealand · On-site"
+      },
+      {
+       "cargo": "Embedded System Developer",
+       "empresa": "Tozato Measurements",
+       "tipo": "Full-time",
+       "inicio": "2019-05",
+       "fim": "2021-10",
+       "duracao": "2 anos 6 meses",
+       "local": "Serra, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Marine & Offshore Technician",
+       "empresa": "Estaleiro Jurong Aracruz Ltda",
+       "tipo": "Full-time",
+       "inicio": "2017-01",
+       "fim": "2018-01",
+       "duracao": "1 ano 1 mês",
+       "local": "Aracruz, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Naval Technician Trainee",
+       "empresa": "Sembcorp Marine Ltd",
+       "tipo": "Apprenticeship",
+       "inicio": "2016-01",
+       "fim": "2017-01",
+       "duracao": "1 ano 1 mês",
+       "local": "Singapore, Singapore · On-site"
+      }
+     ]
+    },
+    {
+     "nome": "Iaci Tucumã Castro de Martins Barros",
+     "monograma": "IB",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/iaci-barros/",
+     "jornada": [
+      {
+       "cargo": "Técnico de Operações SR",
+       "empresa": "Transpetro - Petrobras Transporte S. A.",
+       "tipo": "Full-time",
+       "inicio": "2025-07",
+       "duracao": "1 ano 4 meses",
+       "local": "Rio de Janeiro, Rio de Janeiro, Brazil"
+      },
+      {
+       "cargo": "Coordenador de Riscos Operacionais",
+       "empresa": "Transpetro - Petrobras Transporte S. A.",
+       "tipo": "Full-time",
+       "inicio": "2025-05",
+       "duracao": "1 ano 6 meses",
+       "local": "Rio de Janeiro, Brazil"
+      },
+      {
+       "cargo": "Técnico de operações PL",
+       "empresa": "Transpetro - Petrobras Transporte S. de A.",
+       "tipo": "Full-time",
+       "inicio": "2012-07",
+       "fim": "2025-07",
+       "duracao": "13 anos 1 mês",
+       "local": "Aracruz, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Operador de sala de controle",
+       "empresa": "Transpetro - Petrobras Transporte S. A.",
+       "tipo": "Full-time",
+       "inicio": "2021-02",
+       "fim": "2025-04",
+       "duracao": "4 anos 3 meses",
+       "local": "Rio de Janeiro"
+      },
+      {
+       "cargo": "Técnico de operações JR",
+       "empresa": "Transpetro - Petrobras Transporte S. A.",
+       "tipo": "Full-time",
+       "inicio": "2009-04",
+       "fim": "2012-07",
+       "duracao": "3 anos 4 meses",
+       "local": "Aracruz, Espírito Santo, Brazil"
+      }
+     ]
+    },
+    {
+     "nome": "Igor Garcia Lube",
+     "monograma": "IL",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/igor-l%C3%BCbe-a5720738/",
+     "jornada": [
+      {
+       "cargo": "Técnico em elétrica",
+       "empresa": "CESAN",
+       "inicio": "2010-03",
+       "duracao": "16 anos 8 meses"
+      },
+      {
+       "cargo": "Project Assistant",
+       "empresa": "adesso engenharia",
+       "inicio": "2008-01",
+       "fim": "2010-03",
+       "duracao": "2 anos 3 meses",
+       "local": "vitoria, brasil"
+      }
+     ]
+    },
+    {
      "nome": "Igor Rodrigues Cassimiro",
      "monograma": "IC",
      "cargo": null,
@@ -3371,6 +3606,79 @@
      ]
     },
     {
+     "nome": "Isabelle Pereira Souza Dias",
+     "monograma": "ID",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/isabelle-dias/",
+     "jornada": [
+      {
+       "cargo": "Senior Software Engineer",
+       "empresa": "WEX",
+       "tipo": "Permanent Full-time",
+       "inicio": "2026-04",
+       "duracao": "7 meses"
+      },
+      {
+       "cargo": "Software Engineer",
+       "empresa": "WEX",
+       "tipo": "Full-time",
+       "inicio": "2025-02",
+       "fim": "2026-04",
+       "duracao": "1 ano 3 meses",
+       "local": "Canada \u0000 Remote"
+      },
+      {
+       "cargo": "Data Scientist",
+       "empresa": "IndustriALL",
+       "tipo": "Full-time",
+       "inicio": "2022-02",
+       "fim": "2025-01",
+       "duracao": "3 anos",
+       "local": "Hybrid, Brazil"
+      },
+      {
+       "cargo": "Data Scientist Intern",
+       "empresa": "IndustriALL",
+       "tipo": "Internship",
+       "inicio": "2021-02",
+       "fim": "2022-02",
+       "duracao": "1 ano 1 mês"
+      },
+      {
+       "cargo": "Researcher - Digital Electronics for Bio-Inspired Artificial Intelligence",
+       "empresa": "Electronics, Antennas and Telecommunications Laboratory (LEAT)",
+       "inicio": "2020-09",
+       "fim": "2021-01",
+       "duracao": "5 meses",
+       "local": "Sophia Antipolis, Provence-Alpes-C\u0000te d'Azur, France"
+      },
+      {
+       "cargo": "Researcher - Arduino based Systems",
+       "empresa": "Ifes - Instituto Federal do Esp\u0000rito Santo",
+       "inicio": "2019-01",
+       "fim": "2019-08",
+       "duracao": "8 meses",
+       "local": "Vit\u0000ria, Esp\u0000rito Santo, Brazil"
+      },
+      {
+       "cargo": "Researcher - Thin Film Production by Ionic Vapor Deposition",
+       "empresa": "Ifes - Instituto Federal do Esp\u0000rito Santo",
+       "inicio": "2017-10",
+       "fim": "2019-08",
+       "duracao": "1 ano 11 meses"
+      },
+      {
+       "cargo": "Researcher - Controlled Environment for Biological Systems",
+       "empresa": "Ifes - Instituto Federal do Esp\u0000rito Santo",
+       "inicio": "2017-08",
+       "fim": "2018-07",
+       "duracao": "1 ano"
+      }
+     ]
+    },
+    {
      "nome": "Jarbas Peluzio Rezende",
      "monograma": "JR",
      "cargo": null,
@@ -3394,6 +3702,87 @@
        "fim": "2013-04",
        "duracao": "2 anos 9 meses",
        "local": "Espírito Santo, Brazil"
+      }
+     ]
+    },
+    {
+     "nome": "Joabe Ruella da Silva",
+     "monograma": "JS",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/joaberuella/",
+     "jornada": [
+      {
+       "cargo": "Analista de automação",
+       "empresa": "Vale",
+       "tipo": "Full-time",
+       "inicio": "2025-06",
+       "duracao": "1 ano 5 meses",
+       "local": "Nova Lima, Minas Gerais, Brazil · On-site"
+      },
+      {
+       "cargo": "Analista de automação SR",
+       "empresa": "Inpasa Brasil",
+       "tipo": "Full-time",
+       "inicio": "2023-12",
+       "fim": "2025-05",
+       "duracao": "1 ano 6 meses",
+       "local": "Dourados, Mato Grosso do Sul, Brazil"
+      },
+      {
+       "cargo": "Analista de automação PL",
+       "empresa": "Cast group",
+       "tipo": "Full-time",
+       "inicio": "2023-01",
+       "fim": "2023-11",
+       "duracao": "11 meses",
+       "local": "Conselheiro Lafaiete, Minas Gerais, Brazil · On-site"
+      },
+      {
+       "cargo": "Analista de automação JR",
+       "empresa": "TSA Tecnologia de Sistemas de Automação SA",
+       "tipo": "Full-time",
+       "inicio": "2021-10",
+       "fim": "2023-01",
+       "duracao": "1 ano 4 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Pesquisador científico",
+       "empresa": "Fundação de Amparo à Pesquisa e Inovação do Espírito Santo | Fapes",
+       "tipo": "Contract",
+       "inicio": "2020-08",
+       "fim": "2021-09",
+       "duracao": "1 ano 2 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário de engenharia",
+       "empresa": "Vale",
+       "tipo": "Internship",
+       "inicio": "2019-03",
+       "fim": "2020-07",
+       "duracao": "1 ano 5 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Bolsista de IC",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Contract",
+       "inicio": "2015-07",
+       "fim": "2019-06",
+       "duracao": "4 anos",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário de engenharia",
+       "empresa": "Brasigran Granitos e Mineração Corcovado Granitos",
+       "tipo": "Internship",
+       "inicio": "2013-05",
+       "fim": "2015-05",
+       "duracao": "2 anos 1 mês",
+       "local": "Serra, Espírito Santo, Brazil · On-site"
       }
      ]
     },
@@ -3482,6 +3871,74 @@
        "fim": "2020-01",
        "duracao": "1 ano 1 mês",
        "local": "Cariacica, Espírito Santo, Brazil"
+      }
+     ]
+    },
+    {
+     "nome": "João Victor da Silva de Miranda",
+     "monograma": "JM",
+     "cargo": null,
+     "empresa": null,
+     "local": null,
+     "linkedin": "https://www.linkedin.com/in/jo%C3%A3o-victor-miranda-12a803168/",
+     "jornada": [
+      {
+       "cargo": "CX Specialist",
+       "empresa": "Planne",
+       "tipo": "Full-time",
+       "inicio": "2026-04",
+       "duracao": "7 meses",
+       "local": "Gramado, Rio Grande do Sul, Brazil · Remote"
+      },
+      {
+       "cargo": "Gerente de Qualidade do Produto",
+       "empresa": "AEVO",
+       "tipo": "Full-time",
+       "inicio": "2024-09",
+       "fim": "2026-02",
+       "duracao": "1 ano 6 meses",
+       "local": "Vitória, Espírito Santo, Brazil · Hybrid"
+      },
+      {
+       "cargo": "Gerente de Experiência do Cliente e Comunidade",
+       "empresa": "AEVO",
+       "inicio": "2024-01",
+       "fim": "2024-09",
+       "duracao": "9 meses",
+       "local": "Vitória, Espírito Santo, Brazil · Hybrid"
+      },
+      {
+       "cargo": "Gerente de Customer Experience",
+       "empresa": "AEVO",
+       "inicio": "2021-09",
+       "fim": "2024-01",
+       "duracao": "2 anos 5 meses",
+       "local": "Vitoria, Brazil Metropolitan Area · Hybrid"
+      },
+      {
+       "cargo": "Coordenador de Experiência do Cliente",
+       "empresa": "AEVO",
+       "inicio": "2021-01",
+       "fim": "2021-08",
+       "duracao": "8 meses",
+       "local": "Vitoria, Brazil Metropolitan Area · Remote"
+      },
+      {
+       "cargo": "Analista de Sucesso do Cliente",
+       "empresa": "AEVO",
+       "inicio": "2019-08",
+       "fim": "2020-12",
+       "duracao": "1 ano 5 meses",
+       "local": "Vitoria, Brazil Metropolitan Area · On-site"
+      },
+      {
+       "cargo": "Estagiário de Customer Success",
+       "empresa": "AEVO",
+       "tipo": "Internship",
+       "inicio": "2018-07",
+       "fim": "2019-07",
+       "duracao": "1 ano 1 mês",
+       "local": "Vitoria, Brazil Metropolitan Area · On-site"
       }
      ]
     },
