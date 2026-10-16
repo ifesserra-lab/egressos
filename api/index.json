@@ -41,7 +41,7 @@
   {
    "endpoint": "api/indices.json",
    "descricao": "IPCA, INPC e câmbio USD→BRL: número-índice mensal, médias anuais e deflatores (IBGE/IPEADATA).",
-   "kb": 17.5
+   "kb": 17.6
   },
   {
    "endpoint": "api/mercado/stackoverflow.json",
@@ -66,12 +66,12 @@
   {
    "endpoint": "api/analise.json",
    "descricao": "Análises agregadas: clusters, sankey, funções, gênero, internacionalização, extensão.",
-   "kb": 13.7
+   "kb": 13.8
   },
   {
    "endpoint": "api/egressos/perfis.json",
    "descricao": "Perfil público de cada egresso: nome, curso, cargo, empresa, cidade e senioridade. Sem renda — a estimativa é por senioridade, no endpoint ao lado.",
-   "kb": 78.3
+   "kb": 84.0
   },
   {
    "endpoint": "api/egressos/renda-por-senioridade.json",

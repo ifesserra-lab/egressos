@@ -1951,7 +1951,7 @@
      "de": 28
     },
     "jornada": {
-     "com": 13,
+     "com": 28,
      "de": 28
     }
    },
@@ -2608,7 +2608,77 @@
      "empresa": "Swap",
      "local": "Vitória, Espírito Santo, Brasil",
      "linkedin": "https://www.linkedin.com/in/conrado-costa-a19467/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Software Engineer",
+       "empresa": "Swap",
+       "tipo": "Full-time",
+       "inicio": "2025-03",
+       "duracao": "1 ano 8 meses",
+       "local": "Vitória, Espírito Santo, Brasil · Remote"
+      },
+      {
+       "cargo": "Mid. Backend Developer",
+       "empresa": "Invillia",
+       "tipo": "Full-time",
+       "inicio": "2024-07",
+       "fim": "2025-03",
+       "duracao": "9 meses",
+       "local": "Remote"
+      },
+      {
+       "cargo": "Software Engineer",
+       "empresa": "Localiza&Co",
+       "tipo": "Full-time",
+       "inicio": "2023-02",
+       "fim": "2024-07",
+       "duracao": "1 ano 6 meses",
+       "local": "Vitória, Espírito Santo, Brasil · Remote"
+      },
+      {
+       "cargo": "Programador de Sistemas Pleno",
+       "empresa": "Motora.ai",
+       "tipo": "Full-time",
+       "inicio": "2021-09",
+       "fim": "2023-01",
+       "duracao": "1 ano 5 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Programador Pleno",
+       "empresa": "Autoglass - Brasil",
+       "tipo": "Full-time",
+       "inicio": "2021-07",
+       "fim": "2021-10",
+       "duracao": "4 meses",
+       "local": "Vila Velha, Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Programador Júnior",
+       "empresa": "Autoglass - Brasil",
+       "tipo": "Full-time",
+       "inicio": "2020-12",
+       "fim": "2021-07",
+       "duracao": "8 meses"
+      },
+      {
+       "cargo": "Analista de Programação / Automação",
+       "empresa": "Vale",
+       "tipo": "(employment type not specified)",
+       "inicio": "2013-02",
+       "fim": "2020-12",
+       "duracao": "7 anos 11 meses",
+       "local": "Vitória Area, Brazil"
+      },
+      {
+       "cargo": "Técnico de Controle de Processo",
+       "empresa": "Vale",
+       "tipo": "(employment type not specified)",
+       "inicio": "2008-10",
+       "fim": "2013-02",
+       "duracao": "4 anos 5 meses"
+      }
+     ]
     },
     {
      "nome": "Danilo Menon Leal",
@@ -2617,7 +2687,102 @@
      "empresa": "FACOM - F. de Almeida Construções Ltda.",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/danilomleal/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Automation Consultant",
+       "empresa": "Autvix Engenharia",
+       "tipo": "Contract",
+       "inicio": "2020-11",
+       "duracao": "6 anos",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Automation Specialist",
+       "empresa": "FACOM - F. de Almeida Construções Ltda.",
+       "tipo": "Contract",
+       "inicio": "2019-12",
+       "duracao": "6 anos 11 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Automation Specialist",
+       "empresa": "FACOM - F. de Almeida Construções Ltda.",
+       "tipo": "Contract",
+       "inicio": "2018-11",
+       "fim": "2019-09",
+       "duracao": "11 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Automation Analyst",
+       "empresa": "LOGIX Group - Energy and Automation",
+       "tipo": "Full-time",
+       "inicio": "2018-04",
+       "fim": "2018-11",
+       "duracao": "8 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Business Partner",
+       "empresa": "Bar de Calçada",
+       "inicio": "2017-08",
+       "fim": "2018-09",
+       "duracao": "1 ano 2 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Automation Analyst",
+       "empresa": "SGS",
+       "tipo": "Full-time",
+       "inicio": "2018-02",
+       "fim": "2018-04",
+       "duracao": "3 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Automation Specialist",
+       "empresa": "FACOM - F. de Almeida Construções Ltda.",
+       "tipo": "Freelance",
+       "inicio": "2017-09",
+       "fim": "2017-12",
+       "duracao": "4 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Automation Manager",
+       "empresa": "Brasil Hidra Soluções Ltda.",
+       "tipo": "Full-time",
+       "inicio": "2016-09",
+       "fim": "2017-08",
+       "duracao": "1 ano",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Vice President of People Management (AIESEC)",
+       "empresa": "AIESEC",
+       "inicio": "2017-01",
+       "fim": "2017-05",
+       "duracao": "5 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Project Manager (AIESEC)",
+       "empresa": "AIESEC"
+      },
+      {
+       "cargo": "Team Member (AIESEC)",
+       "empresa": "AIESEC"
+      },
+      {
+       "cargo": "Undergraduate Researcher",
+       "empresa": "CNPq - MCT",
+       "tipo": "Full-time",
+       "inicio": "2013-09",
+       "fim": "2014-12",
+       "duracao": "1 ano 4 meses",
+       "local": "Greater Sydney Area"
+      }
+     ]
     },
     {
      "nome": "Davi Aragão Ascacibas",
@@ -2626,7 +2791,47 @@
      "empresa": "LYNX PROCESS",
      "local": "Cariacica, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/davi-aragão-ascacibas-a6a7a21a0/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Analista de automação",
+       "empresa": "LYNX PROCESS",
+       "tipo": "Full-time",
+       "inicio": "2024-12",
+       "duracao": "1 ano 11 meses"
+      },
+      {
+       "cargo": "Auxiliar Técnico de Automação",
+       "empresa": "LYNX PROCESS",
+       "tipo": "Full-time",
+       "inicio": "2023-03",
+       "fim": "2024-11",
+       "duracao": "1 ano 9 meses"
+      },
+      {
+       "cargo": "Estagiário de engenharia",
+       "empresa": "LYNX PROCESS",
+       "tipo": "Internship",
+       "inicio": "2022-11",
+       "fim": "2023-03",
+       "duracao": "5 meses"
+      },
+      {
+       "cargo": "Estagiário de Engenharia",
+       "empresa": "Vilux Vitória Lux Industrial",
+       "inicio": "2019-06",
+       "fim": "2021-06",
+       "duracao": "2 anos 1 mês"
+      },
+      {
+       "cargo": "Menor Aprendiz",
+       "empresa": "COEP",
+       "tipo": "Apprenticeship",
+       "inicio": "2012-11",
+       "fim": "2014-04",
+       "duracao": "1 ano 6 meses",
+       "local": "Cariacica, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Davson de Sousa dos Santos",
@@ -2635,7 +2840,14 @@
      "empresa": "JB Serviços Elétricos",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/davson-de-sousa-dos-santos-ba5b409b/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "eletrotécnico",
+       "empresa": "JB Serviços Elétricos",
+       "inicio": "2011",
+       "fim": "2014"
+      }
+     ]
     },
     {
      "nome": "Diego Pereira de Carvalho Pires",
@@ -2644,7 +2856,39 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/diego-pires-208593167/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Estivador",
+       "empresa": "OGMO ES",
+       "inicio": "2012-01",
+       "duracao": "14 anos 10 meses",
+       "local": "Vitória e Região, Brasil"
+      },
+      {
+       "cargo": "Conselheiro fiscal",
+       "empresa": "SETEMEES - Sindicato dos Estivadores do Espírito Santo",
+       "tipo": "Full-time",
+       "inicio": "2021-03",
+       "fim": "2024-03",
+       "duracao": "3 anos 1 mês",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário de engenharia",
+       "empresa": "ArcelorMittal Brasil",
+       "inicio": "2018-01",
+       "fim": "2018-12",
+       "duracao": "1 ano"
+      },
+      {
+       "cargo": "Soldado",
+       "empresa": "Exército Brasileiro",
+       "inicio": "2010-01",
+       "fim": "2011-01",
+       "duracao": "1 ano 1 mês",
+       "local": "Vila Velha, Espírito Santo"
+      }
+     ]
     },
     {
      "nome": "Diego de Deus Bazilio",
@@ -2653,7 +2897,16 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/diegodedeus/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Pregoeiro",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Full-time",
+       "inicio": "2008-08",
+       "duracao": "18 anos 3 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Douglas Loureiro Pimentel",
@@ -2662,7 +2915,30 @@
      "empresa": "Ballpark",
      "local": "Vila Velha, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/douglas-loureiro-pimentel-51a61a16a/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Instrutor de Língua Inglesa",
+       "empresa": "Ballpark Business English School",
+       "inicio": "2019-01",
+       "duracao": "7 anos 10 meses",
+       "local": "Vitória, Espírito Santo"
+      },
+      {
+       "cargo": "Vendedor técnico",
+       "empresa": "Vilux Vitória Lux Industrial",
+       "inicio": "2018-09",
+       "fim": "2019-01",
+       "duracao": "5 meses",
+       "local": "Espírito Santo"
+      },
+      {
+       "cargo": "Estagiário de engenharia",
+       "empresa": "Vilux Vitória Lux Industrial",
+       "inicio": "2016-12",
+       "fim": "2018-09",
+       "duracao": "1 ano 10 meses"
+      }
+     ]
     },
     {
      "nome": "Eduardo Lemos Loureiro",
@@ -2671,7 +2947,34 @@
      "empresa": "Vixteam Consultoria & Sistemas",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/eduardo-pitanga-loureiro/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Estagiário",
+       "empresa": "Vixteam Consultoria & Sistemas",
+       "tipo": "Internship",
+       "inicio": "2024-06",
+       "duracao": "2 anos 5 meses",
+       "local": "Vitória, Espírito Santo, Brazil · Hybrid"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "Alimentos Trigomais",
+       "tipo": "Internship",
+       "inicio": "2023-05",
+       "fim": "2024-05",
+       "duracao": "1 ano 1 mês",
+       "local": "Serra, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Instrutor de Ensino",
+       "empresa": "CNA Idiomas | Oficial",
+       "tipo": "Full-time",
+       "inicio": "2022-02",
+       "fim": "2022-12",
+       "duracao": "11 meses",
+       "local": "Vitória, Espírito Santo, Brazil · Hybrid"
+      }
+     ]
     },
     {
      "nome": "Emanoel Carlos de Souza Vitor",
@@ -2680,7 +2983,14 @@
      "empresa": "CEP Manutenção de sistemas ltda",
      "local": "Vila Velha, Espírito Santo, Brasil",
      "linkedin": "https://www.linkedin.com/in/emanoel-carlos-de-souza-vitor-1b678bb/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Tecnico em automação industrial.",
+       "empresa": "CEP Manutenção de sistemas ltda.",
+       "inicio": "2006-01",
+       "duracao": "20 anos 10 meses"
+      }
+     ]
     },
     {
      "nome": "Fabiano de Oliveira Ferreira",
@@ -2689,7 +2999,31 @@
      "empresa": "Petrobras",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/fabiano-de-oliveira-ferreira-a6667498/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Engenheiro de Petróleo",
+       "empresa": "Petrobras",
+       "inicio": "2023-02",
+       "duracao": "3 anos 9 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Técnico de Estabilidade",
+       "empresa": "Petrobras",
+       "inicio": "2010-08",
+       "fim": "2023-01",
+       "duracao": "12 anos 6 meses",
+       "local": "Macaé, Rio de Janeiro, Brazil"
+      },
+      {
+       "cargo": "Técnico de Manutenção - Intrumentação",
+       "empresa": "Transpetro - Petrobras Transporte S. A.",
+       "inicio": "2007-04",
+       "fim": "2010-08",
+       "duracao": "3 anos 5 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      }
+     ]
     },
     {
      "nome": "Fabricio Sant'anna Rêlo",
@@ -2698,7 +3032,57 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/fabriciorelo/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Piloto de drone",
+       "empresa": "Flyterm Tecnologia",
+       "tipo": "Self-employed",
+       "inicio": "2020-11",
+       "duracao": "6 anos",
+       "local": "Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Técnico de automação",
+       "empresa": "TSA Tecnologia de Sistemas de Automação SA",
+       "tipo": "Full-time",
+       "inicio": "2023-10",
+       "fim": "2024-06",
+       "duracao": "9 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Técnico Preditiva Elétrica",
+       "empresa": "ArcelorMittal",
+       "inicio": "2012-09",
+       "fim": "2020-10",
+       "duracao": "8 anos 2 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Técnico em Elétrica",
+       "empresa": "Sel Serviços Elétricos",
+       "inicio": "2011-10",
+       "fim": "2012-01",
+       "duracao": "4 meses",
+       "local": "Cariacica, ES"
+      },
+      {
+       "cargo": "Estagiário de Engenharia Elétrica",
+       "empresa": "Vixplan Engenharias",
+       "inicio": "2011-06",
+       "fim": "2011-10",
+       "duracao": "5 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Estagiário Técnico",
+       "empresa": "ArcelorMittal Tubarão",
+       "inicio": "2010-01",
+       "fim": "2010-12",
+       "duracao": "1 ano",
+       "local": "Serra, ES"
+      }
+     ]
     },
     {
      "nome": "Frederico Ramos Wernesbach",
@@ -2707,7 +3091,70 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/frederico-wernesbach/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Application Support Analyst",
+       "empresa": "Arc Infrastructure",
+       "tipo": "Full-time",
+       "inicio": "2026-03",
+       "duracao": "8 months"
+      },
+      {
+       "cargo": "Analista de automação",
+       "empresa": "LYNX PROCESS",
+       "tipo": "Full-time",
+       "inicio": "2025-06",
+       "fim": "2025-11",
+       "duracao": "6 months",
+       "local": "Vittoria, ES (Hybrid)"
+      },
+      {
+       "cargo": "Especialista em Manutenção Ferroviária",
+       "empresa": "MRS Logística",
+       "tipo": "Full-time",
+       "inicio": "2024-11",
+       "fim": "2025-06",
+       "duracao": "8 months",
+       "local": "Juiz de Fora, Minas Gerais, Brasil"
+      },
+      {
+       "cargo": "Analista de implantação - Sistemas Ferroviários",
+       "empresa": "Alta Rail Technology",
+       "tipo": "Full-time",
+       "inicio": "2021-05",
+       "fim": "2024-10",
+       "duracao": "3 years 6 months"
+      },
+      {
+       "cargo": "Analista de sistemas",
+       "empresa": "ETAURE TI & AUTOMAÇÃO",
+       "inicio": "2019-01",
+       "fim": "2021-03",
+       "duracao": "2 years 3 months"
+      },
+      {
+       "cargo": "Desenvolvedor",
+       "empresa": "ETAURE TI & AUTOMAÇÃO",
+       "inicio": "2017-07",
+       "fim": "2018-12",
+       "duracao": "1 year 6 months",
+       "local": "Vitória e Região, Brasil"
+      },
+      {
+       "cargo": "Supervisor técnico",
+       "empresa": "Dure",
+       "inicio": "2016-05",
+       "fim": "2016-10",
+       "duracao": "6 months",
+       "local": "Vitória e Região, Brasil"
+      },
+      {
+       "cargo": "Operador JR",
+       "empresa": "EDP Brasil",
+       "inicio": "2012",
+       "fim": "2012"
+      }
+     ]
     },
     {
      "nome": "Gabriel Saade Pagani",
@@ -2716,7 +3163,51 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/gabriel-pagani-573464136/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Engenheiro de Serviço de Campo",
+       "empresa": "ABB Brasil",
+       "tipo": "Full-time",
+       "inicio": "2022-08",
+       "duracao": "4 anos 3 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Engenheiro de automação",
+       "empresa": "TSA Tecnologia de Sistemas de Automação SA",
+       "tipo": "Full-time",
+       "inicio": "2022-04",
+       "fim": "2022-07",
+       "duracao": "4 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Analista de Automação",
+       "empresa": "TSA Tecnologia de Sistemas de Automação SA",
+       "tipo": "Full-time",
+       "inicio": "2021-08",
+       "fim": "2022-03",
+       "duracao": "8 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Auxiliar Técnico de Automação",
+       "empresa": "TSA Tecnologia de Sistemas de Automação SA",
+       "tipo": "Full-time",
+       "inicio": "2018-12",
+       "fim": "2021-07",
+       "duracao": "2 anos 8 meses",
+       "local": "Vitória"
+      },
+      {
+       "cargo": "Estagiário de engenharia",
+       "empresa": "TSA Tecnologia de Sistemas de Automação SA",
+       "inicio": "2018-08",
+       "fim": "2018-11",
+       "duracao": "4 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      }
+     ]
     },
     {
      "nome": "Geovani Lima Telles",
@@ -2725,7 +3216,29 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/geovani-telles-22960177/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Técnico Especializado de Manutenção",
+       "empresa": "Vale",
+       "inicio": "2011-06",
+       "duracao": "15 anos 5 meses",
+       "local": "Oficina Central do Porto, Porto de Tubarão"
+      },
+      {
+       "cargo": "Técnico de Planejamento e Programação",
+       "empresa": "ArcelorMittal",
+       "inicio": "2005-05",
+       "fim": "2011-06",
+       "duracao": "6 anos 2 meses"
+      },
+      {
+       "cargo": "Eletromecânico",
+       "empresa": "Condomínio do Shopping Vitória",
+       "inicio": "2000-01",
+       "fim": "2005-05",
+       "duracao": "5 anos 5 meses"
+      }
+     ]
     },
     {
      "nome": "Guilherme Souza Otone",
@@ -2734,7 +3247,60 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/guilhermeotone/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Analista Operacional Pleno",
+       "empresa": "Vale",
+       "tipo": "Full-time",
+       "inicio": "2025-06",
+       "duracao": "1 ano 5 meses",
+       "local": "Parauapebas, Pará, Brazil"
+      },
+      {
+       "cargo": "Analista operacional",
+       "empresa": "Vale",
+       "tipo": "Full-time",
+       "inicio": "2023-05",
+       "fim": "2025-06",
+       "duracao": "2 anos 2 meses",
+       "local": "Pará, Brazil"
+      },
+      {
+       "cargo": "Estagiário de engenharia",
+       "empresa": "Vale",
+       "tipo": "Internship",
+       "inicio": "2021-07",
+       "fim": "2023-04",
+       "duracao": "1 ano 10 meses",
+       "local": "Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário de engenharia",
+       "empresa": "CEDISA - Central de Aço",
+       "tipo": "Internship",
+       "inicio": "2020-01",
+       "fim": "2020-12",
+       "duracao": "1 ano",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário técnico",
+       "empresa": "ArcelorMittal Brasil",
+       "tipo": "Internship",
+       "inicio": "2016-03",
+       "fim": "2016-12",
+       "duracao": "10 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Internship",
+       "empresa": "Lhoist",
+       "inicio": "2015-01",
+       "fim": "2015-04",
+       "duracao": "4 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      }
+     ]
     }
    ]
   }
