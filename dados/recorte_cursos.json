@@ -12,7 +12,8 @@
     "processados_pela_coleta": 66,
     "confirmados_pela_coleta": 64,
     "confirmados_a_mao": 31,
-    "aguardando_conferencia": 1,
+    "aguardando_conferencia": 0,
+    "nao_identificados": 1,
     "falhou_a_rodada": 1,
     "no_estudo_original": 50,
     "identificados": 114
@@ -35,7 +36,23 @@
      "n": 2
     },
     {
+     "texto": "Analista de TI",
+     "n": 2
+    },
+    {
      "texto": "Engenheiro de dados",
+     "n": 2
+    },
+    {
+     "texto": "Líder técnico",
+     "n": 2
+    },
+    {
+     "texto": "Analista de sistemas",
+     "n": 2
+    },
+    {
+     "texto": "Desenvolvedor full stack",
      "n": 2
     },
     {
@@ -48,22 +65,6 @@
     },
     {
      "texto": "Consulting Engineer",
-     "n": 1
-    },
-    {
-     "texto": "Analista de Dados",
-     "n": 1
-    },
-    {
-     "texto": "Senior Consulting Engineer",
-     "n": 1
-    },
-    {
-     "texto": "Android Developer",
-     "n": 1
-    },
-    {
-     "texto": "IT Analyst",
      "n": 1
     }
    ],
@@ -101,29 +102,30 @@
      "n": 2
     },
     {
+     "texto": "V1 App",
+     "n": 2
+    },
+    {
+     "texto": "Leds - Ifes",
+     "n": 2
+    },
+    {
      "texto": "Ifes - Instituto Federal do Espírito Santo",
      "n": 2
     },
     {
      "texto": "Metris Energy",
      "n": 1
-    },
-    {
-     "texto": "Doris",
-     "n": 1
-    },
-    {
-     "texto": "Marinha do Brasil",
-     "n": 1
     }
    ],
    "cobertura": {
     "cargo": {
-     "com": 80,
+     "com": 97,
      "de": 114
     },
+    "cargo_da_trajetoria": 17,
     "empresa": {
-     "com": 82,
+     "com": 97,
      "de": 114
     },
     "jornada": {
@@ -1844,14 +1846,23 @@
     "processados_pela_coleta": 110,
     "confirmados_pela_coleta": 77,
     "confirmados_a_mao": 25,
-    "aguardando_conferencia": 32,
-    "falhou_a_rodada": 1,
+    "aguardando_conferencia": 7,
+    "nao_identificados": 24,
+    "falhou_a_rodada": 2,
     "no_estudo_original": 0,
     "identificados": 77
    },
    "cargos": [
     {
      "texto": "Analista de automação",
+     "n": 5
+    },
+    {
+     "texto": "Software Engineer",
+     "n": 2
+    },
+    {
+     "texto": "Sócio proprietário",
      "n": 2
     },
     {
@@ -1863,50 +1874,54 @@
      "n": 1
     },
     {
+     "texto": "Analista PL de Sistemas de Automação",
+     "n": 1
+    },
+    {
      "texto": "Assistente Técnico III",
      "n": 1
     },
     {
-     "texto": "Software Engineer",
+     "texto": "Especialista em desenvolvimento sênior",
      "n": 1
     },
     {
-     "texto": "Automation Specialist",
+     "texto": "Engenheiro de Controle e Automação Sr",
      "n": 1
     },
     {
-     "texto": "eletrotécnico",
+     "texto": "Desenvolvedor",
      "n": 1
     },
     {
-     "texto": "Instrutor de Língua Inglesa",
+     "texto": "Sócio",
      "n": 1
     },
     {
-     "texto": "Estagiário",
-     "n": 1
-    },
-    {
-     "texto": "Tecnico em automação industrial",
-     "n": 1
-    },
-    {
-     "texto": "Engenheiro de Petróleo",
-     "n": 1
-    },
-    {
-     "texto": "Engenheiro",
+     "texto": "Tech Lead | Arquiteto de Soluções Sênior",
      "n": 1
     }
    ],
    "empresas": [
     {
+     "texto": "Vale",
+     "n": 5
+    },
+    {
+     "texto": "GainTech Tecnologia",
+     "n": 4
+    },
+    {
      "texto": "Ifes - Instituto Federal do Espírito Santo",
+     "n": 4
+    },
+    {
+     "texto": "Autvix Group",
      "n": 3
     },
     {
-     "texto": "Vale",
-     "n": 2
+     "texto": "Petrobras",
+     "n": 3
     },
     {
      "texto": "ArcelorMittal",
@@ -1917,11 +1932,7 @@
      "n": 2
     },
     {
-     "texto": "Petrobras",
-     "n": 2
-    },
-    {
-     "texto": "Autvix Group",
+     "texto": "Transpetro - Petrobras Transporte S. A.",
      "n": 2
     },
     {
@@ -1929,37 +1940,30 @@
      "n": 1
     },
     {
-     "texto": "Swap",
+     "texto": "NTT DATA Europe & Latam",
      "n": 1
     },
     {
-     "texto": "FACOM - F. de Almeida Construções Ltda.",
+     "texto": "TSA Tecnologia de Sistemas de Automação SA",
      "n": 1
     },
     {
-     "texto": "JB Serviços Elétricos",
-     "n": 1
-    },
-    {
-     "texto": "Ballpark",
-     "n": 1
-    },
-    {
-     "texto": "Vixteam Consultoria & Sistemas",
+     "texto": "Instituto de Tecnologia da Informação e Comunicação do Estado do Espirito Santo (Prodest)",
      "n": 1
     }
    ],
    "cobertura": {
     "cargo": {
-     "com": 45,
+     "com": 73,
      "de": 77
     },
+    "cargo_da_trajetoria": 28,
     "empresa": {
-     "com": 44,
+     "com": 71,
      "de": 77
     },
     "jornada": {
-     "com": 74,
+     "com": 73,
      "de": 77
     }
    },
@@ -3612,71 +3616,7 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/isabelle-dias/",
-     "jornada": [
-      {
-       "cargo": "Senior Software Engineer",
-       "empresa": "WEX",
-       "tipo": "Permanent Full-time",
-       "inicio": "2026-04",
-       "duracao": "7 meses"
-      },
-      {
-       "cargo": "Software Engineer",
-       "empresa": "WEX",
-       "tipo": "Full-time",
-       "inicio": "2025-02",
-       "fim": "2026-04",
-       "duracao": "1 ano 3 meses",
-       "local": "Canada \u0000 Remote"
-      },
-      {
-       "cargo": "Data Scientist",
-       "empresa": "IndustriALL",
-       "tipo": "Full-time",
-       "inicio": "2022-02",
-       "fim": "2025-01",
-       "duracao": "3 anos",
-       "local": "Hybrid, Brazil"
-      },
-      {
-       "cargo": "Data Scientist Intern",
-       "empresa": "IndustriALL",
-       "tipo": "Internship",
-       "inicio": "2021-02",
-       "fim": "2022-02",
-       "duracao": "1 ano 1 mês"
-      },
-      {
-       "cargo": "Researcher - Digital Electronics for Bio-Inspired Artificial Intelligence",
-       "empresa": "Electronics, Antennas and Telecommunications Laboratory (LEAT)",
-       "inicio": "2020-09",
-       "fim": "2021-01",
-       "duracao": "5 meses",
-       "local": "Sophia Antipolis, Provence-Alpes-C\u0000te d'Azur, France"
-      },
-      {
-       "cargo": "Researcher - Arduino based Systems",
-       "empresa": "Ifes - Instituto Federal do Esp\u0000rito Santo",
-       "inicio": "2019-01",
-       "fim": "2019-08",
-       "duracao": "8 meses",
-       "local": "Vit\u0000ria, Esp\u0000rito Santo, Brazil"
-      },
-      {
-       "cargo": "Researcher - Thin Film Production by Ionic Vapor Deposition",
-       "empresa": "Ifes - Instituto Federal do Esp\u0000rito Santo",
-       "inicio": "2017-10",
-       "fim": "2019-08",
-       "duracao": "1 ano 11 meses"
-      },
-      {
-       "cargo": "Researcher - Controlled Environment for Biological Systems",
-       "empresa": "Ifes - Instituto Federal do Esp\u0000rito Santo",
-       "inicio": "2017-08",
-       "fim": "2018-07",
-       "duracao": "1 ano"
-      }
-     ]
+     "jornada": []
     },
     {
      "nome": "Jarbas Peluzio Rezende",

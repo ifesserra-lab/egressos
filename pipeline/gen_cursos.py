@@ -66,13 +66,36 @@ def _linhas_do_estudo(perfil):
 def _linhas_da_coleta(coleta):
     """Cargo e empresa dos confirmados da coleta. Quem entrou só pela mão pode não ter
     cargo — a conferência humana confirma a PESSOA; o topo do perfil só existe se a busca
-    o leu."""
-    return [{
-        "nome": p["nome"],
-        "cargo": _limpo(p.get("cargo_atual")),
-        "empresa": _limpo(p.get("empresa_atual")),
-        "fonte": "coleta",
-    } for p in coleta["perfis"] if p.get("confirmado")]
+    o leu.
+
+    Sem topo lido, o cargo vem da POSIÇÃO EM CURSO da trajetória, quando ela existe. Em
+    16/10/2026 a ECA dizia "16 dos 45 têm cargo lido" enquanto 26 dos outros 29 tinham o
+    emprego atual gravado na segunda passada — a página declarava ausente um dado que o
+    repositório tinha. `cargo_de` diz de qual das duas leituras o texto saiu."""
+    linhas = []
+    for p in coleta["perfis"]:
+        if not p.get("confirmado"):
+            continue
+        cargo, empresa = _limpo(p.get("cargo_atual")), _limpo(p.get("empresa_atual"))
+        cargo_de = "topo" if cargo else None
+        if not cargo:
+            atual = _posicao_em_curso(p.get("experiencias"))
+            if atual:
+                cargo, empresa, cargo_de = atual["cargo"], atual["empresa"], "trajetoria"
+        linhas.append({"nome": p["nome"], "cargo": cargo, "empresa": empresa,
+                       "cargo_de": cargo_de, "fonte": "coleta"})
+    return linhas
+
+
+def _posicao_em_curso(experiencias):
+    """A primeira posição sem fim da jornada publicável — o LinkedIn lista da mais recente.
+
+    Passa pelo mesmo filtro da vitrine: se a jornada é recusada (campos deslocados, byte
+    nulo), o cargo atual também é, senão a barra afirmaria o que o cartão esconde."""
+    for pos in _jornada_publicavel(experiencias, ("cargo", "empresa", "tipo", "inicio", "fim")):
+        if "fim" not in pos and pos.get("inicio") and _limpo(pos.get("cargo")):
+            return {"cargo": _limpo(pos["cargo"]), "empresa": _limpo(pos.get("empresa"))}
+    return None
 
 
 def _linkedin(slug):
@@ -160,12 +183,18 @@ def recorte():
 
     fila_por_curso = collections.Counter(p["curso"] for p in fila["fila"])
     processados = collections.Counter(p["curso"] for p in coleta["perfis"])
-    # Achado-sem-confirmar também aguarda conferência: é o perfil que a busca VIU (nome e
-    # ES batendo) sem IFES na formação lida. Excluí-lo pelo `achado` fazia a ECA publicar
-    # 60 processados com parcelas somando 58 — os dois "a confirmar" de 2026-10-16.
-    nao_ident = collections.Counter(
-        p["curso"] for p in coleta["perfis"]
-        if not p.get("confirmado") and not p.get("falhou_a_rodada"))
+    # Quem não foi confirmado nem falhou a rodada se divide em DOIS, e a página os somava sob
+    # o rótulo "aguardando conferência". Em 16/10/2026 eram 15 na ECA, dos quais só 2 de fato
+    # aguardavam: os outros 13 eram busca concluída sem achar ninguém.
+    #
+    #   aguardando conferência  `achado` — a busca VIU um perfil (nome e ES batendo) sem IFES
+    #                           na formação lida; falta gente decidir se é a pessoa.
+    #   não identificado        sem `achado` — só homônimos, ou nada. É RESULTADO, não fila:
+    #                           o que falta é conhecimento que o LinkedIn não tem.
+    sem_identidade = [p for p in coleta["perfis"]
+                      if not p.get("confirmado") and not p.get("falhou_a_rodada")]
+    aguardando = collections.Counter(p["curso"] for p in sem_identidade if p.get("achado"))
+    nao_ident = collections.Counter(p["curso"] for p in sem_identidade if not p.get("achado"))
     a_mao = collections.Counter(
         p["curso"] for p in coleta["perfis"]
         if p.get("confirmado") and p.get("confirmado_por") == "conferência humana")
@@ -177,8 +206,8 @@ def recorte():
     # O `not confirmado` não é detalhe: `falhou_a_rodada` PERMANECE gravado em quem falhou
     # numa rodada e foi achado na seguinte. Contar o flag cru dava 3 no BSI e a soma passava
     # de 66 para 68 — a contagem criada para fechar a conta quebrava a conta. A partição
-    # correta é confirmado | falhou-e-não-confirmado | aguardando conferência, e ela soma
-    # exatamente os processados nos dois cursos.
+    # correta é confirmado | falhou-e-não-confirmado | aguardando conferência | não
+    # identificado, e ela soma exatamente os processados nos dois cursos.
     falhou = collections.Counter(
         p["curso"] for p in coleta["perfis"]
         if p.get("falhou_a_rodada") and not p.get("confirmado"))
@@ -198,7 +227,8 @@ def recorte():
                 "processados_pela_coleta": processados.get(curso, 0),
                 "confirmados_pela_coleta": confirmados_coleta,
                 "confirmados_a_mao": a_mao.get(curso, 0),
-                "aguardando_conferencia": nao_ident.get(curso, 0),
+                "aguardando_conferencia": aguardando.get(curso, 0),
+                "nao_identificados": nao_ident.get(curso, 0),
                 "falhou_a_rodada": falhou.get(curso, 0),
                 "no_estudo_original": sum(1 for v in linhas if v["fonte"] == "estudo"),
                 "identificados": len(linhas),
@@ -211,6 +241,10 @@ def recorte():
             # jornadas dos 50 do estudo, que nem passam pela vitrine.
             "cobertura": {
                 "cargo": _cobertura(linhas, "cargo"),
+                # Dos que têm cargo, quantos vieram da posição em curso da trajetória e não
+                # do topo do perfil — a página diz as duas parcelas.
+                "cargo_da_trajetoria": sum(1 for v in linhas
+                                           if v.get("cargo_de") == "trajetoria"),
                 "empresa": _cobertura(linhas, "empresa"),
                 "jornada": _cobertura(vitrine_do_curso, "jornada"),
             },
