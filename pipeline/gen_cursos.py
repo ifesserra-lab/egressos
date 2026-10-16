@@ -160,9 +160,12 @@ def recorte():
 
     fila_por_curso = collections.Counter(p["curso"] for p in fila["fila"])
     processados = collections.Counter(p["curso"] for p in coleta["perfis"])
+    # Achado-sem-confirmar também aguarda conferência: é o perfil que a busca VIU (nome e
+    # ES batendo) sem IFES na formação lida. Excluí-lo pelo `achado` fazia a ECA publicar
+    # 60 processados com parcelas somando 58 — os dois "a confirmar" de 2026-10-16.
     nao_ident = collections.Counter(
         p["curso"] for p in coleta["perfis"]
-        if not p.get("confirmado") and not p.get("achado") and not p.get("falhou_a_rodada"))
+        if not p.get("confirmado") and not p.get("falhou_a_rodada"))
     a_mao = collections.Counter(
         p["curso"] for p in coleta["perfis"]
         if p.get("confirmado") and p.get("confirmado_por") == "conferência humana")

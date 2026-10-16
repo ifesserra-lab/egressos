@@ -2,7 +2,7 @@
  "e_estimativa": true,
  "aviso": "ESTIMATIVA. A renda de cada ano é a mediana do coorte naquele ano, convertida pelo câmbio do próprio ano e deflacionada. Para uma pessoa concreta pode ser MAIOR ou MENOR.",
  "ano_base": 2026,
- "referencia": "jul/2026",
+ "referencia": "set/2026",
  "minimo_de_pessoas_por_ano": 10,
  "por_que_o_minimo": "Ano com menos pessoas que isso não vira ponto: a mediana seria de um punhado de gente, com o rótulo do coorte inteiro.",
  "cambio_por_ano": "Cada ano converte pela taxa média DELE. Taxa única faria a série mostrar variação cambial como se fosse variação de salário.",
@@ -418,7 +418,7 @@
  ],
  "salario_minimo": {
   "nominal_pct": 160.61093247588425,
-  "real_pct": 20.520446096654265,
+  "real_pct": 20.163083765752397,
   "de": 2012,
   "ate": 2026
  },
@@ -432,7 +432,7 @@
    "inpc_ano_anterior_pct": 6.08,
    "ganho_real_pct": 7.59,
    "dois_valores_no_ano": false,
-   "em_reais_de_2026": 1345
+   "em_reais_de_2026": 1349
   },
   {
    "ano": 2013,
@@ -443,7 +443,7 @@
    "inpc_ano_anterior_pct": 6.2,
    "ganho_real_pct": 2.64,
    "dois_valores_no_ano": false,
-   "em_reais_de_2026": 1381
+   "em_reais_de_2026": 1385
   },
   {
    "ano": 2014,
@@ -454,7 +454,7 @@
    "inpc_ano_anterior_pct": 5.56,
    "ganho_real_pct": 1.16,
    "dois_valores_no_ano": false,
-   "em_reais_de_2026": 1387
+   "em_reais_de_2026": 1390
   },
   {
    "ano": 2015,
@@ -465,7 +465,7 @@
    "inpc_ano_anterior_pct": 6.23,
    "ganho_real_pct": 2.46,
    "dois_valores_no_ano": false,
-   "em_reais_de_2026": 1384
+   "em_reais_de_2026": 1388
   },
   {
    "ano": 2016,
@@ -476,7 +476,7 @@
    "inpc_ano_anterior_pct": 11.28,
    "ganho_real_pct": 0.36,
    "dois_valores_no_ano": false,
-   "em_reais_de_2026": 1422
+   "em_reais_de_2026": 1426
   },
   {
    "ano": 2017,
@@ -487,7 +487,7 @@
    "inpc_ano_anterior_pct": 6.58,
    "ganho_real_pct": -0.09,
    "dois_valores_no_ano": false,
-   "em_reais_de_2026": 1463
+   "em_reais_de_2026": 1467
   },
   {
    "ano": 2018,
@@ -498,7 +498,7 @@
    "inpc_ano_anterior_pct": 2.07,
    "ganho_real_pct": -0.25,
    "dois_valores_no_ano": false,
-   "em_reais_de_2026": 1437
+   "em_reais_de_2026": 1441
   },
   {
    "ano": 2019,
@@ -509,7 +509,7 @@
    "inpc_ano_anterior_pct": 3.43,
    "ganho_real_pct": 1.14,
    "dois_valores_no_ano": false,
-   "em_reais_de_2026": 1449
+   "em_reais_de_2026": 1453
   },
   {
    "ano": 2020,
@@ -520,7 +520,7 @@
    "inpc_ano_anterior_pct": 4.48,
    "ganho_real_pct": -0.35,
    "dois_valores_no_ano": true,
-   "em_reais_de_2026": 1470
+   "em_reais_de_2026": 1474
   },
   {
    "ano": 2021,
@@ -531,7 +531,7 @@
    "inpc_ano_anterior_pct": 5.45,
    "ganho_real_pct": -0.18,
    "dois_valores_no_ano": false,
-   "em_reais_de_2026": 1429
+   "em_reais_de_2026": 1433
   },
   {
    "ano": 2022,
@@ -542,7 +542,7 @@
    "inpc_ano_anterior_pct": 10.16,
    "ganho_real_pct": 0.02,
    "dois_valores_no_ano": false,
-   "em_reais_de_2026": 1441
+   "em_reais_de_2026": 1445
   },
   {
    "ano": 2023,
@@ -553,7 +553,7 @@
    "inpc_ano_anterior_pct": 5.93,
    "ganho_real_pct": 1.42,
    "dois_valores_no_ano": true,
-   "em_reais_de_2026": 1493
+   "em_reais_de_2026": 1498
   },
   {
    "ano": 2024,
@@ -564,7 +564,7 @@
    "inpc_ano_anterior_pct": 3.71,
    "ganho_real_pct": 3.14,
    "dois_valores_no_ano": false,
-   "em_reais_de_2026": 1538
+   "em_reais_de_2026": 1542
   },
   {
    "ano": 2025,
@@ -575,7 +575,7 @@
    "inpc_ano_anterior_pct": 4.77,
    "ganho_real_pct": 2.62,
    "dois_valores_no_ano": false,
-   "em_reais_de_2026": 1574
+   "em_reais_de_2026": 1579
   },
   {
    "ano": 2026,

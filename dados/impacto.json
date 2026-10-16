@@ -39,14 +39,14 @@
  "bolsa": {
   "valor_da_epoca": 800,
   "ano": 2018,
-  "em_poder_de_compra_de_hoje": 1205,
+  "em_poder_de_compra_de_hoje": 1208,
   "fonte": "Bolsa FAPES de projeto de governo (nível VI)",
   "extensao": {
    "valor": 400,
    "de": 2013,
    "ate": 2014,
    "fonte": "bolsa de extensão/IC do LEDS/IFES, valor documentado, cruzado com registros",
-   "em_poder_de_compra_de_hoje": 815
+   "em_poder_de_compra_de_hoje": 817
   },
   "ict_hoje": {
    "valor": 900,

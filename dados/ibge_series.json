@@ -2,7 +2,7 @@
  "titulo": "Séries macroeconômicas de referência do estudo de egressos",
  "gerado_por": "pipeline/ibge_series.py",
  "ano_base": 2026,
- "mes_base": "202607",
+ "mes_base": "202609",
  "series": {
   "ipca": {
    "titulo": "IPCA — número-índice (base dez/1993 = 100)",
@@ -10,8 +10,8 @@
    "url": "https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2266/p/all",
    "unidade": "número-índice (dez/1993 = 100)",
    "primeiro": "197912",
-   "ultimo": "202607",
-   "n_meses": 560,
+   "ultimo": "202609",
+   "n_meses": 562,
    "mensal": {
     "201101": 3222.42,
     "201102": 3248.2,
@@ -199,7 +199,9 @@
     "202604": 7596.09,
     "202605": 7640.15,
     "202606": 7652.37,
-    "202607": 7657.73
+    "202607": 7657.73,
+    "202608": 7633.23,
+    "202609": 7695.82
    },
    "media_anual": {
     "2011": 3321.2,
@@ -217,24 +219,24 @@
     "2023": 6661.15,
     "2024": 6952.07,
     "2025": 7300.84,
-    "2026": 7571.33
+    "2026": 7592.04
    },
    "deflator_para_base": {
-    "2011": 2.2797,
-    "2012": 2.1628,
-    "2013": 2.0365,
-    "2014": 1.9153,
-    "2015": 1.7566,
-    "2016": 1.6155,
-    "2017": 1.5616,
-    "2018": 1.5064,
-    "2019": 1.4522,
-    "2020": 1.407,
-    "2021": 1.2992,
-    "2022": 1.1889,
-    "2023": 1.1366,
-    "2024": 1.0891,
-    "2025": 1.037,
+    "2011": 2.2859,
+    "2012": 2.1687,
+    "2013": 2.0421,
+    "2014": 1.9205,
+    "2015": 1.7614,
+    "2016": 1.6199,
+    "2017": 1.5659,
+    "2018": 1.5106,
+    "2019": 1.4562,
+    "2020": 1.4109,
+    "2021": 1.3027,
+    "2022": 1.1921,
+    "2023": 1.1397,
+    "2024": 1.0921,
+    "2025": 1.0399,
     "2026": 1.0
    }
   },
@@ -668,7 +670,7 @@
      "inpc_ano_anterior_pct": 6.47,
      "ganho_real_pct": -0.55,
      "dois_valores_no_ano": true,
-     "em_reais_de_2026": 1241
+     "em_reais_de_2026": 1244
     },
     {
      "ano": 2012,
@@ -679,7 +681,7 @@
      "inpc_ano_anterior_pct": 6.08,
      "ganho_real_pct": 7.59,
      "dois_valores_no_ano": false,
-     "em_reais_de_2026": 1345
+     "em_reais_de_2026": 1349
     },
     {
      "ano": 2013,
@@ -690,7 +692,7 @@
      "inpc_ano_anterior_pct": 6.2,
      "ganho_real_pct": 2.64,
      "dois_valores_no_ano": false,
-     "em_reais_de_2026": 1381
+     "em_reais_de_2026": 1385
     },
     {
      "ano": 2014,
@@ -701,7 +703,7 @@
      "inpc_ano_anterior_pct": 5.56,
      "ganho_real_pct": 1.16,
      "dois_valores_no_ano": false,
-     "em_reais_de_2026": 1387
+     "em_reais_de_2026": 1390
     },
     {
      "ano": 2015,
@@ -712,7 +714,7 @@
      "inpc_ano_anterior_pct": 6.23,
      "ganho_real_pct": 2.46,
      "dois_valores_no_ano": false,
-     "em_reais_de_2026": 1384
+     "em_reais_de_2026": 1388
     },
     {
      "ano": 2016,
@@ -723,7 +725,7 @@
      "inpc_ano_anterior_pct": 11.28,
      "ganho_real_pct": 0.36,
      "dois_valores_no_ano": false,
-     "em_reais_de_2026": 1422
+     "em_reais_de_2026": 1426
     },
     {
      "ano": 2017,
@@ -734,7 +736,7 @@
      "inpc_ano_anterior_pct": 6.58,
      "ganho_real_pct": -0.09,
      "dois_valores_no_ano": false,
-     "em_reais_de_2026": 1463
+     "em_reais_de_2026": 1467
     },
     {
      "ano": 2018,
@@ -745,7 +747,7 @@
      "inpc_ano_anterior_pct": 2.07,
      "ganho_real_pct": -0.25,
      "dois_valores_no_ano": false,
-     "em_reais_de_2026": 1437
+     "em_reais_de_2026": 1441
     },
     {
      "ano": 2019,
@@ -756,7 +758,7 @@
      "inpc_ano_anterior_pct": 3.43,
      "ganho_real_pct": 1.14,
      "dois_valores_no_ano": false,
-     "em_reais_de_2026": 1449
+     "em_reais_de_2026": 1453
     },
     {
      "ano": 2020,
@@ -767,7 +769,7 @@
      "inpc_ano_anterior_pct": 4.48,
      "ganho_real_pct": -0.35,
      "dois_valores_no_ano": true,
-     "em_reais_de_2026": 1470
+     "em_reais_de_2026": 1474
     },
     {
      "ano": 2021,
@@ -778,7 +780,7 @@
      "inpc_ano_anterior_pct": 5.45,
      "ganho_real_pct": -0.18,
      "dois_valores_no_ano": false,
-     "em_reais_de_2026": 1429
+     "em_reais_de_2026": 1433
     },
     {
      "ano": 2022,
@@ -789,7 +791,7 @@
      "inpc_ano_anterior_pct": 10.16,
      "ganho_real_pct": 0.02,
      "dois_valores_no_ano": false,
-     "em_reais_de_2026": 1441
+     "em_reais_de_2026": 1445
     },
     {
      "ano": 2023,
@@ -800,7 +802,7 @@
      "inpc_ano_anterior_pct": 5.93,
      "ganho_real_pct": 1.42,
      "dois_valores_no_ano": true,
-     "em_reais_de_2026": 1493
+     "em_reais_de_2026": 1498
     },
     {
      "ano": 2024,
@@ -811,7 +813,7 @@
      "inpc_ano_anterior_pct": 3.71,
      "ganho_real_pct": 3.14,
      "dois_valores_no_ano": false,
-     "em_reais_de_2026": 1538
+     "em_reais_de_2026": 1542
     },
     {
      "ano": 2025,
@@ -822,7 +824,7 @@
      "inpc_ano_anterior_pct": 4.77,
      "ganho_real_pct": 2.62,
      "dois_valores_no_ano": false,
-     "em_reais_de_2026": 1574
+     "em_reais_de_2026": 1579
     },
     {
      "ano": 2026,
