@@ -1841,15 +1841,19 @@
    "nome_curso": "Engenharia de Controle e Automação",
    "contagens": {
     "formandos_na_fila": 110,
-    "processados_pela_coleta": 69,
-    "confirmados_pela_coleta": 49,
+    "processados_pela_coleta": 110,
+    "confirmados_pela_coleta": 77,
     "confirmados_a_mao": 25,
-    "aguardando_conferencia": 20,
-    "falhou_a_rodada": 0,
+    "aguardando_conferencia": 32,
+    "falhou_a_rodada": 1,
     "no_estudo_original": 0,
-    "identificados": 49
+    "identificados": 77
    },
    "cargos": [
+    {
+     "texto": "Analista de automação",
+     "n": 2
+    },
     {
      "texto": "Engenheira de Manutenção Sênior",
      "n": 1
@@ -1868,10 +1872,6 @@
     },
     {
      "texto": "Automation Specialist",
-     "n": 1
-    },
-    {
-     "texto": "Analista de automação",
      "n": 1
     },
     {
@@ -1901,16 +1901,28 @@
    ],
    "empresas": [
     {
+     "texto": "Ifes - Instituto Federal do Espírito Santo",
+     "n": 3
+    },
+    {
+     "texto": "Vale",
+     "n": 2
+    },
+    {
+     "texto": "ArcelorMittal",
+     "n": 2
+    },
+    {
+     "texto": "LYNX PROCESS",
+     "n": 2
+    },
+    {
      "texto": "Petrobras",
      "n": 2
     },
     {
-     "texto": "Vale",
-     "n": 1
-    },
-    {
-     "texto": "ArcelorMittal",
-     "n": 1
+     "texto": "Autvix Group",
+     "n": 2
     },
     {
      "texto": "Satel Brasil",
@@ -1925,10 +1937,6 @@
      "n": 1
     },
     {
-     "texto": "LYNX PROCESS",
-     "n": 1
-    },
-    {
      "texto": "JB Serviços Elétricos",
      "n": 1
     },
@@ -1939,28 +1947,20 @@
     {
      "texto": "Vixteam Consultoria & Sistemas",
      "n": 1
-    },
-    {
-     "texto": "CEP Manutenção de sistemas ltda",
-     "n": 1
-    },
-    {
-     "texto": "Maximo e Borges Serviços e Engenharia ltda.",
-     "n": 1
     }
    ],
    "cobertura": {
     "cargo": {
-     "com": 20,
-     "de": 49
+     "com": 45,
+     "de": 77
     },
     "empresa": {
-     "com": 20,
-     "de": 49
+     "com": 44,
+     "de": 77
     },
     "jornada": {
-     "com": 45,
-     "de": 49
+     "com": 74,
+     "de": 77
     }
    },
    "vitrine": [
@@ -4119,7 +4119,28 @@
      "empresa": "Cobra Tecnologia S/A",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/lohany-letro-a8937433/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Tecnica de Operações",
+       "empresa": "Cobra Tecnologia S/A",
+       "inicio": "2011-01",
+       "duracao": "15 anos 10 meses"
+      },
+      {
+       "cargo": "Tec. em planejamento e controle",
+       "empresa": "Tereme",
+       "inicio": "2010-08",
+       "fim": "2010-12",
+       "duracao": "5 meses"
+      },
+      {
+       "cargo": "Tec. de Planejamento e Controle",
+       "empresa": "TEREME engenharia",
+       "inicio": "2010-08",
+       "fim": "2010-12",
+       "duracao": "5 meses"
+      }
+     ]
     },
     {
      "nome": "Magnu Windell Araújo Santos",
@@ -4128,7 +4149,51 @@
      "empresa": "Chemtrade",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/magnuwindell/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Engenheiro de Automação Pl",
+       "empresa": "Chemtrade",
+       "tipo": "Full-time",
+       "inicio": "2026-08",
+       "duracao": "3 meses",
+       "local": "Aracruz, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Técnico de automação",
+       "empresa": "Chemtrade",
+       "tipo": "Indirect Contract",
+       "inicio": "2023-01",
+       "fim": "2026-08",
+       "duracao": "3 anos 8 meses",
+       "local": "Aracruz, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Estagiário de Processos e Automação",
+       "empresa": "Chemtrade",
+       "tipo": "Internship",
+       "inicio": "2020-12",
+       "fim": "2023-01",
+       "duracao": "2 anos 2 meses",
+       "local": "Aracruz, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Técnico de automação",
+       "empresa": "Triade Automacao",
+       "tipo": "Full-time",
+       "inicio": "2023-01",
+       "fim": "2026-08",
+       "duracao": "3 anos 8 meses",
+       "local": "Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Aprendiz (Apprentice)",
+       "empresa": "Vale Verde Construtora",
+       "inicio": "2016-08",
+       "fim": "2017-02",
+       "duracao": "7 meses",
+       "local": "Itabira, Minas Gerais, Brazil"
+      }
+     ]
     },
     {
      "nome": "Marcelo Victor Ferreira Barbosa",
@@ -4137,7 +4202,34 @@
      "empresa": "DOF",
      "local": "Vitória, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/marcelo-victor-ferreira-barbosa-371208162/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Piloto de ROV",
+       "empresa": "DOF",
+       "tipo": "Leadership Program",
+       "inicio": "2025-08",
+       "duracao": "1 ano 3 meses",
+       "local": "Macaé, Rio de Janeiro, Brazil · On-site"
+      },
+      {
+       "cargo": "Analista de automação",
+       "empresa": "GainTech Tecnologia",
+       "tipo": "Full-time",
+       "inicio": "2024-04",
+       "fim": "2025-08",
+       "duracao": "1 ano 5 meses",
+       "local": "Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Estagiário de pesquisa",
+       "empresa": "ArcelorMittal Brasil",
+       "tipo": "Internship",
+       "inicio": "2022-04",
+       "fim": "2023-12",
+       "duracao": "1 ano 9 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Mardoqueu de Oliveira Neto",
@@ -4146,7 +4238,1353 @@
      "empresa": "Mardotech Engenharia",
      "local": "Vila Velha, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/mardoqueu-de-o-neto-03658467/",
+     "jornada": [
+      {
+       "cargo": "Proprietário",
+       "empresa": "Mardotech Engenharia",
+       "inicio": "2023-03",
+       "duracao": "3 anos 8 meses",
+       "local": "Vila Velha, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Diretor técnico",
+       "empresa": "ML Automação",
+       "tipo": "Full-time",
+       "inicio": "2021-02",
+       "duracao": "5 anos 9 meses",
+       "local": "Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Gerente Técnico",
+       "empresa": "Abrasoldas",
+       "inicio": "2011-08",
+       "fim": "2021-02",
+       "duracao": "9 anos 7 meses",
+       "local": "Jardim Limoeiro, Serra ES"
+      },
+      {
+       "cargo": "Professor",
+       "empresa": "SENAI",
+       "inicio": "2010-01",
+       "fim": "2012-01",
+       "duracao": "2 anos 1 mês"
+      },
+      {
+       "cargo": "Professor",
+       "empresa": "Centro Universo de educação e ensino",
+       "tipo": "Full-time",
+       "inicio": "2004-01",
+       "fim": "2010-01",
+       "duracao": "6 anos 1 mês",
+       "local": "Vitória, Espírito Santo, Brazil"
+      }
+     ]
+    },
+    {
+     "nome": "Matheus Santiago Ribeiro",
+     "monograma": "MR",
+     "cargo": null,
+     "empresa": "Autvix Group",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/matheus-santiago-2444b7207/",
+     "jornada": [
+      {
+       "cargo": "Analista de automação",
+       "empresa": "Autvix Group",
+       "tipo": "Full-time",
+       "inicio": "2024-10",
+       "duracao": "2 anos 1 mês",
+       "local": "Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Assistente de automação",
+       "empresa": "Autvix Group",
+       "tipo": "Full-time",
+       "inicio": "2023-12",
+       "fim": "2024-10",
+       "duracao": "11 meses",
+       "local": "Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "Autvix Group",
+       "tipo": "Internship",
+       "inicio": "2023-08",
+       "fim": "2023-12",
+       "duracao": "5 meses",
+       "local": "Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Estagiário de engenharia",
+       "empresa": "SNC-Lavalin",
+       "inicio": "2022-04",
+       "fim": "2022-09",
+       "duracao": "6 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Técnico mecânico",
+       "empresa": "ArcelorMittal Brasil",
+       "tipo": "Internship",
+       "inicio": "2020-02",
+       "fim": "2020-05",
+       "duracao": "4 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Assistente administrativo",
+       "empresa": "Acta Engenharia Ltda",
+       "tipo": "Apprenticeship",
+       "inicio": "2018-09",
+       "fim": "2019-05",
+       "duracao": "9 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      }
+     ]
+    },
+    {
+     "nome": "Milton Bustamante Vieira Filho",
+     "monograma": "MF",
+     "cargo": "Coordenador de Automação",
+     "empresa": "Vale",
+     "local": "Espírito Santo, Brasil",
+     "linkedin": "https://www.linkedin.com/in/milton-gonzaga-de-oliveira-filho/",
+     "jornada": [
+      {
+       "cargo": "Coordenador de automação",
+       "empresa": "Vale",
+       "inicio": "2020-01",
+       "fim": "2026-10",
+       "duracao": "6 anos 10 meses",
+       "local": "Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Maintenence Supervisor",
+       "empresa": "Vale",
+       "inicio": "2003-05",
+       "fim": "2020-01",
+       "duracao": "16 anos 9 meses",
+       "local": "Espírito Santo, Brazil"
+      }
+     ]
+    },
+    {
+     "nome": "Pablo France Salarolli",
+     "monograma": "PS",
+     "cargo": "Sócio proprietário",
+     "empresa": "GainTech Tecnologia",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/pablosalarolli/",
+     "jornada": [
+      {
+       "cargo": "Sócio proprietário",
+       "empresa": "GainTech Tecnologia",
+       "tipo": "Full-time",
+       "inicio": "2020-03",
+       "duracao": "6 anos 8 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Técnico de automação",
+       "empresa": "LaMEFT - Laboratório de Métodos Experimentais e Fenômenos de Transporte (UFES)",
+       "tipo": "Freelance",
+       "inicio": "2016-06",
+       "fim": "2017-06",
+       "duracao": "1 ano 1 mês",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      }
+     ]
+    },
+    {
+     "nome": "Paula Katharina de Oliveira Lima",
+     "monograma": "PL",
+     "cargo": "Control and Automation Engineer",
+     "empresa": "TechnipFMC",
+     "local": "Rouen, Normandy, France",
+     "linkedin": "https://www.linkedin.com/in/paula-katharina-de-oliveira-lima-a4337b197/",
+     "jornada": [
+      {
+       "cargo": "Product Manager",
+       "empresa": "TechnipFMC",
+       "tipo": "Full-time",
+       "inicio": "2025-01",
+       "duracao": "1 ano 10 meses",
+       "local": "Rouen, Normandy, France"
+      },
+      {
+       "cargo": "Junior Developer Analyst",
+       "empresa": "Tata Consultancy Services",
+       "tipo": "Full-time",
+       "inicio": "2024-07",
+       "fim": "2024-10",
+       "duracao": "4 meses"
+      },
+      {
+       "cargo": "Test Engineering Intern",
+       "empresa": "TechnipFMC",
+       "tipo": "Internship",
+       "inicio": "2023-06",
+       "fim": "2024-07",
+       "duracao": "1 ano 2 meses",
+       "local": "Viana, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Control and Automation Engineering Intern",
+       "empresa": "Autvix Engenharia",
+       "tipo": "Internship",
+       "inicio": "2023-03",
+       "fim": "2023-06",
+       "duracao": "4 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "International Student",
+       "empresa": "Instituto Politécnico de Bragança",
+       "tipo": "(no employment type specified)",
+       "inicio": "2022-09",
+       "fim": "2023-02",
+       "duracao": "6 meses",
+       "local": "Bragança, Portugal"
+      },
+      {
+       "cargo": "Architectural Intern",
+       "empresa": "Vale",
+       "tipo": "Internship",
+       "inicio": "2021-11",
+       "fim": "2022-09",
+       "duracao": "11 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Scientific Initiation (Control of servomotors for moving the fingers of a prosthesis robotics using Arduino)",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "(no employment type specified)",
+       "inicio": "2018-08",
+       "fim": "2019-07",
+       "duracao": "1 ano",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Exhibitor of the IFES Robotic Prothesis Research Project at the CREA-ES stand (Certified for participating in the 11th Metalmechanics + Innovation Fair Industrial - MEC SHOW)",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "(no employment type specified)",
+       "inicio": "2018-08",
+       "fim": "2018-08",
+       "duracao": "1 mês"
+      },
+      {
+       "cargo": "National Science and Technology Week - IFES Vila Velha (Activity monitor, mini-course \"Introduction to Arduino and Microcontrollers\")",
+       "empresa": "IFES - Instituto Federal do Espírito Santo",
+       "tipo": "(no employment type specified)",
+       "inicio": "2018-10",
+       "fim": "2018-10",
+       "duracao": "1 mês",
+       "local": "Vila Velha, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Guided Study Tutoring",
+       "empresa": "IFES - Instituto Federal do Espírito Santo",
+       "tipo": "(no employment type specified)",
+       "inicio": "2018-03",
+       "fim": "2018-07",
+       "duracao": "5 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      }
+     ]
+    },
+    {
+     "nome": "Pedro Dalvi Boina",
+     "monograma": "PB",
+     "cargo": "Tenente Coronel do Corpo de Bombeiros Militar do Espírito Santo",
+     "empresa": "Corpo de Bombeiros Militar do Espírito Santo",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/pedroboina/",
+     "jornada": [
+      {
+       "cargo": "Gerente do Departamento de Análise de Projetos",
+       "empresa": "Corpo de Bombeiros Militar do ES",
+       "tipo": "Full-time",
+       "inicio": "2000-03",
+       "duracao": "26 anos 8 meses",
+       "local": "VITÓRIA · On-site"
+      },
+      {
+       "cargo": "Tenente-coronel",
+       "empresa": "Corpo de Bombeiros Militar do ES",
+       "inicio": "2000-03",
+       "duracao": "26 anos 8 meses",
+       "local": "Vitória, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Piloto de helicóptero",
+       "empresa": "Corpo de Bombeiros Militar do ES",
+       "inicio": "2011-10",
+       "fim": "2024-01",
+       "duracao": "12 anos 4 meses"
+      },
+      {
+       "cargo": "Major",
+       "empresa": "Corpo de Bombeiros Militar do ES",
+       "tipo": "Full-time",
+       "inicio": "2000-03",
+       "duracao": "26 anos 8 meses",
+       "local": "VITÓRIA · On-site"
+      }
+     ]
+    },
+    {
+     "nome": "Pedro Henrique Agrimpio Coutinho",
+     "monograma": "PC",
+     "cargo": "Engenheiro Especialista",
+     "empresa": "ArcelorMittal",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/pedrocoutinhoengenheiro/",
      "jornada": []
+    },
+    {
+     "nome": "Rafael Campos Panceri",
+     "monograma": "RP",
+     "cargo": "Arquiteto de soluções",
+     "empresa": "Atlântico",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/rafael-mofati-campos-41929823/",
+     "jornada": [
+      {
+       "cargo": "Arquiteto de soluções",
+       "empresa": "Atlântico",
+       "tipo": "Full-time",
+       "inicio": "2024-04",
+       "duracao": "2 anos 7 meses",
+       "local": "Fortaleza, Ceará, Brazil · Remote"
+      },
+      {
+       "cargo": "Arquiteto de Soluções @Vale",
+       "empresa": "Tata Consultancy Services",
+       "tipo": "Full-time",
+       "inicio": "2022-03",
+       "fim": "2024-04",
+       "duracao": "2 anos 2 meses",
+       "local": "Vitória, Espírito Santo, Brazil · Remote"
+      },
+      {
+       "cargo": "Desenvolvimento de produtos",
+       "empresa": "Call4Fit",
+       "tipo": "Part-time",
+       "inicio": "2021-04",
+       "fim": "2022-03",
+       "duracao": "1 ano",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Coordenador de projetos",
+       "empresa": "Concept Engenharia e Automação",
+       "tipo": "Full-time",
+       "inicio": "2004-01",
+       "fim": "2022-03",
+       "duracao": "18 anos 3 meses",
+       "local": "Vitória, Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Professor",
+       "empresa": "Faculdade Novo Milênio",
+       "inicio": "2013-08",
+       "fim": "2021-08",
+       "duracao": "8 anos 1 mês",
+       "local": "Vila Velha, Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Professor",
+       "empresa": "Centro de Desenvolvimento Técnico - CEDTEC",
+       "inicio": "2010-01",
+       "fim": "2013-07",
+       "duracao": "3 anos 7 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      }
+     ]
+    },
+    {
+     "nome": "Rafaela Pontes Breder",
+     "monograma": "RB",
+     "cargo": "Engenheira de Automação Jr",
+     "empresa": "LYNX PROCESS",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/rafaela-pontes-breder/",
+     "jornada": [
+      {
+       "cargo": "Engenheira de Automação Jr",
+       "empresa": "LYNX PROCESS",
+       "inicio": "2026-03",
+       "duracao": "8 meses",
+       "local": "On-site"
+      },
+      {
+       "cargo": "Analista de Automação Jr II",
+       "empresa": "LYNX PROCESS",
+       "tipo": "Full-time",
+       "inicio": "2024-05",
+       "fim": "2026-04",
+       "duracao": "2 anos",
+       "local": "Vitória, Espírito Santo, Brasil · On-site"
+      },
+      {
+       "cargo": "Analista de Automação Jr",
+       "empresa": "LYNX PROCESS",
+       "tipo": "Full-time",
+       "inicio": "2023-11",
+       "fim": "2024-05",
+       "duracao": "7 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Auxiliar Técnico de Automação Sênior I",
+       "empresa": "LYNX PROCESS",
+       "tipo": "Full-time",
+       "inicio": "2022-08",
+       "fim": "2023-11",
+       "duracao": "1 ano 4 meses",
+       "local": "Vitória, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Auxiliar Técnico de Automação Pleno I",
+       "empresa": "LYNX PROCESS",
+       "tipo": "Full-time",
+       "inicio": "2021-09",
+       "fim": "2022-07",
+       "duracao": "11 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiária de Automação",
+       "empresa": "Vale",
+       "tipo": "Internship",
+       "inicio": "2019-09",
+       "fim": "2020-03",
+       "duracao": "7 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Monitora de Álgebra Linear e Matemática",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "inicio": "2017-01",
+       "fim": "2017-12",
+       "duracao": "1 ano",
+       "local": "Serra, Espírito Santo, Brazil"
+      }
+     ]
+    },
+    {
+     "nome": "Ramon Sousa Alves",
+     "monograma": "RA",
+     "cargo": "Engenheiro de Controle e Automação Pleno",
+     "empresa": "EDP South America",
+     "local": "Brazil",
+     "linkedin": "https://www.linkedin.com/in/ramon-sousa-783993149/",
+     "jornada": [
+      {
+       "cargo": "Engenheiro de Controle e Automação Pleno",
+       "empresa": "EDP South America",
+       "inicio": "2024-12",
+       "duracao": "1 ano 11 meses"
+      },
+      {
+       "cargo": "Engenheiro de Controle e Automação",
+       "empresa": "EDP South America",
+       "inicio": "2022-04",
+       "fim": "2024-12",
+       "duracao": "2 anos 9 meses"
+      },
+      {
+       "cargo": "Técnico de Proteção, Controle e Automação",
+       "empresa": "EDP South America",
+       "inicio": "2020-10",
+       "fim": "2022-04",
+       "duracao": "1 ano 7 meses"
+      },
+      {
+       "cargo": "Técnico Corporativo de Automação II",
+       "empresa": "FORTLEV",
+       "inicio": "2020-02",
+       "fim": "2020-10",
+       "duracao": "9 meses"
+      },
+      {
+       "cargo": "Técnico de Sistemas de Automação II",
+       "empresa": "FORTLEV",
+       "inicio": "2019-07",
+       "fim": "2020-02",
+       "duracao": "8 meses"
+      },
+      {
+       "cargo": "Técnico de Sistemas de Automação",
+       "empresa": "FORTLEV",
+       "inicio": "2018-05",
+       "fim": "2019-07",
+       "duracao": "1 ano 3 meses"
+      },
+      {
+       "cargo": "Estagiário de Engenharia de Controle e Automação",
+       "empresa": "EDP",
+       "inicio": "2016-08",
+       "fim": "2018-05",
+       "duracao": "1 ano 10 meses"
+      }
+     ]
+    },
+    {
+     "nome": "Ramyson de Araujo Nascimento",
+     "monograma": "RN",
+     "cargo": "Atuação como referência técnica em projetos de sistemas inteligentes, responsável pela definição de arquitetura, qualidade e escalabilidade das soluções",
+     "empresa": null,
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/ramyson-nascimento-947a76107/",
+     "jornada": [
+      {
+       "cargo": "Especialista em Sistemas Inteligentes",
+       "empresa": "Findes",
+       "tipo": "Full-time",
+       "inicio": "2026-02",
+       "duracao": "9 meses",
+       "local": "Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Engenheiro de Controle e Automação",
+       "empresa": "DM Descafeinadores do Brasil",
+       "tipo": "Full-time",
+       "inicio": "2025-03",
+       "fim": "2025-08",
+       "duracao": "6 meses",
+       "local": "On-site"
+      },
+      {
+       "cargo": "Analista de engenharia",
+       "empresa": "Velsis | Soluções em mobilidade urbana",
+       "tipo": "Full-time",
+       "inicio": "2024-07",
+       "fim": "2025-03",
+       "duracao": "9 meses"
+      },
+      {
+       "cargo": "Técnico em Automação Industrial",
+       "empresa": "TSA Tecnologia de Sistemas de Automação SA",
+       "tipo": "Full-time",
+       "inicio": "2022-03",
+       "fim": "2024-06",
+       "duracao": "2 anos 4 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Pesquisador",
+       "empresa": "FAPES",
+       "inicio": "2021-08",
+       "fim": "2022-03",
+       "duracao": "8 meses"
+      },
+      {
+       "cargo": "Pesquisador Fapes",
+       "empresa": "FAPES",
+       "tipo": "Full-time",
+       "inicio": "2020-08",
+       "fim": "2021-08",
+       "duracao": "1 ano 1 mês",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Pesquisador",
+       "empresa": "FAPES",
+       "tipo": "Full-time",
+       "inicio": "2019-08",
+       "fim": "2020-08",
+       "duracao": "1 ano 1 mês",
+       "local": "Vitória, Espírito Santo, Brazil"
+      }
+     ]
+    },
+    {
+     "nome": "Renan Mainardi de Oliveira",
+     "monograma": "RO",
+     "cargo": "Técnico de automação",
+     "empresa": "Transpetro - Petrobras Transporte S. A.",
+     "local": "Vila Velha, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/renanmainardi/",
+     "jornada": [
+      {
+       "cargo": "Técnico de automação",
+       "empresa": "Transpetro - Petrobras Transporte S. A.",
+       "tipo": "Full-time"
+      }
+     ]
+    },
+    {
+     "nome": "Renan dos Santos Siqueira",
+     "monograma": "RS",
+     "cargo": "Data Analyst | Business Insights & Predictive Modeling",
+     "empresa": "Nutrien Soluções Agrícolas",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/renansiqueira1996/",
+     "jornada": [
+      {
+       "cargo": "Analista de Dados e Pricing Sr.",
+       "empresa": "Nutrien Soluções Agrícolas",
+       "tipo": "Full-time",
+       "inicio": "2025-04",
+       "duracao": "1 ano 7 meses",
+       "local": "Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Analista de desenvolvimento",
+       "empresa": "Timenow",
+       "tipo": "Full-time",
+       "inicio": "2024-08",
+       "fim": "2025-01",
+       "duracao": "6 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Assistente de Inteligência de Dados",
+       "empresa": "Rede Gazeta",
+       "inicio": "2022-10",
+       "fim": "2024-08",
+       "duracao": "1 ano 11 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "Rede Gazeta",
+       "tipo": "Internship",
+       "inicio": "2022-01",
+       "fim": "2022-10",
+       "duracao": "10 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "Samarco",
+       "tipo": "Internship",
+       "inicio": "2019-10",
+       "fim": "2021-09",
+       "duracao": "2 anos",
+       "local": "Anchieta, Espírito Santo, Brazil"
+      }
+     ]
+    },
+    {
+     "nome": "Rodrigo Gomes Ferreira",
+     "monograma": "RF",
+     "cargo": "Técnico em Química",
+     "empresa": "Ifes - Instituto Federal do Espírito Santo",
+     "local": "Aracruz, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/rodrigo-gomes-89b91529a/",
+     "jornada": [
+      {
+       "cargo": "Técnico em química",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Full-time"
+      }
+     ]
+    },
+    {
+     "nome": "Samuel Martins Peres",
+     "monograma": "SP",
+     "cargo": "Project Engineer (Electrical, Instrumentation and Automation)",
+     "empresa": "Bureau Veritas Group",
+     "local": "Rio de Janeiro, Brazil",
+     "linkedin": "https://www.linkedin.com/in/samuel-martins-peres-10147739/",
+     "jornada": [
+      {
+       "cargo": "Project Engineer (Electrical, Instrumentation and Automation)",
+       "empresa": "Bureau Veritas Group",
+       "tipo": "Full-time",
+       "inicio": "2022-01",
+       "duracao": "4 anos 10 meses",
+       "local": "Rio de Janeiro, Rio de Janeiro, Brazil · Remote"
+      },
+      {
+       "cargo": "Project Technician",
+       "empresa": "Estaleiro Jurong Aracruz",
+       "tipo": "Full-time",
+       "inicio": "2017-03",
+       "fim": "2021-12",
+       "duracao": "4 anos 10 meses",
+       "local": "Aracruz, ES, Brasil"
+      },
+      {
+       "cargo": "Jr Project Technician",
+       "empresa": "Estaleiro Jurong Aracruz",
+       "inicio": "2016-03",
+       "fim": "2017-02",
+       "duracao": "1 ano",
+       "local": "Aracruz, ES, Brazil"
+      },
+      {
+       "cargo": "Trainee Automation Technician",
+       "empresa": "Estaleiro Jurong Aracruz (implied from context)",
+       "inicio": "2015-01",
+       "fim": "2016-02",
+       "duracao": "1 ano 2 meses",
+       "local": "Singapore · On-site"
+      },
+      {
+       "cargo": "Trainee Project Technical Engineer (Leadership Program)",
+       "empresa": "Sembcorp Marine Ltd",
+       "tipo": "Leadership Program (implying trainee/leadership program status)",
+       "inicio": "2015-01",
+       "fim": "2016-02",
+       "duracao": "1 ano 2 meses",
+       "local": "Singapore · On-site"
+      },
+      {
+       "cargo": "Electric and Eletronics Assistant",
+       "empresa": "IFES - Federal Institute of Espirito Santo",
+       "tipo": "Part-time",
+       "inicio": "2013-02",
+       "fim": "2013-06",
+       "duracao": "5 meses",
+       "local": "Serra, Espírito Santo, Brasil"
+      }
+     ]
+    },
+    {
+     "nome": "Sheila Demuner Beloti",
+     "monograma": "SB",
+     "cargo": null,
+     "empresa": null,
+     "local": "Vila Velha, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/sheila-demuner-1a487017b/",
+     "jornada": [
+      {
+       "cargo": "Vendedor",
+       "empresa": "Tupperware Brasil · Self-employed",
+       "inicio": "2021-01",
+       "duracao": "5 anos 10 meses"
+      },
+      {
+       "cargo": "Estagiário de engenharia",
+       "empresa": "Support Subsea",
+       "tipo": "Internship",
+       "inicio": "2021-05",
+       "fim": "2021-08",
+       "duracao": "4 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiária",
+       "empresa": "Support Subsea",
+       "tipo": "Internship (implied)",
+       "inicio": "2021-02",
+       "fim": "2021-06",
+       "duracao": "5 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      }
+     ]
+    },
+    {
+     "nome": "Sérgio Martini Parreira Zuza",
+     "monograma": "SZ",
+     "cargo": "Técnico de programação",
+     "empresa": "ArcelorMittal Brasil",
+     "local": "Serra e Região Metropolitana do Espírito Santo, Brasil",
+     "linkedin": "https://www.linkedin.com/in/sergio-m-p-zuza-a04aa41b5/",
+     "jornada": [
+      {
+       "cargo": "Técnico de programação",
+       "empresa": "ArcelorMittal Brasil",
+       "tipo": "Full-time",
+       "inicio": "2021-04",
+       "duracao": "5 anos 7 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Técnico de Instrumentação",
+       "empresa": "Usiplan Engenharia",
+       "inicio": "2019-04",
+       "fim": "2021-04",
+       "duracao": "2 anos 1 mês"
+      },
+      {
+       "cargo": "Professor de informática",
+       "empresa": "Cebrac Franchising",
+       "tipo": "Indirect Contract",
+       "inicio": "2018-07",
+       "fim": "2019-07",
+       "duracao": "1 ano 1 mês",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Editor de cursos e Representante Comercial",
+       "empresa": "Cursol Energia Solar",
+       "inicio": "2017-12",
+       "fim": "2018-12",
+       "duracao": "1 ano 1 mês",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Pesquisador",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "inicio": "2016-05",
+       "fim": "2018-08",
+       "duracao": "2 anos 4 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário de Inspetoria Industrial",
+       "empresa": "ArcelorMittal Brasil",
+       "tipo": "Part-time",
+       "inicio": "2014-01",
+       "fim": "2015-01",
+       "duracao": "1 ano 1 mês",
+       "local": "Espírito Santo, Brazil"
+      }
+     ]
+    },
+    {
+     "nome": "Tarcisio Kiefer Campos",
+     "monograma": "TC",
+     "cargo": "--",
+     "empresa": "Petrobras, Ifes - Instituto Federal do Espírito Santo",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/tarcisio-kiefer-540a6528/",
+     "jornada": [
+      {
+       "cargo": "Técnico de operações",
+       "empresa": "Petrobras",
+       "inicio": "2010-09",
+       "duracao": "16 anos 2 meses"
+      }
+     ]
+    },
+    {
+     "nome": "Teylor Moreto Guaitolini",
+     "monograma": "TG",
+     "cargo": "Computer Vision Junior Analyst",
+     "empresa": "Atman Systems",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/teylorguaitolini/",
+     "jornada": [
+      {
+       "cargo": "Computer Vision Junior Analyst",
+       "empresa": "Atman Systems",
+       "tipo": "Full-time",
+       "inicio": "2026-04",
+       "duracao": "7 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Automation Systems Technician",
+       "empresa": "Grupo SERENG",
+       "tipo": "Full-time",
+       "inicio": "2024-06",
+       "fim": "2025-09",
+       "duracao": "1 ano 4 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Automation Engineering Intern",
+       "empresa": "ArcelorMittal Brasil",
+       "tipo": "Internship",
+       "inicio": "2022-05",
+       "fim": "2024-04",
+       "duracao": "2 anos",
+       "local": "Serra, Espírito Santo, Brazil"
+      }
+     ]
+    },
+    {
+     "nome": "Thais da Silva Ferrarini",
+     "monograma": "TF",
+     "cargo": "Desenvolvedor Full Stack Pleno",
+     "empresa": null,
+     "local": "Brazil",
+     "linkedin": "https://www.linkedin.com/in/thaisferrarini/",
+     "jornada": [
+      {
+       "cargo": "Analista de sistema",
+       "empresa": "CI&T",
+       "tipo": "Full-time",
+       "inicio": "2024-09",
+       "fim": "2025-10",
+       "duracao": "1 ano 2 meses"
+      },
+      {
+       "cargo": "Desenvolvedora de software",
+       "empresa": "Tetra Tech",
+       "tipo": "Full-time",
+       "inicio": "2021-03",
+       "fim": "2023-11",
+       "duracao": "2 anos 9 meses"
+      },
+      {
+       "cargo": "Desenvolvedora de Sistemas",
+       "empresa": "Spassu Tecnologia e Serviços",
+       "tipo": "Full-time",
+       "inicio": "2019-11",
+       "fim": "2021-02",
+       "duracao": "1 ano 4 meses"
+      },
+      {
+       "cargo": "Analista de Sistemas",
+       "empresa": "ETAURE TI & AUTOMAÇÃO",
+       "inicio": "2018-12",
+       "fim": "2019-11",
+       "duracao": "1 ano",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário de Engenharia de Controle e Automação",
+       "empresa": "ArcelorMittal Brasil",
+       "inicio": "2018-01",
+       "fim": "2018-12",
+       "duracao": "1 ano",
+       "local": "Serra e Região, Brasil"
+      },
+      {
+       "cargo": "Monitora de Ensino Cálculo I, II, III, Álgebra Linear",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "inicio": "2012-08",
+       "fim": "2014-12",
+       "duracao": "2 anos 5 meses",
+       "local": "Serra e Região, Brasil"
+      }
+     ]
+    },
+    {
+     "nome": "Thiago Silveira de Oliveira",
+     "monograma": "TO",
+     "cargo": "Offshore Facilities Engineer",
+     "empresa": "SBM Offshore · Fundação Getulio Vargas",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/thiagosdoliveira/",
+     "jornada": [
+      {
+       "cargo": "Offshore Facilities Engineer",
+       "empresa": "SBM Offshore",
+       "inicio": "2026-04",
+       "duracao": "7 months",
+       "local": "Rio de Janeiro, Brasil (On-site)"
+      },
+      {
+       "cargo": "Operador de sala de controle (Control Room Operator)",
+       "empresa": "SBM Offshore",
+       "tipo": "Full-time",
+       "inicio": "2024-02",
+       "fim": "2026-04",
+       "duracao": "2 years 3 months",
+       "local": "Rio de Janeiro, Rio de Janeiro, Brasil"
+      },
+      {
+       "cargo": "Engenheiro de Produção Offshore (Offshore Production Engineer)",
+       "empresa": "Trident Energy",
+       "tipo": "Full-time",
+       "inicio": "2023-12",
+       "fim": "2024-02",
+       "duracao": "3 months",
+       "local": "Rio de Janeiro, Rio de Janeiro, Brasil"
+      },
+      {
+       "cargo": "Supervisor de Produção (Production Supervisor)",
+       "empresa": "Trident Energy",
+       "inicio": "2020-05",
+       "fim": "2023-12",
+       "duracao": "3 years 8 months",
+       "local": "Rio de Janeiro, Brasil"
+      },
+      {
+       "cargo": "Operador de Sala de Controle Sr (Senior Control Room Operator)",
+       "empresa": "PetroRio",
+       "inicio": "2020-02",
+       "fim": "2020-05",
+       "duracao": "4 months",
+       "local": "Greater Rio de Janeiro"
+      },
+      {
+       "cargo": "Operador de sala de controle (Control Room Operator)",
+       "empresa": "PetroRio",
+       "inicio": "2019-04",
+       "fim": "2020-02",
+       "duracao": "11 months"
+      },
+      {
+       "cargo": "Operador de sala de controle (Control Room Operator)",
+       "empresa": "Chevron",
+       "inicio": "2018-11",
+       "fim": "2019-03",
+       "duracao": "5 months",
+       "local": "FPSO Frade"
+      },
+      {
+       "cargo": "Líder / Operador de Produção Sênior (Leader / Senior Production Operator)",
+       "empresa": "Chevron",
+       "inicio": "2017-09",
+       "fim": "2018-11",
+       "duracao": "1 year 3 months",
+       "local": "FPSO Frade"
+      },
+      {
+       "cargo": "Production Operator",
+       "empresa": "Chevron",
+       "inicio": "2014-01",
+       "fim": "2017-09",
+       "duracao": "3 years 9 months (",
+       "local": "FPSO Frade - RJ)"
+      },
+      {
+       "cargo": "Operador de Produção Offshore (",
+       "empresa": "SBM Offshore (Single Buoy Moorings) )",
+       "duracao": "7 meses",
+       "local": "FPSO Brasil - Rio de Janeiro"
+      },
+      {
+       "cargo": "Operador de Produção Offshore (",
+       "empresa": "SBM Offshore (Single Buoy Moorings) )",
+       "duracao": "9 meses",
+       "local": "FPSO Frade - Rio de Janeiro"
+      },
+      {
+       "cargo": "Operador de Produção Offshore(",
+       "empresa": "Saipem)",
+       "duracao": "1 ano 4 meses",
+       "local": "FPSO Cidade de Vitória - ES"
+      },
+      {
+       "cargo": "Técnico em Instrumentação Analítica Trainee(",
+       "empresa": "Sindus Andritz)",
+       "duracao": "9 meses",
+       "local": "Serra, ES"
+      },
+      {
+       "cargo": "Automation / Instrumentation Technician Trainee(",
+       "empresa": "Vale)",
+       "duracao": "10 meses",
+       "local": "Vitória, ES"
+      }
+     ]
+    },
+    {
+     "nome": "Tiago Augusto Duque Gomes da Costa",
+     "monograma": "TC",
+     "cargo": "Engenheiro da Computação",
+     "empresa": "Mantis Tecnologia",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/tiduque/",
+     "jornada": [
+      {
+       "cargo": "Engenheiro da Computação",
+       "empresa": "Mantis Tecnologia",
+       "tipo": "Full-time",
+       "inicio": "2018-02",
+       "duracao": "8 anos 9 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Researcher",
+       "empresa": "Federal University of Espírito Santo",
+       "inicio": "2015-03",
+       "fim": "2016-12",
+       "duracao": "1 ano 10 meses"
+      },
+      {
+       "cargo": "Internship",
+       "empresa": "Kryptus Soluções em Segurança da Informação",
+       "inicio": "2013-09",
+       "fim": "2015-01",
+       "duracao": "1 ano 5 meses",
+       "local": "Campinas"
+      }
+     ]
+    },
+    {
+     "nome": "Timóteo de Rezende Potin",
+     "monograma": "TP",
+     "cargo": "Aluno na Ifes - Instituto Federal do Espírito Santo",
+     "empresa": "Ifes - Instituto Federal do Espírito Santo",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/timoteo-de-rezende-potin/",
+     "jornada": []
+    },
+    {
+     "nome": "Uri Gabriel Alves Amaral",
+     "monograma": "UA",
+     "cargo": null,
+     "empresa": null,
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/uri-gabriel-alves-amaral-229698198/",
+     "jornada": [
+      {
+       "cargo": "Analista de Sistema Pleno",
+       "empresa": "FORTLEV",
+       "tipo": "Full-time",
+       "inicio": "2026-04",
+       "duracao": "7 meses",
+       "local": "Serra, Espírito Santo, Brazil · Hybrid"
+      },
+      {
+       "cargo": "Analista de sistema Jr",
+       "empresa": "FORTLEV",
+       "tipo": "Full-time",
+       "inicio": "2025-04",
+       "fim": "2026-04",
+       "duracao": "1 ano 1 mês",
+       "local": "Serra, Espírito Santo, Brazil · Hybrid"
+      },
+      {
+       "cargo": "Técnico Sistemas de Automação II",
+       "empresa": "FORTLEV",
+       "tipo": "Full-time",
+       "inicio": "2022-10",
+       "fim": "2025-04",
+       "duracao": "2 anos 7 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Técnico Sistemas de automação",
+       "empresa": "FORTLEV",
+       "tipo": "Full-time",
+       "inicio": "2021-09",
+       "fim": "2022-10",
+       "duracao": "1 ano 2 meses",
+       "local": "Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Técnico de infraestrutura",
+       "empresa": "FORTLEV",
+       "tipo": "Full-time",
+       "inicio": "2021-06",
+       "fim": "2021-08",
+       "duracao": "3 meses",
+       "local": "Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "FORTLEV",
+       "tipo": "Internship",
+       "inicio": "2020-07",
+       "fim": "2021-06",
+       "duracao": "1 ano",
+       "local": "Brazil"
+      },
+      {
+       "cargo": "Bolsista - Polo de inovação",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Contract",
+       "inicio": "2020-03",
+       "fim": "2020-07",
+       "duracao": "5 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "ArcelorMittal Brasil",
+       "tipo": "Internship",
+       "inicio": "2019-01",
+       "fim": "2019-12",
+       "duracao": "1 ano",
+       "local": "Serra, Espírito santo"
+      }
+     ]
+    },
+    {
+     "nome": "Vitor de Sá Nunes",
+     "monograma": "VN",
+     "cargo": "Field Services Engineer",
+     "empresa": "GE Vernova",
+     "local": "Macaé, Rio de Janeiro, Brazil",
+     "linkedin": "https://www.linkedin.com/in/vitor-de-s%C3%A1-nunes-289abab1/",
+     "jornada": [
+      {
+       "cargo": "Field Services Engineer",
+       "empresa": "GE Vernova",
+       "tipo": "Full-time",
+       "inicio": "2024-03",
+       "duracao": "2 anos 8 meses",
+       "local": "Macaé, Rio de Janeiro, Brazil · On-site"
+      },
+      {
+       "cargo": "Automation Analyst",
+       "empresa": "LYNX PROCESS",
+       "tipo": "Full-time",
+       "inicio": "2023-02",
+       "fim": "2024-02",
+       "duracao": "1 ano 1 mês",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Automation Analyst",
+       "empresa": "TSA Tecnologia de Sistemas de Automação SA",
+       "tipo": "Full-time",
+       "inicio": "2021-08",
+       "fim": "2023-02",
+       "duracao": "1 ano 7 meses",
+       "local": "Vitória, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Automation Analyst",
+       "empresa": "Autvix Group",
+       "tipo": "Full-time",
+       "inicio": "2020-11",
+       "fim": "2021-08",
+       "duracao": "10 meses",
+       "local": "Serra, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Full Stack Developer",
+       "empresa": "MedSempre",
+       "tipo": "Leadership Program (implied full-time)",
+       "inicio": "2019-02",
+       "fim": "2020-10",
+       "duracao": "1 ano 9 meses",
+       "local": "Vitória, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "English Language Instructor",
+       "empresa": "inFlux English School",
+       "tipo": "Self-employed",
+       "inicio": "2018-09",
+       "fim": "2019-09",
+       "duracao": "1 ano 1 mês",
+       "local": "Vila Velha, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Undergraduate Research Assistant",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Contract",
+       "inicio": "2017-08",
+       "fim": "2018-08",
+       "duracao": "1 ano 1 mês",
+       "local": "Serra, Espírito Santo, Brazil · Hybrid"
+      },
+      {
+       "cargo": "Software Developer Internship",
+       "empresa": "ETAURE",
+       "tipo": "Internship",
+       "inicio": "2016-10",
+       "fim": "2017-05",
+       "duracao": "8 meses",
+       "local": "Vitória, Espírito Santo, Brazil · On-site"
+      }
+     ]
+    },
+    {
+     "nome": "Wellerson Oliveira da Silva Valeriano",
+     "monograma": "WV",
+     "cargo": "Programador Manutenção I",
+     "empresa": "Manserv",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/wellerson-oliveira-da-silva-valeriano-694200209/",
+     "jornada": [
+      {
+       "cargo": "Programador Manutenção I",
+       "empresa": "Manserv",
+       "tipo": "Full-time",
+       "inicio": "2024-10",
+       "duracao": "2 anos 1 mês",
+       "local": "Serra, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Assistente de planejamento",
+       "empresa": "Manserv",
+       "tipo": "Full-time",
+       "inicio": "2023-05",
+       "fim": "2024-09",
+       "duracao": "1 ano 5 meses",
+       "local": "Serra, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Estágio de engenharia de controle e automação",
+       "empresa": "EDP Brasil",
+       "tipo": "Internship",
+       "inicio": "2021-11",
+       "fim": "2023-05",
+       "duracao": "1 ano 7 meses",
+       "local": "Serra, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Técnico em elétrica",
+       "empresa": "Grupo Provider",
+       "tipo": "Full-time",
+       "inicio": "2018-07",
+       "fim": "2021-08",
+       "duracao": "3 anos 2 meses"
+      },
+      {
+       "cargo": "Estagiário na área de eletrotécnica",
+       "empresa": "EDP Brasil",
+       "tipo": "Internship",
+       "inicio": "2016-10",
+       "fim": "2018-06",
+       "duracao": "1 ano 9 meses",
+       "local": "Serra, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Adolescente aprendiz",
+       "empresa": "ArcelorMittal",
+       "tipo": "Apprenticeship",
+       "inicio": "2012-09",
+       "fim": "2014-04",
+       "duracao": "1 ano 8 meses",
+       "local": "Serra, Espírito Santo, Brazil · On-site"
+      }
+     ]
+    },
+    {
+     "nome": "Wenderson Candido de Freitas",
+     "monograma": "WF",
+     "cargo": "Analista de automação",
+     "empresa": "Autvix Group",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/wenderson-candido-de-freitas/",
+     "jornada": [
+      {
+       "cargo": "Analista de automação",
+       "empresa": "Autvix Group",
+       "tipo": "Full-time",
+       "inicio": "2024-06",
+       "duracao": "2 anos 5 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Técnico em Mecatrônica – Automação da Manufatura",
+       "empresa": "LYNX PROCESS",
+       "tipo": "Full-time",
+       "inicio": "2022-06",
+       "fim": "2024-05",
+       "duracao": "2 anos",
+       "local": "Vitória, Espírito Santo, Brasil"
+      }
+     ]
+    },
+    {
+     "nome": "Wilk Lopes da Silva",
+     "monograma": "WS",
+     "cargo": "Aluno",
+     "empresa": "Ifes - Instituto Federal do Espírito Santo",
+     "local": "Vila Velha, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/wilk-lopes-17387218b/",
+     "jornada": []
+    },
+    {
+     "nome": "Willian Souza Lima",
+     "monograma": "WL",
+     "cargo": "Coordenador de TI",
+     "empresa": "Polo Wear",
+     "local": "Colatina, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/willian-souza-dos-reis/",
+     "jornada": [
+      {
+       "cargo": "Coordenador de TI",
+       "empresa": "Polo Wear",
+       "tipo": "Full-time",
+       "inicio": "2018-05",
+       "duracao": "8 anos 6 meses",
+       "local": "COLATINA · On-site"
+      },
+      {
+       "cargo": "Desenvolvedor de software",
+       "empresa": "PW BRASIL EXPORT SA",
+       "inicio": "2015-05",
+       "fim": "2017-09",
+       "duracao": "2 anos 5 meses",
+       "local": "Av Fidelis Ferrari, B. Castelo Branco, Colatina"
+      }
+     ]
     }
    ]
   }
