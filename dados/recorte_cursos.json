@@ -68,6 +68,340 @@
      "n": 1
     }
    ],
+   "cargos_todos": [
+    {
+     "texto": "Senior Software Engineer",
+     "n": 5
+    },
+    {
+     "texto": "Tech Lead",
+     "n": 3
+    },
+    {
+     "texto": "Engenheiro de Dados",
+     "n": 2
+    },
+    {
+     "texto": "Staff Software Engineer",
+     "n": 2
+    },
+    {
+     "texto": "Analista de TI",
+     "n": 2
+    },
+    {
+     "texto": "Engenheiro de dados",
+     "n": 2
+    },
+    {
+     "texto": "Líder técnico",
+     "n": 2
+    },
+    {
+     "texto": "Analista de sistemas",
+     "n": 2
+    },
+    {
+     "texto": "Desenvolvedor full stack",
+     "n": 2
+    },
+    {
+     "texto": "Software Engineer",
+     "n": 2
+    },
+    {
+     "texto": "Engenheiro de Software Sênior",
+     "n": 1
+    },
+    {
+     "texto": "Consulting Engineer",
+     "n": 1
+    },
+    {
+     "texto": "Analista de Dados",
+     "n": 1
+    },
+    {
+     "texto": "Senior Consulting Engineer",
+     "n": 1
+    },
+    {
+     "texto": "Android Developer",
+     "n": 1
+    },
+    {
+     "texto": "IT Analyst",
+     "n": 1
+    },
+    {
+     "texto": "Coordenador Técnico / Tech Lead",
+     "n": 1
+    },
+    {
+     "texto": "Desenvolvedor Full Stack",
+     "n": 1
+    },
+    {
+     "texto": "Senior Frontend Developer / Tech Lead",
+     "n": 1
+    },
+    {
+     "texto": ".NET Software Engineer",
+     "n": 1
+    },
+    {
+     "texto": "Engineering Manager",
+     "n": 1
+    },
+    {
+     "texto": "Gerente",
+     "n": 1
+    },
+    {
+     "texto": "Gerente de TI",
+     "n": 1
+    },
+    {
+     "texto": "Analista de Sistemas",
+     "n": 1
+    },
+    {
+     "texto": "Frontend Developer",
+     "n": 1
+    },
+    {
+     "texto": "Desenvolvedora Salesforce",
+     "n": 1
+    },
+    {
+     "texto": "Tech Leader",
+     "n": 1
+    },
+    {
+     "texto": "Backend Engineer",
+     "n": 1
+    },
+    {
+     "texto": "Desenvolvedora web full stack",
+     "n": 1
+    },
+    {
+     "texto": "Programador RPA",
+     "n": 1
+    },
+    {
+     "texto": "Gerente de projetos",
+     "n": 1
+    },
+    {
+     "texto": "Backend Python Sênior",
+     "n": 1
+    },
+    {
+     "texto": "Technical Leader",
+     "n": 1
+    },
+    {
+     "texto": "Designer de produtos",
+     "n": 1
+    },
+    {
+     "texto": "Desenvolvedor Frontend",
+     "n": 1
+    },
+    {
+     "texto": "Researcher/Data scientist",
+     "n": 1
+    },
+    {
+     "texto": "Engenheiro de software",
+     "n": 1
+    },
+    {
+     "texto": "Staff Data Engineer",
+     "n": 1
+    },
+    {
+     "texto": "Analista Desenvolvedor Sênior",
+     "n": 1
+    },
+    {
+     "texto": "Senior Backend Developer",
+     "n": 1
+    },
+    {
+     "texto": "Desenvolvedor",
+     "n": 1
+    },
+    {
+     "texto": "Arquiteto de soluções",
+     "n": 1
+    },
+    {
+     "texto": "Product Manager Sr.",
+     "n": 1
+    },
+    {
+     "texto": "DevOps Engineer",
+     "n": 1
+    },
+    {
+     "texto": "Data Engineer",
+     "n": 1
+    },
+    {
+     "texto": "Professor de Educação Profissional e Tecnológica",
+     "n": 1
+    },
+    {
+     "texto": "Desenvolvedor Front-end Sênior",
+     "n": 1
+    },
+    {
+     "texto": "Analista Funcional Senior",
+     "n": 1
+    },
+    {
+     "texto": "Software Analyst Junior",
+     "n": 1
+    },
+    {
+     "texto": "Senior Frontend Developer",
+     "n": 1
+    },
+    {
+     "texto": "Engenheiro de Inteligência Artificial",
+     "n": 1
+    },
+    {
+     "texto": "Instrutora de TI",
+     "n": 1
+    },
+    {
+     "texto": "Quality Assurance Analyst",
+     "n": 1
+    },
+    {
+     "texto": "Assistente de infraestrutura",
+     "n": 1
+    },
+    {
+     "texto": "Master’s Student in Applied Computing",
+     "n": 1
+    },
+    {
+     "texto": "Analista de Métricas de Software",
+     "n": 1
+    },
+    {
+     "texto": "Aprendiz",
+     "n": 1
+    },
+    {
+     "texto": "Especialista em Infraestrutura de TI",
+     "n": 1
+    },
+    {
+     "texto": "DevOps Analyst",
+     "n": 1
+    },
+    {
+     "texto": "Supervisor de Dados",
+     "n": 1
+    },
+    {
+     "texto": "Desenvolvedor ABAP",
+     "n": 1
+    },
+    {
+     "texto": "Analista de Sistemas Pleno",
+     "n": 1
+    },
+    {
+     "texto": "Desenvolvedor de front-end Pleno",
+     "n": 1
+    },
+    {
+     "texto": "Analista Desenvolvedor",
+     "n": 1
+    },
+    {
+     "texto": "Desenvolvimento tecnicologico industrial",
+     "n": 1
+    },
+    {
+     "texto": "Desenvolvedor Back-End com foco em automação",
+     "n": 1
+    },
+    {
+     "texto": "Gerente de Projetos CX",
+     "n": 1
+    },
+    {
+     "texto": "Aluno",
+     "n": 1
+    },
+    {
+     "texto": "Machine Learning Researcher",
+     "n": 1
+    },
+    {
+     "texto": "Senior Android Developer",
+     "n": 1
+    },
+    {
+     "texto": "Desenvolvedor Backend",
+     "n": 1
+    },
+    {
+     "texto": "Analista Bancário - Sistemas",
+     "n": 1
+    },
+    {
+     "texto": "Analyst, Database Engineering",
+     "n": 1
+    },
+    {
+     "texto": "Senior Engineering Lead",
+     "n": 1
+    },
+    {
+     "texto": "Desenvolvedor de software",
+     "n": 1
+    },
+    {
+     "texto": "Suporte técnico",
+     "n": 1
+    },
+    {
+     "texto": "Analista de planejamento",
+     "n": 1
+    },
+    {
+     "texto": "Engenheiro DevOps",
+     "n": 1
+    },
+    {
+     "texto": "Coordenador de Atendimento e Suporte ao Usuário",
+     "n": 1
+    },
+    {
+     "texto": "Analista de Processo Pleno",
+     "n": 1
+    },
+    {
+     "texto": "Associate Developer",
+     "n": 1
+    },
+    {
+     "texto": "AI Engineering Intern",
+     "n": 1
+    },
+    {
+     "texto": "Senior Full Stack Engineer",
+     "n": 1
+    }
+   ],
    "empresas": [
     {
      "texto": "AEVO",
@@ -3255,7 +3589,369 @@
       ]
      }
     ]
-   }
+   },
+   "empresas_na_jornada": [
+    {
+     "texto": "Ifes - Instituto Federal do Espírito Santo",
+     "pessoas": 7,
+     "hoje": 2
+    },
+    {
+     "texto": "Vale",
+     "pessoas": 5,
+     "hoje": 2
+    },
+    {
+     "texto": "Leds - Ifes",
+     "pessoas": 3,
+     "hoje": 1
+    },
+    {
+     "texto": "ArcelorMittal Brasil",
+     "pessoas": 3,
+     "hoje": 0
+    },
+    {
+     "texto": "V1 App",
+     "pessoas": 2,
+     "hoje": 2
+    },
+    {
+     "texto": "Bandes ES",
+     "pessoas": 2,
+     "hoje": 1
+    },
+    {
+     "texto": "Databasers",
+     "pessoas": 2,
+     "hoje": 1
+    },
+    {
+     "texto": "FATTO Consultoria e Sistemas",
+     "pessoas": 2,
+     "hoje": 1
+    },
+    {
+     "texto": "Prosperi",
+     "pessoas": 2,
+     "hoje": 1
+    },
+    {
+     "texto": "Senac Espírito Santo",
+     "pessoas": 2,
+     "hoje": 1
+    },
+    {
+     "texto": "Code n'App",
+     "pessoas": 2,
+     "hoje": 0
+    },
+    {
+     "texto": "ETAURE TI & AUTOMAÇÃO",
+     "pessoas": 2,
+     "hoje": 0
+    },
+    {
+     "texto": "PROSPERI - OTIMIZANDO PROJETOS, GERANDO RESULTADOS",
+     "pessoas": 2,
+     "hoje": 0
+    },
+    {
+     "texto": "UseRH",
+     "pessoas": 2,
+     "hoje": 0
+    },
+    {
+     "texto": "AEVO",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Agrometrika",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Athenas Tecnologia em Softwares",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "BIX Tech",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "CI&T",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "CNPq - Conselho Nacional de Desenvolvimento Científico e Tecnológico",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Crea-ES",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Eurotextil Comércio e Importação",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "FORTLEV",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Findes",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Grupo Quattror",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "LabTel - Laboratório de Telecomunicações (UFES)",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Mercado Livre",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "NTT DATA, Inc.",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "SMT",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "SOUTH SYSTEM",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Sesc Espírito Santo",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "TOTVS LESTE",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Triágil",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Unitá Soluções Digitais",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "ArcelorMittal",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Autoglass - Brasil",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Banco next",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Compet Engenharia",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "DXC Technology",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Directy",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Docêncis",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Econocargo",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Editora Milfontes",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "FDCI - Faculdade de Direito de Cachoeiro de Itapemirim",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Freelance",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "GFT Technologies",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Green Ocean Technologies",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Instituto Federal de Educação, Ciência e Tecnologia do Espírito Santo",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Instituto João XXIII",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "JW RESTAURANTE ESPACO DO SABOR LTDA",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "LEDS - Laboratório de Extensão em Desenvolvimento de Soluções (IFES - Serra, ES)",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "LYNX PROCESS",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Lampex - Ifes",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Lead Applied Solutions",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "LexisNexis Risk Solutions",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "LiberFly",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Listo",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Mitis",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Morpheus Jr.",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Phidelis Tecnologia",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "PicPay",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Politintas",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Spassu Tecnologia e Serviços",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Super Estágios",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "TIVIT",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Tribunal de Justica do Espirito Santo",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "UFES - Universidade Federal do Espírito Santo",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "UpperSoft",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Vixteam Consultoria & Sistemas",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "americanas s.a.",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "iSmartBlue",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "will bank",
+     "pessoas": 1,
+     "hoje": 0
+    }
+   ]
   },
   "eca": {
    "curso": "eca",
@@ -3318,6 +4014,292 @@
     },
     {
      "texto": "Sócio",
+     "n": 1
+    }
+   ],
+   "cargos_todos": [
+    {
+     "texto": "Analista de automação",
+     "n": 5
+    },
+    {
+     "texto": "Software Engineer",
+     "n": 2
+    },
+    {
+     "texto": "Estagiário",
+     "n": 2
+    },
+    {
+     "texto": "Sócio proprietário",
+     "n": 2
+    },
+    {
+     "texto": "Engenheira de Manutenção Sênior",
+     "n": 1
+    },
+    {
+     "texto": "Data Scientist",
+     "n": 1
+    },
+    {
+     "texto": "Analista PL de Sistemas de Automação",
+     "n": 1
+    },
+    {
+     "texto": "Assistente Técnico III",
+     "n": 1
+    },
+    {
+     "texto": "Especialista em desenvolvimento sênior",
+     "n": 1
+    },
+    {
+     "texto": "Engenheiro de Controle e Automação Sr",
+     "n": 1
+    },
+    {
+     "texto": "Desenvolvedor",
+     "n": 1
+    },
+    {
+     "texto": "Sócio",
+     "n": 1
+    },
+    {
+     "texto": "Tech Lead | Arquiteto de Soluções Sênior",
+     "n": 1
+    },
+    {
+     "texto": "Assistente de Suprimentos",
+     "n": 1
+    },
+    {
+     "texto": "Automation Specialist",
+     "n": 1
+    },
+    {
+     "texto": "eletrotécnico",
+     "n": 1
+    },
+    {
+     "texto": "Pregoeiro",
+     "n": 1
+    },
+    {
+     "texto": "Estivador",
+     "n": 1
+    },
+    {
+     "texto": "Instrutor de Língua Inglesa",
+     "n": 1
+    },
+    {
+     "texto": "Profissional Petrobras de Nível Técnico",
+     "n": 1
+    },
+    {
+     "texto": "Tecnico em automação industrial",
+     "n": 1
+    },
+    {
+     "texto": "Engenheiro de Petróleo",
+     "n": 1
+    },
+    {
+     "texto": "Piloto de drone",
+     "n": 1
+    },
+    {
+     "texto": "Application Support Analyst",
+     "n": 1
+    },
+    {
+     "texto": "Engenheiro de Serviço de Campo",
+     "n": 1
+    },
+    {
+     "texto": "Técnico Especializado de Manutenção",
+     "n": 1
+    },
+    {
+     "texto": "Analista Operacional Pleno",
+     "n": 1
+    },
+    {
+     "texto": "Gerente de vendas | Sales Manager",
+     "n": 1
+    },
+    {
+     "texto": "Orçamentista",
+     "n": 1
+    },
+    {
+     "texto": "Firmware Engineer",
+     "n": 1
+    },
+    {
+     "texto": "Técnico de Operações SR",
+     "n": 1
+    },
+    {
+     "texto": "Técnico em elétrica",
+     "n": 1
+    },
+    {
+     "texto": "Engenheiro",
+     "n": 1
+    },
+    {
+     "texto": "Ballast Control Operator",
+     "n": 1
+    },
+    {
+     "texto": "Líder de IA",
+     "n": 1
+    },
+    {
+     "texto": "Engenheiro de Automação",
+     "n": 1
+    },
+    {
+     "texto": "Engenheiro de automação e controle",
+     "n": 1
+    },
+    {
+     "texto": "CX Specialist",
+     "n": 1
+    },
+    {
+     "texto": "SURF Engineer | Umbilical Engineer | Product and Project Lead Engineer",
+     "n": 1
+    },
+    {
+     "texto": "Engenheira",
+     "n": 1
+    },
+    {
+     "texto": "Técnico de manutenção de equipamentos",
+     "n": 1
+    },
+    {
+     "texto": "Desenvolvedor RPA",
+     "n": 1
+    },
+    {
+     "texto": "Tecnica de Operações",
+     "n": 1
+    },
+    {
+     "texto": "Engenheiro de Controle & Automação",
+     "n": 1
+    },
+    {
+     "texto": "Piloto de ROV",
+     "n": 1
+    },
+    {
+     "texto": "Proprietário",
+     "n": 1
+    },
+    {
+     "texto": "Coordenador de Automação",
+     "n": 1
+    },
+    {
+     "texto": "Control and Automation Engineer",
+     "n": 1
+    },
+    {
+     "texto": "Tenente Coronel do Corpo de Bombeiros Militar do Espírito Santo",
+     "n": 1
+    },
+    {
+     "texto": "Engenheiro Especialista",
+     "n": 1
+    },
+    {
+     "texto": "Arquiteto de soluções",
+     "n": 1
+    },
+    {
+     "texto": "Engenheira de Automação Jr",
+     "n": 1
+    },
+    {
+     "texto": "Engenheiro de Controle e Automação Pleno",
+     "n": 1
+    },
+    {
+     "texto": "Atuação como referência técnica em projetos de sistemas inteligentes, responsável pela definição de arquitetura, qualidade e escalabilidade das soluções",
+     "n": 1
+    },
+    {
+     "texto": "Data Analyst | Business Insights & Predictive Modeling",
+     "n": 1
+    },
+    {
+     "texto": "Técnico de automação",
+     "n": 1
+    },
+    {
+     "texto": "Técnico em Química",
+     "n": 1
+    },
+    {
+     "texto": "Project Engineer (Electrical, Instrumentation and Automation)",
+     "n": 1
+    },
+    {
+     "texto": "Técnico de programação",
+     "n": 1
+    },
+    {
+     "texto": "Vendedor",
+     "n": 1
+    },
+    {
+     "texto": "Computer Vision Junior Analyst",
+     "n": 1
+    },
+    {
+     "texto": "Desenvolvedor Full Stack Pleno",
+     "n": 1
+    },
+    {
+     "texto": "Offshore Facilities Engineer",
+     "n": 1
+    },
+    {
+     "texto": "Analista Visão Computacional Sênior",
+     "n": 1
+    },
+    {
+     "texto": "Engenheiro da Computação",
+     "n": 1
+    },
+    {
+     "texto": "Aluno na Ifes - Instituto Federal do Espírito Santo",
+     "n": 1
+    },
+    {
+     "texto": "Analista de Sistema Pleno",
+     "n": 1
+    },
+    {
+     "texto": "Field Services Engineer",
+     "n": 1
+    },
+    {
+     "texto": "Programador Manutenção I",
+     "n": 1
+    },
+    {
+     "texto": "Aluno",
+     "n": 1
+    },
+    {
+     "texto": "Coordenador de TI",
      "n": 1
     }
    ],
@@ -11065,7 +12047,904 @@
       ]
      }
     ]
-   }
+   },
+   "empresas_na_jornada": [
+    {
+     "texto": "Ifes - Instituto Federal do Espírito Santo",
+     "pessoas": 17,
+     "hoje": 3
+    },
+    {
+     "texto": "Vale",
+     "pessoas": 11,
+     "hoje": 4
+    },
+    {
+     "texto": "ArcelorMittal Brasil",
+     "pessoas": 10,
+     "hoje": 1
+    },
+    {
+     "texto": "LYNX PROCESS",
+     "pessoas": 8,
+     "hoje": 5
+    },
+    {
+     "texto": "TSA Tecnologia de Sistemas de Automação SA",
+     "pessoas": 7,
+     "hoje": 1
+    },
+    {
+     "texto": "GainTech Tecnologia",
+     "pessoas": 6,
+     "hoje": 4
+    },
+    {
+     "texto": "Petrobras",
+     "pessoas": 4,
+     "hoje": 4
+    },
+    {
+     "texto": "Autvix Group",
+     "pessoas": 4,
+     "hoje": 3
+    },
+    {
+     "texto": "Tata Consultancy Services",
+     "pessoas": 4,
+     "hoje": 1
+    },
+    {
+     "texto": "Transpetro - Petrobras Transporte S. A.",
+     "pessoas": 3,
+     "hoje": 2
+    },
+    {
+     "texto": "AEVO",
+     "pessoas": 3,
+     "hoje": 1
+    },
+    {
+     "texto": "Autvix Engenharia",
+     "pessoas": 3,
+     "hoje": 1
+    },
+    {
+     "texto": "ArcelorMittal",
+     "pessoas": 3,
+     "hoje": 0
+    },
+    {
+     "texto": "Cast group",
+     "pessoas": 3,
+     "hoje": 0
+    },
+    {
+     "texto": "EDP Brasil",
+     "pessoas": 3,
+     "hoje": 0
+    },
+    {
+     "texto": "ETAURE TI & AUTOMAÇÃO",
+     "pessoas": 3,
+     "hoje": 0
+    },
+    {
+     "texto": "Autoglass - Brasil",
+     "pessoas": 2,
+     "hoje": 1
+    },
+    {
+     "texto": "CESAN",
+     "pessoas": 2,
+     "hoje": 1
+    },
+    {
+     "texto": "FORTLEV",
+     "pessoas": 2,
+     "hoje": 1
+    },
+    {
+     "texto": "Grupo SERENG",
+     "pessoas": 2,
+     "hoje": 1
+    },
+    {
+     "texto": "Usiplan Engenharia",
+     "pessoas": 2,
+     "hoje": 1
+    },
+    {
+     "texto": "ETAURE",
+     "pessoas": 2,
+     "hoje": 0
+    },
+    {
+     "texto": "Fundação de Amparo à Pesquisa e Inovação do Espírito Santo | Fapes",
+     "pessoas": 2,
+     "hoje": 0
+    },
+    {
+     "texto": "Morpheus Jr.",
+     "pessoas": 2,
+     "hoje": 0
+    },
+    {
+     "texto": "Sembcorp Marine Ltd",
+     "pessoas": 2,
+     "hoje": 0
+    },
+    {
+     "texto": "Spassu Tecnologia e Serviços",
+     "pessoas": 2,
+     "hoje": 0
+    },
+    {
+     "texto": "Tozato Measurements",
+     "pessoas": 2,
+     "hoje": 0
+    },
+    {
+     "texto": "Vilux Vitória Lux Industrial",
+     "pessoas": 2,
+     "hoje": 0
+    },
+    {
+     "texto": "ABB Brasil",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "AEVO Innovate",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "AIESEC",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Apeiron",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Arc Infrastructure",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Atlântico",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Atman Systems",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "B Duncan Ltd",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Ballpark Business English School",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Bureau Veritas Group",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "CEP Manutenção de sistemas ltda.",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Chemtrade",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Cobra Tecnologia S/A",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Corpo de Bombeiros Militar do ES",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "DOF",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "EDP South America",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "FACOM - F. de Almeida Construções Ltda.",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Findes",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Flyterm Tecnologia",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Fotus Distribuidora Solar",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Freelance",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "GE Vernova",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Grupo Autoglass",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Instituto de Tecnologia da Informação e Comunicação do Estado do Espirito Santo (Prodest)",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "ML Automação",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Manserv",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Mantis Tecnologia",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Mardotech Engenharia",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Maximo e Borges Serviços e Engenharia ltda.",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "NTT DATA Europe & Latam",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Nutrien Soluções Agrícolas",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "OGMO ES",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "PETROBRAS PETROLEO BRASILEIRO SA",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Planne",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Polo Wear",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Prefeitura Municipal de Vitória",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Retifica Litorânea",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "SBM Offshore",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "SBM Offshore (Single Buoy Moorings) )",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Saipem)",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Satel Brasil",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Seatrium",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Sindus Andritz)",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Swap",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "TechnipFMC",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Tupperware Brasil · Self-employed",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Vale)",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Vixteam Consultoria & Sistemas",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "i9 Engenharia, Tecnologia e Automação",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Abrasoldas",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Acta Engenharia Ltda",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Alimentos Trigomais",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Alta Rail Technology",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "ArcelorMittal Tubarão",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Autorn Engenharia Ltda.",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Auvo Tecnologia",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Bar de Calçada",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Bernhoeft",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Brasigran Granitos e Mineração Corcovado Granitos",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Brasil Hidra Soluções Ltda.",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "CEDISA - Central de Aço",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "CI&T",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "CNA Idiomas | Oficial",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "CNPq",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "CNPq - Conselho Nacional de Desenvolvimento Científico e Tecnológico",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "CNPq - MCT",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "COEP",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Call4Fit",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Cebrac Franchising",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Centro Universo de educação e ensino",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Centro de Desenvolvimento Técnico - CEDTEC",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Chevron",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Concept Engenharia e Automação",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Condomínio do Shopping Vitória",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Cursol Energia Solar",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "DM Descafeinadores do Brasil",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Deloitte",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Dikma Facilities",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Doris",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Dure",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "EDP",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "EMESCAM",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Estaleiro Jurong Aracruz",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Estaleiro Jurong Aracruz (implied from context)",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Estaleiro Jurong Aracruz Ltda",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Exército Brasileiro",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "FAPES",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Facto",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Faculdade Novo Milênio",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Federal University of Espírito Santo",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Grupo Coutinho",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Grupo Pisalle Calçados",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Grupo Provider",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Huawei",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Hyundai Motor Company",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "IBGE",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "IFES - Federal Institute of Espirito Santo",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Inpasa Brasil",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Insaut Instrumentação e Automação Ltda",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Instituto Politécnico de Bragança",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Invillia",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "JB Serviços Elétricos",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Kryptus Soluções em Segurança da Informação",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "LOGIX Group - Energy and Automation",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "LOGIX | uma empresa Cast group",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "LaMEFT - Laboratório de Métodos Experimentais e Fenômenos de Transporte (UFES)",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Leds - Ifes",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Lhoist",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Localiza&Co",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "MRS Logística",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "MedSempre",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Micapel Slate - Mineração Capão das Pedras Ltda",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Mogai",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Motora.ai",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Multi Temper",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Nexa Tecnologia",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Olho do Dono S/A",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "PW BRASIL EXPORT SA",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "PetroRio",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Planlink",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "REMA TIP TOP Brasil",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Rede Gazeta",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Researcher",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "SENAI",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "SETEMEES - Sindicato dos Estivadores do Espírito Santo",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "SGS",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "SNC-Lavalin",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Samarco",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Sel Serviços Elétricos",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Seloco, Inc.",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Spread Tecnologia",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Superzelador - Assessoria e Gestão de Condomínios",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Support Subsea",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "TEREME engenharia",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Tereme",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Tetra Tech",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Timenow",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Transpetro - Petrobras Transporte S. de A.",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Triade Automacao",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Trident Energy",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "UG Polmirenje",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Universidade Federal do Espírito Santo (Oficial)",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Usiplan Engenharia LTDA",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Vale Verde Construtora",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Velsis | Soluções em mobilidade urbana",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "VisionTech",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Vixplan Engenharias",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Yara Brasil",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Zucchi Luxury Stones",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "adesso engenharia",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "inFlux English School",
+     "pessoas": 1,
+     "hoje": 0
+    }
+   ]
   }
  }
 }

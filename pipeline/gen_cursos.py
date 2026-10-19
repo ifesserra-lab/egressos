@@ -216,6 +216,39 @@ def _cargos_no_tempo(cartoes):
     }
 
 
+def _empresas_na_jornada(cartoes):
+    """TODAS as empresas por onde os egressos passaram — da jornada inteira, não só do cargo
+    atual — com quantas pessoas passaram por cada uma e quantas estão nela hoje.
+
+    A distribuição de `empresas` corta nos 12 primeiros e olha só o emprego atual; a pergunta
+    "quem contrata quem sai do curso" é sobre o currículo inteiro (pedido do Paulo em
+    2026-10-19). Conta PESSOA, não posição: três cargos na Vale são uma pessoa na Vale.
+
+    Mesma junção de `_cargos_no_tempo` — caixa e espaço, nada mais. "ArcelorMittal" e
+    "ArcelorMittal Brasil" seguem separadas: agrupar razão social é vocabulário, e mora em
+    `empresas_aliases` quando alguém o curar para a ECA."""
+    def chave(texto):
+        return " ".join((texto or "").split()).casefold()
+
+    grafias = collections.defaultdict(collections.Counter)
+    passaram = collections.defaultdict(set)
+    hoje = collections.defaultdict(set)
+    for c in cartoes:
+        for j in c.get("jornada") or []:
+            empresa = _limpo(j.get("empresa"))
+            if not empresa:
+                continue
+            grafias[chave(empresa)][empresa] += 1
+            passaram[chave(empresa)].add(c["nome"])
+            if not j.get("fim"):
+                hoje[chave(empresa)].add(c["nome"])
+    return sorted(({
+        "texto": grafias[k].most_common(1)[0][0],
+        "pessoas": len(passaram[k]),
+        "hoje": len(hoje[k]),
+    } for k in passaram), key=lambda x: (-x["pessoas"], -x["hoje"], x["texto"]))
+
+
 def _jornada_publicavel(experiencias, campos):
     """A jornada projetada e normalizada — ou VAZIA, se alguma posição veio mal lida.
 
@@ -233,10 +266,16 @@ def _jornada_publicavel(experiencias, campos):
     return [jornada.normaliza(pos) for pos in posicoes]
 
 
-def _distribuicao(linhas, campo):
-    """Contagem do texto cru, string idêntica a string idêntica. Sem classificar."""
-    freq = collections.Counter(v[campo] for v in linhas if v[campo])
-    return [{"texto": texto, "n": n} for texto, n in freq.most_common(TOP)]
+def _distribuicao(linhas, campo, top=TOP):
+    """Contagem do texto cru, string idêntica a string idêntica. Sem classificar.
+    `top=None` devolve a distribuição inteira — a página lista todos os cargos atuais."""
+    freq = collections.Counter(v[campo] for v in linhas if _tem_letra(v[campo]))
+    return [{"texto": texto, "n": n} for texto, n in freq.most_common(top)]
+
+
+def _tem_letra(texto):
+    """Cargo "--" é resto de raspagem, não cargo: sem uma letra, não entra na contagem."""
+    return bool(texto) and any(ch.isalpha() for ch in texto)
 
 
 def _cobertura(linhas, campo):
@@ -312,6 +351,7 @@ def recorte():
                 "identificados": len(linhas),
             },
             "cargos": _distribuicao(linhas, "cargo"),
+            "cargos_todos": _distribuicao(linhas, "cargo", top=None),
             "empresas": _distribuicao(linhas, "empresa"),
             # A cobertura de cargo/empresa é sobre `linhas` (o universo das CONTAGENS: estudo
             # + coleta). A de jornada é sobre a VITRINE, que é outro universo — só a coleta,
@@ -328,6 +368,7 @@ def recorte():
             },
             "vitrine": vitrine_do_curso,
             "cargos_no_tempo": _cargos_no_tempo(vitrine_do_curso),
+            "empresas_na_jornada": _empresas_na_jornada(vitrine_do_curso),
         }
     return {
         "titulo": "Recorte por curso — BSI e ECA, contagens e distribuições cruas",
