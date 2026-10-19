@@ -1844,13 +1844,13 @@
    "contagens": {
     "formandos_na_fila": 110,
     "processados_pela_coleta": 110,
-    "confirmados_pela_coleta": 77,
+    "confirmados_pela_coleta": 83,
     "confirmados_a_mao": 25,
-    "aguardando_conferencia": 7,
-    "nao_identificados": 24,
-    "falhou_a_rodada": 2,
+    "aguardando_conferencia": 8,
+    "nao_identificados": 19,
+    "falhou_a_rodada": 0,
     "no_estudo_original": 0,
-    "identificados": 77
+    "identificados": 83
    },
    "cargos": [
     {
@@ -1859,6 +1859,10 @@
     },
     {
      "texto": "Software Engineer",
+     "n": 2
+    },
+    {
+     "texto": "Estagiário",
      "n": 2
     },
     {
@@ -1896,10 +1900,6 @@
     {
      "texto": "Sócio",
      "n": 1
-    },
-    {
-     "texto": "Tech Lead | Arquiteto de Soluções Sênior",
-     "n": 1
     }
    ],
    "empresas": [
@@ -1908,15 +1908,19 @@
      "n": 5
     },
     {
+     "texto": "Ifes - Instituto Federal do Espírito Santo",
+     "n": 5
+    },
+    {
      "texto": "GainTech Tecnologia",
      "n": 4
     },
     {
-     "texto": "Ifes - Instituto Federal do Espírito Santo",
-     "n": 4
+     "texto": "Autvix Group",
+     "n": 3
     },
     {
-     "texto": "Autvix Group",
+     "texto": "LYNX PROCESS",
      "n": 3
     },
     {
@@ -1925,10 +1929,6 @@
     },
     {
      "texto": "ArcelorMittal",
-     "n": 2
-    },
-    {
-     "texto": "LYNX PROCESS",
      "n": 2
     },
     {
@@ -1954,17 +1954,17 @@
    ],
    "cobertura": {
     "cargo": {
-     "com": 73,
-     "de": 77
+     "com": 79,
+     "de": 83
     },
     "cargo_da_trajetoria": 28,
     "empresa": {
-     "com": 71,
-     "de": 77
+     "com": 76,
+     "de": 83
     },
     "jornada": {
-     "com": 73,
-     "de": 77
+     "com": 78,
+     "de": 83
     }
    },
    "vitrine": [
@@ -2693,6 +2693,55 @@
      ]
     },
     {
+     "nome": "Daniel Rodrigues Salcides",
+     "monograma": "DS",
+     "cargo": "Assistente de Suprimentos",
+     "empresa": "Fotus Distribuidora Solar",
+     "local": "Cariacica, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/daniel-rodrigues-112554249/",
+     "jornada": [
+      {
+       "cargo": "Assistente de Suprimentos",
+       "empresa": "Fotus Distribuidora Solar",
+       "inicio": "2026-08",
+       "duracao": "3 meses"
+      },
+      {
+       "cargo": "Membro gestão cipa",
+       "empresa": "EMESCAM",
+       "tipo": "Full-time",
+       "inicio": "2025-09",
+       "fim": "2026-04",
+       "duracao": "8 meses"
+      },
+      {
+       "cargo": "Assistente de suprimentos",
+       "empresa": "EMESCAM",
+       "tipo": "Full-time",
+       "inicio": "2024-07",
+       "fim": "2026-04",
+       "duracao": "1 ano 10 meses"
+      },
+      {
+       "cargo": "Auxiliar de compras",
+       "empresa": "EMESCAM",
+       "tipo": "Full-time",
+       "inicio": "2024-01",
+       "fim": "2024-06",
+       "duracao": "6 meses"
+      },
+      {
+       "cargo": "Estagiário de Compras",
+       "empresa": "EMESCAM",
+       "tipo": "Internship",
+       "inicio": "2023-05",
+       "fim": "2024-01",
+       "duracao": "9 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      }
+     ]
+    },
+    {
      "nome": "Danilo Menon Leal",
      "monograma": "DL",
      "cargo": "Automation Specialist",
@@ -2949,6 +2998,72 @@
        "inicio": "2016-12",
        "fim": "2018-09",
        "duracao": "1 ano 10 meses"
+      }
+     ]
+    },
+    {
+     "nome": "Douglas Souza Vieira",
+     "monograma": "DV",
+     "cargo": "Profissional Petrobras de Nível Técnico",
+     "empresa": "PETROBRAS PETROLEO BRASILEIRO SA",
+     "local": "Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/douglas-vieira-79111ba9/",
+     "jornada": [
+      {
+       "cargo": "Prof. Petrobras de Nível Técnico",
+       "empresa": "PETROBRAS PETROLEO BRASILEIRO SA",
+       "tipo": "Full-time",
+       "inicio": "2023-11",
+       "duracao": "3 anos"
+      },
+      {
+       "cargo": "Especialista em automação",
+       "empresa": "Zucchi Luxury Stones",
+       "tipo": "Full-time",
+       "inicio": "2021-06",
+       "fim": "2023-11",
+       "duracao": "2 anos 6 meses"
+      },
+      {
+       "cargo": "Production planning/shipping analyst",
+       "empresa": "Yara Brasil",
+       "tipo": "Full-time",
+       "inicio": "2020-12",
+       "fim": "2021-06",
+       "duracao": "7 meses",
+       "local": "Brazil"
+      },
+      {
+       "cargo": "Maintenance Planner",
+       "empresa": "Yara Brasil",
+       "tipo": "Full-time",
+       "inicio": "2020-02",
+       "fim": "2020-12",
+       "duracao": "11 meses",
+       "local": "Brazil"
+      },
+      {
+       "cargo": "Técnico em elétrica",
+       "empresa": "Zucchi Luxury Stones",
+       "inicio": "2017-07",
+       "fim": "2020-02",
+       "duracao": "2 anos 8 meses"
+      },
+      {
+       "cargo": "Auxiliar de PCM",
+       "empresa": "Zucchi Luxury Stones",
+       "tipo": "Full-time, On-site",
+       "inicio": "2016-01",
+       "fim": "2017-07",
+       "duracao": "1 ano 7 meses"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "Zucchi Luxury Stones",
+       "tipo": "Part-time",
+       "inicio": "2015-03",
+       "fim": "2016-01",
+       "duracao": "11 meses"
       }
      ]
     },
@@ -3311,6 +3426,37 @@
        "fim": "2015-04",
        "duracao": "4 meses",
        "local": "Vitoria, Brazil Metropolitan Area"
+      }
+     ]
+    },
+    {
+     "nome": "Gustavo Costa Mota",
+     "monograma": "GM",
+     "cargo": "Estagiário",
+     "empresa": "Ifes - Instituto Federal do Espírito Santo",
+     "local": "Guarapari, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/gustavo-mota-buback-6843051b3/",
+     "jornada": [
+      {
+       "cargo": "Estagiário",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "inicio": "2026-01",
+       "duracao": "10 meses"
+      },
+      {
+       "cargo": "Analista de qualidade de dados",
+       "empresa": "Freelance",
+       "tipo": "Freelance",
+       "inicio": "2024-09",
+       "duracao": "2 anos 2 meses"
+      },
+      {
+       "cargo": "Mecânico de veículos",
+       "empresa": "Retifica Litorânea",
+       "tipo": "Contract",
+       "inicio": "2022-06",
+       "duracao": "4 anos 5 meses",
+       "local": "Espírito Santo, Brazil"
       }
      ]
     },
@@ -3772,6 +3918,68 @@
      ]
     },
     {
+     "nome": "João Pedro Costa Albuquerque",
+     "monograma": "JA",
+     "cargo": "Engenheiro de Automação",
+     "empresa": null,
+     "local": "Vila Velha, Espírito Santo",
+     "linkedin": "https://www.linkedin.com/in/joao-pedro-costa-albuquerque/",
+     "jornada": [
+      {
+       "cargo": "Engenheiro de automação",
+       "empresa": "i9 Engenharia, Tecnologia e Automação",
+       "tipo": "Full-time",
+       "inicio": "2024-05",
+       "duracao": "2 anos 6 meses",
+       "local": "Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Engenheiro de controle de automação",
+       "empresa": "Insaut Instrumentação e Automação Ltda",
+       "tipo": "Full-time",
+       "inicio": "2021-03",
+       "fim": "2024-05",
+       "duracao": "3 anos 3 meses",
+       "local": "Vila Velha, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Técnico de instrumentação",
+       "empresa": "Insaut Instrumentação e Automação Ltda",
+       "tipo": "Full-time",
+       "inicio": "2018-08",
+       "fim": "2021-03",
+       "duracao": "2 anos 8 meses",
+       "local": "Vila Velha, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Diretor financeiro e administrativo",
+       "empresa": "Morpheus Jr.",
+       "tipo": "Part-time",
+       "inicio": "2017",
+       "fim": "2018",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Engenharia de controle e automação",
+       "empresa": "Insaut Instrumentação e Automação Ltda",
+       "tipo": "Internship",
+       "inicio": "2014-04",
+       "fim": "2016-01",
+       "duracao": "1 ano 10 meses",
+       "local": "Vila Velha, Espírito Santo, Brazil · On-site"
+      },
+      {
+       "cargo": "Cocriador do Projeto I LOVE Bósnia",
+       "empresa": "UG Polmirenje",
+       "tipo": "Contract",
+       "inicio": "2009-12",
+       "fim": "2010-01",
+       "duracao": "2 meses",
+       "local": "Zenica, Federation of Bosnia and Herzegovina, Bosnia and Herzegovina"
+      }
+     ]
+    },
+    {
      "nome": "João Pedro Ferreira Guimarães",
      "monograma": "JG",
      "cargo": "Engenheiro de automação e controle",
@@ -3881,6 +4089,15 @@
        "local": "Vitoria, Brazil Metropolitan Area · On-site"
       }
      ]
+    },
+    {
+     "nome": "Juliano Vulpi Gobbo",
+     "monograma": "JG",
+     "cargo": "SURF Engineer | Umbilical Engineer | Product and Project Lead Engineer",
+     "empresa": "Prysmian Group",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/juliano-gobbo/",
+     "jornada": []
     },
     {
      "nome": "Kamila Maria Vieira Pralon",
@@ -5195,6 +5412,41 @@
        "empresa": "Vale)",
        "duracao": "10 meses",
        "local": "Vitória, ES"
+      }
+     ]
+    },
+    {
+     "nome": "Thiago Viguini de Carvalho",
+     "monograma": "TC",
+     "cargo": "Analista Visão Computacional Sênior",
+     "empresa": "LYNX PROCESS",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/thiago-viguini/",
+     "jornada": [
+      {
+       "cargo": "Analista Visão Computacional Sênior",
+       "empresa": "LYNX PROCESS",
+       "tipo": "Full-time",
+       "inicio": "2026-08",
+       "duracao": "3 months",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Assistente administrativo",
+       "empresa": "Prefeitura Municipal de Vitória",
+       "tipo": "Part-time",
+       "inicio": "2007-05",
+       "duracao": "19 years 6 months",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Analista de Engenharia e Aplicações",
+       "empresa": "Mogai",
+       "tipo": "Full-time",
+       "inicio": "2021-10",
+       "fim": "2026-08",
+       "duracao": "4 years 11 months",
+       "local": "Vitória, Espírito Santo, Brazil"
       }
      ]
     },
