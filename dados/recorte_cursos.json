@@ -137,8 +137,8 @@
     {
      "nome": "Abner Benicio Silva",
      "monograma": "AS",
-     "cargo": null,
-     "empresa": null,
+     "cargo": "Software Analyst Junior",
+     "empresa": "Prosperi",
      "local": "Vitória, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/abner-benicio-303763235/",
      "jornada": [
@@ -242,9 +242,9 @@
     {
      "nome": "Alvaro Vinícius de Almeida Martins",
      "monograma": "AM",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Engenheiro de Inteligência Artificial",
+     "empresa": "Vale",
+     "local": "Vitória, Espírito Santo, Brasil",
      "linkedin": "https://www.linkedin.com/in/alvaromartins7/",
      "jornada": [
       {
@@ -296,9 +296,9 @@
     {
      "nome": "Amanda Ferreira de Souza",
      "monograma": "AS",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Instrutora de TI",
+     "empresa": "Senac Espírito Santo",
+     "local": "Vitória, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/amanda-souza-03a11a182/",
      "jornada": [
       {
@@ -397,9 +397,9 @@
     {
      "nome": "Ana Gabriella Gomes de Almeida Ferreira",
      "monograma": "AF",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Assistente de infraestrutura",
+     "empresa": "TOTVS LESTE",
+     "local": "missing",
      "linkedin": "https://www.linkedin.com/in/anagabriellagomes/",
      "jornada": [
       {
@@ -424,9 +424,9 @@
     {
      "nome": "Ana Júlia Caetano Martins",
      "monograma": "AM",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Master’s Student in Applied Computing",
+     "empresa": "IFES - Instituto Federal do Espírito Santo",
+     "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/ana-julia-c-martins/",
      "jornada": [
       {
@@ -477,8 +477,8 @@
     {
      "nome": "Ana Paula Martins Guimarães Mutz",
      "monograma": "AM",
-     "cargo": null,
-     "empresa": null,
+     "cargo": "Analista de Métricas de Software",
+     "empresa": "FATTO Consultoria e Sistemas",
      "local": null,
      "linkedin": "https://www.linkedin.com/in/ana-paula-martins-dias-guimaraes/",
      "jornada": [
@@ -510,9 +510,9 @@
     {
      "nome": "Andre Felipe Santos Martins",
      "monograma": "AM",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Analista de TI",
+     "empresa": "Sesc Espírito Santo",
+     "local": "Vitória, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/objetovazio/",
      "jornada": [
       {
@@ -591,9 +591,9 @@
     {
      "nome": "Andre Luiz Coelho Silva",
      "monograma": "AS",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "DevOps Analyst",
+     "empresa": "Leds - Ifes",
+     "local": "Hybrid",
      "linkedin": "https://www.linkedin.com/in/andreluizcoelhosilva/",
      "jornada": [
       {
@@ -627,9 +627,9 @@
     {
      "nome": "André Altivo de Oliveira",
      "monograma": "AO",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Aprendiz",
+     "empresa": "V1 App",
+     "local": "Vitória, Espírito Santo, Brasil",
      "linkedin": "https://www.linkedin.com/in/andrealtivooliveira/",
      "jornada": [
       {
@@ -907,8 +907,8 @@
     {
      "nome": "Bianca Albuquerque da Silva",
      "monograma": "BS",
-     "cargo": null,
-     "empresa": null,
+     "cargo": "Desenvolvedor de front-end Pleno",
+     "empresa": "Grupo Quattror",
      "local": null,
      "linkedin": "https://www.linkedin.com/in/bianca-albuquerque/",
      "jornada": [
@@ -953,8 +953,8 @@
     {
      "nome": "Brenno Alcantara Milanezi",
      "monograma": "BM",
-     "cargo": null,
-     "empresa": null,
+     "cargo": "Analista Desenvolvedor",
+     "empresa": "V1 App",
      "local": null,
      "linkedin": "https://www.linkedin.com/in/brenno-milanezi/",
      "jornada": [
@@ -1057,8 +1057,8 @@
     {
      "nome": "Bruno Schneider Plazzi",
      "monograma": "BP",
-     "cargo": null,
-     "empresa": null,
+     "cargo": "Analista de sistemas",
+     "empresa": "Crea-ES",
      "local": null,
      "linkedin": "https://www.linkedin.com/in/brunoplazzi/",
      "jornada": [
@@ -1082,9 +1082,9 @@
     {
      "nome": "Caicke Carvalho Pinheiro",
      "monograma": "CP",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Desenvolvedor full stack",
+     "empresa": "Agrometrika",
+     "local": "Campinas, São Paulo, Brazil",
      "linkedin": "https://www.linkedin.com/in/caicke/",
      "jornada": [
       {
@@ -1132,9 +1132,9 @@
     {
      "nome": "Caio Pupolin Antonio",
      "monograma": "CA",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Gerente de Projetos CX",
+     "empresa": "SMT",
+     "local": "Vitória, Espírito Santo, Brasil",
      "linkedin": "https://www.linkedin.com/in/caio-pupolin-010867155/",
      "jornada": [
       {
@@ -1506,9 +1506,9 @@
     {
      "nome": "Daniel Henrique Comério",
      "monograma": "DC",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Analista Bancário - Sistemas",
+     "empresa": "Bandes ES",
+     "local": "Vitória, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/daniel-henrique-com%C3%A9rio-92b271150/",
      "jornada": [
       {
@@ -1836,7 +1836,1426 @@
      "linkedin": "https://www.linkedin.com/in/everton-sales-60647618/",
      "jornada": []
     }
-   ]
+   ],
+   "cargos_no_tempo": {
+    "pessoas": 30,
+    "cargos_distintos": 101,
+    "cargos": [
+     {
+      "texto": "Estagiário",
+      "ocuparam": 6,
+      "primeiro": 4,
+      "atual": 0
+     },
+     {
+      "texto": "Full Stack Developer",
+      "ocuparam": 3,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Líder técnico",
+      "ocuparam": 2,
+      "primeiro": 0,
+      "atual": 2
+     },
+     {
+      "texto": "Analista de Sistemas",
+      "ocuparam": 2,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Desenvolvedor full stack",
+      "ocuparam": 2,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Desenvolvedor Backend",
+      "ocuparam": 2,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedor de software",
+      "ocuparam": 2,
+      "primeiro": 2,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedor de software pleno",
+      "ocuparam": 2,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiária de TI",
+      "ocuparam": 2,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Pesquisador",
+      "ocuparam": 2,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Software Developer",
+      "ocuparam": 2,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "(Extraction pending after scrolling to load all experiences)",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 1
+     },
+     {
+      "texto": "Analista Bancário - Sistemas",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Analista Desenvolvedor",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Analista de Dados Pleno | Mid-Level Data Analyst",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Analista de Métricas de Software",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Analista de QA",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Analista de Sistemas - ABAP",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Analista de TI",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Aprendiz",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Assistente de infraestrutura",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Desenvolvedor de Software - Externo (bolsista)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Desenvolvedor de front-end Pleno",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Desenvolvedora back end",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Desenvolvimento tecnicologico industrial",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 1
+     },
+     {
+      "texto": "DevOps Analyst",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Engenheiro de Inteligência Artificial",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Gerente de Projetos CX",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Instrutora de TI",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Machine Learning Researcher",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Master’s Student in Applied Computing",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Senior Android Developer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Senior Data & AI Architect",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Senior Frontend Developer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Senior Software Engineer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Software Analyst Junior",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Advanced Analytics Architect",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista CX",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista Desenvolvedor de Sistema",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de Dados Júnior | Entry-Level Data Analyst",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de Sistemas (Backoffice)",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de Sistemas Pleno III",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de Sistemas e BI",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de Sistemas | Systems Analyst",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de Suporte Junior",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de integração",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista e Desenvolvedor de Software",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analytics Architecture Intern",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Android Developer",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Aprendiz de técnico",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Assessor/Gerente de projetos",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Assistente de projetos",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Auxiliar de Escritório",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Back End Developer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Backend Developer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Bolsista de Mestrado",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Campos que não apareceram foram marcados com '-'. Todos os dados foram copiados exatamente como visíveis na página sem tradução ou resumo.",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Database Analyst",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedor Django",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedor Full Stack Júnior",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedor Fullstack - Bolsista",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedor JR",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedor Java",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedor Júnior Fullstack",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedor back-end júnior",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedor de Software Júnior",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedor de Software Pleno II",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedor de Software Sênior / Líder Técnico",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedor de front-end Júnior",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Developer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Django Developer",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Engenheiro de Dados (Data Office)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiária",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiária Suprimentos",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiária de desenvolvimento de software",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiária em Análise de Pontos de Função",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiário de Sistemas de Informação | Intern Systems Analyst",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiário de TI",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiário de desenvolvimento",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiário de desenvolvimento de software",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiário no setor de Gestão de Projetos/Quality Assurance",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiário no setor de Gestão de projetos",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Extension Project Lampex",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Frontend Developer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Full Stack Engineer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Iniciação Científica",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Internship",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Monitor Hardware",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Professor de computação",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Programa STEM",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Scientific Researcher",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Senior Analyst",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Senior Backend Developer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Software Analyst Trainee",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Software Engineer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Staff Machine Learning Engineer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "System Development & IT Support",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Tech Lead",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "UX Designer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Undergraduate Research — ML Solutions for DDoS Attack Detection and Mitigation in Scrubbing Centers",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Undergraduate Researcher – Software-Defined Networking (SDN)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     }
+    ],
+    "trajetorias": [
+     {
+      "nome": "Abner Benicio Silva",
+      "passos": [
+       {
+        "ano": "2023",
+        "cargo": "Estagiário de TI",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Analista de Sistemas",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Software Analyst Trainee",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Software Analyst Junior",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Aline Bravin Prasser",
+      "passos": [
+       {
+        "ano": "2019",
+        "cargo": "Database Analyst",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Full Stack Engineer",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "UX Designer",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Frontend Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Senior Frontend Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Senior Frontend Developer",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Alvaro Vinícius de Almeida Martins",
+      "passos": [
+       {
+        "ano": "2021",
+        "cargo": "Analista de Sistemas (Backoffice)",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Engenheiro de Dados (Data Office)",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Analista de Sistemas e BI",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Analista de Sistemas Pleno III",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Engenheiro de Inteligência Artificial",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Amanda Ferreira de Souza",
+      "passos": [
+       {
+        "ano": "2020",
+        "cargo": "Estagiária Suprimentos",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Estagiária",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Instrutora de TI",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Analista de Suporte Junior",
+        "em_curso": true
+       },
+       {
+        "ano": "2026",
+        "cargo": "Instrutora de TI",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Ana Elisa Paim Dias Rezende",
+      "passos": [
+       {
+        "ano": "2019",
+        "cargo": "Estagiário",
+        "em_curso": true
+       },
+       {
+        "ano": "2019",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Analista de QA",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Analista de QA",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Analista de QA",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Ana Gabriella Gomes de Almeida Ferreira",
+      "passos": [
+       {
+        "ano": "2022",
+        "cargo": "Estagiária de TI",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Assistente de infraestrutura",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Ana Júlia Caetano Martins",
+      "passos": [
+       {
+        "ano": "2022",
+        "cargo": "Auxiliar de Escritório",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "System Development & IT Support",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Undergraduate Researcher – Software-Defined Networking (SDN)",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Undergraduate Research — ML Solutions for DDoS Attack Detection and Mitigation in Scrubbing Centers",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Master’s Student in Applied Computing",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Ana Paula Martins Guimarães Mutz",
+      "passos": [
+       {
+        "ano": "2018",
+        "cargo": "Iniciação Científica",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Estagiária em Análise de Pontos de Função",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Analista de Métricas de Software",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Andre Felipe Santos Martins",
+      "passos": [
+       {
+        "ano": "2015",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2017",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Internship",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Software Engineer",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Desenvolvedor de software pleno",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Analista de TI",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Andre Luiz Coelho Silva",
+      "passos": [
+       {
+        "ano": "2021",
+        "cargo": "Desenvolvedor de software",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Desenvolvedor full stack",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "DevOps Analyst",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "André Altivo de Oliveira",
+      "passos": [
+       {
+        "ano": "2023",
+        "cargo": "Professor de computação",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Aprendiz",
+        "em_curso": true
+       },
+       {
+        "ano": "2024",
+        "cargo": "Aprendiz",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "André Barbosa da Vitória",
+      "passos": [
+       {
+        "ano": "2016",
+        "cargo": "Scientific Researcher",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Analytics Architecture Intern",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Advanced Analytics Architect",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Staff Machine Learning Engineer",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Senior Data & AI Architect",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Antônio Carlos Durães da Silva",
+      "passos": [
+       {
+        "ano": "2018",
+        "cargo": "Desenvolvedor de Software",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Analista e Desenvolvedor de Software",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Líder técnico",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Aroldo de Sa Vargas Neto",
+      "passos": [
+       {
+        "ano": "2019",
+        "cargo": "Pesquisador",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Estagiário de Sistemas de Informação | Intern Systems Analyst",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Analista de Sistemas | Systems Analyst",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Analista de Dados Júnior | Entry-Level Data Analyst",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Analista de Dados Pleno | Mid-Level Data Analyst",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Arthur Delpupo Coelho",
+      "passos": [
+       {
+        "ano": "2021",
+        "cargo": "Django Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Desenvolvedor Django",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Estagiário de desenvolvimento",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Analista de integração",
+        "em_curso": true
+       },
+       {
+        "ano": "2026",
+        "cargo": "Analista de Sistemas - ABAP",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Beatriz Auer Mariano",
+      "passos": [
+       {
+        "ano": "2020",
+        "cargo": "Aprendiz de técnico",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Estagiária de TI",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Estagiária de desenvolvimento de software",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Desenvolvedora back end",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Bianca Albuquerque da Silva",
+      "passos": [
+       {
+        "ano": "2020",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Assistente de projetos",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Desenvolvedor JR",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Desenvolvedor de front-end Júnior",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Desenvolvedor de front-end Pleno",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Brenno Alcantara Milanezi",
+      "passos": [
+       {
+        "ano": "2017",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Software Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Analista Desenvolvedor",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Bruno Carvalho Caxias",
+      "passos": [
+       {
+        "ano": "2023",
+        "cargo": "Full Stack Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Desenvolvedor Backend",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Desenvolvedor Backend",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Desenvolvedor Java",
+        "em_curso": false
+       }
+      ]
+     },
+     {
+      "nome": "Bruno Moreto de Oliveira",
+      "passos": [
+       {
+        "ano": "2023",
+        "cargo": "Desenvolvimento tecnicologico industrial",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Bruno Schneider Plazzi",
+      "passos": [
+       {
+        "ano": "2024",
+        "cargo": "Programa STEM",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Analista de sistemas",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Caicke Carvalho Pinheiro",
+      "passos": [
+       {
+        "ano": "2021",
+        "cargo": "Desenvolvedor Júnior Fullstack",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Desenvolvedor back-end júnior",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Desenvolvedor full stack",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Caio Lessa Simão",
+      "passos": [
+       {
+        "ano": null,
+        "cargo": "(Extraction pending after scrolling to load all experiences)",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Caio Pupolin Antonio",
+      "passos": [
+       {
+        "ano": "2017",
+        "cargo": "Estagiário no setor de Gestão de projetos",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Estagiário no setor de Gestão de Projetos/Quality Assurance",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Assessor/Gerente de projetos",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Analista CX",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Gerente de Projetos CX",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Carlos Augusto Ribeiro Junior",
+      "passos": [
+       {
+        "ano": "2014",
+        "cargo": "Software Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Full Stack Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Back End Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Senior Backend Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Senior Analyst",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Senior Software Engineer",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Carlos Henrique Costa Matos",
+      "passos": [
+       {
+        "ano": "2023",
+        "cargo": "Extension Project Lampex",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Machine Learning Researcher",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Claudio Magno Barbieri Junior",
+      "passos": [
+       {
+        "ano": "2020",
+        "cargo": "Android Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Senior Android Developer",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Cléber de Jesus Salustiano",
+      "passos": [
+       {
+        "ano": null,
+        "cargo": "Campos que não apareceram foram marcados com '-'. Todos os dados foram copiados exatamente como visíveis na página sem tradução ou resumo.",
+        "em_curso": true
+       },
+       {
+        "ano": "2021",
+        "cargo": "Analista Desenvolvedor de Sistema",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Desenvolvedor Full Stack Júnior",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Desenvolvedor Fullstack - Bolsista",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Desenvolvedor de Software Júnior",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Desenvolvedor de Software Pleno",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Desenvolvedor de Software Pleno II",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Desenvolvedor de Software Sênior / Líder Técnico",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Desenvolvedor de Software - Externo (bolsista)",
+        "em_curso": true
+       },
+       {
+        "ano": null,
+        "cargo": "Desenvolvedor Backend",
+        "em_curso": false
+       }
+      ]
+     },
+     {
+      "nome": "Cristhian Fontana Mattiuzzi",
+      "passos": [
+       {
+        "ano": "2015",
+        "cargo": "Monitor Hardware",
+        "em_curso": false
+       },
+       {
+        "ano": "2016",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Pesquisador",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Full Stack Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Full Stack Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Full Stack Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Full Stack Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Backend Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Tech Lead",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Líder técnico",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Daniel Henrique Comério",
+      "passos": [
+       {
+        "ano": "2019",
+        "cargo": "Estagiário de desenvolvimento de software",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Bolsista de Mestrado",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Analista Bancário - Sistemas",
+        "em_curso": true
+       }
+      ]
+     }
+    ]
+   }
   },
   "eca": {
    "curso": "eca",
@@ -2036,9 +3455,9 @@
     {
      "nome": "Alexia Coelho Barbosa",
      "monograma": "AB",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Analista PL de Sistemas de Automação",
+     "empresa": "Autvix Group",
+     "local": "Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/alexiacoelho-barbosa/",
      "jornada": [
       {
@@ -2202,9 +3621,9 @@
     {
      "nome": "Artur Dias Rodrigues Vicente",
      "monograma": "AV",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Especialista em desenvolvimento sênior",
+     "empresa": "NTT DATA Europe & Latam",
+     "local": "Uberlândia, MG · Remote",
      "linkedin": "https://www.linkedin.com/in/artur-dias-750082247/",
      "jornada": [
       {
@@ -2238,9 +3657,9 @@
     {
      "nome": "Bernardo Vieira de Siqueira Botelho",
      "monograma": "BB",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Engenheiro de Controle e Automação Sr",
+     "empresa": "TSA Tecnologia de Sistemas de Automação SA",
+     "local": "Vitória, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/bvsbotelho/",
      "jornada": [
       {
@@ -2355,8 +3774,8 @@
     {
      "nome": "Bruno Meschiatti Vasconcellos",
      "monograma": "BV",
-     "cargo": null,
-     "empresa": null,
+     "cargo": "Software Engineer",
+     "empresa": "Instituto de Tecnologia da Informação e Comunicação do Estado do Espirito Santo (Prodest)",
      "local": null,
      "linkedin": "https://www.linkedin.com/in/bruno-meschiatti/",
      "jornada": [
@@ -2479,9 +3898,9 @@
     {
      "nome": "Bruno Rocha Pratti",
      "monograma": "BP",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Desenvolvedor",
+     "empresa": "Grupo SERENG",
+     "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/bruno-pratti-71104a234/",
      "jornada": [
       {
@@ -2523,9 +3942,9 @@
     {
      "nome": "Caio Lopes de Oliveira",
      "monograma": "CO",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Sócio",
+     "empresa": "GainTech Tecnologia",
+     "local": "On-site",
      "linkedin": "https://www.linkedin.com/in/caio-lopes-3058a0256/",
      "jornada": [
       {
@@ -2566,9 +3985,9 @@
     {
      "nome": "Caio Mario Carletti Vilela Santos",
      "monograma": "CS",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Tech Lead | Arquiteto de Soluções Sênior",
+     "empresa": "Tata Consultancy Services",
+     "local": "Vitória, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/caiomcarletti/",
      "jornada": [
       {
@@ -2913,9 +4332,9 @@
     {
      "nome": "Diego Pereira de Carvalho Pires",
      "monograma": "DP",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Estivador",
+     "empresa": "OGMO ES",
+     "local": "Vitória e Região, Brasil",
      "linkedin": "https://www.linkedin.com/in/diego-pires-208593167/",
      "jornada": [
       {
@@ -2954,9 +4373,9 @@
     {
      "nome": "Diego de Deus Bazilio",
      "monograma": "DB",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Pregoeiro",
+     "empresa": "Ifes - Instituto Federal do Espírito Santo",
+     "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/diegodedeus/",
      "jornada": [
       {
@@ -3155,9 +4574,9 @@
     {
      "nome": "Fabricio Sant'anna Rêlo",
      "monograma": "FR",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Piloto de drone",
+     "empresa": "Flyterm Tecnologia",
+     "local": "Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/fabriciorelo/",
      "jornada": [
       {
@@ -3214,8 +4633,8 @@
     {
      "nome": "Frederico Ramos Wernesbach",
      "monograma": "FW",
-     "cargo": null,
-     "empresa": null,
+     "cargo": "Application Support Analyst",
+     "empresa": "Arc Infrastructure",
      "local": null,
      "linkedin": "https://www.linkedin.com/in/frederico-wernesbach/",
      "jornada": [
@@ -3286,9 +4705,9 @@
     {
      "nome": "Gabriel Saade Pagani",
      "monograma": "GP",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Engenheiro de Serviço de Campo",
+     "empresa": "ABB Brasil",
+     "local": "Vitória, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/gabriel-pagani-573464136/",
      "jornada": [
       {
@@ -3339,9 +4758,9 @@
     {
      "nome": "Geovani Lima Telles",
      "monograma": "GT",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Técnico Especializado de Manutenção",
+     "empresa": "Vale",
+     "local": "Oficina Central do Porto, Porto de Tubarão",
      "linkedin": "https://www.linkedin.com/in/geovani-telles-22960177/",
      "jornada": [
       {
@@ -3370,9 +4789,9 @@
     {
      "nome": "Guilherme Souza Otone",
      "monograma": "GO",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Analista Operacional Pleno",
+     "empresa": "Vale",
+     "local": "Parauapebas, Pará, Brazil",
      "linkedin": "https://www.linkedin.com/in/guilhermeotone/",
      "jornada": [
       {
@@ -3463,9 +4882,9 @@
     {
      "nome": "Gustavo do Amaral Arruda",
      "monograma": "GA",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Gerente de vendas | Sales Manager",
+     "empresa": "AEVO",
+     "local": "São Paulo, Brasil · Hybrid",
      "linkedin": "https://www.linkedin.com/in/gustavodoamaral/",
      "jornada": [
       {
@@ -3515,9 +4934,9 @@
     {
      "nome": "Higor Luiz Soares",
      "monograma": "HS",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Orçamentista",
+     "empresa": "Usiplan Engenharia",
+     "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/higor-soares-b16846180/",
      "jornada": [
       {
@@ -3576,9 +4995,9 @@
     {
      "nome": "Hudson Curto Dalpra",
      "monograma": "HD",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Firmware Engineer",
+     "empresa": "B Duncan Ltd",
+     "local": "Auckland, Auckland, New Zealand · On-site",
      "linkedin": "https://www.linkedin.com/in/hudson-dalpra-b402a7266/",
      "jornada": [
       {
@@ -3621,9 +5040,9 @@
     {
      "nome": "Iaci Tucumã Castro de Martins Barros",
      "monograma": "IB",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Técnico de Operações SR",
+     "empresa": "Transpetro - Petrobras Transporte S. A.",
+     "local": "Rio de Janeiro, Rio de Janeiro, Brazil",
      "linkedin": "https://www.linkedin.com/in/iaci-barros/",
      "jornada": [
       {
@@ -3674,8 +5093,8 @@
     {
      "nome": "Igor Garcia Lube",
      "monograma": "IL",
-     "cargo": null,
-     "empresa": null,
+     "cargo": "Técnico em elétrica",
+     "empresa": "CESAN",
      "local": null,
      "linkedin": "https://www.linkedin.com/in/igor-l%C3%BCbe-a5720738/",
      "jornada": [
@@ -3698,8 +5117,8 @@
     {
      "nome": "Igor Rodrigues Cassimiro",
      "monograma": "IC",
-     "cargo": null,
-     "empresa": null,
+     "cargo": "Analista de automação",
+     "empresa": "GainTech Tecnologia",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/igor-rodrigues-cassimiro-a88a3b20b/",
      "jornada": [
@@ -3767,8 +5186,8 @@
     {
      "nome": "Jarbas Peluzio Rezende",
      "monograma": "JR",
-     "cargo": null,
-     "empresa": null,
+     "cargo": "Ballast Control Operator",
+     "empresa": "Petrobras",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/jarbas-rezende-029ab22b6/",
      "jornada": [
@@ -3794,9 +5213,9 @@
     {
      "nome": "Joabe Ruella da Silva",
      "monograma": "JS",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Analista de automação",
+     "empresa": "Vale",
+     "local": "Nova Lima, Minas Gerais, Brazil · On-site",
      "linkedin": "https://www.linkedin.com/in/joaberuella/",
      "jornada": [
       {
@@ -3875,8 +5294,8 @@
     {
      "nome": "João Guilherme Lourenço de Souza",
      "monograma": "JS",
-     "cargo": null,
-     "empresa": null,
+     "cargo": "Líder de IA",
+     "empresa": "Grupo Autoglass",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/joão-guilherme-lourenço-de-souza-620987292/",
      "jornada": [
@@ -4025,9 +5444,9 @@
     {
      "nome": "João Victor da Silva de Miranda",
      "monograma": "JM",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "CX Specialist",
+     "empresa": "Planne",
+     "local": "Gramado, Rio Grande do Sul, Brazil · Remote",
      "linkedin": "https://www.linkedin.com/in/jo%C3%A3o-victor-miranda-12a803168/",
      "jornada": [
       {
@@ -4196,8 +5615,8 @@
     {
      "nome": "Leonardo Gonçalves Batista",
      "monograma": "LB",
-     "cargo": null,
-     "empresa": null,
+     "cargo": "Sócio proprietário",
+     "empresa": "GainTech Tecnologia",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/leonardogbatista/",
      "jornada": [
@@ -5103,8 +6522,8 @@
     {
      "nome": "Sheila Demuner Beloti",
      "monograma": "SB",
-     "cargo": null,
-     "empresa": null,
+     "cargo": "Vendedor",
+     "empresa": "Tupperware Brasil · Self-employed",
      "local": "Vila Velha, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/sheila-demuner-1a487017b/",
      "jornada": [
@@ -5495,8 +6914,8 @@
     {
      "nome": "Uri Gabriel Alves Amaral",
      "monograma": "UA",
-     "cargo": null,
-     "empresa": null,
+     "cargo": "Analista de Sistema Pleno",
+     "empresa": "FORTLEV",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/uri-gabriel-alves-amaral-229698198/",
      "jornada": [
@@ -5778,7 +7197,3875 @@
       }
      ]
     }
-   ]
+   ],
+   "cargos_no_tempo": {
+    "pessoas": 78,
+    "cargos_distintos": 275,
+    "cargos": [
+     {
+      "texto": "Estagiário de engenharia",
+      "ocuparam": 10,
+      "primeiro": 4,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de automação",
+      "ocuparam": 9,
+      "primeiro": 0,
+      "atual": 5
+     },
+     {
+      "texto": "Estagiário",
+      "ocuparam": 7,
+      "primeiro": 3,
+      "atual": 2
+     },
+     {
+      "texto": "Técnico de automação",
+      "ocuparam": 5,
+      "primeiro": 2,
+      "atual": 1
+     },
+     {
+      "texto": "Pesquisador",
+      "ocuparam": 5,
+      "primeiro": 4,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico em elétrica",
+      "ocuparam": 4,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Analista de sistemas",
+      "ocuparam": 4,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Assistente administrativo",
+      "ocuparam": 4,
+      "primeiro": 2,
+      "atual": 0
+     },
+     {
+      "texto": "Engenheiro de Controle e Automação",
+      "ocuparam": 3,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiário de Engenharia de Controle e Automação",
+      "ocuparam": 3,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiário técnico",
+      "ocuparam": 3,
+      "primeiro": 2,
+      "atual": 0
+     },
+     {
+      "texto": "Software Engineer",
+      "ocuparam": 2,
+      "primeiro": 0,
+      "atual": 2
+     },
+     {
+      "texto": "Sócio proprietário",
+      "ocuparam": 2,
+      "primeiro": 0,
+      "atual": 2
+     },
+     {
+      "texto": "Desenvolvedor",
+      "ocuparam": 2,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Engenheiro de automação",
+      "ocuparam": 2,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Analista de automação JR",
+      "ocuparam": 2,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista operacional",
+      "ocuparam": 2,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Automation Analyst",
+      "ocuparam": 2,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Auxiliar Técnico de Automação",
+      "ocuparam": 2,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedor de software",
+      "ocuparam": 2,
+      "primeiro": 2,
+      "atual": 0
+     },
+     {
+      "texto": "Internship",
+      "ocuparam": 2,
+      "primeiro": 2,
+      "atual": 0
+     },
+     {
+      "texto": "Pesquisador científico",
+      "ocuparam": 2,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Professor",
+      "ocuparam": 2,
+      "primeiro": 2,
+      "atual": 0
+     },
+     {
+      "texto": "Programador Júnior",
+      "ocuparam": 2,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Researcher",
+      "ocuparam": 2,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico de instrumentação",
+      "ocuparam": 2,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista Operacional Pleno",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Analista PL de Sistemas de Automação",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 1
+     },
+     {
+      "texto": "Analista Visão Computacional Sênior",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Analista de Dados e Pricing Sr.",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Analista de Sistema Pleno",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Application Support Analyst",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Arquiteto de soluções",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Assistente Técnico lll",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Assistente de Suprimentos",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Automation Consultant",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Ballast Control Operator",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "CX Specialist",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Computer Vision Junior Analyst",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Coordenador de TI",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Desenvolvedor RPA",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Engenheira",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Engenheira de Automação Jr",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Engenheira de Manutenção Sênior",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Engenheiro",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 1
+     },
+     {
+      "texto": "Engenheiro da Computação",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Engenheiro de Automação Pl",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Engenheiro de Controle e Automação Pleno",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Engenheiro de Controle e Automação Sr",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Engenheiro de Petróleo",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Engenheiro de Serviço de Campo",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Engenheiro de automação e controle",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Especialista em Sistemas Inteligentes",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Especialista em desenvolvimento sênior",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Estivador",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Field Services Engineer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Firmware Engineer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Gerente de vendas | Sales Manager",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Gerente do Departamento de Análise de Projetos",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Instrutor de Língua Inglesa",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Líder de IA",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Offshore Facilities Engineer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Orçamentista",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Piloto de ROV",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Piloto de drone",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Pregoeiro",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 1
+     },
+     {
+      "texto": "Product Manager",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Prof. Petrobras de Nível Técnico",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Programador Manutenção I",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Project Engineer (Electrical, Instrumentation and Automation)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Proprietário",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Sócio",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Tech Lead | Arquiteto de Soluções Sênior",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Tecnica de Operações",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Tecnico em automação industrial.",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 1
+     },
+     {
+      "texto": "Técnico Especializado de Manutenção",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Técnico de Operações SR",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Técnico de manutenção de equipamentos",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Técnico de operações",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 1
+     },
+     {
+      "texto": "Técnico de programação",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Técnico em química",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 1
+     },
+     {
+      "texto": "Vendedor",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "AI Engineer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Account Executive",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Adolescente aprendiz",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Agente de pesquisa e mapeamento",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de Automação Jr II",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de Automação Senior III",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de Engenharia e Aplicações",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de Manutenção Pleno",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de Programação / Automação",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de Sucesso do Cliente",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de automação NV I",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de automação NV IV",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de automação PL",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de automação SR",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de desenvolvimento",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de engenharia",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de implantação - Sistemas Ferroviários",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de qualidade de dados",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de sistema",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de sistema Jr",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista sênior",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Aprendiz (Apprentice)",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Architectural Intern",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Arquiteto de Soluções @Vale",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Assistente de Inteligência de Dados",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Assistente de automação",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Assistente de planejamento",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Automation / Instrumentation Technician Trainee(",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Automation Engineering Intern",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Automation Manager",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Automation Specialist",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Automation Systems Development Specialist",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Automation Systems Technician",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Auxiliar Administrativo",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Auxiliar Técnico de Automação Pleno I",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Auxiliar Técnico de Automação Sênior I",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Auxiliar de PCM",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Auxiliar de compras",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Auxiliar técnico de automação PL II",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Bolsista - Polo de inovação",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Bolsista de IC",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Bolsista de Iniciação Científica",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Bolsista em \"Federated Union of Telecommunications Research Facilities For NA EU-BR Open Laboratory\"",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Business Analyst",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Business Partner",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Cientista de dados",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Co-founder",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Cocriador do Projeto I LOVE Bósnia",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Conselheiro fiscal",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Consultor Pleno - IA Generativa",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Control and Automation Engineering Intern",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Coordenador de Experiência do Cliente",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Coordenador de Riscos Operacionais",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Coordenador de automação",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Coordenador de projetos",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedor Jr",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedora de Sistemas",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedora de software",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvimento de produtos",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Developer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Diretor financeiro e administrativo",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Diretor técnico",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Editor de cursos e Representante Comercial",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Electric and Eletronics Assistant",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Electrical Installations Monitor",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Eletricista",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Eletromecânico",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Embedded System Developer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Engenharia de controle e automação",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Engenheiro de Desenvolvimento Sênior Petrobras - IA Generativa",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Engenheiro de Produção Offshore (Offshore Production Engineer)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Engenheiro de controle de automação",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Engineering Analyst",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "English Language Instructor",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Equipment Maintenance Electrician",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Especialista de Automação LATAM",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Especialista em Manutenção Ferroviária",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Especialista em automação",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiária",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiária de Automação",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiário Técnico em Eletrotécnica",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiário de Compras",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiário de Customer Success",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiário de Engenharia Elétrica",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiário de Inspetoria Industrial",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiário de Processos e Automação",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiário de pesquisa",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiário em Engenharia de Controle e Automação",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiário na área de eletrotécnica",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Estágio de engenharia de controle e automação",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Exhibitor of the IFES Robotic Prothesis Research Project at the CREA-ES stand (Certified for participating in the 11th Metalmechanics + Innovation Fair Industrial - MEC SHOW)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Full Stack Developer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Gerente Técnico",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Gerente de Customer Experience",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Gerente de Experiência do Cliente e Comunidade",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Gerente de Qualidade do Produto",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Guided Study Tutoring",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Iniciação Científica",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Inspetora de Manutenção",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Instrumentista",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Instrutor de Ensino",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Intern",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "International Student",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Jr Project Technician",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Junior Developer Analyst",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Líder / Operador de Produção Sênior (Leader / Senior Production Operator)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Machine Learning Engineer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Maintenance Planner",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Maintenence Supervisor",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Major",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Marine & Offshore Technician",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Mecânico de veículos",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Membro fundador",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Membro gestão cipa",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Menor Aprendiz",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Mid. Backend Developer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Monitor de circuitos elétricos",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Monitor de cálculo",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Monitora de Ensino Cálculo I, II, III, Álgebra Linear",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Monitora de Álgebra Linear e Matemática",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "National Science and Technology Week - IFES Vila Velha (Activity monitor, mini-course \"Introduction to Arduino and Microcontrollers\")",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Naval Technician Trainee",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Operador JR",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Operador de Produção Offshore (",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Operador de Produção Offshore(",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Operador de Sala de Controle Sr (Senior Control Room Operator)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Operador de sala de controle",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Operador de sala de controle (Control Room Operator)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Pesquisa - iniciação científica",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Pesquisador Fapes",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Pesquisador no GAIn (Grupo de Automação Industrial - Ifes Serra)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Piloto de helicóptero",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Production Operator",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Production planning/shipping analyst",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Professor de informática",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Programador Pleno",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Programador de Sistemas Pleno",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Programadora RPA",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Project Assistant",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Project Manager (AIESEC)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Project Technician",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Researcher Developer",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Sales Coordinator",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Sales Development Representative",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Sales Development Representative (SDR)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Sales Manager",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Scholar",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Scientific Initiation (Control of servomotors for moving the fingers of a prosthesis robotics using Arduino)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Software Developer Internship",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Software Engineer - RPA",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Soldado",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Supervisor de Automação",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Supervisor de Produção (Production Supervisor)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Supervisor técnico",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Team Member (AIESEC)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Tec. de Planejamento e Controle",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Tec. em planejamento e controle",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "TechLead - RPA",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Tenente-coronel",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Test Engineering Intern",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Trainee Automation Technician",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Trainee Project Technical Engineer (Leadership Program)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico Corporativo de Automação II",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico Preditiva Elétrica",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico Sistemas de Automação II",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico Sistemas de automação",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico controle de redes I",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico de Automação Pleno II",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico de Controle de Processo",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico de Estabilidade",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico de Manutenção - Intrumentação",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico de Planejamento e Programação",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico de Proteção, Controle e Automação",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico de Sistemas de Automação",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico de Sistemas de Automação II",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico de infraestrutura",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico de manutenção especiaizado",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico de operações JR",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico de operações PL",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico eletromecânico",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico em Automação Industrial",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico em Instrumentação Analítica Trainee(",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico em Mecatrônica – Automação da Manufatura",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico em eletrônica",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico em elétrica / Técnico em Planejamento",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Técnico mecânico",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Undergraduate Research Assistant",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Undergraduate Researcher",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Undergraduate Scientific Researcher",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Vendedor técnico",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Vice President of People Management (AIESEC)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Young Apprentice",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "eletrotécnico",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     }
+    ],
+    "trajetorias": [
+     {
+      "nome": "Alessandra Cardoso de Freitas",
+      "passos": [
+       {
+        "ano": "2003",
+        "cargo": "Instrumentista",
+        "em_curso": false
+       },
+       {
+        "ano": "2004",
+        "cargo": "Técnico em eletrônica",
+        "em_curso": false
+       },
+       {
+        "ano": "2011",
+        "cargo": "Técnico de manutenção especiaizado",
+        "em_curso": false
+       },
+       {
+        "ano": "2011",
+        "cargo": "Analista operacional",
+        "em_curso": false
+       },
+       {
+        "ano": "2012",
+        "cargo": "Analista de Manutenção Pleno",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Analista sênior",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Engenheira de Manutenção Sênior",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Alexia Coelho Barbosa",
+      "passos": [
+       {
+        "ano": "2021",
+        "cargo": "Analista PL de Sistemas de Automação",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Amanda Lucas Pereira",
+      "passos": [
+       {
+        "ano": "2016",
+        "cargo": "Intern",
+        "em_curso": false
+       },
+       {
+        "ano": "2015",
+        "cargo": "Scholar",
+        "em_curso": false
+       },
+       {
+        "ano": "2016",
+        "cargo": "Intern",
+        "em_curso": false
+       },
+       {
+        "ano": "2017",
+        "cargo": "Intern",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Intern",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Researcher",
+        "em_curso": false
+       }
+      ]
+     },
+     {
+      "nome": "André Athaydes Martins",
+      "passos": [
+       {
+        "ano": "2024",
+        "cargo": "Estagiário Técnico em Eletrotécnica",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Assistente Técnico lll",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Antonione da Silva Mascarenhas Pinho",
+      "passos": [
+       {
+        "ano": "2005",
+        "cargo": "Estagiário técnico",
+        "em_curso": false
+       },
+       {
+        "ano": "2006",
+        "cargo": "Técnico em elétrica / Técnico em Planejamento",
+        "em_curso": false
+       },
+       {
+        "ano": "2017",
+        "cargo": "Bolsista de Iniciação Científica",
+        "em_curso": false
+       },
+       {
+        "ano": "2017",
+        "cargo": "Membro fundador",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Pesquisador científico",
+        "em_curso": false
+       }
+      ]
+     },
+     {
+      "nome": "Artur Dias Rodrigues Vicente",
+      "passos": [
+       {
+        "ano": "2020",
+        "cargo": "Desenvolvedor de software",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Desenvolvedor de software",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Especialista em desenvolvimento sênior",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Bernardo Vieira de Siqueira Botelho",
+      "passos": [
+       {
+        "ano": "2010",
+        "cargo": "Auxiliar Administrativo",
+        "em_curso": false
+       },
+       {
+        "ano": "2012",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Analista de automação NV I",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Analista de automação NV IV",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Engenheiro de Controle e Automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Especialista de Automação LATAM",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Supervisor de Automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Engenheiro de Controle e Automação Sr",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Engenheiro de Controle e Automação Sr",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Engenheiro de Controle e Automação Sr",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Breno Nogueira de Castro",
+      "passos": [
+       {
+        "ano": "2019",
+        "cargo": "Técnico controle de redes I",
+        "em_curso": false
+       }
+      ]
+     },
+     {
+      "nome": "Bruno Meschiatti Vasconcellos",
+      "passos": [
+       {
+        "ano": "2019",
+        "cargo": "Researcher Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Software Engineer - RPA",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "TechLead - RPA",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Software Engineer",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Bruno Paiva Smit de Freitas",
+      "passos": [
+       {
+        "ano": "2013",
+        "cargo": "Young Apprentice",
+        "em_curso": false
+       },
+       {
+        "ano": "2015",
+        "cargo": "Electrical Installations Monitor",
+        "em_curso": false
+       },
+       {
+        "ano": "2015",
+        "cargo": "Undergraduate Scientific Researcher",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Sales Development Representative",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Business Analyst",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Equipment Maintenance Electrician",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Automation Systems Development Specialist",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "AI Engineer",
+        "em_curso": false
+       }
+      ]
+     },
+     {
+      "nome": "Bruno Rocha Pratti",
+      "passos": [
+       {
+        "ano": "2020",
+        "cargo": "Iniciação Científica",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Estagiário de engenharia",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Desenvolvedor Jr",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Desenvolvedor",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Caio Lopes de Oliveira",
+      "passos": [
+       {
+        "ano": "2018",
+        "cargo": "Pesquisador",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Estagiário de Engenharia de Controle e Automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Estagiário em Engenharia de Controle e Automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Sócio",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Caio Mario Carletti Vilela Santos",
+      "passos": [
+       {
+        "ano": "2017",
+        "cargo": "Bolsista em \"Federated Union of Telecommunications Research Facilities For NA EU-BR Open Laboratory\"",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Pesquisador no GAIn (Grupo de Automação Industrial - Ifes Serra)",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Co-founder",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Machine Learning Engineer",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Tech Lead | Arquiteto de Soluções Sênior",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Conrado Costa",
+      "passos": [
+       {
+        "ano": "2008",
+        "cargo": "Técnico de Controle de Processo",
+        "em_curso": false
+       },
+       {
+        "ano": "2013",
+        "cargo": "Analista de Programação / Automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Programador Júnior",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Programador Pleno",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Programador de Sistemas Pleno",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Software Engineer",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Mid. Backend Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Software Engineer",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Daniel Rodrigues Salcides",
+      "passos": [
+       {
+        "ano": "2023",
+        "cargo": "Estagiário de Compras",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Auxiliar de compras",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Assistente de suprimentos",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Membro gestão cipa",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Assistente de Suprimentos",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Danilo Menon Leal",
+      "passos": [
+       {
+        "ano": "2013",
+        "cargo": "Undergraduate Researcher",
+        "em_curso": false
+       },
+       {
+        "ano": null,
+        "cargo": "Team Member (AIESEC)",
+        "em_curso": true
+       },
+       {
+        "ano": null,
+        "cargo": "Project Manager (AIESEC)",
+        "em_curso": true
+       },
+       {
+        "ano": "2017",
+        "cargo": "Vice President of People Management (AIESEC)",
+        "em_curso": false
+       },
+       {
+        "ano": "2016",
+        "cargo": "Automation Manager",
+        "em_curso": false
+       },
+       {
+        "ano": "2017",
+        "cargo": "Automation Specialist",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Automation Analyst",
+        "em_curso": false
+       },
+       {
+        "ano": "2017",
+        "cargo": "Business Partner",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Automation Analyst",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Automation Specialist",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Automation Specialist",
+        "em_curso": true
+       },
+       {
+        "ano": "2020",
+        "cargo": "Automation Consultant",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Davi Aragão Ascacibas",
+      "passos": [
+       {
+        "ano": "2012",
+        "cargo": "Menor Aprendiz",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Estagiário de Engenharia",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Estagiário de engenharia",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Auxiliar Técnico de Automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Analista de automação",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Davson de Sousa dos Santos",
+      "passos": [
+       {
+        "ano": "2011",
+        "cargo": "eletrotécnico",
+        "em_curso": false
+       }
+      ]
+     },
+     {
+      "nome": "Diego Pereira de Carvalho Pires",
+      "passos": [
+       {
+        "ano": "2010",
+        "cargo": "Soldado",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Estagiário de engenharia",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Conselheiro fiscal",
+        "em_curso": false
+       },
+       {
+        "ano": "2012",
+        "cargo": "Estivador",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Diego de Deus Bazilio",
+      "passos": [
+       {
+        "ano": "2008",
+        "cargo": "Pregoeiro",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Douglas Loureiro Pimentel",
+      "passos": [
+       {
+        "ano": "2016",
+        "cargo": "Estagiário de engenharia",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Vendedor técnico",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Instrutor de Língua Inglesa",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Douglas Souza Vieira",
+      "passos": [
+       {
+        "ano": "2015",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2016",
+        "cargo": "Auxiliar de PCM",
+        "em_curso": false
+       },
+       {
+        "ano": "2017",
+        "cargo": "Técnico em elétrica",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Maintenance Planner",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Production planning/shipping analyst",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Especialista em automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Prof. Petrobras de Nível Técnico",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Eduardo Lemos Loureiro",
+      "passos": [
+       {
+        "ano": "2022",
+        "cargo": "Instrutor de Ensino",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Estagiário",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Emanoel Carlos de Souza Vitor",
+      "passos": [
+       {
+        "ano": "2006",
+        "cargo": "Tecnico em automação industrial.",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Fabiano de Oliveira Ferreira",
+      "passos": [
+       {
+        "ano": "2007",
+        "cargo": "Técnico de Manutenção - Intrumentação",
+        "em_curso": false
+       },
+       {
+        "ano": "2010",
+        "cargo": "Técnico de Estabilidade",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Engenheiro de Petróleo",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Fabricio Sant'anna Rêlo",
+      "passos": [
+       {
+        "ano": "2010",
+        "cargo": "Estagiário Técnico",
+        "em_curso": false
+       },
+       {
+        "ano": "2011",
+        "cargo": "Estagiário de Engenharia Elétrica",
+        "em_curso": false
+       },
+       {
+        "ano": "2011",
+        "cargo": "Técnico em Elétrica",
+        "em_curso": false
+       },
+       {
+        "ano": "2012",
+        "cargo": "Técnico Preditiva Elétrica",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Técnico de automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Piloto de drone",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Frederico Ramos Wernesbach",
+      "passos": [
+       {
+        "ano": "2012",
+        "cargo": "Operador JR",
+        "em_curso": false
+       },
+       {
+        "ano": "2016",
+        "cargo": "Supervisor técnico",
+        "em_curso": false
+       },
+       {
+        "ano": "2017",
+        "cargo": "Desenvolvedor",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Analista de sistemas",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Analista de implantação - Sistemas Ferroviários",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Especialista em Manutenção Ferroviária",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Analista de automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Application Support Analyst",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Gabriel Saade Pagani",
+      "passos": [
+       {
+        "ano": "2018",
+        "cargo": "Estagiário de engenharia",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Auxiliar Técnico de Automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Analista de Automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Engenheiro de automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Engenheiro de Serviço de Campo",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Geovani Lima Telles",
+      "passos": [
+       {
+        "ano": "2000",
+        "cargo": "Eletromecânico",
+        "em_curso": false
+       },
+       {
+        "ano": "2005",
+        "cargo": "Técnico de Planejamento e Programação",
+        "em_curso": false
+       },
+       {
+        "ano": "2011",
+        "cargo": "Técnico Especializado de Manutenção",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Guilherme Souza Otone",
+      "passos": [
+       {
+        "ano": "2015",
+        "cargo": "Internship",
+        "em_curso": false
+       },
+       {
+        "ano": "2016",
+        "cargo": "Estagiário técnico",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Estagiário de engenharia",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Estagiário de engenharia",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Analista operacional",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Analista Operacional Pleno",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Gustavo Costa Mota",
+      "passos": [
+       {
+        "ano": "2022",
+        "cargo": "Mecânico de veículos",
+        "em_curso": true
+       },
+       {
+        "ano": "2024",
+        "cargo": "Analista de qualidade de dados",
+        "em_curso": true
+       },
+       {
+        "ano": "2026",
+        "cargo": "Estagiário",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Gustavo do Amaral Arruda",
+      "passos": [
+       {
+        "ano": "2017",
+        "cargo": "Sales Manager",
+        "em_curso": true
+       },
+       {
+        "ano": "2017",
+        "cargo": "Sales Development Representative (SDR)",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Account Executive",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Sales Coordinator",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Gerente de vendas | Sales Manager",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Higor Luiz Soares",
+      "passos": [
+       {
+        "ano": "2018",
+        "cargo": "Monitor de cálculo",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Monitor de circuitos elétricos",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Pesquisa - iniciação científica",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Assistente administrativo",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Auxiliar técnico de automação PL II",
+        "em_curso": true
+       },
+       {
+        "ano": "2022",
+        "cargo": "Orçamentista",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Hudson Curto Dalpra",
+      "passos": [
+       {
+        "ano": "2016",
+        "cargo": "Naval Technician Trainee",
+        "em_curso": false
+       },
+       {
+        "ano": "2017",
+        "cargo": "Marine & Offshore Technician",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Embedded System Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Firmware Engineer",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Iaci Tucumã Castro de Martins Barros",
+      "passos": [
+       {
+        "ano": "2009",
+        "cargo": "Técnico de operações JR",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Operador de sala de controle",
+        "em_curso": false
+       },
+       {
+        "ano": "2012",
+        "cargo": "Técnico de operações PL",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Coordenador de Riscos Operacionais",
+        "em_curso": true
+       },
+       {
+        "ano": "2025",
+        "cargo": "Técnico de Operações SR",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Igor Garcia Lube",
+      "passos": [
+       {
+        "ano": "2008",
+        "cargo": "Project Assistant",
+        "em_curso": false
+       },
+       {
+        "ano": "2010",
+        "cargo": "Técnico em elétrica",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Igor Rodrigues Cassimiro",
+      "passos": [
+       {
+        "ano": "2021",
+        "cargo": "Pesquisador",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Pesquisador",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Pesquisador",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Analista de automação",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Irisson Júnio Máximo Borges",
+      "passos": [
+       {
+        "ano": "2020",
+        "cargo": "Engenheiro",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Jarbas Peluzio Rezende",
+      "passos": [
+       {
+        "ano": "2010",
+        "cargo": "Técnico eletromecânico",
+        "em_curso": false
+       },
+       {
+        "ano": "2013",
+        "cargo": "Ballast Control Operator",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Joabe Ruella da Silva",
+      "passos": [
+       {
+        "ano": "2013",
+        "cargo": "Estagiário de engenharia",
+        "em_curso": false
+       },
+       {
+        "ano": "2015",
+        "cargo": "Bolsista de IC",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Estagiário de engenharia",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Pesquisador científico",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Analista de automação JR",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Analista de automação PL",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Analista de automação SR",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Analista de automação",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "João Guilherme Lourenço de Souza",
+      "passos": [
+       {
+        "ano": "2024",
+        "cargo": "Cientista de dados",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Consultor Pleno - IA Generativa",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Engenheiro de Desenvolvimento Sênior Petrobras - IA Generativa",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Líder de IA",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "João Pedro Costa Albuquerque",
+      "passos": [
+       {
+        "ano": "2009",
+        "cargo": "Cocriador do Projeto I LOVE Bósnia",
+        "em_curso": false
+       },
+       {
+        "ano": "2014",
+        "cargo": "Engenharia de controle e automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2017",
+        "cargo": "Diretor financeiro e administrativo",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Técnico de instrumentação",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Engenheiro de controle de automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Engenheiro de automação",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "João Pedro Ferreira Guimarães",
+      "passos": [
+       {
+        "ano": "2019",
+        "cargo": "Assistente administrativo",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Analista de sistemas",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Analista de Automação Senior III",
+        "em_curso": true
+       },
+       {
+        "ano": "2026",
+        "cargo": "Engenheiro de automação e controle",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "João Victor da Silva de Miranda",
+      "passos": [
+       {
+        "ano": "2018",
+        "cargo": "Estagiário de Customer Success",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Analista de Sucesso do Cliente",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Coordenador de Experiência do Cliente",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Gerente de Customer Experience",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Gerente de Experiência do Cliente e Comunidade",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Gerente de Qualidade do Produto",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "CX Specialist",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Kamila Maria Vieira Pralon",
+      "passos": [
+       {
+        "ano": "2020",
+        "cargo": "Estagiário de engenharia",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Eletricista",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Analista de automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Técnico de Automação Pleno II",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Inspetora de Manutenção",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Técnico de automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Engenheira",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Leonardo Dias Coutinho",
+      "passos": [
+       {
+        "ano": "2014",
+        "cargo": "Engineering Analyst",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Técnico de manutenção de equipamentos",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Leonardo Gonçalves Batista",
+      "passos": [
+       {
+        "ano": "2014",
+        "cargo": "Pesquisador",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Sócio proprietário",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Lizandra Silva Sá",
+      "passos": [
+       {
+        "ano": "2018",
+        "cargo": "Agente de pesquisa e mapeamento",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Programador Júnior",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Analista de Sistemas",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Programadora RPA",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Desenvolvedor RPA",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Lohany Letro Melo",
+      "passos": [
+       {
+        "ano": "2010",
+        "cargo": "Tec. de Planejamento e Controle",
+        "em_curso": false
+       },
+       {
+        "ano": "2010",
+        "cargo": "Tec. em planejamento e controle",
+        "em_curso": false
+       },
+       {
+        "ano": "2011",
+        "cargo": "Tecnica de Operações",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Magnu Windell Araújo Santos",
+      "passos": [
+       {
+        "ano": "2016",
+        "cargo": "Aprendiz (Apprentice)",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Técnico de automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Estagiário de Processos e Automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Técnico de automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Engenheiro de Automação Pl",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Marcelo Victor Ferreira Barbosa",
+      "passos": [
+       {
+        "ano": "2022",
+        "cargo": "Estagiário de pesquisa",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Analista de automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Piloto de ROV",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Mardoqueu de Oliveira Neto",
+      "passos": [
+       {
+        "ano": "2004",
+        "cargo": "Professor",
+        "em_curso": false
+       },
+       {
+        "ano": "2010",
+        "cargo": "Professor",
+        "em_curso": false
+       },
+       {
+        "ano": "2011",
+        "cargo": "Gerente Técnico",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Diretor técnico",
+        "em_curso": true
+       },
+       {
+        "ano": "2023",
+        "cargo": "Proprietário",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Matheus Santiago Ribeiro",
+      "passos": [
+       {
+        "ano": "2018",
+        "cargo": "Assistente administrativo",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Técnico mecânico",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Estagiário de engenharia",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Assistente de automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Analista de automação",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Milton Bustamante Vieira Filho",
+      "passos": [
+       {
+        "ano": "2003",
+        "cargo": "Maintenence Supervisor",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Coordenador de automação",
+        "em_curso": false
+       }
+      ]
+     },
+     {
+      "nome": "Pablo France Salarolli",
+      "passos": [
+       {
+        "ano": "2016",
+        "cargo": "Técnico de automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Sócio proprietário",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Paula Katharina de Oliveira Lima",
+      "passos": [
+       {
+        "ano": "2018",
+        "cargo": "Guided Study Tutoring",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "National Science and Technology Week - IFES Vila Velha (Activity monitor, mini-course \"Introduction to Arduino and Microcontrollers\")",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Exhibitor of the IFES Robotic Prothesis Research Project at the CREA-ES stand (Certified for participating in the 11th Metalmechanics + Innovation Fair Industrial - MEC SHOW)",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Scientific Initiation (Control of servomotors for moving the fingers of a prosthesis robotics using Arduino)",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Architectural Intern",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "International Student",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Control and Automation Engineering Intern",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Test Engineering Intern",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Junior Developer Analyst",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Product Manager",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Pedro Dalvi Boina",
+      "passos": [
+       {
+        "ano": "2000",
+        "cargo": "Major",
+        "em_curso": true
+       },
+       {
+        "ano": "2011",
+        "cargo": "Piloto de helicóptero",
+        "em_curso": false
+       },
+       {
+        "ano": "2000",
+        "cargo": "Tenente-coronel",
+        "em_curso": true
+       },
+       {
+        "ano": "2000",
+        "cargo": "Gerente do Departamento de Análise de Projetos",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Rafael Campos Panceri",
+      "passos": [
+       {
+        "ano": "2010",
+        "cargo": "Professor",
+        "em_curso": false
+       },
+       {
+        "ano": "2013",
+        "cargo": "Professor",
+        "em_curso": false
+       },
+       {
+        "ano": "2004",
+        "cargo": "Coordenador de projetos",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Desenvolvimento de produtos",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Arquiteto de Soluções @Vale",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Arquiteto de soluções",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Rafaela Pontes Breder",
+      "passos": [
+       {
+        "ano": "2017",
+        "cargo": "Monitora de Álgebra Linear e Matemática",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Estagiária de Automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Auxiliar Técnico de Automação Pleno I",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Auxiliar Técnico de Automação Sênior I",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Analista de Automação Jr",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Analista de Automação Jr II",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Engenheira de Automação Jr",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Ramon Sousa Alves",
+      "passos": [
+       {
+        "ano": "2016",
+        "cargo": "Estagiário de Engenharia de Controle e Automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Técnico de Sistemas de Automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Técnico de Sistemas de Automação II",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Técnico Corporativo de Automação II",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Técnico de Proteção, Controle e Automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Engenheiro de Controle e Automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Engenheiro de Controle e Automação Pleno",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Ramyson de Araujo Nascimento",
+      "passos": [
+       {
+        "ano": "2019",
+        "cargo": "Pesquisador",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Pesquisador Fapes",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Pesquisador",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Técnico em Automação Industrial",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Analista de engenharia",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Engenheiro de Controle e Automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Especialista em Sistemas Inteligentes",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Renan Mainardi de Oliveira",
+      "passos": [
+       {
+        "ano": null,
+        "cargo": "Técnico de automação",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Renan dos Santos Siqueira",
+      "passos": [
+       {
+        "ano": "2019",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Assistente de Inteligência de Dados",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Analista de desenvolvimento",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Analista de Dados e Pricing Sr.",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Rodrigo Gomes Ferreira",
+      "passos": [
+       {
+        "ano": null,
+        "cargo": "Técnico em química",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Samuel Martins Peres",
+      "passos": [
+       {
+        "ano": "2013",
+        "cargo": "Electric and Eletronics Assistant",
+        "em_curso": false
+       },
+       {
+        "ano": "2015",
+        "cargo": "Trainee Project Technical Engineer (Leadership Program)",
+        "em_curso": false
+       },
+       {
+        "ano": "2015",
+        "cargo": "Trainee Automation Technician",
+        "em_curso": false
+       },
+       {
+        "ano": "2016",
+        "cargo": "Jr Project Technician",
+        "em_curso": false
+       },
+       {
+        "ano": "2017",
+        "cargo": "Project Technician",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Project Engineer (Electrical, Instrumentation and Automation)",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Sheila Demuner Beloti",
+      "passos": [
+       {
+        "ano": "2021",
+        "cargo": "Estagiária",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Estagiário de engenharia",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Vendedor",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Sérgio Martini Parreira Zuza",
+      "passos": [
+       {
+        "ano": "2014",
+        "cargo": "Estagiário de Inspetoria Industrial",
+        "em_curso": false
+       },
+       {
+        "ano": "2016",
+        "cargo": "Pesquisador",
+        "em_curso": false
+       },
+       {
+        "ano": "2017",
+        "cargo": "Editor de cursos e Representante Comercial",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Professor de informática",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Técnico de Instrumentação",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Técnico de programação",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Tarcisio Kiefer Campos",
+      "passos": [
+       {
+        "ano": "2010",
+        "cargo": "Técnico de operações",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Teylor Moreto Guaitolini",
+      "passos": [
+       {
+        "ano": "2022",
+        "cargo": "Automation Engineering Intern",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Automation Systems Technician",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Computer Vision Junior Analyst",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Thais da Silva Ferrarini",
+      "passos": [
+       {
+        "ano": "2012",
+        "cargo": "Monitora de Ensino Cálculo I, II, III, Álgebra Linear",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Estagiário de Engenharia de Controle e Automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Analista de Sistemas",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Desenvolvedora de Sistemas",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Desenvolvedora de software",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Analista de sistema",
+        "em_curso": false
+       }
+      ]
+     },
+     {
+      "nome": "Thiago Silveira de Oliveira",
+      "passos": [
+       {
+        "ano": null,
+        "cargo": "Automation / Instrumentation Technician Trainee(",
+        "em_curso": true
+       },
+       {
+        "ano": null,
+        "cargo": "Técnico em Instrumentação Analítica Trainee(",
+        "em_curso": true
+       },
+       {
+        "ano": null,
+        "cargo": "Operador de Produção Offshore(",
+        "em_curso": true
+       },
+       {
+        "ano": null,
+        "cargo": "Operador de Produção Offshore (",
+        "em_curso": true
+       },
+       {
+        "ano": null,
+        "cargo": "Operador de Produção Offshore (",
+        "em_curso": true
+       },
+       {
+        "ano": "2014",
+        "cargo": "Production Operator",
+        "em_curso": false
+       },
+       {
+        "ano": "2017",
+        "cargo": "Líder / Operador de Produção Sênior (Leader / Senior Production Operator)",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Operador de sala de controle (Control Room Operator)",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Operador de sala de controle (Control Room Operator)",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Operador de Sala de Controle Sr (Senior Control Room Operator)",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Supervisor de Produção (Production Supervisor)",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Engenheiro de Produção Offshore (Offshore Production Engineer)",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Operador de sala de controle (Control Room Operator)",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Offshore Facilities Engineer",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Thiago Viguini de Carvalho",
+      "passos": [
+       {
+        "ano": "2021",
+        "cargo": "Analista de Engenharia e Aplicações",
+        "em_curso": false
+       },
+       {
+        "ano": "2007",
+        "cargo": "Assistente administrativo",
+        "em_curso": true
+       },
+       {
+        "ano": "2026",
+        "cargo": "Analista Visão Computacional Sênior",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Tiago Augusto Duque Gomes da Costa",
+      "passos": [
+       {
+        "ano": "2013",
+        "cargo": "Internship",
+        "em_curso": false
+       },
+       {
+        "ano": "2015",
+        "cargo": "Researcher",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Engenheiro da Computação",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Uri Gabriel Alves Amaral",
+      "passos": [
+       {
+        "ano": "2019",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Bolsista - Polo de inovação",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Técnico de infraestrutura",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Técnico Sistemas de automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Técnico Sistemas de Automação II",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Analista de sistema Jr",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Analista de Sistema Pleno",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Vitor de Sá Nunes",
+      "passos": [
+       {
+        "ano": "2016",
+        "cargo": "Software Developer Internship",
+        "em_curso": false
+       },
+       {
+        "ano": "2017",
+        "cargo": "Undergraduate Research Assistant",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "English Language Instructor",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Full Stack Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Automation Analyst",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Automation Analyst",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Automation Analyst",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Field Services Engineer",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Wellerson Oliveira da Silva Valeriano",
+      "passos": [
+       {
+        "ano": "2012",
+        "cargo": "Adolescente aprendiz",
+        "em_curso": false
+       },
+       {
+        "ano": "2016",
+        "cargo": "Estagiário na área de eletrotécnica",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Técnico em elétrica",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Estágio de engenharia de controle e automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Assistente de planejamento",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Programador Manutenção I",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Wenderson Candido de Freitas",
+      "passos": [
+       {
+        "ano": "2022",
+        "cargo": "Técnico em Mecatrônica – Automação da Manufatura",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Analista de automação",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Willian Souza Lima",
+      "passos": [
+       {
+        "ano": "2015",
+        "cargo": "Desenvolvedor de software",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Coordenador de TI",
+        "em_curso": true
+       }
+      ]
+     }
+    ]
+   }
   }
  }
 }

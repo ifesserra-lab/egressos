@@ -92,10 +92,33 @@ def _posicao_em_curso(experiencias):
 
     Passa pelo mesmo filtro da vitrine: se a jornada é recusada (campos deslocados, byte
     nulo), o cargo atual também é, senão a barra afirmaria o que o cartão esconde."""
-    for pos in _jornada_publicavel(experiencias, ("cargo", "empresa", "tipo", "inicio", "fim")):
+    campos = ("cargo", "empresa", "tipo", "inicio", "fim", "local")
+    for pos in _jornada_publicavel(experiencias, campos):
         if "fim" not in pos and pos.get("inicio") and _limpo(pos.get("cargo")):
-            return {"cargo": _limpo(pos["cargo"]), "empresa": _limpo(pos.get("empresa"))}
+            return {"cargo": _limpo(pos["cargo"]), "empresa": _limpo(pos.get("empresa")),
+                    "local": _limpo(pos.get("local"))}
     return None
+
+
+def _atual_do_cartao(p):
+    """Cargo, empresa e local que o cartão mostra — do topo do perfil, ou da posição em curso.
+
+    A mesma regra de `_linhas_da_coleta`, aplicada ao cartão: sem ela, a barra contava a
+    Vale de quem tem a Vale só na trajetória, e o cartão da mesma pessoa dizia "empresa
+    ainda não lida". Em 19/10/2026, 29 dos 83 cartões da ECA estavam assim.
+
+    Cargo e empresa trocam JUNTOS: os dois do topo ou os dois da posição em curso, para não
+    casar o cargo de uma leitura com a empresa de outra. O local tem fallback próprio — o do
+    topo é onde a pessoa mora, o da posição é onde o emprego fica, e na falta do primeiro o
+    segundo ainda situa a pessoa melhor que nada."""
+    cargo, empresa = _limpo(p.get("cargo_atual")), _limpo(p.get("empresa_atual"))
+    local = _limpo(p.get("local"))
+    atual = None if (cargo or empresa) and local else _posicao_em_curso(p.get("experiencias"))
+    if atual and not (cargo or empresa):
+        cargo, empresa = atual["cargo"], atual["empresa"]
+    if atual and not local:
+        local = atual["local"]
+    return cargo, empresa, local
 
 
 def _linkedin(slug):
@@ -125,17 +148,72 @@ def _vitrine_da_coleta(coleta, curso):
     das 150 posições da primeira coleta). O que o normalizador NÃO faz é vocabulário: `tipo`
     passa como veio, `Integral` e `Full-time` seguem distintos."""
     JORNADA_PUBLICA = ("cargo", "empresa", "tipo", "inicio", "fim", "duracao", "local")
-    return sorted([{
-        "nome": p["nome"],
-        "monograma": vitrine.monograma(p["nome"]),
-        "cargo": _limpo(p.get("cargo_atual")),
-        "empresa": _limpo(p.get("empresa_atual")),
-        "local": _limpo(p.get("local")),
-        "linkedin": _linkedin(p.get("slug")),
-        "jornada": _jornada_publicavel(p.get("experiencias"), JORNADA_PUBLICA),
-    } for p in coleta["perfis"]
-        if p.get("confirmado") and p.get("curso") == curso and p.get("slug")],
-        key=lambda v: v["nome"])
+    cartoes = []
+    for p in coleta["perfis"]:
+        if not (p.get("confirmado") and p.get("curso") == curso and p.get("slug")):
+            continue
+        cargo, empresa, local = _atual_do_cartao(p)
+        cartoes.append({
+            "nome": p["nome"],
+            "monograma": vitrine.monograma(p["nome"]),
+            "cargo": cargo,
+            "empresa": empresa,
+            "local": local,
+            "linkedin": _linkedin(p.get("slug")),
+            "jornada": _jornada_publicavel(p.get("experiencias"), JORNADA_PUBLICA),
+        })
+    return sorted(cartoes, key=lambda v: v["nome"])
+
+
+def _cargos_no_tempo(cartoes):
+    """Os cargos das jornadas: quantos já ocuparam cada um, quantos começaram nele, quantos
+    estão nele hoje — e a sequência de cada pessoa, do primeiro cargo ao atual.
+
+    Sai só do que a vitrine JÁ publica (a jornada projetada de cada cartão), então não expõe
+    campo novo. O texto é o que a pessoa escreveu; a única junção é por caixa e espaço
+    ("Analista de automação" = "Analista de Automação"), que não é vocabulário — classificar
+    "Automation Analyst" junto de "Analista de automação" seria, e fica para quando o dado
+    der a lista. A grafia exibida é a mais frequente entre as que se juntaram.
+
+    O LinkedIn lista da posição mais recente para a mais antiga: a última da jornada é o
+    primeiro cargo; o atual é a primeira SEM fim. Quem não tem posição em curso tem passado,
+    mas não tem "hoje" — não conta na coluna."""
+    def chave(texto):
+        return " ".join((texto or "").split()).casefold()
+
+    grafias = collections.defaultdict(collections.Counter)
+    ocuparam = collections.defaultdict(set)
+    primeiro, atual = collections.Counter(), collections.Counter()
+    trajetorias = []
+    for c in cartoes:
+        posicoes = [j for j in c.get("jornada") or [] if _limpo(j.get("cargo"))]
+        if not posicoes:
+            continue
+        for j in posicoes:
+            grafias[chave(j["cargo"])][_limpo(j["cargo"])] += 1
+            ocuparam[chave(j["cargo"])].add(c["nome"])
+        primeiro[chave(posicoes[-1]["cargo"])] += 1
+        em_curso = next((j for j in posicoes if not j.get("fim")), None)
+        if em_curso:
+            atual[chave(em_curso["cargo"])] += 1
+        trajetorias.append({
+            "nome": c["nome"],
+            "passos": [{"ano": (j.get("inicio") or "")[:4] or None, "cargo": _limpo(j["cargo"]),
+                        "em_curso": not j.get("fim")}
+                       for j in reversed(posicoes)],
+        })
+    cargos = sorted(({
+        "texto": grafias[k].most_common(1)[0][0],
+        "ocuparam": len(ocuparam[k]),
+        "primeiro": primeiro[k],
+        "atual": atual[k],
+    } for k in ocuparam), key=lambda x: (-x["ocuparam"], -x["atual"], x["texto"]))
+    return {
+        "pessoas": len(trajetorias),
+        "cargos_distintos": len(cargos),
+        "cargos": cargos,
+        "trajetorias": sorted(trajetorias, key=lambda t: t["nome"]),
+    }
 
 
 def _jornada_publicavel(experiencias, campos):
@@ -249,6 +327,7 @@ def recorte():
                 "jornada": _cobertura(vitrine_do_curso, "jornada"),
             },
             "vitrine": vitrine_do_curso,
+            "cargos_no_tempo": _cargos_no_tempo(vitrine_do_curso),
         }
     return {
         "titulo": "Recorte por curso — BSI e ECA, contagens e distribuições cruas",
