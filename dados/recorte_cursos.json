@@ -9,19 +9,27 @@
    "nome_curso": "Sistemas de Informação",
    "contagens": {
     "formandos_na_fila": 170,
-    "processados_pela_coleta": 66,
-    "confirmados_pela_coleta": 64,
+    "processados_pela_coleta": 91,
+    "confirmados_pela_coleta": 82,
     "confirmados_a_mao": 31,
-    "aguardando_conferencia": 0,
-    "nao_identificados": 1,
+    "aguardando_conferencia": 1,
+    "nao_identificados": 7,
     "falhou_a_rodada": 1,
     "no_estudo_original": 50,
-    "identificados": 114
+    "identificados": 132
    },
    "cargos": [
     {
      "texto": "Senior Software Engineer",
+     "n": 6
+    },
+    {
+     "texto": "Software Engineer",
      "n": 5
+    },
+    {
+     "texto": "Analista de TI",
+     "n": 4
     },
     {
      "texto": "Tech Lead",
@@ -32,15 +40,19 @@
      "n": 2
     },
     {
+     "texto": "Analista de Sistemas",
+     "n": 2
+    },
+    {
      "texto": "Staff Software Engineer",
      "n": 2
     },
     {
-     "texto": "Analista de TI",
+     "texto": "Engenheiro de dados",
      "n": 2
     },
     {
-     "texto": "Engenheiro de dados",
+     "texto": "Desenvolvedor",
      "n": 2
     },
     {
@@ -54,24 +66,20 @@
     {
      "texto": "Desenvolvedor full stack",
      "n": 2
-    },
-    {
-     "texto": "Software Engineer",
-     "n": 2
-    },
-    {
-     "texto": "Engenheiro de Software Sênior",
-     "n": 1
-    },
-    {
-     "texto": "Consulting Engineer",
-     "n": 1
     }
    ],
    "cargos_todos": [
     {
      "texto": "Senior Software Engineer",
+     "n": 6
+    },
+    {
+     "texto": "Software Engineer",
      "n": 5
+    },
+    {
+     "texto": "Analista de TI",
+     "n": 4
     },
     {
      "texto": "Tech Lead",
@@ -82,15 +90,19 @@
      "n": 2
     },
     {
+     "texto": "Analista de Sistemas",
+     "n": 2
+    },
+    {
      "texto": "Staff Software Engineer",
      "n": 2
     },
     {
-     "texto": "Analista de TI",
+     "texto": "Engenheiro de dados",
      "n": 2
     },
     {
-     "texto": "Engenheiro de dados",
+     "texto": "Desenvolvedor",
      "n": 2
     },
     {
@@ -106,7 +118,7 @@
      "n": 2
     },
     {
-     "texto": "Software Engineer",
+     "texto": "Software Developer",
      "n": 2
     },
     {
@@ -159,10 +171,6 @@
     },
     {
      "texto": "Gerente de TI",
-     "n": 1
-    },
-    {
-     "texto": "Analista de Sistemas",
      "n": 1
     },
     {
@@ -227,10 +235,6 @@
     },
     {
      "texto": "Senior Backend Developer",
-     "n": 1
-    },
-    {
-     "texto": "Desenvolvedor",
      "n": 1
     },
     {
@@ -370,7 +374,27 @@
      "n": 1
     },
     {
+     "texto": "IA Builder",
+     "n": 1
+    },
+    {
      "texto": "Suporte técnico",
+     "n": 1
+    },
+    {
+     "texto": "Estudante de mestrado",
+     "n": 1
+    },
+    {
+     "texto": "Analista Desenvolvedor Java Pleno",
+     "n": 1
+    },
+    {
+     "texto": "Lead Software Engineer",
+     "n": 1
+    },
+    {
+     "texto": "Aposentado",
      "n": 1
     },
     {
@@ -386,11 +410,19 @@
      "n": 1
     },
     {
+     "texto": "Analista de Tecnologia da Informação",
+     "n": 1
+    },
+    {
      "texto": "Analista de Processo Pleno",
      "n": 1
     },
     {
      "texto": "Associate Developer",
+     "n": 1
+    },
+    {
+     "texto": "Front-end developer",
      "n": 1
     },
     {
@@ -400,11 +432,67 @@
     {
      "texto": "Senior Full Stack Engineer",
      "n": 1
+    },
+    {
+     "texto": "Desenvolvedora Front-end OCC Pleno",
+     "n": 1
+    },
+    {
+     "texto": "Back-end Developer",
+     "n": 1
+    },
+    {
+     "texto": "Desenvolvedor de sistemas sênior; Desenvolvedora full stack senior; Desenvolvedora full stack pleno; Full Stack Engineer",
+     "n": 1
+    },
+    {
+     "texto": "Software Developer II",
+     "n": 1
+    },
+    {
+     "texto": "Desenvolvedora de Jogos",
+     "n": 1
+    },
+    {
+     "texto": "Analista Desenvolvedor (Developer Analyst)",
+     "n": 1
+    },
+    {
+     "texto": "DevOps Team Lead",
+     "n": 1
+    },
+    {
+     "texto": "Desenvolvedor SAP ABAP Junior",
+     "n": 1
+    },
+    {
+     "texto": "Mid Python Developer",
+     "n": 1
+    },
+    {
+     "texto": "Estagiária de Engenharia Técnica, área de instrumentação e automação.",
+     "n": 1
     }
    ],
    "empresas": [
     {
      "texto": "AEVO",
+     "n": 4
+    },
+    {
+     "texto": "Mercado Livre",
+     "n": 3
+    },
+    {
+     "texto": "Vale",
+     "n": 3
+    },
+    {
+     "texto": "Leds - Ifes",
+     "n": 3
+    },
+    {
+     "texto": "Ifes - Instituto Federal do Espírito Santo",
      "n": 3
     },
     {
@@ -424,10 +512,6 @@
      "n": 2
     },
     {
-     "texto": "Mercado Livre",
-     "n": 2
-    },
-    {
      "texto": "LabTel - Laboratório de Telecomunicações (UFES)",
      "n": 2
     },
@@ -436,35 +520,23 @@
      "n": 2
     },
     {
-     "texto": "V1 App",
+     "texto": "PD Case Informática Ltda",
      "n": 2
-    },
-    {
-     "texto": "Leds - Ifes",
-     "n": 2
-    },
-    {
-     "texto": "Ifes - Instituto Federal do Espírito Santo",
-     "n": 2
-    },
-    {
-     "texto": "Metris Energy",
-     "n": 1
     }
    ],
    "cobertura": {
     "cargo": {
-     "com": 97,
-     "de": 114
+     "com": 124,
+     "de": 132
     },
-    "cargo_da_trajetoria": 17,
+    "cargo_da_trajetoria": 28,
     "empresa": {
-     "com": 97,
-     "de": 114
+     "com": 122,
+     "de": 132
     },
     "jornada": {
-     "com": 30,
-     "de": 64
+     "com": 59,
+     "de": 82
     }
    },
    "vitrine": [
@@ -1889,7 +1961,42 @@
      "empresa": "Visa/Pismo",
      "local": "Vila Velha, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/diego-gava-monteiro/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Database Administrator",
+       "empresa": "Pismo",
+       "tipo": "Full-time",
+       "inicio": "2022-10",
+       "duracao": "4 anos 1 mês",
+       "local": "Remoto"
+      },
+      {
+       "cargo": "DBA - Database Administrator",
+       "empresa": "PicPay",
+       "tipo": "Full-time",
+       "inicio": "2021-01",
+       "fim": "2022-10",
+       "duracao": "1 ano 10 meses",
+       "local": "Brazil"
+      },
+      {
+       "cargo": "DBA - Database Administrator",
+       "empresa": "Globalsys Soluções em TI",
+       "tipo": "Full-time",
+       "inicio": "2019-01",
+       "fim": "2020-12",
+       "duracao": "2 anos",
+       "local": "Vila Velha"
+      },
+      {
+       "cargo": "Estagiário DBA - Database Administrator",
+       "empresa": "Globalsys Soluções em TI",
+       "tipo": "Internship",
+       "inicio": "2018-03",
+       "fim": "2018-12",
+       "duracao": "10 meses"
+      }
+     ]
     },
     {
      "nome": "Diego Rodrigo Perez Pacheco",
@@ -1898,7 +2005,70 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/diego-perez-758760101/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Data Engineer",
+       "empresa": "Vert Integradora de TI",
+       "tipo": "Full-time",
+       "inicio": "2022-04",
+       "fim": "2024-10",
+       "duracao": "2 anos 7 meses",
+       "local": "Remoto"
+      },
+      {
+       "cargo": "Data Scientist Jr.",
+       "empresa": "Vert Integradora de TI",
+       "tipo": "Full-time",
+       "inicio": "2021-06",
+       "fim": "2022-04",
+       "duracao": "11 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Trainee",
+       "empresa": "Vert Integradora de TI",
+       "tipo": "Leadership Program",
+       "inicio": "2020-05",
+       "fim": "2021-06",
+       "duracao": "1 ano 2 meses"
+      },
+      {
+       "cargo": "Full technical support I",
+       "empresa": "IntervipTelecom",
+       "tipo": "Full-time",
+       "inicio": "2019-04",
+       "fim": "2020-05",
+       "duracao": "1 ano 2 meses",
+       "local": "Serra, Espirito Santo"
+      },
+      {
+       "cargo": "Scholarship at \"Núcleo de Estudos em Redes Definidas por Software\" - NERDS",
+       "empresa": "UFES",
+       "tipo": "Leadership Program",
+       "inicio": "2018-09",
+       "fim": "2019-04",
+       "duracao": "8 meses",
+       "local": "Espirito Santo, Vitória"
+      },
+      {
+       "cargo": "Monitor",
+       "empresa": "Laboratório de Administração de Redes - LAR",
+       "tipo": "Leadership Program",
+       "inicio": "2016-08",
+       "fim": "2018-07",
+       "duracao": "2 anos",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Co-founder",
+       "empresa": "Centro academico de Engenharia e Ciencia da Computação - CAEC",
+       "tipo": "Contract",
+       "inicio": "2015-12",
+       "fim": "2016-02",
+       "duracao": "3 meses",
+       "local": "São Mateus, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Douglas Campos Sutil",
@@ -1907,7 +2077,76 @@
      "empresa": "ed",
      "local": "Vitória, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/douglas-campos-sutil/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Analista de sistemas",
+       "empresa": "ed",
+       "tipo": "Full-time",
+       "inicio": "2024-10",
+       "duracao": "2 anos 1 mês",
+       "local": "Rio de Janeiro, Brazil · Remote"
+      },
+      {
+       "cargo": "Analista Desenvolvedor",
+       "empresa": "AEVO",
+       "tipo": "Full-time",
+       "inicio": "2021-03",
+       "fim": "2024-02",
+       "duracao": "3 anos",
+       "local": "Vitória, Espírito Santo, Brazil · Remote"
+      },
+      {
+       "cargo": "Desenvolvedor sênior",
+       "empresa": "Autoglass - Brasil",
+       "tipo": "Full-time",
+       "inicio": "2020-10",
+       "fim": "2021-03",
+       "duracao": "6 meses",
+       "local": "Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Desenvolvedor Web(.Net) e Mobile (Flutter)",
+       "empresa": "Code n' App",
+       "tipo": "Full-time",
+       "inicio": "2020-01",
+       "fim": "2020-10",
+       "duracao": "10 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Flutter Developer",
+       "empresa": "Dacasa Financeira",
+       "tipo": "Full-time",
+       "inicio": "2019-10",
+       "fim": "2020-01",
+       "duracao": "4 meses",
+       "local": "Vitória, Espírito Santo"
+      },
+      {
+       "cargo": "Analista júnior de sistemas",
+       "empresa": "Grupo Dadalto",
+       "inicio": "2019-08",
+       "fim": "2020-01",
+       "duracao": "6 meses",
+       "local": "Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Estagiário de sistemas da informação",
+       "empresa": "Grupo Dadalto",
+       "inicio": "2018-04",
+       "fim": "2020-01",
+       "duracao": "1 ano 10 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Estagiário de desenvolvimento de software",
+       "empresa": "CONEXOS Consultoria e Sistemas Ltda",
+       "inicio": "2017-11",
+       "fim": "2018-03",
+       "duracao": "5 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      }
+     ]
     },
     {
      "nome": "Douglas Correa Nunes",
@@ -1916,16 +2155,85 @@
      "empresa": "Arte Assinada",
      "local": "Vitória, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/douglas-nunes-3b16b9247/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Analista de TI",
+       "empresa": "Arte Assinada",
+       "tipo": "Full-time",
+       "inicio": "2026-06",
+       "duracao": "5 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Assistente de TI",
+       "empresa": "Arte Assinada",
+       "tipo": "Full-time",
+       "inicio": "2024-10",
+       "fim": "2026-08",
+       "duracao": "1 ano 11 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário de TI",
+       "empresa": "Grupo MultiShow",
+       "tipo": "Internship",
+       "inicio": "2022-11",
+       "fim": "2025-03",
+       "duracao": "2 anos 5 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Douglas Inácio Rodrigues Bravim Braga",
      "monograma": "DB",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Software Engineer",
+     "empresa": "Mercado Livre",
+     "local": "Remote",
      "linkedin": "https://www.linkedin.com/in/douglasallanbraga/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Software Engineer",
+       "empresa": "Mercado Livre",
+       "tipo": "Full-time",
+       "inicio": "2024-01",
+       "duracao": "2 anos 10 meses",
+       "local": "Remote"
+      },
+      {
+       "cargo": "Software Developer",
+       "empresa": "Mercado Livre",
+       "inicio": "2022-07",
+       "fim": "2024-01",
+       "duracao": "1 ano 7 meses"
+      },
+      {
+       "cargo": "Frontend Developer",
+       "empresa": "Frete Rápido",
+       "tipo": "Full-time",
+       "inicio": "2022-01",
+       "fim": "2022-07",
+       "duracao": "7 meses",
+       "local": "Brazil"
+      },
+      {
+       "cargo": "Full Stack Developer",
+       "empresa": "Luz e Força Santa Maria",
+       "tipo": "Full-time",
+       "inicio": "2021-04",
+       "fim": "2022-01",
+       "duracao": "10 meses",
+       "local": "Brazil"
+      },
+      {
+       "cargo": "Intern",
+       "empresa": "Luz e Força Santa Maria",
+       "tipo": "Internship",
+       "inicio": "2020-06",
+       "fim": "2021-04",
+       "duracao": "11 meses"
+      }
+     ]
     },
     {
      "nome": "Edson Simões Boldrini",
@@ -1934,7 +2242,86 @@
      "empresa": "Superset",
      "local": "Vitória, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/edsonboldrini/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Senior Engineering Lead",
+       "empresa": "Superset",
+       "tipo": "Full-time",
+       "inicio": "2024-09",
+       "duracao": "2 anos 2 meses",
+       "local": "New York, United States · Remote"
+      },
+      {
+       "cargo": "Full Stack Engineer",
+       "empresa": "Mindera",
+       "tipo": "Full-time",
+       "inicio": "2023-06",
+       "fim": "2026-08",
+       "duracao": "3 anos 3 meses",
+       "local": "Porto, Portugal · Remote"
+      },
+      {
+       "cargo": "Full Stack Engineer",
+       "empresa": "DEEP ESG",
+       "tipo": "Part-time",
+       "inicio": "2022-11",
+       "fim": "2024-08",
+       "duracao": "1 ano 10 meses",
+       "local": "Vitória, Espírito Santo, Brazil · Remote"
+      },
+      {
+       "cargo": "Mobile Engineer",
+       "empresa": "W3.Care",
+       "tipo": "Full-time",
+       "inicio": "2022-04",
+       "fim": "2023-01",
+       "duracao": "10 meses",
+       "local": "Vitória, Espírito Santo, Brazil · Remote"
+      },
+      {
+       "cargo": "Full Stack Engineer",
+       "empresa": "Além",
+       "tipo": "Full-time",
+       "inicio": "2021-07",
+       "fim": "2022-04",
+       "duracao": "10 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Full Stack Engineer",
+       "empresa": "Conceptho",
+       "tipo": "Part-time",
+       "inicio": "2020-09",
+       "fim": "2021-07",
+       "duracao": "11 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Full Stack Engineer",
+       "empresa": "Dersalis Healthy Solutions",
+       "tipo": "Part-time",
+       "inicio": "2019-08",
+       "fim": "2021-07",
+       "duracao": "2 anos"
+      },
+      {
+       "cargo": "Full Stack Engineer",
+       "empresa": "Le Card - Administradora de Cartões",
+       "inicio": "2018-07",
+       "fim": "2019-07",
+       "duracao": "1 ano 1 mês",
+       "local": "Vitoria"
+      },
+      {
+       "cargo": "Information Technology Support",
+       "empresa": "Tribunal Regional do Trabalho do ES",
+       "tipo": "Internship",
+       "inicio": "2018-02",
+       "fim": "2018-07",
+       "duracao": "6 meses",
+       "local": "Vitoria"
+      }
+     ]
     },
     {
      "nome": "Eduarda Rodrigues Simões",
@@ -1952,16 +2339,140 @@
      "empresa": "Otus7",
      "local": "Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/eduardo-alves-figueiredo-71b6b21b3/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Desenvolvedor de software",
+       "empresa": "Otus7",
+       "tipo": "Full-time",
+       "inicio": "2025-01",
+       "duracao": "1 ano 10 meses",
+       "local": "Remote"
+      },
+      {
+       "cargo": "Desenvolvedor de software",
+       "empresa": "Effettivo System",
+       "tipo": "Full-time",
+       "inicio": "2023-12",
+       "fim": "2024-12",
+       "duracao": "1 ano 1 mês",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Desenvolvedor de software",
+       "empresa": "S_Line - Sistemas Online",
+       "tipo": "Part-time",
+       "inicio": "2023-08",
+       "fim": "2024-07",
+       "duracao": "1 ano",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Desenvolvedor de software",
+       "empresa": "S_Line - Sistemas Online",
+       "tipo": "Internship",
+       "inicio": "2021-03",
+       "fim": "2023-03",
+       "duracao": "2 anos 1 mês",
+       "local": "Vitória, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Eduardo Henrique Prospero Souza",
      "monograma": "ES",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "IA Builder",
+     "empresa": "Cora",
+     "local": "São Paulo, Brazil · Remote",
      "linkedin": "https://www.linkedin.com/in/eduardo-prospero/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "IA Builder",
+       "empresa": "Cora",
+       "tipo": "Full-time",
+       "inicio": "2026-09",
+       "duracao": "2 meses",
+       "local": "São Paulo, Brazil · Remote"
+      },
+      {
+       "cargo": "Pesquisador",
+       "empresa": "Fundação de Amparo à Pesquisa e Inovação do Espírito Santo - FAPES",
+       "tipo": "Part-time",
+       "inicio": "2025-09",
+       "duracao": "1 ano 2 meses",
+       "local": "Vitoria, Brazil Metropolitan Area · Hybrid"
+      },
+      {
+       "cargo": "AI Backend Developer PL",
+       "empresa": "MedSênior",
+       "tipo": "Full-time",
+       "inicio": "2026-03",
+       "fim": "2026-08",
+       "duracao": "6 meses",
+       "local": "Brazil · Hybrid"
+      },
+      {
+       "cargo": "Fullstack Developer | Assessor Especial",
+       "empresa": "Agerh - Agência Estadual de Recursos Hídricos",
+       "tipo": "Full-time",
+       "inicio": "2025-07",
+       "fim": "2026-03",
+       "duracao": "9 meses",
+       "local": "Vitoria"
+      },
+      {
+       "cargo": "Fullstack Developer | Assessor Especial Nível II",
+       "empresa": "Agerh - Agência Estadual de Recursos Hídricos",
+       "tipo": "Full-time",
+       "inicio": "2025-01",
+       "fim": "2025-07",
+       "duracao": "7 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Back End Developer",
+       "empresa": "IUPI",
+       "tipo": "Internship",
+       "inicio": "2023-10",
+       "fim": "2025-01",
+       "duracao": "1 ano 4 meses",
+       "local": "Remote"
+      },
+      {
+       "cargo": "Apoio Técnico (Internship)",
+       "empresa": "Fundação de Amparo à Pesquisa e Inovação do Espírito Santo | Fapes",
+       "tipo": "Internship",
+       "inicio": "2023-01",
+       "fim": "2024-01",
+       "duracao": "1 ano 1 mês",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Bolsista de Iniciação Científica (Internship)",
+       "empresa": "Fundação de Amparo à Pesquisa e Inovação do Espírito Santo | Fapes",
+       "tipo": "Internship",
+       "inicio": "2022-09",
+       "fim": "2023-01",
+       "duracao": "5 meses",
+       "local": "Hybrid"
+      },
+      {
+       "cargo": "Bolsista de Iniciação Científica",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Internship",
+       "inicio": "2022-02",
+       "fim": "2022-08",
+       "duracao": "7 meses",
+       "local": "Serra, Espírito Santo, Brazil · Hybrid"
+      },
+      {
+       "cargo": "Auxiliar administrativo",
+       "empresa": "Vital Engenharia Ambiental",
+       "tipo": "Apprenticeship",
+       "inicio": "2017-06",
+       "fim": "2018-10",
+       "duracao": "1 ano 5 meses"
+      }
+     ]
     },
     {
      "nome": "Elimar Rodrigues da Macena",
@@ -1970,7 +2481,55 @@
      "empresa": "Wellhub",
      "local": "Vitória, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/elimarmacena/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Software Engineer",
+       "empresa": "Wellhub (formerly Gympass)",
+       "tipo": "Full-time",
+       "inicio": "2023-02",
+       "duracao": "3 anos 9 meses",
+       "local": "Brazil · Remote"
+      },
+      {
+       "cargo": "Software Engineer",
+       "empresa": "PicPay",
+       "tipo": "Full-time",
+       "inicio": "2021-04",
+       "fim": "2023-02",
+       "duracao": "1 ano 11 meses"
+      },
+      {
+       "cargo": "Software Engineer",
+       "empresa": "LexisNexis Risk Solutions",
+       "tipo": "Full-time",
+       "inicio": "2020-10",
+       "fim": "2021-04",
+       "duracao": "7 meses"
+      },
+      {
+       "cargo": "Intern (Estágio)",
+       "empresa": "LexisNexis Risk Solutions",
+       "inicio": "2019-05",
+       "fim": "2020-09",
+       "duracao": "1 ano 5 meses"
+      },
+      {
+       "cargo": "Estagiário de desenvolvimento",
+       "empresa": "PROSPERI - OTIMIZANDO PROJETOS, GERANDO RESULTADOS",
+       "inicio": "2018-11",
+       "fim": "2019-04",
+       "duracao": "6 meses",
+       "local": "Vitoria - Espirito Santo"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "Phidelis Tecnologia",
+       "inicio": "2018-07",
+       "fim": "2018-10",
+       "duracao": "4 meses",
+       "local": "Vila Velha, Espirito Santo"
+      }
+     ]
     },
     {
      "nome": "Emanuel Medeiros Claudino",
@@ -1979,34 +2538,144 @@
      "empresa": "Consys - Consultoria e Sistemas",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/emanuel-medeiros-claudino-b2bb55209/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Suporte técnico",
+       "empresa": "Consys - Consultoria e Sistemas",
+       "tipo": "Internship",
+       "inicio": "2018-09",
+       "fim": "2020-09",
+       "duracao": "2 anos 1 mês",
+       "local": "Vila Velha, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Emanuel Norjosa Luz",
      "monograma": "EL",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Estudante de mestrado",
+     "empresa": "Universidade Federal do Ceará (UFC)",
+     "local": "Fortaleza, Ceará, Brazil",
      "linkedin": "https://www.linkedin.com/in/emanuel-norjosa-luz-9a6bb6196/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Estudante de mestrado",
+       "empresa": "Universidade Federal do Ceará (UFC)",
+       "inicio": "2026-01",
+       "duracao": "10 meses",
+       "local": "Fortaleza, Ceará, Brazil"
+      },
+      {
+       "cargo": "pesquisa em processamento digital de imagem",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Internship",
+       "inicio": "2021-10",
+       "duracao": "5 anos 1 mês",
+       "local": "Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Emanuel Rampinelli Gloria",
      "monograma": "EG",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Analista Desenvolvedor Java Pleno",
+     "empresa": "Datahub Big Data & Analytics",
+     "local": "Remote",
      "linkedin": "https://www.linkedin.com/in/emanuel-rampinelli/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Analista Desenvolvedor Java Pleno",
+       "empresa": "Datahub Big Data & Analytics",
+       "tipo": "Full-time",
+       "inicio": "2025-02",
+       "duracao": "1 ano 9 meses",
+       "local": "Remote"
+      },
+      {
+       "cargo": "Analista Desenvolvedor Java Júnior",
+       "empresa": "Datahub Big Data & Analytics",
+       "tipo": "Full-time",
+       "inicio": "2023-07",
+       "fim": "2025-02",
+       "duracao": "1 ano 8 meses",
+       "local": "Remote"
+      },
+      {
+       "cargo": "Desenvolvedor Web/Java",
+       "empresa": "Datahub Big Data & Analytics",
+       "tipo": "Internship",
+       "inicio": "2022-07",
+       "fim": "2023-07",
+       "duracao": "1 ano 1 mês"
+      },
+      {
+       "cargo": "Analista Desenvolvedor Java Júnior",
+       "empresa": "Vixteam Consultoria & Sistemas",
+       "tipo": "Full-time",
+       "inicio": "2020-11",
+       "fim": "2021-10",
+       "duracao": "1 ano"
+      },
+      {
+       "cargo": "Desenvolvedor Web/Java",
+       "empresa": "Vixteam Consultoria & Sistemas",
+       "tipo": "Internship",
+       "inicio": "2020-02",
+       "fim": "2020-11",
+       "duracao": "10 meses"
+      },
+      {
+       "cargo": "Suporte em Montagem e Manutenção de Microcomputadores",
+       "empresa": "Vale",
+       "tipo": "Apprenticeship",
+       "inicio": "2013-01",
+       "fim": "2013-12",
+       "duracao": "1 ano",
+       "local": "Vitória, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Everson Delmaschio dos Santos",
      "monograma": "ES",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Lead Software Engineer",
+     "empresa": "Mobile Saúde",
+     "local": "Brazil · Remote",
      "linkedin": "https://www.linkedin.com/in/eversondelmaschio/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Lead Software Engineer",
+       "empresa": "Mobile Saúde",
+       "tipo": "Full-time",
+       "inicio": "2023-01",
+       "duracao": "3 anos 10 meses",
+       "local": "Brazil · Remote"
+      },
+      {
+       "cargo": "Software Engineer",
+       "empresa": "Mobile Saúde",
+       "tipo": "Full-time",
+       "inicio": "2021-01",
+       "fim": "2023-01",
+       "duracao": "2 anos 1 mês",
+       "local": "Brazil · On-site"
+      },
+      {
+       "cargo": "Desenvolvedor de software",
+       "empresa": "Mobile Saúde",
+       "inicio": "2018-09",
+       "fim": "2021-01",
+       "duracao": "2 anos 5 meses"
+      },
+      {
+       "cargo": "Analista de suporte técnico",
+       "empresa": "Prosystem Desenvolvimento de Sistemas",
+       "inicio": "2016-09",
+       "fim": "2018-09",
+       "duracao": "2 anos 1 mês",
+       "local": "Espírito Santo, Brasil"
+      }
+     ]
     },
     {
      "nome": "Ewerson Vieira Nascimento",
@@ -2015,16 +2684,92 @@
      "empresa": "EBANX",
      "local": "Vila Velha, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/v1eira/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Senior Software Engineer",
+       "empresa": "EBANX",
+       "inicio": "2024-08",
+       "duracao": "2 anos 3 meses"
+      },
+      {
+       "cargo": "Associate Consultant - Software Engineer",
+       "empresa": "PYYNE Digital",
+       "tipo": "Full-time",
+       "inicio": "2022-12",
+       "fim": "2024-04",
+       "duracao": "1 ano 5 meses"
+      },
+      {
+       "cargo": "Analyst - Software Engineer",
+       "empresa": "PYYNE Digital",
+       "tipo": "Full-time",
+       "inicio": "2022-05",
+       "fim": "2022-12",
+       "duracao": "8 meses"
+      },
+      {
+       "cargo": "Full Stack Developer",
+       "empresa": "Mobile Saúde",
+       "tipo": "Full-time",
+       "inicio": "2020-09",
+       "fim": "2022-04",
+       "duracao": "1 ano 8 meses"
+      },
+      {
+       "cargo": "Software Developer",
+       "empresa": "Conceptho",
+       "tipo": "Full-time",
+       "inicio": "2019-12",
+       "fim": "2020-09",
+       "duracao": "10 meses",
+       "local": "Vitoria, Brazil Metropolitan Area"
+      },
+      {
+       "cargo": "Undergraduate Student Researcher - Scholarship (Internship)",
+       "empresa": "Cefor - Ifes",
+       "tipo": "Internship",
+       "inicio": "2019-09",
+       "fim": "2020-03",
+       "duracao": "7 meses",
+       "local": "Vitória"
+      },
+      {
+       "cargo": "Undergraduate Student Researcher - Scholarship (Internship)",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Internship",
+       "inicio": "2018-08",
+       "fim": "2019-08",
+       "duracao": "1 ano 1 mês",
+       "local": "Vitória"
+      }
+     ]
     },
     {
      "nome": "Ezequiel Furtado Mapel",
      "monograma": "EM",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Analista de TI",
+     "empresa": "Vixteam Consultoria & Sistemas",
+     "local": "Vitória, Espírito Santo, Brasil",
      "linkedin": "https://www.linkedin.com/in/ezequielmapel/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Analista de TI",
+       "empresa": "Vixteam Consultoria & Sistemas",
+       "tipo": "Full-time",
+       "inicio": "2022-01",
+       "duracao": "4 anos 10 meses",
+       "local": "Vitória, Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "Vixteam Consultoria & Sistemas",
+       "tipo": "Part-time",
+       "inicio": "2020-02",
+       "fim": "2021-12",
+       "duracao": "1 ano 11 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Fabio Henrique Fantin Ribeiro Cozer",
@@ -2033,16 +2778,70 @@
      "empresa": "ES Gás",
      "local": "Vitória, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/fabio-henrique-fantin-ribeiro-cozer-a23b3a221/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Analista de planejamento",
+       "empresa": "ES Gás",
+       "tipo": "Full-time",
+       "inicio": "2025-12",
+       "duracao": "11 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário de nível superior",
+       "empresa": "Findes",
+       "tipo": "Internship",
+       "inicio": "2023-09",
+       "fim": "2025-09",
+       "duracao": "2 anos 1 mês",
+       "local": "Vitória, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Fernanda Jaimara do Nascimento",
      "monograma": "FN",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Software Developer",
+     "empresa": "Prosperi | BR",
+     "local": "Vitória, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/fernandajaimara/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Software Developer",
+       "empresa": "Prosperi | BR",
+       "tipo": "Full-time",
+       "inicio": "2026-04",
+       "duracao": "7 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Programa STEM",
+       "empresa": "ArcelorMittal Brasil",
+       "tipo": "Internship",
+       "inicio": "2023-06",
+       "fim": "2026-04",
+       "duracao": "2 anos 11 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiária",
+       "empresa": "Bandes ES",
+       "tipo": "Internship",
+       "inicio": "2024-09",
+       "fim": "2025-09",
+       "duracao": "1 ano 1 mês",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário de TI",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Internship",
+       "inicio": "2019-10",
+       "fim": "2021-06",
+       "duracao": "1 ano 9 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Filipe Suhett Nogueira Silva",
@@ -2060,16 +2859,115 @@
      "empresa": "Prefeitura de Vitória",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/gabrieldospassos/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Coordenador de Atendimento e Suporte ao Usuário",
+       "empresa": "Prefeitura de Vitória",
+       "tipo": "Full-time",
+       "inicio": "2023-09",
+       "duracao": "3 anos 2 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Gerente operacional",
+       "empresa": "MR Transportes",
+       "tipo": "Full-time",
+       "inicio": "2022-04",
+       "fim": "2023-12",
+       "duracao": "1 ano 9 meses",
+       "local": "Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Desenvolvedor Python",
+       "empresa": "MR Transportes",
+       "tipo": "Self-employed",
+       "inicio": "2021-03",
+       "fim": "2022-03",
+       "duracao": "1 ano 1 mês",
+       "local": "Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Professor de inglês",
+       "empresa": "Wizard by Pearson",
+       "tipo": "Full-time",
+       "inicio": "2022-03",
+       "fim": "2022-07",
+       "duracao": "5 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "Transmarks - Transportes & Servicos",
+       "tipo": "Internship",
+       "inicio": "2021-10",
+       "fim": "2022-03",
+       "duracao": "6 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "Bandes - Banco de Desenvolvimento do Espírito Santo S.A",
+       "tipo": "Internship",
+       "inicio": "2020-12",
+       "fim": "2021-09",
+       "duracao": "10 meses",
+       "local": "Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Professor de Inglês",
+       "empresa": "Wizard by Pearson",
+       "tipo": "Full-time",
+       "inicio": "2019-07",
+       "fim": "2020-11",
+       "duracao": "1 ano 5 meses",
+       "local": "Serra, Espírito Santo"
+      }
+     ]
     },
     {
      "nome": "Gabriel Pontes Marchezi",
      "monograma": "GM",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Analista de Tecnologia da Informação",
+     "empresa": "Vale",
+     "local": "Vitória, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/gabriel-marchezi-43a0b819a/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Analista de Tecnologia da Informação",
+       "empresa": "Vale",
+       "tipo": "Full-time",
+       "inicio": "2025-08",
+       "duracao": "1 ano 3 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Database Administrator",
+       "empresa": "Tata Consultancy Services",
+       "tipo": "Full-time",
+       "inicio": "2021-10",
+       "fim": "2025-08",
+       "duracao": "3 anos 11 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estudante pesquisador",
+       "empresa": "Institulo Federal do Espírito Santo",
+       "tipo": "Internship",
+       "inicio": "2020-10",
+       "fim": "2021-10",
+       "duracao": "1 ano 1 mês",
+       "local": "Serra, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário de TI",
+       "empresa": "ArcelorMittal Brasil",
+       "tipo": "Internship",
+       "inicio": "2020-01",
+       "fim": "2020-04",
+       "duracao": "4 meses",
+       "local": "Serra, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Gabriel Viggiano Fonseca",
@@ -2087,7 +2985,69 @@
      "empresa": "Hitss Brasil",
      "local": "Serra, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/gabriela-piffer-marinato-8a48a11b0/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Backend Software Engineer",
+       "empresa": "Look For Me",
+       "inicio": "2026-06",
+       "duracao": "5 meses"
+      },
+      {
+       "cargo": "Desenvolvedor Full Stack",
+       "empresa": "Hitss Brasil",
+       "tipo": "Full-time",
+       "inicio": "2025-10",
+       "fim": "2026-07",
+       "duracao": "10 meses"
+      },
+      {
+       "cargo": "Desenvolvimento Full Stack",
+       "empresa": "Tribunal de Justica do Espirito Santo",
+       "inicio": "2025-05",
+       "fim": "2025-09",
+       "duracao": "5 meses"
+      },
+      {
+       "cargo": "Desenvolvedora full stack",
+       "empresa": "PD Case Informática Ltda",
+       "tipo": "Full-time",
+       "inicio": "2022-03",
+       "fim": "2025-04",
+       "duracao": "3 anos 2 meses"
+      },
+      {
+       "cargo": "Estagiária em desenvolvimento de programas (Internship)",
+       "empresa": "PD Case Informática Ltda",
+       "tipo": "Internship",
+       "inicio": "2021-07",
+       "fim": "2022-02",
+       "duracao": "8 meses"
+      },
+      {
+       "cargo": "Iniciação científica",
+       "empresa": "CNPq - Conselho Nacional de Desenvolvimento Científico e Tecnológico",
+       "tipo": "Part-time",
+       "inicio": "2018-08",
+       "fim": "2019-07",
+       "duracao": "1 ano"
+      },
+      {
+       "cargo": "Iniciação Científica Junior",
+       "empresa": "CNPq - Conselho Nacional de Desenvolvimento Científico e Tecnológico",
+       "tipo": "Part-time",
+       "inicio": "2017-01",
+       "fim": "2017-12",
+       "duracao": "1 ano"
+      },
+      {
+       "cargo": "Monitoria",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Part-time",
+       "inicio": "2016-03",
+       "fim": "2016-12",
+       "duracao": "10 meses"
+      }
+     ]
     },
     {
      "nome": "Gabrielle Azevedo Barros da Cunha Duda",
@@ -2096,7 +3056,77 @@
      "empresa": null,
      "local": "Vila Velha, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/gabrielle-azevedo-duda-45b634141/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Analista de processos",
+       "empresa": "Tata Consultancy Services",
+       "tipo": "Full-time",
+       "inicio": "2026-09",
+       "duracao": "2 meses",
+       "local": "Brazil"
+      },
+      {
+       "cargo": "Engenheiro de sistemas sênior",
+       "empresa": "Infosys",
+       "tipo": "Full-time",
+       "inicio": "2025-10",
+       "fim": "2026-09",
+       "duracao": "1 ano",
+       "local": "Remote"
+      },
+      {
+       "cargo": "Analista de processos de TI",
+       "empresa": "Nexa Tecnologia",
+       "tipo": "Full-time",
+       "inicio": "2023-03",
+       "fim": "2025-06",
+       "duracao": "2 anos 4 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Analista de Processo Pleno",
+       "empresa": "Nexa Tecnologia",
+       "tipo": "Full-time",
+       "inicio": "2023-02",
+       "fim": "2025-06",
+       "duracao": "2 anos 5 meses",
+       "local": "Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Pesquisador técnico",
+       "empresa": "AGIFES",
+       "tipo": "Part-time",
+       "inicio": "2020-10",
+       "fim": "2023-03",
+       "duracao": "2 anos 6 meses"
+      },
+      {
+       "cargo": "Estagiário de desenvolvimento",
+       "empresa": "Mindworks",
+       "tipo": "Internship",
+       "inicio": "2020-09",
+       "fim": "2020-11",
+       "duracao": "3 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "Secretaria de Tecnologia da Informação",
+       "tipo": "Internship",
+       "inicio": "2019-05",
+       "fim": "2020-09",
+       "duracao": "1 ano 5 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Estagiário",
+       "empresa": "Visit Sistemas de Visão",
+       "tipo": "Internship",
+       "inicio": "2017-01",
+       "duracao": "11 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      }
+     ]
     },
     {
      "nome": "Giovanna Scalfoni Sales",
@@ -2105,7 +3135,34 @@
      "empresa": "Thoughtworks",
      "local": "Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/giovanna-scalfoni-sales-a78ab0298/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Associate Developer",
+       "empresa": "Thoughtworks",
+       "tipo": "Full-time",
+       "inicio": "2026-01",
+       "duracao": "10 meses",
+       "local": "Brazil · Remote"
+      },
+      {
+       "cargo": "Internship Trainee",
+       "empresa": "Intelliway",
+       "tipo": "Internship",
+       "inicio": "2024-12",
+       "fim": "2026-01",
+       "duracao": "1 ano 2 meses",
+       "local": "Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Aluno Pesquisador",
+       "empresa": "Laboratório de Projeto e Extensão",
+       "tipo": "Part-time",
+       "inicio": "2022-03",
+       "fim": "2022-09",
+       "duracao": "7 meses",
+       "local": "Serra, Espírito Santo, Brazil · Hybrid"
+      }
+     ]
     },
     {
      "nome": "Giseli Nunes Siqueira",
@@ -2114,16 +3171,165 @@
      "empresa": "Taipa FIDC - Fundo de Investimento em Direitos Creditórios",
      "local": "Brazil",
      "linkedin": "https://www.linkedin.com/in/giseli-siqueira/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Engenheiro de dados",
+       "empresa": "Taipa FIDC - Fundo de Investimento em Direitos Creditórios",
+       "inicio": "2026-05",
+       "duracao": "6 meses"
+      },
+      {
+       "cargo": "Analista de integração de dados PL",
+       "empresa": "CLI - Gestão fiscal e tributária, Gestão de APIs e Integração de dados",
+       "tipo": "Full-time",
+       "inicio": "2025-02",
+       "fim": "2026-04",
+       "duracao": "1 ano 3 meses",
+       "local": "Brazil"
+      },
+      {
+       "cargo": "Analista de desenvolvimento de sistemas",
+       "empresa": "CLI - Gestão fiscal e tributária, Gestão de APIs e Integração de dados",
+       "tipo": "Full-time",
+       "inicio": "2021-07",
+       "fim": "2025-02",
+       "duracao": "3 anos 8 meses",
+       "local": "Remote"
+      },
+      {
+       "cargo": "Analista de desenvolvimento de sistemas",
+       "empresa": "MHK",
+       "tipo": "Full-time",
+       "inicio": "2021-01",
+       "fim": "2021-07",
+       "duracao": "7 meses",
+       "local": "Brazil"
+      },
+      {
+       "cargo": "Analista de dados (Internship)",
+       "empresa": "Vale",
+       "tipo": "Internship",
+       "inicio": "2018-02",
+       "fim": "2019-07",
+       "duracao": "1 ano 6 meses",
+       "local": "Vitória - Espírito Santo · On-site"
+      },
+      {
+       "cargo": "Assistente de suporte de TI (Internship)",
+       "empresa": "Secretaria de Desenvolvimento do Espírito Santo",
+       "tipo": "Internship",
+       "inicio": "2016-01",
+       "fim": "2018-01",
+       "duracao": "2 anos 1 mês",
+       "local": "Vitória · On-site"
+      }
+     ]
     },
     {
      "nome": "Gislaine Jéssica Tiburcio de Almeida",
      "monograma": "GA",
-     "cargo": null,
-     "empresa": null,
-     "local": null,
+     "cargo": "Front-end developer",
+     "empresa": "GFT Technologies",
+     "local": "São Paulo, Brasil · Remote",
      "linkedin": "https://www.linkedin.com/in/gislainejessica/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Full Stack Developer | React & React Native | Node.js & .NET | AWS | Scalable Web & Mobile Applications",
+       "empresa": null
+      },
+      {
+       "cargo": "Front-end developer",
+       "empresa": "GFT Technologies",
+       "tipo": "Full-time",
+       "inicio": "2021-09",
+       "duracao": "5 anos 2 meses",
+       "local": "São Paulo, Brasil · Remote"
+      },
+      {
+       "cargo": "Systems Analyst",
+       "empresa": "GFT Technologies",
+       "tipo": "Full-time",
+       "inicio": "2021-09",
+       "fim": "2025-01",
+       "duracao": "3 anos 5 meses",
+       "local": "São Paulo, Brazil"
+      },
+      {
+       "cargo": "Front-end developer",
+       "empresa": "BMG Seguros",
+       "tipo": "Indirect Contract",
+       "inicio": "2024-10",
+       "fim": "2025-01",
+       "duracao": "4 meses",
+       "local": "São Paulo, Brazil · Remote"
+      },
+      {
+       "cargo": "Full Stack Engineer",
+       "empresa": "Matrix Energia",
+       "tipo": "Indirect Contract",
+       "inicio": "2023-08",
+       "fim": "2024-10",
+       "duracao": "1 ano 3 meses",
+       "local": "São Paulo, Brazil · Remote"
+      },
+      {
+       "cargo": "Frontend Web Developer",
+       "empresa": "Youse Seguros",
+       "tipo": "Indirect Contract",
+       "inicio": "2023-02",
+       "fim": "2023-07",
+       "duracao": "6 meses",
+       "local": "São Paulo, Brasil · Remote"
+      },
+      {
+       "cargo": "Frontend Web Developer",
+       "empresa": "XP Inc.",
+       "tipo": "Indirect Contract",
+       "inicio": "2021-09",
+       "fim": "2022-07",
+       "duracao": "11 meses",
+       "local": "São Paulo e Região · Remote"
+      },
+      {
+       "cargo": "Frontend Web Developer",
+       "empresa": "Leanon Systems",
+       "tipo": "Full-time",
+       "inicio": "2020-06",
+       "fim": "2020-10",
+       "duracao": "5 meses",
+       "local": "Vitória, ES · Hybrid"
+      },
+      {
+       "cargo": "Full Stack Engineer",
+       "empresa": "uDNA",
+       "tipo": "Part-time",
+       "inicio": "2020-03",
+       "fim": "2020-09",
+       "duracao": "7 meses",
+       "local": "Vitória, ES"
+      },
+      {
+       "cargo": "Full Stack Engineer",
+       "empresa": "Home Office (Self-employed)",
+       "tipo": "Self-employed",
+       "duracao": "2 meses",
+       "local": "Serra, Espírito Santo"
+      },
+      {
+       "cargo": "Mobile & Backend Developer",
+       "empresa": "Campus Mobile",
+       "tipo": "Contract",
+       "duracao": "3 meses",
+       "local": "São Paulo Area, Brazil"
+      },
+      {
+       "cargo": "Backend Developer - Python",
+       "empresa": "CNPq",
+       "tipo": "Part-time",
+       "duracao": "2 anos",
+       "local": "Serra ES"
+      }
+     ]
     },
     {
      "nome": "Graziene Viana Martins",
@@ -2132,7 +3338,33 @@
      "empresa": "PHOENIXX Experts en Intelligence Artificielle",
      "local": "Vitória, Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/grazienemartins/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Estagiária de Engenharia de IA (AI Engineering Intern)",
+       "empresa": "PHOENIXX Experts en Intelligence Artificielle",
+       "tipo": "Internship",
+       "inicio": "2026-05",
+       "fim": "2026-06",
+       "duracao": "1 mês",
+       "local": "Quebec, Canada · Remote"
+      },
+      {
+       "cargo": "Analista Desenvolvedor",
+       "empresa": "TRUST IMAGE",
+       "tipo": "Full-time",
+       "inicio": "2023-01",
+       "fim": "2024-03",
+       "duracao": "1 ano 3 meses"
+      },
+      {
+       "cargo": "Desenvolvedor",
+       "empresa": "TRUST IMAGE",
+       "tipo": "Internship",
+       "inicio": "2021-11",
+       "fim": "2022-12",
+       "duracao": "1 ano 2 meses"
+      }
+     ]
     },
     {
      "nome": "Guilherme Bodart de Oliveira Castro",
@@ -2141,7 +3373,40 @@
      "empresa": "Ifes - Instituto Federal do Espírito Santo",
      "local": "Vitoria, Brazil Metropolitan Area",
      "linkedin": "https://www.linkedin.com/in/guilherme-bodart-de-oliveira-castro-819205194/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Full Stack Engineer",
+       "empresa": "Atman Systems",
+       "tipo": "Full-time",
+       "inicio": "2023-05",
+       "fim": "2025-12",
+       "duracao": "2 anos 8 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Desenvolvedor de software",
+       "empresa": "Atman Systems",
+       "inicio": "2021-07",
+       "fim": "2025-12",
+       "duracao": "4 anos 6 meses"
+      },
+      {
+       "cargo": "Development Intern",
+       "empresa": "Integro Consultores Associados",
+       "tipo": "Full-time",
+       "inicio": "2021-04",
+       "fim": "2021-06",
+       "duracao": "3 meses",
+       "local": "Vitória, Espírito Santo, Brazil"
+      },
+      {
+       "cargo": "Development Intern",
+       "empresa": "Ministério Público do Trabalho",
+       "inicio": "2019-03",
+       "fim": "2021-03",
+       "duracao": "2 anos 1 mês"
+      }
+     ]
     },
     {
      "nome": "Guilherme Firme Fiorot",
@@ -2150,6 +3415,223 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/guilhermefirmefiorot/",
+     "jornada": [
+      {
+       "cargo": "Backend Developer",
+       "empresa": "Jeitto",
+       "tipo": "Full-time",
+       "inicio": "2025-06",
+       "fim": "2026-07",
+       "duracao": "1 ano 2 meses",
+       "local": "Espírito Santo, Brasil · Remote"
+      },
+      {
+       "cargo": "Backend Developer",
+       "empresa": "ISH Tecnologia",
+       "tipo": "Full-time",
+       "inicio": "2024-07",
+       "fim": "2025-06",
+       "duracao": "1 ano",
+       "local": "Vitória, Espírito Santo, Brazil · Hybrid"
+      },
+      {
+       "cargo": "Python Developer",
+       "empresa": "Tata Consultancy Services",
+       "tipo": "Full-time",
+       "inicio": "2022-05",
+       "fim": "2024-07",
+       "duracao": "2 anos 3 meses",
+       "local": "Budapeste, Hungria · Hybrid"
+      },
+      {
+       "cargo": "Data Analyst/Backend Developer",
+       "empresa": "Unilog Express",
+       "tipo": "Full-time",
+       "inicio": "2021-09",
+       "fim": "2022-04",
+       "duracao": "8 meses",
+       "local": "Serra, Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "IT Project Analyst",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Part-time",
+       "inicio": "2021-07",
+       "fim": "2021-11",
+       "duracao": "5 meses",
+       "local": "Serra, Espírito Santo, Brasil"
+      },
+      {
+       "cargo": "Backend Developer",
+       "empresa": "Wine.com.br",
+       "tipo": "Internship",
+       "inicio": "2020-09",
+       "fim": "2021-08",
+       "duracao": "1 ano",
+       "local": "Vitória, Espírito Santo, Brazil"
+      }
+     ]
+    },
+    {
+     "nome": "Gustavo Gomes Dias",
+     "monograma": "GD",
+     "cargo": "Desenvolvedor",
+     "empresa": "CEDISA Central de Aço S/A",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/gusgd/",
+     "jornada": []
+    },
+    {
+     "nome": "Hanna Letícia Santos de Jesus",
+     "monograma": "HJ",
+     "cargo": "Desenvolvedora Front-end OCC Pleno",
+     "empresa": "JBQ.Global",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/hannaletix/",
+     "jornada": []
+    },
+    {
+     "nome": "Henrique Santana dos Santos",
+     "monograma": "HS",
+     "cargo": "Back-end Developer",
+     "empresa": "Invillia",
+     "local": "Vila Velha, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/henriques-santana/",
+     "jornada": []
+    },
+    {
+     "nome": "Italo Lourenço Trindade",
+     "monograma": "IT",
+     "cargo": "Senior Software Engineer",
+     "empresa": "Trustly",
+     "local": "Vitoria, Brazil Metropolitan Area",
+     "linkedin": "https://www.linkedin.com/in/italolourenco/",
+     "jornada": []
+    },
+    {
+     "nome": "Izabely Almeida Furtado Corrêa",
+     "monograma": "IC",
+     "cargo": "Desenvolvedor de sistemas sênior; Desenvolvedora full stack senior; Desenvolvedora full stack pleno; Full Stack Engineer",
+     "empresa": "Argo Group; Accenture; Carzen Group; Senior Sistemas",
+     "local": "Vila Velha, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/izabely-furtado/",
+     "jornada": []
+    },
+    {
+     "nome": "Jackson Willian Silva Agostinho",
+     "monograma": "JA",
+     "cargo": "Analista de Sistemas",
+     "empresa": "PD Case Informática Ltda",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/jackson-willian-silva-agostinho/",
+     "jornada": []
+    },
+    {
+     "nome": "Jadson Pereira Pinto",
+     "monograma": "JP",
+     "cargo": "Software Developer II",
+     "empresa": "Sensedia",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/jadsonpereirap/",
+     "jornada": []
+    },
+    {
+     "nome": "Jennifer Gonçalves do Amaral",
+     "monograma": "JA",
+     "cargo": null,
+     "empresa": null,
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/jennifer-gonçalves-do-amaral-88b3b9143/",
+     "jornada": []
+    },
+    {
+     "nome": "Jennifer de Castro Gonçalves",
+     "monograma": "JG",
+     "cargo": null,
+     "empresa": null,
+     "local": "Vila Velha, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/jennifer-de-castro-gon%C3%A7alves-609337183/",
+     "jornada": []
+    },
+    {
+     "nome": "Jessica Nogueira Duque",
+     "monograma": "JD",
+     "cargo": "Desenvolvedora de Jogos",
+     "empresa": null,
+     "local": "Vila Velha, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/jessica-n-duque/",
+     "jornada": []
+    },
+    {
+     "nome": "Joao Vitor Maciel Vianna",
+     "monograma": "JV",
+     "cargo": "Mid Python Developer",
+     "empresa": "doc9",
+     "local": "Vila Velha, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/jo%C3%A3o-vitor-maciel-vianna/",
+     "jornada": []
+    },
+    {
+     "nome": "Jonathan Ribeiro da Silva",
+     "monograma": "JS",
+     "cargo": "Software Engineer",
+     "empresa": "AEVO Innovate",
+     "local": "Guarapari, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/jonathan-ribeiro-da-silva-a518a568/",
+     "jornada": []
+    },
+    {
+     "nome": "José Guilherme Silva de Lima",
+     "monograma": "JL",
+     "cargo": "Software Engineer",
+     "empresa": "Stone",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/jose-guilherme-lima/",
+     "jornada": []
+    },
+    {
+     "nome": "João Augusto Casagrande da Silva",
+     "monograma": "JS",
+     "cargo": "Analista Desenvolvedor (Developer Analyst)",
+     "empresa": "AEVO",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/joaocasagrande/",
+     "jornada": []
+    },
+    {
+     "nome": "João Marcos Rodrigues Pimentel",
+     "monograma": "JP",
+     "cargo": "DevOps Team Lead",
+     "empresa": "Leds - Ifes",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/joão-marcos-pimentel-269a99296/",
+     "jornada": []
+    },
+    {
+     "nome": "João Pedro Garcia Pereira",
+     "monograma": "JP",
+     "cargo": "Software Developer",
+     "empresa": "Ifes - Instituto Federal do Espírito Santo",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/jopsg/",
+     "jornada": []
+    },
+    {
+     "nome": "João Victor Ferrareis Ribeiro",
+     "monograma": "JR",
+     "cargo": "Desenvolvedor SAP ABAP Junior",
+     "empresa": "Megawork Consultoria",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/joao-victor-ferrareis/",
+     "jornada": []
+    },
+    {
+     "nome": "Júlia Miranda Rossa Campos",
+     "monograma": "JC",
+     "cargo": "Estagiária de Engenharia Técnica, área de instrumentação e automação.",
+     "empresa": "Vale",
+     "local": "Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/júlia-rosa-celante-069a7b266/",
      "jornada": []
     },
     {
@@ -2159,30 +3641,155 @@
      "empresa": null,
      "local": null,
      "linkedin": "https://www.linkedin.com/in/eosn/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Estagiário",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Internship",
+       "inicio": "2023-08",
+       "fim": "2024-01",
+       "duracao": "6 meses",
+       "local": "Hybrid"
+      },
+      {
+       "cargo": "Monitor",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Part-time",
+       "inicio": "2022-09",
+       "fim": "2022-12",
+       "duracao": "4 meses",
+       "local": "On-site"
+      },
+      {
+       "cargo": "Programa STEM",
+       "empresa": "ArcelorMittal Brasil",
+       "tipo": "Indirect Contract",
+       "inicio": "2021-08",
+       "fim": "2022-08",
+       "duracao": "1 ano 1 mês",
+       "local": "Remote"
+      },
+      {
+       "cargo": "Monitor voluntário",
+       "empresa": "Ifes - Instituto Federal do Espírito Santo",
+       "tipo": "Part-time",
+       "inicio": "2018-03",
+       "fim": "2018-12",
+       "duracao": "10 meses",
+       "local": "On-site"
+      }
+     ]
     },
     {
      "nome": "Éverton Sales",
      "monograma": "ÉS",
-     "cargo": null,
-     "empresa": null,
+     "cargo": "Aposentado",
+     "empresa": "Self-employed",
      "local": null,
      "linkedin": "https://www.linkedin.com/in/everton-sales-60647618/",
-     "jornada": []
+     "jornada": [
+      {
+       "cargo": "Aposentado",
+       "empresa": "Self-employed",
+       "tipo": "Self-employed",
+       "inicio": "2018-11",
+       "duracao": "8 anos"
+      },
+      {
+       "cargo": "Tecnico de Manutenção de Automação",
+       "empresa": "Petrobras",
+       "inicio": "1988-01",
+       "fim": "2023-01",
+       "duracao": "35 anos 1 mês",
+       "local": "Rio de Janeiro e Região, Brasil"
+      }
+     ]
     }
    ],
    "cargos_no_tempo": {
-    "pessoas": 30,
-    "cargos_distintos": 101,
+    "pessoas": 59,
+    "cargos_distintos": 184,
     "cargos": [
      {
       "texto": "Estagiário",
-      "ocuparam": 6,
+      "ocuparam": 11,
+      "primeiro": 7,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedor de software",
+      "ocuparam": 5,
+      "primeiro": 3,
+      "atual": 1
+     },
+     {
+      "texto": "Software Developer",
+      "ocuparam": 5,
+      "primeiro": 1,
+      "atual": 1
+     },
+     {
+      "texto": "Full Stack Developer",
+      "ocuparam": 5,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Software Engineer",
+      "ocuparam": 4,
+      "primeiro": 0,
+      "atual": 2
+     },
+     {
+      "texto": "Estagiário de TI",
+      "ocuparam": 4,
       "primeiro": 4,
       "atual": 0
      },
      {
-      "texto": "Full Stack Developer",
+      "texto": "Full Stack Engineer",
+      "ocuparam": 4,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de TI",
+      "ocuparam": 3,
+      "primeiro": 0,
+      "atual": 3
+     },
+     {
+      "texto": "Analista de sistemas",
+      "ocuparam": 3,
+      "primeiro": 0,
+      "atual": 2
+     },
+     {
+      "texto": "Analista Desenvolvedor",
+      "ocuparam": 3,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Desenvolvedor full stack",
+      "ocuparam": 3,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Estagiário de desenvolvimento",
+      "ocuparam": 3,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Pesquisador",
+      "ocuparam": 3,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Programa STEM",
       "ocuparam": 3,
       "primeiro": 1,
       "atual": 0
@@ -2194,16 +3801,28 @@
       "atual": 2
      },
      {
-      "texto": "Analista de Sistemas",
+      "texto": "Senior Software Engineer",
+      "ocuparam": 2,
+      "primeiro": 0,
+      "atual": 2
+     },
+     {
+      "texto": "Database Administrator",
       "ocuparam": 2,
       "primeiro": 0,
       "atual": 1
      },
      {
-      "texto": "Desenvolvedor full stack",
+      "texto": "Back End Developer",
       "ocuparam": 2,
       "primeiro": 0,
-      "atual": 1
+      "atual": 0
+     },
+     {
+      "texto": "Backend Developer",
+      "ocuparam": 2,
+      "primeiro": 1,
+      "atual": 0
      },
      {
       "texto": "Desenvolvedor Backend",
@@ -2212,13 +3831,13 @@
       "atual": 0
      },
      {
-      "texto": "Desenvolvedor de software",
+      "texto": "Desenvolvedor de software pleno",
       "ocuparam": 2,
-      "primeiro": 2,
+      "primeiro": 0,
       "atual": 0
      },
      {
-      "texto": "Desenvolvedor de software pleno",
+      "texto": "Estagiária",
       "ocuparam": 2,
       "primeiro": 0,
       "atual": 0
@@ -2230,15 +3849,27 @@
       "atual": 0
      },
      {
-      "texto": "Pesquisador",
+      "texto": "Estagiário de desenvolvimento de software",
+      "ocuparam": 2,
+      "primeiro": 2,
+      "atual": 0
+     },
+     {
+      "texto": "Frontend Developer",
+      "ocuparam": 2,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Iniciação Científica",
       "ocuparam": 2,
       "primeiro": 1,
       "atual": 0
      },
      {
-      "texto": "Software Developer",
+      "texto": "Monitor",
       "ocuparam": 2,
-      "primeiro": 1,
+      "primeiro": 0,
       "atual": 0
      },
      {
@@ -2254,7 +3885,7 @@
       "atual": 1
      },
      {
-      "texto": "Analista Desenvolvedor",
+      "texto": "Analista Desenvolvedor Java Pleno",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 1
@@ -2284,7 +3915,25 @@
       "atual": 1
      },
      {
-      "texto": "Analista de TI",
+      "texto": "Analista de Tecnologia da Informação",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Analista de planejamento",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Analista de processos",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Aposentado",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 1
@@ -2297,6 +3946,24 @@
      },
      {
       "texto": "Assistente de infraestrutura",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Associate Developer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Backend Software Engineer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Coordenador de Atendimento e Suporte ao Usuário",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 1
@@ -2338,13 +4005,43 @@
       "atual": 1
      },
      {
+      "texto": "Engenheiro de dados",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Estudante de mestrado",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Full Stack Developer | React & React Native | Node.js & .NET | AWS | Scalable Web & Mobile Applications",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
       "texto": "Gerente de Projetos CX",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 1
      },
      {
+      "texto": "IA Builder",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
       "texto": "Instrutora de TI",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 1
+     },
+     {
+      "texto": "Lead Software Engineer",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 1
@@ -2374,13 +4071,13 @@
       "atual": 1
      },
      {
-      "texto": "Senior Frontend Developer",
+      "texto": "Senior Engineering Lead",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 1
      },
      {
-      "texto": "Senior Software Engineer",
+      "texto": "Senior Frontend Developer",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 1
@@ -2392,13 +4089,31 @@
       "atual": 1
      },
      {
+      "texto": "AI Backend Developer PL",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
       "texto": "Advanced Analytics Architect",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 0
      },
      {
+      "texto": "Aluno Pesquisador",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
       "texto": "Analista CX",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista Desenvolvedor Java Júnior",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 0
@@ -2411,6 +4126,12 @@
      },
      {
       "texto": "Analista de Dados Júnior | Entry-Level Data Analyst",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de Processo Pleno",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 0
@@ -2446,13 +4167,55 @@
       "atual": 0
      },
      {
+      "texto": "Analista de dados (Internship)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de desenvolvimento de sistemas",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
       "texto": "Analista de integração",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 0
      },
      {
+      "texto": "Analista de integração de dados PL",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de processos de TI",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista de suporte técnico",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
       "texto": "Analista e Desenvolvedor de Software",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analista júnior de sistemas",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Analyst - Software Engineer",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 0
@@ -2470,6 +4233,12 @@
       "atual": 0
      },
      {
+      "texto": "Apoio Técnico (Internship)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
       "texto": "Aprendiz de técnico",
       "ocuparam": 1,
       "primeiro": 1,
@@ -2482,9 +4251,33 @@
       "atual": 0
      },
      {
+      "texto": "Assistente de TI",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
       "texto": "Assistente de projetos",
       "ocuparam": 1,
       "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Assistente de suporte de TI (Internship)",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Associate Consultant - Software Engineer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Auxiliar administrativo",
+      "ocuparam": 1,
+      "primeiro": 1,
       "atual": 0
      },
      {
@@ -2494,13 +4287,19 @@
       "atual": 0
      },
      {
-      "texto": "Back End Developer",
+      "texto": "Backend Developer - Python",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Bolsista de Iniciação Científica",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 0
      },
      {
-      "texto": "Backend Developer",
+      "texto": "Bolsista de Iniciação Científica (Internship)",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 0
@@ -2518,7 +4317,43 @@
       "atual": 0
      },
      {
+      "texto": "Co-founder",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "DBA - Database Administrator",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Data Analyst/Backend Developer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Data Engineer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Data Scientist Jr.",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
       "texto": "Database Analyst",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedor",
       "ocuparam": 1,
       "primeiro": 1,
       "atual": 0
@@ -2560,6 +4395,24 @@
       "atual": 0
      },
      {
+      "texto": "Desenvolvedor Python",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedor Web(.Net) e Mobile (Flutter)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedor Web/Java",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
       "texto": "Desenvolvedor back-end júnior",
       "ocuparam": 1,
       "primeiro": 0,
@@ -2590,9 +4443,33 @@
       "atual": 0
      },
      {
+      "texto": "Desenvolvedor sênior",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvedora full stack",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Desenvolvimento Full Stack",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
       "texto": "Developer",
       "ocuparam": 1,
       "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Development Intern",
+      "ocuparam": 1,
+      "primeiro": 1,
       "atual": 0
      },
      {
@@ -2608,7 +4485,7 @@
       "atual": 0
      },
      {
-      "texto": "Estagiária",
+      "texto": "Engenheiro de sistemas sênior",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 0
@@ -2617,6 +4494,12 @@
       "texto": "Estagiária Suprimentos",
       "ocuparam": 1,
       "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiária de Engenharia de IA (AI Engineering Intern)",
+      "ocuparam": 1,
+      "primeiro": 0,
       "atual": 0
      },
      {
@@ -2632,27 +4515,33 @@
       "atual": 0
      },
      {
+      "texto": "Estagiária em desenvolvimento de programas (Internship)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Estagiário DBA - Database Administrator",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
       "texto": "Estagiário de Sistemas de Informação | Intern Systems Analyst",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 0
      },
      {
-      "texto": "Estagiário de TI",
+      "texto": "Estagiário de nível superior",
       "ocuparam": 1,
       "primeiro": 1,
       "atual": 0
      },
      {
-      "texto": "Estagiário de desenvolvimento",
+      "texto": "Estagiário de sistemas da informação",
       "ocuparam": 1,
       "primeiro": 0,
-      "atual": 0
-     },
-     {
-      "texto": "Estagiário de desenvolvimento de software",
-      "ocuparam": 1,
-      "primeiro": 1,
       "atual": 0
      },
      {
@@ -2668,31 +4557,109 @@
       "atual": 0
      },
      {
+      "texto": "Estudante pesquisador",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
       "texto": "Extension Project Lampex",
       "ocuparam": 1,
       "primeiro": 1,
       "atual": 0
      },
      {
-      "texto": "Frontend Developer",
+      "texto": "Flutter Developer",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 0
      },
      {
-      "texto": "Full Stack Engineer",
+      "texto": "Front-end developer",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 0
      },
      {
-      "texto": "Iniciação Científica",
+      "texto": "Frontend Web Developer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Full technical support I",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Fullstack Developer | Assessor Especial",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Fullstack Developer | Assessor Especial Nível II",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Gerente operacional",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "IT Project Analyst",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Information Technology Support",
       "ocuparam": 1,
       "primeiro": 1,
       "atual": 0
      },
      {
+      "texto": "Iniciação Científica Junior",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Intern",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Intern (Estágio)",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
       "texto": "Internship",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Internship Trainee",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Mobile & Backend Developer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Mobile Engineer",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 0
@@ -2704,15 +4671,45 @@
       "atual": 0
      },
      {
+      "texto": "Monitor voluntário",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Monitoria",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Pesquisador técnico",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
       "texto": "Professor de computação",
       "ocuparam": 1,
       "primeiro": 1,
       "atual": 0
      },
      {
-      "texto": "Programa STEM",
+      "texto": "Professor de inglês",
       "ocuparam": 1,
       "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Python Developer",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Scholarship at \"Núcleo de Estudos em Redes Definidas por Software\" - NERDS",
+      "ocuparam": 1,
+      "primeiro": 0,
       "atual": 0
      },
      {
@@ -2740,15 +4737,21 @@
       "atual": 0
      },
      {
-      "texto": "Software Engineer",
+      "texto": "Staff Machine Learning Engineer",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 0
      },
      {
-      "texto": "Staff Machine Learning Engineer",
+      "texto": "Suporte em Montagem e Manutenção de Microcomputadores",
       "ocuparam": 1,
-      "primeiro": 0,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Suporte técnico",
+      "ocuparam": 1,
+      "primeiro": 1,
       "atual": 0
      },
      {
@@ -2758,7 +4761,25 @@
       "atual": 0
      },
      {
+      "texto": "Systems Analyst",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
       "texto": "Tech Lead",
+      "ocuparam": 1,
+      "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Tecnico de Manutenção de Automação",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "Trainee",
       "ocuparam": 1,
       "primeiro": 0,
       "atual": 0
@@ -2779,6 +4800,18 @@
       "texto": "Undergraduate Researcher – Software-Defined Networking (SDN)",
       "ocuparam": 1,
       "primeiro": 0,
+      "atual": 0
+     },
+     {
+      "texto": "Undergraduate Student Researcher - Scholarship (Internship)",
+      "ocuparam": 1,
+      "primeiro": 1,
+      "atual": 0
+     },
+     {
+      "texto": "pesquisa em processamento digital de imagem",
+      "ocuparam": 1,
+      "primeiro": 1,
       "atual": 0
      }
     ],
@@ -3587,19 +5620,929 @@
         "em_curso": true
        }
       ]
+     },
+     {
+      "nome": "Diego Gava Monteiro",
+      "passos": [
+       {
+        "ano": "2018",
+        "cargo": "Estagiário DBA - Database Administrator",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "DBA - Database Administrator",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "DBA - Database Administrator",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Database Administrator",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Diego Rodrigo Perez Pacheco",
+      "passos": [
+       {
+        "ano": "2015",
+        "cargo": "Co-founder",
+        "em_curso": false
+       },
+       {
+        "ano": "2016",
+        "cargo": "Monitor",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Scholarship at \"Núcleo de Estudos em Redes Definidas por Software\" - NERDS",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Full technical support I",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Trainee",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Data Scientist Jr.",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Data Engineer",
+        "em_curso": false
+       }
+      ]
+     },
+     {
+      "nome": "Douglas Campos Sutil",
+      "passos": [
+       {
+        "ano": "2017",
+        "cargo": "Estagiário de desenvolvimento de software",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Estagiário de sistemas da informação",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Analista júnior de sistemas",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Flutter Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Desenvolvedor Web(.Net) e Mobile (Flutter)",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Desenvolvedor sênior",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Analista Desenvolvedor",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Analista de sistemas",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Douglas Correa Nunes",
+      "passos": [
+       {
+        "ano": "2022",
+        "cargo": "Estagiário de TI",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Assistente de TI",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Analista de TI",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Douglas Inácio Rodrigues Bravim Braga",
+      "passos": [
+       {
+        "ano": "2020",
+        "cargo": "Intern",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Full Stack Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Frontend Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Software Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Software Engineer",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Edson Simões Boldrini",
+      "passos": [
+       {
+        "ano": "2018",
+        "cargo": "Information Technology Support",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Full Stack Engineer",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Full Stack Engineer",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Full Stack Engineer",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Full Stack Engineer",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Mobile Engineer",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Full Stack Engineer",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Full Stack Engineer",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Senior Engineering Lead",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Eduardo Alves Figueiredo",
+      "passos": [
+       {
+        "ano": "2021",
+        "cargo": "Desenvolvedor de software",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Desenvolvedor de software",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Desenvolvedor de software",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Desenvolvedor de software",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Eduardo Henrique Prospero Souza",
+      "passos": [
+       {
+        "ano": "2017",
+        "cargo": "Auxiliar administrativo",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Bolsista de Iniciação Científica",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Bolsista de Iniciação Científica (Internship)",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Apoio Técnico (Internship)",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Back End Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Fullstack Developer | Assessor Especial Nível II",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Fullstack Developer | Assessor Especial",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "AI Backend Developer PL",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Pesquisador",
+        "em_curso": true
+       },
+       {
+        "ano": "2026",
+        "cargo": "IA Builder",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Elimar Rodrigues da Macena",
+      "passos": [
+       {
+        "ano": "2018",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Estagiário de desenvolvimento",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Intern (Estágio)",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Software Engineer",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Software Engineer",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Software Engineer",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Emanuel Medeiros Claudino",
+      "passos": [
+       {
+        "ano": "2018",
+        "cargo": "Suporte técnico",
+        "em_curso": false
+       }
+      ]
+     },
+     {
+      "nome": "Emanuel Norjosa Luz",
+      "passos": [
+       {
+        "ano": "2021",
+        "cargo": "pesquisa em processamento digital de imagem",
+        "em_curso": true
+       },
+       {
+        "ano": "2026",
+        "cargo": "Estudante de mestrado",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Emanuel Rampinelli Gloria",
+      "passos": [
+       {
+        "ano": "2013",
+        "cargo": "Suporte em Montagem e Manutenção de Microcomputadores",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Desenvolvedor Web/Java",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Analista Desenvolvedor Java Júnior",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Desenvolvedor Web/Java",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Analista Desenvolvedor Java Júnior",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Analista Desenvolvedor Java Pleno",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Everson Delmaschio dos Santos",
+      "passos": [
+       {
+        "ano": "2016",
+        "cargo": "Analista de suporte técnico",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Desenvolvedor de software",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Software Engineer",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Lead Software Engineer",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Ewerson Vieira Nascimento",
+      "passos": [
+       {
+        "ano": "2018",
+        "cargo": "Undergraduate Student Researcher - Scholarship (Internship)",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Undergraduate Student Researcher - Scholarship (Internship)",
+        "em_curso": false
+       },
+       {
+        "ano": "2019",
+        "cargo": "Software Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Full Stack Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Analyst - Software Engineer",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Associate Consultant - Software Engineer",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Senior Software Engineer",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Ezequiel Furtado Mapel",
+      "passos": [
+       {
+        "ano": "2020",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Analista de TI",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Fabio Henrique Fantin Ribeiro Cozer",
+      "passos": [
+       {
+        "ano": "2023",
+        "cargo": "Estagiário de nível superior",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Analista de planejamento",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Fernanda Jaimara do Nascimento",
+      "passos": [
+       {
+        "ano": "2019",
+        "cargo": "Estagiário de TI",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Estagiária",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Programa STEM",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Software Developer",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Gabriel Nascimento dos Passos",
+      "passos": [
+       {
+        "ano": "2019",
+        "cargo": "Professor de Inglês",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Professor de inglês",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Desenvolvedor Python",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Gerente operacional",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Coordenador de Atendimento e Suporte ao Usuário",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Gabriel Pontes Marchezi",
+      "passos": [
+       {
+        "ano": "2020",
+        "cargo": "Estagiário de TI",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Estudante pesquisador",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Database Administrator",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Analista de Tecnologia da Informação",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Gabriela Piffer Marinato",
+      "passos": [
+       {
+        "ano": "2016",
+        "cargo": "Monitoria",
+        "em_curso": false
+       },
+       {
+        "ano": "2017",
+        "cargo": "Iniciação Científica Junior",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Iniciação científica",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Estagiária em desenvolvimento de programas (Internship)",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Desenvolvedora full stack",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Desenvolvimento Full Stack",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Desenvolvedor Full Stack",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Backend Software Engineer",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Gabrielle Azevedo Barros da Cunha Duda",
+      "passos": [
+       {
+        "ano": "2017",
+        "cargo": "Estagiário",
+        "em_curso": true
+       },
+       {
+        "ano": "2019",
+        "cargo": "Estagiário",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Estagiário de desenvolvimento",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Pesquisador técnico",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Analista de Processo Pleno",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Analista de processos de TI",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Engenheiro de sistemas sênior",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Analista de processos",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Giovanna Scalfoni Sales",
+      "passos": [
+       {
+        "ano": "2022",
+        "cargo": "Aluno Pesquisador",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Internship Trainee",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Associate Developer",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Giseli Nunes Siqueira",
+      "passos": [
+       {
+        "ano": "2016",
+        "cargo": "Assistente de suporte de TI (Internship)",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Analista de dados (Internship)",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Analista de desenvolvimento de sistemas",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Analista de desenvolvimento de sistemas",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Analista de integração de dados PL",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Engenheiro de dados",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Gislaine Jéssica Tiburcio de Almeida",
+      "passos": [
+       {
+        "ano": null,
+        "cargo": "Backend Developer - Python",
+        "em_curso": true
+       },
+       {
+        "ano": null,
+        "cargo": "Mobile & Backend Developer",
+        "em_curso": true
+       },
+       {
+        "ano": null,
+        "cargo": "Full Stack Engineer",
+        "em_curso": true
+       },
+       {
+        "ano": "2020",
+        "cargo": "Full Stack Engineer",
+        "em_curso": false
+       },
+       {
+        "ano": "2020",
+        "cargo": "Frontend Web Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Frontend Web Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Frontend Web Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Full Stack Engineer",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Front-end developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Systems Analyst",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Front-end developer",
+        "em_curso": true
+       },
+       {
+        "ano": null,
+        "cargo": "Full Stack Developer | React & React Native | Node.js & .NET | AWS | Scalable Web & Mobile Applications",
+        "em_curso": true
+       }
+      ]
+     },
+     {
+      "nome": "Graziene Viana Martins",
+      "passos": [
+       {
+        "ano": "2021",
+        "cargo": "Desenvolvedor",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Analista Desenvolvedor",
+        "em_curso": false
+       },
+       {
+        "ano": "2026",
+        "cargo": "Estagiária de Engenharia de IA (AI Engineering Intern)",
+        "em_curso": false
+       }
+      ]
+     },
+     {
+      "nome": "Guilherme Bodart de Oliveira Castro",
+      "passos": [
+       {
+        "ano": "2019",
+        "cargo": "Development Intern",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Development Intern",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Desenvolvedor de software",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Full Stack Engineer",
+        "em_curso": false
+       }
+      ]
+     },
+     {
+      "nome": "Guilherme Firme Fiorot",
+      "passos": [
+       {
+        "ano": "2020",
+        "cargo": "Backend Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "IT Project Analyst",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Data Analyst/Backend Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Python Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2024",
+        "cargo": "Backend Developer",
+        "em_curso": false
+       },
+       {
+        "ano": "2025",
+        "cargo": "Backend Developer",
+        "em_curso": false
+       }
+      ]
+     },
+     {
+      "nome": "Éllen Oliveira Silva Neves",
+      "passos": [
+       {
+        "ano": "2018",
+        "cargo": "Monitor voluntário",
+        "em_curso": false
+       },
+       {
+        "ano": "2021",
+        "cargo": "Programa STEM",
+        "em_curso": false
+       },
+       {
+        "ano": "2022",
+        "cargo": "Monitor",
+        "em_curso": false
+       },
+       {
+        "ano": "2023",
+        "cargo": "Estagiário",
+        "em_curso": false
+       }
+      ]
+     },
+     {
+      "nome": "Éverton Sales",
+      "passos": [
+       {
+        "ano": "1988",
+        "cargo": "Tecnico de Manutenção de Automação",
+        "em_curso": false
+       },
+       {
+        "ano": "2018",
+        "cargo": "Aposentado",
+        "em_curso": true
+       }
+      ]
      }
     ]
    },
    "empresas_na_jornada": [
     {
      "texto": "Ifes - Instituto Federal do Espírito Santo",
-     "pessoas": 7,
-     "hoje": 2
+     "pessoas": 14,
+     "hoje": 3
     },
     {
      "texto": "Vale",
-     "pessoas": 5,
-     "hoje": 2
+     "pessoas": 8,
+     "hoje": 3
+    },
+    {
+     "texto": "ArcelorMittal Brasil",
+     "pessoas": 6,
+     "hoje": 0
+    },
+    {
+     "texto": "Bandes ES",
+     "pessoas": 3,
+     "hoje": 1
     },
     {
      "texto": "Leds - Ifes",
@@ -3607,9 +6550,29 @@
      "hoje": 1
     },
     {
-     "texto": "ArcelorMittal Brasil",
+     "texto": "Tata Consultancy Services",
+     "pessoas": 3,
+     "hoje": 1
+    },
+    {
+     "texto": "Vixteam Consultoria & Sistemas",
+     "pessoas": 3,
+     "hoje": 1
+    },
+    {
+     "texto": "PROSPERI - OTIMIZANDO PROJETOS, GERANDO RESULTADOS",
      "pessoas": 3,
      "hoje": 0
+    },
+    {
+     "texto": "PicPay",
+     "pessoas": 3,
+     "hoje": 0
+    },
+    {
+     "texto": "Mercado Livre",
+     "pessoas": 2,
+     "hoje": 2
     },
     {
      "texto": "V1 App",
@@ -3617,7 +6580,12 @@
      "hoje": 2
     },
     {
-     "texto": "Bandes ES",
+     "texto": "AEVO",
+     "pessoas": 2,
+     "hoje": 1
+    },
+    {
+     "texto": "CNPq - Conselho Nacional de Desenvolvimento Científico e Tecnológico",
      "pessoas": 2,
      "hoje": 1
     },
@@ -3632,6 +6600,21 @@
      "hoje": 1
     },
     {
+     "texto": "Findes",
+     "pessoas": 2,
+     "hoje": 1
+    },
+    {
+     "texto": "GFT Technologies",
+     "pessoas": 2,
+     "hoje": 1
+    },
+    {
+     "texto": "Mobile Saúde",
+     "pessoas": 2,
+     "hoje": 1
+    },
+    {
      "texto": "Prosperi",
      "pessoas": 2,
      "hoje": 1
@@ -3642,7 +6625,17 @@
      "hoje": 1
     },
     {
+     "texto": "Autoglass - Brasil",
+     "pessoas": 2,
+     "hoje": 0
+    },
+    {
      "texto": "Code n'App",
+     "pessoas": 2,
+     "hoje": 0
+    },
+    {
+     "texto": "Conceptho",
      "pessoas": 2,
      "hoje": 0
     },
@@ -3652,7 +6645,17 @@
      "hoje": 0
     },
     {
-     "texto": "PROSPERI - OTIMIZANDO PROJETOS, GERANDO RESULTADOS",
+     "texto": "LexisNexis Risk Solutions",
+     "pessoas": 2,
+     "hoje": 0
+    },
+    {
+     "texto": "Phidelis Tecnologia",
+     "pessoas": 2,
+     "hoje": 0
+    },
+    {
+     "texto": "Tribunal de Justica do Espirito Santo",
      "pessoas": 2,
      "hoje": 0
     },
@@ -3662,12 +6665,12 @@
      "hoje": 0
     },
     {
-     "texto": "AEVO",
+     "texto": "Agrometrika",
      "pessoas": 1,
      "hoje": 1
     },
     {
-     "texto": "Agrometrika",
+     "texto": "Arte Assinada",
      "pessoas": 1,
      "hoje": 1
     },
@@ -3687,12 +6690,37 @@
      "hoje": 1
     },
     {
-     "texto": "CNPq - Conselho Nacional de Desenvolvimento Científico e Tecnológico",
+     "texto": "CNPq",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Campus Mobile",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Cora",
      "pessoas": 1,
      "hoje": 1
     },
     {
      "texto": "Crea-ES",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Datahub Big Data & Analytics",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "EBANX",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "ES Gás",
      "pessoas": 1,
      "hoje": 1
     },
@@ -3707,7 +6735,7 @@
      "hoje": 1
     },
     {
-     "texto": "Findes",
+     "texto": "Fundação de Amparo à Pesquisa e Inovação do Espírito Santo - FAPES",
      "pessoas": 1,
      "hoje": 1
     },
@@ -3717,17 +6745,42 @@
      "hoje": 1
     },
     {
+     "texto": "Home Office (Self-employed)",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
      "texto": "LabTel - Laboratório de Telecomunicações (UFES)",
      "pessoas": 1,
      "hoje": 1
     },
     {
-     "texto": "Mercado Livre",
+     "texto": "Look For Me",
      "pessoas": 1,
      "hoje": 1
     },
     {
      "texto": "NTT DATA, Inc.",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Otus7",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Pismo",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Prefeitura de Vitória",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Prosperi | BR",
      "pessoas": 1,
      "hoje": 1
     },
@@ -3742,12 +6795,32 @@
      "hoje": 1
     },
     {
+     "texto": "Self-employed",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
      "texto": "Sesc Espírito Santo",
      "pessoas": 1,
      "hoje": 1
     },
     {
+     "texto": "Superset",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
      "texto": "TOTVS LESTE",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Taipa FIDC - Fundo de Investimento em Direitos Creditórios",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Thoughtworks",
      "pessoas": 1,
      "hoje": 1
     },
@@ -3762,12 +6835,52 @@
      "hoje": 1
     },
     {
+     "texto": "Universidade Federal do Ceará (UFC)",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Visit Sistemas de Visão",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "Wellhub (formerly Gympass)",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "ed",
+     "pessoas": 1,
+     "hoje": 1
+    },
+    {
+     "texto": "AGIFES",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Agerh - Agência Estadual de Recursos Hídricos",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Além",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
      "texto": "ArcelorMittal",
      "pessoas": 1,
      "hoje": 0
     },
     {
-     "texto": "Autoglass - Brasil",
+     "texto": "Atman Systems",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "BMG Seguros",
      "pessoas": 1,
      "hoje": 0
     },
@@ -3777,12 +6890,62 @@
      "hoje": 0
     },
     {
+     "texto": "Bandes - Banco de Desenvolvimento do Espírito Santo S.A",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "CLI - Gestão fiscal e tributária, Gestão de APIs e Integração de dados",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "CONEXOS Consultoria e Sistemas Ltda",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Cefor - Ifes",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Centro academico de Engenharia e Ciencia da Computação - CAEC",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Code n' App",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
      "texto": "Compet Engenharia",
      "pessoas": 1,
      "hoje": 0
     },
     {
+     "texto": "Consys - Consultoria e Sistemas",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "DEEP ESG",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
      "texto": "DXC Technology",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Dacasa Financeira",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Dersalis Healthy Solutions",
      "pessoas": 1,
      "hoje": 0
     },
@@ -3807,6 +6970,11 @@
      "hoje": 0
     },
     {
+     "texto": "Effettivo System",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
      "texto": "FDCI - Faculdade de Direito de Cachoeiro de Itapemirim",
      "pessoas": 1,
      "hoje": 0
@@ -3817,12 +6985,57 @@
      "hoje": 0
     },
     {
-     "texto": "GFT Technologies",
+     "texto": "Frete Rápido",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Fundação de Amparo à Pesquisa e Inovação do Espírito Santo | Fapes",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Globalsys Soluções em TI",
      "pessoas": 1,
      "hoje": 0
     },
     {
      "texto": "Green Ocean Technologies",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Grupo Dadalto",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Grupo MultiShow",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Hitss Brasil",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "ISH Tecnologia",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "IUPI",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Infosys",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Institulo Federal do Espírito Santo",
      "pessoas": 1,
      "hoje": 0
     },
@@ -3837,7 +7050,27 @@
      "hoje": 0
     },
     {
+     "texto": "Integro Consultores Associados",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Intelliway",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "IntervipTelecom",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
      "texto": "JW RESTAURANTE ESPACO DO SABOR LTDA",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Jeitto",
      "pessoas": 1,
      "hoje": 0
     },
@@ -3852,7 +7085,22 @@
      "hoje": 0
     },
     {
+     "texto": "Laboratório de Administração de Redes - LAR",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Laboratório de Projeto e Extensão",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
      "texto": "Lampex - Ifes",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Le Card - Administradora de Cartões",
      "pessoas": 1,
      "hoje": 0
     },
@@ -3862,7 +7110,7 @@
      "hoje": 0
     },
     {
-     "texto": "LexisNexis Risk Solutions",
+     "texto": "Leanon Systems",
      "pessoas": 1,
      "hoje": 0
     },
@@ -3877,6 +7125,46 @@
      "hoje": 0
     },
     {
+     "texto": "Luz e Força Santa Maria",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "MHK",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "MR Transportes",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Matrix Energia",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "MedSênior",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Mindera",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Mindworks",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Ministério Público do Trabalho",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
      "texto": "Mitis",
      "pessoas": 1,
      "hoje": 0
@@ -3887,17 +7175,52 @@
      "hoje": 0
     },
     {
-     "texto": "Phidelis Tecnologia",
+     "texto": "Nexa Tecnologia",
      "pessoas": 1,
      "hoje": 0
     },
     {
-     "texto": "PicPay",
+     "texto": "PD Case Informática Ltda",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "PHOENIXX Experts en Intelligence Artificielle",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "PYYNE Digital",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Petrobras",
      "pessoas": 1,
      "hoje": 0
     },
     {
      "texto": "Politintas",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Prosystem Desenvolvimento de Sistemas",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "S_Line - Sistemas Online",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Secretaria de Desenvolvimento do Espírito Santo",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Secretaria de Tecnologia da Informação",
      "pessoas": 1,
      "hoje": 0
     },
@@ -3917,7 +7240,22 @@
      "hoje": 0
     },
     {
-     "texto": "Tribunal de Justica do Espirito Santo",
+     "texto": "TRUST IMAGE",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Transmarks - Transportes & Servicos",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Tribunal Regional do Trabalho do ES",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "UFES",
      "pessoas": 1,
      "hoje": 0
     },
@@ -3927,12 +7265,47 @@
      "hoje": 0
     },
     {
+     "texto": "Unilog Express",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
      "texto": "UpperSoft",
      "pessoas": 1,
      "hoje": 0
     },
     {
-     "texto": "Vixteam Consultoria & Sistemas",
+     "texto": "Vert Integradora de TI",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Vital Engenharia Ambiental",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "W3.Care",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Wine.com.br",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Wizard by Pearson",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "XP Inc.",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "Youse Seguros",
      "pessoas": 1,
      "hoje": 0
     },
@@ -3943,6 +7316,11 @@
     },
     {
      "texto": "iSmartBlue",
+     "pessoas": 1,
+     "hoje": 0
+    },
+    {
+     "texto": "uDNA",
      "pessoas": 1,
      "hoje": 0
     },
