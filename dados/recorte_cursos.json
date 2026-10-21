@@ -9,14 +9,14 @@
    "nome_curso": "Sistemas de Informação",
    "contagens": {
     "formandos_na_fila": 170,
-    "processados_pela_coleta": 91,
-    "confirmados_pela_coleta": 82,
+    "processados_pela_coleta": 114,
+    "confirmados_pela_coleta": 99,
     "confirmados_a_mao": 31,
     "aguardando_conferencia": 1,
-    "nao_identificados": 7,
+    "nao_identificados": 13,
     "falhou_a_rodada": 1,
     "no_estudo_original": 50,
-    "identificados": 132
+    "identificados": 149
    },
    "cargos": [
     {
@@ -36,6 +36,14 @@
      "n": 3
     },
     {
+     "texto": "Desenvolvedor",
+     "n": 3
+    },
+    {
+     "texto": "Software Developer",
+     "n": 3
+    },
+    {
      "texto": "Engenheiro de Dados",
      "n": 2
     },
@@ -52,19 +60,11 @@
      "n": 2
     },
     {
-     "texto": "Desenvolvedor",
+     "texto": "Engenheiro de software",
      "n": 2
     },
     {
      "texto": "Líder técnico",
-     "n": 2
-    },
-    {
-     "texto": "Analista de sistemas",
-     "n": 2
-    },
-    {
-     "texto": "Desenvolvedor full stack",
      "n": 2
     }
    ],
@@ -86,6 +86,14 @@
      "n": 3
     },
     {
+     "texto": "Desenvolvedor",
+     "n": 3
+    },
+    {
+     "texto": "Software Developer",
+     "n": 3
+    },
+    {
      "texto": "Engenheiro de Dados",
      "n": 2
     },
@@ -102,7 +110,7 @@
      "n": 2
     },
     {
-     "texto": "Desenvolvedor",
+     "texto": "Engenheiro de software",
      "n": 2
     },
     {
@@ -115,10 +123,6 @@
     },
     {
      "texto": "Desenvolvedor full stack",
-     "n": 2
-    },
-    {
-     "texto": "Software Developer",
      "n": 2
     },
     {
@@ -219,10 +223,6 @@
     },
     {
      "texto": "Researcher/Data scientist",
-     "n": 1
-    },
-    {
-     "texto": "Engenheiro de software",
      "n": 1
     },
     {
@@ -472,11 +472,67 @@
     {
      "texto": "Estagiária de Engenharia Técnica, área de instrumentação e automação.",
      "n": 1
+    },
+    {
+     "texto": "Especialista em Arquitetura de Dados",
+     "n": 1
+    },
+    {
+     "texto": "Data Scientist",
+     "n": 1
+    },
+    {
+     "texto": "Engenheira de Dados",
+     "n": 1
+    },
+    {
+     "texto": "Analista de Métricas Software Pleno",
+     "n": 1
+    },
+    {
+     "texto": "Desenvolvedor Front-end",
+     "n": 1
+    },
+    {
+     "texto": "Business Intelligence Analyst",
+     "n": 1
+    },
+    {
+     "texto": "Chief Technology Officer & Principal Consultant",
+     "n": 1
+    },
+    {
+     "texto": "Assistente júnior",
+     "n": 1
+    },
+    {
+     "texto": "Analista de banco de dados",
+     "n": 1
+    },
+    {
+     "texto": "Trainee Data Scientist",
+     "n": 1
+    },
+    {
+     "texto": "Analista de automação Senior III (Senior Automation Analyst)",
+     "n": 1
+    },
+    {
+     "texto": "Analista de dados",
+     "n": 1
+    },
+    {
+     "texto": "Instrutora de Desenvolvimento de Sistema",
+     "n": 1
     }
    ],
    "empresas": [
     {
      "texto": "AEVO",
+     "n": 4
+    },
+    {
+     "texto": "Ifes - Instituto Federal do Espírito Santo",
      "n": 4
     },
     {
@@ -492,11 +548,11 @@
      "n": 3
     },
     {
-     "texto": "Ifes - Instituto Federal do Espírito Santo",
-     "n": 3
+     "texto": "MongoDB",
+     "n": 2
     },
     {
-     "texto": "MongoDB",
+     "texto": "Kranio",
      "n": 2
     },
     {
@@ -516,27 +572,23 @@
      "n": 2
     },
     {
-     "texto": "Hitss Brasil",
-     "n": 2
-    },
-    {
-     "texto": "PD Case Informática Ltda",
+     "texto": "Grupo Boticário",
      "n": 2
     }
    ],
    "cobertura": {
     "cargo": {
-     "com": 124,
-     "de": 132
+     "com": 140,
+     "de": 149
     },
     "cargo_da_trajetoria": 28,
     "empresa": {
-     "com": 122,
-     "de": 132
+     "com": 136,
+     "de": 149
     },
     "jornada": {
      "com": 59,
-     "de": 82
+     "de": 99
     }
    },
    "vitrine": [
@@ -3626,12 +3678,165 @@
      "jornada": []
     },
     {
+     "nome": "Juliana Yuri Kanezaki de Souza",
+     "monograma": "JS",
+     "cargo": "Especialista em Arquitetura de Dados",
+     "empresa": "Grupo Boticário",
+     "local": "Serra e Região Metropolitana de Vitória",
+     "linkedin": "https://www.linkedin.com/in/juliana-yuri-kanezaki-de-souza-263110162/",
+     "jornada": []
+    },
+    {
      "nome": "Júlia Miranda Rossa Campos",
      "monograma": "JC",
      "cargo": "Estagiária de Engenharia Técnica, área de instrumentação e automação.",
      "empresa": "Vale",
      "local": "Espírito Santo, Brazil",
      "linkedin": "https://www.linkedin.com/in/júlia-rosa-celante-069a7b266/",
+     "jornada": []
+    },
+    {
+     "nome": "Kaio Fabio Barbosa Rodrigues",
+     "monograma": "KR",
+     "cargo": "Data Scientist",
+     "empresa": "TRACTIAN",
+     "local": "Vila Velha, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/kaio-fabio/",
+     "jornada": []
+    },
+    {
+     "nome": "Kellen Moura Ferreira",
+     "monograma": "KF",
+     "cargo": "Engenheira de Dados",
+     "empresa": null,
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/kellen-moura-ferreira-76647a141/",
+     "jornada": []
+    },
+    {
+     "nome": "Kelvin Lehrback Guilherme",
+     "monograma": "KG",
+     "cargo": "Software Developer",
+     "empresa": null,
+     "local": "Cariacica, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/kelvin-lehrback/",
+     "jornada": []
+    },
+    {
+     "nome": "Landerson Morais Alexandre",
+     "monograma": "LA",
+     "cargo": "Analista de Métricas Software Pleno",
+     "empresa": "FATTO Consultoria e Sistemas",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/landerson-morais-alexandre/",
+     "jornada": []
+    },
+    {
+     "nome": "Larissa Santos da Motta",
+     "monograma": "LM",
+     "cargo": "Desenvolvedor Front-end",
+     "empresa": "VITRINE RETAIL",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/larissa-motta-8a06a31a1/",
+     "jornada": []
+    },
+    {
+     "nome": "Lavínia Corteletti",
+     "monograma": "LC",
+     "cargo": "Business Intelligence Analyst",
+     "empresa": "iFood",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/lavinia-corteletti/",
+     "jornada": []
+    },
+    {
+     "nome": "Leonardo Camilo Ribeiro",
+     "monograma": "LR",
+     "cargo": "Chief Technology Officer & Principal Consultant",
+     "empresa": "Kranio",
+     "local": "Las Condes, Santiago Metropolitan Region, Chile",
+     "linkedin": "https://www.linkedin.com/in/leocamilo/",
+     "jornada": []
+    },
+    {
+     "nome": "Leonardo Laia Arpini",
+     "monograma": "LA",
+     "cargo": "Assistente júnior",
+     "empresa": "CAIXA",
+     "local": "Cariacica, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/leonardo-arpini/",
+     "jornada": []
+    },
+    {
+     "nome": "Letícia Teixeira do Nascimento",
+     "monograma": "LN",
+     "cargo": "Engenheiro de software",
+     "empresa": "Casas Bahia Tecnologia",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/letstn/",
+     "jornada": []
+    },
+    {
+     "nome": "Luara Hombre Sathler",
+     "monograma": "LS",
+     "cargo": null,
+     "empresa": null,
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/luara-hombre-83ab3b1b8/",
+     "jornada": []
+    },
+    {
+     "nome": "Lucas Manço de Souza",
+     "monograma": "LS",
+     "cargo": "Desenvolvedor",
+     "empresa": "PZM Enterprise · Ifes - Instituto Federal do Espírito Santo",
+     "local": "Belo Horizonte, Minas Gerais, Brazil",
+     "linkedin": "https://www.linkedin.com/in/lucas-manco/",
+     "jornada": []
+    },
+    {
+     "nome": "Lucas Velten Henker",
+     "monograma": "LH",
+     "cargo": "Analista de banco de dados",
+     "empresa": "Globalsys Soluções em TI",
+     "local": "Serra, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/lucas-velten-aa8364165/",
+     "jornada": []
+    },
+    {
+     "nome": "Ludmila Dias",
+     "monograma": "LD",
+     "cargo": "Trainee Data Scientist",
+     "empresa": "FIT - Instituto de Tecnologia",
+     "local": "Vila Velha, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/ludmila-dias-3ab633206/",
+     "jornada": []
+    },
+    {
+     "nome": "Luiz Antonio Roque Guzzo",
+     "monograma": "LG",
+     "cargo": "Analista de automação Senior III (Senior Automation Analyst)",
+     "empresa": "LYNX PROCESS",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/luizrguzzo/",
+     "jornada": []
+    },
+    {
+     "nome": "Luiz Sampaio Horta",
+     "monograma": "LH",
+     "cargo": "Analista de dados",
+     "empresa": "VIMO - Plataforma de Tecnologia Imobiliária",
+     "local": "Vitória, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/luiz-sampaio-horta/",
+     "jornada": []
+    },
+    {
+     "nome": "Luiza de Alencar",
+     "monograma": "LA",
+     "cargo": "Instrutora de Desenvolvimento de Sistema",
+     "empresa": "Ifes - Instituto Federal do Espírito Santo",
+     "local": "Cariacica, Espírito Santo, Brazil",
+     "linkedin": "https://www.linkedin.com/in/luiza-alencar-96613728b/",
      "jornada": []
     },
     {
